@@ -217,7 +217,6 @@ define hidden void @_ZN12pingora_core10connectors2l414bind_to_random17h2628a5e3e
   br label %21
 
 21:                                               ; preds = %16, %18
-  %.sroa.012.0 = phi i16 [ 1, %18 ], [ 0, %16 ]
   %.sroa.15.sroa.0.0.insert.insert = phi i32 [ %20, %18 ], [ 0, %16 ]
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 230
   %23 = load i8, ptr %22, align 2, !range !5, !noundef !4
@@ -255,7 +254,7 @@ define hidden void @_ZN12pingora_core10connectors2l414bind_to_random17h2628a5e3e
 
 37:                                               ; preds = %36, %34, %24, %21
   %.sroa.0.1.sink = phi i16 [ %14, %21 ], [ %35, %36 ], [ undef, %34 ], [ undef, %24 ]
-  %.sroa.9.1.sink = phi i16 [ %.sroa.012.0, %21 ], [ 0, %36 ], [ 2, %34 ], [ 2, %24 ]
+  %.sroa.9.1.sink = phi i16 [ %11, %21 ], [ 0, %36 ], [ 2, %34 ], [ 2, %24 ]
   %.sink54 = phi i32 [ %.sroa.15.sroa.0.0.insert.insert, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
   %.sink = phi i8 [ %23, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
   store i16 %.sroa.0.1.sink, ptr %0, align 4
@@ -305,7 +304,6 @@ define hidden void @_ZN12pingora_core10connectors2l414bind_to_random17hc04ac5fc3
   br label %21
 
 21:                                               ; preds = %16, %18
-  %.sroa.012.0 = phi i16 [ 1, %18 ], [ 0, %16 ]
   %.sroa.15.sroa.0.0.insert.insert = phi i32 [ %20, %18 ], [ 0, %16 ]
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 230
   %23 = load i8, ptr %22, align 2, !range !5, !noundef !4
@@ -343,7 +341,7 @@ define hidden void @_ZN12pingora_core10connectors2l414bind_to_random17hc04ac5fc3
 
 37:                                               ; preds = %36, %34, %24, %21
   %.sroa.0.1.sink = phi i16 [ %14, %21 ], [ %35, %36 ], [ undef, %34 ], [ undef, %24 ]
-  %.sroa.9.1.sink = phi i16 [ %.sroa.012.0, %21 ], [ 0, %36 ], [ 2, %34 ], [ 2, %24 ]
+  %.sroa.9.1.sink = phi i16 [ %11, %21 ], [ 0, %36 ], [ 2, %34 ], [ 2, %24 ]
   %.sink54 = phi i32 [ %.sroa.15.sroa.0.0.insert.insert, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
   %.sink = phi i8 [ %23, %21 ], [ 0, %36 ], [ 0, %34 ], [ 0, %24 ]
   store i16 %.sroa.0.1.sink, ptr %0, align 4
@@ -924,8 +922,7 @@ define hidden void @_ZN3std2os4unix3net4addr10SocketAddr13from_pathname17h55e6fd
   br label %16
 
 16:                                               ; preds = %11, %8
-  %.sink = phi i32 [ 1, %8 ], [ 0, %11 ]
-  store i32 %.sink, ptr %0, align 8
+  store i32 %5, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4)
   ret void
 }
@@ -3272,12 +3269,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17hdc84516b85c0d288E(
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select4 = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %33, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  %storemerge = zext i1 %30 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 

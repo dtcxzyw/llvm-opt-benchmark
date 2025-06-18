@@ -158,7 +158,6 @@ bddVarToCanonicalSimple.exit:                     ; preds = %.thread.i, %81, %82
   %.0141 = phi ptr [ %80, %.thread.i ], [ %3, %81 ], [ %2, %82 ]
   %.0140 = phi ptr [ %77, %.thread.i ], [ %2, %81 ], [ %3, %82 ]
   %.0139 = phi ptr [ %.032.i, %.thread.i ], [ %1, %81 ], [ %73, %82 ]
-  %.02745.i = phi i64 [ 1, %.thread.i ], [ 0, %81 ], [ 0, %82 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %84 = load ptr, ptr %83, align 8, !tbaa !27
   %85 = load i32, ptr %.032.i, align 8, !tbaa !28
@@ -209,7 +208,7 @@ bddVarToCanonicalSimple.exit:                     ; preds = %.thread.i, %81, %82
 
 120:                                              ; preds = %118
   %121 = ptrtoint ptr %119 to i64
-  %122 = xor i64 %.02745.i, %121
+  %122 = xor i64 %75, %121
   %123 = inttoptr i64 %122 to ptr
   br label %187
 
@@ -326,7 +325,7 @@ bddVarToCanonicalSimple.exit:                     ; preds = %.thread.i, %81, %82
   %184 = add i32 %183, -1
   store i32 %184, ptr %172, align 4, !tbaa !31
   tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 14, ptr noundef %.0139, ptr noundef nonnull %.0140, ptr noundef %.0141, ptr noundef nonnull %180) #5
-  %185 = xor i64 %.02745.i, %.pre-phi143
+  %185 = xor i64 %75, %.pre-phi143
   %186 = inttoptr i64 %185 to ptr
   br label %187
 

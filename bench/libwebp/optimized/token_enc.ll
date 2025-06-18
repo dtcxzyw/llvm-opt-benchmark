@@ -151,13 +151,11 @@ AddToken.exit:                                    ; preds = %TBufferNewPage.exit
   %55 = select i1 %21, i32 65537, i32 65536
   %56 = add nuw i32 %55, %.0.i9.i
   store i32 %56, ptr %20, align 4, !tbaa !33
-  br i1 %21, label %.preheader, label %.thread
-
-.preheader:                                       ; preds = %AddToken.exit
   %57 = icmp slt i32 %10, 16
-  br i1 %57, label %.lr.ph, label %.thread
+  %or.cond = select i1 %21, i1 %57, i1 false
+  br i1 %or.cond, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %.preheader
+.lr.ph:                                           ; preds = %AddToken.exit
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1478,8 +1476,8 @@ AddToken.exit300:                                 ; preds = %TBufferNewPage.exit
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.thread, label %63
 
-.thread:                                          ; preds = %713, %AddConstantToken.exit292, %AddToken.exit300, %.preheader, %AddToken.exit
-  %.0117 = phi i32 [ 0, %AddToken.exit ], [ 1, %.preheader ], [ 1, %AddToken.exit300 ], [ 1, %AddConstantToken.exit292 ], [ 1, %713 ]
+.thread:                                          ; preds = %713, %AddConstantToken.exit292, %AddToken.exit300, %AddToken.exit
+  %.0117 = zext i1 %21 to i32
   ret i32 %.0117
 }
 

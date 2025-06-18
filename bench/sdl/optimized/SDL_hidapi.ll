@@ -1764,7 +1764,7 @@ define hidden range(i32 -1, 1) i32 @PLATFORM_hid_get_manufacturer_string(ptr nou
   %.val = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %.val) #22
   %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.14) #22
-  br label %19
+  br label %20
 
 9:                                                ; preds = %3
   %10 = tail call ptr @PLATFORM_hid_get_device_info(ptr noundef %0)
@@ -1788,8 +1788,12 @@ define hidden range(i32 -1, 1) i32 @PLATFORM_hid_get_manufacturer_string(ptr nou
   store i32 0, ptr %1, align 4
   br label %19
 
-19:                                               ; preds = %9, %18, %14, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %9 ], [ 0, %18 ], [ 0, %14 ]
+19:                                               ; preds = %14, %18, %9
+  %.1 = sext i1 %.not to i32
+  br label %20
+
+20:                                               ; preds = %19, %6
+  %.0 = phi i32 [ %.1, %19 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -1891,7 +1895,7 @@ define hidden range(i32 -1, 1) i32 @PLATFORM_hid_get_product_string(ptr noundef 
   %.val = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %.val) #22
   %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.14) #22
-  br label %19
+  br label %20
 
 9:                                                ; preds = %3
   %10 = tail call ptr @PLATFORM_hid_get_device_info(ptr noundef %0)
@@ -1915,8 +1919,12 @@ define hidden range(i32 -1, 1) i32 @PLATFORM_hid_get_product_string(ptr noundef 
   store i32 0, ptr %1, align 4
   br label %19
 
-19:                                               ; preds = %9, %18, %14, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %9 ], [ 0, %18 ], [ 0, %14 ]
+19:                                               ; preds = %14, %18, %9
+  %.1 = sext i1 %.not to i32
+  br label %20
+
+20:                                               ; preds = %19, %6
+  %.0 = phi i32 [ %.1, %19 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -1932,7 +1940,7 @@ define hidden range(i32 -1, 1) i32 @PLATFORM_hid_get_serial_number_string(ptr no
   %.val = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %.val) #22
   %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.14) #22
-  br label %19
+  br label %20
 
 9:                                                ; preds = %3
   %10 = tail call ptr @PLATFORM_hid_get_device_info(ptr noundef %0)
@@ -1956,8 +1964,12 @@ define hidden range(i32 -1, 1) i32 @PLATFORM_hid_get_serial_number_string(ptr no
   store i32 0, ptr %1, align 4
   br label %19
 
-19:                                               ; preds = %9, %18, %14, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %9 ], [ 0, %18 ], [ 0, %14 ]
+19:                                               ; preds = %14, %18, %9
+  %.1 = sext i1 %.not to i32
+  br label %20
+
+20:                                               ; preds = %19, %6
+  %.0 = phi i32 [ %.1, %19 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -2999,7 +3011,8 @@ define hidden range(i32 -1, 1) i32 @SDL_hid_close_REAL(ptr noundef %0) local_unn
   br label %19
 
 19:                                               ; preds = %5, %3
-  %.0 = phi i32 [ 0, %5 ], [ -1, %3 ]
+  %20 = xor i1 %2, true
+  %.0 = sext i1 %20 to i32
   ret i32 %.0
 }
 

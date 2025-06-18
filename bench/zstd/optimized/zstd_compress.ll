@@ -587,7 +587,7 @@ define range(i64 -1, 1) i64 @ZSTD_CCtxParams_reset(ptr noundef writeonly capture
   br label %ZSTD_CCtxParams_init.exit
 
 ZSTD_CCtxParams_init.exit:                        ; preds = %1, %2
-  %.0.i = phi i64 [ 0, %2 ], [ -1, %1 ]
+  %.0.i = sext i1 %.not.i to i64
   ret i64 %.0.i
 }
 
@@ -605,7 +605,7 @@ define range(i64 -1, 1) i64 @ZSTD_CCtxParams_init(ptr noundef writeonly captures
   br label %6
 
 6:                                                ; preds = %2, %3
-  %.0 = phi i64 [ 0, %3 ], [ -1, %2 ]
+  %.0 = sext i1 %.not to i64
   ret i64 %.0
 }
 
@@ -17163,12 +17163,11 @@ define internal i64 @ZSTD_transferSequences_noDelim(ptr noundef captures(none) %
   %.0126238 = phi i32 [ %13, %.lr.ph ], [ %.1127, %192 ]
   %.0133235 = phi ptr [ %4, %.lr.ph ], [ %198, %192 ]
   %.0141234 = phi i32 [ 0, %.lr.ph ], [ %.1142, %192 ]
-  %.0147233 = phi i32 [ 0, %.lr.ph ], [ %.1148, %192 ]
+  %.0147233 = phi i1 [ true, %.lr.ph ], [ %.not162, %192 ]
   %48 = phi i32 [ %.promoted, %.lr.ph ], [ %102, %192 ]
   %49 = zext i32 %.0116240 to i64
   %50 = icmp ugt i64 %3, %49
-  %.not161 = icmp eq i32 %.0147233, 0
-  %or.cond = and i1 %.not161, %50
+  %or.cond = and i1 %.0147233, %50
   br i1 %or.cond, label %51, label %.critedge
 
 51:                                               ; preds = %45
@@ -17179,8 +17178,8 @@ define internal i64 @ZSTD_transferSequences_noDelim(ptr noundef captures(none) %
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !48
   %53 = add i32 %.sroa.10.0.copyload, %.sroa.4.0.copyload
-  %.not162.not = icmp uge i32 %.0126238, %53
-  br i1 %.not162.not, label %54, label %56
+  %.not162 = icmp uge i32 %.0126238, %53
+  br i1 %.not162, label %54, label %56
 
 54:                                               ; preds = %51
   %.0139 = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.4.0.copyload, i32 %.0120239)
@@ -17219,7 +17218,6 @@ define internal i64 @ZSTD_transferSequences_noDelim(ptr noundef captures(none) %
   br label %.critedge
 
 72:                                               ; preds = %.thread, %54
-  %.1148 = phi i32 [ 0, %54 ], [ 1, %.thread ]
   %.1142 = phi i32 [ %.0141234, %54 ], [ %.2143, %.thread ]
   %.1140 = phi i32 [ %.0139, %54 ], [ %59, %.thread ]
   %.1137 = phi i32 [ %.0136, %54 ], [ %.0131, %.thread ]
@@ -17485,7 +17483,7 @@ ZSTD_wildcopy.exit:                               ; preds = %145, %.lr.ph.i, %ZS
   %196 = add i32 %.1137, %.1140
   %197 = zext i32 %196 to i64
   %198 = getelementptr inbounds nuw i8, ptr %.0133235, i64 %197
-  %199 = zext i1 %.not162.not to i32
+  %199 = zext i1 %.not162 to i32
   %spec.select = add i32 %.0116240, %199
   %.not160 = icmp eq i32 %.1127, 0
   br i1 %.not160, label %.critedge, label %45

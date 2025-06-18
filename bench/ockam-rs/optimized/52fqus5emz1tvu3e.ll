@@ -341,6 +341,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot22InitGuard$LT$T$C
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %18 = cmpxchg ptr %17, i64 %12, i64 %16 acq_rel acquire, align 8
   %.sroa.18.0.in.i = extractvalue { i64, i1 } %18, 1
+  %not..sroa.18.0.in.i = xor i1 %.sroa.18.0.in.i, true
   br i1 %.sroa.18.0.in.i, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %10, %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17haefb416528a6cf0aE.llvm.11052903800730486598.exit"
@@ -393,7 +394,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot22InitGuard$LT$T$C
   br i1 %.sroa.18.0.in.i16, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17haefb416528a6cf0aE.llvm.11052903800730486598.exit", %10, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %10 ], [ true, %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17haefb416528a6cf0aE.llvm.11052903800730486598.exit" ]
+  %.0 = phi i1 [ false, %2 ], [ false, %10 ], [ %not..sroa.18.0.in.i, %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17haefb416528a6cf0aE.llvm.11052903800730486598.exit" ]
   ret i1 %.0
 }
 
@@ -709,12 +710,12 @@ define hidden void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17had9bfb2cfa035341E
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load atomic i8, ptr %13 monotonic, align 4, !noalias !35
   %15 = icmp ne i8 %14, 0
-  %spec.select.i.i = zext i1 %15 to i64
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %16, align 8, !alias.scope !38
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.0.i.i.i, ptr %17, align 8, !alias.scope !38
-  store i64 %spec.select.i.i, ptr %0, align 8, !alias.scope !38
+  %storemerge.i.i = zext i1 %15 to i64
+  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !38
   ret void
 }
 
@@ -777,12 +778,12 @@ _ZN3std4sync6poison4Flag5guard17h8e2a154547ab853dE.llvm.11052903800730486598.exi
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load atomic i8, ptr %10 monotonic, align 4
   %12 = icmp ne i8 %11, 0
-  %spec.select.i = zext i1 %12 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %13, align 8, !alias.scope !44
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.0.i.i, ptr %14, align 8, !alias.scope !44
-  store i64 %spec.select.i, ptr %0, align 8, !alias.scope !44
+  %storemerge.i = zext i1 %12 to i64
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !44
   ret void
 }
 
@@ -1578,7 +1579,9 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN53_$LT$dyn$u20
   %.fca.0.extract = extractvalue { i64, ptr } %5, 0
   %switch = icmp eq i64 %.fca.0.extract, 0
   %.fca.1.extract = extractvalue { i64, ptr } %5, 1
-  %.0 = select i1 %switch, ptr null, ptr %.fca.1.extract
+  %.sroa.6.0 = select i1 %switch, ptr undef, ptr %.fca.1.extract
+  %6 = trunc i64 %.fca.0.extract to i1
+  %.0 = select i1 %6, ptr %.sroa.6.0, ptr null
   ret ptr %.0
 }
 
@@ -1590,7 +1593,9 @@ define hidden noundef align 8 ptr @"_ZN53_$LT$dyn$u20$tracing_core..subscriber..
   %.fca.0.extract = extractvalue { i64, ptr } %5, 0
   %switch = icmp eq i64 %.fca.0.extract, 0
   %.fca.1.extract = extractvalue { i64, ptr } %5, 1
-  %.0 = select i1 %switch, ptr null, ptr %.fca.1.extract
+  %.sroa.6.0 = select i1 %switch, ptr undef, ptr %.fca.1.extract
+  %6 = trunc i64 %.fca.0.extract to i1
+  %.0 = select i1 %6, ptr %.sroa.6.0, ptr null
   ret ptr %.0
 }
 

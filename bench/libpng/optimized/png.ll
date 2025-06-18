@@ -277,15 +277,16 @@ define range(i32 0, 2) i32 @png_user_version_check(ptr noalias noundef %0, ptr n
   %17 = load i32, ptr %4, align 8, !tbaa !24
   %18 = or i32 %17, 131072
   store i32 %18, ptr %4, align 8, !tbaa !24
-  br label %21
+  br label %20
 
 .critedge:                                        ; preds = %12, %16
   %.pre = load i32, ptr %4, align 8, !tbaa !24
   %19 = and i32 %.pre, 131072
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %26, label %21
+  %.not27 = icmp eq i32 %19, 0
+  br i1 %.not27, label %28, label %20
 
-21:                                               ; preds = %.critedge.thread, %.critedge
+20:                                               ; preds = %.critedge.thread, %.critedge
+  %21 = phi i32 [ 131072, %.critedge.thread ], [ %19, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #30
   %22 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef 0, ptr noundef nonnull @.str.3) #30
   %23 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef %22, ptr noundef %1) #30
@@ -293,11 +294,13 @@ define range(i32 0, 2) i32 @png_user_version_check(ptr noalias noundef %0, ptr n
   %25 = call i64 @png_safecat(ptr noundef nonnull %3, i64 noundef 128, i64 noundef %24, ptr noundef nonnull @.str.2) #30
   call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull %3) #30
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #30
-  br label %26
+  %26 = lshr exact i32 %21, 17
+  %27 = xor i32 %26, 1
+  br label %28
 
-26:                                               ; preds = %.critedge, %21
-  %.0 = phi i32 [ 0, %21 ], [ 1, %.critedge ]
-  ret i32 %.0
+28:                                               ; preds = %.critedge, %20
+  %.lobit = phi i32 [ 1, %.critedge ], [ %27, %20 ]
+  ret i32 %.lobit
 }
 
 declare i64 @png_safecat(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
@@ -3647,8 +3650,8 @@ define void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captures(none
   %24 = load i32, ptr %6, align 4, !tbaa !43
   %25 = mul nsw i32 %24, 77
   %26 = ashr i32 %25, 8
-  %27 = icmp sgt i32 %26, -1
-  br i1 %27, label %31, label %28
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %31
 
 28:                                               ; preds = %22
   %29 = icmp samesign ult i32 %26, -307
@@ -3681,7 +3684,7 @@ define void @png_ascii_from_fp(ptr noalias noundef %0, ptr noundef captures(none
 
 36:                                               ; preds = %.preheader.i
   %37 = fdiv double 1.000000e+00, %.2.i
-  %.3.i = select i1 %27, double %.2.i, double %37
+  %.3.i = select i1 %27, double %37, double %.2.i
   br label %png_pow10.exit
 
 png_pow10.exit:                                   ; preds = %31, %36
@@ -3699,23 +3702,23 @@ png_pow10.exit:                                   ; preds = %31, %36
   %.0134208 = phi double [ %.018.i175179, %png_pow10.exit177.thread ], [ %.0134208.ph, %.lr.ph.preheader ]
   %41 = phi i32 [ %42, %png_pow10.exit177.thread ], [ %26, %.lr.ph.preheader ]
   %42 = add nsw i32 %41, 1
-  %43 = icmp sgt i32 %41, -2
-  br i1 %43, label %47, label %44
+  %43 = icmp slt i32 %41, -1
+  br i1 %43, label %44, label %47
 
 44:                                               ; preds = %.lr.ph
   %45 = icmp samesign ult i32 %42, -307
-  br i1 %45, label %png_pow10.exit177.thread, label %.thread.i164
+  br i1 %45, label %png_pow10.exit177.thread, label %.thread.i176
 
-.thread.i164:                                     ; preds = %44
+.thread.i176:                                     ; preds = %44
   %46 = xor i32 %41, -1
   br label %.preheader.i167.preheader
 
 47:                                               ; preds = %.lr.ph
-  %.not24.i176 = icmp eq i32 %42, 0
-  br i1 %.not24.i176, label %png_pow10.exit177.thread, label %.preheader.i167.preheader
+  %.not24.i164 = icmp eq i32 %42, 0
+  br i1 %.not24.i164, label %png_pow10.exit177.thread, label %.preheader.i167.preheader
 
-.preheader.i167.preheader:                        ; preds = %47, %.thread.i164
-  %.117.i168.ph = phi i32 [ %42, %47 ], [ %46, %.thread.i164 ]
+.preheader.i167.preheader:                        ; preds = %47, %.thread.i176
+  %.117.i168.ph = phi i32 [ %42, %47 ], [ %46, %.thread.i176 ]
   br label %.preheader.i167
 
 .preheader.i167:                                  ; preds = %.preheader.i167.preheader, %.preheader.i167
@@ -3733,7 +3736,7 @@ png_pow10.exit:                                   ; preds = %31, %36
 
 png_pow10.exit177:                                ; preds = %.preheader.i167
   %52 = fdiv double 1.000000e+00, %.2.i172
-  %.3.i174 = select i1 %43, double %.2.i172, double %52
+  %.3.i174 = select i1 %43, double %52, double %.2.i172
   %53 = fcmp ugt double %.3.i174, 0x7FEFFFFFFFFFFFFF
   br i1 %53, label %.thread, label %png_pow10.exit177.thread
 

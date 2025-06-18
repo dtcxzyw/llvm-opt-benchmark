@@ -17035,9 +17035,9 @@ _ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEC2ERKS6_.e
   br i1 %100, label %switch.lookup, label %102
 
 101:                                              ; preds = %71, %51
-  %.sink99 = phi ptr [ %69, %71 ], [ %49, %51 ]
+  %.sink = phi ptr [ %69, %71 ], [ %49, %51 ]
   %.pn = phi { ptr, i32 } [ %72, %71 ], [ %52, %51 ]
-  tail call void @__cxa_free_exception(ptr nonnull %.sink99) #48
+  tail call void @__cxa_free_exception(ptr nonnull %.sink) #48
   resume { ptr, i32 } %.pn
 
 102:                                              ; preds = %_ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEC2ERKS6_.exit.i
@@ -17178,8 +17178,7 @@ _ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEE6assignERK
   br label %_ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEaSIRS6_EES8_OT_.exit
 
 _ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEaSIRS6_EES8_OT_.exit: ; preds = %_ZNR5folly8OptionalINS_28AsyncSocketObserverInterface9ByteEvent4TypeEE5valueEv.exit, %_ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEE6assignERKS5_.exit.i.i
-  %.sink = phi i8 [ 1, %_ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEE6assignERKS5_.exit.i.i ], [ 0, %_ZNR5folly8OptionalINS_28AsyncSocketObserverInterface9ByteEvent4TypeEE5valueEv.exit ]
-  store i8 %.sink, ptr %137, align 8, !tbaa !548
+  store i8 %147, ptr %137, align 8, !tbaa !548
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %152 = load i8, ptr %151, align 8, !tbaa !557, !range !20, !noundef !233
   %153 = trunc nuw i8 %152 to i1
@@ -27207,8 +27206,7 @@ _ZNKR5folly8OptionalINS_28AsyncSocketObserverInterface6EventsEE5valueEv.exit.i.i
   br label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE8ObserverEEEC2IZNS7_25invokeInterfaceMethodImplEPS3_ONS0_IFvPNS7_12ObserverBaseESD_EEENS_8OptionalIS5_EEEUlS9_E_vvEET_.exit
 
 _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE8ObserverEEEC2IZNS7_25invokeInterfaceMethodImplEPS3_ONS0_IFvPNS7_12ObserverBaseESD_EEENS_8OptionalIS5_EEEUlS9_E_vvEET_.exit: ; preds = %_ZN5folly8OptionalINS_28AsyncSocketObserverInterface6EventsEEC2ERKS3_.exit, %_ZNKR5folly8OptionalINS_28AsyncSocketObserverInterface6EventsEE5valueEv.exit.i.i.i
-  %.sink = phi i8 [ 0, %_ZN5folly8OptionalINS_28AsyncSocketObserverInterface6EventsEEC2ERKS3_.exit ], [ 1, %_ZNKR5folly8OptionalINS_28AsyncSocketObserverInterface6EventsEE5valueEv.exit.i.i.i ]
-  store i8 %.sink, ptr %15, align 4, !tbaa !213
+  store i8 %13, ptr %15, align 4, !tbaa !213
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -27259,8 +27257,7 @@ _ZNKR5folly8OptionalINS_28AsyncSocketObserverInterface6EventsEE5valueEv.exit.i.i
   br label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE8ObserverEEEC2IZNS7_25invokeInterfaceMethodImplEPS3_ONS0_IFvPNS7_12ObserverBaseESD_EEENS_8OptionalIS5_EEEUlSF_E_vvEET_.exit
 
 _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE8ObserverEEEC2IZNS7_25invokeInterfaceMethodImplEPS3_ONS0_IFvPNS7_12ObserverBaseESD_EEENS_8OptionalIS5_EEEUlSF_E_vvEET_.exit: ; preds = %_ZN5folly8OptionalINS_28AsyncSocketObserverInterface6EventsEEC2ERKS3_.exit5, %_ZNKR5folly8OptionalINS_28AsyncSocketObserverInterface6EventsEE5valueEv.exit.i.i.i6
-  %.sink33 = phi i8 [ 0, %_ZN5folly8OptionalINS_28AsyncSocketObserverInterface6EventsEEC2ERKS3_.exit5 ], [ 1, %_ZNKR5folly8OptionalINS_28AsyncSocketObserverInterface6EventsEE5valueEv.exit.i.i.i6 ]
-  store i8 %.sink33, ptr %36, align 4, !tbaa !213
+  store i8 %34, ptr %36, align 4, !tbaa !213
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @_ZN5folly6detail8function5call_IZNS_21ObserverContainerBaseINS_28AsyncSocketObserverInterfaceENS_11AsyncSocketENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE25invokeInterfaceMethodImplEPS5_ONS_8FunctionIFvPNS9_12ObserverBaseESA_EEENS_8OptionalIS7_EEEUlSD_E_Lb1ELb0EvJPNS9_8ObserverEEEET2_DpT3_RNS1_4DataE, ptr %41, align 16, !tbaa !594
@@ -42477,13 +42474,13 @@ _ZNK5folly9FormatArg7enforceIbJRA46_KcEEEvRKT_DpOT0_.exit76: ; preds = %_ZN5foll
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !606, !noalias !846
   %.sroa.2.0.copyload.i.i.i.i.i = load ptr, ptr %22, align 8, !tbaa !606, !noalias !846
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %.not13.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i
-  br i1 %.not13.i.i.i.i.i, label %_ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit, label %.lr.ph.i.i.i.i.i
+  %.not.not13.i.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i
+  br i1 %.not.not13.i.i.i.i.i, label %_ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit, label %.lr.ph.i.i.i.i.i
 
 168:                                              ; preds = %.lr.ph.i.i.i.i.i
   %169 = getelementptr inbounds nuw i8, ptr %.01114.i.i.i.i.i, i64 1
-  %.not.i.i.i.i.i = icmp eq ptr %169, %.sroa.2.0.copyload.i.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %_ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit, label %.lr.ph.i.i.i.i.i
+  %.not.not.i.i.i.i.i = icmp eq ptr %169, %.sroa.2.0.copyload.i.i.i.i.i
+  br i1 %.not.not.i.i.i.i.i, label %_ZN5folly5tryToIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueENS_8ExpectedIS6_NSt16remove_referenceIDTclsr6detailE11parseToWraptlS5_Eclsr3stdE7declvalIRS6_EEEEE4type10error_typeEEEE4typeES5_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %167, %168
   %.01114.i.i.i.i.i = phi ptr [ %169, %168 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %167 ]

@@ -185,19 +185,17 @@ define internal range(i32 -1, 1) i32 @pdlopen_lookup(ptr noundef readonly captur
   %6 = tail call ptr @dlsym(ptr noundef %5, ptr noundef %1) #8
   store ptr %6, ptr %2, align 8, !tbaa !20
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %10
+  %.not7 = icmp ne ptr %3, null
+  %or.cond.not = and i1 %.not7, %.not
+  br i1 %or.cond.not, label %7, label %9
 
 7:                                                ; preds = %4
-  %.not7 = icmp eq ptr %3, null
-  br i1 %.not7, label %10, label %8
+  %8 = tail call ptr @dlerror() #8
+  store ptr %8, ptr %3, align 8, !tbaa !15
+  br label %9
 
-8:                                                ; preds = %7
-  %9 = tail call ptr @dlerror() #8
-  store ptr %9, ptr %3, align 8, !tbaa !15
-  br label %10
-
-10:                                               ; preds = %7, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ -1, %8 ], [ -1, %7 ]
+9:                                                ; preds = %7, %4
+  %.0 = sext i1 %.not to i32
   ret i32 %.0
 }
 

@@ -147,7 +147,7 @@ define void @_ZN11fish_printf3arg3Arg7as_sint17h429ac602b87100f4E(ptr dead_on_un
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 3, ptr %5, align 1
-  br label %18
+  br label %19
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -160,7 +160,7 @@ define void @_ZN11fish_printf3arg3Arg7as_sint17h429ac602b87100f4E(ptr dead_on_un
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %12, ptr %13, align 8
-  br label %18
+  br label %19
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -172,8 +172,13 @@ define void @_ZN11fish_printf3arg3Arg7as_sint17h429ac602b87100f4E(ptr dead_on_un
   store i8 4, ptr %17, align 1
   br label %18
 
-18:                                               ; preds = %14, %16, %10, %4
-  %storemerge.sink = phi i8 [ 0, %10 ], [ 1, %4 ], [ 0, %14 ], [ 1, %16 ]
+18:                                               ; preds = %16, %14
+  %.lobit = lshr i64 %8, 63
+  %storemerge = trunc nuw nsw i64 %.lobit to i8
+  br label %19
+
+19:                                               ; preds = %18, %10, %4
+  %storemerge.sink = phi i8 [ %storemerge, %18 ], [ 0, %10 ], [ 1, %4 ]
   store i8 %storemerge.sink, ptr %0, align 8
   ret void
 }
@@ -265,10 +270,10 @@ define void @_ZN11fish_printf3arg3Arg8as_float17hbebf32eb5a507c15E(ptr dead_on_u
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define range(i64 768, -4294965248) i64 @_ZN11fish_printf3arg3Arg7as_char17hc408ed71f61477d1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 {
   %2 = load i8, ptr %0, align 8, !range !3, !alias.scope !8, !noalias !11, !noundef !4
-  switch i8 %2, label %17 [
+  switch i8 %2, label %21 [
     i8 4, label %3
     i8 5, label %6
   ]
@@ -282,26 +287,34 @@ define range(i64 768, -4294965248) i64 @_ZN11fish_printf3arg3Arg7as_char17hc408e
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !8, !noalias !11, !noundef !4
   %9 = icmp sgt i64 %8, -1
-  br i1 %9, label %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit, label %17
+  br i1 %9, label %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit, label %21
 
 _ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit: ; preds = %6, %3
   %.sroa.819.0 = phi i64 [ %5, %3 ], [ %8, %6 ]
   %10 = icmp ugt i64 %.sroa.819.0, 4294967295
-  br i1 %10, label %17, label %11
+  br i1 %10, label %21, label %11
 
 11:                                               ; preds = %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit
   %12 = trunc nuw i64 %.sroa.819.0 to i32
   %13 = xor i32 %12, 55296
   %14 = add i32 %13, -1114112
   %15 = icmp ult i32 %14, -1112064
-  %spec.select = zext i1 %15 to i64
-  %16 = shl nuw i64 %.sroa.819.0, 32
-  br label %17
+  br i1 %15, label %18, label %16
 
-17:                                               ; preds = %6, %1, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit, %11
-  %.sroa.81.1 = phi i64 [ %16, %11 ], [ 0, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit ], [ 0, %1 ], [ 0, %6 ]
-  %.sroa.5.2 = phi i64 [ 1024, %11 ], [ 1024, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit ], [ 768, %1 ], [ 1024, %6 ]
-  %.sroa.0.2 = phi i64 [ %spec.select, %11 ], [ 1, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit ], [ 1, %1 ], [ 1, %6 ]
+16:                                               ; preds = %11
+  %17 = icmp samesign ult i64 %.sroa.819.0, 1114112
+  tail call void @llvm.assume(i1 %17)
+  br label %18
+
+18:                                               ; preds = %11, %16
+  %19 = shl nuw i64 %.sroa.819.0, 32
+  %20 = zext i1 %15 to i64
+  br label %21
+
+21:                                               ; preds = %6, %1, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit, %18
+  %.sroa.81.1 = phi i64 [ %19, %18 ], [ 0, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit ], [ 0, %1 ], [ 0, %6 ]
+  %.sroa.5.2 = phi i64 [ 1024, %18 ], [ 1024, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit ], [ 768, %1 ], [ 1024, %6 ]
+  %.sroa.0.2 = phi i64 [ %20, %18 ], [ 1, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit ], [ 1, %1 ], [ 1, %6 ]
   %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.5.2, %.sroa.81.1
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.insert, %.sroa.0.2
   ret i64 %.sroa.0.0.insert.insert
@@ -450,11 +463,15 @@ define void @"_ZN49_$LT$usize$u20$as$u20$fish_printf..arg..ToArg$GT$6to_arg17h06
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h3898b777581243afE"(ptr noalias noundef align 8 dereferenceable(24), ptr noundef nonnull, ptr noundef) unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

@@ -372,67 +372,65 @@ define internal range(i32 -1, 1) i32 @be_pair_flush(ptr noundef %0, i16 noundef 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %25, label %6
+  %6 = icmp eq i32 %2, 0
+  %or.cond = or i1 %6, %.not
+  br i1 %or.cond, label %24, label %7
 
-6:                                                ; preds = %3
-  %7 = icmp eq i32 %2, 0
-  br i1 %7, label %25, label %8
-
-8:                                                ; preds = %6
+7:                                                ; preds = %3
   tail call void @bufferevent_incref_and_lock_(ptr noundef nonnull %0) #4
-  %9 = load ptr, ptr %4, align 8
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %incref_and_lock.exit, label %10
+  %8 = load ptr, ptr %4, align 8
+  %.not.i = icmp eq ptr %8, null
+  br i1 %.not.i, label %incref_and_lock.exit, label %9
 
-10:                                               ; preds = %8
-  tail call void @bufferevent_incref_and_lock_(ptr noundef nonnull %9) #4
+9:                                                ; preds = %7
+  tail call void @bufferevent_incref_and_lock_(ptr noundef nonnull %8) #4
   %.pre = load ptr, ptr %4, align 8
   br label %incref_and_lock.exit
 
-incref_and_lock.exit:                             ; preds = %8, %10
-  %11 = phi ptr [ null, %8 ], [ %.pre, %10 ]
-  %12 = and i16 %1, 2
-  %.not21 = icmp eq i16 %12, 0
-  br i1 %.not21, label %14, label %13
+incref_and_lock.exit:                             ; preds = %7, %9
+  %10 = phi ptr [ null, %7 ], [ %.pre, %9 ]
+  %11 = and i16 %1, 2
+  %.not21 = icmp eq i16 %11, 0
+  br i1 %.not21, label %13, label %12
 
-13:                                               ; preds = %incref_and_lock.exit
-  tail call fastcc void @be_pair_transfer(ptr noundef %11, ptr noundef nonnull %0, i32 noundef 1)
-  br label %14
+12:                                               ; preds = %incref_and_lock.exit
+  tail call fastcc void @be_pair_transfer(ptr noundef %10, ptr noundef nonnull %0, i32 noundef 1)
+  br label %13
 
-14:                                               ; preds = %13, %incref_and_lock.exit
-  %15 = and i16 %1, 4
-  %.not22 = icmp eq i16 %15, 0
-  br i1 %.not22, label %17, label %16
+13:                                               ; preds = %12, %incref_and_lock.exit
+  %14 = and i16 %1, 4
+  %.not22 = icmp eq i16 %14, 0
+  br i1 %.not22, label %16, label %15
 
-16:                                               ; preds = %14
-  tail call fastcc void @be_pair_transfer(ptr noundef nonnull %0, ptr noundef %11, i32 noundef 1)
-  br label %17
+15:                                               ; preds = %13
+  tail call fastcc void @be_pair_transfer(ptr noundef nonnull %0, ptr noundef %10, i32 noundef 1)
+  br label %16
 
-17:                                               ; preds = %16, %14
-  %18 = icmp eq i32 %2, 2
-  br i1 %18, label %19, label %20
+16:                                               ; preds = %15, %13
+  %17 = icmp eq i32 %2, 2
+  br i1 %17, label %18, label %19
 
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   %.1.v = select i1 %.not22, i16 16, i16 17
-  %.1 = or disjoint i16 %.1.v, %12
-  tail call void @bufferevent_run_eventcb_(ptr noundef %11, i16 noundef signext %.1, i32 noundef 0) #4
-  br label %20
+  %.1 = or disjoint i16 %.1.v, %11
+  tail call void @bufferevent_run_eventcb_(ptr noundef %10, i16 noundef signext %.1, i32 noundef 0) #4
+  br label %19
 
-20:                                               ; preds = %19, %17
-  %21 = load ptr, ptr %4, align 8
-  %.not.i23 = icmp eq ptr %21, null
-  br i1 %.not.i23, label %decref_and_unlock.exit, label %22
+19:                                               ; preds = %18, %16
+  %20 = load ptr, ptr %4, align 8
+  %.not.i23 = icmp eq ptr %20, null
+  br i1 %.not.i23, label %decref_and_unlock.exit, label %21
 
-22:                                               ; preds = %20
-  %23 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %21) #4
+21:                                               ; preds = %19
+  %22 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %20) #4
   br label %decref_and_unlock.exit
 
-decref_and_unlock.exit:                           ; preds = %20, %22
-  %24 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %0) #4
-  br label %25
+decref_and_unlock.exit:                           ; preds = %19, %21
+  %23 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %0) #4
+  br label %24
 
-25:                                               ; preds = %6, %3, %decref_and_unlock.exit
-  %.019 = phi i32 [ 0, %decref_and_unlock.exit ], [ -1, %3 ], [ 0, %6 ]
+24:                                               ; preds = %3, %decref_and_unlock.exit
+  %.019 = sext i1 %.not to i32
   ret i32 %.019
 }
 

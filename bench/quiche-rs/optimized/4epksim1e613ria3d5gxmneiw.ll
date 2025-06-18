@@ -548,25 +548,25 @@ _ZN3std3sys12thread_local20abort_on_dtor_unwind17h209bbbc7a7875e64E.exit: ; pred
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17h206e7e00deaf5820E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 8 %3) unnamed_addr #4 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17h34d43dc78e7eb62aE(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 8 %3) unnamed_addr #4 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -4911,10 +4911,9 @@ define void @_ZN12tokio_quiche7metrics32quic_expensive_metrics_ip_reduce17h64c64
   %.sroa.4.0 = phi i32 [ %.sroa.4.9.copyload, %8 ], [ %.sroa.0.0.copyload.i, %9 ]
   %.sink4.sroa.phi = phi ptr [ %.sroa.76, %8 ], [ %.sroa.6, %9 ]
   %.sink = phi i8 [ 32, %8 ], [ 20, %9 ]
-  %.sink.i = phi i8 [ 1, %8 ], [ 0, %9 ]
   store i8 %.sink, ptr %.sink4.sroa.phi, align 1, !alias.scope !479, !noalias !482
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %4)
-  store i8 %.sink.i, ptr %4, align 1
+  store i8 %5, ptr %4, align 1
   %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i32 %.sroa.4.0, ptr %.sroa.4.8..sroa_idx, align 1
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 5

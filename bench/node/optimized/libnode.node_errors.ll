@@ -1352,13 +1352,18 @@ _ZN4nodeL23GetSourceMapErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextE
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp92.i)
   %43 = load i8, ptr %added_exception_line, align 1
   %tobool59 = trunc i8 %43 to i1
-  br i1 %tobool59, label %cleanup219, label %nrvo.unused
+  %tobool59.mask = and i8 %43, 1
+  br i1 %tobool59, label %nrvo.skipdtor, label %nrvo.unused
 
 nrvo.unused:                                      ; preds = %_ZN4nodeL23GetSourceMapErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_7MessageEEEPb.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
-  br label %if.end62
+  br label %nrvo.skipdtor
 
-if.end62:                                         ; preds = %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit, %nrvo.unused, %land.lhs.true48, %land.end
+nrvo.skipdtor:                                    ; preds = %nrvo.unused, %_ZN4nodeL23GetSourceMapErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_7MessageEEEPb.exit
+  %cond1 = icmp eq i8 %tobool59.mask, 0
+  br i1 %cond1, label %if.end62, label %cleanup219
+
+if.end62:                                         ; preds = %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit, %nrvo.skipdtor, %land.lhs.true48, %land.end
   call void @_ZNK2v87Message15GetScriptOriginEv(ptr nonnull sret(%"class.v8::ScriptOrigin") align 8 %origin, ptr noundef nonnull align 1 dereferenceable(1) %message.coerce) #20
   %call66 = call ptr @_ZNK2v87Message21GetScriptResourceNameEv(ptr noundef nonnull align 1 dereferenceable(1) %message.coerce) #20
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %filename, ptr noundef nonnull %isolate, ptr %call66) #20
@@ -1544,7 +1549,7 @@ if.then.i.i73:                                    ; preds = %cleanup217
   call void @free(ptr noundef nonnull %57) #20
   br label %cleanup219
 
-cleanup219:                                       ; preds = %if.then.i.i73, %cleanup217, %_ZN4nodeL23GetSourceMapErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_7MessageEEEPb.exit, %if.then
+cleanup219:                                       ; preds = %if.then.i.i73, %cleanup217, %nrvo.skipdtor, %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sourceline) #20
   %59 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i.i75 = icmp ne ptr %59, null

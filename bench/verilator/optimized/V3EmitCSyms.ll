@@ -36660,17 +36660,23 @@ define linkonce_odr dso_local void @_ZN9EmitCSyms21scopeDecodeIdentifierERKNSt7_
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 %.331
   %20 = load i8, ptr %19, align 1, !tbaa !14
   %.not25 = icmp eq i8 %20, 46
-  br i1 %.not25, label %.critedge2, label %21
+  br i1 %.not25, label %.critedge2.loopexit, label %21
 
 21:                                               ; preds = %.lr.ph
   %22 = add i64 %.331, 1
   %exitcond.not = icmp eq i64 %22, %6
-  br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !787
+  br i1 %exitcond.not, label %.critedge2.loopexit, label %.lr.ph, !llvm.loop !787
 
-.critedge2:                                       ; preds = %.lr.ph, %21, %.preheader29
-  %.3.lcssa = phi i64 [ %.044, %.preheader29 ], [ %6, %21 ], [ %.331, %.lr.ph ]
-  %.lcssa = phi i64 [ 0, %.preheader29 ], [ 0, %21 ], [ 1, %.lr.ph ]
-  %spec.select = phi i64 [ %.02343, %.preheader29 ], [ %.02343, %21 ], [ %.331, %.lr.ph ]
+.critedge2.loopexit:                              ; preds = %21, %.lr.ph
+  %.3.lcssa.ph = phi i64 [ %6, %21 ], [ %.331, %.lr.ph ]
+  %spec.select.ph = phi i64 [ %.02343, %21 ], [ %.331, %.lr.ph ]
+  %.lcssa.ph = zext i1 %.not25 to i64
+  br label %.critedge2
+
+.critedge2:                                       ; preds = %.critedge2.loopexit, %.preheader29
+  %.3.lcssa = phi i64 [ %.044, %.preheader29 ], [ %.3.lcssa.ph, %.critedge2.loopexit ]
+  %.lcssa = phi i64 [ 0, %.preheader29 ], [ %.lcssa.ph, %.critedge2.loopexit ]
+  %spec.select = phi i64 [ %.02343, %.preheader29 ], [ %spec.select.ph, %.critedge2.loopexit ]
   %spec.select27 = add nuw i64 %.lcssa, %.3.lcssa
   br label %23
 

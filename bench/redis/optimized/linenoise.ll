@@ -1622,20 +1622,21 @@ define dso_local ptr @linenoise(ptr noundef %0) local_unnamed_addr #10 {
   %45 = icmp eq ptr %44, null
   br i1 %45, label %isUnsupportedTerm.exit.thread, label %.preheader.i
 
-46:                                               ; preds = %.preheader.i
+.preheader.i:                                     ; preds = %43, %.preheader.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %43 ]
+  %46 = getelementptr inbounds nuw [4 x ptr], ptr @unsupported_term, i64 0, i64 %indvars.iv.i
+  %47 = load ptr, ptr %46, align 8, !tbaa !15
+  %48 = tail call i32 @strcasecmp(ptr noundef nonnull %44, ptr noundef %47) #25
+  %.not8.i = icmp eq i32 %48, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i14 = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i14, label %isUnsupportedTerm.exit.thread, label %.preheader.i, !llvm.loop !56
-
-.preheader.i:                                     ; preds = %43, %46
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %46 ], [ 0, %43 ]
-  %47 = getelementptr inbounds nuw [4 x ptr], ptr @unsupported_term, i64 0, i64 %indvars.iv.i
-  %48 = load ptr, ptr %47, align 8, !tbaa !15
-  %49 = tail call i32 @strcasecmp(ptr noundef nonnull %44, ptr noundef %48) #25
-  %.not8.i = icmp eq i32 %49, 0
-  br i1 %.not8.i, label %isUnsupportedTerm.exit, label %46
+  %or.cond.i = select i1 %.not8.i, i1 true, i1 %.not.i14
+  br i1 %or.cond.i, label %isUnsupportedTerm.exit, label %.preheader.i, !llvm.loop !56
 
 isUnsupportedTerm.exit:                           ; preds = %.preheader.i
+  br i1 %.not8.i, label %49, label %isUnsupportedTerm.exit.thread
+
+49:                                               ; preds = %isUnsupportedTerm.exit
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %0)
   %51 = load ptr, ptr @stdout, align 8, !tbaa !48
   %52 = tail call i32 @fflush(ptr noundef %51)
@@ -1644,7 +1645,7 @@ isUnsupportedTerm.exit:                           ; preds = %.preheader.i
   %55 = icmp eq ptr %54, null
   br i1 %55, label %linenoiseNoTTY.exit, label %56
 
-56:                                               ; preds = %isUnsupportedTerm.exit
+56:                                               ; preds = %49
   %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #25
   %.not1328 = icmp eq i64 %57, 0
   br i1 %.not1328, label %.critedge, label %.lr.ph
@@ -1668,7 +1669,7 @@ isUnsupportedTerm.exit:                           ; preds = %.preheader.i
   %61 = call noalias ptr @strdup(ptr noundef nonnull %15) #24
   br label %linenoiseNoTTY.exit
 
-isUnsupportedTerm.exit.thread:                    ; preds = %46, %43, %40
+isUnsupportedTerm.exit.thread:                    ; preds = %43, %isUnsupportedTerm.exit, %40
   %62 = tail call fastcc i32 @enableRawMode()
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %linenoiseNoTTY.exit, label %64
@@ -2669,8 +2670,8 @@ linenoiseRaw.exit:                                ; preds = %linenoiseEdit.exit.
   %433 = call noalias ptr @strdup(ptr noundef nonnull %15) #24
   br label %linenoiseNoTTY.exit
 
-linenoiseNoTTY.exit:                              ; preds = %39, %39, %isUnsupportedTerm.exit.thread, %.thread.sink.split.i, %26, %linenoiseRaw.exit, %.critedge, %isUnsupportedTerm.exit, %432
-  %.010 = phi ptr [ %433, %432 ], [ %61, %.critedge ], [ null, %isUnsupportedTerm.exit ], [ null, %linenoiseRaw.exit ], [ null, %26 ], [ null, %.thread.sink.split.i ], [ null, %isUnsupportedTerm.exit.thread ], [ %.4.i, %39 ], [ %.4.i, %39 ]
+linenoiseNoTTY.exit:                              ; preds = %39, %39, %isUnsupportedTerm.exit.thread, %.thread.sink.split.i, %26, %linenoiseRaw.exit, %.critedge, %49, %432
+  %.010 = phi ptr [ %433, %432 ], [ %61, %.critedge ], [ null, %49 ], [ null, %linenoiseRaw.exit ], [ null, %26 ], [ null, %.thread.sink.split.i ], [ null, %isUnsupportedTerm.exit.thread ], [ %.4.i, %39 ], [ %.4.i, %39 ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %15) #24
   ret ptr %.010
 }
@@ -2912,7 +2913,7 @@ define dso_local range(i32 -1, 1) i32 @linenoiseHistorySave(ptr noundef readonly
   br label %26
 
 26:                                               ; preds = %1, %._crit_edge
-  %.010 = phi i32 [ 0, %._crit_edge ], [ -1, %1 ]
+  %.010 = sext i1 %5 to i32
   ret i32 %.010
 }
 
@@ -2973,7 +2974,7 @@ define dso_local range(i32 -1, 1) i32 @linenoiseHistoryLoad(ptr noundef readonly
   br label %13
 
 13:                                               ; preds = %1, %._crit_edge
-  %.07 = phi i32 [ 0, %._crit_edge ], [ -1, %1 ]
+  %.07 = sext i1 %4 to i32
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #24
   ret i32 %.07
 }

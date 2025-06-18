@@ -4542,7 +4542,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   br label %161
 
 161:                                              ; preds = %153, %142
-  %.089.i = phi i32 [ 0, %153 ], [ -1, %142 ]
+  %.089.i = sext i1 %.not96.i to i32
   %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
   call void @dt_image_cache_read_release(ptr noundef %162, ptr noundef nonnull %150) #18
   %163 = load ptr, ptr %15, align 8, !tbaa !109
@@ -4561,7 +4561,8 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %173 = load ptr, ptr %143, align 8, !tbaa !235
   %174 = call ptr @g_list_append(ptr noundef %173, ptr noundef nonnull %169) #18
   store ptr %174, ptr %143, align 8, !tbaa !235
-  %175 = add nsw i32 %.089.i, 1
+  %not..not96.i = xor i1 %.not96.i, true
+  %175 = zext i1 %not..not96.i to i32
   %176 = getelementptr inbounds nuw i8, ptr %169, i64 1040
   store i32 %175, ptr %176, align 8, !tbaa !211
   %.pre.i = load ptr, ptr %15, align 8, !tbaa !109
@@ -5164,7 +5165,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   br i1 %exitcond.not, label %6, label %.preheader
 
 8:                                                ; preds = %2, %6
-  %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
+  %.06 = zext i1 %or.cond to i32
   ret i32 %.06
 }
 

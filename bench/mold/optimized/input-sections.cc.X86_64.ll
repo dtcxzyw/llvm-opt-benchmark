@@ -1591,7 +1591,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN4mold12InputSectionINS_6X86_64E
   %10 = load i32, ptr %9, align 1
   %11 = zext i32 %10 to i64
   %.not = icmp ugt i64 %8, %11
-  br i1 %.not, label %12, label %81
+  br i1 %.not, label %12, label %82
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1662,7 +1662,7 @@ _ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112b
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 136
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %52) #15
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #15
-  br label %81
+  br label %82
 
 53:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
@@ -1716,16 +1716,17 @@ _ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112b
   br i1 %.not19, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %74, %77
-  %.2.ph = phi i1 [ true, %77 ], [ false, %74 ]
+  %81 = trunc i32 %76 to i1
+  %.2.ph = xor i1 %81, true
   call void @_ZZN4mold12InputSectionINS_6X86_64EE18record_undef_errorERNS_7ContextIS1_EERKNS_6ElfRelIS1_EEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %74, %77, %64, %67, %53, %60
   %.2 = phi i1 [ false, %60 ], [ false, %53 ], [ false, %67 ], [ false, %64 ], [ false, %77 ], [ false, %74 ], [ %.2.ph, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
-  br label %81
+  br label %82
 
-81:                                               ; preds = %_ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit, %.critedge, %3
+82:                                               ; preds = %_ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit, %.critedge, %3
   %.0 = phi i1 [ false, %3 ], [ %.2, %.critedge ], [ true, %_ZN4mold5ErrorINS_7ContextINS_6X86_64EEEED2Ev.exit ]
   ret i1 %.0
 }
@@ -5539,8 +5540,8 @@ _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold6SymbolI
 128:                                              ; preds = %126
   %129 = atomicrmw add ptr %122, i64 4 seq_cst, align 8
   %130 = and i64 %129, 1
-  %.not5.not.i.i = icmp eq i64 %130, 0
-  br i1 %.not5.not.i.i, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold6SymbolINS6_6X86_64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.sink.split, label %131
+  %.not5.i.i = icmp eq i64 %130, 0
+  br i1 %.not5.i.i, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold6SymbolINS6_6X86_64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.sink.split, label %131
 
 131:                                              ; preds = %128
   %132 = atomicrmw sub ptr %122, i64 4 seq_cst, align 8
@@ -5573,8 +5574,8 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i: ; preds = %124
 142:                                              ; preds = %140
   %143 = atomicrmw add ptr %122, i64 4 seq_cst, align 8
   %144 = and i64 %143, 1
-  %.not5.not.i.i66 = icmp eq i64 %144, 0
-  br i1 %.not5.not.i.i66, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold6SymbolINS6_6X86_64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.sink.split, label %145
+  %.not5.i.i66 = icmp eq i64 %144, 0
+  br i1 %.not5.i.i66, label %_ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN4mold6SymbolINS6_6X86_64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEEEENS3_13spin_rw_mutexEE15check_mask_raceEmRm.exit.sink.split, label %145
 
 145:                                              ; preds = %142
   %146 = atomicrmw sub ptr %122, i64 4 seq_cst, align 8

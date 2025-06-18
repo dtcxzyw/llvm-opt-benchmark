@@ -2097,45 +2097,47 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %4, i32 %spec.select.i)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.omp_outlined, ptr nonnull %2, ptr nonnull %3, ptr nonnull %0)
   %18 = load i32, ptr %2, align 4, !tbaa !10
-  %.not1016 = icmp sgt i32 %18, 0
+  %.not1018 = icmp sgt i32 %18, 0
   %.pr.pre = load ptr, ptr %3, align 8, !tbaa !35
-  br i1 %.not1016, label %.lr.ph, label %._crit_edge
+  br i1 %.not1018, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.loopexit
   %wide.trip.count = zext nneg i32 %18 to i64
-  br label %20
+  br label %19
 
-19:                                               ; preds = %20
+19:                                               ; preds = %19, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %20 = getelementptr inbounds nuw i32, ptr %.pr.pre, i64 %indvars.iv
+  %21 = load i32, ptr %20, align 4, !tbaa !10
+  %.not = icmp ne i32 %21, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %20, !llvm.loop !40
+  %or.cond = select i1 %.not, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %.critedge.thread.loopexit, label %19, !llvm.loop !40
 
-20:                                               ; preds = %.lr.ph, %19
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %21 = getelementptr inbounds nuw i32, ptr %.pr.pre, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4, !tbaa !10
-  %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %19, label %.thread
-
-._crit_edge:                                      ; preds = %.loopexit
+.critedge:                                        ; preds = %.loopexit
   %.not.i.i.i = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.thread
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.critedge.thread
 
-.thread:                                          ; preds = %19, %20, %._crit_edge
-  %spec.select14 = phi i32 [ 0, %._crit_edge ], [ 0, %19 ], [ -1, %20 ]
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !38
-  %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %.pr.pre to i64
-  %27 = sub i64 %25, %26
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.pre, i64 noundef %27) #25
+.critedge.thread.loopexit:                        ; preds = %19
+  %.not1017.ph = sext i1 %.not to i32
+  br label %.critedge.thread
+
+.critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %.critedge
+  %.not1017 = phi i32 [ 0, %.critedge ], [ %.not1017.ph, %.critedge.thread.loopexit ]
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !38
+  %24 = ptrtoint ptr %23 to i64
+  %25 = ptrtoint ptr %.pr.pre to i64
+  %26 = sub i64 %24, %25
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.pre, i64 noundef %26) #25
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %.thread
-  %spec.select15 = phi i32 [ 0, %._crit_edge ], [ %spec.select14, %.thread ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.critedge, %.critedge.thread
+  %.115 = phi i32 [ 0, %.critedge ], [ %.not1017, %.critedge.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #18
-  ret i32 %spec.select15
+  ret i32 %.115
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2183,8 +2185,8 @@ define internal void @_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.omp_outlin
   %20 = trunc i64 %19 to i32
   %21 = call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %20, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(128) %4) #18
   %22 = trunc i64 %21 to i32
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_ZL18set_sched_affinityRKN4ncnn6CpuSetE.exit, label %23
+  %.not.i = icmp ne i32 %22, 0
+  br i1 %.not.i, label %23, label %_ZL18set_sched_affinityRKN4ncnn6CpuSetE.exit
 
 23:                                               ; preds = %.lr.ph
   %24 = load ptr, ptr @stderr, align 8, !tbaa !15
@@ -2194,7 +2196,7 @@ define internal void @_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.omp_outlin
   br label %_ZL18set_sched_affinityRKN4ncnn6CpuSetE.exit
 
 _ZL18set_sched_affinityRKN4ncnn6CpuSetE.exit:     ; preds = %.lr.ph, %23
-  %.0.i = phi i32 [ -1, %23 ], [ 0, %.lr.ph ]
+  %.0.i = sext i1 %.not.i to i32
   %27 = load ptr, ptr %3, align 8, !tbaa !35
   %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   store i32 %.0.i, ptr %28, align 4, !tbaa !10
@@ -2329,7 +2331,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn19set_flush_denormalsEi(i32 
   br label %6
 
 6:                                                ; preds = %1, %2
-  %.0 = phi i32 [ -1, %2 ], [ 0, %1 ]
+  %.0 = sext i1 %or.cond to i32
   ret i32 %.0
 }
 

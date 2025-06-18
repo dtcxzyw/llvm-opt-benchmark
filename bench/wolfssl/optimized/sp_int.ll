@@ -12775,23 +12775,24 @@ define range(i32 -98, 1) i32 @sp_prime_is_prime(ptr noundef readonly captures(ad
 
 .split.split.i:                                   ; preds = %21
   store i32 0, ptr %2, align 4, !tbaa !123
-  br label %25
+  %or.cond815.i = icmp eq i64 %23, 2
+  br i1 %or.cond815.i, label %.thread64, label %sp_cmp_d.exit.thread.i
 
-25:                                               ; preds = %sp_cmp_d.exit.thread.i, %.split.split.i
-  %indvars.iv.i = phi i64 [ 0, %.split.split.i ], [ %indvars.iv.next.i, %sp_cmp_d.exit.thread.i ]
-  %26 = getelementptr inbounds nuw [256 x i16], ptr @sp_primes, i64 0, i64 %indvars.iv.i
+25:                                               ; preds = %sp_cmp_d.exit.thread.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %26 = getelementptr inbounds nuw [256 x i16], ptr @sp_primes, i64 0, i64 %indvars.iv.next.i
   %27 = load i16, ptr %26, align 2, !tbaa !72
   %28 = zext i16 %27 to i64
   %or.cond8.i = icmp eq i64 %23, %28
-  br i1 %or.cond8.i, label %.thread64, label %sp_cmp_d.exit.thread.i
+  br i1 %or.cond8.i, label %.thread64, label %sp_cmp_d.exit.thread.i, !llvm.loop !126
 
-.thread64:                                        ; preds = %25
+.thread64:                                        ; preds = %25, %.split.split.i
   store i32 1, ptr %2, align 4, !tbaa !123
   br label %48
 
-sp_cmp_d.exit.thread.i:                           ; preds = %25
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
+sp_cmp_d.exit.thread.i:                           ; preds = %.split.split.i, %25
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 0, %.split.split.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i, 255
   br i1 %exitcond.not.i, label %sp_cmp_primes.exit, label %25, !llvm.loop !126
 
 sp_cmp_primes.exit:                               ; preds = %sp_cmp_d.exit.thread.i, %.thread52, %21
@@ -12981,7 +12982,7 @@ define i32 @sp_prime_is_prime_ex(ptr noundef readonly captures(address) %0, i32 
   br label %.thread
 
 .thread:                                          ; preds = %13, %24
-  %.0.ph = phi i32 [ 0, %13 ], [ 1, %24 ]
+  %.0.ph = zext i1 %16 to i32
   %25 = or i1 %or.cond5, %14
   br label %sp_cmp_primes.exit
 
@@ -12993,23 +12994,24 @@ define i32 @sp_prime_is_prime_ex(ptr noundef readonly captures(address) %0, i32 
 
 .split.split.i:                                   ; preds = %26
   store i32 0, ptr %6, align 4, !tbaa !123
-  br label %30
+  %or.cond815.i = icmp eq i64 %28, 2
+  br i1 %or.cond815.i, label %.thread53, label %sp_cmp_d.exit.thread.i
 
-30:                                               ; preds = %sp_cmp_d.exit.thread.i, %.split.split.i
-  %indvars.iv.i = phi i64 [ 0, %.split.split.i ], [ %indvars.iv.next.i, %sp_cmp_d.exit.thread.i ]
-  %31 = getelementptr inbounds nuw [256 x i16], ptr @sp_primes, i64 0, i64 %indvars.iv.i
+30:                                               ; preds = %sp_cmp_d.exit.thread.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %31 = getelementptr inbounds nuw [256 x i16], ptr @sp_primes, i64 0, i64 %indvars.iv.next.i
   %32 = load i16, ptr %31, align 2, !tbaa !72
   %33 = zext i16 %32 to i64
   %or.cond8.i = icmp eq i64 %28, %33
-  br i1 %or.cond8.i, label %.thread53, label %sp_cmp_d.exit.thread.i
+  br i1 %or.cond8.i, label %.thread53, label %sp_cmp_d.exit.thread.i, !llvm.loop !126
 
-.thread53:                                        ; preds = %30
+.thread53:                                        ; preds = %30, %.split.split.i
   store i32 1, ptr %6, align 4, !tbaa !123
   br label %57
 
-sp_cmp_d.exit.thread.i:                           ; preds = %30
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
+sp_cmp_d.exit.thread.i:                           ; preds = %.split.split.i, %30
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.split.split.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i, 255
   br i1 %exitcond.not.i, label %sp_cmp_primes.exit, label %30, !llvm.loop !126
 
 sp_cmp_primes.exit:                               ; preds = %sp_cmp_d.exit.thread.i, %17, %.thread, %26

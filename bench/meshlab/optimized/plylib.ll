@@ -12325,33 +12325,38 @@ define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4ReadEPv(ptr noundef non
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8
-  %.not6 = icmp eq ptr %6, %8
-  br i1 %.not6, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %6, %8
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %15
 
 10:                                               ; preds = %15
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.02.07, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.02.06, i64 168
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %11, %14
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !99
+  %.not9 = icmp eq ptr %11, %14
+  br i1 %.not9, label %._crit_edge.loopexit, label %15, !llvm.loop !99
 
 15:                                               ; preds = %.lr.ph, %10
-  %.sroa.02.07 = phi ptr [ %6, %.lr.ph ], [ %11, %10 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.02.07, i64 160
+  %.sroa.02.06 = phi ptr [ %6, %.lr.ph ], [ %11, %10 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.02.06, i64 160
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.02.07, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.02.06, i64 48
   %20 = tail call noundef zeroext i1 %17(ptr noundef %18, ptr noundef %1, ptr noundef nonnull %19)
-  br i1 %20, label %10, label %._crit_edge
+  br i1 %20, label %10, label %._crit_edge.loopexit
 
-._crit_edge:                                      ; preds = %15, %10, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %10 ], [ -1, %15 ]
-  ret i32 %.0
+._crit_edge.loopexit:                             ; preds = %10, %15
+  %21 = xor i1 %20, true
+  %.lcssa.ph = sext i1 %21 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
+  %.lcssa = phi i32 [ 0, %2 ], [ %.lcssa.ph, %._crit_edge.loopexit ]
+  ret i32 %.lcssa
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable

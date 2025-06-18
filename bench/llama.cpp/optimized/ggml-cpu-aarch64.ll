@@ -223,14 +223,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL24repack_q4_0_to_q4_0_4_
   %29 = and i64 %28, 3
   %30 = and i64 %18, 7
   %31 = or i64 %29, %30
-  %or.cond = icmp eq i64 %31, 0
-  br i1 %or.cond, label %.preheader39, label %.loopexit
+  %or.cond = icmp ne i64 %31, 0
+  %32 = icmp slt i32 %16, 1
+  %or.cond47.not = or i1 %32, %or.cond
+  br i1 %or.cond47.not, label %.loopexit, label %.preheader38.lr.ph
 
-.preheader39:                                     ; preds = %26
-  %32 = icmp sgt i32 %16, 0
-  br i1 %32, label %.preheader38.lr.ph, label %.loopexit
-
-.preheader38.lr.ph:                               ; preds = %.preheader39
+.preheader38.lr.ph:                               ; preds = %26
   %sext36 = shl i64 %19, 32
   %33 = ashr exact i64 %sext36, 32
   %34 = icmp sgt i64 %33, 0
@@ -243,8 +241,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL24repack_q4_0_to_q4_0_4_
   %.rhs.trunc.i = trunc nuw nsw i32 %1 to i8
   %38 = udiv i8 64, %.rhs.trunc.i
   %wide.trip.count.i.us = zext nneg i8 %38 to i64
-  %sext51 = shl i64 %19, 32
-  %39 = ashr exact i64 %sext51, 32
+  %sext52 = shl i64 %19, 32
+  %39 = ashr exact i64 %sext52, 32
   br label %.preheader38.us
 
 .preheader38.us:                                  ; preds = %._crit_edge.us, %.preheader38.lr.ph.split.us
@@ -310,8 +308,8 @@ _ZL17make_block_q4_0x4P10block_q4_0j.exit.us:     ; preds = %.preheader39.i.us, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(72) %.142.us, ptr noundef nonnull align 2 dereferenceable(72) %6, i64 72, i1 false), !tbaa.struct !28
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #23
   %61 = add nuw nsw i64 %.03043.us, 1
-  %exitcond50.not = icmp eq i64 %61, %33
-  br i1 %exitcond50.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !30
+  %exitcond51.not = icmp eq i64 %61, %33
+  br i1 %exitcond51.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !30
 
 62:                                               ; preds = %.preheader.us, %62
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %62 ]
@@ -339,8 +337,8 @@ _ZL17make_block_q4_0x4P10block_q4_0j.exit.us:     ; preds = %.preheader39.i.us, 
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str, i32 noundef 3629, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5) #22, !noalias !17
   unreachable
 
-.loopexit:                                        ; preds = %._crit_edge.us, %.preheader38.lr.ph, %.preheader39, %26
-  %.032 = phi i32 [ -1, %26 ], [ 0, %.preheader39 ], [ 0, %.preheader38.lr.ph ], [ 0, %._crit_edge.us ]
+.loopexit:                                        ; preds = %._crit_edge.us, %.preheader38.lr.ph, %26
+  %.032 = sext i1 %or.cond to i32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #23
   ret i32 %.032
 }
@@ -403,14 +401,12 @@ define noundef range(i32 -1, 1) i32 @_ZN4ggml3cpu7aarch646repackI10block_q4_0Ll8
   %25 = load i64, ptr %24, align 8, !tbaa !16, !noalias !34
   %26 = or i64 %25, %15
   %27 = and i64 %26, 7
-  %or.cond.i = icmp eq i64 %27, 0
-  br i1 %or.cond.i, label %.preheader37.i, label %_ZL24repack_q4_0_to_q4_0_8_blP11ggml_tensoriPKvm.exit
+  %or.cond.i = icmp ne i64 %27, 0
+  %28 = icmp slt i32 %13, 1
+  %or.cond44.not.i = or i1 %28, %or.cond.i
+  br i1 %or.cond44.not.i, label %_ZL24repack_q4_0_to_q4_0_8_blP11ggml_tensoriPKvm.exit, label %.preheader36.lr.ph.i
 
-.preheader37.i:                                   ; preds = %23
-  %28 = icmp sgt i32 %13, 0
-  br i1 %28, label %.preheader36.lr.ph.i, label %_ZL24repack_q4_0_to_q4_0_8_blP11ggml_tensoriPKvm.exit
-
-.preheader36.lr.ph.i:                             ; preds = %.preheader37.i
+.preheader36.lr.ph.i:                             ; preds = %23
   %sext35.i = shl i64 %16, 32
   %29 = ashr exact i64 %sext35.i, 32
   %30 = icmp sgt i64 %29, 0
@@ -459,8 +455,8 @@ _ZL17make_block_q4_0x8P10block_q4_0j.exit.us.i:   ; preds = %.preheader.i.us.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(144) %.139.us.i, ptr noundef nonnull align 2 dereferenceable(144) %5, i64 144, i1 false), !tbaa.struct !43, !noalias !34
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #23, !noalias !34
   %46 = add nuw nsw i64 %.02840.us.i, 1
-  %exitcond46.not.i = icmp eq i64 %46, %29
-  br i1 %exitcond46.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !44
+  %exitcond47.not.i = icmp eq i64 %46, %29
+  br i1 %exitcond47.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !44
 
 47:                                               ; preds = %.preheader.us.i, %47
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %47 ]
@@ -484,8 +480,8 @@ _ZL17make_block_q4_0x8P10block_q4_0j.exit.us.i:   ; preds = %.preheader.i.us.i
   %54 = icmp slt i32 %53, %13
   br i1 %54, label %.preheader36.us.i, label %_ZL24repack_q4_0_to_q4_0_8_blP11ggml_tensoriPKvm.exit, !llvm.loop !46
 
-_ZL24repack_q4_0_to_q4_0_8_blP11ggml_tensoriPKvm.exit: ; preds = %._crit_edge.us.i, %23, %.preheader37.i, %.preheader36.lr.ph.i
-  %.030.i = phi i32 [ -1, %23 ], [ 0, %.preheader37.i ], [ 0, %.preheader36.lr.ph.i ], [ 0, %._crit_edge.us.i ]
+_ZL24repack_q4_0_to_q4_0_8_blP11ggml_tensoriPKvm.exit: ; preds = %._crit_edge.us.i, %23, %.preheader36.lr.ph.i
+  %.030.i = sext i1 %or.cond.i to i32
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #23, !noalias !34
   ret i32 %.030.i
 }
@@ -529,14 +525,12 @@ define noundef range(i32 -1, 1) i32 @_ZN4ggml3cpu7aarch646repackI12block_iq4_nlL
   %26 = and i64 %25, 3
   %27 = and i64 %15, 7
   %28 = or i64 %26, %27
-  %or.cond.i = icmp eq i64 %28, 0
-  br i1 %or.cond.i, label %.preheader41.i, label %_ZL28repack_iq4_nl_to_iq4_nl_4_blP11ggml_tensoriPKvm.exit
+  %or.cond.i = icmp ne i64 %28, 0
+  %29 = icmp slt i32 %13, 1
+  %or.cond48.not.i = or i1 %29, %or.cond.i
+  br i1 %or.cond48.not.i, label %_ZL28repack_iq4_nl_to_iq4_nl_4_blP11ggml_tensoriPKvm.exit, label %.preheader40.lr.ph.i
 
-.preheader41.i:                                   ; preds = %23
-  %29 = icmp sgt i32 %13, 0
-  br i1 %29, label %.preheader40.lr.ph.i, label %_ZL28repack_iq4_nl_to_iq4_nl_4_blP11ggml_tensoriPKvm.exit
-
-.preheader40.lr.ph.i:                             ; preds = %.preheader41.i
+.preheader40.lr.ph.i:                             ; preds = %23
   %sext39.i = shl i64 %16, 32
   %30 = ashr exact i64 %sext39.i, 32
   %31 = icmp sgt i64 %30, 0
@@ -584,8 +578,8 @@ _ZL19make_block_iq4_nlx4P12block_iq4_nlj.exit.us.i: ; preds = %.preheader.i.us.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(72) %.143.us.i, ptr noundef nonnull align 2 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !28, !noalias !47
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #23, !noalias !47
   %47 = add nuw nsw i64 %.03244.us.i, 1
-  %exitcond50.not.i = icmp eq i64 %47, %30
-  br i1 %exitcond50.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !58
+  %exitcond51.not.i = icmp eq i64 %47, %30
+  br i1 %exitcond51.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !58
 
 48:                                               ; preds = %.preheader.us.i, %48
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %48 ]
@@ -609,8 +603,8 @@ _ZL19make_block_iq4_nlx4P12block_iq4_nlj.exit.us.i: ; preds = %.preheader.i.us.i
   %55 = icmp slt i32 %54, %13
   br i1 %55, label %.preheader40.us.i, label %_ZL28repack_iq4_nl_to_iq4_nl_4_blP11ggml_tensoriPKvm.exit, !llvm.loop !60
 
-_ZL28repack_iq4_nl_to_iq4_nl_4_blP11ggml_tensoriPKvm.exit: ; preds = %._crit_edge.us.i, %23, %.preheader41.i, %.preheader40.lr.ph.i
-  %.034.i = phi i32 [ -1, %23 ], [ 0, %.preheader41.i ], [ 0, %.preheader40.lr.ph.i ], [ 0, %._crit_edge.us.i ]
+_ZL28repack_iq4_nl_to_iq4_nl_4_blP11ggml_tensoriPKvm.exit: ; preds = %._crit_edge.us.i, %23, %.preheader40.lr.ph.i
+  %.034.i = sext i1 %or.cond.i to i32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #23, !noalias !47
   ret i32 %.034.i
 }

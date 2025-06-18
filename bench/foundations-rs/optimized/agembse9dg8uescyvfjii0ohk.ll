@@ -418,14 +418,14 @@ define internal void @"_ZN121_$LT$tonic..transport..service..connector..Connecto
   %6 = alloca [40 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i8, ptr %7, align 8, !range !27, !noundef !7
-  switch i8 %8, label %default.unreachable9 [
+  switch i8 %8, label %default.unreachable8 [
     i8 0, label %9
     i8 1, label %15
     i8 2, label %16
     i8 3, label %17
   ]
 
-default.unreachable9:                             ; preds = %3
+default.unreachable8:                             ; preds = %3
   unreachable
 
 9:                                                ; preds = %3
@@ -507,11 +507,10 @@ common.ret:                                       ; preds = %36, %24
   br label %37
 
 36:                                               ; preds = %32, %38
-  %.sroa.06.0 = phi i64 [ 1, %38 ], [ 0, %32 ]
   %.pn = phi { ptr, ptr } [ %31, %38 ], [ %33, %32 ]
   %.sroa.5.0 = extractvalue { ptr, ptr } %.pn, 1
   %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 0
-  store i64 %.sroa.06.0, ptr %0, align 8
+  store i64 %22, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8925,7 +8924,6 @@ define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5al
   br label %59
 
 59:                                               ; preds = %58, %38
-  %.sroa.012.0.i.i.i = phi i8 [ 1, %58 ], [ 0, %38 ]
   %60 = trunc nuw i8 %54 to i1
   %.sroa.59.0.i.i.i = select i1 %60, i32 %.sroa.59.0.copyload.i.i.i, i32 undef
   %.not21.i.i.i = icmp eq i32 %50, 1000000000
@@ -8975,7 +8973,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @"_ZN5al
   %.sroa.15.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 82
   store i32 %.sroa.59.0.i.i.i, ptr %.sroa.15.0..sroa_idx.i.i, align 2, !noalias !1024
   %.sroa.16.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 86
-  store i8 %.sroa.012.0.i.i.i, ptr %.sroa.16.0..sroa_idx.i.i, align 2, !noalias !1024
+  store i8 %56, ptr %.sroa.16.0..sroa_idx.i.i, align 2, !noalias !1024
   %.sroa.17.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.17.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.514.i.i.i, i64 16, i1 false), !noalias !1024
   %.sroa.18.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 103
@@ -15597,7 +15595,6 @@ define internal fastcc void @"_ZN84_$LT$tonic..transport..channel..endpoint..End
 
 46:                                               ; preds = %40, %43
   %.sroa.52.0 = phi i64 [ %45, %43 ], [ undef, %40 ]
-  %.sroa.01.0 = phi i64 [ 1, %43 ], [ 0, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %48 = load i32, ptr %47, align 8, !range !1018, !noundef !7
   %.not37 = icmp eq i32 %48, 1000000000
@@ -15625,7 +15622,6 @@ define internal fastcc void @"_ZN84_$LT$tonic..transport..channel..endpoint..End
 
 60:                                               ; preds = %49, %57
   %.sroa.510.0 = phi i64 [ %59, %57 ], [ undef, %49 ]
-  %.sroa.09.0 = phi i64 [ 1, %57 ], [ 0, %49 ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %62 = load i32, ptr %61, align 8, !range !2039, !noundef !7
   %63 = trunc nuw i32 %62 to i1
@@ -15638,7 +15634,6 @@ define internal fastcc void @"_ZN84_$LT$tonic..transport..channel..endpoint..End
 
 67:                                               ; preds = %60, %64
   %.sroa.512.0 = phi i32 [ %66, %64 ], [ undef, %60 ]
-  %.sroa.011.0 = phi i32 [ 1, %64 ], [ 0, %60 ]
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %69 = load i32, ptr %68, align 8, !range !2039, !noundef !7
   %70 = trunc nuw i32 %69 to i1
@@ -15651,7 +15646,6 @@ define internal fastcc void @"_ZN84_$LT$tonic..transport..channel..endpoint..End
 
 74:                                               ; preds = %67, %71
   %.sroa.514.0 = phi i32 [ %73, %71 ], [ undef, %67 ]
-  %.sroa.013.0 = phi i32 [ 1, %71 ], [ 0, %67 ]
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %76 = load i32, ptr %75, align 8, !range !1018, !noundef !7
   %.not40 = icmp eq i32 %76, 1000000000
@@ -15728,7 +15722,7 @@ define internal fastcc void @"_ZN84_$LT$tonic..transport..channel..endpoint..End
   store i64 %.sroa.0.0, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %29, ptr %117, align 8
-  store i64 %.sroa.01.0, ptr %0, align 8
+  store i64 %41, ptr %0, align 8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.52.0, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -15738,15 +15732,15 @@ define internal fastcc void @"_ZN84_$LT$tonic..transport..channel..endpoint..End
   %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %48, ptr %.sroa.4.0..sroa_idx4, align 8
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.09.0, ptr %120, align 8
+  store i64 %51, ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.510.0, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sroa.011.0, ptr %122, align 8
+  store i32 %62, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sroa.512.0, ptr %123, align 4
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.sroa.013.0, ptr %124, align 8
+  store i32 %69, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.sroa.514.0, ptr %125, align 4
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -23110,7 +23104,7 @@ define void @_ZN11foundations9telemetry15memory_profiler14MemoryProfiler16get_or
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %18, ptr %19, align 8
-  br label %25
+  br label %27
 
 20:                                               ; preds = %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23123,8 +23117,12 @@ define void @_ZN11foundations9telemetry15memory_profiler14MemoryProfiler16get_or
   store i8 %23, ptr %24, align 1
   br label %25
 
-25:                                               ; preds = %20, %22, %13
-  %storemerge2 = phi i8 [ 1, %13 ], [ 0, %22 ], [ 1, %20 ]
+25:                                               ; preds = %22, %20
+  %26 = trunc nuw nsw i64 %9 to i8
+  br label %27
+
+27:                                               ; preds = %25, %13
+  %storemerge2 = phi i8 [ %26, %25 ], [ 1, %13 ]
   store i8 %storemerge2, ptr %0, align 8
   ret void
 }

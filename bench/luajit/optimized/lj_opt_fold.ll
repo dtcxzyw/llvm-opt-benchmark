@@ -1147,7 +1147,7 @@ define internal range(i32 0, 65536) i32 @fold_kfold_strref_snew(ptr noundef %0) 
   %5 = load i8, ptr %4, align 4, !tbaa !28
   %6 = and i8 %5, 64
   %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %7, label %37
+  br i1 %.not, label %7, label %38
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -1164,7 +1164,7 @@ define internal range(i32 0, 65536) i32 @fold_kfold_strref_snew(ptr noundef %0) 
 15:                                               ; preds = %11
   %16 = load i16, ptr %3, align 8, !tbaa !28
   %17 = zext i16 %16 to i32
-  br label %37
+  br label %38
 
 18:                                               ; preds = %11, %7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1175,7 +1175,7 @@ define internal range(i32 0, 65536) i32 @fold_kfold_strref_snew(ptr noundef %0) 
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 5
   %25 = load i8, ptr %24, align 1, !tbaa !28
   %.not21 = icmp eq i8 %25, 64
-  br i1 %.not21, label %26, label %37
+  br i1 %.not21, label %26, label %38
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -1198,8 +1198,12 @@ define internal range(i32 0, 65536) i32 @fold_kfold_strref_snew(ptr noundef %0) 
   store i16 16393, ptr %34, align 4, !tbaa !28
   br label %37
 
-37:                                               ; preds = %26, %30, %18, %1, %15
-  %.018 = phi i32 [ %17, %15 ], [ 0, %1 ], [ 1, %30 ], [ 0, %26 ], [ 0, %18 ]
+37:                                               ; preds = %26, %30
+  %.119 = zext i1 %.not20 to i32
+  br label %38
+
+38:                                               ; preds = %37, %18, %1, %15
+  %.018 = phi i32 [ %17, %15 ], [ 0, %1 ], [ %.119, %37 ], [ 0, %18 ]
   ret i32 %.018
 }
 
@@ -2411,7 +2415,7 @@ define internal range(i32 0, 2) i32 @fold_shortcut_dropleft(ptr noundef captures
   br label %9
 
 9:                                                ; preds = %1, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %.0 = zext i1 %.not to i32
   ret i32 %.0
 }
 
@@ -2455,7 +2459,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_numadd_negx(ptr noundef captu
   br label %12
 
 12:                                               ; preds = %1, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %.0 = zext i1 %.not to i32
   ret i32 %.0
 }
 
@@ -2477,7 +2481,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_numadd_xneg(ptr noundef captu
   br label %10
 
 10:                                               ; preds = %1, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %.0 = zext i1 %.not to i32
   ret i32 %.0
 }
 
@@ -2523,7 +2527,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_numsub_negk(ptr noundef %0) #
   br label %16
 
 16:                                               ; preds = %1, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %.0 = zext i1 %.not to i32
   ret i32 %.0
 }
 
@@ -2545,7 +2549,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_numsub_xneg(ptr noundef captu
   br label %10
 
 10:                                               ; preds = %1, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %.0 = zext i1 %.not to i32
   ret i32 %.0
 }
 
@@ -2657,7 +2661,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_nummuldiv_negk(ptr noundef %0
   br label %16
 
 16:                                               ; preds = %1, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %1 ]
+  %.0 = zext i1 %.not to i32
   ret i32 %.0
 }
 
@@ -3407,7 +3411,7 @@ define internal range(i32 0, 2) i32 @fold_simplify_intmod_k(ptr noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %1, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %1 ]
+  %.0 = zext i1 %or.cond to i32
   ret i32 %.0
 }
 
@@ -4696,7 +4700,7 @@ define internal range(i32 0, 2) i32 @fold_reassoc_intarith_k64(ptr noundef %0) #
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %11 = load i8, ptr %10, align 1, !tbaa !28
   %12 = icmp eq i8 %11, 29
-  br i1 %12, label %13, label %53
+  br i1 %12, label %13, label %54
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4783,8 +4787,12 @@ kfold_int64arith.exit:                            ; preds = %13, %20, %22, %24, 
   store i16 %51, ptr %52, align 2, !tbaa !28
   br label %53
 
-53:                                               ; preds = %1, %48, %kfold_int64arith.exit
-  %.1 = phi i32 [ 1, %48 ], [ 0, %kfold_int64arith.exit ], [ 0, %1 ]
+53:                                               ; preds = %kfold_int64arith.exit, %48
+  %.0 = zext i1 %.not to i32
+  br label %54
+
+54:                                               ; preds = %1, %53
+  %.1 = phi i32 [ %.0, %53 ], [ 0, %1 ]
   ret i32 %.1
 }
 
@@ -5284,7 +5292,7 @@ define internal range(i32 0, 2) i32 @fold_comm_swap(ptr noundef captures(none) %
   br label %8
 
 8:                                                ; preds = %1, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %1 ]
+  %.0 = zext i1 %6 to i32
   ret i32 %.0
 }
 
@@ -5323,7 +5331,7 @@ define internal range(i32 0, 5) i32 @fold_comm_equal(ptr noundef captures(none) 
   %24 = load i8, ptr %23, align 1, !tbaa !28
   %25 = icmp eq i8 %24, 8
   %26 = select i1 %25, i32 4, i32 3
-  br label %fold_comm_swap.exit
+  br label %30
 
 27:                                               ; preds = %16, %12, %1
   %28 = icmp ult i16 %3, %5
@@ -5334,8 +5342,12 @@ define internal range(i32 0, 5) i32 @fold_comm_equal(ptr noundef captures(none) 
   store i16 %3, ptr %4, align 2, !tbaa !28
   br label %fold_comm_swap.exit
 
-fold_comm_swap.exit:                              ; preds = %29, %27, %22
-  %.0 = phi i32 [ %26, %22 ], [ 1, %29 ], [ 0, %27 ]
+fold_comm_swap.exit:                              ; preds = %27, %29
+  %.0.i = zext i1 %28 to i32
+  br label %30
+
+30:                                               ; preds = %fold_comm_swap.exit, %22
+  %.0 = phi i32 [ %26, %22 ], [ %.0.i, %fold_comm_swap.exit ]
   ret i32 %.0
 }
 
@@ -5394,7 +5406,7 @@ define internal range(i32 0, 65536) i32 @fold_comm_dup(ptr noundef captures(none
 
 7:                                                ; preds = %1
   %8 = zext i16 %3 to i32
-  br label %fold_comm_swap.exit
+  br label %12
 
 9:                                                ; preds = %1
   %10 = icmp ult i16 %3, %5
@@ -5405,8 +5417,12 @@ define internal range(i32 0, 65536) i32 @fold_comm_dup(ptr noundef captures(none
   store i16 %3, ptr %4, align 2, !tbaa !28
   br label %fold_comm_swap.exit
 
-fold_comm_swap.exit:                              ; preds = %11, %9, %7
-  %.0 = phi i32 [ %8, %7 ], [ 1, %11 ], [ 0, %9 ]
+fold_comm_swap.exit:                              ; preds = %9, %11
+  %.0.i = zext i1 %10 to i32
+  br label %12
+
+12:                                               ; preds = %fold_comm_swap.exit, %7
+  %.0 = phi i32 [ %8, %7 ], [ %.0.i, %fold_comm_swap.exit ]
   ret i32 %.0
 }
 
@@ -5443,11 +5459,11 @@ define internal i32 @fold_comm_bxor(ptr noundef %0) #0 {
 
 14:                                               ; preds = %7
   %15 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef 0) #12
-  br label %fold_comm_swap.exit
+  br label %20
 
 16:                                               ; preds = %7
   store i32 0, ptr %2, align 8, !tbaa !28
-  br label %fold_comm_swap.exit
+  br label %20
 
 17:                                               ; preds = %1
   %18 = icmp ult i16 %3, %5
@@ -5458,8 +5474,12 @@ define internal i32 @fold_comm_bxor(ptr noundef %0) #0 {
   store i16 %3, ptr %4, align 2, !tbaa !28
   br label %fold_comm_swap.exit
 
-fold_comm_swap.exit:                              ; preds = %19, %17, %14, %16
-  %.0 = phi i32 [ %15, %14 ], [ 2, %16 ], [ 1, %19 ], [ 0, %17 ]
+fold_comm_swap.exit:                              ; preds = %17, %19
+  %.0.i = zext i1 %18 to i32
+  br label %20
+
+20:                                               ; preds = %14, %16, %fold_comm_swap.exit
+  %.0 = phi i32 [ %.0.i, %fold_comm_swap.exit ], [ %15, %14 ], [ 2, %16 ]
   ret i32 %.0
 }
 

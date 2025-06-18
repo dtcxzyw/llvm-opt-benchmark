@@ -355,8 +355,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h767661d430913fd1
   br label %12
 
 12:                                               ; preds = %6, %10
-  %.sink = phi i64 [ 1, %10 ], [ 0, %6 ]
-  store i64 %.sink, ptr %0, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
@@ -385,8 +384,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h94637bb381dad747
   br label %12
 
 12:                                               ; preds = %6, %10
-  %.sink = phi i64 [ 1, %10 ], [ 0, %6 ]
-  store i64 %.sink, ptr %0, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
@@ -416,8 +414,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb353d9c26d6ac42f
   br label %11
 
 11:                                               ; preds = %5, %9
-  %.sink = phi i64 [ 1, %9 ], [ 0, %5 ]
-  store i64 %.sink, ptr %0, align 8
+  store i64 %3, ptr %0, align 8
   ret void
 }
 
@@ -446,8 +443,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hdbd8bf2fc19afabd
   br label %12
 
 12:                                               ; preds = %6, %10
-  %.sink = phi i64 [ 1, %10 ], [ 0, %6 ]
-  store i64 %.sink, ptr %0, align 8
+  store i64 %4, ptr %0, align 8
   ret void
 }
 
@@ -517,8 +513,7 @@ define void @_ZN3syn5group12parse_parens17h8db6242217314229E(ptr noalias noundef
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hdbd8bf2fc19afabdE.llvm.15435319159651575738.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hdbd8bf2fc19afabdE.llvm.15435319159651575738.exit": ; preds = %14, %17
-  %.sink.i = phi i64 [ 1, %17 ], [ 0, %14 ]
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !58, !noalias !61
+  store i64 %12, ptr %0, align 8, !alias.scope !58, !noalias !61
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.4)
   ret void
 }
@@ -598,8 +593,7 @@ define void @_ZN3syn5group12parse_braces17h01334279056313f0E(ptr noalias noundef
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h94637bb381dad747E.llvm.15435319159651575738.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h94637bb381dad747E.llvm.15435319159651575738.exit": ; preds = %14, %17
-  %.sink.i = phi i64 [ 1, %17 ], [ 0, %14 ]
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !73, !noalias !76
+  store i64 %12, ptr %0, align 8, !alias.scope !73, !noalias !76
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.4)
   ret void
 }
@@ -679,8 +673,7 @@ define void @_ZN3syn5group14parse_brackets17h68791c60096c7502E(ptr noalias nound
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h767661d430913fd1E.llvm.15435319159651575738.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h767661d430913fd1E.llvm.15435319159651575738.exit": ; preds = %14, %17
-  %.sink.i = phi i64 [ 1, %17 ], [ 0, %14 ]
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !88, !noalias !91
+  store i64 %12, ptr %0, align 8, !alias.scope !88, !noalias !91
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.4)
   ret void
 }
@@ -779,8 +772,7 @@ define hidden void @_ZN3syn5group11parse_group17h126c213b77084173E(ptr noalias n
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb353d9c26d6ac42fE.llvm.15435319159651575738.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hb353d9c26d6ac42fE.llvm.15435319159651575738.exit": ; preds = %13, %16
-  %.sink.i = phi i64 [ 1, %16 ], [ 0, %13 ]
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !105, !noalias !102
+  store i64 %11, ptr %0, align 8, !alias.scope !105, !noalias !102
   ret void
 }
 
@@ -852,8 +844,7 @@ define hidden void @_ZN3syn5group15parse_delimited17hb6026bcdf5c7eec6E.llvm.1543
   br label %_ZN3syn5parse11ParseBuffer4step17hcfb449fed2d8c124E.exit
 
 _ZN3syn5parse11ParseBuffer4step17hcfb449fed2d8c124E.exit: ; preds = %15, %17
-  %.sink.i = phi i64 [ 1, %17 ], [ 0, %15 ]
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !108, !noalias !113
+  store i64 %13, ptr %0, align 8, !alias.scope !108, !noalias !113
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   ret void
 }

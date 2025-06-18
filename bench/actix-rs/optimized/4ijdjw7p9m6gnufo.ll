@@ -1221,14 +1221,10 @@ _ZN3std9panicking3try17hcbedc47183c22abdE.exit.i: ; preds = %11
   %.sroa.11.sroa.5.0..sroa.11.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.sroa.5.0..sroa.11.0..sroa_idx.sroa_idx.i, i64 16, i1 false), !noalias !262
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !255
-  switch i64 %.sroa.0.0.copyload.i, label %default.unreachable.i [
+  switch i64 %.sroa.0.0.copyload.i, label %58 [
     i64 2, label %19
     i64 0, label %23
-    i64 1, label %58
   ]
-
-default.unreachable.i:                            ; preds = %_ZN3std9panicking3try17hcbedc47183c22abdE.exit.i
-  unreachable
 
 19:                                               ; preds = %_ZN3std9panicking3try17hcbedc47183c22abdE.exit.i, %_ZN3std9panicking3try17hcbedc47183c22abdE.exit.thread.i
   %.sroa.610.025.i = phi ptr [ %17, %_ZN3std9panicking3try17hcbedc47183c22abdE.exit.thread.i ], [ %.sroa.610.0.copyload.i, %_ZN3std9panicking3try17hcbedc47183c22abdE.exit.i ]
@@ -1245,10 +1241,10 @@ default.unreachable.i:                            ; preds = %_ZN3std9panicking3t
   br label %24
 
 24:                                               ; preds = %23, %19
+  %.sroa.03.0.i = phi i64 [ 1, %19 ], [ 0, %23 ]
   %.sroa.610.026.i = phi ptr [ %.sroa.610.025.i, %19 ], [ %.sroa.610.0.copyload.i, %23 ]
   %.sroa.9.024.i = phi ptr [ %.sroa.9.023.i, %19 ], [ %.sroa.9.0.copyload.i, %23 ]
   %.sroa.6.sroa.7.sroa.0.0.i = phi i64 [ %22, %19 ], [ %.sroa.11.sroa.0.0.copyload.i, %23 ]
-  %.sroa.03.0.i = phi i64 [ 1, %19 ], [ 0, %23 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6), !noalias !264
   store i64 %.sroa.03.0.i, ptr %6, align 8, !noalias !263
   %.sroa.417.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8

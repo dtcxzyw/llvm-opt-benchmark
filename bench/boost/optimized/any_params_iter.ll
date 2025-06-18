@@ -112,9 +112,8 @@ _ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread.i: ; preds =
   br label %_ZN5boost4urls6detail10query_iter6rewindEv.exit
 
 _ZN5boost4urls6detail10query_iter6rewindEv.exit:  ; preds = %4, %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread.i
-  %.sink5.i = phi i8 [ 0, %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread.i ], [ 1, %4 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 %.sink5.i, ptr %20, align 8, !tbaa !18
+  store i8 %8, ptr %20, align 8, !tbaa !18
   ret void
 }
 
@@ -153,9 +152,8 @@ _ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread: ; preds = %
   br label %17
 
 17:                                               ; preds = %1, %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread
-  %.sink5 = phi i8 [ 0, %_ZNK5boost4core17basic_string_viewIcE13find_first_ofEcm.exit.thread ], [ 1, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 %.sink5, ptr %18, align 8, !tbaa !18
+  store i8 %3, ptr %18, align 8, !tbaa !18
   ret void
 }
 

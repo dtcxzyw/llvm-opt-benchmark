@@ -16119,9 +16119,8 @@ _ZN5vcpkg9ExpectedTIRKNS_28SourceControlFileAndLocationENS_15LocalizedStringEEC2
   br label %_ZNKR5vcpkg9ExpectedTINS_28SourceControlFileAndLocationENS_15LocalizedStringEE3mapIZNKS_12_GLOBAL__N_129VersionedPortfileProviderImpl16get_control_fileERKNS_11VersionSpecEEUlRKS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalISB_EDTcl9__declvalISD_ELi0EEEvEEEES2_EESD_.exit
 
 _ZNKR5vcpkg9ExpectedTINS_28SourceControlFileAndLocationENS_15LocalizedStringEE3mapIZNKS_12_GLOBAL__N_129VersionedPortfileProviderImpl16get_control_fileERKNS_11VersionSpecEEUlRKS1_E_EENS0_IDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalISB_EDTcl9__declvalISD_ELi0EEEvEEEES2_EESD_.exit: ; preds = %_ZN5vcpkg9ExpectedTIRKNS_28SourceControlFileAndLocationENS_15LocalizedStringEEC2IRKS4_TnNSt9enable_ifIXsr3stdE16is_convertible_vIT_S4_EEiE4typeELi0EEEOSA_NS_16ExpectedRightTagE.exit.i, %521
-  %.sink.i = phi i8 [ 0, %521 ], [ 1, %_ZN5vcpkg9ExpectedTIRKNS_28SourceControlFileAndLocationENS_15LocalizedStringEEC2IRKS4_TnNSt9enable_ifIXsr3stdE16is_convertible_vIT_S4_EEiE4typeELi0EEEOSA_NS_16ExpectedRightTagE.exit.i ]
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink.i, ptr %522, align 8, !tbaa !115, !alias.scope !518
+  store i8 %503, ptr %522, align 8, !tbaa !115, !alias.scope !518
   ret void
 }
 
@@ -19504,13 +19503,13 @@ define internal noundef ptr @_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_
   %8 = load ptr, ptr %5, align 8, !tbaa !192
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !192
-  %.not1920.i = icmp eq ptr %8, %10
-  br i1 %.not1920.i, label %.loopexit, label %.lr.ph.i
+  %.not19.not20.i = icmp eq ptr %8, %10
+  br i1 %.not19.not20.i, label %.loopexit, label %.lr.ph.i
 
 11:                                               ; preds = %.lr.ph.i
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.016.021.i, i64 88
-  %.not19.i = icmp eq ptr %12, %10
-  br i1 %.not19.i, label %.loopexit, label %.lr.ph.i
+  %.not19.not.i = icmp eq ptr %12, %10
+  br i1 %.not19.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %11
   %.sroa.016.021.i = phi ptr [ %12, %11 ], [ %8, %3 ]
@@ -20174,13 +20173,13 @@ define internal noundef ptr @_ZNK5vcpkg12_GLOBAL__N_120ManifestProviderImpl16get
   %17 = load ptr, ptr %14, align 8, !tbaa !192
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !192
-  %.not1920.i.i = icmp eq ptr %17, %19
-  br i1 %.not1920.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
+  %.not19.not20.i.i = icmp eq ptr %17, %19
+  br i1 %.not19.not20.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
 
 20:                                               ; preds = %.lr.ph.i.i
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.016.021.i.i, i64 88
-  %.not19.i.i = icmp eq ptr %21, %19
-  br i1 %.not19.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
+  %.not19.not.i.i = icmp eq ptr %21, %19
+  br i1 %.not19.not.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %13, %20
   %.sroa.016.021.i.i = phi ptr [ %21, %20 ], [ %17, %13 ]

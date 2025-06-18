@@ -269,20 +269,21 @@ define weak_odr dso_local noundef signext i16 @_ZN3igl8copyleft4cgal8incircleIdE
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  %switch.tableidx = add i32 %22, 1
-  %23 = icmp ult i32 %switch.tableidx, 3
-  br i1 %23, label %switch.lookup, label %24
+  switch i32 %22, label %23 [
+    i32 1, label %25
+    i32 -1, label %25
+    i32 0, label %25
+  ]
 
-24:                                               ; preds = %4
-  %25 = call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr @.str.22, ptr %25, align 16, !tbaa !8
-  call void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTIPKc, ptr null) #30
+23:                                               ; preds = %4
+  %24 = call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr @.str.22, ptr %24, align 16, !tbaa !8
+  call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIPKc, ptr null) #30
   unreachable
 
-switch.lookup:                                    ; preds = %4
-  %switch.idx.cast = trunc nuw i32 %switch.tableidx to i16
-  %switch.offset = add nsw i16 %switch.idx.cast, -1
-  ret i16 %switch.offset
+25:                                               ; preds = %4, %4, %4
+  %.0 = trunc nsw i32 %22 to i16
+  ret i16 %.0
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr

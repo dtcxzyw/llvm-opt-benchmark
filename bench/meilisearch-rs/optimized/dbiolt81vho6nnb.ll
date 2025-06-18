@@ -1827,7 +1827,7 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %13
   %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %.loopexit55, label %.lr.ph.i
+  br i1 %.not.i, label %.loopexit52, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i"
   %15 = phi ptr [ %16, %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i" ], [ %11, %9 ]
@@ -1846,13 +1846,13 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
 
 "_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i": ; preds = %18, %.lr.ph.i
   %.not11.i = icmp eq ptr %16, %14
-  br i1 %.not11.i, label %.loopexit55, label %.lr.ph.i
+  br i1 %.not11.i, label %.loopexit52, label %.lr.ph.i
 
 21:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %27
 
-.loopexit55:                                      ; preds = %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i", %9
+.loopexit52:                                      ; preds = %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h12622a7568f1d582E.exit.backedge.i", %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %22
 
@@ -1861,7 +1861,7 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h292f3c022513c31dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
           to label %22 unwind label %"_ZN4core3ptr105drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h5e197bb0ecd9cb4aE.exit24"
 
-22:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a946f8da4ef5f74E.exit", %.loopexit55
+22:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h6a946f8da4ef5f74E.exit", %.loopexit52
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %27
 
@@ -1916,12 +1916,12 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   br i1 %.not11.i16, label %.loopexit, label %.lr.ph.i13
 
 45:                                               ; preds = %27
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 440
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.462.0..sroa_idx, i64 16, i1 false)
+  %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 440
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.459.0..sroa_idx, i64 16, i1 false)
   br label %52
 
 .loopexit:                                        ; preds = %"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..settings..Unchecked$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h43e4324e54a8d594E.exit.backedge.i", %33
-  %.sroa.060.0.copyload = load i64, ptr %3, align 8
+  %.sroa.057.0.copyload = load i64, ptr %3, align 8
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false)
   br label %47
@@ -1931,7 +1931,7 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
           to label %47 unwind label %48
 
 47:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h65e8b3ea274ac959E.exit", %.loopexit
-  %.sroa.0.0 = phi i64 [ %.sroa.060.0.copyload, %.loopexit ], [ -9223372036854775808, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h65e8b3ea274ac959E.exit" ]
+  %.sroa.0.0 = phi i64 [ %.sroa.057.0.copyload, %.loopexit ], [ -9223372036854775808, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h65e8b3ea274ac959E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %52
 
@@ -1992,8 +1992,8 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
   %85 = load i64, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 %.sroa.0.1, ptr %86, align 8
-  %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 440
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.466.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
+  %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 440
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.463.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i8 %71, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -2012,7 +2012,7 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
           to label %"_ZN4core3ptr105drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h5e197bb0ecd9cb4aE.exit24.thread" unwind label %31
 
 "_ZN4core3ptr105drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h5e197bb0ecd9cb4aE.exit24.thread": ; preds = %48, %92, %96, %"_ZN4core3ptr105drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h5e197bb0ecd9cb4aE.exit24"
-  %.pn.pn.pn54 = phi { ptr, i32 } [ %23, %96 ], [ %23, %"_ZN4core3ptr105drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h5e197bb0ecd9cb4aE.exit24" ], [ %49, %48 ], [ %49, %92 ]
+  %.pn.pn.pn51 = phi { ptr, i32 } [ %23, %96 ], [ %23, %"_ZN4core3ptr105drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17h5e197bb0ecd9cb4aE.exit24" ], [ %49, %48 ], [ %49, %92 ]
   %93 = load i64, ptr %1, align 8, !range !25, !alias.scope !264, !noundef !4
   %cond.i = icmp eq i64 %93, 0
   br i1 %cond.i, label %94, label %"_ZN4core3ptr130drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$$GT$17he8184b63d3c618c5E.exit"
@@ -2112,7 +2112,7 @@ define void @"_ZN17meilisearch_types8settings54Settings$LT$meilisearch_types..se
           to label %128 unwind label %31
 
 128:                                              ; preds = %126
-  resume { ptr, i32 } %.pn.pn.pn54
+  resume { ptr, i32 } %.pn.pn.pn51
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6188,8 +6188,7 @@ define void @"_ZN91_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$
   br label %11
 
 11:                                               ; preds = %9, %"_ZN119_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..convert..From$LT$milli..criterion..Criterion$GT$$GT$4from17hdf1ca16112b53ab8E.exit"
-  %.sink = phi i64 [ 1, %9 ], [ 0, %"_ZN119_$LT$meilisearch_types..settings..RankingRuleView$u20$as$u20$core..convert..From$LT$milli..criterion..Criterion$GT$$GT$4from17hdf1ca16112b53ab8E.exit" ]
-  store i64 %.sink, ptr %0, align 8
+  store i64 %5, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.51)
   ret void
 }

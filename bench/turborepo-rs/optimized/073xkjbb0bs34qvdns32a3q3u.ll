@@ -1633,11 +1633,10 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mute
   br label %183
 
 183:                                              ; preds = %173, %179
-  %.sroa.01.0 = phi i64 [ 1, %179 ], [ 0, %173 ]
   %.sroa.3.0 = phi i64 [ %182, %179 ], [ undef, %173 ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
-  store i64 %.sroa.01.0, ptr %0, align 8
+  store i64 %178, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.3.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1795,7 +1794,6 @@ _RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5allo
 .sink.split.i.i.i.i:                              ; preds = %_RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5alloc6GlobalECseG2FYMysgNb_3wax.exit38.i.i.i.i, %_RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5alloc6GlobalECseG2FYMysgNb_3wax.exit.i.i.i.i
   %.sink.i.i.i.i = phi ptr [ %17, %_RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5alloc6GlobalECseG2FYMysgNb_3wax.exit.i.i.i.i ], [ %26, %_RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5alloc6GlobalECseG2FYMysgNb_3wax.exit38.i.i.i.i ]
   %.sroa.014.0.sink.ph.i.i.i.i = phi i64 [ %13, %_RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5alloc6GlobalECseG2FYMysgNb_3wax.exit.i.i.i.i ], [ %22, %_RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5alloc6GlobalECseG2FYMysgNb_3wax.exit38.i.i.i.i ]
-  %storemerge.ph.i.i.i.i = phi i64 [ 0, %_RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5alloc6GlobalECseG2FYMysgNb_3wax.exit.i.i.i.i ], [ 1, %_RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5alloc6GlobalECseG2FYMysgNb_3wax.exit38.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sink.i.i.i.i, ptr nonnull readonly align 1 %.sroa.3.0.copyload, i64 %.sroa.4.0.copyload, i1 false), !noalias !445
   br label %_RNCINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB8_8IntoIterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4folduNCINvNtNtB2n_8adapters3map8map_foldB1k_B1k_uNvMsk_B1m_B1k_10into_ownedNCINvNvB2h_8for_each4callB1k_NCINvMsi_NtBe_3vecINtB52_3VecB1k_E14extend_trustedINtB3n_3MapB15_B40_EE0E0E0E0B1q_.exit
 
@@ -1824,7 +1822,6 @@ _RINvXs_NtNtCs68wO5nsWeTG_5alloc5slice4hackhNtB5_10ConvertVec6to_vecNtNtB9_5allo
 _RNCINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB8_8IntoIterNtNtNtCseG2FYMysgNb_3wax5token8variance17InvariantFragmentENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4folduNCINvNtNtB2n_8adapters3map8map_foldB1k_B1k_uNvMsk_B1m_B1k_10into_ownedNCINvNvB2h_8for_each4callB1k_NCINvMsi_NtBe_3vecINtB52_3VecB1k_E14extend_trustedINtB3n_3MapB15_B40_EE0E0E0E0B1q_.exit: ; preds = %7, %8, %.sink.split.i.i.i.i
   %.sroa.014.0.sink.i.i.i.i = phi i64 [ %.sroa.2.0.copyload, %8 ], [ %.sroa.2.0.copyload, %7 ], [ %.sroa.014.0.sink.ph.i.i.i.i, %.sink.split.i.i.i.i ]
   %.sroa.316.0.sink.i.i.i.i = phi ptr [ %.sroa.3.0.copyload, %8 ], [ %.sroa.3.0.copyload, %7 ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
-  %storemerge.i.i.i.i = phi i64 [ 1, %8 ], [ 0, %7 ], [ %storemerge.ph.i.i.i.i, %.sink.split.i.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !450)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -1832,7 +1829,7 @@ _RNCINvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque9into_iterINtB8_8Int
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %30 = load i64, ptr %29, align 8, !alias.scope !456, !noalias !457, !noundef !5
   %31 = getelementptr inbounds { i64, [3 x i64] }, ptr %28, i64 %30
-  store i64 %storemerge.i.i.i.i, ptr %31, align 8, !noalias !460
+  store i64 %.sroa.0.0.copyload, ptr %31, align 8, !noalias !460
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %.sroa.014.0.sink.i.i.i.i, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !460
   %.sroa.54.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 16

@@ -782,11 +782,11 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %.07434.i = phi i8 [ %.175.i, %127 ], [ 0, %.lr.ph.split.i.preheader ]
   %.07733.i = phi i32 [ %.279.i, %127 ], [ 0, %.lr.ph.split.i.preheader ]
   %.08432.i = phi ptr [ %.286.i, %127 ], [ %32, %.lr.ph.split.i.preheader ]
-  %.08831.i = phi i8 [ %.189.i, %127 ], [ 0, %.lr.ph.split.i.preheader ]
+  %.08831.i = phi i1 [ %81, %127 ], [ true, %.lr.ph.split.i.preheader ]
   %79 = getelementptr i8, ptr %.val32, i64 %.036.i
   %80 = load i8, ptr %79, align 1, !tbaa !11
-  %81 = icmp eq i8 %80, 61
-  br i1 %81, label %82, label %96
+  %81 = icmp ne i8 %80, 61
+  br i1 %81, label %96, label %82
 
 82:                                               ; preds = %.lr.ph.split.i
   switch i32 %.07733.i, label %86 [
@@ -846,8 +846,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   br label %.thread15.i
 
 104:                                              ; preds = %96
-  %.not46.i = icmp eq i8 %.08831.i, 0
-  br i1 %.not46.i, label %109, label %105
+  br i1 %.08831.i, label %109, label %105
 
 105:                                              ; preds = %104
   %106 = call ptr @PyModule_GetState(ptr noundef %0) #5
@@ -896,7 +895,6 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   br label %127
 
 127:                                              ; preds = %123, %117, %111, %110, %109, %86, %82
-  %.189.i = phi i8 [ 1, %86 ], [ 0, %123 ], [ 0, %117 ], [ 0, %111 ], [ 0, %110 ], [ 0, %109 ], [ 1, %82 ]
   %.286.i = phi ptr [ %.08432.i, %86 ], [ %126, %123 ], [ %121, %117 ], [ %115, %111 ], [ %.08432.i, %110 ], [ %.08432.i, %109 ], [ %.08432.i, %82 ]
   %.279.i = phi i32 [ %.07733.i, %86 ], [ 0, %123 ], [ 3, %117 ], [ 2, %111 ], [ 1, %110 ], [ %.07733.i, %109 ], [ %.07733.i, %82 ]
   %.175.i = phi i8 [ %.07434.i, %86 ], [ 0, %123 ], [ %122, %117 ], [ %116, %111 ], [ %99, %110 ], [ %.07434.i, %109 ], [ %.07434.i, %82 ]

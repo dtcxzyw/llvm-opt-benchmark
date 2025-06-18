@@ -11415,7 +11415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   resume { ptr, i32 } %.pn
 
 208:                                              ; preds = %3, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53, %_ZNSt5queueIN20cmComputeLinkDepends8BFSEntryESt5dequeIS1_SaIS1_EEE4pushERKS1_.exit
-  %.sroa.368.0 = phi i8 [ 1, %_ZNSt5queueIN20cmComputeLinkDepends8BFSEntryESt5dequeIS1_SaIS1_EEE4pushERKS1_.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53 ], [ 1, %_Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread ], [ 0, %3 ]
+  %.sroa.368.0 = and i8 %.fca.1.extract, 1
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %15, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.368.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -13368,8 +13368,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359: ; preds = %_Z
   br label %661
 
 661:                                              ; preds = %656, %659
-  %storemerge = phi i8 [ 1, %659 ], [ 0, %656 ]
-  store i8 %storemerge, ptr %134, align 8, !tbaa !631
+  store i8 %657, ptr %134, align 8, !tbaa !631
   %662 = invoke { i64, i8 } @_ZN20cmComputeLinkDepends12AddLinkEntryERK10cmLinkItemRKSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0736.0906, ptr noundef nonnull align 8 dereferenceable(16) %34)
           to label %663 unwind label %748
 
@@ -19004,8 +19003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359: ; preds = %_Z
   br label %661
 
 661:                                              ; preds = %656, %659
-  %storemerge = phi i8 [ 1, %659 ], [ 0, %656 ]
-  store i8 %storemerge, ptr %134, align 8, !tbaa !631
+  store i8 %657, ptr %134, align 8, !tbaa !631
   %662 = invoke { i64, i8 } @_ZN20cmComputeLinkDepends12AddLinkEntryERK10cmLinkItemRKSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0736.0906, ptr noundef nonnull align 8 dereferenceable(16) %34)
           to label %663 unwind label %748
 

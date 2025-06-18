@@ -2118,27 +2118,26 @@ define void @_ZN4ring4aead4quic19HeaderProtectionKey3new17h1eddb546e65089f6E(ptr
 ; Function Attrs: nonlazybind uwtable
 define range(i48 0, -254) i48 @_ZN4ring4aead4quic19HeaderProtectionKey8new_mask17h10d331febab213ebE(ptr noalias noundef readonly align 8 dereferenceable(256) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = alloca [16 x i8], align 16
-  %.not = icmp eq i64 %2, 16
-  br i1 %.not, label %5, label %12
+  %5 = icmp ne i64 %2, 16
+  br i1 %5, label %13, label %6
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !50, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !50, !noundef !4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %10 = load <16 x i8>, ptr %1, align 1
-  store <16 x i8> %10, ptr %4, align 16
-  %11 = call i40 %9(ptr noalias noundef nonnull readonly align 4 dereferenceable(248) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %4)
+  %11 = load <16 x i8>, ptr %1, align 1
+  store <16 x i8> %11, ptr %4, align 16
+  %12 = call i40 %10(ptr noalias noundef nonnull readonly align 4 dereferenceable(248) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %12
+  br label %13
 
-12:                                               ; preds = %3, %5
-  %.sroa.3.sroa.0.0 = phi i40 [ %11, %5 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i8 [ 0, %5 ], [ 1, %3 ]
+13:                                               ; preds = %3, %6
+  %.sroa.3.sroa.0.0 = phi i40 [ %12, %6 ], [ undef, %3 ]
   %.sroa.3.0.insert.ext = zext i40 %.sroa.3.sroa.0.0 to i48
   %.sroa.3.0.insert.shift = shl nuw i48 %.sroa.3.0.insert.ext, 8
-  %.sroa.0.0.insert.ext = zext nneg i8 %.sroa.0.0 to i48
+  %.sroa.0.0.insert.ext = zext i1 %5 to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
   ret i48 %.sroa.0.0.insert.insert
 }

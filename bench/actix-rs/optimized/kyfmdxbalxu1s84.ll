@@ -184,8 +184,7 @@ define void @"_ZN87_$LT$actix_router..pattern..Patterns$u20$as$u20$actix_router.
   br label %"_ZN70_$LT$actix_router..pattern..Patterns$u20$as$u20$core..clone..Clone$GT$5clone17h66065d1cf149d1dcE.exit"
 
 "_ZN70_$LT$actix_router..pattern..Patterns$u20$as$u20$core..clone..Clone$GT$5clone17h66065d1cf149d1dcE.exit": ; preds = %6, %9
-  %.sink.i = phi i64 [ 1, %9 ], [ 0, %6 ]
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !21, !noalias !24
+  store i64 %5, ptr %0, align 8, !alias.scope !21, !noalias !24
   ret void
 }
 
