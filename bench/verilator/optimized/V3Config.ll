@@ -6682,8 +6682,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12V3ConfigFile5waiveE11V3Er
   %7 = load ptr, ptr %6, align 8, !tbaa !282
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8, !tbaa !282
-  %.not.not20.not = icmp eq ptr %7, %9
-  br i1 %.not.not20.not, label %.loopexit, label %.lr.ph
+  %.not20.not = icmp eq ptr %7, %9
+  br i1 %.not20.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %10 = and i8 %.fr40, -4
@@ -6720,8 +6720,8 @@ _ZN11V3ErrorCode7isUnderES_.exit.thread.us.us:    ; preds = %12, %12, %12, %.lr.
 
 .critedge.us.us:                                  ; preds = %15, %_ZN11V3ErrorCode7isUnderES_.exit.thread.us.us, %12
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.012.021.us.us, i64 72
-  %.not.not.us.us.not = icmp eq ptr %18, %9
-  br i1 %.not.not.us.us.not, label %.loopexit, label %.lr.ph.split.us.split.us
+  %.not.us.us.not = icmp eq ptr %18, %9
+  br i1 %.not.us.us.not, label %.loopexit, label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.critedge.us
   %.sroa.012.021.us = phi ptr [ %26, %.critedge.us ], [ %7, %.lr.ph.split.us ]
@@ -6747,8 +6747,8 @@ _ZN11V3ErrorCode7isUnderES_.exit.thread.us:       ; preds = %20, %20, %.lr.ph.sp
 
 .critedge.us:                                     ; preds = %23, %_ZN11V3ErrorCode7isUnderES_.exit.thread.us, %20
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.012.021.us, i64 72
-  %.not.not.us.not = icmp eq ptr %26, %9
-  br i1 %.not.not.us.not, label %.loopexit, label %.lr.ph.split.us.split
+  %.not.us.not = icmp eq ptr %26, %9
+  br i1 %.not.us.not, label %.loopexit, label %.lr.ph.split.us.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %switch.i, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -6777,8 +6777,8 @@ _ZN11V3ErrorCode7isUnderES_.exit.thread.us30:     ; preds = %28, %28, %.lr.ph.sp
 
 .critedge.us31:                                   ; preds = %31, %_ZN11V3ErrorCode7isUnderES_.exit.thread.us30, %28
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.012.021.us27, i64 72
-  %.not.not.us32.not = icmp eq ptr %34, %9
-  br i1 %.not.not.us32.not, label %.loopexit, label %.lr.ph.split.split.us
+  %.not.us32.not = icmp eq ptr %34, %9
+  br i1 %.not.us32.not, label %.loopexit, label %.lr.ph.split.split.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.critedge
   %.sroa.012.021 = phi ptr [ %41, %.critedge ], [ %7, %.lr.ph.split ]
@@ -6800,8 +6800,8 @@ _ZN11V3ErrorCode7isUnderES_.exit.thread:          ; preds = %.lr.ph.split.split
 
 .critedge:                                        ; preds = %.lr.ph.split.split, %38, %_ZN11V3ErrorCode7isUnderES_.exit.thread
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 72
-  %.not.not.not = icmp eq ptr %41, %9
-  br i1 %.not.not.not, label %.loopexit, label %.lr.ph.split.split
+  %.not.not = icmp eq ptr %41, %9
+  br i1 %.not.not, label %.loopexit, label %.lr.ph.split.split
 
 .loopexit:                                        ; preds = %38, %.critedge, %31, %.critedge.us31, %23, %.critedge.us, %15, %.critedge.us.us, %5, %3
   %.0 = phi i1 [ false, %3 ], [ false, %5 ], [ true, %15 ], [ false, %.critedge.us.us ], [ true, %23 ], [ false, %.critedge.us ], [ true, %31 ], [ false, %.critedge.us31 ], [ true, %38 ], [ false, %.critedge ]
@@ -14381,7 +14381,7 @@ _ZN16WildcardContents1sEv.exit:                   ; preds = %1, %5, %8
   %.sroa.10.014.i.i = phi ptr [ %.sroa.10.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit.i.i ], [ %19, %.lr.ph.preheader.i.i ]
   %.sroa.09.013.i.i = phi ptr [ %.sroa.09.1.i.i, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit.i.i ], [ %16, %.lr.ph.preheader.i.i ]
   %20 = call noundef zeroext i1 @_ZN7VString9wildmatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.09.013.i.i, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br i1 %20, label %_ZN16WildcardContents18resolveUncachedImpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.i, label %21
+  br i1 %20, label %_ZN16WildcardContents18resolveUncachedImpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %21
 
 21:                                               ; preds = %.lr.ph.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i.i, i64 32
@@ -14399,9 +14399,9 @@ _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_P
   %.sroa.10.1.i.i = phi ptr [ %27, %24 ], [ %.sroa.10.014.i.i, %21 ]
   %.sroa.13.1.i.i = phi ptr [ %25, %24 ], [ %.sroa.13.015.i.i, %21 ]
   %.not.not.i.i = icmp eq ptr %.sroa.09.1.i.i, %17
-  br i1 %.not.not.i.i, label %_ZN16WildcardContents18resolveUncachedImpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.i, label %.lr.ph.i.i
+  br i1 %.not.not.i.i, label %_ZN16WildcardContents18resolveUncachedImpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %.lr.ph.i.i
 
-_ZN16WildcardContents18resolveUncachedImpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.loopexit.i: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit.i.i, %.lr.ph.i.i
+_ZN16WildcardContents18resolveUncachedImpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit.i.i, %.lr.ph.i.i
   %.not.lcssa.i.ph.i = zext i1 %20 to i8
   br label %_ZN16WildcardContents18resolveUncachedImpERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
 

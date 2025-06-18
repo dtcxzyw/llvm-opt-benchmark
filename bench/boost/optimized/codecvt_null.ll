@@ -30,7 +30,7 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE6do_outER
   %10 = ptrtoint ptr %.01618 to i64
   %11 = sub i64 %9, %10
   %12 = icmp slt i64 %11, 4
-  br i1 %12, label %._crit_edge.loopexit, label %13
+  br i1 %12, label %._crit_edge, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.01519, i64 4
@@ -38,11 +38,11 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE6do_outER
   store i32 %15, ptr %.01618, align 4, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %.01618, i64 4
   %.not = icmp eq ptr %14, %3
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-._crit_edge.loopexit:                             ; preds = %13, %.lr.ph
-  %.016.lcssa.ph = phi ptr [ %16, %13 ], [ %.01618, %.lr.ph ]
-  %.015.lcssa.ph = phi ptr [ %14, %13 ], [ %.01519, %.lr.ph ]
+._crit_edge:                                      ; preds = %13, %.lr.ph
+  %.016.lcssa = phi ptr [ %16, %13 ], [ %.01618, %.lr.ph ]
+  %.015.lcssa = phi ptr [ %14, %13 ], [ %.01519, %.lr.ph ]
   %.0.ph = zext i1 %12 to i32
   br label %._crit_edge
 
@@ -69,7 +69,7 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE5do_inER1
   %11 = ptrtoint ptr %.01723 to i64
   %12 = sub i64 %9, %11
   %13 = icmp slt i64 %12, 4
-  br i1 %13, label %._crit_edge.loopexit, label %14
+  br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load i32, ptr %.01723, align 4, !tbaa !3
@@ -79,11 +79,11 @@ define noundef range(i32 0, 2) i32 @_ZNK5boost7archive12codecvt_nullIwE5do_inER1
   %.not = icmp eq ptr %16, %6
   %18 = icmp eq ptr %17, %3
   %or.cond = select i1 %.not, i1 true, i1 %18
-  br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
-._crit_edge.loopexit:                             ; preds = %14, %.lr.ph
-  %.018.lcssa.ph = phi ptr [ %16, %14 ], [ %.01822, %.lr.ph ]
-  %.017.lcssa.ph = phi ptr [ %17, %14 ], [ %.01723, %.lr.ph ]
+._crit_edge:                                      ; preds = %14, %.lr.ph
+  %.018.lcssa = phi ptr [ %16, %14 ], [ %.01822, %.lr.ph ]
+  %.017.lcssa = phi ptr [ %17, %14 ], [ %.01723, %.lr.ph ]
   %.0.ph = zext i1 %13 to i32
   br label %._crit_edge
 

@@ -1051,8 +1051,8 @@ define dso_local range(i32 0, 2) i32 @onigenc_length_check_is_valid_mbc_string(p
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.07.lcssa = phi ptr [ %1, %3 ], [ %8, %.lr.ph ]
   %.not = icmp eq ptr %.07.lcssa, %2
-  %.0 = zext i1 %.not to i32
-  ret i32 %.0
+  %. = zext i1 %.not to i32
+  ret i32 %.
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1456,7 +1456,7 @@ define dso_local range(i32 -1, 1) i32 @onig_codes_cmp(ptr noundef readonly captu
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
+5:                                                ; preds = %5, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !4
@@ -1468,11 +1468,11 @@ define dso_local range(i32 -1, 1) i32 @onig_codes_cmp(ptr noundef readonly captu
   %or.cond = select i1 %.not, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !58
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %.lr.ph
   %.lcssa.ph = sext i1 %.not to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
+._crit_edge:; preds = %5, %3
   %.lcssa = phi i32 [ 0, %3 ], [ %.lcssa.ph, %._crit_edge.loopexit ]
   ret i32 %.lcssa
 }

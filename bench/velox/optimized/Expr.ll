@@ -1584,7 +1584,7 @@ land.rhs:                                         ; preds = %invoke.cont15
   %cmp.i.not4.i = icmp eq ptr %13, %14
   br i1 %cmp.i.not4.i, label %land.end, label %for.body.i
 
-for.body.i:                                       ; preds = %land.rhs, %for.body.i
+for.cond.i:                                       ; preds = %land.rhs, %for.body.i
   %__begin2.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %13, %land.rhs ]
   %15 = load ptr, ptr %__begin2.sroa.0.05.i, align 8
   %supportsFlatNoNullsFastPath_.i.i = getelementptr inbounds nuw i8, ptr %15, i64 97

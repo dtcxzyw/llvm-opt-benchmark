@@ -18734,42 +18734,42 @@ define hidden void @_ZN4core4iter8adapters11try_process17h858e89e5e5bf4330E(ptr 
           cleanup
   %9 = load i64, ptr %6, align 8, !range !70, !noundef !5
   %.not = icmp eq i64 %9, 8
-  br i1 %.not, label %"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_aws..errors..LockClientError$GT$$GT$17ha37f017785705360E.llvm.11792392190407745568.exit", label %18
+  br i1 %.not, label %"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_aws..errors..LockClientError$GT$$GT$17ha37f017785705360E.llvm.11792392190407745568.exit", label %17
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2994
   %11 = load i64, ptr %6, align 8, !range !70, !noundef !5
-  %12 = icmp eq i64 %11, 8
-  br i1 %12, label %.thread, label %15
+  %.not.not = icmp eq i64 %11, 8
+  br i1 %.not.not, label %.thread13, label %14
 
-.thread:                                          ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
+.thread13:                                        ; preds = %10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i64 8, ptr %0, align 8, !alias.scope !3006, !noalias !3009
-  br label %14
+  br label %13
 
-14:                                               ; preds = %15, %.thread
+13:                                               ; preds = %14, %.thread13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   ret void
 
-15:                                               ; preds = %10
+14:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   call void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$deltalake_aws..CommitEntry$GT$$GT$17ha54062caeea885c2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-  br label %14
+  br label %13
 
-16:                                               ; preds = %18
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %17
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34
   unreachable
 
-"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_aws..errors..LockClientError$GT$$GT$17ha37f017785705360E.llvm.11792392190407745568.exit": ; preds = %18, %7
+"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_aws..errors..LockClientError$GT$$GT$17ha37f017785705360E.llvm.11792392190407745568.exit": ; preds = %17, %7
   resume { ptr, i32 } %8
 
-18:                                               ; preds = %7
+17:                                               ; preds = %7
   invoke void @"_ZN4core3ptr59drop_in_place$LT$deltalake_aws..errors..LockClientError$GT$17h2ac8ff0ce43104bbE.llvm.11792392190407745568"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
-          to label %"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_aws..errors..LockClientError$GT$$GT$17ha37f017785705360E.llvm.11792392190407745568.exit" unwind label %16
+          to label %"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$deltalake_aws..errors..LockClientError$GT$$GT$17ha37f017785705360E.llvm.11792392190407745568.exit" unwind label %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -21426,8 +21426,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h0c86cd0e3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %.sroa.0.0.i.i, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.660.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 28
-  store i32 %.sroa.7.0.i.i, ptr %.sroa.660.0..sroa_idx, align 4
+  %.sroa.655.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 28
+  store i32 %.sroa.7.0.i.i, ptr %.sroa.655.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 7144, ptr nonnull %7), !noalias !3170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7144) %7, ptr noundef nonnull align 8 dereferenceable(7144) %3, i64 7144, i1 false)
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %8), !noalias !3170

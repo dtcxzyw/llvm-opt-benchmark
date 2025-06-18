@@ -4088,7 +4088,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %18 = load i64, ptr %17, align 8, !alias.scope !2593, !noalias !2596, !noundef !36
   %.promoted.i = load i64, ptr %16, align 8, !alias.scope !2590, !noalias !2599
   %19 = icmp ult i64 %.promoted.i, %18
-  br i1 %19, label %.lr.ph.i, label %.loopexit48
+  br i1 %19, label %.lr.ph.i, label %.loopexit46
 
 .lr.ph.i:                                         ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4113,9 +4113,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %27 = add i64 %23, 1
   store i64 %27, ptr %16, align 8, !alias.scope !2602, !noalias !2599
   %exitcond.not.i = icmp eq i64 %27, %18
-  br i1 %exitcond.not.i, label %.loopexit48, label %22
+  br i1 %exitcond.not.i, label %.loopexit46, label %22
 
-.loopexit48:                                      ; preds = %26, %6
+.loopexit46:                                      ; preds = %26, %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   store i64 5, ptr %11, align 8
   %28 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hbb917e6e78f3907dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11)
@@ -4583,8 +4583,8 @@ default.unreachable:                              ; preds = %107, %43
 157:                                              ; preds = %153, %148
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2659)
   %158 = load i64, ptr %17, align 8, !alias.scope !2662, !noalias !2665, !noundef !36
-  %.promoted.i21 = load i64, ptr %16, align 8, !alias.scope !2659, !noalias !2668
-  %159 = icmp ult i64 %.promoted.i21, %158
+  %.promoted.i22 = load i64, ptr %16, align 8, !alias.scope !2659, !noalias !2668
+  %159 = icmp ult i64 %.promoted.i22, %158
   br i1 %159, label %.lr.ph.i24, label %.loopexit
 
 .lr.ph.i24:                                       ; preds = %157
@@ -4592,7 +4592,7 @@ default.unreachable:                              ; preds = %107, %43
   br label %161
 
 161:                                              ; preds = %165, %.lr.ph.i24
-  %162 = phi i64 [ %.promoted.i21, %.lr.ph.i24 ], [ %166, %165 ]
+  %162 = phi i64 [ %.promoted.i22, %.lr.ph.i24 ], [ %166, %165 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2669)
   %163 = getelementptr inbounds [0 x i8], ptr %160, i64 0, i64 %162
   %164 = load i8, ptr %163, align 1, !noalias !2670, !noundef !36
@@ -4635,7 +4635,7 @@ default.unreachable:                              ; preds = %107, %43
   store ptr %173, ptr %174, align 8
   br label %"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit"
 
-"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit": ; preds = %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %45, %30, %172, %.loopexit, %169, %145, %.loopexit48, %151
+"_ZN174_$LT$meilisearch_types..keys.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$meilisearch_types..keys..Action$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9ab56d4821e4ef83E.exit": ; preds = %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %45, %30, %172, %.loopexit, %169, %145, %.loopexit46, %151
   %.sink = phi i8 [ 1, %30 ], [ 1, %172 ], [ 1, %.loopexit ], [ 0, %169 ], [ 1, %145 ], [ 1, %.loopexit48 ], [ 1, %151 ], [ %38, %45 ], [ %38, %47 ], [ %38, %48 ], [ %38, %49 ], [ %38, %50 ], [ %38, %51 ], [ %38, %52 ], [ %38, %53 ], [ %38, %54 ], [ %38, %55 ], [ %38, %56 ], [ %38, %57 ], [ %38, %58 ], [ %38, %59 ], [ %38, %60 ], [ %38, %61 ], [ %38, %62 ], [ %38, %63 ], [ %38, %64 ], [ %38, %65 ], [ %38, %66 ], [ %38, %67 ], [ %38, %68 ], [ %38, %69 ], [ %38, %70 ], [ %38, %71 ], [ %38, %72 ], [ %38, %73 ], [ %38, %74 ], [ %38, %75 ], [ %38, %76 ], [ %38, %77 ], [ %38, %78 ], [ %38, %79 ], [ %38, %80 ]
   store i8 %.sink, ptr %0, align 8
   ret void

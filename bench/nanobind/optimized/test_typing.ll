@@ -1971,14 +1971,14 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %or.cond = or i1 %14, %15
   br i1 %or.cond, label %16, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL29nanobind_init_test_typing_extRNS_7module_EE3$_4vJRZL29nanobind_init_test_typing_extS3_E15CustomSignaturebEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"
 
-16:                                               ; preds = %11
+15:                                               ; preds = %11
   %.sink.i = zext i1 %14 to i8
   store i8 %.sink.i, ptr %6, align 8, !tbaa !162
-  %17 = load ptr, ptr %7, align 8, !tbaa !164
-  call void @_ZN8nanobind6detail27raise_next_overload_if_nullEPv(ptr noundef %17) #17
-  %18 = load i64, ptr @_Py_NoneStruct, align 8, !tbaa !70
-  %19 = add nsw i64 %18, 1
-  store i64 %19, ptr @_Py_NoneStruct, align 8, !tbaa !70
+  %18 = load ptr, ptr %7, align 8, !tbaa !164
+  call void @_ZN8nanobind6detail27raise_next_overload_if_nullEPv(ptr noundef %18) #17
+  %19 = load i64, ptr @_Py_NoneStruct, align 8, !tbaa !70
+  %20 = add nsw i64 %19, 1
+  store i64 %20, ptr @_Py_NoneStruct, align 8, !tbaa !70
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL29nanobind_init_test_typing_extRNS_7module_EE3$_4vJRZL29nanobind_init_test_typing_extS3_E15CustomSignaturebEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"
 
 "_ZZN8nanobind6detail11func_createILb0ELb1EZL29nanobind_init_test_typing_extRNS_7module_EE3$_4vJRZL29nanobind_init_test_typing_extS3_E15CustomSignaturebEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit": ; preds = %11, %5, %16

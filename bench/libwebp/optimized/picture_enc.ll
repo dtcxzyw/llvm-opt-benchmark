@@ -17,12 +17,12 @@ define range(i32 0, 2) i32 @WebPPictureInitInternal(ptr noundef %0, i32 noundef 
 
 3:                                                ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 256, i1 false)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr @DummyWriter, ptr %4, align 8, !tbaa !3
-  %5 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 0) #8
-  br label %6
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr @DummyWriter, ptr %5, align 8, !tbaa !3
+  %6 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 0) #8
+  br label %7
 
-6:                                                ; preds = %3, %2
+7:                                                ; preds = %3, %2
   %.0 = zext i1 %.not to i32
   ret i32 %.0
 }

@@ -17126,34 +17126,34 @@ _ZN6casadi16casadi_cvx_houseIdEET_PS1_S2_x.exit:  ; preds = %.lr.ph44.i, %34, %3
 define linkonce_odr hidden noundef i32 @_ZN6casadi21casadi_cvx_symm_schurIdEEixPT_S2_S1_xPxS2_(i64 noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #5 comdat {
   store i64 0, ptr %5, align 8, !tbaa !65
   %8 = icmp sgt i64 %0, 0
-  br i1 %8, label %.lr.ph91, label %._crit_edge92
+  br i1 %8, label %.lr.ph90, label %._crit_edge92
 
-.lr.ph91:                                         ; preds = %7
+.lr.ph90:                                         ; preds = %7
   %9 = add nsw i64 %0, -1
-  %.not95 = icmp eq i64 %0, 1
+  %.not94 = icmp eq i64 %0, 1
   %invariant.gep = getelementptr i8, ptr %2, i64 -16
   %.not = icmp eq ptr %6, null
   %10 = icmp eq i64 %4, 0
   br i1 %10, label %._crit_edge92, label %.preheader77.lr.ph
 
-.preheader77.lr.ph:                               ; preds = %.lr.ph91
+.preheader77.lr.ph:                               ; preds = %.lr.ph90
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.preheader77
 
 .preheader77:                                     ; preds = %.preheader77.lr.ph, %52
-  %.06088101 = phi i64 [ 0, %.preheader77.lr.ph ], [ %47, %52 ]
-  %.05989100 = phi ptr [ %11, %.preheader77.lr.ph ], [ %.2, %52 ]
-  br i1 %.not95, label %._crit_edge, label %.lr.ph
+  %.06087100 = phi i64 [ 0, %.preheader77.lr.ph ], [ %47, %52 ]
+  %.0598899 = phi ptr [ %11, %.preheader77.lr.ph ], [ %.2, %52 ]
+  br i1 %.not94, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader77, %26
-  %.07279 = phi i64 [ %18, %26 ], [ 0, %.preheader77 ]
-  %12 = getelementptr inbounds nuw double, ptr %2, i64 %.07279
+  %.07278 = phi i64 [ %18, %26 ], [ 0, %.preheader77 ]
+  %12 = getelementptr inbounds nuw double, ptr %2, i64 %.07278
   %13 = load double, ptr %12, align 8, !tbaa !141
   %14 = tail call double @llvm.fabs.f64(double %13)
-  %15 = getelementptr inbounds nuw double, ptr %1, i64 %.07279
+  %15 = getelementptr inbounds nuw double, ptr %1, i64 %.07278
   %16 = load double, ptr %15, align 8, !tbaa !141
   %17 = tail call double @llvm.fabs.f64(double %16)
-  %18 = add nuw nsw i64 %.07279, 1
+  %18 = add nuw nsw i64 %.07278, 1
   %19 = getelementptr inbounds nuw double, ptr %1, i64 %18
   %20 = load double, ptr %19, align 8, !tbaa !141
   %21 = tail call double @llvm.fabs.f64(double %20)
@@ -17168,60 +17168,60 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi21casadi_cvx_symm_schurIdEEixP
 
 26:                                               ; preds = %.lr.ph, %25
   %exitcond.not = icmp eq i64 %18, %9
-  br i1 %exitcond.not, label %.lr.ph85, label %.lr.ph, !llvm.loop !407
+  br i1 %exitcond.not, label %.lr.ph84, label %.lr.ph, !llvm.loop !407
 
-.lr.ph85:                                         ; preds = %26, %.lr.ph85
-  %.06284 = phi i1 [ %or.cond, %.lr.ph85 ], [ true, %26 ]
-  %.06483 = phi i1 [ %or.cond3, %.lr.ph85 ], [ true, %26 ]
-  %.16782 = phi i64 [ %.3, %.lr.ph85 ], [ 0, %26 ]
-  %.06981 = phi i64 [ %.271, %.lr.ph85 ], [ 0, %26 ]
-  %.17380 = phi i64 [ %36, %.lr.ph85 ], [ 0, %26 ]
-  %27 = sub nsw i64 %0, %.17380
+.lr.ph84:                                         ; preds = %26, %.lr.ph84
+  %.06283 = phi i1 [ %or.cond, %.lr.ph85 ], [ true, %26 ]
+  %.06482 = phi i1 [ %or.cond3, %.lr.ph85 ], [ true, %26 ]
+  %.16781 = phi i64 [ %.3, %.lr.ph85 ], [ 0, %26 ]
+  %.06980 = phi i64 [ %.271, %.lr.ph85 ], [ 0, %26 ]
+  %.17379 = phi i64 [ %36, %.lr.ph85 ], [ 0, %26 ]
+  %27 = sub nsw i64 %0, %.17379
   %gep = getelementptr double, ptr %invariant.gep, i64 %27
   %28 = load double, ptr %gep, align 8, !tbaa !141
   %29 = fcmp oeq double %28, 0.000000e+00
-  %or.cond = and i1 %.06284, %29
+  %or.cond = and i1 %.06283, %29
   %30 = zext i1 %or.cond to i64
-  %.268 = add nsw i64 %.16782, %30
-  %31 = getelementptr inbounds nuw double, ptr %2, i64 %.17380
+  %.268 = add nsw i64 %.16781, %30
+  %31 = getelementptr inbounds nuw double, ptr %2, i64 %.17379
   %32 = load double, ptr %31, align 8, !tbaa !141
   %33 = fcmp oeq double %32, 0.000000e+00
-  %or.cond3 = and i1 %.06483, %33
+  %or.cond3 = and i1 %.06482, %33
   %34 = zext i1 %or.cond3 to i64
-  %.170 = add nsw i64 %.06981, %34
+  %.170 = add nsw i64 %.06980, %34
   %35 = icmp eq i64 %.268, %9
   %.271 = select i1 %35, i64 0, i64 %.170
   %.3 = select i1 %35, i64 %0, i64 %.268
-  %36 = add nuw nsw i64 %.17380, 1
-  %exitcond97.not = icmp eq i64 %36, %9
-  br i1 %exitcond97.not, label %._crit_edge, label %.lr.ph85, !llvm.loop !408
+  %36 = add nuw nsw i64 %.17379, 1
+  %exitcond96.not = icmp eq i64 %36, %9
+  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph84, !llvm.loop !408
 
-._crit_edge:                                      ; preds = %.lr.ph85, %.preheader77
+._crit_edge:                                      ; preds = %.lr.ph84, %.preheader77
   %.069.lcssa = phi i64 [ 0, %.preheader77 ], [ %.271, %.lr.ph85 ]
   %.167.lcssa = phi i64 [ 0, %.preheader77 ], [ %.3, %.lr.ph85 ]
   %37 = add i64 %.069.lcssa, %.167.lcssa
   %38 = sub i64 %0, %37
   %39 = icmp slt i64 %.167.lcssa, %0
-  br i1 %39, label %40, label %._crit_edge92.loopexit
+  br i1 %39, label %40, label %._crit_edge91
 
 40:                                               ; preds = %._crit_edge
   %41 = getelementptr inbounds double, ptr %1, i64 %.069.lcssa
   %42 = getelementptr inbounds double, ptr %2, i64 %.069.lcssa
-  %43 = getelementptr inbounds double, ptr %6, i64 %.06088101
+  %43 = getelementptr inbounds double, ptr %6, i64 %.06087100
   %44 = select i1 %.not, ptr null, ptr %43
   tail call void @_ZN6casadi22casadi_cvx_implicit_qrIdEEvxPT_S2_S2_(i64 noundef %38, ptr noundef %41, ptr noundef %42, ptr noundef %44)
   %45 = shl i64 %38, 1
-  %46 = add i64 %.06088101, -2
+  %46 = add i64 %.06087100, -2
   %47 = add i64 %46, %45
-  %.not76 = icmp eq ptr %.05989100, null
+  %.not76 = icmp eq ptr %.0598899, null
   br i1 %.not76, label %52, label %48
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds nuw i8, ptr %.05989100, i64 8
-  store i64 %38, ptr %.05989100, align 8, !tbaa !65
-  %50 = getelementptr inbounds nuw i8, ptr %.05989100, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.0598899, i64 8
+  store i64 %38, ptr %.0598899, align 8, !tbaa !65
+  %50 = getelementptr inbounds nuw i8, ptr %.0598899, i64 16
   store i64 %.069.lcssa, ptr %49, align 8, !tbaa !65
-  %51 = getelementptr inbounds nuw i8, ptr %.05989100, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.0598899, i64 24
   store i64 %47, ptr %50, align 8, !tbaa !65
   br label %52
 
@@ -17231,9 +17231,9 @@ define linkonce_odr hidden noundef i32 @_ZN6casadi21casadi_cvx_symm_schurIdEEixP
   %54 = add nsw i64 %53, 1
   store i64 %54, ptr %5, align 8, !tbaa !65
   %55 = icmp eq i64 %54, %4
-  br i1 %55, label %._crit_edge92.loopexit, label %.preheader77
+  br i1 %55, label %._crit_edge91, label %.preheader77
 
-._crit_edge92.loopexit:                           ; preds = %52, %._crit_edge
+._crit_edge91:                                    ; preds = %52, %._crit_edge
   %.lcssa78.ph = zext i1 %39 to i32
   br label %._crit_edge92
 

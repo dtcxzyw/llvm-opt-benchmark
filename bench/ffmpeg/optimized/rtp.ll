@@ -62,12 +62,12 @@ define range(i32 -1, 1) i32 @ff_rtp_get_codec_info(ptr noundef %0, i32 noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = getelementptr inbounds nuw [27 x %struct.anon], ptr @rtp_payload_types, i64 0, i64 %indvars.iv.next
   %28 = load i32, ptr %27, align 4, !tbaa !24
-  %exitcond = icmp eq i64 %indvars.iv.next, 26
-  br i1 %exitcond, label %.loopexit, label %3, !llvm.loop !25
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 26
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !25
 
 .loopexit:                                        ; preds = %26, %20, %24
-  %29 = phi i32 [ %1, %20 ], [ %1, %24 ], [ %28, %26 ]
-  %.lobit = ashr i32 %29, 31
+  %.017 = phi i32 [ %1, %20 ], [ %1, %24 ], [ %28, %26 ]
+  %.lobit = ashr i32 %.017, 31
   ret i32 %.lobit
 }
 

@@ -1579,7 +1579,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN53_$LT$dyn$u20
   %.fca.0.extract = extractvalue { i64, ptr } %5, 0
   %switch = icmp eq i64 %.fca.0.extract, 0
   %.fca.1.extract = extractvalue { i64, ptr } %5, 1
-  %.sroa.6.0 = select i1 %switch, ptr undef, ptr %.fca.1.extract
+  %.0 = select i1 %switch, ptr undef, ptr %.fca.1.extract
   %6 = trunc i64 %.fca.0.extract to i1
   %.0 = select i1 %6, ptr %.sroa.6.0, ptr null
   ret ptr %.0
@@ -1593,7 +1593,7 @@ define hidden noundef align 8 ptr @"_ZN53_$LT$dyn$u20$tracing_core..subscriber..
   %.fca.0.extract = extractvalue { i64, ptr } %5, 0
   %switch = icmp eq i64 %.fca.0.extract, 0
   %.fca.1.extract = extractvalue { i64, ptr } %5, 1
-  %.sroa.6.0 = select i1 %switch, ptr undef, ptr %.fca.1.extract
+  %.0 = select i1 %switch, ptr undef, ptr %.fca.1.extract
   %6 = trunc i64 %.fca.0.extract to i1
   %.0 = select i1 %6, ptr %.sroa.6.0, ptr null
   ret ptr %.0

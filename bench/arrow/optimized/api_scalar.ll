@@ -4878,9 +4878,9 @@ _ZN5arrow5DatumC2EOS0_.exit:                      ; preds = %3, %.sink.split.i.i
   store i8 %14, ptr %15, align 4, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 1, ptr %16, align 1, !tbaa !32
-  %.sink = zext i1 %2 to i32
+  %spec.select = zext i1 %2 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.sink, ptr %17, align 8, !tbaa !146
+  store i32 %spec.select, ptr %17, align 8, !tbaa !146
   ret void
 }
 
@@ -127435,7 +127435,7 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
     i8 0, label %11
     i8 1, label %30
     i8 2, label %45
-    i8 -1, label %67
+    i8 -1, label %68
   ]
 
 11:                                               ; preds = %2
@@ -127472,7 +127472,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   %.sink.i.i.i.i = phi i8 [ 0, %_ZSt3getILm0EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSG_.exit.i.i.i.i ], [ %28, %27 ], [ 1, %26 ], [ 0, %11 ]
   %29 = load ptr, ptr %0, align 8, !tbaa !3021
   store i8 %.sink.i.i.i.i, ptr %29, align 1, !tbaa !264
-  br label %72
+  br label %73
 
 30:                                               ; preds = %2
   %31 = icmp eq i8 %10, 1
@@ -127502,7 +127502,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant
   %.sink.i.i.i.i10 = phi i8 [ 0, %_ZSt3getILm1EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSG_.exit.i.i.i.i ], [ %43, %39 ], [ 1, %37 ], [ 0, %30 ]
   %44 = load ptr, ptr %0, align 8, !tbaa !3021
   store i8 %.sink.i.i.i.i10, ptr %44, align 1, !tbaa !264
-  br label %72
+  br label %73
 
 45:                                               ; preds = %2
   %46 = icmp eq i8 %10, 2
@@ -127551,23 +127551,23 @@ _ZSt3getILm2EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %or.cond.not = select i1 %63, i1 %.not.i.i.i, i1 false
   br i1 %or.cond.not, label %61, label %_ZZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEEbRKSt7variantIJDpT_EESH_ENUlOT_T0_E_clIRKSB_St17integral_constantImLm2EEEEDaSJ_SK_.exit, !llvm.loop !3022
 
-_ZZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEEbRKSt7variantIJDpT_EESH_ENUlOT_T0_E_clIRKSB_St17integral_constantImLm2EEEEDaSJ_SK_.exit: ; preds = %61, %45, %_ZSt3getILm2EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSG_.exit.i, %.preheader.i
+_ZZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEEbRKSt7variantIJDpT_EESH_ENUlOT_T0_E_clIRKSB_St17integral_constantImLm2EEEEDaSJ_SK_.exit:; preds = %61, %45, %_ZSt3getILm2EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSG_.exit.i, %.preheader.i
   %.sink.i = phi i8 [ 0, %_ZSt3getILm2EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSG_.exit.i ], [ 1, %.preheader.i ], [ 0, %45 ], [ %62, %61 ]
   %66 = load ptr, ptr %0, align 8, !tbaa !3021
   store i8 %.sink.i, ptr %66, align 1, !tbaa !264
   br label %72
 
-67:                                               ; preds = %2
-  %68 = icmp eq i8 %10, -1
-  %69 = load ptr, ptr %0, align 8, !tbaa !3021
-  %70 = zext i1 %68 to i8
-  store i8 %70, ptr %69, align 1, !tbaa !264
-  br label %72
+68:                                               ; preds = %2
+  %69 = icmp eq i8 %10, -1
+  %70 = load ptr, ptr %0, align 8, !tbaa !3021
+  %71 = zext i1 %69 to i8
+  store i8 %71, ptr %70, align 1, !tbaa !264
+  br label %73
 
-71:                                               ; preds = %2
+72:                                               ; preds = %2
   unreachable
 
-72:                                               ; preds = %67, %_ZZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEEbRKSt7variantIJDpT_EESH_ENUlOT_T0_E_clIRKSB_St17integral_constantImLm2EEEEDaSJ_SK_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS5_8FieldRefESaISE_EEEEbRKSt7variantIJDpT_EESM_EUlOT_T0_E_RKSH_IJS6_SC_SG_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESR_SU_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS5_8FieldRefESaISE_EEEEbRKSt7variantIJDpT_EESM_EUlOT_T0_E_RKSH_IJS6_SC_SG_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESR_SU_.exit
+73:                                               ; preds = %68, %_ZZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEEbRKSt7variantIJDpT_EESH_ENUlOT_T0_E_clIRKSB_St17integral_constantImLm2EEEEDaSJ_SK_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS5_8FieldRefESaISE_EEEEbRKSt7variantIJDpT_EESM_EUlOT_T0_E_RKSH_IJS6_SC_SG_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESR_SU_.exit, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS5_8FieldRefESaISE_EEEEbRKSt7variantIJDpT_EESM_EUlOT_T0_E_RKSH_IJS6_SC_SG_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESR_SU_.exit
   ret void
 }
 
