@@ -24458,7 +24458,7 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %17 = ptrtoint ptr %.val.i8.i.i to i64
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %19 = load i32, ptr %18, align 8, !alias.scope !3751
-  %20 = tail call i8 @llvm.scmp.i8.i64(i64 %7, i64 0)
+  %20 = zext i1 %6 to i8
   br i1 %6, label %.split.us.i.preheader.us, label %.split
 
 .split.us.i.preheader.us:                         ; preds = %4, %70
@@ -25900,7 +25900,7 @@ define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..
   %.val.i.i = load ptr, ptr %8, align 8, !alias.scope !3903, !nonnull !4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val2.i.i = load i64, ptr %11, align 8, !alias.scope !3903
-  %12 = tail call i8 @llvm.scmp.i8.i64(i64 %7, i64 0)
+  %12 = zext i1 %6 to i8
   br i1 %6, label %.split.us.i.preheader.us, label %.split.i.preheader
 
 .split.us.i.preheader.us:                         ; preds = %4, %31
