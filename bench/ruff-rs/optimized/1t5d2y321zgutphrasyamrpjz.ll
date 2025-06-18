@@ -26304,7 +26304,7 @@ common.resume:                                    ; preds = %97, %"_ZN4core3ptr7
 
 75:                                               ; preds = %"_ZN18ty_python_semantic5types10signatures9Parameter18from_node_and_kind28_$u7b$$u7b$closure$u7d$$u7d$17h9868a42b2da6e145E.exit.i.i22.i", %69
   %.sroa.0.0.i.i25.i = phi i8 [ %.sroa.0.0.copyload1.i.i23.i, %"_ZN18ty_python_semantic5types10signatures9Parameter18from_node_and_kind28_$u7b$$u7b$closure$u7d$$u7d$17h9868a42b2da6e145E.exit.i.i22.i" ], [ 29, %69 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(40) %66, i64 40, i1 false), !noalias !4695
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !4695
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !4712
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !4695
   br label %_ZN18ty_python_semantic5types10signatures10Parameters15from_parameters17hbcd3c25a06bc5149E.exit

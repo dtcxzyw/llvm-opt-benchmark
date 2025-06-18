@@ -7237,7 +7237,7 @@ _ZN9uv_pep50810parse_name17h50f7efe3f8887ef5E.exit: ; preds = %258, %320, %322
   %.sroa.024.i178.sroa.5.0.copyload = load ptr, ptr %.sroa.53.0..sroa_idx.i.i183, align 8, !noalias !1302
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %67), !noalias !1316
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68), !noalias !1316
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.16387, ptr noundef nonnull align 8 dereferenceable(104) %377, i64 104, i1 false), !noalias !1307
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16387, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %84), !noalias !1302
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %85), !noalias !1302
   br label %387
@@ -7644,7 +7644,7 @@ _ZN9uv_pep50810parse_name17h50f7efe3f8887ef5E.exit: ; preds = %258, %320, %322
   %.sroa.037.i.sroa.5.0.copyload = load ptr, ptr %.sroa.53.0..sroa_idx.i121.i, align 8, !noalias !1302
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %57), !noalias !1366
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %58), !noalias !1366
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.16387, ptr noundef nonnull align 8 dereferenceable(104) %450, i64 104, i1 false), !noalias !1307
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16387, ptr noundef nonnull align 8 dereferenceable(24) %76, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %77), !noalias !1302
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %78), !noalias !1302
   br label %539
@@ -7856,7 +7856,7 @@ _ZN9uv_pep50810parse_name17h50f7efe3f8887ef5E.exit: ; preds = %258, %320, %322
   %.sroa.044.i.sroa.5.0.copyload = load ptr, ptr %.sroa.53.0..sroa_idx.i135.i, align 8, !noalias !1302
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %54), !noalias !1386
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55), !noalias !1386
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.16387, ptr noundef nonnull align 8 dereferenceable(104) %522, i64 104, i1 false), !noalias !1307
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16387, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %73), !noalias !1302
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %74), !noalias !1302
   br label %539

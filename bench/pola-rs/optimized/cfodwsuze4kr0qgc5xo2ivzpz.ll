@@ -62542,7 +62542,6 @@ define internal fastcc void @"_ZN9polars_io10path_utils12hugging_face8GetPages4n
   %.sroa.889.i = alloca [16 x i8], align 8
   %.sroa.991.sroa.5.i = alloca [24 x i8], align 8
   %.sroa.674.sroa.7.i = alloca [16 x i8], align 8
-  %.sroa.072.i = alloca [416 x i8], align 8
   %15 = alloca [64 x i8], align 8
   %.sroa.1066.sroa.10.i = alloca [16 x i8], align 8
   %16 = alloca [64 x i8], align 8
@@ -63329,11 +63328,9 @@ common.ret:                                       ; preds = %301, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.362.0..sroa_idx63.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.sroa.8.i, i64 16, i1 false), !noalias !6931
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.1066.sroa.10.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15), !noalias !6927
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %.sroa.072.i)
   store i8 0, ptr %188, align 1, !noalias !6927
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.072.i, ptr noundef nonnull align 8 dereferenceable(136) %62, i64 136, i1 false), !noalias !6927
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %207, ptr noundef nonnull align 8 dereferenceable(416) %.sroa.072.i, i64 416, i1 false), !noalias !6927
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %207, ptr noundef nonnull align 8 dereferenceable(136) %62, i64 136, i1 false), !noalias !6927
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 600
   store i8 0, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !6927
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !6927
@@ -63408,7 +63405,6 @@ common.ret:                                       ; preds = %301, %35
 229:                                              ; preds = %41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.1066.sroa.10.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15), !noalias !6927
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %.sroa.072.i)
   %.phi.trans.insert158.i = getelementptr inbounds nuw i8, ptr %1, i64 600
   %.pre159.i = load i8, ptr %.phi.trans.insert158.i, align 8, !range !827, !noalias !6977
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -63577,7 +63573,6 @@ common.ret:                                       ; preds = %301, %35
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.1066.sroa.10.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15), !noalias !6927
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %.sroa.072.i)
   br label %.thread
 
 279:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfe52f767464aee9fE.exit.i.i"
@@ -63597,7 +63592,6 @@ common.ret:                                       ; preds = %301, %35
   %281 = phi ptr [ %252, %282 ], [ %227, %.body31.i ]
   %.pn8.i = phi { ptr, i32 } [ %283, %282 ], [ %eh.lpad-body32.i, %.body31.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15), !noalias !6927
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %.sroa.072.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.1066.sroa.10.i)
   br label %214
 
@@ -63640,7 +63634,6 @@ common.ret:                                       ; preds = %301, %35
   %.sroa.1066.sroa.11.0.copyload101.i = load i64, ptr %.sroa.1066.sroa.11.0..sroa_idx100.i, align 8, !alias.scope !7004, !noalias !6927
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15), !noalias !6927
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.889.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1066.sroa.10.i, i64 16, i1 false), !noalias !6927
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %.sroa.072.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.1066.sroa.10.i)
   br label %297
 
@@ -63653,7 +63646,6 @@ common.ret:                                       ; preds = %301, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.991.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.1268.0..sroa_idx69.i, i64 24, i1 false), !noalias !6927
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15), !noalias !6927
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.889.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1066.sroa.10.i, i64 16, i1 false), !noalias !6927
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %.sroa.072.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.1066.sroa.10.i)
   br label %209
 

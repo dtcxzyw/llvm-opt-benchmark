@@ -10752,10 +10752,10 @@ define void @"_ZN114_$LT$rustls..crypto..aws_lc_rs..ticketer..AeadTicketer$u20$a
   unreachable
 
 81:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !3321
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 1 dereferenceable(12) %15, i64 12, i1 false), !noalias !3276
   %82 = load <16 x i8>, ptr %13, align 16, !noalias !3302
   %83 = load i64, ptr %12, align 8, !noalias !3302
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !3321
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 1 dereferenceable(12) %15, i64 12, i1 false), !noalias !3276
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !3302
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !3302
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15), !noalias !3276

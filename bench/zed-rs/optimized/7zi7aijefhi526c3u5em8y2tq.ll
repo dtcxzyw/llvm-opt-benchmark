@@ -2179,7 +2179,6 @@ common.resume:                                    ; preds = %83, %22, %70, %13
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { ptr, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h8d6a99b6071e9256E.llvm.3518678287117667287"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 captures(none) dereferenceable(1160) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %.sroa.0.i.i = alloca [2200 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [48 x i8], align 8
   %5 = alloca [1160 x i8], align 8
@@ -2220,7 +2219,6 @@ define hidden { ptr, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h
   call void @llvm.lifetime.start.p0(i64 1160, ptr nonnull %5), !noalias !446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1160) %5, ptr noundef nonnull readonly align 8 dereferenceable(1160) %7, i64 1160, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !448)
-  call void @llvm.lifetime.start.p0(i64 2200, ptr nonnull %.sroa.0.i.i)
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %21 = load ptr, ptr %20, align 8, !alias.scope !451, !noalias !452, !noundef !5
   %22 = ptrtoint ptr %21 to i64
@@ -2277,8 +2275,7 @@ define hidden { ptr, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %27, ptr %45, align 8, !noalias !455
   store ptr %38, ptr %3, align 8, !noalias !455
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1160) %.sroa.0.i.i, ptr noundef nonnull readonly align 8 dereferenceable(1160) %7, i64 1160, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2200) %27, ptr noundef nonnull align 8 dereferenceable(2200) %.sroa.0.i.i, i64 2200, i1 false), !noalias !455
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1160) %27, ptr noundef nonnull readonly align 8 dereferenceable(1160) %7, i64 1160, i1 false)
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %27, i64 2200
   store i64 2, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !455
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -2352,7 +2349,6 @@ define hidden { ptr, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h
   store i64 %73, ptr %46, align 8, !alias.scope !456, !noalias !452
   store ptr %28, ptr %20, align 8, !alias.scope !451, !noalias !452
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !455
-  call void @llvm.lifetime.end.p0(i64 2200, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 1160, ptr nonnull %5), !noalias !446
   %74 = load i64, ptr %9, align 8, !noalias !460, !noundef !5
   %75 = add i64 %74, 1

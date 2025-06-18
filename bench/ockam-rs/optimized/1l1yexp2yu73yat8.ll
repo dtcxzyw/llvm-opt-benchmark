@@ -25625,7 +25625,7 @@ define hidden void @_ZN14ockam_identity14secure_channel9handshake23handshake_sta
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.56.sroa.8, ptr noundef nonnull readonly align 1 dereferenceable(64) %40, i64 64, i1 false)
   %41 = extractvalue { ptr, i64 } %32, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(71) %.sroa.56.sroa.0, ptr noundef nonnull align 1 dereferenceable(71) %.sroa.5.0..sroa_idx.i, i64 71, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.56.sroa.0, ptr noundef nonnull align 1 dereferenceable(64) %26, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !3581
   br label %.thread
 

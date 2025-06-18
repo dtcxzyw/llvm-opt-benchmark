@@ -32327,11 +32327,6 @@ declare void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN19ExampleAppDocumentsC2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i:
-  %.sroa.0109 = alloca [32 x i8], align 4
-  %.sroa.099 = alloca [32 x i8], align 4
-  %.sroa.089 = alloca [32 x i8], align 4
-  %.sroa.079 = alloca [32 x i8], align 4
-  %.sroa.0 = alloca [32 x i8], align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 448)
@@ -32378,8 +32373,6 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i:
   %13 = load i32, ptr %0, align 8, !tbaa !19
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %0, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0109)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %.sroa.0109, ptr noundef nonnull align 4 dereferenceable(9) @.str.2141, i64 9, i1 false)
   %15 = load i32, ptr %1, align 4, !tbaa !551
   %16 = icmp eq i32 %14, %15
   br i1 %16, label %17, label %._ZN8ImVectorI10MyDocumentE7reserveEi.exit_crit_edge.i5
@@ -32433,7 +32426,7 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i9: ; preds = %19, %17
   %36 = phi ptr [ %.pre.i7, %._ZN8ImVectorI10MyDocumentE7reserveEi.exit_crit_edge.i5 ], [ %26, %.noexc13 ]
   %37 = sext i32 %35 to i64
   %38 = getelementptr inbounds %struct.MyDocument, ptr %36, i64 %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %38, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0109, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %38, ptr noundef nonnull align 4 dereferenceable(9) @.str.2141, i64 9, i1 false)
   %.sroa.5110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 32
   store i32 1, ptr %.sroa.5110.0..sroa_idx, align 4
   %.sroa.6111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 36
@@ -32453,9 +32446,6 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i9: ; preds = %19, %17
   %39 = load i32, ptr %0, align 8, !tbaa !19
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %0, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0109)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.099)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %.sroa.099, ptr noundef nonnull align 4 dereferenceable(7) @.str.1113, i64 7, i1 false)
   %41 = load i32, ptr %1, align 4, !tbaa !551
   %42 = icmp eq i32 %40, %41
   br i1 %42, label %43, label %._ZN8ImVectorI10MyDocumentE7reserveEi.exit_crit_edge.i15
@@ -32509,7 +32499,7 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i19: ; preds = %45, %43
   %62 = phi ptr [ %.pre.i17, %._ZN8ImVectorI10MyDocumentE7reserveEi.exit_crit_edge.i15 ], [ %52, %.noexc23 ]
   %63 = sext i32 %61 to i64
   %64 = getelementptr inbounds %struct.MyDocument, ptr %62, i64 %63
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %64, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.099, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %64, ptr noundef nonnull align 4 dereferenceable(7) @.str.1113, i64 7, i1 false)
   %.sroa.5100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 32
   store i32 2, ptr %.sroa.5100.0..sroa_idx, align 4
   %.sroa.6101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 36
@@ -32529,9 +32519,6 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i19: ; preds = %45, %43
   %65 = load i32, ptr %0, align 8, !tbaa !19
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %0, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.099)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.089)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %.sroa.089, ptr noundef nonnull align 4 dereferenceable(7) @.str.2142, i64 7, i1 false)
   %67 = load i32, ptr %1, align 4, !tbaa !551
   %68 = icmp eq i32 %66, %67
   br i1 %68, label %69, label %._ZN8ImVectorI10MyDocumentE7reserveEi.exit_crit_edge.i25
@@ -32585,7 +32572,7 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i29: ; preds = %71, %69
   %88 = phi ptr [ %.pre.i27, %._ZN8ImVectorI10MyDocumentE7reserveEi.exit_crit_edge.i25 ], [ %78, %.noexc33 ]
   %89 = sext i32 %87 to i64
   %90 = getelementptr inbounds %struct.MyDocument, ptr %88, i64 %89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %90, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.089, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %90, ptr noundef nonnull align 4 dereferenceable(7) @.str.2142, i64 7, i1 false)
   %.sroa.590.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 32
   store i32 3, ptr %.sroa.590.0..sroa_idx, align 4
   %.sroa.691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %90, i64 36
@@ -32605,9 +32592,6 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i29: ; preds = %71, %69
   %91 = load i32, ptr %0, align 8, !tbaa !19
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %0, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.089)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.079)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.079, ptr noundef nonnull align 4 dereferenceable(20) @.str.2143, i64 20, i1 false)
   %93 = load i32, ptr %1, align 4, !tbaa !551
   %94 = icmp eq i32 %92, %93
   br i1 %94, label %95, label %._ZN8ImVectorI10MyDocumentE7reserveEi.exit_crit_edge.i35
@@ -32661,7 +32645,7 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i39: ; preds = %97, %95
   %114 = phi ptr [ %.pre.i37, %._ZN8ImVectorI10MyDocumentE7reserveEi.exit_crit_edge.i35 ], [ %104, %.noexc43 ]
   %115 = sext i32 %113 to i64
   %116 = getelementptr inbounds %struct.MyDocument, ptr %114, i64 %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %116, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.079, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %116, ptr noundef nonnull align 4 dereferenceable(20) @.str.2143, i64 20, i1 false)
   %.sroa.580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 32
   store i32 4, ptr %.sroa.580.0..sroa_idx, align 4
   %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %116, i64 36
@@ -32681,9 +32665,6 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i39: ; preds = %97, %95
   %117 = load i32, ptr %0, align 8, !tbaa !19
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr %0, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.079)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(14) @.str.2144, i64 14, i1 false)
   %119 = load i32, ptr %1, align 4, !tbaa !551
   %120 = icmp eq i32 %118, %119
   br i1 %120, label %121, label %._ZN8ImVectorI10MyDocumentE7reserveEi.exit_crit_edge.i45
@@ -32737,7 +32718,7 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i49: ; preds = %123, %121
   %140 = phi ptr [ %.pre.i47, %._ZN8ImVectorI10MyDocumentE7reserveEi.exit_crit_edge.i45 ], [ %130, %.noexc53 ]
   %141 = sext i32 %139 to i64
   %142 = getelementptr inbounds %struct.MyDocument, ptr %140, i64 %141
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %142, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %142, ptr noundef nonnull align 4 dereferenceable(14) @.str.2144, i64 14, i1 false)
   %.sroa.5.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %142, i64 32
   store i32 5, ptr %.sroa.5.0..sroa_idx75, align 4
   %.sroa.6.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %142, i64 36
@@ -32757,7 +32738,6 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i49: ; preds = %123, %121
   %143 = load i32, ptr %0, align 8, !tbaa !19
   %144 = add nsw i32 %143, 1
   store i32 %144, ptr %0, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   ret void
 
 145:                                              ; preds = %5, %_ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i
@@ -32768,31 +32748,26 @@ _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i49: ; preds = %123, %121
 147:                                              ; preds = %29, %_ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i9
   %148 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0109)
   br label %157
 
 149:                                              ; preds = %55, %_ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i19
   %150 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.099)
   br label %157
 
 151:                                              ; preds = %81, %_ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i29
   %152 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.089)
   br label %157
 
 153:                                              ; preds = %107, %_ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i39
   %154 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.079)
   br label %157
 
 155:                                              ; preds = %133, %_ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i49
   %156 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   br label %157
 
 157:                                              ; preds = %155, %153, %151, %149, %147, %145

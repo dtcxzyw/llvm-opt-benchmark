@@ -518,14 +518,12 @@ define internal void @_ZN12_GLOBAL__N_116XilinxDffOptPass7executeESt6vectorINSt7
   %86 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %87 = alloca %"struct.std::pair.161", align 8
   %88 = alloca %"struct.Yosys::RTLIL::Const", align 8
-  %.sroa.03198 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %89 = alloca %"struct.std::pair.161", align 8
   %90 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %91 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %92 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %93 = alloca %"struct.std::pair.161", align 8
   %94 = alloca %"struct.Yosys::RTLIL::Const", align 8
-  %.sroa.03177 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %95 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %96 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %97 = alloca %"struct.std::pair.161", align 8
@@ -534,7 +532,6 @@ define internal void @_ZN12_GLOBAL__N_116XilinxDffOptPass7executeESt6vectorINSt7
   %100 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %101 = alloca %"struct.std::pair.161", align 8
   %102 = alloca %"struct.Yosys::RTLIL::Const", align 8
-  %.sroa.03152 = alloca %"struct.Yosys::RTLIL::SigBit", align 8
   %103 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %104 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %105 = alloca %"struct.std::pair.161", align 8
@@ -11533,13 +11530,11 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1597:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %4777 unwind label %4811
 
 4777:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1597
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03198)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.03198, ptr noundef nonnull align 8 dereferenceable(12) %83, i64 12, i1 false), !tbaa.struct !76
   %4778 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
           to label %4779 unwind label %4813
 
 4779:                                             ; preds = %4777
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4778, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03198, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4778, ptr noundef nonnull align 8 dereferenceable(12) %83, i64 12, i1 false)
   invoke void @_ZN5Yosys5RTLIL5ConstC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %87, ptr noundef nonnull align 8 dereferenceable(40) %88)
           to label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i1602 unwind label %4815
 
@@ -11555,7 +11550,6 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4780, ptr noundef nonnull align 8 dereferenceable(16) %4778, i64 16, i1 false), !tbaa.struct !76
   store ptr %4781, ptr %417, align 8, !tbaa !70
   call void @_ZdlPvm(ptr noundef nonnull %4778, i64 noundef 16) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03198)
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %88) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %88) #23
   %4782 = invoke { ptr, i32 } @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitESt4pairIS4_INS2_5ConstESt6vectorIS3_SaIS3_EEEPNS2_4CellEENS0_8hash_opsIS3_EEE4findERKS3_(ptr noundef nonnull align 8 dereferenceable(49) %23, ptr noundef nonnull align 8 dereferenceable(12) %83)
@@ -11666,7 +11660,6 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit1622: ; preds = %4783, %4815
 
 4817:                                             ; preds = %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit1622, %4813
   %.pn408 = phi { ptr, i32 } [ %eh.lpad-body1615, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit1622 ], [ %4814, %4813 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03198)
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %88) #23
   br label %4818
 
@@ -11984,13 +11977,11 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1681:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %4921 unwind label %5022
 
 4921:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1681
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03177)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.03177, ptr noundef nonnull align 8 dereferenceable(12) %90, i64 12, i1 false), !tbaa.struct !76
   %4922 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
           to label %4923 unwind label %5024
 
 4923:                                             ; preds = %4921
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4922, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03177, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4922, ptr noundef nonnull align 8 dereferenceable(12) %90, i64 12, i1 false)
   invoke void @_ZN5Yosys5RTLIL5ConstC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(40) %94)
           to label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i1686 unwind label %5026
 
@@ -12006,7 +11997,6 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4924, ptr noundef nonnull align 8 dereferenceable(16) %4922, i64 16, i1 false), !tbaa.struct !76
   store ptr %4925, ptr %435, align 8, !tbaa !70
   call void @_ZdlPvm(ptr noundef nonnull %4922, i64 noundef 16) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03177)
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %94) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %94) #23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %95) #23
@@ -12250,7 +12240,6 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit1721: ; preds = %4928, %5026
 
 5028:                                             ; preds = %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit1721, %5024
   %.pn415 = phi { ptr, i32 } [ %eh.lpad-body1699, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit1721 ], [ %5025, %5024 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03177)
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %94) #23
   br label %5029
 
@@ -12630,13 +12619,11 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1780:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %5145 unwind label %5246
 
 5145:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1780
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.03152)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.03152, ptr noundef nonnull align 8 dereferenceable(12) %98, i64 12, i1 false), !tbaa.struct !76
   %5146 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
           to label %5147 unwind label %5248
 
 5147:                                             ; preds = %5145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5146, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03152, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5146, ptr noundef nonnull align 8 dereferenceable(12) %98, i64 12, i1 false)
   invoke void @_ZN5Yosys5RTLIL5ConstC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %101, ptr noundef nonnull align 8 dereferenceable(40) %102)
           to label %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i1785 unwind label %5250
 
@@ -12652,7 +12639,6 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5148, ptr noundef nonnull align 8 dereferenceable(16) %5146, i64 16, i1 false), !tbaa.struct !76
   store ptr %5149, ptr %456, align 8, !tbaa !70
   call void @_ZdlPvm(ptr noundef nonnull %5146, i64 noundef 16) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03152)
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %102) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %102) #23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %103) #23
@@ -12896,7 +12882,6 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit1820: ; preds = %5152, %5250
 
 5252:                                             ; preds = %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit1820, %5248
   %.pn432 = phi { ptr, i32 } [ %eh.lpad-body1798, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit1820 ], [ %5249, %5248 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.03152)
   call void @_ZN5Yosys5RTLIL5ConstD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %102) #23
   br label %5253
 

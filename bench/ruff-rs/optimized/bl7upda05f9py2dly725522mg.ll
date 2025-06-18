@@ -15832,7 +15832,6 @@ define hidden void @_ZN18ty_python_semantic5types14BoundSuperType5build17h0e4bd6
   %.sroa.9103.sroa.0 = alloca [3 x i8], align 1
   %.sroa.641.sroa.7 = alloca [3 x i8], align 1
   %.sroa.6.sroa.7 = alloca [3 x i8], align 1
-  %.sroa.225.sroa.4 = alloca [20 x i8], align 1
   %10 = alloca [24 x i8], align 8
   %11 = alloca [32 x i8], align 8
   %.sroa.5 = alloca [31 x i8], align 1
@@ -15872,7 +15871,6 @@ define hidden void @_ZN18ty_python_semantic5types14BoundSuperType5build17h0e4bd6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.sroa.225.sroa.2.7.copyload = load i32, ptr %3, align 8
   %.sroa.225.sroa.4.7..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.225.sroa.4, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.225.sroa.4.7..sroa_idx, i64 12, i1 false)
   %24 = and i64 %23, 4294967295
   %.not = icmp eq i64 %24, 6
   %25 = trunc i32 %.sroa.225.sroa.2.7.copyload to i8
@@ -15916,7 +15914,7 @@ define hidden void @_ZN18ty_python_semantic5types14BoundSuperType5build17h0e4bd6
 
 34:                                               ; preds = %22
   %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.480.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(20) %.sroa.225.sroa.4, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.480.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.225.sroa.4.7..sroa_idx, i64 12, i1 false)
   %.sroa.675.8.insert.ext = zext i32 %.sroa.225.sroa.2.7.copyload to i64
   %.sroa.675.8.insert.shift = shl nuw i64 %.sroa.675.8.insert.ext, 32
   store i8 29, ptr %0, align 8

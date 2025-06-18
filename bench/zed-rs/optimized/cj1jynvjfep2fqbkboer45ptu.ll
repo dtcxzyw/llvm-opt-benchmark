@@ -41565,7 +41565,7 @@ define internal void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpu
   %3 = alloca [16 x i8], align 4
   %4 = alloca [48 x i8], align 8
   %5 = alloca [1040 x i8], align 8
-  %.sroa.7.i = alloca [1040 x i8], align 8
+  %.sroa.7.i.sroa.7 = alloca [1032 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [1040 x i8], align 8
   %8 = alloca [1072 x i8], align 8
@@ -41686,11 +41686,7 @@ define internal void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpu
   br i1 %trunc21.i, label %58, label %.thread28.i
 
 .thread28.i:                                      ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %.sroa.7.i)
-  call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %5)
-  store i64 0, ptr %5, align 8, !noalias !7991
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(1040) %5, i64 1040, i1 false), !noalias !7991
-  call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %.sroa.7.i.sroa.7)
   br label %"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h40c9a25850c4196bE.exit.i"
 
 58:                                               ; preds = %56
@@ -41771,12 +41767,14 @@ define internal void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpu
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !7991
   %.pre.i = load i64, ptr %7, align 8, !range !1339, !noalias !7991
   %.pre27.i = load i64, ptr %0, align 8, !range !2261, !alias.scope !8061
-  call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %.sroa.7.i)
+  call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %.sroa.7.i.sroa.7)
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %5)
   %90 = getelementptr inbounds nuw [2 x i64], ptr @anon.a22c35433011442b18091cbc43717a7e.244, i64 0, i64 %.pre.i
   %91 = load i64, ptr %90, align 8, !noalias !7991, !noundef !9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %7, i64 %91, i1 false), !noalias !7991
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(1040) %5, i64 1040, i1 false), !noalias !7991
+  %.0..0..0..sroa.7.i.sroa.0.0.copyload2 = load i64, ptr %5, align 8, !noalias !7991
+  %.sroa.7.i.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %.sroa.7.i.sroa.7, ptr noundef nonnull align 8 dereferenceable(1032) %.sroa.7.i.sroa.7.0..sroa_idx, i64 1032, i1 false), !noalias !7991
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %5)
   switch i64 %.pre27.i, label %"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h40c9a25850c4196bE.exit.i" [
     i64 3, label %101
@@ -41809,6 +41807,7 @@ define internal void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpu
   br i1 %104, label %"_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h40c9a25850c4196bE.exit.i", label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h98658eefee4d52d2E.exit.sink.split.i.i"
 
 "_ZN4core3ptr79drop_in_place$LT$gpui..element..ElementDrawPhase$LT$$LP$$RP$$C$$LP$$RP$$GT$$GT$17h40c9a25850c4196bE.exit.i": ; preds = %101, %97, %93, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h98658eefee4d52d2E.exit.sink.split.i.i", %.thread.i, %.thread28.i
+  %.sroa.7.i.sroa.0.0 = phi i64 [ %.0..0..0..sroa.7.i.sroa.0.0.copyload2, %.thread.i ], [ %.0..0..0..sroa.7.i.sroa.0.0.copyload2, %101 ], [ %.0..0..0..sroa.7.i.sroa.0.0.copyload2, %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h98658eefee4d52d2E.exit.sink.split.i.i" ], [ %.0..0..0..sroa.7.i.sroa.0.0.copyload2, %93 ], [ %.0..0..0..sroa.7.i.sroa.0.0.copyload2, %97 ], [ 0, %.thread28.i ]
   store i64 3, ptr %0, align 8, !alias.scope !7991
   store i64 %52, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !7991
   %.sroa.6.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -41820,8 +41819,10 @@ define internal void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpu
   %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx6.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %37, ptr %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx6.sroa_idx.i, align 4, !alias.scope !7991
   %.sroa.7.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %.sroa.7.0..sroa_idx7.i, ptr noundef nonnull align 8 dereferenceable(1040) %.sroa.7.i, i64 1040, i1 false)
-  call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %.sroa.7.i)
+  store i64 %.sroa.7.i.sroa.0.0, ptr %.sroa.7.0..sroa_idx7.i, align 8
+  %.sroa.7.i.sroa.7.0..sroa.7.0..sroa_idx7.i.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %.sroa.7.i.sroa.7.0..sroa.7.0..sroa_idx7.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(1032) %.sroa.7.i.sroa.7, i64 1032, i1 false)
+  call void @llvm.lifetime.end.p0(i64 1032, ptr nonnull %.sroa.7.i.sroa.7)
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %7), !noalias !7991
   %105 = load i64, ptr %8, align 8, !range !2261, !noalias !7991, !noundef !9
   %.off.i = add nsw i64 %105, -1
@@ -41869,7 +41870,9 @@ define internal void @"_ZN81_$LT$gpui..element..Drawable$LT$E$GT$$u20$as$u20$gpu
   %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %37, ptr %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !7991
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(1040) %.sroa.7.i, i64 1040, i1 false)
+  store i64 %.0..0..0..sroa.7.i.sroa.0.0.copyload2, ptr %.sroa.7.0..sroa_idx.i, align 8
+  %.sroa.7.i.sroa.7.0..sroa.7.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %.sroa.7.i.sroa.7.0..sroa.7.0..sroa_idx.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(1032) %.sroa.7.i.sroa.7, i64 1032, i1 false)
   br label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h98658eefee4d52d2E.exit.i"
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$gpui..element..GlobalElementId$GT$$GT$17h98658eefee4d52d2E.exit.i": ; preds = %125, %121, %118, %.body.i

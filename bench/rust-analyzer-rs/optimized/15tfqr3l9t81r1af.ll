@@ -25942,7 +25942,7 @@ _ZN3ide5hover25show_fn_references_action17h8e47a69d2b25f3b3E.exit: ; preds = %22
   br i1 %.not.i.i, label %380, label %379
 
 379:                                              ; preds = %.noexc66
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %.sroa.779, ptr noundef nonnull align 8 dereferenceable(240) %378, i64 240, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.779, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   br label %.noexc67
 
 380:                                              ; preds = %.noexc66
@@ -25979,7 +25979,7 @@ _ZN3ide5hover25show_fn_references_action17h8e47a69d2b25f3b3E.exit: ; preds = %22
   br i1 %.not.i39.i, label %387, label %386
 
 386:                                              ; preds = %.noexc68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %.sroa.779, ptr noundef nonnull align 8 dereferenceable(240) %385, i64 240, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.779, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   br label %.noexc69
 
 387:                                              ; preds = %.noexc68

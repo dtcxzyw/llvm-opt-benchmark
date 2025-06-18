@@ -2005,7 +2005,6 @@ define void @_ZN8WasmEdge6Loader6Loader17loadCompositeTypeERNS_3AST13CompositeTy
   %7 = alloca %"class.WasmEdge::ErrCode", align 4
   %8 = alloca %"class.cxx20::expected.64", align 4
   %9 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %.sroa.0.i = alloca %"class.WasmEdge::AST::FieldType", align 4
   %10 = alloca %"class.cxx20::expected.38", align 4
   %11 = alloca %"class.WasmEdge::AST::FieldType", align 4
   %12 = alloca %"class.cxx20::expected.64", align 4
@@ -2046,9 +2045,7 @@ define void @_ZN8WasmEdge6Loader6Loader17loadCompositeTypeERNS_3AST13CompositeTy
   br label %_ZNSt6vectorIN8WasmEdge3AST9FieldTypeESaIS2_EED2Ev.exit17
 
 33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i)
   store i8 94, ptr %2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(9) %11, i64 9, i1 false)
   %34 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #21
           to label %37 unwind label %_ZNSt12_Vector_baseIN8WasmEdge3AST9FieldTypeESaIS2_EED2Ev.exit.i.i
 
@@ -2061,7 +2058,7 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST9FieldTypeESaIS2_EED2Ev.exit.i.i: ; preds = %3
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.i, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %34, ptr noundef nonnull align 4 dereferenceable(9) %11, i64 9, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %41 = load i8, ptr %40, align 8
@@ -2102,7 +2099,6 @@ _ZNSt7variantIJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS3_EENS2_12FunctionTypeEEE7
   br label %_ZN8WasmEdge3AST13CompositeType12setArrayTypeEONS0_9FieldTypeE.exit
 
 _ZN8WasmEdge3AST13CompositeType12setArrayTypeEONS0_9FieldTypeE.exit: ; preds = %_ZSt3getILm0EJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS3_EENS2_12FunctionTypeEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSB_.exit.i.i, %46, %_ZNSt7variantIJSt6vectorIN8WasmEdge3AST9FieldTypeESaIS3_EENS2_12FunctionTypeEEE7emplaceILm0EJS5_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS5_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
   store i64 1, ptr %0, align 4
   br label %_ZNSt6vectorIN8WasmEdge3AST9FieldTypeESaIS2_EED2Ev.exit17
 

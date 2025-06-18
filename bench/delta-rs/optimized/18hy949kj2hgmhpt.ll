@@ -1612,7 +1612,6 @@ define hidden void @_ZN12object_store6client13ClientOptions11with_config17h79d09
   %18 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %19 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %20 = alloca { [1 x i64], i64, [1 x i64] }, align 8
-  %.sroa.01 = alloca [32 x i8], align 8
   switch i8 %2, label %21 [
     i8 0, label %22
     i8 1, label %37
@@ -2300,8 +2299,6 @@ define hidden void @_ZN12object_store6client13ClientOptions11with_config17h79d09
   br label %97
 
 242:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.01)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 456
   tail call void @llvm.experimental.noalias.scope.decl(metadata !570)
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 488
@@ -2358,14 +2355,13 @@ define hidden void @_ZN12object_store6client13ClientOptions11with_config17h79d09
 266:                                              ; preds = %257, %248
   %267 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %243, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i8 2, ptr %244, align 8
   br label %.body
 
 "_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$object_store..config..ConfigValue$LT$http..header..value..HeaderValue$GT$$GT$$GT$17h0334fb0c11c202bcE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdeaf2b35720a3dfbE.exit.i.i72", %242, %248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %243, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i8 2, ptr %244, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.01)
   br label %97
 
 268:                                              ; preds = %.body

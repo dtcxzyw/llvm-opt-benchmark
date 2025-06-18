@@ -36525,7 +36525,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit176.i: ; preds = %248
   br i1 %.not.i.i, label %268, label %267
 
 267:                                              ; preds = %.noexc179.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %.sroa.512.i, ptr noundef nonnull align 8 dereferenceable(240) %266, i64 240, i1 false), !noalias !8960
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.512.i, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !8960
   br label %271
 
 268:                                              ; preds = %.noexc179.i

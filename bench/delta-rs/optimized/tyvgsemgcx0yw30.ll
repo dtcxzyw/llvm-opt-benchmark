@@ -5070,7 +5070,6 @@ define internal void @"_ZN101_$LT$deltalake_catalog_glue..GlueDataCatalog$u20$as
   %.sroa.16458 = alloca [28 x i64], align 8
   %.sroa.17459 = alloca [107 x i64], align 8
   %90 = alloca { { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, { i64, [58 x i64] }, ptr }, align 8
-  %.sroa.0449 = alloca { { { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, { i64, [58 x i64] }, ptr }, [5104 x i8] }, align 8
   %.sroa.19.sroa.11 = alloca [3 x i64], align 8
   %.sroa.19.sroa.12 = alloca [3 x i64], align 8
   %.sroa.19.sroa.13 = alloca [3 x i64], align 8
@@ -5175,10 +5174,8 @@ default.unreachable977:                           ; preds = %263, %238, %227, %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.19.sroa.12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.19.sroa.13)
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %.sroa.19.sroa.14)
-  call void @llvm.lifetime.start.p0(i64 5704, ptr nonnull %.sroa.0449)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %.sroa.0449, ptr noundef nonnull align 8 dereferenceable(600) %90, i64 600, i1 false)
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5704) %129, ptr noundef nonnull align 8 dereferenceable(5704) %.sroa.0449, i64 5704, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %129, ptr noundef nonnull align 8 dereferenceable(600) %90, i64 600, i1 false)
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 5792
   store i8 0, ptr %.sroa.8.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.13455)
@@ -5228,7 +5225,6 @@ default.unreachable977:                           ; preds = %263, %238, %227, %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.19.sroa.12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.19.sroa.13)
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %.sroa.19.sroa.14)
-  call void @llvm.lifetime.start.p0(i64 5704, ptr nonnull %.sroa.0449)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 5792
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !39, !noalias !919
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.13455)
@@ -6677,7 +6673,6 @@ common.ret:                                       ; preds = %"_ZN4core3ptr70drop
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.19.sroa.12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.19.sroa.13)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.19.sroa.14)
-  call void @llvm.lifetime.end.p0(i64 5704, ptr nonnull %.sroa.0449)
   br label %common.ret
 
 .body147:                                         ; preds = %512, %502, %.body142
@@ -6686,7 +6681,6 @@ common.ret:                                       ; preds = %"_ZN4core3ptr70drop
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.19.sroa.12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.19.sroa.13)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.19.sroa.14)
-  call void @llvm.lifetime.end.p0(i64 5704, ptr nonnull %.sroa.0449)
   br label %1240
 
 502:                                              ; preds = %506, %497
@@ -6829,7 +6823,6 @@ common.ret:                                       ; preds = %"_ZN4core3ptr70drop
   store i64 %.sroa.880.sroa.3.i.sroa.4.0, ptr %.sroa.9481.0..sroa_idx, align 8
   %.sroa.10482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 56
   store i64 %.sroa.880.sroa.3.i.sroa.5.0, ptr %.sroa.10482.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 5704, ptr nonnull %.sroa.0449)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %89)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %88)
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %87)
@@ -9928,7 +9921,6 @@ _ZN4core3str11validations15next_code_point17h23bc3658d2f85855E.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.19.sroa.12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.19.sroa.13)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.19.sroa.14)
-  call void @llvm.lifetime.end.p0(i64 5704, ptr nonnull %.sroa.0449)
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf614fc4dff0b0130E.exit377"
 
 1600:                                             ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hf614fc4dff0b0130E.exit377"

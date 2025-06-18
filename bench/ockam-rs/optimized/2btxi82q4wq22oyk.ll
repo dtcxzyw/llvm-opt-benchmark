@@ -10605,14 +10605,12 @@ define void @_ZN10ockam_abac6parser5parse17h9d4ec0a6f5235254E(ptr noalias nounde
   %28 = alloca [1 x { ptr, ptr }], align 8
   %29 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %30 = alloca { { { ptr, i64 }, i64 } }, align 8
-  %.sroa.0105 = alloca [32 x i8], align 8
   %31 = alloca { i8, [31 x i8] }, align 8
   %32 = alloca { i8, [31 x i8] }, align 8
   %33 = alloca { ptr, i64 }, align 8
   %34 = alloca [1 x { ptr, ptr }], align 8
   %35 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %36 = alloca { { { ptr, i64 }, i64 } }, align 8
-  %.sroa.093 = alloca [32 x i8], align 8
   %37 = alloca { i8, [31 x i8] }, align 8
   %38 = alloca { i8, [31 x i8] }, align 8
   %39 = alloca { ptr, i64 }, align 8
@@ -11421,7 +11419,6 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit: ; preds = %309
           to label %323 unwind label %.loopexit546
 
 316:                                              ; preds = %313
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.093)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   store ptr %39, ptr %34, align 8
@@ -11442,11 +11439,9 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit: ; preds = %309
 322:                                              ; preds = %316
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.093, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.093, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
   %.sroa.494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 11, ptr %.sroa.494.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.093)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
   br label %263
 
@@ -11568,7 +11563,6 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit318: ; preds = %34
           to label %357 unwind label %.loopexit546
 
 350:                                              ; preds = %347
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0105)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
   store ptr %33, ptr %28, align 8
@@ -11589,11 +11583,9 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit318: ; preds = %34
 356:                                              ; preds = %350
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0105, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0105, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
   %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 11, ptr %.sroa.4106.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0105)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
   br label %263
 

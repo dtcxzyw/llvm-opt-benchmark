@@ -112107,7 +112107,6 @@ define internal void @"_ZN7project12buffer_store11BufferStore11open_buffer28_$u7
   %7 = alloca [32 x i8], align 8
   %.sroa.618 = alloca [16 x i8], align 8
   %.sroa.11 = alloca [16 x i8], align 8
-  %.sroa.010 = alloca [40 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = load i8, ptr %8, align 8, !range !1049, !noundef !4
   switch i8 %9, label %default.unreachable29 [
@@ -112121,10 +112120,8 @@ default.unreachable29:                            ; preds = %.noexc22.i, %15, %3
   unreachable
 
 .thread:                                          ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.010)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.010, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -112135,7 +112132,6 @@ default.unreachable29:                            ; preds = %.noexc22.i, %15, %3
 
 .body8:                                           ; preds = %165, %156, %.body
   %.pn4 = phi { ptr, i32 } [ %.pn2, %.body ], [ %157, %156 ], [ %166, %165 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.010)
   store i8 2, ptr %8, align 8
   resume { ptr, i32 } %.pn4
 
@@ -112148,7 +112144,6 @@ default.unreachable29:                            ; preds = %.noexc22.i, %15, %3
   unreachable
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.010)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !1049, !noalias !32294
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -112556,7 +112551,9 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
           to label %158 unwind label %156
 
 common.ret:                                       ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05d979f0582f045E.exit", %155
+  %storemerge34 = phi i64 [ 1, %155 ], [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05d979f0582f045E.exit" ]
   %storemerge = phi i8 [ 3, %155 ], [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05d979f0582f045E.exit" ]
+  store i64 %storemerge34, ptr %0, align 8
   store i8 %storemerge, ptr %8, align 8
   ret void
 
@@ -112565,8 +112562,6 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !32294
   store i8 3, ptr %40, align 8, !noalias !32294
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i)
-  store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.010)
   br label %common.ret
 
 156:                                              ; preds = %170, %154
@@ -112629,7 +112624,6 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb05d979f0582f045E.exit": ; preds = %160, %176, %172, %.noexc7, %167
   %.sroa.316.0 = phi i32 [ %.sroa.3.0.i, %160 ], [ undef, %176 ], [ undef, %172 ], [ undef, %.noexc7 ], [ undef, %167 ]
   %.sroa.417.0 = phi ptr [ %.sroa.36.0.i, %160 ], [ %164, %176 ], [ %164, %172 ], [ %164, %.noexc7 ], [ %164, %167 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.010)
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.02.0.i, ptr %179, align 8
   %.sroa.316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -112638,7 +112632,6 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
   store ptr %.sroa.417.0, ptr %.sroa.417.0..sroa_idx, align 8
   %.sroa.618.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.618.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.618, i64 16, i1 false)
-  store i64 0, ptr %0, align 8
   br label %common.ret
 
 .body:                                            ; preds = %152, %.body31.i

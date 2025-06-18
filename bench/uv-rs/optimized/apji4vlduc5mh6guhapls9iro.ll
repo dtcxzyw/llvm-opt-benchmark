@@ -10558,7 +10558,6 @@ define internal fastcc void @"_ZN7uv_auth7keyring15KeyringProvider16fetch_subpro
   %82 = alloca [8 x i8], align 8
   %83 = alloca [56 x i8], align 8
   %.sroa.10.i = alloca [24 x i8], align 8
-  %.sroa.0278.i = alloca [552 x i8], align 8
   %.sroa.12.i = alloca [40 x i8], align 8
   %84 = alloca [56 x i8], align 8
   %85 = alloca [144 x i8], align 8
@@ -11278,11 +11277,9 @@ _ZN5tokio7process7Command6stderr17hb38184cd620d59eaE.exit.i: ; preds = %255
   store ptr %.sroa.7259.0359.i, ptr %.sroa.4.0..sroa_idx.i40, align 8, !noalias !1719
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %84), !noalias !1719
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.12.i)
-  call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %.sroa.0278.i)
   store i8 0, ptr %222, align 8, !noalias !1719
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.0278.i, ptr noundef nonnull align 8 dereferenceable(144) %86, i64 144, i1 false), !noalias !1719
   %304 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %304, ptr noundef nonnull align 8 dereferenceable(552) %.sroa.0278.i, i64 552, i1 false), !noalias !1719
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %304, ptr noundef nonnull align 8 dereferenceable(144) %86, i64 144, i1 false), !noalias !1719
   %.sroa.8.0..sroa_idx279.i = getelementptr inbounds nuw i8, ptr %1, i64 688
   store i8 0, ptr %.sroa.8.0..sroa_idx279.i, align 8, !noalias !1719
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.10.i)
@@ -11340,7 +11337,6 @@ _ZN5tokio7process7Command6stderr17hb38184cd620d59eaE.exit.i: ; preds = %255
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %86), !noalias !1719
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %84), !noalias !1719
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.12.i)
-  call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %.sroa.0278.i)
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 688
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !43, !noalias !1756
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.10.i)
@@ -11887,7 +11883,6 @@ _ZN4core3mem4drop17h15264f31640bdb6cE.exit.i.i:   ; preds = %"_ZN4core3ptr48drop
 .body168.i:                                       ; preds = %516, %484, %.body151.i
   %.pn38.i = phi { ptr, i32 } [ %eh.lpad-body152.i, %.body151.i ], [ %485, %484 ], [ %517, %516 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.12.i)
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %.sroa.0278.i)
   br label %900
 
 484:                                              ; preds = %524, %521, %483
@@ -12053,7 +12048,6 @@ _ZN4core3mem4drop17h15264f31640bdb6cE.exit.i.i:   ; preds = %"_ZN4core3ptr48drop
   store i64 %.sroa.0270.0373.i, ptr %84, align 8, !noalias !1719
   %.sroa.4287.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %.sroa.10272.0372.i, ptr %.sroa.4287.0..sroa_idx.i, align 8, !noalias !1719
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %.sroa.0278.i)
   %527 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %.val129.i = load i32, ptr %527, align 8, !noalias !1719, !noundef !4
   %528 = icmp eq i32 %.val129.i, 0
@@ -13521,7 +13515,6 @@ _ZN4core3mem4drop17h15264f31640bdb6cE.exit.i.i:   ; preds = %"_ZN4core3ptr48drop
 976:                                              ; preds = %524, %.noexc171.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !1858
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.12.i)
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %.sroa.0278.i)
   br label %971
 
 977:                                              ; preds = %900
@@ -13546,7 +13539,6 @@ _ZN4core3mem4drop17h15264f31640bdb6cE.exit.i.i:   ; preds = %"_ZN4core3ptr48drop
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %86), !noalias !1719
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %84), !noalias !1719
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.12.i)
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %.sroa.0278.i)
   store i8 3, ptr %219, align 1, !noalias !1719
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9352.i)

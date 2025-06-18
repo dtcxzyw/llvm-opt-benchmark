@@ -16635,8 +16635,8 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
 27:                                               ; preds = %.noexc10.i
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i64 %.sroa.42.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !alias.scope !4650, !noalias !4651
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %24, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !4650, !noalias !4651
+  %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %24, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !alias.scope !4650, !noalias !4651
   br label %.thread11.i
 
 .thread11.i:                                      ; preds = %27, %.noexc10.i

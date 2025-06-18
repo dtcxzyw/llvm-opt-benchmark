@@ -1735,7 +1735,7 @@ common.resume.i.i.i.i.i:                          ; preds = %57, %53
   unreachable
 
 "_ZN13polars_schema6schema15Schema$LT$D$GT$22new_inserting_at_index28_$u7b$$u7b$closure$u7d$$u7d$17h072da8408e16b937E.exit.i.i.i.i": ; preds = %55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %10, i64 32, i1 false), !noalias !124
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !124
   %.sroa.4.0.copyload2.i.i.i.i = load i8, ptr %35, align 16, !noalias !132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.6.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.6.0..sroa_idx3.i.i.i.i, i64 47, i1 false), !noalias !132
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10), !noalias !130
@@ -147380,22 +147380,18 @@ define hidden void @_ZN11polars_plan5utils15get_single_leaf17ha9a6bd08164108acE(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11polars_plan5utils30expr_to_leaf_column_names_iter17h363973890359c76bE(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 72), (95, 96)) %0, ptr noundef nonnull align 16 %1) unnamed_addr #2 {
-  %.sroa.03 = alloca [71 x i8], align 8
+define void @_ZN11polars_plan5utils30expr_to_leaf_column_names_iter17h363973890359c76bE(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 48), (71, 72), (95, 96)) %0, ptr noundef nonnull align 16 %1) unnamed_addr #2 {
   %3 = alloca [48 x i8], align 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @"_ZN11polars_plan5plans8iterator104_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$RF$polars_plan..dsl..expr..Expr$GT$9into_iter17h7e4ee5be576f76a6E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 16 %1)
   store i64 0, ptr %3, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 71, ptr nonnull %.sroa.03)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.03, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(71) %0, ptr noundef nonnull align 8 dereferenceable(71) %.sroa.03, i64 71, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 71
   store i8 -37, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 95
   store i8 -37, ptr %.sroa.7.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 71, ptr nonnull %.sroa.03)
   ret void
 }
 

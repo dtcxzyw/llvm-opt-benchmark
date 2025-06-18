@@ -32091,7 +32091,7 @@ common.resume.i.i.i.i.i:                          ; preds = %47, %43
   unreachable
 
 "_ZN13polars_schema6schema15Schema$LT$D$GT$22new_inserting_at_index28_$u7b$$u7b$closure$u7d$$u7d$17h072da8408e16b937E.exit.i.i.i.i": ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(32) %11, i64 32, i1 false), !noalias !4512
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !4512
   %.sroa.4.0.copyload2.i.i.i.i = load i8, ptr %18, align 16, !noalias !4525
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.6.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.6.0..sroa_idx3.i.i.i.i, i64 47, i1 false), !noalias !4525
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11), !noalias !4523

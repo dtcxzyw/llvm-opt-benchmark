@@ -188,7 +188,6 @@ define void @_ZN21uv_trampoline_builder8Launcher13try_from_path17hee0dc297198379
   %9 = alloca [16 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [40 x i8], align 8
-  %.sroa.4154 = alloca [24 x i8], align 8
   %12 = alloca [40 x i8], align 8
   %13 = alloca [40 x i8], align 8
   %14 = alloca [24 x i8], align 8
@@ -538,25 +537,22 @@ _ZN6fs_err4file4File4open17hf9f7ee31f408202dE.exit: ; preds = %26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   %116 = load i64, ptr %15, align 8, !range !5, !noundef !3
   %117 = icmp eq i64 %116, -9223372036854775808
-  br i1 %117, label %120, label %118
+  br i1 %117, label %119, label %118
 
 118:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4154)
-  %119 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4154, ptr noundef nonnull align 8 dereferenceable(16) %119, i64 16, i1 false)
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..string..FromUtf8Error$GT$17h01b4448a6a5269c4E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %.thread235 unwind label %109
 
-120:                                              ; preds = %115
-  %121 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.694, ptr noundef nonnull align 8 dereferenceable(24) %121, i64 24, i1 false)
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.694, ptr noundef nonnull align 8 dereferenceable(24) %120, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.787, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.694, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.694)
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.787, i64 24, i1 false)
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.787, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.787)
   %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %44, ptr %.sroa.4106.0..sroa_idx, align 8
@@ -567,9 +563,9 @@ _ZN6fs_err4file4File4open17hf9f7ee31f408202dE.exit: ; preds = %26
   br label %123
 
 .thread235:                                       ; preds = %118
+  %122 = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.694, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4154, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4154)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.694, ptr noundef nonnull align 8 dereferenceable(16) %122, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.787, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.694, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.694)
@@ -579,7 +575,7 @@ _ZN6fs_err4file4File4open17hf9f7ee31f408202dE.exit: ; preds = %26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.787)
   br label %124
 
-123:                                              ; preds = %37, %130, %120
+123:                                              ; preds = %37, %130, %119
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   ret void
 

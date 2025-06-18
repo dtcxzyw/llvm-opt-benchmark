@@ -10400,7 +10400,7 @@ _ZNKSt6vectorIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE12_M_check_lenEmPKc.exit.i.i.
   %.sroa.9187.0..sroa_idx188.i = getelementptr inbounds nuw i8, ptr %3584, i64 24
   store i8 %.sroa.9187.16.copyload.i, ptr %.sroa.9187.0..sroa_idx188.i, align 8
   %.sroa.10190.0..sroa_idx191.i = getelementptr inbounds nuw i8, ptr %3584, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10190.0..sroa_idx191.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10190.i, i64 7, i1 false), !tbaa.struct !363
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.10190.0..sroa_idx191.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.10190.16..sroa_idx.i, i64 3, i1 false)
   br i1 %3577, label %_ZNSt6vectorIN12_GLOBAL__N_111equiv_bit_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i, label %.lr.ph.i.i.i.i.i143.i
 
 .lr.ph.i.i.i.i.i143.i:                            ; preds = %.noexc678, %.lr.ph.i.i.i.i.i143.i

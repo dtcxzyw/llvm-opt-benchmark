@@ -8351,7 +8351,6 @@ define void @_ZN8terminal8Terminal16scroll_to_bottom17h942f47d775982427E(ptr noa
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN8terminal8Terminal8set_size17h97f8adeee300910eE(ptr noalias noundef align 16 dereferenceable(9760) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.sroa.0 = alloca [40 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9168
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 9176
   %5 = load float, ptr %4, align 8, !noundef !4
@@ -8376,8 +8375,6 @@ define void @_ZN8terminal8Terminal8set_size17h97f8adeee300910eE(ptr noalias noun
 
 19:                                               ; preds = %15, %2, %9, %37
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8704
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8728
   %22 = load i64, ptr %21, align 8, !alias.scope !1603, !noalias !1606, !noundef !4
   %23 = load i64, ptr %20, align 16, !alias.scope !1603, !noalias !1606, !noundef !4
@@ -8402,13 +8399,12 @@ define void @_ZN8terminal8Terminal8set_size17h97f8adeee300910eE(ptr noalias noun
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8712
   %33 = load ptr, ptr %32, align 8, !alias.scope !1603, !noalias !1606, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds { [40 x i8], i8, [31 x i8] }, ptr %33, i64 %.sroa.0.0.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 40
   store i8 3, ptr %.sroa.4.0..sroa_idx, align 8
   %35 = load i64, ptr %21, align 8, !alias.scope !1603, !noalias !1606, !noundef !4
   %36 = add i64 %35, 1
   store i64 %36, ptr %21, align 8, !alias.scope !1603, !noalias !1606
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0)
   br label %43
 
 37:                                               ; preds = %15

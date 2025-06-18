@@ -30563,7 +30563,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %2393
   %2454 = load i8, ptr %2453, align 8, !range !141, !alias.scope !4304, !noalias !4305, !noundef !4
   %2455 = extractvalue { ptr, i64 } %2448, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0115.i, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false), !noalias !4306
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(71) %.sroa.7120.i, ptr noundef nonnull align 1 dereferenceable(71) %.sroa.5.0..sroa_idx.i.i63.i, i64 71, i1 false), !noalias !4306
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.7120.i, ptr noundef nonnull align 1 dereferenceable(64) %.sroa.6111.i, i64 64, i1 false), !noalias !4192
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %59), !noalias !4282
   %2456 = getelementptr inbounds nuw i8, ptr %.sroa.6111.i, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.11134.i, ptr noundef nonnull align 1 dereferenceable(64) %2456, i64 64, i1 false), !noalias !4192

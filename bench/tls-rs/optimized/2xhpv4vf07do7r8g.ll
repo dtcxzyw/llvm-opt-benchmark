@@ -5543,10 +5543,10 @@ _ZN6rustls6crypto6cipher5Nonce3new17hcf7a0216ca69e30dE.exit: ; preds = %21
   unreachable
 
 54:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9), !noalias !1373
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 1 dereferenceable(12) %14, i64 12, i1 false), !noalias !1325
   %55 = load <16 x i8>, ptr %12, align 16, !noalias !1352
   %56 = load i64, ptr %11, align 8, !noalias !1352
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9), !noalias !1373
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 1 dereferenceable(12) %14, i64 12, i1 false), !noalias !1325
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !1352
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !1352
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14), !noalias !1325

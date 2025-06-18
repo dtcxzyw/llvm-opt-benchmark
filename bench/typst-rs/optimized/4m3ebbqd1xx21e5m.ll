@@ -62067,15 +62067,12 @@ define hidden noundef zeroext i1 @"_ZN5typst6layout4grid6layout12GridLayouter20r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5typst6layout4grid5lines22generate_line_segments17h0f6ac501435c5078E(ptr noalias noundef writeonly sret({ { { { { { { i64, [1 x i64] } }, { ptr, [1 x i64] }, { ptr, [1 x i64] } } }, ptr }, { [24 x i8], i8, [7 x i8] }, { { ptr, ptr, {} }, {} }, ptr, i64, i64, double, {} } }) align 8 captures(none) dereferenceable(136) initializes((0, 81), (88, 136)) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %5) unnamed_addr #25 personality ptr @rust_eh_personality {
-  %.sroa.0.sroa.0 = alloca [80 x i8], align 8
+define hidden void @_ZN5typst6layout4grid5lines22generate_line_segments17h0f6ac501435c5078E(ptr noalias noundef writeonly sret({ { { { { { { i64, [1 x i64] } }, { ptr, [1 x i64] }, { ptr, [1 x i64] } } }, ptr }, { [24 x i8], i8, [7 x i8] }, { { ptr, ptr, {} }, {} }, ptr, i64, i64, double, {} } }) align 8 captures(none) dereferenceable(136) initializes((0, 56), (80, 81), (88, 136)) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %5) unnamed_addr #25 personality ptr @rust_eh_personality {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %8 = load i8, ptr %7, align 8, !range !565, !noundef !4
   %9 = trunc nuw i8 %8 to i1
   %. = select i1 %9, i64 2, i64 1
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.0.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.sroa.0, i64 80, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 3, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -62090,20 +62087,16 @@ define hidden void @_ZN5typst6layout4grid5lines22generate_line_segments17h0f6ac5
   store i64 %4, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double 0.000000e+00, ptr %.sroa.10.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.0.sroa.0)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5typst6layout4grid5lines22generate_line_segments17hc3f6d9a3e2046f84E(ptr noalias noundef writeonly sret({ { { { i64, [8 x i64] }, { ptr, [2 x i64] } }, { [24 x i8], i8, [7 x i8] }, { { { ptr, ptr, {} } }, i64 }, ptr, { ptr, ptr, ptr }, i64, i64, double } }) align 8 captures(none) dereferenceable(208) initializes((0, 121), (128, 208)) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i64 noundef %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %5) unnamed_addr #25 personality ptr @rust_eh_personality {
-  %.sroa.0.sroa.0 = alloca [120 x i8], align 8
+define hidden void @_ZN5typst6layout4grid5lines22generate_line_segments17hc3f6d9a3e2046f84E(ptr noalias noundef writeonly sret({ { { { i64, [8 x i64] }, { ptr, [2 x i64] } }, { [24 x i8], i8, [7 x i8] }, { { { ptr, ptr, {} } }, i64 }, ptr, { ptr, ptr, ptr }, i64, i64, double } }) align 8 captures(none) dereferenceable(208) initializes((0, 96), (120, 121), (128, 208)) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i64 noundef %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %5) unnamed_addr #25 personality ptr @rust_eh_personality {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %8 = load i8, ptr %7, align 8, !range !565, !noundef !4
   %9 = trunc nuw i8 %8 to i1
   %. = select i1 %9, i64 2, i64 1
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %.sroa.0.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0.sroa.0, i64 120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %4, i64 96, i1 false)
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 3, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -62118,7 +62111,6 @@ define hidden void @_ZN5typst6layout4grid5lines22generate_line_segments17hc3f6d9
   store i64 %3, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double 0.000000e+00, ptr %.sroa.10.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %.sroa.0.sroa.0)
   ret void
 }
 

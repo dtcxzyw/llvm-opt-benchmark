@@ -4738,10 +4738,10 @@ _ZN6rustls4msgs7message8outbound15PrefixedPayload18extend_from_chunks17h8cfa78da
   br i1 %113, label %.loopexit, label %.lr.ph.i.i.i.i.i7.i.i.i
 
 114:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !979
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 1 dereferenceable(12) %10, i64 12, i1 false), !noalias !914
   %115 = load <16 x i8>, ptr %9, align 16, !noalias !946
   %116 = load i64, ptr %8, align 8, !noalias !946
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !979
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 1 dereferenceable(12) %10, i64 12, i1 false), !noalias !914
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !946
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !946
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10), !noalias !914

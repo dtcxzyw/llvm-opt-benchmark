@@ -178,7 +178,6 @@ define void @_ZN5ZXing5Aztec6DetectERKNS_9BitMatrixEbbi(ptr dead_on_unwind noali
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca %"class.std::optional.15", align 8
-  %.sroa.014.i = alloca %"struct.ZXing::ConcentricPattern", align 8
   %20 = alloca %"class.std::optional", align 8
   %21 = alloca %"class.ZXing::Quadrilateral.11", align 8
   %22 = alloca %"class.ZXing::PerspectiveTransform", align 8
@@ -253,15 +252,12 @@ define void @_ZN5ZXing5Aztec6DetectERKNS_9BitMatrixEbbi(ptr dead_on_unwind noali
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %.noexc63
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.014.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.014.i, ptr noundef nonnull align 8 dereferenceable(20) %19, i64 20, i1 false), !noalias !33
   %60 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
           to label %.noexc64 unwind label %370
 
 .noexc64:                                         ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.014.i, i64 24, i1 false), !noalias !33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.014.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %60, ptr noundef nonnull align 8 dereferenceable(20) %19, i64 20, i1 false), !noalias !33
   br label %62
 
 62:                                               ; preds = %.noexc63, %.noexc64

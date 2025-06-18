@@ -7684,7 +7684,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit70:  ; preds = %73
 define hidden void @_ZN15datafusion_expr4expr4Expr5alias17h301f8fe827dc292dE(ptr noalias noundef writeonly sret({ i128, [32 x i64] }) align 16 captures(none) dereferenceable(272) %0, ptr noalias noundef align 16 captures(none) dereferenceable(272) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { i128, [32 x i64] }, align 16
-  %.sroa.0 = alloca [72 x i8], align 8
   %6 = alloca { i128, [32 x i64] }, align 16
   %7 = alloca { i128, [32 x i64] }, align 16
   %8 = load i128, ptr %1, align 16, !range !1279, !noundef !4
@@ -7752,17 +7751,15 @@ define hidden void @_ZN15datafusion_expr4expr4Expr5alias17h301f8fe827dc292dE(ptr
 
 38:                                               ; preds = %42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %44, ptr noundef nonnull align 16 dereferenceable(272) %1, i64 272, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %39, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.4.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 -9223372036854775805, ptr %.sroa.4.0..sroa_idx10, align 8
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %44, ptr %.sroa.512.0..sroa_idx, align 16
   store i128 3, ptr %0, align 16
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.0)
   br label %53
 
 40:                                               ; preds = %63
@@ -7772,7 +7769,6 @@ define hidden void @_ZN15datafusion_expr4expr4Expr5alias17h301f8fe827dc292dE(ptr
   unreachable
 
 42:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %5, ptr noundef nonnull align 16 dereferenceable(272) %1, i64 272, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)

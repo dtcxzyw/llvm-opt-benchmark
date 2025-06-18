@@ -1534,58 +1534,58 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN103_$LT$futures_util..future..maybe_done..MaybeDone$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hef4826a6f1e36d8eE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.01 = alloca [443 x i8], align 8
   %3 = alloca [24 x i8], align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 443
-  %5 = load i8, ptr %4, align 1, !range !85, !noundef !12
-  %.not = icmp samesign ult i8 %5, 2
-  %6 = zext nneg i8 %5 to i64
-  %7 = add nsw i64 %6, -1
-  %8 = select i1 %.not, i64 0, i64 %7
-  switch i64 %8, label %9 [
-    i64 0, label %10
-    i64 1, label %18
-    i64 2, label %13
+  %4 = alloca [24 x i8], align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 443
+  %6 = load i8, ptr %5, align 1, !range !85, !noundef !12
+  %.not = icmp samesign ult i8 %6, 2
+  %7 = zext nneg i8 %6 to i64
+  %8 = add nsw i64 %7, -1
+  %9 = select i1 %.not, i64 0, i64 %8
+  switch i64 %9, label %10 [
+    i64 0, label %11
+    i64 1, label %19
+    i64 2, label %14
   ]
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   unreachable
 
-10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @"_ZN5fuzzy7strings13match_strings28_$u7b$$u7b$closure$u7d$$u7d$17h4be3f1acc05abca5E.llvm.5997636334944773990"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  %11 = load i64, ptr %3, align 8, !range !64, !noundef !12
-  %12 = icmp eq i64 %11, -9223372036854775808
-  br i1 %12, label %17, label %16
+11:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @"_ZN5fuzzy7strings13match_strings28_$u7b$$u7b$closure$u7d$$u7d$17h4be3f1acc05abca5E.llvm.5997636334944773990"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  %12 = load i64, ptr %4, align 8, !range !64, !noundef !12
+  %13 = icmp eq i64 %12, -9223372036854775808
+  br i1 %13, label %18, label %17
 
-13:                                               ; preds = %2
+14:                                               ; preds = %2
   tail call void @_ZN3std9panicking11begin_panic17h2d4c64a9c41e2e20E(ptr noalias noundef nonnull readonly align 1 @anon.056909d58185468a4c5e660ab0f52ad7.6.llvm.5997636334944773990, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.056909d58185468a4c5e660ab0f52ad7.8.llvm.5997636334944773990) #81
   unreachable
 
-14:                                               ; preds = %16
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %17
+  %16 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(443) %0, ptr noundef nonnull align 8 dereferenceable(443) %.sroa.01, i64 443, i1 false)
-  store i8 2, ptr %4, align 1, !noalias !147
-  resume { ptr, i32 } %15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  store i8 2, ptr %5, align 1, !noalias !147
+  resume { ptr, i32 } %16
 
-16:                                               ; preds = %10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+17:                                               ; preds = %11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   invoke void @"_ZN4core3ptr130drop_in_place$LT$futures_util..future..maybe_done..MaybeDone$LT$fuzzy..strings..match_strings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he6e79799cd97fd81E.llvm.5997636334944773990"(ptr noundef nonnull align 8 %0)
-          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hbfab21824b5c6a85E.llvm.5997636334944773990.exit" unwind label %14, !noalias !147
+          to label %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hbfab21824b5c6a85E.llvm.5997636334944773990.exit" unwind label %15, !noalias !147
 
-"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hbfab21824b5c6a85E.llvm.5997636334944773990.exit": ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(443) %0, ptr noundef nonnull align 8 dereferenceable(443) %.sroa.01, i64 443, i1 false)
-  store i8 2, ptr %4, align 1, !noalias !147
-  br label %18
+"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hbfab21824b5c6a85E.llvm.5997636334944773990.exit": ; preds = %17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  store i8 2, ptr %5, align 1, !noalias !147
+  br label %19
 
-17:                                               ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %18
+18:                                               ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  br label %19
 
-18:                                               ; preds = %2, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hbfab21824b5c6a85E.llvm.5997636334944773990.exit", %17
-  %.sroa.0.0 = phi i1 [ true, %17 ], [ false, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hbfab21824b5c6a85E.llvm.5997636334944773990.exit" ], [ false, %2 ]
+19:                                               ; preds = %2, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hbfab21824b5c6a85E.llvm.5997636334944773990.exit", %18
+  %.sroa.0.0 = phi i1 [ true, %18 ], [ false, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17hbfab21824b5c6a85E.llvm.5997636334944773990.exit" ], [ false, %2 ]
   ret i1 %.sroa.0.0
 }
 

@@ -61428,7 +61428,6 @@ define internal fastcc { ptr, i64 } @_ZN5typst4math9underover24layout_underovers
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %12 = alloca { { { i128 } }, { i64, [13 x i64] } }, align 16
   %13 = alloca { { { i128 } }, { i64, [13 x i64] } }, align 16
-  %.sroa.04.i = alloca [34 x i32], align 16
   %14 = alloca { { i64, ptr, {} }, i64 }, align 8
   %15 = alloca { i64, [2 x i64] }, align 8
   %16 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -61772,12 +61771,9 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.7325118056162354838.ex
           to label %123 unwind label %307
 
 138:                                              ; preds = %.noexc.i
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %.sroa.04.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %.sroa.04.i, ptr noundef nonnull align 8 dereferenceable(96) %33, i64 96, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(136) %131, ptr noundef nonnull align 16 dereferenceable(136) %.sroa.04.i, i64 136, i1 false), !noalias !13260
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %131, ptr noundef nonnull align 8 dereferenceable(96) %33, i64 96, i1 false)
   %.sroa.45.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %131, i64 136
   store i32 3, ptr %.sroa.45.0..0..sroa_idx.i, align 8, !noalias !13260
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.04.i)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
   %139 = getelementptr inbounds nuw i8, ptr %113, i64 24

@@ -19599,7 +19599,6 @@ define hidden { ptr, ptr } @"_ZN4core6option15Option$LT$T$GT$3zip17h201a47906c3c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h522355a927ce7af3E"(ptr noalias noundef writeonly sret({ [2 x i64], ptr }) align 8 captures(none) dereferenceable(24) initializes((16, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 4 dereferenceable_or_null(12) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %.sroa.06 = alloca { { { i32, i32, i32 } }, [1 x i32] }, align 8
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
   %4 = icmp ne i32 %.sroa.0.0.copyload, 1
   %.not = icmp eq ptr %2, null
@@ -19608,10 +19607,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h522355a927ce7af3E"(p
 
 5:                                                ; preds = %3
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.06)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.06, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.06)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx, i64 12, i1 false)
   br label %6
 
 6:                                                ; preds = %3, %5

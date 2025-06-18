@@ -3297,7 +3297,6 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h06
   %.sroa.0.i = alloca [83 x i8], align 8
   %.sroa.059 = alloca [83 x i8], align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.sroa.053 = alloca [83 x i8], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %11 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %12 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
@@ -3320,7 +3319,6 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h06
   %29 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %30 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
   %31 = alloca { { { ptr, i64 }, ptr } }, align 8
-  %.sroa.03 = alloca [83 x i8], align 8
   %.sroa.0199 = alloca [83 x i8], align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -3420,12 +3418,9 @@ _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit.threa
 
 _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit.thread: ; preds = %69, %73
   call void @llvm.lifetime.end.p0(i64 83, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.start.p0(i64 83, ptr nonnull %.sroa.03)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0199, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef nonnull align 8 dereferenceable(83) %.sroa.03, i64 83, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0199, i64 16, i1 false)
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 83
   store i8 6, ptr %.sroa.44.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 83, ptr nonnull %.sroa.03)
   br label %260
 
 _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit: ; preds = %67
@@ -3649,12 +3644,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %126
 
 148:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 83, ptr nonnull %.sroa.053)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.053, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef nonnull align 8 dereferenceable(83) %.sroa.053, i64 83, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 83
   store i8 6, ptr %.sroa.454.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 83, ptr nonnull %.sroa.053)
   br label %237
 
 149:                                              ; preds = %.invoke, %235, %.noexc196, %.critedge9.i194, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit186", %156, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit193", %186, %177, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit179.thread
@@ -5444,7 +5436,6 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h81
   %.sroa.0.i = alloca [83 x i8], align 8
   %.sroa.059 = alloca [83 x i8], align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.sroa.053 = alloca [83 x i8], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %11 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %12 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
@@ -5467,7 +5458,6 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17h81
   %29 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %30 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
   %31 = alloca { { { ptr, i64 }, ptr } }, align 8
-  %.sroa.03 = alloca [83 x i8], align 8
   %.sroa.0199 = alloca [83 x i8], align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 248
@@ -5567,12 +5557,9 @@ _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit.threa
 
 _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit.thread: ; preds = %69, %73
   call void @llvm.lifetime.end.p0(i64 83, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.start.p0(i64 83, ptr nonnull %.sroa.03)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0199, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef nonnull align 8 dereferenceable(83) %.sroa.03, i64 83, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0199, i64 16, i1 false)
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 83
   store i8 6, ptr %.sroa.44.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 83, ptr nonnull %.sroa.03)
   br label %260
 
 _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit: ; preds = %67
@@ -5796,12 +5783,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %126
 
 148:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 83, ptr nonnull %.sroa.053)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.053, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef nonnull align 8 dereferenceable(83) %.sroa.053, i64 83, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 83
   store i8 6, ptr %.sroa.454.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 83, ptr nonnull %.sroa.053)
   br label %237
 
 149:                                              ; preds = %.invoke, %235, %.noexc196, %.critedge9.i194, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit186", %156, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit193", %186, %177, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit179.thread
@@ -6149,7 +6133,6 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17he9
   %.sroa.0.i = alloca [83 x i8], align 8
   %.sroa.059 = alloca [83 x i8], align 8
   %9 = alloca { i64, [1 x i64] }, align 8
-  %.sroa.053 = alloca [83 x i8], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %11 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %12 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
@@ -6172,7 +6155,6 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$9next_item17he9
   %29 = alloca { { { ptr, i64 }, { { ptr, ptr } } }, i64 }, align 8
   %30 = alloca [1 x { ptr, { ptr, [1 x i64] } }], align 8
   %31 = alloca { { { ptr, i64 }, ptr } }, align 8
-  %.sroa.03 = alloca [83 x i8], align 8
   %.sroa.0199 = alloca [83 x i8], align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
@@ -6272,12 +6254,9 @@ _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit.threa
 
 _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit.thread: ; preds = %69, %73
   call void @llvm.lifetime.end.p0(i64 83, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.start.p0(i64 83, ptr nonnull %.sroa.03)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.03, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0199, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef nonnull align 8 dereferenceable(83) %.sroa.03, i64 83, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0199, i64 16, i1 false)
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 83
   store i8 6, ptr %.sroa.44.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 83, ptr nonnull %.sroa.03)
   br label %260
 
 _ZN10tokio_util5codec7decoder7Decoder10decode_eof17hb5ee5bbe429ba09eE.exit: ; preds = %67
@@ -6501,12 +6480,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %126
 
 148:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 83, ptr nonnull %.sroa.053)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.053, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %0, ptr noundef nonnull align 8 dereferenceable(83) %.sroa.053, i64 83, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 83
   store i8 6, ptr %.sroa.454.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 83, ptr nonnull %.sroa.053)
   br label %237
 
 149:                                              ; preds = %.invoke, %235, %.noexc196, %.critedge9.i194, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit186", %156, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd9665bf20006012E.exit193", %186, %177, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit179.thread

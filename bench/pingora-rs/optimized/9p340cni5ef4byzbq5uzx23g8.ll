@@ -521,11 +521,9 @@ define hidden noundef range(i8 2, 13) i8 @"_ZN2h25codec12framed_write16Encoder$L
   %36 = alloca [40 x i8], align 8
   %37 = alloca [48 x i8], align 8
   %38 = alloca [60 x i8], align 4
-  %.sroa.057 = alloca [61 x i8], align 8
   %39 = alloca [40 x i8], align 8
   %40 = alloca [16 x i8], align 8
   %41 = alloca [288 x i8], align 8
-  %.sroa.047 = alloca [61 x i8], align 8
   %42 = alloca [40 x i8], align 8
   %43 = alloca [16 x i8], align 8
   %44 = alloca [288 x i8], align 8
@@ -1149,8 +1147,6 @@ default.unreachable507:                           ; preds = %.critedge364
   br i1 %.not354, label %253, label %247
 
 247:                                              ; preds = %245
-  call void @llvm.lifetime.start.p0(i64 61, ptr nonnull %.sroa.047)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.047, ptr noundef nonnull align 8 dereferenceable(40) %42, i64 40, i1 false)
   %248 = load i8, ptr %62, align 1, !range !48, !alias.scope !74, !noundef !22
   switch i8 %248, label %249 [
     i8 3, label %.thread442
@@ -1168,14 +1164,13 @@ default.unreachable507:                           ; preds = %.critedge364
 251:                                              ; preds = %250, %249
   %252 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %61, ptr noundef nonnull align 8 dereferenceable(61) %.sroa.047, i64 61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %42, i64 40, i1 false)
   store i8 2, ptr %62, align 1
   br label %.thread438
 
 .thread442:                                       ; preds = %250, %249, %247
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %61, ptr noundef nonnull align 8 dereferenceable(61) %.sroa.047, i64 61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %42, i64 40, i1 false)
   store i8 2, ptr %62, align 1
-  call void @llvm.lifetime.end.p0(i64 61, ptr nonnull %.sroa.047)
   br label %253
 
 253:                                              ; preds = %245, %.thread442
@@ -1189,8 +1184,6 @@ default.unreachable507:                           ; preds = %.critedge364
   br i1 %.not353, label %262, label %256
 
 256:                                              ; preds = %254
-  call void @llvm.lifetime.start.p0(i64 61, ptr nonnull %.sroa.057)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.057, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false)
   %257 = load i8, ptr %62, align 1, !range !48, !alias.scope !77, !noundef !22
   switch i8 %257, label %258 [
     i8 3, label %.thread444
@@ -1208,14 +1201,13 @@ default.unreachable507:                           ; preds = %.critedge364
 260:                                              ; preds = %259, %258
   %261 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %61, ptr noundef nonnull align 8 dereferenceable(61) %.sroa.057, i64 61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false)
   store i8 2, ptr %62, align 1
   br label %.thread438
 
 .thread444:                                       ; preds = %259, %258, %256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %61, ptr noundef nonnull align 8 dereferenceable(61) %.sroa.057, i64 61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false)
   store i8 2, ptr %62, align 1
-  call void @llvm.lifetime.end.p0(i64 61, ptr nonnull %.sroa.057)
   br label %262
 
 262:                                              ; preds = %254, %.thread444
@@ -2086,7 +2078,6 @@ define hidden void @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$3new17h
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$5flush17haabb636f8315647bE"(ptr noalias noundef align 8 dereferenceable(328) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.016.i = alloca [61 x i8], align 8
   %3 = alloca [40 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %5 = alloca [40 x i8], align 8
@@ -2300,8 +2291,6 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
   br label %.loopexit192
 
 72:                                               ; preds = %.noexc138
-  call void @llvm.lifetime.start.p0(i64 61, ptr nonnull %.sroa.016.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.016.i, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !noalias !94
   %73 = load i8, ptr %38, align 1, !range !48, !alias.scope !100, !noundef !22
   switch i8 %73, label %74 [
     i8 3, label %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$h2..codec..framed_write..Next$LT$h2..proto..streams..prioritize..Prioritized$LT$bytes..bytes..Bytes$GT$$GT$$GT$$GT$17h67a28e3a9b593960E.exit.i"
@@ -2319,14 +2308,13 @@ define hidden { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT
 76:                                               ; preds = %75, %74
   %77 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %41, ptr noundef nonnull align 8 dereferenceable(61) %.sroa.016.i, i64 61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   store i8 2, ptr %38, align 1, !alias.scope !94
   br label %.body
 
 "_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$h2..codec..framed_write..Next$LT$h2..proto..streams..prioritize..Prioritized$LT$bytes..bytes..Bytes$GT$$GT$$GT$$GT$17h67a28e3a9b593960E.exit.i": ; preds = %75, %74, %72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %41, ptr noundef nonnull align 8 dereferenceable(61) %.sroa.016.i, i64 61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   store i8 2, ptr %38, align 1, !alias.scope !94
-  call void @llvm.lifetime.end.p0(i64 61, ptr nonnull %.sroa.016.i)
   br label %142
 
 78:                                               ; preds = %58

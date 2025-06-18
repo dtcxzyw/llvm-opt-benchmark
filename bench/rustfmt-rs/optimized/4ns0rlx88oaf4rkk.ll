@@ -1199,7 +1199,6 @@ define hidden void @_ZN13intl_memoizer10concurrent16IntlLangMemoizer12with_try_g
   %.sroa.56.i = alloca [3 x i8], align 1
   %.sroa.5.i = alloca [3 x i8], align 1
   %9 = alloca { i64, [4 x i64] }, align 8
-  %.sroa.07.i = alloca { ptr, i64, i128 }, align 16
   %.sroa.6.i = alloca [4 x i64], align 8
   %10 = alloca { ptr, i8 }, align 8
   %11 = alloca { i64, [3 x i64] }, align 8
@@ -1292,11 +1291,8 @@ common.resume:                                    ; preds = %43, %30
   %.sroa.6.16..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.6.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.16..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false), !noalias !73
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !73
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.07.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.07.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.16..sroa_idx.i, i64 24, i1 false), !noalias !73
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.07.i, i64 32, i1 false), !noalias !76
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.07.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.16..sroa_idx.i, i64 24, i1 false), !noalias !76
   br label %46
 
 43:                                               ; preds = %82, %113, %44
