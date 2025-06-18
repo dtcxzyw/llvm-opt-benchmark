@@ -9828,229 +9828,381 @@ malloc_mutex_lock.exit:                           ; preds = %2, %6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @malloc_init_hard_a0_locked() unnamed_addr #2 {
-  %1 = alloca [5 x ptr], align 16
-  %2 = alloca %struct.sc_data_s, align 8
-  %3 = alloca [36 x i32], align 16
-  %4 = alloca [4097 x i8], align 16
-  %5 = alloca %struct.hpa_shard_opts_s, align 8
-  %6 = tail call i64 @pthread_self() #23
-  store i64 %6, ptr @malloc_initializer, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 6576, ptr nonnull %2) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6576) %2, i8 0, i64 6576, i1 false)
-  call void @duckdb_je_sc_boot(ptr noundef nonnull %2) #21
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #21
-  call void @duckdb_je_bin_shard_sizes_boot(ptr noundef nonnull %3) #21
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %4) #21
-  store i8 0, ptr %4, align 16, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, i8 0, i64 40, i1 false)
-  call fastcc void @malloc_conf_init_helper(ptr noundef null, ptr noundef null, i1 noundef zeroext true, ptr noundef %1, ptr noundef nonnull %4)
-  call fastcc void @malloc_conf_init_helper(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef %1, ptr noundef null)
-  %7 = load i8, ptr @duckdb_je_opt_prof_leak_error, align 1, !tbaa !50, !range !55, !noundef !56
-  %8 = trunc nuw i8 %7 to i1
-  %.not.i.i = xor i1 %8, true
-  %9 = load i8, ptr @duckdb_je_opt_prof_final, align 1, !range !55
-  %10 = trunc nuw i8 %9 to i1
-  %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %10
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca [5 x ptr], align 16
+  %7 = alloca %struct.sc_data_s, align 8
+  %8 = alloca [36 x i32], align 16
+  %9 = alloca [4097 x i8], align 16
+  %10 = alloca %struct.hpa_shard_opts_s, align 8
+  %11 = tail call i64 @pthread_self() #23
+  store i64 %11, ptr @malloc_initializer, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 6576, ptr nonnull %7) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6576) %7, i8 0, i64 6576, i1 false)
+  call void @duckdb_je_sc_boot(ptr noundef nonnull %7) #21
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #21
+  call void @duckdb_je_bin_shard_sizes_boot(ptr noundef nonnull %8) #21
+  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %9) #21
+  store i8 0, ptr %9, align 16, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, i8 0, i64 40, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
+  br label %12
+
+12:                                               ; preds = %57, %0
+  %indvars.iv.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i.i, %57 ]
+  %13 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  switch i32 %13, label %27 [
+    i32 0, label %obtain_malloc_conf.exit.thread6.i.i
+    i32 1, label %obtain_malloc_conf.exit.i.i
+    i32 2, label %14
+    i32 3, label %22
+    i32 4, label %26
+  ]
+
+14:                                               ; preds = %12
+  %15 = tail call ptr @__errno_location() #23
+  %16 = load i32, ptr %15, align 4, !tbaa !3
+  %17 = call i64 @readlink(ptr noundef nonnull @.str.165, ptr noundef nonnull %9, i64 noundef 4096) #21
+  %18 = icmp eq i64 %17, -1
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %14
+  store i32 %16, ptr %15, align 4, !tbaa !3
+  br label %20
+
+20:                                               ; preds = %19, %14
+  %.010.i.i.i = phi i64 [ 0, %19 ], [ %17, %14 ]
+  %21 = getelementptr inbounds i8, ptr %9, i64 %.010.i.i.i
+  store i8 0, ptr %21, align 1, !tbaa !10
+  br label %obtain_malloc_conf.exit.thread6.i.i
+
+22:                                               ; preds = %12
+  %23 = call noundef ptr @getenv(ptr noundef nonnull @.str.166) #21
+  %.not.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i, label %obtain_malloc_conf.exit.thread.i.i, label %25
+
+obtain_malloc_conf.exit.thread.i.i:               ; preds = %22
+  %24 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i
+  store ptr null, ptr %24, align 8, !tbaa !199
+  store ptr null, ptr %1, align 8, !tbaa !199
+  br label %57
+
+25:                                               ; preds = %22
+  store ptr %23, ptr @duckdb_je_opt_malloc_conf_env_var, align 8, !tbaa !199
+  br label %obtain_malloc_conf.exit.thread6.i.i
+
+26:                                               ; preds = %12
+  br label %obtain_malloc_conf.exit.i.i
+
+27:                                               ; preds = %12
+  unreachable
+
+obtain_malloc_conf.exit.thread6.i.i:              ; preds = %25, %20, %12
+  %.ph.i.i = phi ptr [ %23, %25 ], [ @.str.91, %12 ], [ %9, %20 ]
+  %28 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i
+  store ptr %.ph.i.i, ptr %28, align 8, !tbaa !199
+  store ptr %.ph.i.i, ptr %1, align 8, !tbaa !199
+  br label %.preheader.i.i
+
+obtain_malloc_conf.exit.i.i:                      ; preds = %26, %12
+  %duckdb_je_malloc_conf.sink.i.i = phi ptr [ @duckdb_je_malloc_conf_2_conf_harder, %26 ], [ @duckdb_je_malloc_conf, %12 ]
+  %29 = load ptr, ptr %duckdb_je_malloc_conf.sink.i.i, align 8, !tbaa !199
+  %30 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i
+  store ptr %29, ptr %30, align 8, !tbaa !199
+  store ptr %29, ptr %1, align 8, !tbaa !199
+  %31 = icmp eq ptr %29, null
+  br i1 %31, label %57, label %.preheader.i.i
+
+.preheader.i.i:                                   ; preds = %obtain_malloc_conf.exit.i.i, %obtain_malloc_conf.exit.thread6.i.i
+  %32 = phi ptr [ %.ph.i.i, %obtain_malloc_conf.exit.thread6.i.i ], [ %29, %obtain_malloc_conf.exit.i.i ]
+  %33 = load i8, ptr %32, align 1, !tbaa !10
+  %.not2.i.i = icmp eq i8 %33, 0
+  br i1 %.not2.i.i, label %.critedge.i.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.thread.i.i
+  %34 = call fastcc zeroext i1 @malloc_conf_next(ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %3, ptr noundef %5)
+  br i1 %34, label %.critedge.i.i, label %35
+
+35:                                               ; preds = %.lr.ph.i.i
+  %36 = load i64, ptr %4, align 8, !tbaa !30
+  %37 = icmp eq i64 %36, 12
+  br i1 %37, label %38, label %.thread.i.i
+
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %2, align 8, !tbaa !199
+  %40 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.92, ptr noundef nonnull dereferenceable(1) %39, i64 noundef 12) #25
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %.thread.i.i
+
+42:                                               ; preds = %38
+  %43 = load i64, ptr %5, align 8, !tbaa !30
+  switch i64 %43, label %.thread.i.i [
+    i64 4, label %44
+    i64 5, label %48
+  ]
+
+44:                                               ; preds = %42
+  %45 = load ptr, ptr %3, align 8, !tbaa !199
+  %46 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %45, i64 noundef 4) #25
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %.thread.sink.split.i.i, label %.thread.i.i
+
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %3, align 8, !tbaa !199
+  %50 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %49, i64 noundef 5) #25
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %.thread.sink.split.i.i, label %.thread.i.i
+
+.thread.sink.split.i.i:                           ; preds = %48, %44
+  %.sink.i.i = phi i8 [ 1, %44 ], [ 0, %48 ]
+  store i8 %.sink.i.i, ptr @duckdb_je_opt_confirm_conf, align 1, !tbaa !50
+  br label %.thread.i.i
+
+.thread.i.i:                                      ; preds = %.thread.sink.split.i.i, %48, %44, %42, %38, %35
+  %52 = load ptr, ptr %1, align 8, !tbaa !199
+  %53 = load i8, ptr %52, align 1, !tbaa !10
+  %.not.i.i = icmp eq i8 %53, 0
+  br i1 %.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i
+
+.critedge.i.i:                                    ; preds = %.thread.i.i, %.lr.ph.i.i, %.preheader.i.i
+  call fastcc void @validate_hpa_settings()
+  %54 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
+  %55 = trunc nuw i8 %54 to i1
+  %.b1.i.i = load i1, ptr @had_conf_error, align 1
+  %or.cond331.i.i = select i1 %55, i1 %.b1.i.i, i1 false
+  br i1 %or.cond331.i.i, label %56, label %57
+
+56:                                               ; preds = %.critedge.i.i
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.176) #21
+  call void @abort()
+  unreachable
+
+57:                                               ; preds = %.critedge.i.i, %obtain_malloc_conf.exit.i.i, %obtain_malloc_conf.exit.thread.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
+  br i1 %exitcond.not.i.i, label %malloc_conf_init_helper.specialized.1.exit.i, label %12
+
+malloc_conf_init_helper.specialized.1.exit.i:     ; preds = %57
+  store atomic i8 1, ptr @duckdb_je_log_init_done release, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #21
+  call fastcc void @malloc_conf_init_helper(ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef %6, ptr noundef null)
+  %58 = load i8, ptr @duckdb_je_opt_prof_leak_error, align 1, !tbaa !50, !range !55, !noundef !56
+  %59 = trunc nuw i8 %58 to i1
+  %.not.i4.i = xor i1 %59, true
+  %60 = load i8, ptr @duckdb_je_opt_prof_final, align 1, !range !55
+  %61 = trunc nuw i8 %60 to i1
+  %or.cond.i.i = select i1 %.not.i4.i, i1 true, i1 %61
   br i1 %or.cond.i.i, label %malloc_conf_init_check_deps.exit.thread.i, label %malloc_conf_init_check_deps.exit.i
 
-malloc_conf_init_check_deps.exit.thread.i:        ; preds = %0
+malloc_conf_init_check_deps.exit.thread.i:        ; preds = %malloc_conf_init_helper.specialized.1.exit.i
   store i32 0, ptr @duckdb_je_opt_debug_double_free_max_scan, align 4, !tbaa !3
   br label %malloc_conf_init.exit
 
-malloc_conf_init_check_deps.exit.i:               ; preds = %0
+malloc_conf_init_check_deps.exit.i:               ; preds = %malloc_conf_init_helper.specialized.1.exit.i
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.175) #21
-  %11 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !range !55
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %malloc_conf_init.exit
+  %62 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !range !55
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %64, label %malloc_conf_init.exit
 
-13:                                               ; preds = %malloc_conf_init_check_deps.exit.i
+64:                                               ; preds = %malloc_conf_init_check_deps.exit.i
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.176) #21
   call void @abort()
   unreachable
 
 malloc_conf_init.exit:                            ; preds = %malloc_conf_init_check_deps.exit.thread.i, %malloc_conf_init_check_deps.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #21
-  %14 = load i64, ptr @duckdb_je_opt_lg_san_uaf_align, align 8, !tbaa !30
-  call void @duckdb_je_san_init(i64 noundef %14) #21
-  %15 = load i8, ptr @duckdb_je_opt_cache_oblivious, align 1, !tbaa !50, !range !55, !noundef !56
-  %16 = trunc nuw i8 %15 to i1
-  call void @duckdb_je_sz_boot(ptr noundef nonnull %2, i1 noundef zeroext %16) #21
-  call void @duckdb_je_bin_info_boot(ptr noundef nonnull %2, ptr noundef nonnull %3) #21
-  %17 = load i8, ptr @duckdb_je_opt_stats_print, align 1, !tbaa !50, !range !55, !noundef !56
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %25
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #21
+  %65 = load i64, ptr @duckdb_je_opt_lg_san_uaf_align, align 8, !tbaa !30
+  call void @duckdb_je_san_init(i64 noundef %65) #21
+  %66 = load i8, ptr @duckdb_je_opt_cache_oblivious, align 1, !tbaa !50, !range !55, !noundef !56
+  %67 = trunc nuw i8 %66 to i1
+  call void @duckdb_je_sz_boot(ptr noundef nonnull %7, i1 noundef zeroext %67) #21
+  call void @duckdb_je_bin_info_boot(ptr noundef nonnull %7, ptr noundef nonnull %8) #21
+  %68 = load i8, ptr @duckdb_je_opt_stats_print, align 1, !tbaa !50, !range !55, !noundef !56
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %70, label %76
 
-19:                                               ; preds = %malloc_conf_init.exit
-  %20 = call i32 @atexit(ptr noundef nonnull @stats_print_atexit) #21
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %25, label %21
+70:                                               ; preds = %malloc_conf_init.exit
+  %71 = call i32 @atexit(ptr noundef nonnull @stats_print_atexit) #21
+  %.not = icmp eq i32 %71, 0
+  br i1 %.not, label %76, label %72
 
-21:                                               ; preds = %19
+72:                                               ; preds = %70
   call void @duckdb_je_malloc_write(ptr noundef nonnull @.str.80) #21
-  %22 = load i8, ptr @duckdb_je_opt_abort, align 1, !tbaa !50, !range !55, !noundef !56
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %25
+  %73 = load i8, ptr @duckdb_je_opt_abort, align 1, !tbaa !50, !range !55, !noundef !56
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %75, label %76
 
-24:                                               ; preds = %21
+75:                                               ; preds = %72
   call void @abort() #22
   unreachable
 
-25:                                               ; preds = %19, %21, %malloc_conf_init.exit
-  %26 = call zeroext i1 @duckdb_je_stats_boot() #21
-  br i1 %26, label %95, label %27
+76:                                               ; preds = %70, %72, %malloc_conf_init.exit
+  %77 = call zeroext i1 @duckdb_je_stats_boot() #21
+  br i1 %77, label %146, label %78
 
-27:                                               ; preds = %25
-  %28 = call zeroext i1 @duckdb_je_pages_boot() #21
-  br i1 %28, label %95, label %29
+78:                                               ; preds = %76
+  %79 = call zeroext i1 @duckdb_je_pages_boot() #21
+  br i1 %79, label %146, label %80
 
-29:                                               ; preds = %27
-  %30 = call zeroext i1 @duckdb_je_base_boot(ptr noundef null) #21
-  br i1 %30, label %95, label %31
+80:                                               ; preds = %78
+  %81 = call zeroext i1 @duckdb_je_base_boot(ptr noundef null) #21
+  br i1 %81, label %146, label %82
 
-31:                                               ; preds = %29
-  %32 = call ptr @duckdb_je_b0get() #21
-  %33 = call zeroext i1 @duckdb_je_emap_init(ptr noundef nonnull @duckdb_je_arena_emap_global, ptr noundef %32, i1 noundef zeroext true) #21
-  br i1 %33, label %95, label %34
+82:                                               ; preds = %80
+  %83 = call ptr @duckdb_je_b0get() #21
+  %84 = call zeroext i1 @duckdb_je_emap_init(ptr noundef nonnull @duckdb_je_arena_emap_global, ptr noundef %83, i1 noundef zeroext true) #21
+  br i1 %84, label %146, label %85
 
-34:                                               ; preds = %31
-  %35 = call zeroext i1 @duckdb_je_extent_boot() #21
-  br i1 %35, label %95, label %36
+85:                                               ; preds = %82
+  %86 = call zeroext i1 @duckdb_je_extent_boot() #21
+  br i1 %86, label %146, label %87
 
-36:                                               ; preds = %34
-  %37 = call zeroext i1 @duckdb_je_ctl_boot() #21
-  br i1 %37, label %95, label %38
+87:                                               ; preds = %85
+  %88 = call zeroext i1 @duckdb_je_ctl_boot() #21
+  br i1 %88, label %146, label %89
 
-38:                                               ; preds = %36
-  %39 = load i8, ptr @duckdb_je_opt_hpa, align 1, !tbaa !50, !range !55, !noundef !56
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %41, label %51
+89:                                               ; preds = %87
+  %90 = load i8, ptr @duckdb_je_opt_hpa, align 1, !tbaa !50, !range !55, !noundef !56
+  %91 = trunc nuw i8 %90 to i1
+  br i1 %91, label %92, label %102
 
-41:                                               ; preds = %38
-  %42 = call zeroext i1 @duckdb_je_hpa_supported() #21
-  br i1 %42, label %51, label %43
+92:                                               ; preds = %89
+  %93 = call zeroext i1 @duckdb_je_hpa_supported() #21
+  br i1 %93, label %102, label %94
 
-43:                                               ; preds = %41
-  %44 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
-  %45 = trunc nuw i8 %44 to i1
-  %46 = select i1 %45, ptr @.str.82, ptr @.str.83
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.81, ptr noundef nonnull %46) #21
-  %47 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %50
+94:                                               ; preds = %92
+  %95 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
+  %96 = trunc nuw i8 %95 to i1
+  %97 = select i1 %96, ptr @.str.82, ptr @.str.83
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.81, ptr noundef nonnull %97) #21
+  %98 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %101
 
-49:                                               ; preds = %43
+100:                                              ; preds = %94
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.176) #21
   call void @abort()
   unreachable
 
-50:                                               ; preds = %43
+101:                                              ; preds = %94
   store i8 0, ptr @duckdb_je_opt_hpa, align 1, !tbaa !50
-  br label %51
+  br label %102
 
-51:                                               ; preds = %50, %41, %38
-  %52 = call ptr @duckdb_je_b0get() #21
-  %53 = load i8, ptr @duckdb_je_opt_hpa, align 1, !tbaa !50, !range !55, !noundef !56
-  %54 = trunc nuw i8 %53 to i1
-  %55 = call zeroext i1 @duckdb_je_arena_boot(ptr noundef nonnull %2, ptr noundef %52, i1 noundef zeroext %54) #21
-  br i1 %55, label %95, label %56
+102:                                              ; preds = %101, %92, %89
+  %103 = call ptr @duckdb_je_b0get() #21
+  %104 = load i8, ptr @duckdb_je_opt_hpa, align 1, !tbaa !50, !range !55, !noundef !56
+  %105 = trunc nuw i8 %104 to i1
+  %106 = call zeroext i1 @duckdb_je_arena_boot(ptr noundef nonnull %7, ptr noundef %103, i1 noundef zeroext %105) #21
+  br i1 %106, label %146, label %107
 
-56:                                               ; preds = %51
-  %57 = call ptr @duckdb_je_b0get() #21
-  %58 = call zeroext i1 @duckdb_je_tcache_boot(ptr noundef null, ptr noundef %57) #21
-  br i1 %58, label %95, label %59
+107:                                              ; preds = %102
+  %108 = call ptr @duckdb_je_b0get() #21
+  %109 = call zeroext i1 @duckdb_je_tcache_boot(ptr noundef null, ptr noundef %108) #21
+  br i1 %109, label %146, label %110
 
-59:                                               ; preds = %56
-  %60 = call zeroext i1 @duckdb_je_malloc_mutex_init(ptr noundef nonnull @duckdb_je_arenas_lock, ptr noundef nonnull @.str.84, i32 noundef 4, i32 noundef 0) #21
-  br i1 %60, label %95, label %61
+110:                                              ; preds = %107
+  %111 = call zeroext i1 @duckdb_je_malloc_mutex_init(ptr noundef nonnull @duckdb_je_arenas_lock, ptr noundef nonnull @.str.84, i32 noundef 4, i32 noundef 0) #21
+  br i1 %111, label %146, label %112
 
-61:                                               ; preds = %59
-  %62 = call zeroext i1 @duckdb_je_hook_boot() #21
+112:                                              ; preds = %110
+  %113 = call zeroext i1 @duckdb_je_hook_boot() #21
   store i32 1, ptr @duckdb_je_narenas_auto, align 4, !tbaa !3
   store i32 2, ptr @duckdb_je_manual_arena_base, align 4, !tbaa !3
   store i64 0, ptr @duckdb_je_arenas, align 64
-  %63 = call ptr @duckdb_je_arena_init(ptr noundef null, i32 noundef 0, ptr noundef nonnull @duckdb_je_arena_config_default)
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %95, label %65
+  %114 = call ptr @duckdb_je_arena_init(ptr noundef null, i32 noundef 0, ptr noundef nonnull @duckdb_je_arena_config_default)
+  %115 = icmp eq ptr %114, null
+  br i1 %115, label %146, label %116
 
-65:                                               ; preds = %61
-  %66 = load atomic i64, ptr @duckdb_je_arenas acquire, align 64
-  %.0.i.i = inttoptr i64 %66 to ptr
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %68, label %arena_get.exit, !prof !7
+116:                                              ; preds = %112
+  %117 = load atomic i64, ptr @duckdb_je_arenas acquire, align 64
+  %.0.i.i = inttoptr i64 %117 to ptr
+  %118 = icmp eq i64 %117, 0
+  br i1 %118, label %119, label %arena_get.exit, !prof !7
 
-68:                                               ; preds = %65
+119:                                              ; preds = %116
   br label %arena_get.exit
 
-arena_get.exit:                                   ; preds = %65, %68
-  %.0.i = phi ptr [ null, %68 ], [ %.0.i.i, %65 ]
+arena_get.exit:                                   ; preds = %116, %119
+  %.0.i = phi ptr [ null, %119 ], [ %.0.i.i, %116 ]
   store ptr %.0.i, ptr @a0, align 8, !tbaa !47
-  %69 = load i8, ptr @duckdb_je_opt_hpa, align 1, !tbaa !50, !range !55, !noundef !56
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %.thread
+  %120 = load i8, ptr @duckdb_je_opt_hpa, align 1, !tbaa !50, !range !55, !noundef !56
+  %121 = trunc nuw i8 %120 to i1
+  br i1 %121, label %122, label %.thread
 
-71:                                               ; preds = %arena_get.exit
-  %72 = call zeroext i1 @duckdb_je_hpa_supported() #21
-  br i1 %72, label %81, label %73
+122:                                              ; preds = %arena_get.exit
+  %123 = call zeroext i1 @duckdb_je_hpa_supported() #21
+  br i1 %123, label %132, label %124
 
-73:                                               ; preds = %71
-  %74 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
-  %75 = trunc nuw i8 %74 to i1
-  %76 = select i1 %75, ptr @.str.82, ptr @.str.83
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.81, ptr noundef nonnull %76) #21
-  %77 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %79, label %80
+124:                                              ; preds = %122
+  %125 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
+  %126 = trunc nuw i8 %125 to i1
+  %127 = select i1 %126, ptr @.str.82, ptr @.str.83
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.81, ptr noundef nonnull %127) #21
+  %128 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
+  %129 = trunc nuw i8 %128 to i1
+  br i1 %129, label %130, label %131
 
-79:                                               ; preds = %73
+130:                                              ; preds = %124
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.176) #21
   call void @abort()
   unreachable
 
-80:                                               ; preds = %73
+131:                                              ; preds = %124
   store i8 0, ptr @duckdb_je_opt_hpa, align 1, !tbaa !50
   br label %.thread
 
-81:                                               ; preds = %71
+132:                                              ; preds = %122
   %.pre = load i8, ptr @duckdb_je_opt_hpa, align 1, !tbaa !50, !range !55
-  %82 = trunc nuw i8 %.pre to i1
-  br i1 %82, label %83, label %.thread
+  %133 = trunc nuw i8 %.pre to i1
+  br i1 %133, label %134, label %.thread
 
-83:                                               ; preds = %81
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) @duckdb_je_opt_hpa_opts, i64 48, i1 false), !tbaa.struct !201
-  %84 = load atomic i8, ptr @duckdb_je_background_thread_enabled_state monotonic, align 1
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %86 = and i8 %84, 1
-  store i8 %86, ptr %85, align 4, !tbaa !202
-  %87 = load ptr, ptr @a0, align 8, !tbaa !47
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 10664
-  %89 = call zeroext i1 @duckdb_je_pa_shard_enable_hpa(ptr noundef null, ptr noundef nonnull %88, ptr noundef nonnull %5, ptr noundef nonnull @duckdb_je_opt_hpa_sec_opts) #21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #21
-  br i1 %89, label %95, label %.thread
+134:                                              ; preds = %132
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) @duckdb_je_opt_hpa_opts, i64 48, i1 false), !tbaa.struct !201
+  %135 = load atomic i8, ptr @duckdb_je_background_thread_enabled_state monotonic, align 1
+  %136 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %137 = and i8 %135, 1
+  store i8 %137, ptr %136, align 4, !tbaa !202
+  %138 = load ptr, ptr @a0, align 8, !tbaa !47
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 10664
+  %140 = call zeroext i1 @duckdb_je_pa_shard_enable_hpa(ptr noundef null, ptr noundef nonnull %139, ptr noundef nonnull %10, ptr noundef nonnull @duckdb_je_opt_hpa_sec_opts) #21
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #21
+  br i1 %140, label %146, label %.thread
 
-.thread:                                          ; preds = %arena_get.exit, %81, %83, %80
+.thread:                                          ; preds = %arena_get.exit, %132, %134, %131
   store i32 2, ptr @duckdb_je_malloc_init_state, align 4, !tbaa !3
-  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #25
-  %.not10 = icmp eq i64 %90, 0
-  br i1 %.not10, label %95, label %91
+  %141 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
+  %.not10 = icmp eq i64 %141, 0
+  br i1 %.not10, label %146, label %142
 
-91:                                               ; preds = %.thread
-  %92 = add i64 %90, 1
-  %93 = call fastcc ptr @a0ialloc(i64 noundef %92, i1 noundef zeroext false, i1 noundef zeroext true)
-  %.not11 = icmp eq ptr %93, null
-  br i1 %.not11, label %95, label %94
+142:                                              ; preds = %.thread
+  %143 = add i64 %141, 1
+  %144 = call fastcc ptr @a0ialloc(i64 noundef %143, i1 noundef zeroext false, i1 noundef zeroext true)
+  %.not11 = icmp eq ptr %144, null
+  br i1 %.not11, label %146, label %145
 
-94:                                               ; preds = %91
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr nonnull align 16 %4, i64 %92, i1 false)
-  store ptr %93, ptr @duckdb_je_opt_malloc_conf_symlink, align 8, !tbaa !199
-  br label %95
+145:                                              ; preds = %142
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %144, ptr nonnull align 16 %9, i64 %143, i1 false)
+  store ptr %144, ptr @duckdb_je_opt_malloc_conf_symlink, align 8, !tbaa !199
+  br label %146
 
-95:                                               ; preds = %.thread, %94, %91, %61, %59, %56, %51, %36, %34, %31, %29, %27, %25, %83
-  %.0 = phi i1 [ true, %83 ], [ true, %25 ], [ true, %27 ], [ true, %29 ], [ true, %31 ], [ true, %34 ], [ true, %36 ], [ true, %51 ], [ true, %56 ], [ true, %59 ], [ true, %61 ], [ false, %91 ], [ false, %94 ], [ false, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #21
-  call void @llvm.lifetime.end.p0(i64 6576, ptr nonnull %2) #21
+146:                                              ; preds = %.thread, %145, %142, %112, %110, %107, %102, %87, %85, %82, %80, %78, %76, %134
+  %.0 = phi i1 [ true, %134 ], [ true, %76 ], [ true, %78 ], [ true, %80 ], [ true, %82 ], [ true, %85 ], [ true, %87 ], [ true, %102 ], [ true, %107 ], [ true, %110 ], [ true, %112 ], [ false, %142 ], [ false, %145 ], [ false, %.thread ]
+  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(i64 6576, ptr nonnull %7) #21
   ret i1 %.0
 }
 
@@ -10230,18 +10382,18 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @malloc_conf_init_helper(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull captures(none) %3, ptr noundef %4) unnamed_addr #2 {
-  %6 = alloca [21 x i8], align 16
-  %7 = alloca [21 x i8], align 16
-  %8 = alloca [256 x i8], align 16
-  %9 = alloca [21 x i8], align 16
-  %10 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  %13 = alloca i64, align 8
+  %13 = alloca ptr, align 8
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
   %16 = alloca i64, align 8
-  %17 = alloca ptr, align 8
+  %17 = alloca i64, align 8
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
@@ -10265,3517 +10417,3967 @@ define internal fastcc void @malloc_conf_init_helper(ptr noundef %0, ptr noundef
   %38 = alloca ptr, align 8
   %39 = alloca ptr, align 8
   %40 = alloca ptr, align 8
-  %41 = alloca i32, align 4
-  %42 = alloca ptr, align 8
+  %41 = alloca ptr, align 8
+  %42 = alloca i32, align 4
   %43 = alloca ptr, align 8
   %44 = alloca ptr, align 8
-  %45 = alloca i32, align 4
-  %46 = alloca ptr, align 8
+  %45 = alloca ptr, align 8
+  %46 = alloca i32, align 4
   %47 = alloca ptr, align 8
   %48 = alloca ptr, align 8
   %49 = alloca ptr, align 8
   %50 = alloca ptr, align 8
   %51 = alloca ptr, align 8
   %52 = alloca ptr, align 8
-  %53 = alloca i64, align 8
+  %53 = alloca ptr, align 8
   %54 = alloca i64, align 8
   %55 = alloca i64, align 8
   %56 = alloca i64, align 8
-  %57 = alloca ptr, align 8
+  %57 = alloca i64, align 8
   %58 = alloca ptr, align 8
-  %.not1795 = xor i1 %2, true
-  br label %59
+  %59 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #21
+  %.not937 = xor i1 %2, true
+  br label %60
 
-59:                                               ; preds = %5, %1463
-  %indvars.iv2196 = phi i64 [ 0, %5 ], [ %indvars.iv.next2197, %1463 ]
-  br i1 %2, label %60, label %78
+60:                                               ; preds = %5, %1767
+  %indvars.iv1319 = phi i64 [ 0, %5 ], [ %indvars.iv.next1320, %1767 ]
+  br i1 %2, label %61, label %80
 
-60:                                               ; preds = %59
-  %61 = trunc nuw nsw i64 %indvars.iv2196 to i32
-  switch i32 %61, label %default.unreachable15.i [
+61:                                               ; preds = %60
+  %62 = trunc nuw nsw i64 %indvars.iv1319 to i32
+  switch i32 %62, label %78 [
     i32 0, label %.thread
-    i32 1, label %62
-    i32 2, label %64
-    i32 3, label %72
-    i32 4, label %75
+    i32 1, label %63
+    i32 2, label %65
+    i32 3, label %73
+    i32 4, label %76
   ]
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr @duckdb_je_malloc_conf, align 8, !tbaa !199
+63:                                               ; preds = %61
+  %64 = load ptr, ptr @duckdb_je_malloc_conf, align 8, !tbaa !199
   br label %.thread
 
-64:                                               ; preds = %60
-  %65 = tail call ptr @__errno_location() #23
-  %66 = load i32, ptr %65, align 4, !tbaa !3
-  %67 = call i64 @readlink(ptr noundef nonnull @.str.165, ptr noundef %4, i64 noundef 4096) #21
-  %68 = icmp eq i64 %67, -1
-  br i1 %68, label %69, label %70
+65:                                               ; preds = %61
+  %66 = tail call ptr @__errno_location() #23
+  %67 = load i32, ptr %66, align 4, !tbaa !3
+  %68 = call i64 @readlink(ptr noundef nonnull @.str.165, ptr noundef %4, i64 noundef 4096) #21
+  %69 = icmp eq i64 %68, -1
+  br i1 %69, label %70, label %71
 
-69:                                               ; preds = %64
-  store i32 %66, ptr %65, align 4, !tbaa !3
-  br label %70
+70:                                               ; preds = %65
+  store i32 %67, ptr %66, align 4, !tbaa !3
+  br label %71
 
-70:                                               ; preds = %69, %64
-  %.010.i = phi i64 [ 0, %69 ], [ %67, %64 ]
-  %71 = getelementptr inbounds i8, ptr %4, i64 %.010.i
-  store i8 0, ptr %71, align 1, !tbaa !10
+71:                                               ; preds = %70, %65
+  %.010.i = phi i64 [ 0, %70 ], [ %68, %65 ]
+  %72 = getelementptr inbounds i8, ptr %4, i64 %.010.i
+  store i8 0, ptr %72, align 1, !tbaa !10
   br label %.thread
 
-72:                                               ; preds = %60
-  %73 = call noundef ptr @getenv(ptr noundef nonnull @.str.166) #21
-  %.not.i = icmp eq ptr %73, null
-  br i1 %.not.i, label %.thread, label %74
+73:                                               ; preds = %61
+  %74 = call noundef ptr @getenv(ptr noundef nonnull @.str.166) #21
+  %.not.i = icmp eq ptr %74, null
+  br i1 %.not.i, label %.thread, label %75
 
-74:                                               ; preds = %72
-  store ptr %73, ptr @duckdb_je_opt_malloc_conf_env_var, align 8, !tbaa !199
+75:                                               ; preds = %73
+  store ptr %74, ptr @duckdb_je_opt_malloc_conf_env_var, align 8, !tbaa !199
   br label %.thread
 
-75:                                               ; preds = %60
-  %76 = load ptr, ptr @duckdb_je_malloc_conf_2_conf_harder, align 8, !tbaa !199
+76:                                               ; preds = %61
+  %77 = load ptr, ptr @duckdb_je_malloc_conf_2_conf_harder, align 8, !tbaa !199
   br label %.thread
 
-default.unreachable15.i:                          ; preds = %60
+78:                                               ; preds = %61
   unreachable
 
-.thread:                                          ; preds = %75, %74, %72, %70, %62, %60
-  %.0.i = phi ptr [ %4, %70 ], [ %76, %75 ], [ @.str.91, %60 ], [ %63, %62 ], [ %73, %74 ], [ null, %72 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv2196
-  store ptr %.0.i, ptr %77, align 8, !tbaa !199
-  br label %89
+.thread:                                          ; preds = %76, %75, %73, %71, %63, %61
+  %.0.i = phi ptr [ %4, %71 ], [ %77, %76 ], [ @.str.91, %61 ], [ %64, %63 ], [ %74, %75 ], [ null, %73 ]
+  %79 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv1319
+  store ptr %.0.i, ptr %79, align 8, !tbaa !199
+  store ptr %.0.i, ptr %6, align 8, !tbaa !199
+  br label %91
 
-78:                                               ; preds = %59
-  %79 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv2196
-  %80 = load ptr, ptr %79, align 8, !tbaa !199
-  %81 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %82 = trunc nuw i8 %81 to i1
-  br i1 %82, label %83, label %89
+80:                                               ; preds = %60
+  %81 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv1319
+  %82 = load ptr, ptr %81, align 8, !tbaa !199
+  store ptr %82, ptr %6, align 8, !tbaa !199
+  %83 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %85, label %91
 
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds nuw [5 x ptr], ptr @malloc_conf_init_helper.opts_explain, i64 0, i64 %indvars.iv2196
-  %85 = load ptr, ptr %84, align 8, !tbaa !199
-  %.not806 = icmp eq ptr %80, null
-  %86 = select i1 %.not806, ptr @.str.91, ptr %80
-  %87 = trunc i64 %indvars.iv2196 to i32
-  %88 = add i32 %87, 1
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.90, i32 noundef %88, ptr noundef %85, ptr noundef nonnull %86) #21
-  br label %89
+85:                                               ; preds = %80
+  %86 = getelementptr inbounds nuw [5 x ptr], ptr @malloc_conf_init_helper.opts_explain, i64 0, i64 %indvars.iv1319
+  %87 = load ptr, ptr %86, align 8, !tbaa !199
+  %.not806 = icmp eq ptr %82, null
+  %88 = select i1 %.not806, ptr @.str.91, ptr %82
+  %89 = trunc i64 %indvars.iv1319 to i32
+  %90 = add i32 %89, 1
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.90, i32 noundef %90, ptr noundef %87, ptr noundef nonnull %88) #21
+  br label %91
 
-89:                                               ; preds = %.thread, %83, %78
-  %90 = phi ptr [ %.0.i, %.thread ], [ %80, %83 ], [ %80, %78 ]
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %1463, label %.preheader2149
+91:                                               ; preds = %.thread, %85, %80
+  %92 = phi ptr [ %.0.i, %.thread ], [ %82, %85 ], [ %82, %80 ]
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %1767, label %.preheader1281
 
-.preheader2149:                                   ; preds = %89
-  %92 = load i8, ptr %90, align 1, !tbaa !10
-  %.not8072164 = icmp eq i8 %92, 0
-  br i1 %.not8072164, label %.critedge, label %.preheader2148
+.preheader1281:                                   ; preds = %91
+  %94 = load i8, ptr %92, align 1, !tbaa !10
+  %.not8071295 = icmp eq i8 %94, 0
+  br i1 %.not8071295, label %.critedge, label %.lr.ph
 
-.preheader2148:                                   ; preds = %.preheader2149, %malloc_conf_error.exit.thread
-  %93 = phi i8 [ %1428, %malloc_conf_error.exit.thread ], [ %92, %.preheader2149 ]
-  %.017912165 = phi ptr [ %.11792, %malloc_conf_error.exit.thread ], [ %90, %.preheader2149 ]
-  br label %99
+.lr.ph:                                           ; preds = %.preheader1281, %malloc_conf_error.exit.thread
+  %95 = call fastcc zeroext i1 @malloc_conf_next(ptr noundef %6, ptr noundef %7, ptr noundef %9, ptr noundef %8, ptr noundef %10)
+  br i1 %95, label %.critedge, label %96
 
-.preheader.i:                                     ; preds = %99
-  %94 = getelementptr inbounds nuw i8, ptr %.049.i, i64 1
-  %95 = ptrtoint ptr %94 to i64
-  %96 = ptrtoint ptr %.017912165 to i64
-  %97 = xor i64 %96, -1
-  %98 = add i64 %95, %97
-  br label %106
+96:                                               ; preds = %.lr.ph
+  %97 = load i64, ptr %9, align 8, !tbaa !30
+  %98 = icmp eq i64 %97, 12
+  br i1 %98, label %99, label %123
 
-99:                                               ; preds = %.preheader2148, %104
-  %100 = phi i8 [ %.pr, %104 ], [ %93, %.preheader2148 ]
-  %.049.i = phi ptr [ %105, %104 ], [ %.017912165, %.preheader2148 ]
-  switch i8 %100, label %.critedge.sink.split [
-    i8 65, label %104
-    i8 66, label %104
-    i8 67, label %104
-    i8 68, label %104
-    i8 69, label %104
-    i8 70, label %104
-    i8 71, label %104
-    i8 72, label %104
-    i8 73, label %104
-    i8 74, label %104
-    i8 75, label %104
-    i8 76, label %104
-    i8 77, label %104
-    i8 78, label %104
-    i8 79, label %104
-    i8 80, label %104
-    i8 81, label %104
-    i8 82, label %104
-    i8 83, label %104
-    i8 84, label %104
-    i8 85, label %104
-    i8 86, label %104
-    i8 87, label %104
-    i8 88, label %104
-    i8 89, label %104
-    i8 90, label %104
-    i8 97, label %104
-    i8 98, label %104
-    i8 99, label %104
-    i8 100, label %104
-    i8 101, label %104
-    i8 102, label %104
-    i8 103, label %104
-    i8 104, label %104
-    i8 105, label %104
-    i8 106, label %104
-    i8 107, label %104
-    i8 108, label %104
-    i8 109, label %104
-    i8 110, label %104
-    i8 111, label %104
-    i8 112, label %104
-    i8 113, label %104
-    i8 114, label %104
-    i8 115, label %104
-    i8 116, label %104
-    i8 117, label %104
-    i8 118, label %104
-    i8 119, label %104
-    i8 120, label %104
-    i8 121, label %104
-    i8 122, label %104
-    i8 48, label %104
-    i8 49, label %104
-    i8 50, label %104
-    i8 51, label %104
-    i8 52, label %104
-    i8 53, label %104
-    i8 54, label %104
-    i8 55, label %104
-    i8 56, label %104
-    i8 57, label %104
-    i8 95, label %104
-    i8 58, label %.preheader.i
-    i8 0, label %101
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %7, align 8, !tbaa !199
+  %101 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.92, ptr noundef nonnull dereferenceable(1) %100, i64 noundef 12) #25
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %.thread942
+
+103:                                              ; preds = %99
+  %104 = load i64, ptr %10, align 8, !tbaa !30
+  switch i64 %104, label %.thread938 [
+    i64 4, label %105
+    i64 5, label %109
   ]
 
-101:                                              ; preds = %99
-  %.not.i890 = icmp eq ptr %.049.i, %.017912165
-  br i1 %.not.i890, label %.critedge, label %102
+105:                                              ; preds = %103
+  %106 = load ptr, ptr %8, align 8, !tbaa !199
+  %107 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %106, i64 noundef 4) #25
+  %108 = icmp eq i32 %107, 0
+  br i1 %108, label %malloc_conf_error.exit, label %.thread938
 
-102:                                              ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %.049.i, i64 -1
-  br label %.critedge.sink.split
+109:                                              ; preds = %103
+  %110 = load ptr, ptr %8, align 8, !tbaa !199
+  %111 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %110, i64 noundef 5) #25
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %.thread938
 
-104:                                              ; preds = %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99, %99
-  %105 = getelementptr inbounds nuw i8, ptr %.049.i, i64 1
-  %.pr = load i8, ptr %105, align 1, !tbaa !10
-  br label %99
-
-106:                                              ; preds = %124, %.preheader.i
-  %.250.i = phi ptr [ %94, %.preheader.i ], [ %125, %124 ]
-  %107 = load i8, ptr %.250.i, align 1, !tbaa !10
-  switch i8 %107, label %124 [
-    i8 44, label %108
-    i8 0, label %121
-  ]
-
-108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw i8, ptr %.250.i, i64 1
-  %110 = load i8, ptr %109, align 1, !tbaa !10
-  %111 = icmp eq i8 %110, 0
-  br i1 %111, label %112, label %117
-
-112:                                              ; preds = %108
-  %113 = ptrtoint ptr %.250.i to i64
-  %reass.sub2168 = sub i64 %113, %96
-  %114 = add i64 %reass.sub2168, 1
-  %115 = call i64 @llvm.umin.i64(i64 %114, i64 64)
-  %116 = trunc nuw nsw i64 %115 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.169, i32 noundef %116, ptr noundef nonnull %.017912165) #21
-  store i1 true, ptr @had_conf_error, align 1
-  br label %117
-
-117:                                              ; preds = %112, %108
-  %118 = ptrtoint ptr %109 to i64
-  %119 = xor i64 %95, -1
-  %120 = add i64 %118, %119
-  br label %malloc_conf_next.exit
-
-121:                                              ; preds = %106
-  %122 = ptrtoint ptr %.250.i to i64
-  %123 = sub i64 %122, %95
-  br label %malloc_conf_next.exit
-
-124:                                              ; preds = %106
-  %125 = getelementptr inbounds nuw i8, ptr %.250.i, i64 1
-  br label %106
-
-malloc_conf_next.exit:                            ; preds = %121, %117
-  %.11792 = phi ptr [ %109, %117 ], [ %.250.i, %121 ]
-  %.41780 = phi i64 [ %120, %117 ], [ %123, %121 ]
-  %126 = icmp eq i64 %98, 12
-  br i1 %126, label %127, label %145
-
-127:                                              ; preds = %malloc_conf_next.exit
-  %128 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.92, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 12) #25
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %.thread1810
-
-130:                                              ; preds = %127
-  switch i64 %.41780, label %.thread1805 [
-    i64 4, label %131
-    i64 5, label %134
-  ]
-
-131:                                              ; preds = %130
-  %132 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %malloc_conf_error.exit, label %.thread1805
-
-134:                                              ; preds = %130
-  %135 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %136 = icmp eq i32 %135, 0
-  br i1 %136, label %137, label %.thread1805
-
-137:                                              ; preds = %134
+113:                                              ; preds = %109
   store i8 0, ptr @duckdb_je_opt_confirm_conf, align 1, !tbaa !50
   br label %malloc_conf_error.exit.thread
 
-.thread1805:                                      ; preds = %130, %131, %134
-  br i1 %2, label %malloc_conf_error.exit.thread, label %138
+.thread938:                                       ; preds = %103, %105, %109
+  br i1 %2, label %malloc_conf_error.exit.thread, label %114
 
-138:                                              ; preds = %.thread1805
-  %139 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 12, ptr noundef nonnull %.017912165, i32 noundef %139, ptr noundef nonnull %94) #21
-  %140 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %malloc_conf_error.exit.thread, label %142
+114:                                              ; preds = %.thread938
+  %115 = load ptr, ptr %8, align 8, !tbaa !199
+  %116 = trunc i64 %104 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 12, ptr noundef nonnull %100, i32 noundef %116, ptr noundef %115) #21
+  %117 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %malloc_conf_error.exit.thread, label %119
 
-142:                                              ; preds = %138
+119:                                              ; preds = %114
   store i1 true, ptr @had_conf_error, align 1
   br label %malloc_conf_error.exit.thread
 
-malloc_conf_error.exit:                           ; preds = %131
+malloc_conf_error.exit:                           ; preds = %105
   store i8 1, ptr @duckdb_je_opt_confirm_conf, align 1, !tbaa !50
-  br i1 %2, label %malloc_conf_error.exit.thread, label %143
+  br i1 %2, label %malloc_conf_error.exit.thread, label %120
 
-143:                                              ; preds = %malloc_conf_error.exit
-  %144 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 12, ptr noundef nonnull %.017912165, i32 noundef %144, ptr noundef nonnull %94) #21
+120:                                              ; preds = %malloc_conf_error.exit
+  %121 = trunc nuw nsw i64 %104 to i32
+  %122 = load ptr, ptr %8, align 8, !tbaa !199
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 12, ptr noundef nonnull %100, i32 noundef %121, ptr noundef %122) #21
   br label %malloc_conf_error.exit.thread
 
-145:                                              ; preds = %malloc_conf_next.exit
-  br i1 %2, label %malloc_conf_error.exit.thread, label %146
+123:                                              ; preds = %96
+  br i1 %2, label %malloc_conf_error.exit.thread, label %124
 
-.thread1810:                                      ; preds = %127
-  br i1 %2, label %malloc_conf_error.exit.thread, label %.thread1830
+.thread942:                                       ; preds = %99
+  br i1 %2, label %malloc_conf_error.exit.thread, label %.thread962
 
-146:                                              ; preds = %145
-  switch i64 %98, label %.thread1830 [
-    i64 5, label %147
-    i64 10, label %165
-    i64 15, label %183
-    i64 13, label %201
+124:                                              ; preds = %123
+  %.pre1326 = load ptr, ptr %7, align 8, !tbaa !199
+  switch i64 %97, label %.thread962 [
+    i64 5, label %125
+    i64 10, label %144
+    i64 15, label %163
+    i64 13, label %182
   ]
 
-147:                                              ; preds = %146
-  %148 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 5) #25
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %.thread1830
+125:                                              ; preds = %124
+  %126 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %.pre1326, i64 noundef 5) #25
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %.thread962
 
-150:                                              ; preds = %147
-  switch i64 %.41780, label %.thread1812 [
-    i64 4, label %151
-    i64 5, label %154
+128:                                              ; preds = %125
+  %129 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1325 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %129, label %.thread944 [
+    i64 4, label %130
+    i64 5, label %133
   ]
 
-151:                                              ; preds = %150
-  %152 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %malloc_conf_error.exit891, label %.thread1812
+130:                                              ; preds = %128
+  %131 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1325, i64 noundef 4) #25
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %malloc_conf_error.exit890, label %.thread944
 
-154:                                              ; preds = %150
-  %155 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %malloc_conf_error.exit891, label %.thread1812
+133:                                              ; preds = %128
+  %134 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1325, i64 noundef 5) #25
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %malloc_conf_error.exit890, label %.thread944
 
-.thread1812:                                      ; preds = %150, %151, %154
-  %157 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 5, ptr noundef nonnull %.017912165, i32 noundef %157, ptr noundef nonnull %94) #21
-  %158 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %malloc_conf_error.exit.thread, label %160
+.thread944:                                       ; preds = %128, %130, %133
+  %136 = trunc i64 %129 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 5, ptr noundef nonnull %.pre1326, i32 noundef %136, ptr noundef %.pre1325) #21
+  %137 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1326, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %malloc_conf_error.exit.thread, label %139
 
-160:                                              ; preds = %.thread1812
+139:                                              ; preds = %.thread944
   store i1 true, ptr @had_conf_error, align 1
   br label %malloc_conf_error.exit.thread
 
-malloc_conf_error.exit891:                        ; preds = %154, %151
-  %storemerge2110 = phi i8 [ 1, %151 ], [ 0, %154 ]
-  store i8 %storemerge2110, ptr @duckdb_je_opt_abort, align 1, !tbaa !50
-  %161 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %162 = trunc nuw i8 %161 to i1
-  br i1 %162, label %163, label %malloc_conf_error.exit.thread
+malloc_conf_error.exit890:                        ; preds = %133, %130
+  %storemerge1245 = phi i8 [ 1, %130 ], [ 0, %133 ]
+  store i8 %storemerge1245, ptr @duckdb_je_opt_abort, align 1, !tbaa !50
+  %140 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %141 = trunc nuw i8 %140 to i1
+  br i1 %141, label %142, label %malloc_conf_error.exit.thread
 
-163:                                              ; preds = %malloc_conf_error.exit891
-  %164 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 5, ptr noundef nonnull %.017912165, i32 noundef %164, ptr noundef nonnull %94) #21
+142:                                              ; preds = %malloc_conf_error.exit890
+  %143 = trunc nuw nsw i64 %129 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 5, ptr noundef nonnull %.pre1326, i32 noundef %143, ptr noundef nonnull %.pre1325) #21
   br label %malloc_conf_error.exit.thread
 
-165:                                              ; preds = %146
-  %166 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.96, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 10) #25
-  %167 = icmp eq i32 %166, 0
-  br i1 %167, label %168, label %.thread1830
+144:                                              ; preds = %124
+  %145 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.96, ptr noundef nonnull dereferenceable(1) %.pre1326, i64 noundef 10) #25
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %147, label %.thread962
 
-168:                                              ; preds = %165
-  switch i64 %.41780, label %.thread1817 [
-    i64 4, label %169
-    i64 5, label %172
+147:                                              ; preds = %144
+  %148 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1324 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %148, label %.thread949 [
+    i64 4, label %149
+    i64 5, label %152
   ]
 
-169:                                              ; preds = %168
-  %170 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %171 = icmp eq i32 %170, 0
-  br i1 %171, label %malloc_conf_error.exit892, label %.thread1817
+149:                                              ; preds = %147
+  %150 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1324, i64 noundef 4) #25
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %malloc_conf_error.exit891, label %.thread949
 
-172:                                              ; preds = %168
-  %173 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %174 = icmp eq i32 %173, 0
-  br i1 %174, label %malloc_conf_error.exit892, label %.thread1817
+152:                                              ; preds = %147
+  %153 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1324, i64 noundef 5) #25
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %malloc_conf_error.exit891, label %.thread949
 
-.thread1817:                                      ; preds = %168, %169, %172
-  %175 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 10, ptr noundef nonnull %.017912165, i32 noundef %175, ptr noundef nonnull %94) #21
-  %176 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %malloc_conf_error.exit.thread, label %178
+.thread949:                                       ; preds = %147, %149, %152
+  %155 = trunc i64 %148 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 10, ptr noundef nonnull %.pre1326, i32 noundef %155, ptr noundef %.pre1324) #21
+  %156 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1326, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %malloc_conf_error.exit.thread, label %158
 
-178:                                              ; preds = %.thread1817
+158:                                              ; preds = %.thread949
   store i1 true, ptr @had_conf_error, align 1
   br label %malloc_conf_error.exit.thread
 
-malloc_conf_error.exit892:                        ; preds = %172, %169
-  %storemerge2109 = phi i8 [ 1, %169 ], [ 0, %172 ]
-  store i8 %storemerge2109, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50
-  %179 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %180 = trunc nuw i8 %179 to i1
-  br i1 %180, label %181, label %malloc_conf_error.exit.thread
+malloc_conf_error.exit891:                        ; preds = %152, %149
+  %storemerge1244 = phi i8 [ 1, %149 ], [ 0, %152 ]
+  store i8 %storemerge1244, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50
+  %159 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %160 = trunc nuw i8 %159 to i1
+  br i1 %160, label %161, label %malloc_conf_error.exit.thread
 
-181:                                              ; preds = %malloc_conf_error.exit892
-  %182 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 10, ptr noundef nonnull %.017912165, i32 noundef %182, ptr noundef nonnull %94) #21
+161:                                              ; preds = %malloc_conf_error.exit891
+  %162 = trunc nuw nsw i64 %148 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 10, ptr noundef nonnull %.pre1326, i32 noundef %162, ptr noundef nonnull %.pre1324) #21
   br label %malloc_conf_error.exit.thread
 
-183:                                              ; preds = %146
-  %184 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.97, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 15) #25
-  %185 = icmp eq i32 %184, 0
-  br i1 %185, label %186, label %.thread1830
+163:                                              ; preds = %124
+  %164 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.97, ptr noundef nonnull dereferenceable(1) %.pre1326, i64 noundef 15) #25
+  %165 = icmp eq i32 %164, 0
+  br i1 %165, label %166, label %.thread962
 
-186:                                              ; preds = %183
-  switch i64 %.41780, label %.thread1823 [
+166:                                              ; preds = %163
+  %167 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1323 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %167, label %.thread955 [
+    i64 4, label %168
+    i64 5, label %171
+  ]
+
+168:                                              ; preds = %166
+  %169 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1323, i64 noundef 4) #25
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %malloc_conf_error.exit892, label %.thread955
+
+171:                                              ; preds = %166
+  %172 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1323, i64 noundef 5) #25
+  %173 = icmp eq i32 %172, 0
+  br i1 %173, label %malloc_conf_error.exit892, label %.thread955
+
+.thread955:                                       ; preds = %166, %168, %171
+  %174 = trunc i64 %167 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 15, ptr noundef nonnull %.pre1326, i32 noundef %174, ptr noundef %.pre1323) #21
+  %175 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1326, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %176 = icmp eq i32 %175, 0
+  br i1 %176, label %malloc_conf_error.exit.thread, label %177
+
+177:                                              ; preds = %.thread955
+  store i1 true, ptr @had_conf_error, align 1
+  br label %malloc_conf_error.exit.thread
+
+malloc_conf_error.exit892:                        ; preds = %171, %168
+  %storemerge1243 = phi i8 [ 1, %168 ], [ 0, %171 ]
+  store i8 %storemerge1243, ptr @duckdb_je_opt_cache_oblivious, align 1, !tbaa !50
+  %178 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %179 = trunc nuw i8 %178 to i1
+  br i1 %179, label %180, label %malloc_conf_error.exit.thread
+
+180:                                              ; preds = %malloc_conf_error.exit892
+  %181 = trunc nuw nsw i64 %167 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 15, ptr noundef nonnull %.pre1326, i32 noundef %181, ptr noundef nonnull %.pre1323) #21
+  br label %malloc_conf_error.exit.thread
+
+182:                                              ; preds = %124
+  %183 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.98, ptr noundef nonnull dereferenceable(1) %.pre1326, i64 noundef 13) #25
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %185, label %.thread962
+
+185:                                              ; preds = %182
+  %186 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %186, label %.thread963 [
     i64 4, label %187
     i64 5, label %190
   ]
 
-187:                                              ; preds = %186
-  %188 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
+187:                                              ; preds = %185
+  %188 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre, i64 noundef 4) #25
   %189 = icmp eq i32 %188, 0
-  br i1 %189, label %malloc_conf_error.exit893, label %.thread1823
+  br i1 %189, label %malloc_conf_error.exit893, label %.thread963
 
-190:                                              ; preds = %186
-  %191 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
+190:                                              ; preds = %185
+  %191 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre, i64 noundef 5) #25
   %192 = icmp eq i32 %191, 0
-  br i1 %192, label %malloc_conf_error.exit893, label %.thread1823
+  br i1 %192, label %malloc_conf_error.exit893, label %.thread963
 
-.thread1823:                                      ; preds = %186, %187, %190
-  %193 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 15, ptr noundef nonnull %.017912165, i32 noundef %193, ptr noundef nonnull %94) #21
-  %194 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+.thread963:                                       ; preds = %185, %187, %190
+  %193 = trunc i64 %186 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 13, ptr noundef nonnull %.pre1326, i32 noundef %193, ptr noundef %.pre) #21
+  %194 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.pre1326, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %malloc_conf_error.exit.thread, label %196
 
-196:                                              ; preds = %.thread1823
+196:                                              ; preds = %.thread963
   store i1 true, ptr @had_conf_error, align 1
   br label %malloc_conf_error.exit.thread
 
 malloc_conf_error.exit893:                        ; preds = %190, %187
-  %storemerge2108 = phi i8 [ 1, %187 ], [ 0, %190 ]
-  store i8 %storemerge2108, ptr @duckdb_je_opt_cache_oblivious, align 1, !tbaa !50
+  %storemerge = phi i8 [ 1, %187 ], [ 0, %190 ]
+  store i8 %storemerge, ptr @duckdb_je_opt_trust_madvise, align 1, !tbaa !50
   %197 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %199, label %malloc_conf_error.exit.thread
 
 199:                                              ; preds = %malloc_conf_error.exit893
-  %200 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 15, ptr noundef nonnull %.017912165, i32 noundef %200, ptr noundef nonnull %94) #21
+  %200 = trunc nuw nsw i64 %186 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 13, ptr noundef nonnull %.pre1326, i32 noundef %200, ptr noundef nonnull %.pre) #21
   br label %malloc_conf_error.exit.thread
 
-201:                                              ; preds = %146
-  %202 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.98, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 13) #25
-  %203 = icmp eq i32 %202, 0
-  br i1 %203, label %204, label %.thread1837
+.thread962:                                       ; preds = %124, %163, %.thread942, %125, %144, %182
+  %201 = phi ptr [ %.pre1326, %182 ], [ %.pre1326, %144 ], [ %.pre1326, %125 ], [ %100, %.thread942 ], [ %.pre1326, %163 ], [ %.pre1326, %124 ]
+  %202 = phi i1 [ true, %182 ], [ false, %144 ], [ false, %125 ], [ false, %.thread942 ], [ false, %163 ], [ false, %124 ]
+  %203 = phi i1 [ false, %182 ], [ true, %144 ], [ false, %125 ], [ false, %.thread942 ], [ false, %163 ], [ false, %124 ]
+  %204 = phi i1 [ false, %182 ], [ false, %144 ], [ false, %125 ], [ false, %.thread942 ], [ true, %163 ], [ false, %124 ]
+  %205 = call i32 @strncmp(ptr noundef nonnull @.str.99, ptr noundef %201, i64 noundef %97) #25
+  %206 = icmp eq i32 %205, 0
+  br i1 %206, label %.preheader, label %226
 
-204:                                              ; preds = %201
-  switch i64 %.41780, label %.thread1831 [
-    i64 4, label %205
-    i64 5, label %208
-  ]
+.preheader:                                       ; preds = %.thread962
+  %207 = load ptr, ptr %8, align 8, !tbaa !199
+  %208 = load i64, ptr %10, align 8, !tbaa !30
+  br label %209
 
-205:                                              ; preds = %204
-  %206 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %207 = icmp eq i32 %206, 0
-  br i1 %207, label %malloc_conf_error.exit894, label %.thread1831
-
-208:                                              ; preds = %204
-  %209 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %210 = icmp eq i32 %209, 0
-  br i1 %210, label %malloc_conf_error.exit894, label %.thread1831
-
-.thread1831:                                      ; preds = %204, %205, %208
-  %211 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 13, ptr noundef nonnull %.017912165, i32 noundef %211, ptr noundef nonnull %94) #21
-  %212 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+209:                                              ; preds = %.preheader, %214
+  %indvars.iv1315 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1316, %214 ]
+  %210 = getelementptr inbounds nuw [0 x ptr], ptr @duckdb_je_metadata_thp_mode_names, i64 0, i64 %indvars.iv1315
+  %211 = load ptr, ptr %210, align 8, !tbaa !199
+  %212 = call i32 @strncmp(ptr noundef %211, ptr noundef %207, i64 noundef %208) #25
   %213 = icmp eq i32 %212, 0
-  br i1 %213, label %malloc_conf_error.exit.thread, label %214
+  br i1 %213, label %malloc_conf_error.exit894, label %214
 
-214:                                              ; preds = %.thread1831
+214:                                              ; preds = %209
+  %indvars.iv.next1316 = add nuw nsw i64 %indvars.iv1315, 1
+  %exitcond1318.not = icmp eq i64 %indvars.iv.next1316, 3
+  br i1 %exitcond1318.not, label %.critedge882, label %209
+
+.critedge882:                                     ; preds = %214
+  %215 = trunc i64 %97 to i32
+  %216 = trunc i64 %208 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %215, ptr noundef %201, i32 noundef %216, ptr noundef %207) #21
+  %217 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %218 = icmp eq i32 %217, 0
+  br i1 %218, label %malloc_conf_error.exit.thread, label %219
+
+219:                                              ; preds = %.critedge882
   store i1 true, ptr @had_conf_error, align 1
   br label %malloc_conf_error.exit.thread
 
-malloc_conf_error.exit894:                        ; preds = %208, %205
-  %storemerge = phi i8 [ 1, %205 ], [ 0, %208 ]
-  store i8 %storemerge, ptr @duckdb_je_opt_trust_madvise, align 1, !tbaa !50
-  %215 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %216 = trunc nuw i8 %215 to i1
-  br i1 %216, label %217, label %malloc_conf_error.exit.thread
+malloc_conf_error.exit894:                        ; preds = %209
+  %220 = trunc nuw nsw i64 %indvars.iv1315 to i32
+  store i32 %220, ptr @duckdb_je_opt_metadata_thp, align 4, !tbaa !3
+  %221 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %222 = trunc nuw i8 %221 to i1
+  %or.cond29 = select i1 %.not937, i1 %222, i1 false
+  br i1 %or.cond29, label %223, label %malloc_conf_error.exit.thread
 
-217:                                              ; preds = %malloc_conf_error.exit894
-  %218 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 13, ptr noundef nonnull %.017912165, i32 noundef %218, ptr noundef nonnull %94) #21
+223:                                              ; preds = %malloc_conf_error.exit894
+  %224 = trunc i64 %97 to i32
+  %225 = trunc i64 %208 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %224, ptr noundef %201, i32 noundef %225, ptr noundef %207) #21
   br label %malloc_conf_error.exit.thread
 
-.thread1830:                                      ; preds = %146, %183, %.thread1810, %147, %165
-  %219 = phi i1 [ false, %183 ], [ true, %165 ], [ false, %147 ], [ false, %.thread1810 ], [ false, %146 ]
-  %220 = phi i1 [ true, %183 ], [ false, %165 ], [ false, %147 ], [ false, %.thread1810 ], [ false, %146 ]
-  %221 = call i32 @strncmp(ptr noundef nonnull @.str.99, ptr noundef nonnull %.017912165, i64 noundef %98) #25
-  %222 = icmp eq i32 %221, 0
-  br i1 %222, label %.preheader.preheader, label %241
+226:                                              ; preds = %.thread962
+  %227 = icmp eq i64 %97, 6
+  br i1 %227, label %228, label %247
 
-.thread1837:                                      ; preds = %201
-  %223 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.99, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 13) #25
-  %224 = icmp eq i32 %223, 0
-  br i1 %224, label %.preheader.preheader, label %.thread1838
+228:                                              ; preds = %226
+  %229 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.100, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 6) #25
+  %230 = icmp eq i32 %229, 0
+  br i1 %230, label %231, label %.thread976
 
-.preheader.preheader:                             ; preds = %.thread1830, %.thread1837
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %229
-  %indvars.iv2192 = phi i64 [ %indvars.iv.next2193, %229 ], [ 0, %.preheader.preheader ]
-  %225 = getelementptr inbounds nuw [0 x ptr], ptr @duckdb_je_metadata_thp_mode_names, i64 0, i64 %indvars.iv2192
-  %226 = load ptr, ptr %225, align 8, !tbaa !199
-  %227 = call i32 @strncmp(ptr noundef %226, ptr noundef nonnull %94, i64 noundef %.41780) #25
-  %228 = icmp eq i32 %227, 0
-  br i1 %228, label %malloc_conf_error.exit895, label %229
-
-229:                                              ; preds = %.preheader
-  %indvars.iv.next2193 = add nuw nsw i64 %indvars.iv2192, 1
-  %exitcond2195.not = icmp eq i64 %indvars.iv.next2193, 3
-  br i1 %exitcond2195.not, label %.critedge882, label %.preheader
-
-.critedge882:                                     ; preds = %229
-  %230 = trunc i64 %98 to i32
-  %231 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %230, ptr noundef nonnull %.017912165, i32 noundef %231, ptr noundef nonnull %94) #21
-  %232 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %233 = icmp eq i32 %232, 0
-  br i1 %233, label %malloc_conf_error.exit.thread, label %234
-
-234:                                              ; preds = %.critedge882
-  store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit.thread
-
-malloc_conf_error.exit895:                        ; preds = %.preheader
-  %235 = trunc nuw nsw i64 %indvars.iv2192 to i32
-  store i32 %235, ptr @duckdb_je_opt_metadata_thp, align 4, !tbaa !3
-  %236 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %237 = trunc nuw i8 %236 to i1
-  %or.cond29 = select i1 %.not1795, i1 %237, i1 false
-  br i1 %or.cond29, label %238, label %malloc_conf_error.exit.thread
-
-238:                                              ; preds = %malloc_conf_error.exit895
-  %239 = trunc i64 %98 to i32
-  %240 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %239, ptr noundef nonnull %.017912165, i32 noundef %240, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit.thread
-
-241:                                              ; preds = %.thread1830
-  %242 = icmp eq i64 %98, 6
-  br i1 %242, label %243, label %.thread1838
-
-243:                                              ; preds = %241
-  %244 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.100, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 6) #25
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %246, label %.thread1838
-
-246:                                              ; preds = %243
-  switch i64 %.41780, label %.thread1839 [
-    i64 4, label %247
-    i64 5, label %250
+231:                                              ; preds = %228
+  %232 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1413 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %232, label %.thread969 [
+    i64 4, label %233
+    i64 5, label %236
   ]
 
-247:                                              ; preds = %246
-  %248 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
+233:                                              ; preds = %231
+  %234 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1413, i64 noundef 4) #25
+  %235 = icmp eq i32 %234, 0
+  br i1 %235, label %malloc_conf_error.exit895, label %.thread969
+
+236:                                              ; preds = %231
+  %237 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1413, i64 noundef 5) #25
+  %238 = icmp eq i32 %237, 0
+  br i1 %238, label %malloc_conf_error.exit895, label %.thread969
+
+.thread969:                                       ; preds = %231, %233, %236
+  %239 = trunc i64 %232 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 6, ptr noundef nonnull %201, i32 noundef %239, ptr noundef %.pre1413) #21
+  %240 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %241 = icmp eq i32 %240, 0
+  br i1 %241, label %malloc_conf_error.exit.thread, label %242
+
+242:                                              ; preds = %.thread969
+  store i1 true, ptr @had_conf_error, align 1
+  br label %malloc_conf_error.exit.thread
+
+malloc_conf_error.exit895:                        ; preds = %236, %233
+  %storemerge1261 = phi i8 [ 1, %233 ], [ 0, %236 ]
+  store i8 %storemerge1261, ptr @duckdb_je_opt_retain, align 1, !tbaa !50
+  %243 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %244 = trunc nuw i8 %243 to i1
+  br i1 %244, label %245, label %malloc_conf_error.exit.thread
+
+245:                                              ; preds = %malloc_conf_error.exit895
+  %246 = trunc nuw nsw i64 %232 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 6, ptr noundef nonnull %201, i32 noundef %246, ptr noundef nonnull %.pre1413) #21
+  br label %malloc_conf_error.exit.thread
+
+247:                                              ; preds = %226
+  %248 = call i32 @strncmp(ptr noundef nonnull @.str.101, ptr noundef %201, i64 noundef %97) #25
   %249 = icmp eq i32 %248, 0
-  br i1 %249, label %malloc_conf_error.exit896, label %.thread1839
+  br i1 %249, label %.preheader1278, label %289
 
-250:                                              ; preds = %246
-  %251 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %252 = icmp eq i32 %251, 0
-  br i1 %252, label %malloc_conf_error.exit896, label %.thread1839
+.thread976:                                       ; preds = %228
+  %250 = call i32 @strncmp(ptr noundef nonnull dereferenceable(4) @.str.101, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 6) #25
+  %251 = icmp eq i32 %250, 0
+  br i1 %251, label %.preheader1278, label %.thread977
 
-.thread1839:                                      ; preds = %246, %247, %250
-  %253 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 6, ptr noundef nonnull %.017912165, i32 noundef %253, ptr noundef nonnull %94) #21
-  %254 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %255 = icmp eq i32 %254, 0
-  br i1 %255, label %malloc_conf_error.exit.thread, label %256
+.preheader1278:                                   ; preds = %247, %.thread976
+  %252 = load i64, ptr %10, align 8, !tbaa !30
+  %253 = load i64, ptr %9, align 8
+  %254 = trunc i64 %253 to i32
+  %255 = trunc i64 %252 to i32
+  %256 = load ptr, ptr %7, align 8
+  br label %257
 
-256:                                              ; preds = %.thread1839
+257:                                              ; preds = %.preheader1278, %malloc_conf_error.exit896
+  %indvars.iv1312 = phi i64 [ 0, %.preheader1278 ], [ %indvars.iv.next1313, %malloc_conf_error.exit896 ]
+  %.71293 = phi i1 [ true, %.preheader1278 ], [ %.8, %malloc_conf_error.exit896 ]
+  %258 = getelementptr inbounds nuw [0 x ptr], ptr @duckdb_je_dss_prec_names, i64 0, i64 %indvars.iv1312
+  %259 = load ptr, ptr %258, align 8, !tbaa !199
+  %260 = load ptr, ptr %8, align 8, !tbaa !199
+  %261 = call i32 @strncmp(ptr noundef %259, ptr noundef %260, i64 noundef %252) #25
+  %262 = icmp eq i32 %261, 0
+  br i1 %262, label %263, label %malloc_conf_error.exit896
+
+263:                                              ; preds = %257
+  %264 = trunc nuw nsw i64 %indvars.iv1312 to i32
+  %265 = call zeroext i1 @duckdb_je_extent_dss_prec_set(i32 noundef %264) #21
+  br i1 %265, label %266, label %malloc_conf_error.exit897
+
+266:                                              ; preds = %263
+  %267 = load ptr, ptr %8, align 8, !tbaa !199
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.102, i32 noundef %254, ptr noundef %256, i32 noundef %255, ptr noundef %267) #21
+  %268 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %256, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %269 = icmp eq i32 %268, 0
+  br i1 %269, label %malloc_conf_error.exit896, label %270
+
+270:                                              ; preds = %266
+  store i1 true, ptr @had_conf_error, align 1
+  br label %malloc_conf_error.exit896
+
+malloc_conf_error.exit896:                        ; preds = %270, %266, %257
+  %.8 = phi i1 [ %.71293, %257 ], [ false, %266 ], [ false, %270 ]
+  %indvars.iv.next1313 = add nuw nsw i64 %indvars.iv1312, 1
+  %exitcond1314.not = icmp eq i64 %indvars.iv.next1313, 3
+  br i1 %exitcond1314.not, label %.critedge884, label %257
+
+.critedge884:                                     ; preds = %malloc_conf_error.exit896
+  %271 = load ptr, ptr %7, align 8, !tbaa !199
+  %272 = load i64, ptr %9, align 8, !tbaa !30
+  %273 = load ptr, ptr %8, align 8, !tbaa !199
+  %274 = load i64, ptr %10, align 8, !tbaa !30
+  %275 = trunc i64 %272 to i32
+  %276 = trunc i64 %274 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %275, ptr noundef %271, i32 noundef %276, ptr noundef %273) #21
+  %277 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %271, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %278 = icmp eq i32 %277, 0
+  br i1 %278, label %malloc_conf_error.exit.thread, label %279
+
+279:                                              ; preds = %.critedge884
   store i1 true, ptr @had_conf_error, align 1
   br label %malloc_conf_error.exit.thread
 
-malloc_conf_error.exit896:                        ; preds = %250, %247
-  %storemerge2126 = phi i8 [ 1, %247 ], [ 0, %250 ]
-  store i8 %storemerge2126, ptr @duckdb_je_opt_retain, align 1, !tbaa !50
-  %257 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %258 = trunc nuw i8 %257 to i1
-  br i1 %258, label %259, label %malloc_conf_error.exit.thread
+malloc_conf_error.exit897:                        ; preds = %263
+  store ptr %259, ptr @duckdb_je_opt_dss, align 8, !tbaa !199
+  %280 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %281 = trunc nuw i8 %280 to i1
+  %or.cond39 = select i1 %.not937, i1 %281, i1 false
+  %or.cond41 = select i1 %or.cond39, i1 %.71293, i1 false
+  br i1 %or.cond41, label %282, label %malloc_conf_error.exit.thread
 
-259:                                              ; preds = %malloc_conf_error.exit896
-  %260 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 6, ptr noundef nonnull %.017912165, i32 noundef %260, ptr noundef nonnull %94) #21
+282:                                              ; preds = %malloc_conf_error.exit897
+  %283 = load i64, ptr %9, align 8, !tbaa !30
+  %284 = trunc i64 %283 to i32
+  %285 = load ptr, ptr %7, align 8, !tbaa !199
+  %286 = load i64, ptr %10, align 8, !tbaa !30
+  %287 = trunc i64 %286 to i32
+  %288 = load ptr, ptr %8, align 8, !tbaa !199
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %284, ptr noundef %285, i32 noundef %287, ptr noundef %288) #21
   br label %malloc_conf_error.exit.thread
 
-.thread1838:                                      ; preds = %.thread1837, %243, %241
-  %261 = phi i1 [ true, %243 ], [ false, %241 ], [ false, %.thread1837 ]
-  %262 = phi i1 [ false, %243 ], [ false, %241 ], [ true, %.thread1837 ]
-  %263 = phi i1 [ %219, %243 ], [ %219, %241 ], [ false, %.thread1837 ]
-  %264 = phi i1 [ %220, %243 ], [ %220, %241 ], [ false, %.thread1837 ]
-  %265 = call i32 @strncmp(ptr noundef nonnull @.str.101, ptr noundef nonnull %.017912165, i64 noundef %98) #25
-  %266 = icmp eq i32 %265, 0
-  br i1 %266, label %.preheader2145, label %287
+289:                                              ; preds = %247
+  %290 = icmp eq i64 %97, 7
+  br i1 %290, label %291, label %.thread977
 
-.preheader2145:                                   ; preds = %.thread1838
-  %267 = trunc i64 %98 to i32
-  %268 = trunc i64 %.41780 to i32
-  br label %269
+291:                                              ; preds = %289
+  %292 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.103, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 7) #25
+  %293 = icmp eq i32 %292, 0
+  br i1 %293, label %294, label %.thread977
 
-269:                                              ; preds = %.preheader2145, %malloc_conf_error.exit897
-  %indvars.iv2189 = phi i64 [ 0, %.preheader2145 ], [ %indvars.iv.next2190, %malloc_conf_error.exit897 ]
-  %.72162 = phi i1 [ true, %.preheader2145 ], [ %.8, %malloc_conf_error.exit897 ]
-  %270 = getelementptr inbounds nuw [0 x ptr], ptr @duckdb_je_dss_prec_names, i64 0, i64 %indvars.iv2189
-  %271 = load ptr, ptr %270, align 8, !tbaa !199
-  %272 = call i32 @strncmp(ptr noundef %271, ptr noundef nonnull %94, i64 noundef %.41780) #25
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %274, label %malloc_conf_error.exit897
-
-274:                                              ; preds = %269
-  %275 = trunc nuw nsw i64 %indvars.iv2189 to i32
-  %276 = call zeroext i1 @duckdb_je_extent_dss_prec_set(i32 noundef %275) #21
-  br i1 %276, label %277, label %malloc_conf_error.exit898
-
-277:                                              ; preds = %274
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.102, i32 noundef %267, ptr noundef nonnull %.017912165, i32 noundef %268, ptr noundef nonnull %94) #21
-  %278 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %279 = icmp eq i32 %278, 0
-  br i1 %279, label %malloc_conf_error.exit897, label %280
-
-280:                                              ; preds = %277
-  store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit897
-
-malloc_conf_error.exit897:                        ; preds = %280, %277, %269
-  %.8 = phi i1 [ %.72162, %269 ], [ false, %277 ], [ false, %280 ]
-  %indvars.iv.next2190 = add nuw nsw i64 %indvars.iv2189, 1
-  %exitcond2191.not = icmp eq i64 %indvars.iv.next2190, 3
-  br i1 %exitcond2191.not, label %.critedge884, label %269
-
-.critedge884:                                     ; preds = %malloc_conf_error.exit897
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %267, ptr noundef nonnull %.017912165, i32 noundef %268, ptr noundef nonnull %94) #21
-  %281 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %282 = icmp eq i32 %281, 0
-  br i1 %282, label %malloc_conf_error.exit.thread, label %283
-
-283:                                              ; preds = %.critedge884
-  store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit.thread
-
-malloc_conf_error.exit898:                        ; preds = %274
-  store ptr %271, ptr @duckdb_je_opt_dss, align 8, !tbaa !199
-  %284 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %285 = trunc nuw i8 %284 to i1
-  %or.cond39 = select i1 %.not1795, i1 %285, i1 false
-  %or.cond41 = select i1 %or.cond39, i1 %.72162, i1 false
-  br i1 %or.cond41, label %286, label %malloc_conf_error.exit.thread
-
-286:                                              ; preds = %malloc_conf_error.exit898
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %267, ptr noundef nonnull %.017912165, i32 noundef %268, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit.thread
-
-287:                                              ; preds = %.thread1838
-  %288 = icmp eq i64 %98, 7
-  br i1 %288, label %289, label %326
-
-289:                                              ; preds = %287
-  %290 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.103, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 7) #25
-  %291 = icmp eq i32 %290, 0
-  br i1 %291, label %292, label %326
-
-292:                                              ; preds = %289
-  %293 = icmp eq i64 %.41780, 7
-  br i1 %293, label %294, label %301
-
-294:                                              ; preds = %292
-  %295 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.104, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 7) #25
-  %296 = icmp eq i32 %295, 0
-  br i1 %296, label %297, label %301
+294:                                              ; preds = %291
+  %295 = load i64, ptr %10, align 8, !tbaa !30
+  %296 = icmp eq i64 %295, 7
+  %.pre1327 = load ptr, ptr %8, align 8, !tbaa !199
+  br i1 %296, label %297, label %304
 
 297:                                              ; preds = %294
-  store i32 0, ptr @duckdb_je_opt_narenas, align 4, !tbaa !3
-  %298 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %299 = trunc nuw i8 %298 to i1
-  br i1 %299, label %300, label %malloc_conf_error.exit.thread
+  %298 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.104, ptr noundef nonnull dereferenceable(1) %.pre1327, i64 noundef 7) #25
+  %299 = icmp eq i32 %298, 0
+  br i1 %299, label %300, label %304
 
 300:                                              ; preds = %297
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 7, ptr noundef nonnull %.017912165, i32 noundef 7, ptr noundef nonnull %94) #21
+  store i32 0, ptr @duckdb_je_opt_narenas, align 4, !tbaa !3
+  %301 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %302 = trunc nuw i8 %301 to i1
+  br i1 %302, label %303, label %malloc_conf_error.exit.thread
+
+303:                                              ; preds = %300
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 7, ptr noundef nonnull %201, i32 noundef 7, ptr noundef nonnull %.pre1327) #21
   br label %malloc_conf_error.exit.thread
 
-301:                                              ; preds = %294, %292
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #21
-  %302 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %302, align 4, !tbaa !3
-  %303 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %10, i32 noundef 0) #21
-  %304 = load i32, ptr %302, align 4, !tbaa !3
-  %.not879 = icmp eq i32 %304, 0
-  br i1 %.not879, label %305, label %309
-
-305:                                              ; preds = %301
-  %306 = load ptr, ptr %10, align 8, !tbaa !199
-  %307 = ptrtoint ptr %306 to i64
-  %308 = sub i64 %307, %95
-  %.not880 = icmp eq i64 %308, %.41780
-  br i1 %.not880, label %314, label %309
-
-309:                                              ; preds = %301, %305
-  %310 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 7, ptr noundef nonnull %.017912165, i32 noundef %310, ptr noundef nonnull %94) #21
-  %311 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %312 = icmp eq i32 %311, 0
-  br i1 %312, label %malloc_conf_error.exit899.thread, label %313
-
-313:                                              ; preds = %309
-  store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit899.thread
-
-314:                                              ; preds = %305
-  %315 = icmp eq i64 %303, 0
-  br i1 %315, label %316, label %malloc_conf_error.exit899
-
-316:                                              ; preds = %314
-  %317 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, i32 noundef 7, ptr noundef nonnull %.017912165, i32 noundef %317, ptr noundef nonnull %94) #21
-  %318 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %319 = icmp eq i32 %318, 0
-  br i1 %319, label %malloc_conf_error.exit899.thread, label %320
-
-320:                                              ; preds = %316
-  store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit899.thread
-
-malloc_conf_error.exit899:                        ; preds = %314
-  %321 = trunc i64 %303 to i32
-  store i32 %321, ptr @duckdb_je_opt_narenas, align 4, !tbaa !3
-  %322 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %323 = trunc nuw i8 %322 to i1
-  br i1 %323, label %324, label %malloc_conf_error.exit899.thread
-
-324:                                              ; preds = %malloc_conf_error.exit899
-  %325 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 7, ptr noundef nonnull %.017912165, i32 noundef %325, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit899.thread
-
-malloc_conf_error.exit899.thread:                 ; preds = %320, %316, %313, %309, %324, %malloc_conf_error.exit899
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
-  br label %malloc_conf_error.exit.thread
-
-326:                                              ; preds = %289, %287
-  br i1 %262, label %327, label %348
-
-327:                                              ; preds = %326
-  %328 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.106, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 13) #25
-  %329 = icmp eq i32 %328, 0
-  br i1 %329, label %330, label %348
-
-330:                                              ; preds = %327
+304:                                              ; preds = %297, %294
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #21
-  %331 = call zeroext i1 @duckdb_je_fxp_parse(ptr noundef nonnull @duckdb_je_opt_narenas_ratio, ptr noundef nonnull %94, ptr noundef nonnull %11) #21
-  br i1 %331, label %337, label %332
+  %305 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %305, align 4, !tbaa !3
+  %306 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %.pre1327, ptr noundef nonnull %11, i32 noundef 0) #21
+  %307 = load i32, ptr %305, align 4, !tbaa !3
+  %.not879 = icmp eq i32 %307, 0
+  %.pre1328 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1329 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not879, label %308, label %313
 
-332:                                              ; preds = %330
-  %333 = load ptr, ptr %11, align 8, !tbaa !199
-  %334 = ptrtoint ptr %333 to i64
-  %335 = sub i64 %334, %95
-  %336 = icmp eq i64 %335, %.41780
-  br i1 %336, label %malloc_conf_error.exit901, label %337
+308:                                              ; preds = %304
+  %309 = load ptr, ptr %11, align 8, !tbaa !199
+  %310 = ptrtoint ptr %309 to i64
+  %311 = ptrtoint ptr %.pre1328 to i64
+  %312 = sub i64 %310, %311
+  %.not880 = icmp eq i64 %312, %.pre1329
+  br i1 %.not880, label %321, label %313
 
-337:                                              ; preds = %330, %332
-  %338 = trunc i64 %98 to i32
-  %339 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %338, ptr noundef nonnull %.017912165, i32 noundef %339, ptr noundef nonnull %94) #21
-  %340 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %341 = icmp eq i32 %340, 0
-  br i1 %341, label %malloc_conf_error.exit901.thread, label %342
+313:                                              ; preds = %304, %308
+  %314 = load ptr, ptr %7, align 8, !tbaa !199
+  %315 = load i64, ptr %9, align 8, !tbaa !30
+  %316 = trunc i64 %315 to i32
+  %317 = trunc i64 %.pre1329 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %316, ptr noundef %314, i32 noundef %317, ptr noundef %.pre1328) #21
+  %318 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %314, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %319 = icmp eq i32 %318, 0
+  br i1 %319, label %malloc_conf_error.exit898.thread, label %320
 
-342:                                              ; preds = %337
+320:                                              ; preds = %313
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit901.thread
+  br label %malloc_conf_error.exit898.thread
 
-malloc_conf_error.exit901:                        ; preds = %332
-  %343 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %344 = trunc nuw i8 %343 to i1
-  br i1 %344, label %345, label %malloc_conf_error.exit901.thread
+321:                                              ; preds = %308
+  %322 = icmp eq i64 %306, 0
+  br i1 %322, label %323, label %malloc_conf_error.exit898
 
-345:                                              ; preds = %malloc_conf_error.exit901
-  %346 = trunc i64 %98 to i32
-  %347 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %346, ptr noundef nonnull %.017912165, i32 noundef %347, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit901.thread
+323:                                              ; preds = %321
+  %324 = load ptr, ptr %7, align 8, !tbaa !199
+  %325 = load i64, ptr %9, align 8, !tbaa !30
+  %326 = trunc i64 %325 to i32
+  %327 = trunc i64 %.pre1329 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, i32 noundef %326, ptr noundef %324, i32 noundef %327, ptr noundef %.pre1328) #21
+  %328 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %324, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %329 = icmp eq i32 %328, 0
+  br i1 %329, label %malloc_conf_error.exit898.thread, label %330
 
-malloc_conf_error.exit901.thread:                 ; preds = %342, %337, %345, %malloc_conf_error.exit901
+330:                                              ; preds = %323
+  store i1 true, ptr @had_conf_error, align 1
+  br label %malloc_conf_error.exit898.thread
+
+malloc_conf_error.exit898:                        ; preds = %321
+  %331 = trunc i64 %306 to i32
+  store i32 %331, ptr @duckdb_je_opt_narenas, align 4, !tbaa !3
+  %332 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %333 = trunc nuw i8 %332 to i1
+  br i1 %333, label %334, label %malloc_conf_error.exit898.thread
+
+334:                                              ; preds = %malloc_conf_error.exit898
+  %335 = load i64, ptr %9, align 8, !tbaa !30
+  %336 = trunc i64 %335 to i32
+  %337 = load ptr, ptr %7, align 8, !tbaa !199
+  %338 = trunc i64 %.pre1329 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %336, ptr noundef %337, i32 noundef %338, ptr noundef %.pre1328) #21
+  br label %malloc_conf_error.exit898.thread
+
+malloc_conf_error.exit898.thread:                 ; preds = %330, %323, %320, %313, %334, %malloc_conf_error.exit898
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
   br label %malloc_conf_error.exit.thread
 
-348:                                              ; preds = %327, %326
-  br i1 %263, label %349, label %374
+.thread977:                                       ; preds = %.thread976, %291, %289
+  br i1 %202, label %339, label %366
 
-349:                                              ; preds = %348
-  %350 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.107, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 10) #25
-  %351 = icmp eq i32 %350, 0
-  br i1 %351, label %352, label %374
+339:                                              ; preds = %.thread977
+  %340 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.106, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 13) #25
+  %341 = icmp eq i32 %340, 0
+  br i1 %341, label %342, label %366
 
-352:                                              ; preds = %349
+342:                                              ; preds = %339
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #21
-  store ptr %94, ptr %12, align 8, !tbaa !199
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #21
-  store i64 %.41780, ptr %13, align 8, !tbaa !30
-  br label %353
+  %343 = load ptr, ptr %8, align 8, !tbaa !199
+  %344 = call zeroext i1 @duckdb_je_fxp_parse(ptr noundef nonnull @duckdb_je_opt_narenas_ratio, ptr noundef %343, ptr noundef nonnull %12) #21
+  %.pre1411 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1412 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %344, label %351, label %345
 
-353:                                              ; preds = %malloc_conf_error.exit902, %352
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #21
-  %354 = call zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #21
-  br i1 %354, label %360, label %355
+345:                                              ; preds = %342
+  %346 = load ptr, ptr %12, align 8, !tbaa !199
+  %347 = ptrtoint ptr %346 to i64
+  %348 = ptrtoint ptr %.pre1411 to i64
+  %349 = sub i64 %347, %348
+  %350 = icmp eq i64 %349, %.pre1412
+  br i1 %350, label %malloc_conf_error.exit900, label %351
 
-355:                                              ; preds = %353
-  %356 = load i64, ptr %14, align 8, !tbaa !30
-  %357 = load i64, ptr %15, align 8, !tbaa !30
-  %358 = load i64, ptr %16, align 8, !tbaa !30
-  %359 = call zeroext i1 @duckdb_je_bin_update_shard_size(ptr noundef %1, i64 noundef %356, i64 noundef %357, i64 noundef %358) #21
-  br i1 %359, label %360, label %malloc_conf_error.exit902
+351:                                              ; preds = %342, %345
+  %352 = load ptr, ptr %7, align 8, !tbaa !199
+  %353 = load i64, ptr %9, align 8, !tbaa !30
+  %354 = trunc i64 %353 to i32
+  %355 = trunc i64 %.pre1412 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %354, ptr noundef %352, i32 noundef %355, ptr noundef %.pre1411) #21
+  %356 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %352, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %357 = icmp eq i32 %356, 0
+  br i1 %357, label %malloc_conf_error.exit900.thread, label %358
 
-360:                                              ; preds = %353, %355
-  %361 = trunc i64 %98 to i32
-  %362 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.108, i32 noundef %361, ptr noundef nonnull %.017912165, i32 noundef %362, ptr noundef nonnull %94) #21
-  %363 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %364 = icmp eq i32 %363, 0
-  br i1 %364, label %.thread1858, label %365
-
-365:                                              ; preds = %360
+358:                                              ; preds = %351
   store i1 true, ptr @had_conf_error, align 1
-  br label %.thread1858
+  br label %malloc_conf_error.exit900.thread
 
-.thread1858:                                      ; preds = %365, %360
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #21
-  br label %373
+malloc_conf_error.exit900:                        ; preds = %345
+  %359 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %360 = trunc nuw i8 %359 to i1
+  br i1 %360, label %361, label %malloc_conf_error.exit900.thread
 
-malloc_conf_error.exit902:                        ; preds = %355
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #21
-  %366 = load i64, ptr %13, align 8
-  %.not878 = icmp eq i64 %366, 0
-  br i1 %.not878, label %367, label %353
+361:                                              ; preds = %malloc_conf_error.exit900
+  %362 = load i64, ptr %9, align 8, !tbaa !30
+  %363 = trunc i64 %362 to i32
+  %364 = load ptr, ptr %7, align 8, !tbaa !199
+  %365 = trunc i64 %.pre1412 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %363, ptr noundef %364, i32 noundef %365, ptr noundef %.pre1411) #21
+  br label %malloc_conf_error.exit900.thread
 
-367:                                              ; preds = %malloc_conf_error.exit902
-  %368 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %369 = trunc nuw i8 %368 to i1
-  %or.cond59 = select i1 %.not1795, i1 %369, i1 false
-  br i1 %or.cond59, label %370, label %373
-
-370:                                              ; preds = %367
-  %371 = trunc i64 %98 to i32
-  %372 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %371, ptr noundef nonnull %.017912165, i32 noundef %372, ptr noundef nonnull %94) #21
-  br label %373
-
-373:                                              ; preds = %.thread1858, %370, %367
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #21
+malloc_conf_error.exit900.thread:                 ; preds = %358, %351, %361, %malloc_conf_error.exit900
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
   br label %malloc_conf_error.exit.thread
 
-374:                                              ; preds = %349, %348
-  %375 = icmp eq i64 %98, 16
-  br i1 %375, label %376, label %396
+366:                                              ; preds = %339, %.thread977
+  br i1 %203, label %367, label %402
 
-376:                                              ; preds = %374
-  %377 = call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.109, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 16) #25
-  %378 = icmp eq i32 %377, 0
-  br i1 %378, label %379, label %.thread1865
+367:                                              ; preds = %366
+  %368 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.107, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 10) #25
+  %369 = icmp eq i32 %368, 0
+  br i1 %369, label %370, label %402
 
-379:                                              ; preds = %376
+370:                                              ; preds = %367
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #21
+  %371 = load ptr, ptr %8, align 8, !tbaa !199
+  store ptr %371, ptr %13, align 8, !tbaa !199
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #21
+  %372 = load i64, ptr %10, align 8, !tbaa !30
+  store i64 %372, ptr %14, align 8, !tbaa !30
+  br label %373
+
+373:                                              ; preds = %malloc_conf_error.exit901, %370
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #21
-  %380 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %380, align 4, !tbaa !3
-  %381 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %17, i32 noundef 0) #21
-  %382 = load i32, ptr %380, align 4, !tbaa !3
-  %.not876 = icmp eq i32 %382, 0
-  br i1 %.not876, label %383, label %387
+  %374 = call zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #21
+  br i1 %374, label %380, label %375
 
-383:                                              ; preds = %379
-  %384 = load ptr, ptr %17, align 8, !tbaa !199
-  %385 = ptrtoint ptr %384 to i64
-  %386 = sub i64 %385, %95
-  %.not877 = icmp eq i64 %386, %.41780
-  br i1 %.not877, label %malloc_conf_error.exit903, label %387
+375:                                              ; preds = %373
+  %376 = load i64, ptr %15, align 8, !tbaa !30
+  %377 = load i64, ptr %16, align 8, !tbaa !30
+  %378 = load i64, ptr %17, align 8, !tbaa !30
+  %379 = call zeroext i1 @duckdb_je_bin_update_shard_size(ptr noundef %1, i64 noundef %376, i64 noundef %377, i64 noundef %378) #21
+  br i1 %379, label %380, label %malloc_conf_error.exit901
 
-387:                                              ; preds = %379, %383
-  %388 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 16, ptr noundef nonnull %.017912165, i32 noundef %388, ptr noundef nonnull %94) #21
-  %389 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %390 = icmp eq i32 %389, 0
-  br i1 %390, label %malloc_conf_error.exit903.thread, label %391
+380:                                              ; preds = %373, %375
+  %381 = load ptr, ptr %7, align 8, !tbaa !199
+  %382 = load i64, ptr %9, align 8, !tbaa !30
+  %383 = load ptr, ptr %8, align 8, !tbaa !199
+  %384 = load i64, ptr %10, align 8, !tbaa !30
+  %385 = trunc i64 %382 to i32
+  %386 = trunc i64 %384 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.108, i32 noundef %385, ptr noundef %381, i32 noundef %386, ptr noundef %383) #21
+  %387 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %381, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %388 = icmp eq i32 %387, 0
+  br i1 %388, label %.thread990, label %389
 
-391:                                              ; preds = %387
+389:                                              ; preds = %380
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit903.thread
+  br label %.thread990
 
-malloc_conf_error.exit903:                        ; preds = %383
-  store i64 %381, ptr @duckdb_je_opt_bin_info_max_batched_size, align 8, !tbaa !30
+.thread990:                                       ; preds = %389, %380
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #21
+  br label %401
+
+malloc_conf_error.exit901:                        ; preds = %375
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #21
+  %390 = load i64, ptr %14, align 8
+  %.not878 = icmp eq i64 %390, 0
+  br i1 %.not878, label %391, label %373
+
+391:                                              ; preds = %malloc_conf_error.exit901
   %392 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
   %393 = trunc nuw i8 %392 to i1
-  br i1 %393, label %394, label %malloc_conf_error.exit903.thread
+  %or.cond59 = select i1 %.not937, i1 %393, i1 false
+  br i1 %or.cond59, label %394, label %401
 
-394:                                              ; preds = %malloc_conf_error.exit903
-  %395 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 16, ptr noundef nonnull %.017912165, i32 noundef %395, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit903.thread
+394:                                              ; preds = %391
+  %395 = load i64, ptr %9, align 8, !tbaa !30
+  %396 = trunc i64 %395 to i32
+  %397 = load ptr, ptr %7, align 8, !tbaa !199
+  %398 = load i64, ptr %10, align 8, !tbaa !30
+  %399 = trunc i64 %398 to i32
+  %400 = load ptr, ptr %8, align 8, !tbaa !199
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %396, ptr noundef %397, i32 noundef %399, ptr noundef %400) #21
+  br label %401
 
-malloc_conf_error.exit903.thread:                 ; preds = %391, %387, %394, %malloc_conf_error.exit903
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #21
+401:                                              ; preds = %.thread990, %394, %391
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #21
   br label %malloc_conf_error.exit.thread
 
-396:                                              ; preds = %374
-  %397 = icmp eq i64 %98, 21
-  br i1 %397, label %398, label %.thread1865
+402:                                              ; preds = %367, %366
+  %403 = icmp eq i64 %97, 16
+  br i1 %403, label %404, label %432
 
-398:                                              ; preds = %396
-  %399 = call i32 @strncmp(ptr noundef nonnull dereferenceable(22) @.str.110, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 21) #25
-  %400 = icmp eq i32 %399, 0
-  br i1 %400, label %401, label %.thread1865
+404:                                              ; preds = %402
+  %405 = call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.109, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 16) #25
+  %406 = icmp eq i32 %405, 0
+  br i1 %406, label %407, label %.thread997
 
-401:                                              ; preds = %398
+407:                                              ; preds = %404
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #21
-  %402 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %402, align 4, !tbaa !3
-  %403 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %18, i32 noundef 0) #21
-  %404 = load i32, ptr %402, align 4, !tbaa !3
-  %.not874 = icmp eq i32 %404, 0
-  br i1 %.not874, label %405, label %409
+  %408 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %408, align 4, !tbaa !3
+  %409 = load ptr, ptr %8, align 8, !tbaa !199
+  %410 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %409, ptr noundef nonnull %18, i32 noundef 0) #21
+  %411 = load i32, ptr %408, align 4, !tbaa !3
+  %.not876 = icmp eq i32 %411, 0
+  %.pre1409 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1410 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not876, label %412, label %417
 
-405:                                              ; preds = %401
-  %406 = load ptr, ptr %18, align 8, !tbaa !199
-  %407 = ptrtoint ptr %406 to i64
-  %408 = sub i64 %407, %95
-  %.not875 = icmp eq i64 %408, %.41780
-  br i1 %.not875, label %malloc_conf_error.exit904, label %409
+412:                                              ; preds = %407
+  %413 = load ptr, ptr %18, align 8, !tbaa !199
+  %414 = ptrtoint ptr %413 to i64
+  %415 = ptrtoint ptr %.pre1409 to i64
+  %416 = sub i64 %414, %415
+  %.not877 = icmp eq i64 %416, %.pre1410
+  br i1 %.not877, label %malloc_conf_error.exit902, label %417
 
-409:                                              ; preds = %401, %405
-  %410 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 21, ptr noundef nonnull %.017912165, i32 noundef %410, ptr noundef nonnull %94) #21
-  %411 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %412 = icmp eq i32 %411, 0
-  br i1 %412, label %malloc_conf_error.exit904.thread, label %413
+417:                                              ; preds = %407, %412
+  %418 = load ptr, ptr %7, align 8, !tbaa !199
+  %419 = load i64, ptr %9, align 8, !tbaa !30
+  %420 = trunc i64 %419 to i32
+  %421 = trunc i64 %.pre1410 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %420, ptr noundef %418, i32 noundef %421, ptr noundef %.pre1409) #21
+  %422 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %418, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %423 = icmp eq i32 %422, 0
+  br i1 %423, label %malloc_conf_error.exit902.thread, label %424
 
-413:                                              ; preds = %409
+424:                                              ; preds = %417
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit904.thread
+  br label %malloc_conf_error.exit902.thread
 
-malloc_conf_error.exit904:                        ; preds = %405
-  %. = call i64 @llvm.umin.i64(i64 %403, i64 16)
-  store i64 %., ptr @duckdb_je_opt_bin_info_remote_free_max_batch, align 8, !tbaa !30
-  %414 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %415 = trunc nuw i8 %414 to i1
-  br i1 %415, label %416, label %malloc_conf_error.exit904.thread
+malloc_conf_error.exit902:                        ; preds = %412
+  store i64 %410, ptr @duckdb_je_opt_bin_info_max_batched_size, align 8, !tbaa !30
+  %425 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %426 = trunc nuw i8 %425 to i1
+  br i1 %426, label %427, label %malloc_conf_error.exit902.thread
 
-416:                                              ; preds = %malloc_conf_error.exit904
-  %417 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 21, ptr noundef nonnull %.017912165, i32 noundef %417, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit904.thread
+427:                                              ; preds = %malloc_conf_error.exit902
+  %428 = load i64, ptr %9, align 8, !tbaa !30
+  %429 = trunc i64 %428 to i32
+  %430 = load ptr, ptr %7, align 8, !tbaa !199
+  %431 = trunc i64 %.pre1410 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %429, ptr noundef %430, i32 noundef %431, ptr noundef %.pre1409) #21
+  br label %malloc_conf_error.exit902.thread
 
-malloc_conf_error.exit904.thread:                 ; preds = %413, %409, %416, %malloc_conf_error.exit904
+malloc_conf_error.exit902.thread:                 ; preds = %424, %417, %427, %malloc_conf_error.exit902
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #21
   br label %malloc_conf_error.exit.thread
 
-.thread1865:                                      ; preds = %376, %398, %396
-  %418 = phi i1 [ true, %398 ], [ false, %396 ], [ false, %376 ]
-  br i1 %264, label %419, label %441
+432:                                              ; preds = %402
+  %433 = icmp eq i64 %97, 21
+  br i1 %433, label %434, label %.thread997
 
-419:                                              ; preds = %.thread1865
-  %420 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.111, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 15) #25
-  %421 = icmp eq i32 %420, 0
-  br i1 %421, label %422, label %441
+434:                                              ; preds = %432
+  %435 = call i32 @strncmp(ptr noundef nonnull dereferenceable(22) @.str.110, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 21) #25
+  %436 = icmp eq i32 %435, 0
+  br i1 %436, label %437, label %.thread997
 
-422:                                              ; preds = %419
+437:                                              ; preds = %434
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #21
-  %423 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %423, align 4, !tbaa !3
-  %424 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %19, i32 noundef 0) #21
-  %425 = load i32, ptr %423, align 4, !tbaa !3
-  %.not872 = icmp eq i32 %425, 0
-  br i1 %.not872, label %426, label %430
+  %438 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %438, align 4, !tbaa !3
+  %439 = load ptr, ptr %8, align 8, !tbaa !199
+  %440 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %439, ptr noundef nonnull %19, i32 noundef 0) #21
+  %441 = load i32, ptr %438, align 4, !tbaa !3
+  %.not874 = icmp eq i32 %441, 0
+  %.pre1330 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1331 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not874, label %442, label %447
 
-426:                                              ; preds = %422
-  %427 = load ptr, ptr %19, align 8, !tbaa !199
-  %428 = ptrtoint ptr %427 to i64
-  %429 = sub i64 %428, %95
-  %.not873 = icmp eq i64 %429, %.41780
-  br i1 %.not873, label %malloc_conf_error.exit905, label %430
+442:                                              ; preds = %437
+  %443 = load ptr, ptr %19, align 8, !tbaa !199
+  %444 = ptrtoint ptr %443 to i64
+  %445 = ptrtoint ptr %.pre1330 to i64
+  %446 = sub i64 %444, %445
+  %.not875 = icmp eq i64 %446, %.pre1331
+  br i1 %.not875, label %malloc_conf_error.exit903, label %447
 
-430:                                              ; preds = %422, %426
-  %431 = trunc i64 %98 to i32
-  %432 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %431, ptr noundef nonnull %.017912165, i32 noundef %432, ptr noundef nonnull %94) #21
-  %433 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %434 = icmp eq i32 %433, 0
-  br i1 %434, label %malloc_conf_error.exit905.thread, label %435
+447:                                              ; preds = %437, %442
+  %448 = load ptr, ptr %7, align 8, !tbaa !199
+  %449 = load i64, ptr %9, align 8, !tbaa !30
+  %450 = trunc i64 %449 to i32
+  %451 = trunc i64 %.pre1331 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %450, ptr noundef %448, i32 noundef %451, ptr noundef %.pre1330) #21
+  %452 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %448, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %453 = icmp eq i32 %452, 0
+  br i1 %453, label %malloc_conf_error.exit903.thread, label %454
 
-435:                                              ; preds = %430
+454:                                              ; preds = %447
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit905.thread
+  br label %malloc_conf_error.exit903.thread
 
-malloc_conf_error.exit905:                        ; preds = %426
-  %.2136 = call i64 @llvm.umin.i64(i64 %424, i64 16)
-  store i64 %.2136, ptr @duckdb_je_opt_bin_info_remote_free_max, align 8, !tbaa !30
-  %436 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %437 = trunc nuw i8 %436 to i1
-  br i1 %437, label %438, label %malloc_conf_error.exit905.thread
+malloc_conf_error.exit903:                        ; preds = %442
+  %. = call i64 @llvm.umin.i64(i64 %440, i64 16)
+  store i64 %., ptr @duckdb_je_opt_bin_info_remote_free_max_batch, align 8, !tbaa !30
+  %455 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %456 = trunc nuw i8 %455 to i1
+  br i1 %456, label %457, label %malloc_conf_error.exit903.thread
 
-438:                                              ; preds = %malloc_conf_error.exit905
-  %439 = trunc i64 %98 to i32
-  %440 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %439, ptr noundef nonnull %.017912165, i32 noundef %440, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit905.thread
+457:                                              ; preds = %malloc_conf_error.exit903
+  %458 = load i64, ptr %9, align 8, !tbaa !30
+  %459 = trunc i64 %458 to i32
+  %460 = load ptr, ptr %7, align 8, !tbaa !199
+  %461 = trunc i64 %.pre1331 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %459, ptr noundef %460, i32 noundef %461, ptr noundef %.pre1330) #21
+  br label %malloc_conf_error.exit903.thread
 
-malloc_conf_error.exit905.thread:                 ; preds = %435, %430, %438, %malloc_conf_error.exit905
+malloc_conf_error.exit903.thread:                 ; preds = %454, %447, %457, %malloc_conf_error.exit903
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #21
   br label %malloc_conf_error.exit.thread
 
-441:                                              ; preds = %419, %.thread1865
-  %442 = icmp eq i64 %98, 18
-  br i1 %442, label %443, label %457
+.thread997:                                       ; preds = %404, %434, %432
+  %462 = phi i1 [ true, %434 ], [ false, %432 ], [ false, %404 ]
+  br i1 %204, label %463, label %491
 
-443:                                              ; preds = %441
-  %444 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.112, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 18) #25
-  %445 = icmp eq i32 %444, 0
-  br i1 %445, label %446, label %.thread1933
+463:                                              ; preds = %.thread997
+  %464 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.111, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 15) #25
+  %465 = icmp eq i32 %464, 0
+  br i1 %465, label %466, label %491
 
-446:                                              ; preds = %443
-  %447 = call zeroext i1 @tcache_bin_info_default_init(ptr noundef nonnull %94, i64 noundef %.41780) #21
-  br i1 %447, label %448, label %malloc_conf_error.exit906
-
-448:                                              ; preds = %446
-  %449 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.113, i32 noundef 18, ptr noundef nonnull %.017912165, i32 noundef %449, ptr noundef nonnull %94) #21
-  %450 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %451 = icmp eq i32 %450, 0
-  br i1 %451, label %malloc_conf_error.exit.thread, label %452
-
-452:                                              ; preds = %448
-  store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit.thread
-
-malloc_conf_error.exit906:                        ; preds = %446
-  %453 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %454 = trunc nuw i8 %453 to i1
-  br i1 %454, label %455, label %malloc_conf_error.exit.thread
-
-455:                                              ; preds = %malloc_conf_error.exit906
-  %456 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 18, ptr noundef nonnull %.017912165, i32 noundef %456, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit.thread
-
-457:                                              ; preds = %441
-  switch i64 %98, label %557 [
-    i64 14, label %458
-    i64 11, label %539
-  ]
-
-458:                                              ; preds = %457
-  %459 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.114, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 14) #25
-  %460 = icmp eq i32 %459, 0
-  br i1 %460, label %461, label %485
-
-461:                                              ; preds = %458
+466:                                              ; preds = %463
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #21
-  %462 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %462, align 4, !tbaa !3
-  %463 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %20, i32 noundef 0) #21
-  %464 = load i32, ptr %462, align 4, !tbaa !3
-  %.not870 = icmp eq i32 %464, 0
-  br i1 %.not870, label %465, label %469
+  %467 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %467, align 4, !tbaa !3
+  %468 = load ptr, ptr %8, align 8, !tbaa !199
+  %469 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %468, ptr noundef nonnull %20, i32 noundef 0) #21
+  %470 = load i32, ptr %467, align 4, !tbaa !3
+  %.not872 = icmp eq i32 %470, 0
+  %.pre1407 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1408 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not872, label %471, label %476
 
-465:                                              ; preds = %461
-  %466 = load ptr, ptr %20, align 8, !tbaa !199
-  %467 = ptrtoint ptr %466 to i64
-  %468 = sub i64 %467, %95
-  %.not871 = icmp eq i64 %468, %.41780
-  br i1 %.not871, label %474, label %469
+471:                                              ; preds = %466
+  %472 = load ptr, ptr %20, align 8, !tbaa !199
+  %473 = ptrtoint ptr %472 to i64
+  %474 = ptrtoint ptr %.pre1407 to i64
+  %475 = sub i64 %473, %474
+  %.not873 = icmp eq i64 %475, %.pre1408
+  br i1 %.not873, label %malloc_conf_error.exit904, label %476
 
-469:                                              ; preds = %461, %465
-  %470 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %470, ptr noundef nonnull %94) #21
-  %471 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %472 = icmp eq i32 %471, 0
-  br i1 %472, label %malloc_conf_error.exit907.thread, label %473
+476:                                              ; preds = %466, %471
+  %477 = load ptr, ptr %7, align 8, !tbaa !199
+  %478 = load i64, ptr %9, align 8, !tbaa !30
+  %479 = trunc i64 %478 to i32
+  %480 = trunc i64 %.pre1408 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %479, ptr noundef %477, i32 noundef %480, ptr noundef %.pre1407) #21
+  %481 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %477, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %482 = icmp eq i32 %481, 0
+  br i1 %482, label %malloc_conf_error.exit904.thread, label %483
 
-473:                                              ; preds = %469
+483:                                              ; preds = %476
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit907.thread
+  br label %malloc_conf_error.exit904.thread
 
-474:                                              ; preds = %465
-  %475 = icmp slt i64 %463, -1
-  br i1 %475, label %476, label %malloc_conf_error.exit907
+malloc_conf_error.exit904:                        ; preds = %471
+  %.1271 = call i64 @llvm.umin.i64(i64 %469, i64 16)
+  store i64 %.1271, ptr @duckdb_je_opt_bin_info_remote_free_max, align 8, !tbaa !30
+  %484 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %485 = trunc nuw i8 %484 to i1
+  br i1 %485, label %486, label %malloc_conf_error.exit904.thread
 
-476:                                              ; preds = %474
-  %477 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %477, ptr noundef nonnull %94) #21
-  %478 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %479 = icmp eq i32 %478, 0
-  br i1 %479, label %malloc_conf_error.exit907.thread, label %480
+486:                                              ; preds = %malloc_conf_error.exit904
+  %487 = load i64, ptr %9, align 8, !tbaa !30
+  %488 = trunc i64 %487 to i32
+  %489 = load ptr, ptr %7, align 8, !tbaa !199
+  %490 = trunc i64 %.pre1408 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %488, ptr noundef %489, i32 noundef %490, ptr noundef %.pre1407) #21
+  br label %malloc_conf_error.exit904.thread
 
-480:                                              ; preds = %476
-  store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit907.thread
-
-malloc_conf_error.exit907:                        ; preds = %474
-  store i64 %463, ptr @duckdb_je_opt_mutex_max_spin, align 8, !tbaa !30
-  %481 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %482 = trunc nuw i8 %481 to i1
-  br i1 %482, label %483, label %malloc_conf_error.exit907.thread
-
-483:                                              ; preds = %malloc_conf_error.exit907
-  %484 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %484, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit907.thread
-
-malloc_conf_error.exit907.thread:                 ; preds = %480, %476, %473, %469, %483, %malloc_conf_error.exit907
+malloc_conf_error.exit904.thread:                 ; preds = %483, %476, %486, %malloc_conf_error.exit904
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #21
   br label %malloc_conf_error.exit.thread
 
-485:                                              ; preds = %458
-  %486 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.115, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 14) #25
-  %487 = icmp eq i32 %486, 0
-  br i1 %487, label %488, label %512
+491:                                              ; preds = %463, %.thread997
+  %492 = icmp eq i64 %97, 18
+  br i1 %492, label %493, label %519
 
-488:                                              ; preds = %485
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #21
-  %489 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %489, align 4, !tbaa !3
-  %490 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %21, i32 noundef 0) #21
-  %491 = load i32, ptr %489, align 4, !tbaa !3
-  %.not868 = icmp eq i32 %491, 0
-  br i1 %.not868, label %492, label %496
+493:                                              ; preds = %491
+  %494 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.112, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 18) #25
+  %495 = icmp eq i32 %494, 0
+  br i1 %495, label %496, label %.thread1070
 
-492:                                              ; preds = %488
-  %493 = load ptr, ptr %21, align 8, !tbaa !199
-  %494 = ptrtoint ptr %493 to i64
-  %495 = sub i64 %494, %95
-  %.not869 = icmp eq i64 %495, %.41780
-  br i1 %.not869, label %501, label %496
-
-496:                                              ; preds = %488, %492
-  %497 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %497, ptr noundef nonnull %94) #21
-  %498 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %499 = icmp eq i32 %498, 0
-  br i1 %499, label %malloc_conf_error.exit909.thread, label %500
+496:                                              ; preds = %493
+  %497 = load ptr, ptr %8, align 8, !tbaa !199
+  %498 = load i64, ptr %10, align 8, !tbaa !30
+  %499 = call zeroext i1 @tcache_bin_info_default_init(ptr noundef %497, i64 noundef %498) #21
+  br i1 %499, label %500, label %malloc_conf_error.exit905
 
 500:                                              ; preds = %496
+  %501 = load ptr, ptr %7, align 8, !tbaa !199
+  %502 = load i64, ptr %9, align 8, !tbaa !30
+  %503 = load ptr, ptr %8, align 8, !tbaa !199
+  %504 = load i64, ptr %10, align 8, !tbaa !30
+  %505 = trunc i64 %502 to i32
+  %506 = trunc i64 %504 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.113, i32 noundef %505, ptr noundef %501, i32 noundef %506, ptr noundef %503) #21
+  %507 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %501, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %508 = icmp eq i32 %507, 0
+  br i1 %508, label %malloc_conf_error.exit.thread, label %509
+
+509:                                              ; preds = %500
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit909.thread
+  br label %malloc_conf_error.exit.thread
 
-501:                                              ; preds = %492
-  %502 = add i64 %490, -18446744072001
-  %or.cond88 = icmp ult i64 %502, -18446744072002
-  br i1 %or.cond88, label %503, label %malloc_conf_error.exit909
+malloc_conf_error.exit905:                        ; preds = %496
+  %510 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %511 = trunc nuw i8 %510 to i1
+  br i1 %511, label %512, label %malloc_conf_error.exit.thread
 
-503:                                              ; preds = %501
-  %504 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %504, ptr noundef nonnull %94) #21
-  %505 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %506 = icmp eq i32 %505, 0
-  br i1 %506, label %malloc_conf_error.exit909.thread, label %507
+512:                                              ; preds = %malloc_conf_error.exit905
+  %513 = load i64, ptr %9, align 8, !tbaa !30
+  %514 = trunc i64 %513 to i32
+  %515 = load ptr, ptr %7, align 8, !tbaa !199
+  %516 = load i64, ptr %10, align 8, !tbaa !30
+  %517 = trunc i64 %516 to i32
+  %518 = load ptr, ptr %8, align 8, !tbaa !199
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %514, ptr noundef %515, i32 noundef %517, ptr noundef %518) #21
+  br label %malloc_conf_error.exit.thread
 
-507:                                              ; preds = %503
+519:                                              ; preds = %491
+  switch i64 %97, label %653 [
+    i64 14, label %520
+    i64 11, label %634
+  ]
+
+520:                                              ; preds = %519
+  %521 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.114, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 14) #25
+  %522 = icmp eq i32 %521, 0
+  br i1 %522, label %523, label %558
+
+523:                                              ; preds = %520
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #21
+  %524 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %524, align 4, !tbaa !3
+  %525 = load ptr, ptr %8, align 8, !tbaa !199
+  %526 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %525, ptr noundef nonnull %21, i32 noundef 0) #21
+  %527 = load i32, ptr %524, align 4, !tbaa !3
+  %.not870 = icmp eq i32 %527, 0
+  %.pre1339 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1340 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not870, label %528, label %533
+
+528:                                              ; preds = %523
+  %529 = load ptr, ptr %21, align 8, !tbaa !199
+  %530 = ptrtoint ptr %529 to i64
+  %531 = ptrtoint ptr %.pre1339 to i64
+  %532 = sub i64 %530, %531
+  %.not871 = icmp eq i64 %532, %.pre1340
+  br i1 %.not871, label %541, label %533
+
+533:                                              ; preds = %523, %528
+  %534 = load ptr, ptr %7, align 8, !tbaa !199
+  %535 = load i64, ptr %9, align 8, !tbaa !30
+  %536 = trunc i64 %535 to i32
+  %537 = trunc i64 %.pre1340 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %536, ptr noundef %534, i32 noundef %537, ptr noundef %.pre1339) #21
+  %538 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %534, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %539 = icmp eq i32 %538, 0
+  br i1 %539, label %malloc_conf_error.exit906.thread, label %540
+
+540:                                              ; preds = %533
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit909.thread
+  br label %malloc_conf_error.exit906.thread
 
-malloc_conf_error.exit909:                        ; preds = %501
-  store i64 %490, ptr @duckdb_je_opt_dirty_decay_ms, align 8, !tbaa !30
-  %508 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %509 = trunc nuw i8 %508 to i1
-  br i1 %509, label %510, label %malloc_conf_error.exit909.thread
+541:                                              ; preds = %528
+  %542 = icmp slt i64 %526, -1
+  br i1 %542, label %543, label %malloc_conf_error.exit906
 
-510:                                              ; preds = %malloc_conf_error.exit909
-  %511 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %511, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit909.thread
+543:                                              ; preds = %541
+  %544 = load ptr, ptr %7, align 8, !tbaa !199
+  %545 = load i64, ptr %9, align 8, !tbaa !30
+  %546 = trunc i64 %545 to i32
+  %547 = trunc i64 %.pre1340 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, i32 noundef %546, ptr noundef %544, i32 noundef %547, ptr noundef %.pre1339) #21
+  %548 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %544, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %549 = icmp eq i32 %548, 0
+  br i1 %549, label %malloc_conf_error.exit906.thread, label %550
 
-malloc_conf_error.exit909.thread:                 ; preds = %507, %503, %500, %496, %510, %malloc_conf_error.exit909
+550:                                              ; preds = %543
+  store i1 true, ptr @had_conf_error, align 1
+  br label %malloc_conf_error.exit906.thread
+
+malloc_conf_error.exit906:                        ; preds = %541
+  store i64 %526, ptr @duckdb_je_opt_mutex_max_spin, align 8, !tbaa !30
+  %551 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %552 = trunc nuw i8 %551 to i1
+  br i1 %552, label %553, label %malloc_conf_error.exit906.thread
+
+553:                                              ; preds = %malloc_conf_error.exit906
+  %554 = load i64, ptr %9, align 8, !tbaa !30
+  %555 = trunc i64 %554 to i32
+  %556 = load ptr, ptr %7, align 8, !tbaa !199
+  %557 = trunc i64 %.pre1340 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %555, ptr noundef %556, i32 noundef %557, ptr noundef %.pre1339) #21
+  br label %malloc_conf_error.exit906.thread
+
+malloc_conf_error.exit906.thread:                 ; preds = %550, %543, %540, %533, %553, %malloc_conf_error.exit906
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #21
   br label %malloc_conf_error.exit.thread
 
-512:                                              ; preds = %485
-  %513 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.116, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 14) #25
-  %514 = icmp eq i32 %513, 0
-  br i1 %514, label %515, label %578
+558:                                              ; preds = %520
+  %559 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.115, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 14) #25
+  %560 = icmp eq i32 %559, 0
+  br i1 %560, label %561, label %596
 
-515:                                              ; preds = %512
+561:                                              ; preds = %558
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #21
-  %516 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %516, align 4, !tbaa !3
-  %517 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %22, i32 noundef 0) #21
-  %518 = load i32, ptr %516, align 4, !tbaa !3
-  %.not866 = icmp eq i32 %518, 0
-  br i1 %.not866, label %519, label %523
+  %562 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %562, align 4, !tbaa !3
+  %563 = load ptr, ptr %8, align 8, !tbaa !199
+  %564 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %563, ptr noundef nonnull %22, i32 noundef 0) #21
+  %565 = load i32, ptr %562, align 4, !tbaa !3
+  %.not868 = icmp eq i32 %565, 0
+  %.pre1337 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1338 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not868, label %566, label %571
 
-519:                                              ; preds = %515
-  %520 = load ptr, ptr %22, align 8, !tbaa !199
-  %521 = ptrtoint ptr %520 to i64
-  %522 = sub i64 %521, %95
-  %.not867 = icmp eq i64 %522, %.41780
-  br i1 %.not867, label %528, label %523
+566:                                              ; preds = %561
+  %567 = load ptr, ptr %22, align 8, !tbaa !199
+  %568 = ptrtoint ptr %567 to i64
+  %569 = ptrtoint ptr %.pre1337 to i64
+  %570 = sub i64 %568, %569
+  %.not869 = icmp eq i64 %570, %.pre1338
+  br i1 %.not869, label %579, label %571
 
-523:                                              ; preds = %515, %519
-  %524 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %524, ptr noundef nonnull %94) #21
-  %525 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %526 = icmp eq i32 %525, 0
-  br i1 %526, label %malloc_conf_error.exit911.thread, label %527
+571:                                              ; preds = %561, %566
+  %572 = load ptr, ptr %7, align 8, !tbaa !199
+  %573 = load i64, ptr %9, align 8, !tbaa !30
+  %574 = trunc i64 %573 to i32
+  %575 = trunc i64 %.pre1338 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %574, ptr noundef %572, i32 noundef %575, ptr noundef %.pre1337) #21
+  %576 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %572, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %577 = icmp eq i32 %576, 0
+  br i1 %577, label %malloc_conf_error.exit908.thread, label %578
 
-527:                                              ; preds = %523
+578:                                              ; preds = %571
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit911.thread
+  br label %malloc_conf_error.exit908.thread
 
-528:                                              ; preds = %519
-  %529 = add i64 %517, -18446744072001
-  %or.cond95 = icmp ult i64 %529, -18446744072002
-  br i1 %or.cond95, label %530, label %malloc_conf_error.exit911
+579:                                              ; preds = %566
+  %580 = add i64 %564, -18446744072001
+  %or.cond88 = icmp ult i64 %580, -18446744072002
+  br i1 %or.cond88, label %581, label %malloc_conf_error.exit908
 
-530:                                              ; preds = %528
-  %531 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %531, ptr noundef nonnull %94) #21
-  %532 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %533 = icmp eq i32 %532, 0
-  br i1 %533, label %malloc_conf_error.exit911.thread, label %534
+581:                                              ; preds = %579
+  %582 = load ptr, ptr %7, align 8, !tbaa !199
+  %583 = load i64, ptr %9, align 8, !tbaa !30
+  %584 = trunc i64 %583 to i32
+  %585 = trunc i64 %.pre1338 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, i32 noundef %584, ptr noundef %582, i32 noundef %585, ptr noundef %.pre1337) #21
+  %586 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %582, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %587 = icmp eq i32 %586, 0
+  br i1 %587, label %malloc_conf_error.exit908.thread, label %588
 
-534:                                              ; preds = %530
+588:                                              ; preds = %581
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit911.thread
+  br label %malloc_conf_error.exit908.thread
 
-malloc_conf_error.exit911:                        ; preds = %528
-  store i64 %517, ptr @duckdb_je_opt_muzzy_decay_ms, align 8, !tbaa !30
-  %535 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %536 = trunc nuw i8 %535 to i1
-  br i1 %536, label %537, label %malloc_conf_error.exit911.thread
+malloc_conf_error.exit908:                        ; preds = %579
+  store i64 %564, ptr @duckdb_je_opt_dirty_decay_ms, align 8, !tbaa !30
+  %589 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %590 = trunc nuw i8 %589 to i1
+  br i1 %590, label %591, label %malloc_conf_error.exit908.thread
 
-537:                                              ; preds = %malloc_conf_error.exit911
-  %538 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %538, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit911.thread
+591:                                              ; preds = %malloc_conf_error.exit908
+  %592 = load i64, ptr %9, align 8, !tbaa !30
+  %593 = trunc i64 %592 to i32
+  %594 = load ptr, ptr %7, align 8, !tbaa !199
+  %595 = trunc i64 %.pre1338 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %593, ptr noundef %594, i32 noundef %595, ptr noundef %.pre1337) #21
+  br label %malloc_conf_error.exit908.thread
 
-malloc_conf_error.exit911.thread:                 ; preds = %534, %530, %527, %523, %537, %malloc_conf_error.exit911
+malloc_conf_error.exit908.thread:                 ; preds = %588, %581, %578, %571, %591, %malloc_conf_error.exit908
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #21
   br label %malloc_conf_error.exit.thread
 
-539:                                              ; preds = %457
-  %540 = call i32 @strncmp(ptr noundef nonnull dereferenceable(12) @.str.117, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 11) #25
-  %541 = icmp eq i32 %540, 0
-  br i1 %541, label %542, label %.thread1933
+596:                                              ; preds = %558
+  %597 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.116, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 14) #25
+  %598 = icmp eq i32 %597, 0
+  br i1 %598, label %599, label %676
 
-542:                                              ; preds = %539
-  switch i64 %.41780, label %.thread1893 [
-    i64 4, label %543
-    i64 5, label %546
-  ]
-
-543:                                              ; preds = %542
-  %544 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %545 = icmp eq i32 %544, 0
-  br i1 %545, label %malloc_conf_error.exit913, label %.thread1893
-
-546:                                              ; preds = %542
-  %547 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %548 = icmp eq i32 %547, 0
-  br i1 %548, label %malloc_conf_error.exit913, label %.thread1893
-
-.thread1893:                                      ; preds = %542, %543, %546
-  %549 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 11, ptr noundef nonnull %.017912165, i32 noundef %549, ptr noundef nonnull %94) #21
-  %550 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %551 = icmp eq i32 %550, 0
-  br i1 %551, label %malloc_conf_error.exit.thread, label %552
-
-552:                                              ; preds = %.thread1893
-  store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit.thread
-
-malloc_conf_error.exit913:                        ; preds = %546, %543
-  %storemerge2112 = phi i8 [ 1, %543 ], [ 0, %546 ]
-  store i8 %storemerge2112, ptr @duckdb_je_opt_stats_print, align 1, !tbaa !50
-  %553 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %554 = trunc nuw i8 %553 to i1
-  br i1 %554, label %555, label %malloc_conf_error.exit.thread
-
-555:                                              ; preds = %malloc_conf_error.exit913
-  %556 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 11, ptr noundef nonnull %.017912165, i32 noundef %556, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit.thread
-
-557:                                              ; preds = %457
-  br i1 %375, label %558, label %605
-
-558:                                              ; preds = %557
-  %559 = call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.118, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 16) #25
-  %560 = icmp eq i32 %559, 0
-  br i1 %560, label %561, label %.thread1933
-
-561:                                              ; preds = %558
-  %.not17.i = icmp eq i64 %.41780, 0
-  br i1 %.not17.i, label %init_opt_stats_opts.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %561
-  %562 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @duckdb_je_opt_stats_print_opts) #25
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %572, %.lr.ph.preheader.i
-  %.016.i = phi i64 [ %573, %572 ], [ 0, %.lr.ph.preheader.i ]
-  %.01415.i = phi i64 [ %.1.i, %572 ], [ %562, %.lr.ph.preheader.i ]
-  %563 = getelementptr inbounds nuw i8, ptr %94, i64 %.016.i
-  %564 = load i8, ptr %563, align 1, !tbaa !10
-  switch i8 %564, label %572 [
-    i8 74, label %565
-    i8 103, label %565
-    i8 109, label %565
-    i8 100, label %565
-    i8 97, label %565
-    i8 98, label %565
-    i8 108, label %565
-    i8 120, label %565
-    i8 101, label %565
-    i8 104, label %565
-  ]
-
-565:                                              ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %566 = zext nneg i8 %564 to i32
-  %567 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @duckdb_je_opt_stats_print_opts, i32 noundef %566) #25
-  %.not.i914 = icmp eq ptr %567, null
-  br i1 %.not.i914, label %568, label %572
-
-568:                                              ; preds = %565
-  %569 = add i64 %.01415.i, 1
-  %570 = getelementptr inbounds nuw i8, ptr @duckdb_je_opt_stats_print_opts, i64 %.01415.i
-  store i8 %564, ptr %570, align 1, !tbaa !10
-  %571 = getelementptr inbounds nuw i8, ptr @duckdb_je_opt_stats_print_opts, i64 %569
-  store i8 0, ptr %571, align 1, !tbaa !10
-  br label %572
-
-572:                                              ; preds = %568, %565, %.lr.ph.i
-  %.1.i = phi i64 [ %.01415.i, %.lr.ph.i ], [ %.01415.i, %565 ], [ %569, %568 ]
-  %573 = add nuw i64 %.016.i, 1
-  %exitcond.not.i = icmp eq i64 %573, %.41780
-  br i1 %exitcond.not.i, label %init_opt_stats_opts.exit, label %.lr.ph.i
-
-init_opt_stats_opts.exit:                         ; preds = %572, %561
-  %574 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %575 = trunc nuw i8 %574 to i1
-  %or.cond108 = select i1 %.not1795, i1 %575, i1 false
-  br i1 %or.cond108, label %576, label %malloc_conf_error.exit.thread
-
-576:                                              ; preds = %init_opt_stats_opts.exit
-  %577 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 16, ptr noundef nonnull %.017912165, i32 noundef %577, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit.thread
-
-578:                                              ; preds = %512
-  %579 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.119, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 14) #25
-  %580 = icmp eq i32 %579, 0
-  br i1 %580, label %581, label %.thread1933
-
-581:                                              ; preds = %578
+599:                                              ; preds = %596
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #21
-  %582 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %582, align 4, !tbaa !3
-  %583 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %23, i32 noundef 0) #21
-  %584 = load i32, ptr %582, align 4, !tbaa !3
-  %.not864 = icmp eq i32 %584, 0
-  br i1 %.not864, label %585, label %589
+  %600 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %600, align 4, !tbaa !3
+  %601 = load ptr, ptr %8, align 8, !tbaa !199
+  %602 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %601, ptr noundef nonnull %23, i32 noundef 0) #21
+  %603 = load i32, ptr %600, align 4, !tbaa !3
+  %.not866 = icmp eq i32 %603, 0
+  %.pre1335 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1336 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not866, label %604, label %609
 
-585:                                              ; preds = %581
-  %586 = load ptr, ptr %23, align 8, !tbaa !199
-  %587 = ptrtoint ptr %586 to i64
-  %588 = sub i64 %587, %95
-  %.not865 = icmp eq i64 %588, %.41780
-  br i1 %.not865, label %594, label %589
+604:                                              ; preds = %599
+  %605 = load ptr, ptr %23, align 8, !tbaa !199
+  %606 = ptrtoint ptr %605 to i64
+  %607 = ptrtoint ptr %.pre1335 to i64
+  %608 = sub i64 %606, %607
+  %.not867 = icmp eq i64 %608, %.pre1336
+  br i1 %.not867, label %617, label %609
 
-589:                                              ; preds = %581, %585
-  %590 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %590, ptr noundef nonnull %94) #21
-  %591 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %592 = icmp eq i32 %591, 0
-  br i1 %592, label %malloc_conf_error.exit915.thread, label %593
+609:                                              ; preds = %599, %604
+  %610 = load ptr, ptr %7, align 8, !tbaa !199
+  %611 = load i64, ptr %9, align 8, !tbaa !30
+  %612 = trunc i64 %611 to i32
+  %613 = trunc i64 %.pre1336 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %612, ptr noundef %610, i32 noundef %613, ptr noundef %.pre1335) #21
+  %614 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %610, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %615 = icmp eq i32 %614, 0
+  br i1 %615, label %malloc_conf_error.exit910.thread, label %616
 
-593:                                              ; preds = %589
+616:                                              ; preds = %609
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit915.thread
+  br label %malloc_conf_error.exit910.thread
 
-594:                                              ; preds = %585
-  %595 = icmp slt i64 %583, -1
-  br i1 %595, label %596, label %malloc_conf_error.exit915
+617:                                              ; preds = %604
+  %618 = add i64 %602, -18446744072001
+  %or.cond95 = icmp ult i64 %618, -18446744072002
+  br i1 %or.cond95, label %619, label %malloc_conf_error.exit910
 
-596:                                              ; preds = %594
-  %597 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %597, ptr noundef nonnull %94) #21
-  %598 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %599 = icmp eq i32 %598, 0
-  br i1 %599, label %malloc_conf_error.exit915.thread, label %600
+619:                                              ; preds = %617
+  %620 = load ptr, ptr %7, align 8, !tbaa !199
+  %621 = load i64, ptr %9, align 8, !tbaa !30
+  %622 = trunc i64 %621 to i32
+  %623 = trunc i64 %.pre1336 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, i32 noundef %622, ptr noundef %620, i32 noundef %623, ptr noundef %.pre1335) #21
+  %624 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %620, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %625 = icmp eq i32 %624, 0
+  br i1 %625, label %malloc_conf_error.exit910.thread, label %626
 
-600:                                              ; preds = %596
+626:                                              ; preds = %619
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit915.thread
+  br label %malloc_conf_error.exit910.thread
 
-malloc_conf_error.exit915:                        ; preds = %594
-  store i64 %583, ptr @duckdb_je_opt_stats_interval, align 8, !tbaa !30
-  %601 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %602 = trunc nuw i8 %601 to i1
-  br i1 %602, label %603, label %malloc_conf_error.exit915.thread
+malloc_conf_error.exit910:                        ; preds = %617
+  store i64 %602, ptr @duckdb_je_opt_muzzy_decay_ms, align 8, !tbaa !30
+  %627 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %628 = trunc nuw i8 %627 to i1
+  br i1 %628, label %629, label %malloc_conf_error.exit910.thread
 
-603:                                              ; preds = %malloc_conf_error.exit915
-  %604 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 14, ptr noundef nonnull %.017912165, i32 noundef %604, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit915.thread
+629:                                              ; preds = %malloc_conf_error.exit910
+  %630 = load i64, ptr %9, align 8, !tbaa !30
+  %631 = trunc i64 %630 to i32
+  %632 = load ptr, ptr %7, align 8, !tbaa !199
+  %633 = trunc i64 %.pre1336 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %631, ptr noundef %632, i32 noundef %633, ptr noundef %.pre1335) #21
+  br label %malloc_conf_error.exit910.thread
 
-malloc_conf_error.exit915.thread:                 ; preds = %600, %596, %593, %589, %603, %malloc_conf_error.exit915
+malloc_conf_error.exit910.thread:                 ; preds = %626, %619, %616, %609, %629, %malloc_conf_error.exit910
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #21
   br label %malloc_conf_error.exit.thread
 
-605:                                              ; preds = %557
-  switch i64 %98, label %.thread1933 [
-    i64 19, label %606
-    i64 4, label %626
-    i64 27, label %672
-  ]
-
-606:                                              ; preds = %605
-  %607 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.120, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 19) #25
-  %608 = icmp eq i32 %607, 0
-  br i1 %608, label %609, label %.thread1933
-
-609:                                              ; preds = %606
-  %.not17.i917 = icmp eq i64 %.41780, 0
-  br i1 %.not17.i917, label %init_opt_stats_opts.exit925, label %.lr.ph.preheader.i918
-
-.lr.ph.preheader.i918:                            ; preds = %609
-  %610 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @duckdb_je_opt_stats_interval_opts) #25
-  br label %.lr.ph.i919
-
-.lr.ph.i919:                                      ; preds = %620, %.lr.ph.preheader.i918
-  %.016.i920 = phi i64 [ %621, %620 ], [ 0, %.lr.ph.preheader.i918 ]
-  %.01415.i921 = phi i64 [ %.1.i923, %620 ], [ %610, %.lr.ph.preheader.i918 ]
-  %611 = getelementptr inbounds nuw i8, ptr %94, i64 %.016.i920
-  %612 = load i8, ptr %611, align 1, !tbaa !10
-  switch i8 %612, label %620 [
-    i8 74, label %613
-    i8 103, label %613
-    i8 109, label %613
-    i8 100, label %613
-    i8 97, label %613
-    i8 98, label %613
-    i8 108, label %613
-    i8 120, label %613
-    i8 101, label %613
-    i8 104, label %613
-  ]
-
-613:                                              ; preds = %.lr.ph.i919, %.lr.ph.i919, %.lr.ph.i919, %.lr.ph.i919, %.lr.ph.i919, %.lr.ph.i919, %.lr.ph.i919, %.lr.ph.i919, %.lr.ph.i919, %.lr.ph.i919
-  %614 = zext nneg i8 %612 to i32
-  %615 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @duckdb_je_opt_stats_interval_opts, i32 noundef %614) #25
-  %.not.i922 = icmp eq ptr %615, null
-  br i1 %.not.i922, label %616, label %620
-
-616:                                              ; preds = %613
-  %617 = add i64 %.01415.i921, 1
-  %618 = getelementptr inbounds nuw i8, ptr @duckdb_je_opt_stats_interval_opts, i64 %.01415.i921
-  store i8 %612, ptr %618, align 1, !tbaa !10
-  %619 = getelementptr inbounds nuw i8, ptr @duckdb_je_opt_stats_interval_opts, i64 %617
-  store i8 0, ptr %619, align 1, !tbaa !10
-  br label %620
-
-620:                                              ; preds = %616, %613, %.lr.ph.i919
-  %.1.i923 = phi i64 [ %.01415.i921, %.lr.ph.i919 ], [ %.01415.i921, %613 ], [ %617, %616 ]
-  %621 = add nuw i64 %.016.i920, 1
-  %exitcond.not.i924 = icmp eq i64 %621, %.41780
-  br i1 %exitcond.not.i924, label %init_opt_stats_opts.exit925, label %.lr.ph.i919
-
-init_opt_stats_opts.exit925:                      ; preds = %620, %609
-  %622 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %623 = trunc nuw i8 %622 to i1
-  %or.cond118 = select i1 %.not1795, i1 %623, i1 false
-  br i1 %or.cond118, label %624, label %malloc_conf_error.exit.thread
-
-624:                                              ; preds = %init_opt_stats_opts.exit925
-  %625 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 19, ptr noundef nonnull %.017912165, i32 noundef %625, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit.thread
-
-626:                                              ; preds = %605
-  %627 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.121, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 4) #25
-  %628 = icmp eq i32 %627, 0
-  br i1 %628, label %629, label %654
-
-629:                                              ; preds = %626
-  switch i64 %.41780, label %.thread1920 [
-    i64 4, label %630
-    i64 5, label %634
-  ]
-
-630:                                              ; preds = %629
-  %631 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %632 = icmp eq i32 %631, 0
-  br i1 %632, label %633, label %642
-
-633:                                              ; preds = %630
-  store ptr @.str.93, ptr @duckdb_je_opt_junk, align 8, !tbaa !199
-  store i8 1, ptr @duckdb_je_opt_junk_free, align 1, !tbaa !50
-  store i8 1, ptr @duckdb_je_opt_junk_alloc, align 1, !tbaa !50
-  br label %malloc_conf_error.exit926
-
-634:                                              ; preds = %629
-  %635 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
+634:                                              ; preds = %519
+  %635 = call i32 @strncmp(ptr noundef nonnull dereferenceable(12) @.str.117, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 11) #25
   %636 = icmp eq i32 %635, 0
-  br i1 %636, label %637, label %638
+  br i1 %636, label %637, label %.thread1070
 
 637:                                              ; preds = %634
-  store ptr @.str, ptr @duckdb_je_opt_junk, align 8, !tbaa !199
-  store i8 0, ptr @duckdb_je_opt_junk_free, align 1, !tbaa !50
-  store i8 0, ptr @duckdb_je_opt_junk_alloc, align 1, !tbaa !50
-  br label %malloc_conf_error.exit926
+  %638 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1332 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %638, label %.thread1025 [
+    i64 4, label %639
+    i64 5, label %642
+  ]
 
-638:                                              ; preds = %634
-  %639 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %640 = icmp eq i32 %639, 0
-  br i1 %640, label %641, label %.thread1920
+639:                                              ; preds = %637
+  %640 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1332, i64 noundef 4) #25
+  %641 = icmp eq i32 %640, 0
+  br i1 %641, label %malloc_conf_error.exit912, label %.thread1025
 
-641:                                              ; preds = %638
-  store ptr @.str.1, ptr @duckdb_je_opt_junk, align 8, !tbaa !199
-  store i8 1, ptr @duckdb_je_opt_junk_alloc, align 1, !tbaa !50
-  store i8 0, ptr @duckdb_je_opt_junk_free, align 1, !tbaa !50
-  br label %malloc_conf_error.exit926
-
-642:                                              ; preds = %630
-  %643 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
+642:                                              ; preds = %637
+  %643 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1332, i64 noundef 5) #25
   %644 = icmp eq i32 %643, 0
-  br i1 %644, label %645, label %.thread1920
+  br i1 %644, label %malloc_conf_error.exit912, label %.thread1025
 
-645:                                              ; preds = %642
-  store ptr @.str.2, ptr @duckdb_je_opt_junk, align 8, !tbaa !199
-  store i8 0, ptr @duckdb_je_opt_junk_alloc, align 1, !tbaa !50
-  store i8 1, ptr @duckdb_je_opt_junk_free, align 1, !tbaa !50
-  br label %malloc_conf_error.exit926
+.thread1025:                                      ; preds = %637, %639, %642
+  %645 = trunc i64 %638 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 11, ptr noundef nonnull %201, i32 noundef %645, ptr noundef %.pre1332) #21
+  %646 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %647 = icmp eq i32 %646, 0
+  br i1 %647, label %malloc_conf_error.exit.thread, label %648
 
-.thread1920:                                      ; preds = %629, %638, %642
-  %646 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 4, ptr noundef nonnull %.017912165, i32 noundef %646, ptr noundef nonnull %94) #21
-  %647 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %648 = icmp eq i32 %647, 0
-  br i1 %648, label %malloc_conf_error.exit.thread, label %649
-
-649:                                              ; preds = %.thread1920
+648:                                              ; preds = %.thread1025
   store i1 true, ptr @had_conf_error, align 1
   br label %malloc_conf_error.exit.thread
 
-malloc_conf_error.exit926:                        ; preds = %637, %645, %641, %633
-  %650 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %651 = trunc nuw i8 %650 to i1
-  br i1 %651, label %652, label %malloc_conf_error.exit.thread
+malloc_conf_error.exit912:                        ; preds = %642, %639
+  %storemerge1247 = phi i8 [ 1, %639 ], [ 0, %642 ]
+  store i8 %storemerge1247, ptr @duckdb_je_opt_stats_print, align 1, !tbaa !50
+  %649 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %650 = trunc nuw i8 %649 to i1
+  br i1 %650, label %651, label %malloc_conf_error.exit.thread
 
-652:                                              ; preds = %malloc_conf_error.exit926
-  %653 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 4, ptr noundef nonnull %.017912165, i32 noundef %653, ptr noundef nonnull %94) #21
+651:                                              ; preds = %malloc_conf_error.exit912
+  %652 = trunc nuw nsw i64 %638 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 11, ptr noundef nonnull %201, i32 noundef %652, ptr noundef nonnull %.pre1332) #21
   br label %malloc_conf_error.exit.thread
 
-654:                                              ; preds = %626
-  %655 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.122, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 4) #25
+653:                                              ; preds = %519
+  br i1 %403, label %654, label %714
+
+654:                                              ; preds = %653
+  %655 = call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.118, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 16) #25
   %656 = icmp eq i32 %655, 0
-  br i1 %656, label %657, label %.thread1933
+  br i1 %656, label %657, label %.thread1070
 
 657:                                              ; preds = %654
-  switch i64 %.41780, label %.thread1926 [
-    i64 4, label %658
-    i64 5, label %661
+  %658 = load ptr, ptr %8, align 8, !tbaa !199
+  %659 = load i64, ptr %10, align 8, !tbaa !30
+  %.not17.i = icmp eq i64 %659, 0
+  br i1 %.not17.i, label %init_opt_stats_opts.exit, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %657
+  %660 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @duckdb_je_opt_stats_print_opts) #25
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %670, %.lr.ph.preheader.i
+  %.016.i = phi i64 [ %671, %670 ], [ 0, %.lr.ph.preheader.i ]
+  %.01415.i = phi i64 [ %.1.i, %670 ], [ %660, %.lr.ph.preheader.i ]
+  %661 = getelementptr inbounds nuw i8, ptr %658, i64 %.016.i
+  %662 = load i8, ptr %661, align 1, !tbaa !10
+  switch i8 %662, label %670 [
+    i8 74, label %663
+    i8 103, label %663
+    i8 109, label %663
+    i8 100, label %663
+    i8 97, label %663
+    i8 98, label %663
+    i8 108, label %663
+    i8 120, label %663
+    i8 101, label %663
+    i8 104, label %663
   ]
 
-658:                                              ; preds = %657
-  %659 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %660 = icmp eq i32 %659, 0
-  br i1 %660, label %malloc_conf_error.exit927, label %.thread1926
+663:                                              ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %664 = zext nneg i8 %662 to i32
+  %665 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @duckdb_je_opt_stats_print_opts, i32 noundef %664) #25
+  %.not.i913 = icmp eq ptr %665, null
+  br i1 %.not.i913, label %666, label %670
 
-661:                                              ; preds = %657
-  %662 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %663 = icmp eq i32 %662, 0
-  br i1 %663, label %malloc_conf_error.exit927, label %.thread1926
+666:                                              ; preds = %663
+  %667 = add i64 %.01415.i, 1
+  %668 = getelementptr inbounds nuw i8, ptr @duckdb_je_opt_stats_print_opts, i64 %.01415.i
+  store i8 %662, ptr %668, align 1, !tbaa !10
+  %669 = getelementptr inbounds nuw i8, ptr @duckdb_je_opt_stats_print_opts, i64 %667
+  store i8 0, ptr %669, align 1, !tbaa !10
+  br label %670
 
-.thread1926:                                      ; preds = %657, %658, %661
-  %664 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 4, ptr noundef nonnull %.017912165, i32 noundef %664, ptr noundef nonnull %94) #21
-  %665 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %666 = icmp eq i32 %665, 0
-  br i1 %666, label %malloc_conf_error.exit.thread, label %667
+670:                                              ; preds = %666, %663, %.lr.ph.i
+  %.1.i = phi i64 [ %.01415.i, %.lr.ph.i ], [ %.01415.i, %663 ], [ %667, %666 ]
+  %671 = add nuw i64 %.016.i, 1
+  %exitcond.not.i = icmp eq i64 %671, %659
+  br i1 %exitcond.not.i, label %init_opt_stats_opts.exit, label %.lr.ph.i
 
-667:                                              ; preds = %.thread1926
-  store i1 true, ptr @had_conf_error, align 1
+init_opt_stats_opts.exit:                         ; preds = %670, %657
+  %672 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %673 = trunc nuw i8 %672 to i1
+  %or.cond108 = select i1 %.not937, i1 %673, i1 false
+  br i1 %or.cond108, label %674, label %malloc_conf_error.exit.thread
+
+674:                                              ; preds = %init_opt_stats_opts.exit
+  %675 = trunc i64 %659 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 16, ptr noundef %201, i32 noundef %675, ptr noundef %658) #21
   br label %malloc_conf_error.exit.thread
 
-malloc_conf_error.exit927:                        ; preds = %661, %658
-  %storemerge2114 = phi i8 [ 1, %658 ], [ 0, %661 ]
-  store i8 %storemerge2114, ptr @duckdb_je_opt_zero, align 1, !tbaa !50
-  %668 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %669 = trunc nuw i8 %668 to i1
-  br i1 %669, label %670, label %malloc_conf_error.exit.thread
-
-670:                                              ; preds = %malloc_conf_error.exit927
-  %671 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 4, ptr noundef nonnull %.017912165, i32 noundef %671, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit.thread
-
-672:                                              ; preds = %605
-  %673 = call i32 @strncmp(ptr noundef nonnull dereferenceable(28) @.str.123, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 27) #25
-  %674 = icmp eq i32 %673, 0
-  br i1 %674, label %675, label %.thread1933
-
-675:                                              ; preds = %672
-  switch i64 %.41780, label %.thread1934 [
-    i64 4, label %676
-    i64 5, label %679
-  ]
-
-676:                                              ; preds = %675
-  %677 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
+676:                                              ; preds = %596
+  %677 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.119, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 14) #25
   %678 = icmp eq i32 %677, 0
-  br i1 %678, label %malloc_conf_error.exit928, label %.thread1934
+  br i1 %678, label %679, label %.thread1070
 
-679:                                              ; preds = %675
-  %680 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %681 = icmp eq i32 %680, 0
-  br i1 %681, label %malloc_conf_error.exit928, label %.thread1934
+679:                                              ; preds = %676
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #21
+  %680 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %680, align 4, !tbaa !3
+  %681 = load ptr, ptr %8, align 8, !tbaa !199
+  %682 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %681, ptr noundef nonnull %24, i32 noundef 0) #21
+  %683 = load i32, ptr %680, align 4, !tbaa !3
+  %.not864 = icmp eq i32 %683, 0
+  %.pre1333 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1334 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not864, label %684, label %689
 
-.thread1934:                                      ; preds = %675, %676, %679
-  %682 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 27, ptr noundef nonnull %.017912165, i32 noundef %682, ptr noundef nonnull %94) #21
-  %683 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %684 = icmp eq i32 %683, 0
-  br i1 %684, label %malloc_conf_error.exit.thread, label %685
+684:                                              ; preds = %679
+  %685 = load ptr, ptr %24, align 8, !tbaa !199
+  %686 = ptrtoint ptr %685 to i64
+  %687 = ptrtoint ptr %.pre1333 to i64
+  %688 = sub i64 %686, %687
+  %.not865 = icmp eq i64 %688, %.pre1334
+  br i1 %.not865, label %697, label %689
 
-685:                                              ; preds = %.thread1934
+689:                                              ; preds = %679, %684
+  %690 = load ptr, ptr %7, align 8, !tbaa !199
+  %691 = load i64, ptr %9, align 8, !tbaa !30
+  %692 = trunc i64 %691 to i32
+  %693 = trunc i64 %.pre1334 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %692, ptr noundef %690, i32 noundef %693, ptr noundef %.pre1333) #21
+  %694 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %690, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %695 = icmp eq i32 %694, 0
+  br i1 %695, label %malloc_conf_error.exit914.thread, label %696
+
+696:                                              ; preds = %689
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit.thread
+  br label %malloc_conf_error.exit914.thread
 
-malloc_conf_error.exit928:                        ; preds = %679, %676
-  %storemerge2113 = phi i8 [ 1, %676 ], [ 0, %679 ]
-  store i8 %storemerge2113, ptr @duckdb_je_opt_experimental_infallible_new, align 1, !tbaa !50
-  %686 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %687 = trunc nuw i8 %686 to i1
-  br i1 %687, label %688, label %malloc_conf_error.exit.thread
+697:                                              ; preds = %684
+  %698 = icmp slt i64 %682, -1
+  br i1 %698, label %699, label %malloc_conf_error.exit914
 
-688:                                              ; preds = %malloc_conf_error.exit928
-  %689 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 27, ptr noundef nonnull %.017912165, i32 noundef %689, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit.thread
-
-.thread1933:                                      ; preds = %605, %443, %539, %578, %558, %654, %606, %672
-  %690 = phi i1 [ false, %672 ], [ false, %606 ], [ false, %654 ], [ false, %558 ], [ true, %578 ], [ false, %539 ], [ false, %443 ], [ false, %605 ]
-  %691 = phi i1 [ false, %672 ], [ true, %606 ], [ false, %654 ], [ false, %558 ], [ false, %578 ], [ false, %539 ], [ false, %443 ], [ false, %605 ]
-  br i1 %261, label %692, label %712
-
-692:                                              ; preds = %.thread1933
-  %693 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.124, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 6) #25
-  %694 = icmp eq i32 %693, 0
-  br i1 %694, label %695, label %712
-
-695:                                              ; preds = %692
-  switch i64 %.41780, label %.thread1938 [
-    i64 4, label %696
-    i64 5, label %699
-  ]
-
-696:                                              ; preds = %695
-  %697 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %698 = icmp eq i32 %697, 0
-  br i1 %698, label %malloc_conf_error.exit929, label %.thread1938
-
-699:                                              ; preds = %695
-  %700 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %701 = icmp eq i32 %700, 0
-  br i1 %701, label %malloc_conf_error.exit929, label %.thread1938
-
-.thread1938:                                      ; preds = %695, %696, %699
-  %702 = trunc i64 %98 to i32
-  %703 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %702, ptr noundef nonnull %.017912165, i32 noundef %703, ptr noundef nonnull %94) #21
-  %704 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+699:                                              ; preds = %697
+  %700 = load ptr, ptr %7, align 8, !tbaa !199
+  %701 = load i64, ptr %9, align 8, !tbaa !30
+  %702 = trunc i64 %701 to i32
+  %703 = trunc i64 %.pre1334 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.105, i32 noundef %702, ptr noundef %700, i32 noundef %703, ptr noundef %.pre1333) #21
+  %704 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %700, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
   %705 = icmp eq i32 %704, 0
-  br i1 %705, label %malloc_conf_error.exit.thread, label %706
+  br i1 %705, label %malloc_conf_error.exit914.thread, label %706
 
-706:                                              ; preds = %.thread1938
+706:                                              ; preds = %699
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit.thread
+  br label %malloc_conf_error.exit914.thread
 
-malloc_conf_error.exit929:                        ; preds = %699, %696
-  %storemerge2124 = phi i8 [ 1, %696 ], [ 0, %699 ]
-  store i8 %storemerge2124, ptr @duckdb_je_opt_tcache, align 1, !tbaa !50
+malloc_conf_error.exit914:                        ; preds = %697
+  store i64 %682, ptr @duckdb_je_opt_stats_interval, align 8, !tbaa !30
   %707 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
   %708 = trunc nuw i8 %707 to i1
-  br i1 %708, label %709, label %malloc_conf_error.exit.thread
+  br i1 %708, label %709, label %malloc_conf_error.exit914.thread
 
-709:                                              ; preds = %malloc_conf_error.exit929
-  %710 = trunc i64 %98 to i32
-  %711 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %710, ptr noundef nonnull %.017912165, i32 noundef %711, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit.thread
+709:                                              ; preds = %malloc_conf_error.exit914
+  %710 = load i64, ptr %9, align 8, !tbaa !30
+  %711 = trunc i64 %710 to i32
+  %712 = load ptr, ptr %7, align 8, !tbaa !199
+  %713 = trunc i64 %.pre1334 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %711, ptr noundef %712, i32 noundef %713, ptr noundef %.pre1333) #21
+  br label %malloc_conf_error.exit914.thread
 
-712:                                              ; preds = %692, %.thread1933
-  br i1 %263, label %713, label %735
-
-713:                                              ; preds = %712
-  %714 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.125, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 10) #25
-  %715 = icmp eq i32 %714, 0
-  br i1 %715, label %716, label %735
-
-716:                                              ; preds = %713
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #21
-  %717 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %717, align 4, !tbaa !3
-  %718 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %24, i32 noundef 0) #21
-  %719 = load i32, ptr %717, align 4, !tbaa !3
-  %.not862 = icmp eq i32 %719, 0
-  br i1 %.not862, label %720, label %724
-
-720:                                              ; preds = %716
-  %721 = load ptr, ptr %24, align 8, !tbaa !199
-  %722 = ptrtoint ptr %721 to i64
-  %723 = sub i64 %722, %95
-  %.not863 = icmp eq i64 %723, %.41780
-  br i1 %.not863, label %malloc_conf_error.exit930, label %724
-
-724:                                              ; preds = %716, %720
-  %725 = trunc i64 %98 to i32
-  %726 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %725, ptr noundef nonnull %.017912165, i32 noundef %726, ptr noundef nonnull %94) #21
-  %727 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %728 = icmp eq i32 %727, 0
-  br i1 %728, label %malloc_conf_error.exit930.thread, label %729
-
-729:                                              ; preds = %724
-  store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit930.thread
-
-malloc_conf_error.exit930:                        ; preds = %720
-  %.2137 = call i64 @llvm.umin.i64(i64 %718, i64 8388608)
-  store i64 %.2137, ptr @duckdb_je_opt_tcache_max, align 8, !tbaa !30
-  %730 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %731 = trunc nuw i8 %730 to i1
-  br i1 %731, label %732, label %malloc_conf_error.exit930.thread
-
-732:                                              ; preds = %malloc_conf_error.exit930
-  %733 = trunc i64 %98 to i32
-  %734 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %733, ptr noundef nonnull %.017912165, i32 noundef %734, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit930.thread
-
-malloc_conf_error.exit930.thread:                 ; preds = %729, %724, %732, %malloc_conf_error.exit930
+malloc_conf_error.exit914.thread:                 ; preds = %706, %699, %696, %689, %709, %malloc_conf_error.exit914
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #21
   br label %malloc_conf_error.exit.thread
 
-735:                                              ; preds = %713, %712
-  br i1 %262, label %736, label %759
+714:                                              ; preds = %653
+  switch i64 %97, label %.thread1065 [
+    i64 19, label %715
+    i64 4, label %737
+    i64 27, label %785
+  ]
 
-736:                                              ; preds = %735
-  %737 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.126, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 13) #25
-  %738 = icmp eq i32 %737, 0
-  br i1 %738, label %739, label %759
+715:                                              ; preds = %714
+  %716 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.120, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 19) #25
+  %717 = icmp eq i32 %716, 0
+  br i1 %717, label %718, label %.thread1070
 
-739:                                              ; preds = %736
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #21
-  %740 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %740, align 4, !tbaa !3
-  %741 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %25, i32 noundef 0) #21
-  %742 = load i32, ptr %740, align 4, !tbaa !3
-  %.not860 = icmp eq i32 %742, 0
-  br i1 %.not860, label %743, label %747
+718:                                              ; preds = %715
+  %719 = load ptr, ptr %8, align 8, !tbaa !199
+  %720 = load i64, ptr %10, align 8, !tbaa !30
+  %.not17.i916 = icmp eq i64 %720, 0
+  br i1 %.not17.i916, label %init_opt_stats_opts.exit924, label %.lr.ph.preheader.i917
 
-743:                                              ; preds = %739
-  %744 = load ptr, ptr %25, align 8, !tbaa !199
-  %745 = ptrtoint ptr %744 to i64
-  %746 = sub i64 %745, %95
-  %.not861 = icmp eq i64 %746, %.41780
-  br i1 %.not861, label %malloc_conf_error.exit931, label %747
+.lr.ph.preheader.i917:                            ; preds = %718
+  %721 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @duckdb_je_opt_stats_interval_opts) #25
+  br label %.lr.ph.i918
 
-747:                                              ; preds = %739, %743
-  %748 = trunc i64 %98 to i32
-  %749 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %748, ptr noundef nonnull %.017912165, i32 noundef %749, ptr noundef nonnull %94) #21
-  %750 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %751 = icmp eq i32 %750, 0
-  br i1 %751, label %malloc_conf_error.exit931.thread, label %752
+.lr.ph.i918:                                      ; preds = %731, %.lr.ph.preheader.i917
+  %.016.i919 = phi i64 [ %732, %731 ], [ 0, %.lr.ph.preheader.i917 ]
+  %.01415.i920 = phi i64 [ %.1.i922, %731 ], [ %721, %.lr.ph.preheader.i917 ]
+  %722 = getelementptr inbounds nuw i8, ptr %719, i64 %.016.i919
+  %723 = load i8, ptr %722, align 1, !tbaa !10
+  switch i8 %723, label %731 [
+    i8 74, label %724
+    i8 103, label %724
+    i8 109, label %724
+    i8 100, label %724
+    i8 97, label %724
+    i8 98, label %724
+    i8 108, label %724
+    i8 120, label %724
+    i8 101, label %724
+    i8 104, label %724
+  ]
 
-752:                                              ; preds = %747
+724:                                              ; preds = %.lr.ph.i918, %.lr.ph.i918, %.lr.ph.i918, %.lr.ph.i918, %.lr.ph.i918, %.lr.ph.i918, %.lr.ph.i918, %.lr.ph.i918, %.lr.ph.i918, %.lr.ph.i918
+  %725 = zext nneg i8 %723 to i32
+  %726 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @duckdb_je_opt_stats_interval_opts, i32 noundef %725) #25
+  %.not.i921 = icmp eq ptr %726, null
+  br i1 %.not.i921, label %727, label %731
+
+727:                                              ; preds = %724
+  %728 = add i64 %.01415.i920, 1
+  %729 = getelementptr inbounds nuw i8, ptr @duckdb_je_opt_stats_interval_opts, i64 %.01415.i920
+  store i8 %723, ptr %729, align 1, !tbaa !10
+  %730 = getelementptr inbounds nuw i8, ptr @duckdb_je_opt_stats_interval_opts, i64 %728
+  store i8 0, ptr %730, align 1, !tbaa !10
+  br label %731
+
+731:                                              ; preds = %727, %724, %.lr.ph.i918
+  %.1.i922 = phi i64 [ %.01415.i920, %.lr.ph.i918 ], [ %.01415.i920, %724 ], [ %728, %727 ]
+  %732 = add nuw i64 %.016.i919, 1
+  %exitcond.not.i923 = icmp eq i64 %732, %720
+  br i1 %exitcond.not.i923, label %init_opt_stats_opts.exit924, label %.lr.ph.i918
+
+init_opt_stats_opts.exit924:                      ; preds = %731, %718
+  %733 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %734 = trunc nuw i8 %733 to i1
+  %or.cond118 = select i1 %.not937, i1 %734, i1 false
+  br i1 %or.cond118, label %735, label %malloc_conf_error.exit.thread
+
+735:                                              ; preds = %init_opt_stats_opts.exit924
+  %736 = trunc i64 %720 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 19, ptr noundef %201, i32 noundef %736, ptr noundef %719) #21
+  br label %malloc_conf_error.exit.thread
+
+737:                                              ; preds = %714
+  %738 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.121, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 4) #25
+  %739 = icmp eq i32 %738, 0
+  br i1 %739, label %740, label %766
+
+740:                                              ; preds = %737
+  %741 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1343 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %741, label %.thread1052 [
+    i64 4, label %742
+    i64 5, label %746
+  ]
+
+742:                                              ; preds = %740
+  %743 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1343, i64 noundef 4) #25
+  %744 = icmp eq i32 %743, 0
+  br i1 %744, label %745, label %754
+
+745:                                              ; preds = %742
+  store ptr @.str.93, ptr @duckdb_je_opt_junk, align 8, !tbaa !199
+  store i8 1, ptr @duckdb_je_opt_junk_free, align 1, !tbaa !50
+  store i8 1, ptr @duckdb_je_opt_junk_alloc, align 1, !tbaa !50
+  br label %malloc_conf_error.exit925
+
+746:                                              ; preds = %740
+  %747 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1343, i64 noundef 5) #25
+  %748 = icmp eq i32 %747, 0
+  br i1 %748, label %749, label %750
+
+749:                                              ; preds = %746
+  store ptr @.str, ptr @duckdb_je_opt_junk, align 8, !tbaa !199
+  store i8 0, ptr @duckdb_je_opt_junk_free, align 1, !tbaa !50
+  store i8 0, ptr @duckdb_je_opt_junk_alloc, align 1, !tbaa !50
+  br label %malloc_conf_error.exit925
+
+750:                                              ; preds = %746
+  %751 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %.pre1343, i64 noundef 5) #25
+  %752 = icmp eq i32 %751, 0
+  br i1 %752, label %753, label %.thread1052
+
+753:                                              ; preds = %750
+  store ptr @.str.1, ptr @duckdb_je_opt_junk, align 8, !tbaa !199
+  store i8 1, ptr @duckdb_je_opt_junk_alloc, align 1, !tbaa !50
+  store i8 0, ptr @duckdb_je_opt_junk_free, align 1, !tbaa !50
+  br label %malloc_conf_error.exit925
+
+754:                                              ; preds = %742
+  %755 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %.pre1343, i64 noundef 4) #25
+  %756 = icmp eq i32 %755, 0
+  br i1 %756, label %757, label %.thread1052
+
+757:                                              ; preds = %754
+  store ptr @.str.2, ptr @duckdb_je_opt_junk, align 8, !tbaa !199
+  store i8 0, ptr @duckdb_je_opt_junk_alloc, align 1, !tbaa !50
+  store i8 1, ptr @duckdb_je_opt_junk_free, align 1, !tbaa !50
+  br label %malloc_conf_error.exit925
+
+.thread1052:                                      ; preds = %740, %750, %754
+  %758 = trunc i64 %741 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 4, ptr noundef nonnull %201, i32 noundef %758, ptr noundef %.pre1343) #21
+  %759 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %760 = icmp eq i32 %759, 0
+  br i1 %760, label %malloc_conf_error.exit.thread, label %761
+
+761:                                              ; preds = %.thread1052
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit931.thread
+  br label %malloc_conf_error.exit.thread
 
-malloc_conf_error.exit931:                        ; preds = %743
-  %spec.store.select = call i64 @llvm.umin.i64(i64 %741, i64 23)
-  %753 = shl nuw nsw i64 1, %spec.store.select
-  store i64 %753, ptr @duckdb_je_opt_tcache_max, align 8, !tbaa !30
-  %754 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %755 = trunc nuw i8 %754 to i1
-  br i1 %755, label %756, label %malloc_conf_error.exit931.thread
+malloc_conf_error.exit925:                        ; preds = %749, %757, %753, %745
+  %762 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %763 = trunc nuw i8 %762 to i1
+  br i1 %763, label %764, label %malloc_conf_error.exit.thread
 
-756:                                              ; preds = %malloc_conf_error.exit931
-  %757 = trunc i64 %98 to i32
-  %758 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %757, ptr noundef nonnull %.017912165, i32 noundef %758, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit931.thread
+764:                                              ; preds = %malloc_conf_error.exit925
+  %765 = trunc nuw nsw i64 %741 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 4, ptr noundef nonnull %201, i32 noundef %765, ptr noundef nonnull %.pre1343) #21
+  br label %malloc_conf_error.exit.thread
 
-malloc_conf_error.exit931.thread:                 ; preds = %752, %747, %756, %malloc_conf_error.exit931
+766:                                              ; preds = %737
+  %767 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.122, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 4) #25
+  %768 = icmp eq i32 %767, 0
+  br i1 %768, label %769, label %.thread1070
+
+769:                                              ; preds = %766
+  %770 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1342 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %770, label %.thread1058 [
+    i64 4, label %771
+    i64 5, label %774
+  ]
+
+771:                                              ; preds = %769
+  %772 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1342, i64 noundef 4) #25
+  %773 = icmp eq i32 %772, 0
+  br i1 %773, label %malloc_conf_error.exit926, label %.thread1058
+
+774:                                              ; preds = %769
+  %775 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1342, i64 noundef 5) #25
+  %776 = icmp eq i32 %775, 0
+  br i1 %776, label %malloc_conf_error.exit926, label %.thread1058
+
+.thread1058:                                      ; preds = %769, %771, %774
+  %777 = trunc i64 %770 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 4, ptr noundef nonnull %201, i32 noundef %777, ptr noundef %.pre1342) #21
+  %778 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %779 = icmp eq i32 %778, 0
+  br i1 %779, label %malloc_conf_error.exit.thread, label %780
+
+780:                                              ; preds = %.thread1058
+  store i1 true, ptr @had_conf_error, align 1
+  br label %malloc_conf_error.exit.thread
+
+malloc_conf_error.exit926:                        ; preds = %774, %771
+  %storemerge1249 = phi i8 [ 1, %771 ], [ 0, %774 ]
+  store i8 %storemerge1249, ptr @duckdb_je_opt_zero, align 1, !tbaa !50
+  %781 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %782 = trunc nuw i8 %781 to i1
+  br i1 %782, label %783, label %malloc_conf_error.exit.thread
+
+783:                                              ; preds = %malloc_conf_error.exit926
+  %784 = trunc nuw nsw i64 %770 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 4, ptr noundef nonnull %201, i32 noundef %784, ptr noundef nonnull %.pre1342) #21
+  br label %malloc_conf_error.exit.thread
+
+785:                                              ; preds = %714
+  %786 = call i32 @strncmp(ptr noundef nonnull dereferenceable(28) @.str.123, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 27) #25
+  %787 = icmp eq i32 %786, 0
+  br i1 %787, label %788, label %.thread1070
+
+788:                                              ; preds = %785
+  %789 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1341 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %789, label %.thread1066 [
+    i64 4, label %790
+    i64 5, label %793
+  ]
+
+790:                                              ; preds = %788
+  %791 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1341, i64 noundef 4) #25
+  %792 = icmp eq i32 %791, 0
+  br i1 %792, label %malloc_conf_error.exit927, label %.thread1066
+
+793:                                              ; preds = %788
+  %794 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1341, i64 noundef 5) #25
+  %795 = icmp eq i32 %794, 0
+  br i1 %795, label %malloc_conf_error.exit927, label %.thread1066
+
+.thread1066:                                      ; preds = %788, %790, %793
+  %796 = trunc i64 %789 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 27, ptr noundef nonnull %201, i32 noundef %796, ptr noundef %.pre1341) #21
+  %797 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %798 = icmp eq i32 %797, 0
+  br i1 %798, label %malloc_conf_error.exit.thread, label %799
+
+799:                                              ; preds = %.thread1066
+  store i1 true, ptr @had_conf_error, align 1
+  br label %malloc_conf_error.exit.thread
+
+malloc_conf_error.exit927:                        ; preds = %793, %790
+  %storemerge1248 = phi i8 [ 1, %790 ], [ 0, %793 ]
+  store i8 %storemerge1248, ptr @duckdb_je_opt_experimental_infallible_new, align 1, !tbaa !50
+  %800 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %801 = trunc nuw i8 %800 to i1
+  br i1 %801, label %802, label %malloc_conf_error.exit.thread
+
+802:                                              ; preds = %malloc_conf_error.exit927
+  %803 = trunc nuw nsw i64 %789 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 27, ptr noundef nonnull %201, i32 noundef %803, ptr noundef nonnull %.pre1341) #21
+  br label %malloc_conf_error.exit.thread
+
+.thread1065:                                      ; preds = %714
+  br i1 %227, label %804, label %.thread1070
+
+804:                                              ; preds = %.thread1065
+  %805 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.124, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 6) #25
+  %806 = icmp eq i32 %805, 0
+  br i1 %806, label %807, label %.thread1070
+
+807:                                              ; preds = %804
+  %808 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1344 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %808, label %.thread1071 [
+    i64 4, label %809
+    i64 5, label %812
+  ]
+
+809:                                              ; preds = %807
+  %810 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1344, i64 noundef 4) #25
+  %811 = icmp eq i32 %810, 0
+  br i1 %811, label %malloc_conf_error.exit928, label %.thread1071
+
+812:                                              ; preds = %807
+  %813 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1344, i64 noundef 5) #25
+  %814 = icmp eq i32 %813, 0
+  br i1 %814, label %malloc_conf_error.exit928, label %.thread1071
+
+.thread1071:                                      ; preds = %807, %809, %812
+  %815 = trunc i64 %808 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 6, ptr noundef nonnull %201, i32 noundef %815, ptr noundef %.pre1344) #21
+  %816 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %201, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %817 = icmp eq i32 %816, 0
+  br i1 %817, label %malloc_conf_error.exit.thread, label %818
+
+818:                                              ; preds = %.thread1071
+  store i1 true, ptr @had_conf_error, align 1
+  br label %malloc_conf_error.exit.thread
+
+malloc_conf_error.exit928:                        ; preds = %812, %809
+  %storemerge1250 = phi i8 [ 1, %809 ], [ 0, %812 ]
+  store i8 %storemerge1250, ptr @duckdb_je_opt_tcache, align 1, !tbaa !50
+  %819 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %820 = trunc nuw i8 %819 to i1
+  br i1 %820, label %821, label %malloc_conf_error.exit.thread
+
+821:                                              ; preds = %malloc_conf_error.exit928
+  %822 = trunc nuw nsw i64 %808 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 6, ptr noundef nonnull %201, i32 noundef %822, ptr noundef nonnull %.pre1344) #21
+  br label %malloc_conf_error.exit.thread
+
+.thread1070:                                      ; preds = %493, %634, %676, %654, %715, %766, %785, %804, %.thread1065
+  %823 = phi i1 [ false, %804 ], [ false, %.thread1065 ], [ false, %785 ], [ false, %766 ], [ true, %715 ], [ false, %654 ], [ false, %676 ], [ false, %634 ], [ false, %493 ]
+  %824 = phi i1 [ false, %804 ], [ false, %.thread1065 ], [ false, %785 ], [ false, %766 ], [ false, %715 ], [ false, %654 ], [ true, %676 ], [ false, %634 ], [ false, %493 ]
+  br i1 %203, label %825, label %853
+
+825:                                              ; preds = %.thread1070
+  %826 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.125, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 10) #25
+  %827 = icmp eq i32 %826, 0
+  br i1 %827, label %828, label %853
+
+828:                                              ; preds = %825
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #21
+  %829 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %829, align 4, !tbaa !3
+  %830 = load ptr, ptr %8, align 8, !tbaa !199
+  %831 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %830, ptr noundef nonnull %25, i32 noundef 0) #21
+  %832 = load i32, ptr %829, align 4, !tbaa !3
+  %.not862 = icmp eq i32 %832, 0
+  %.pre1405 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1406 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not862, label %833, label %838
+
+833:                                              ; preds = %828
+  %834 = load ptr, ptr %25, align 8, !tbaa !199
+  %835 = ptrtoint ptr %834 to i64
+  %836 = ptrtoint ptr %.pre1405 to i64
+  %837 = sub i64 %835, %836
+  %.not863 = icmp eq i64 %837, %.pre1406
+  br i1 %.not863, label %malloc_conf_error.exit929, label %838
+
+838:                                              ; preds = %828, %833
+  %839 = load ptr, ptr %7, align 8, !tbaa !199
+  %840 = load i64, ptr %9, align 8, !tbaa !30
+  %841 = trunc i64 %840 to i32
+  %842 = trunc i64 %.pre1406 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %841, ptr noundef %839, i32 noundef %842, ptr noundef %.pre1405) #21
+  %843 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %839, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %844 = icmp eq i32 %843, 0
+  br i1 %844, label %malloc_conf_error.exit929.thread, label %845
+
+845:                                              ; preds = %838
+  store i1 true, ptr @had_conf_error, align 1
+  br label %malloc_conf_error.exit929.thread
+
+malloc_conf_error.exit929:                        ; preds = %833
+  %.1272 = call i64 @llvm.umin.i64(i64 %831, i64 8388608)
+  store i64 %.1272, ptr @duckdb_je_opt_tcache_max, align 8, !tbaa !30
+  %846 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %847 = trunc nuw i8 %846 to i1
+  br i1 %847, label %848, label %malloc_conf_error.exit929.thread
+
+848:                                              ; preds = %malloc_conf_error.exit929
+  %849 = load i64, ptr %9, align 8, !tbaa !30
+  %850 = trunc i64 %849 to i32
+  %851 = load ptr, ptr %7, align 8, !tbaa !199
+  %852 = trunc i64 %.pre1406 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %850, ptr noundef %851, i32 noundef %852, ptr noundef %.pre1405) #21
+  br label %malloc_conf_error.exit929.thread
+
+malloc_conf_error.exit929.thread:                 ; preds = %845, %838, %848, %malloc_conf_error.exit929
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #21
   br label %malloc_conf_error.exit.thread
 
-759:                                              ; preds = %736, %735
-  %760 = icmp eq i64 %98, 20
-  br i1 %760, label %761, label %784
+853:                                              ; preds = %825, %.thread1070
+  br i1 %202, label %854, label %883
 
-761:                                              ; preds = %759
-  %762 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.127, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 20) #25
-  %763 = icmp eq i32 %762, 0
-  br i1 %763, label %764, label %.thread1956
+854:                                              ; preds = %853
+  %855 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.126, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 13) #25
+  %856 = icmp eq i32 %855, 0
+  br i1 %856, label %857, label %883
 
-764:                                              ; preds = %761
+857:                                              ; preds = %854
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #21
-  %765 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %765, align 4, !tbaa !3
-  %766 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %26, i32 noundef 0) #21
-  %767 = load i32, ptr %765, align 4, !tbaa !3
-  %.not858 = icmp eq i32 %767, 0
-  br i1 %.not858, label %768, label %772
+  %858 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %858, align 4, !tbaa !3
+  %859 = load ptr, ptr %8, align 8, !tbaa !199
+  %860 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %859, ptr noundef nonnull %26, i32 noundef 0) #21
+  %861 = load i32, ptr %858, align 4, !tbaa !3
+  %.not860 = icmp eq i32 %861, 0
+  %.pre1403 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1404 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not860, label %862, label %867
 
-768:                                              ; preds = %764
-  %769 = load ptr, ptr %26, align 8, !tbaa !199
-  %770 = ptrtoint ptr %769 to i64
-  %771 = sub i64 %770, %95
-  %.not859 = icmp eq i64 %771, %.41780
-  br i1 %.not859, label %777, label %772
+862:                                              ; preds = %857
+  %863 = load ptr, ptr %26, align 8, !tbaa !199
+  %864 = ptrtoint ptr %863 to i64
+  %865 = ptrtoint ptr %.pre1403 to i64
+  %866 = sub i64 %864, %865
+  %.not861 = icmp eq i64 %866, %.pre1404
+  br i1 %.not861, label %malloc_conf_error.exit930, label %867
 
-772:                                              ; preds = %764, %768
-  %773 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 20, ptr noundef nonnull %.017912165, i32 noundef %773, ptr noundef nonnull %94) #21
-  %774 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %775 = icmp eq i32 %774, 0
-  br i1 %775, label %malloc_conf_error.exit932.thread, label %776
+867:                                              ; preds = %857, %862
+  %868 = load ptr, ptr %7, align 8, !tbaa !199
+  %869 = load i64, ptr %9, align 8, !tbaa !30
+  %870 = trunc i64 %869 to i32
+  %871 = trunc i64 %.pre1404 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %870, ptr noundef %868, i32 noundef %871, ptr noundef %.pre1403) #21
+  %872 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %868, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %873 = icmp eq i32 %872, 0
+  br i1 %873, label %malloc_conf_error.exit930.thread, label %874
 
-776:                                              ; preds = %772
+874:                                              ; preds = %867
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit932.thread
+  br label %malloc_conf_error.exit930.thread
 
-777:                                              ; preds = %768
-  %778 = add i64 %766, -17
-  %or.cond152 = icmp ult i64 %778, -33
-  br i1 %or.cond152, label %779, label %malloc_conf_error.exit932
+malloc_conf_error.exit930:                        ; preds = %862
+  %spec.store.select = call i64 @llvm.umin.i64(i64 %860, i64 23)
+  %875 = shl nuw nsw i64 1, %spec.store.select
+  store i64 %875, ptr @duckdb_je_opt_tcache_max, align 8, !tbaa !30
+  %876 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %877 = trunc nuw i8 %876 to i1
+  br i1 %877, label %878, label %malloc_conf_error.exit930.thread
 
-779:                                              ; preds = %777
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.105, ptr noundef nonnull %.017912165, i64 noundef 20, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %malloc_conf_error.exit932.thread
+878:                                              ; preds = %malloc_conf_error.exit930
+  %879 = load i64, ptr %9, align 8, !tbaa !30
+  %880 = trunc i64 %879 to i32
+  %881 = load ptr, ptr %7, align 8, !tbaa !199
+  %882 = trunc i64 %.pre1404 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %880, ptr noundef %881, i32 noundef %882, ptr noundef %.pre1403) #21
+  br label %malloc_conf_error.exit930.thread
 
-malloc_conf_error.exit932:                        ; preds = %777
-  store i64 %766, ptr @duckdb_je_opt_lg_tcache_nslots_mul, align 8, !tbaa !30
-  %780 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %781 = trunc nuw i8 %780 to i1
-  br i1 %781, label %782, label %malloc_conf_error.exit932.thread
-
-782:                                              ; preds = %malloc_conf_error.exit932
-  %783 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 20, ptr noundef nonnull %.017912165, i32 noundef %783, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit932.thread
-
-malloc_conf_error.exit932.thread:                 ; preds = %776, %772, %779, %782, %malloc_conf_error.exit932
+malloc_conf_error.exit930.thread:                 ; preds = %874, %867, %878, %malloc_conf_error.exit930
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #21
   br label %malloc_conf_error.exit.thread
 
-784:                                              ; preds = %759
-  %785 = icmp eq i64 %98, 23
-  br i1 %785, label %786, label %.thread1956
+883:                                              ; preds = %854, %853
+  %884 = icmp eq i64 %97, 20
+  br i1 %884, label %885, label %918
 
-786:                                              ; preds = %784
-  %787 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.128, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 23) #25
-  %788 = icmp eq i32 %787, 0
-  br i1 %788, label %789, label %807
+885:                                              ; preds = %883
+  %886 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.127, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 20) #25
+  %887 = icmp eq i32 %886, 0
+  br i1 %887, label %888, label %.thread1089
 
-789:                                              ; preds = %786
+888:                                              ; preds = %885
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #21
-  %790 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %790, align 4, !tbaa !3
-  %791 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %27, i32 noundef 0) #21
-  %792 = load i32, ptr %790, align 4, !tbaa !3
-  %.not856 = icmp eq i32 %792, 0
-  br i1 %.not856, label %793, label %797
+  %889 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %889, align 4, !tbaa !3
+  %890 = load ptr, ptr %8, align 8, !tbaa !199
+  %891 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %890, ptr noundef nonnull %27, i32 noundef 0) #21
+  %892 = load i32, ptr %889, align 4, !tbaa !3
+  %.not858 = icmp eq i32 %892, 0
+  %.pre1401 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1402 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not858, label %893, label %898
 
-793:                                              ; preds = %789
-  %794 = load ptr, ptr %27, align 8, !tbaa !199
-  %795 = ptrtoint ptr %794 to i64
-  %796 = sub i64 %795, %95
-  %.not857 = icmp eq i64 %796, %.41780
-  br i1 %.not857, label %malloc_conf_error.exit933, label %797
+893:                                              ; preds = %888
+  %894 = load ptr, ptr %27, align 8, !tbaa !199
+  %895 = ptrtoint ptr %894 to i64
+  %896 = ptrtoint ptr %.pre1401 to i64
+  %897 = sub i64 %895, %896
+  %.not859 = icmp eq i64 %897, %.pre1402
+  br i1 %.not859, label %906, label %898
 
-797:                                              ; preds = %789, %793
-  %798 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 23, ptr noundef nonnull %.017912165, i32 noundef %798, ptr noundef nonnull %94) #21
-  %799 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %800 = icmp eq i32 %799, 0
-  br i1 %800, label %malloc_conf_error.exit933.thread, label %801
+898:                                              ; preds = %888, %893
+  %899 = load ptr, ptr %7, align 8, !tbaa !199
+  %900 = load i64, ptr %9, align 8, !tbaa !30
+  %901 = trunc i64 %900 to i32
+  %902 = trunc i64 %.pre1402 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %901, ptr noundef %899, i32 noundef %902, ptr noundef %.pre1401) #21
+  %903 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %899, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %904 = icmp eq i32 %903, 0
+  br i1 %904, label %malloc_conf_error.exit931.thread, label %905
 
-801:                                              ; preds = %797
+905:                                              ; preds = %898
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit933.thread
+  br label %malloc_conf_error.exit931.thread
 
-malloc_conf_error.exit933:                        ; preds = %793
-  %802 = icmp eq i64 %791, 0
-  %spec.select2227 = call i64 @llvm.umin.i64(i64 %791, i64 2048)
-  %spec.select = trunc nuw nsw i64 %spec.select2227 to i32
-  %.sink = select i1 %802, i32 1, i32 %spec.select
-  store i32 %.sink, ptr @duckdb_je_opt_tcache_nslots_small_min, align 4, !tbaa !3
-  %803 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %804 = trunc nuw i8 %803 to i1
-  br i1 %804, label %805, label %malloc_conf_error.exit933.thread
+906:                                              ; preds = %893
+  %907 = add i64 %891, -17
+  %or.cond152 = icmp ult i64 %907, -33
+  br i1 %or.cond152, label %908, label %malloc_conf_error.exit931
 
-805:                                              ; preds = %malloc_conf_error.exit933
-  %806 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 23, ptr noundef nonnull %.017912165, i32 noundef %806, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit933.thread
+908:                                              ; preds = %906
+  %909 = load ptr, ptr %7, align 8, !tbaa !199
+  %910 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.105, ptr noundef %909, i64 noundef %910, ptr noundef %.pre1401, i64 noundef %.pre1402)
+  br label %malloc_conf_error.exit931.thread
 
-malloc_conf_error.exit933.thread:                 ; preds = %801, %797, %805, %malloc_conf_error.exit933
+malloc_conf_error.exit931:                        ; preds = %906
+  store i64 %891, ptr @duckdb_je_opt_lg_tcache_nslots_mul, align 8, !tbaa !30
+  %911 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %912 = trunc nuw i8 %911 to i1
+  br i1 %912, label %913, label %malloc_conf_error.exit931.thread
+
+913:                                              ; preds = %malloc_conf_error.exit931
+  %914 = load i64, ptr %9, align 8, !tbaa !30
+  %915 = trunc i64 %914 to i32
+  %916 = load ptr, ptr %7, align 8, !tbaa !199
+  %917 = trunc i64 %.pre1402 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %915, ptr noundef %916, i32 noundef %917, ptr noundef %.pre1401) #21
+  br label %malloc_conf_error.exit931.thread
+
+malloc_conf_error.exit931.thread:                 ; preds = %905, %898, %908, %913, %malloc_conf_error.exit931
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #21
   br label %malloc_conf_error.exit.thread
 
-807:                                              ; preds = %786
-  %808 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.129, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 23) #25
-  %809 = icmp eq i32 %808, 0
-  br i1 %809, label %810, label %.thread1956
+918:                                              ; preds = %883
+  %919 = icmp eq i64 %97, 23
+  br i1 %919, label %920, label %.thread1089
 
-810:                                              ; preds = %807
+920:                                              ; preds = %918
+  %921 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.128, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 23) #25
+  %922 = icmp eq i32 %921, 0
+  br i1 %922, label %923, label %949
+
+923:                                              ; preds = %920
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #21
-  %811 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %811, align 4, !tbaa !3
-  %812 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %28, i32 noundef 0) #21
-  %813 = load i32, ptr %811, align 4, !tbaa !3
-  %.not854 = icmp eq i32 %813, 0
-  br i1 %.not854, label %814, label %818
+  %924 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %924, align 4, !tbaa !3
+  %925 = load ptr, ptr %8, align 8, !tbaa !199
+  %926 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %925, ptr noundef nonnull %28, i32 noundef 0) #21
+  %927 = load i32, ptr %924, align 4, !tbaa !3
+  %.not856 = icmp eq i32 %927, 0
+  %.pre1347 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1348 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not856, label %928, label %933
 
-814:                                              ; preds = %810
-  %815 = load ptr, ptr %28, align 8, !tbaa !199
-  %816 = ptrtoint ptr %815 to i64
-  %817 = sub i64 %816, %95
-  %.not855 = icmp eq i64 %817, %.41780
-  br i1 %.not855, label %malloc_conf_error.exit934, label %818
+928:                                              ; preds = %923
+  %929 = load ptr, ptr %28, align 8, !tbaa !199
+  %930 = ptrtoint ptr %929 to i64
+  %931 = ptrtoint ptr %.pre1347 to i64
+  %932 = sub i64 %930, %931
+  %.not857 = icmp eq i64 %932, %.pre1348
+  br i1 %.not857, label %malloc_conf_error.exit932, label %933
 
-818:                                              ; preds = %810, %814
-  %819 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef 23, ptr noundef nonnull %.017912165, i32 noundef %819, ptr noundef nonnull %94) #21
-  %820 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %821 = icmp eq i32 %820, 0
-  br i1 %821, label %malloc_conf_error.exit934.thread, label %822
+933:                                              ; preds = %923, %928
+  %934 = load ptr, ptr %7, align 8, !tbaa !199
+  %935 = load i64, ptr %9, align 8, !tbaa !30
+  %936 = trunc i64 %935 to i32
+  %937 = trunc i64 %.pre1348 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %936, ptr noundef %934, i32 noundef %937, ptr noundef %.pre1347) #21
+  %938 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %934, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %939 = icmp eq i32 %938, 0
+  br i1 %939, label %malloc_conf_error.exit932.thread, label %940
 
-822:                                              ; preds = %818
+940:                                              ; preds = %933
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit934.thread
+  br label %malloc_conf_error.exit932.thread
 
-malloc_conf_error.exit934:                        ; preds = %814
-  %823 = icmp eq i64 %812, 0
-  %spec.select22222226 = call i64 @llvm.umin.i64(i64 %812, i64 2048)
-  %spec.select2222 = trunc nuw nsw i64 %spec.select22222226 to i32
-  %.sink2212 = select i1 %823, i32 1, i32 %spec.select2222
-  store i32 %.sink2212, ptr @duckdb_je_opt_tcache_nslots_small_max, align 4, !tbaa !3
-  %824 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %825 = trunc nuw i8 %824 to i1
-  br i1 %825, label %826, label %malloc_conf_error.exit934.thread
+malloc_conf_error.exit932:                        ; preds = %928
+  %941 = icmp eq i64 %926, 0
+  %spec.select1437 = call i64 @llvm.umin.i64(i64 %926, i64 2048)
+  %spec.select = trunc nuw nsw i64 %spec.select1437 to i32
+  %.sink = select i1 %941, i32 1, i32 %spec.select
+  store i32 %.sink, ptr @duckdb_je_opt_tcache_nslots_small_min, align 4, !tbaa !3
+  %942 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %943 = trunc nuw i8 %942 to i1
+  br i1 %943, label %944, label %malloc_conf_error.exit932.thread
 
-826:                                              ; preds = %malloc_conf_error.exit934
-  %827 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 23, ptr noundef nonnull %.017912165, i32 noundef %827, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit934.thread
+944:                                              ; preds = %malloc_conf_error.exit932
+  %945 = load i64, ptr %9, align 8, !tbaa !30
+  %946 = trunc i64 %945 to i32
+  %947 = load ptr, ptr %7, align 8, !tbaa !199
+  %948 = trunc i64 %.pre1348 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %946, ptr noundef %947, i32 noundef %948, ptr noundef %.pre1347) #21
+  br label %malloc_conf_error.exit932.thread
 
-malloc_conf_error.exit934.thread:                 ; preds = %822, %818, %826, %malloc_conf_error.exit934
+malloc_conf_error.exit932.thread:                 ; preds = %940, %933, %944, %malloc_conf_error.exit932
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #21
   br label %malloc_conf_error.exit.thread
 
-.thread1956:                                      ; preds = %784, %761, %807
-  br i1 %691, label %828, label %851
+949:                                              ; preds = %920
+  %950 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.129, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 23) #25
+  %951 = icmp eq i32 %950, 0
+  br i1 %951, label %952, label %.thread1089
 
-828:                                              ; preds = %.thread1956
-  %829 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.130, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 19) #25
-  %830 = icmp eq i32 %829, 0
-  br i1 %830, label %831, label %851
-
-831:                                              ; preds = %828
+952:                                              ; preds = %949
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #21
-  %832 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %832, align 4, !tbaa !3
-  %833 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %29, i32 noundef 0) #21
-  %834 = load i32, ptr %832, align 4, !tbaa !3
-  %.not852 = icmp eq i32 %834, 0
-  br i1 %.not852, label %835, label %839
+  %953 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %953, align 4, !tbaa !3
+  %954 = load ptr, ptr %8, align 8, !tbaa !199
+  %955 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %954, ptr noundef nonnull %29, i32 noundef 0) #21
+  %956 = load i32, ptr %953, align 4, !tbaa !3
+  %.not854 = icmp eq i32 %956, 0
+  %.pre1345 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1346 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not854, label %957, label %962
 
-835:                                              ; preds = %831
-  %836 = load ptr, ptr %29, align 8, !tbaa !199
-  %837 = ptrtoint ptr %836 to i64
-  %838 = sub i64 %837, %95
-  %.not853 = icmp eq i64 %838, %.41780
-  br i1 %.not853, label %malloc_conf_error.exit935, label %839
+957:                                              ; preds = %952
+  %958 = load ptr, ptr %29, align 8, !tbaa !199
+  %959 = ptrtoint ptr %958 to i64
+  %960 = ptrtoint ptr %.pre1345 to i64
+  %961 = sub i64 %959, %960
+  %.not855 = icmp eq i64 %961, %.pre1346
+  br i1 %.not855, label %malloc_conf_error.exit933, label %962
 
-839:                                              ; preds = %831, %835
-  %840 = trunc i64 %98 to i32
-  %841 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %840, ptr noundef nonnull %.017912165, i32 noundef %841, ptr noundef nonnull %94) #21
-  %842 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.017912165, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
-  %843 = icmp eq i32 %842, 0
-  br i1 %843, label %malloc_conf_error.exit935.thread, label %844
+962:                                              ; preds = %952, %957
+  %963 = load ptr, ptr %7, align 8, !tbaa !199
+  %964 = load i64, ptr %9, align 8, !tbaa !30
+  %965 = trunc i64 %964 to i32
+  %966 = trunc i64 %.pre1346 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %965, ptr noundef %963, i32 noundef %966, ptr noundef %.pre1345) #21
+  %967 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %963, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %968 = icmp eq i32 %967, 0
+  br i1 %968, label %malloc_conf_error.exit933.thread, label %969
 
-844:                                              ; preds = %839
+969:                                              ; preds = %962
   store i1 true, ptr @had_conf_error, align 1
-  br label %malloc_conf_error.exit935.thread
+  br label %malloc_conf_error.exit933.thread
 
-malloc_conf_error.exit935:                        ; preds = %835
-  %845 = icmp eq i64 %833, 0
-  %spec.select22232230 = call i64 @llvm.umin.i64(i64 %833, i64 2048)
-  %spec.select2223 = trunc nuw nsw i64 %spec.select22232230 to i32
-  %.sink2213 = select i1 %845, i32 1, i32 %spec.select2223
-  store i32 %.sink2213, ptr @duckdb_je_opt_tcache_nslots_large, align 4, !tbaa !3
-  %846 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %847 = trunc nuw i8 %846 to i1
-  br i1 %847, label %848, label %malloc_conf_error.exit935.thread
+malloc_conf_error.exit933:                        ; preds = %957
+  %970 = icmp eq i64 %955, 0
+  %spec.select14321436 = call i64 @llvm.umin.i64(i64 %955, i64 2048)
+  %spec.select1432 = trunc nuw nsw i64 %spec.select14321436 to i32
+  %.sink1422 = select i1 %970, i32 1, i32 %spec.select1432
+  store i32 %.sink1422, ptr @duckdb_je_opt_tcache_nslots_small_max, align 4, !tbaa !3
+  %971 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %972 = trunc nuw i8 %971 to i1
+  br i1 %972, label %973, label %malloc_conf_error.exit933.thread
 
-848:                                              ; preds = %malloc_conf_error.exit935
-  %849 = trunc i64 %98 to i32
-  %850 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %849, ptr noundef nonnull %.017912165, i32 noundef %850, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit935.thread
+973:                                              ; preds = %malloc_conf_error.exit933
+  %974 = load i64, ptr %9, align 8, !tbaa !30
+  %975 = trunc i64 %974 to i32
+  %976 = load ptr, ptr %7, align 8, !tbaa !199
+  %977 = trunc i64 %.pre1346 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %975, ptr noundef %976, i32 noundef %977, ptr noundef %.pre1345) #21
+  br label %malloc_conf_error.exit933.thread
 
-malloc_conf_error.exit935.thread:                 ; preds = %844, %839, %848, %malloc_conf_error.exit935
+malloc_conf_error.exit933.thread:                 ; preds = %969, %962, %973, %malloc_conf_error.exit933
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #21
   br label %malloc_conf_error.exit.thread
 
-851:                                              ; preds = %828, %.thread1956
-  br i1 %760, label %852, label %869
+.thread1089:                                      ; preds = %918, %885, %949
+  br i1 %823, label %978, label %1007
 
-852:                                              ; preds = %851
-  %853 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.131, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 20) #25
-  %854 = icmp eq i32 %853, 0
-  br i1 %854, label %855, label %869
+978:                                              ; preds = %.thread1089
+  %979 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.130, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 19) #25
+  %980 = icmp eq i32 %979, 0
+  br i1 %980, label %981, label %1007
 
-855:                                              ; preds = %852
+981:                                              ; preds = %978
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #21
-  %856 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %856, align 4, !tbaa !3
-  %857 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %30, i32 noundef 0) #21
-  %858 = load i32, ptr %856, align 4, !tbaa !3
-  %.not850 = icmp eq i32 %858, 0
-  br i1 %.not850, label %859, label %.thread1963
+  %982 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %982, align 4, !tbaa !3
+  %983 = load ptr, ptr %8, align 8, !tbaa !199
+  %984 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %983, ptr noundef nonnull %30, i32 noundef 0) #21
+  %985 = load i32, ptr %982, align 4, !tbaa !3
+  %.not852 = icmp eq i32 %985, 0
+  %.pre1399 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1400 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not852, label %986, label %991
 
-859:                                              ; preds = %855
-  %860 = load ptr, ptr %30, align 8, !tbaa !199
-  %861 = ptrtoint ptr %860 to i64
-  %862 = sub i64 %861, %95
-  %.not851 = icmp eq i64 %862, %.41780
-  br i1 %.not851, label %863, label %.thread1963
+986:                                              ; preds = %981
+  %987 = load ptr, ptr %30, align 8, !tbaa !199
+  %988 = ptrtoint ptr %987 to i64
+  %989 = ptrtoint ptr %.pre1399 to i64
+  %990 = sub i64 %988, %989
+  %.not853 = icmp eq i64 %990, %.pre1400
+  br i1 %.not853, label %malloc_conf_error.exit934, label %991
 
-.thread1963:                                      ; preds = %859, %855
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 20, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %868
+991:                                              ; preds = %981, %986
+  %992 = load ptr, ptr %7, align 8, !tbaa !199
+  %993 = load i64, ptr %9, align 8, !tbaa !30
+  %994 = trunc i64 %993 to i32
+  %995 = trunc i64 %.pre1400 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.94, i32 noundef %994, ptr noundef %992, i32 noundef %995, ptr noundef %.pre1399) #21
+  %996 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %992, ptr noundef nonnull dereferenceable(14) @.str.172, i64 noundef 13) #25
+  %997 = icmp eq i32 %996, 0
+  br i1 %997, label %malloc_conf_error.exit934.thread, label %998
 
-863:                                              ; preds = %859
-  %.2138 = call i64 @llvm.umax.i64(i64 %857, i64 1024)
-  store i64 %.2138, ptr @duckdb_je_opt_tcache_gc_incr_bytes, align 8, !tbaa !30
-  %864 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %865 = trunc nuw i8 %864 to i1
-  br i1 %865, label %866, label %868
+998:                                              ; preds = %991
+  store i1 true, ptr @had_conf_error, align 1
+  br label %malloc_conf_error.exit934.thread
 
-866:                                              ; preds = %863
-  %867 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 20, ptr noundef nonnull %.017912165, i32 noundef %867, ptr noundef nonnull %94) #21
-  br label %868
+malloc_conf_error.exit934:                        ; preds = %986
+  %999 = icmp eq i64 %984, 0
+  %spec.select14331440 = call i64 @llvm.umin.i64(i64 %984, i64 2048)
+  %spec.select1433 = trunc nuw nsw i64 %spec.select14331440 to i32
+  %.sink1423 = select i1 %999, i32 1, i32 %spec.select1433
+  store i32 %.sink1423, ptr @duckdb_je_opt_tcache_nslots_large, align 4, !tbaa !3
+  %1000 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1001 = trunc nuw i8 %1000 to i1
+  br i1 %1001, label %1002, label %malloc_conf_error.exit934.thread
 
-868:                                              ; preds = %.thread1963, %866, %863
+1002:                                             ; preds = %malloc_conf_error.exit934
+  %1003 = load i64, ptr %9, align 8, !tbaa !30
+  %1004 = trunc i64 %1003 to i32
+  %1005 = load ptr, ptr %7, align 8, !tbaa !199
+  %1006 = trunc i64 %.pre1400 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1004, ptr noundef %1005, i32 noundef %1006, ptr noundef %.pre1399) #21
+  br label %malloc_conf_error.exit934.thread
+
+malloc_conf_error.exit934.thread:                 ; preds = %998, %991, %1002, %malloc_conf_error.exit934
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #21
   br label %malloc_conf_error.exit.thread
 
-869:                                              ; preds = %852, %851
-  br i1 %418, label %870, label %888
+1007:                                             ; preds = %978, %.thread1089
+  br i1 %884, label %1008, label %1032
 
-870:                                              ; preds = %869
-  %871 = call i32 @strncmp(ptr noundef nonnull dereferenceable(22) @.str.132, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 21) #25
-  %872 = icmp eq i32 %871, 0
-  br i1 %872, label %873, label %888
+1008:                                             ; preds = %1007
+  %1009 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.131, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 20) #25
+  %1010 = icmp eq i32 %1009, 0
+  br i1 %1010, label %1011, label %1032
 
-873:                                              ; preds = %870
+1011:                                             ; preds = %1008
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #21
-  %874 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %874, align 4, !tbaa !3
-  %875 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %31, i32 noundef 0) #21
-  %876 = load i32, ptr %874, align 4, !tbaa !3
-  %.not848 = icmp eq i32 %876, 0
-  br i1 %.not848, label %877, label %.thread1967
+  %1012 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1012, align 4, !tbaa !3
+  %1013 = load ptr, ptr %8, align 8, !tbaa !199
+  %1014 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1013, ptr noundef nonnull %31, i32 noundef 0) #21
+  %1015 = load i32, ptr %1012, align 4, !tbaa !3
+  %.not850 = icmp eq i32 %1015, 0
+  %.pre1397 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1398 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not850, label %1016, label %.thread1096
 
-877:                                              ; preds = %873
-  %878 = load ptr, ptr %31, align 8, !tbaa !199
-  %879 = ptrtoint ptr %878 to i64
-  %880 = sub i64 %879, %95
-  %.not849 = icmp eq i64 %880, %.41780
-  br i1 %.not849, label %881, label %.thread1967
+1016:                                             ; preds = %1011
+  %1017 = load ptr, ptr %31, align 8, !tbaa !199
+  %1018 = ptrtoint ptr %1017 to i64
+  %1019 = ptrtoint ptr %.pre1397 to i64
+  %1020 = sub i64 %1018, %1019
+  %.not851 = icmp eq i64 %1020, %.pre1398
+  br i1 %.not851, label %1023, label %.thread1096
 
-.thread1967:                                      ; preds = %877, %873
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %887
+.thread1096:                                      ; preds = %1016, %1011
+  %1021 = load ptr, ptr %7, align 8, !tbaa !199
+  %1022 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1021, i64 noundef %1022, ptr noundef %.pre1397, i64 noundef %.pre1398)
+  br label %1031
 
-881:                                              ; preds = %877
-  store i64 %875, ptr @duckdb_je_opt_tcache_gc_delay_bytes, align 8, !tbaa !30
-  %882 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %883 = trunc nuw i8 %882 to i1
-  br i1 %883, label %884, label %887
+1023:                                             ; preds = %1016
+  %.1273 = call i64 @llvm.umax.i64(i64 %1014, i64 1024)
+  store i64 %.1273, ptr @duckdb_je_opt_tcache_gc_incr_bytes, align 8, !tbaa !30
+  %1024 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1025 = trunc nuw i8 %1024 to i1
+  br i1 %1025, label %1026, label %1031
 
-884:                                              ; preds = %881
-  %885 = trunc i64 %98 to i32
-  %886 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %885, ptr noundef nonnull %.017912165, i32 noundef %886, ptr noundef nonnull %94) #21
-  br label %887
+1026:                                             ; preds = %1023
+  %1027 = load i64, ptr %9, align 8, !tbaa !30
+  %1028 = trunc i64 %1027 to i32
+  %1029 = load ptr, ptr %7, align 8, !tbaa !199
+  %1030 = trunc i64 %.pre1398 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1028, ptr noundef %1029, i32 noundef %1030, ptr noundef %.pre1397) #21
+  br label %1031
 
-887:                                              ; preds = %.thread1967, %884, %881
+1031:                                             ; preds = %.thread1096, %1026, %1023
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #21
   br label %malloc_conf_error.exit.thread
 
-888:                                              ; preds = %870, %869
-  %889 = icmp eq i64 %98, 25
-  br i1 %889, label %890, label %926
+1032:                                             ; preds = %1008, %1007
+  br i1 %462, label %1033, label %1057
 
-890:                                              ; preds = %888
-  %891 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.133, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 25) #25
-  %892 = icmp eq i32 %891, 0
-  br i1 %892, label %893, label %908
+1033:                                             ; preds = %1032
+  %1034 = call i32 @strncmp(ptr noundef nonnull dereferenceable(22) @.str.132, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 21) #25
+  %1035 = icmp eq i32 %1034, 0
+  br i1 %1035, label %1036, label %1057
 
-893:                                              ; preds = %890
+1036:                                             ; preds = %1033
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #21
-  %894 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %894, align 4, !tbaa !3
-  %895 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %32, i32 noundef 0) #21
-  %896 = load i32, ptr %894, align 4, !tbaa !3
-  %.not846 = icmp eq i32 %896, 0
-  br i1 %.not846, label %897, label %.thread1971
+  %1037 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1037, align 4, !tbaa !3
+  %1038 = load ptr, ptr %8, align 8, !tbaa !199
+  %1039 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1038, ptr noundef nonnull %32, i32 noundef 0) #21
+  %1040 = load i32, ptr %1037, align 4, !tbaa !3
+  %.not848 = icmp eq i32 %1040, 0
+  %.pre1395 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1396 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not848, label %1041, label %.thread1100
 
-897:                                              ; preds = %893
-  %898 = load ptr, ptr %32, align 8, !tbaa !199
-  %899 = ptrtoint ptr %898 to i64
-  %900 = sub i64 %899, %95
-  %.not847 = icmp eq i64 %900, %.41780
-  br i1 %.not847, label %901, label %.thread1971
+1041:                                             ; preds = %1036
+  %1042 = load ptr, ptr %32, align 8, !tbaa !199
+  %1043 = ptrtoint ptr %1042 to i64
+  %1044 = ptrtoint ptr %.pre1395 to i64
+  %1045 = sub i64 %1043, %1044
+  %.not849 = icmp eq i64 %1045, %.pre1396
+  br i1 %.not849, label %1048, label %.thread1100
 
-.thread1971:                                      ; preds = %897, %893
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 25, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %907
+.thread1100:                                      ; preds = %1041, %1036
+  %1046 = load ptr, ptr %7, align 8, !tbaa !199
+  %1047 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1046, i64 noundef %1047, ptr noundef %.pre1395, i64 noundef %.pre1396)
+  br label %1056
 
-901:                                              ; preds = %897
-  %902 = icmp eq i64 %895, 0
-  %spec.select22242229 = call i64 @llvm.umin.i64(i64 %895, i64 16)
-  %spec.select2224 = trunc nuw nsw i64 %spec.select22242229 to i32
-  %.sink2214 = select i1 %902, i32 1, i32 %spec.select2224
-  store i32 %.sink2214, ptr @duckdb_je_opt_lg_tcache_flush_small_div, align 4, !tbaa !3
-  %903 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %904 = trunc nuw i8 %903 to i1
-  br i1 %904, label %905, label %907
+1048:                                             ; preds = %1041
+  store i64 %1039, ptr @duckdb_je_opt_tcache_gc_delay_bytes, align 8, !tbaa !30
+  %1049 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1050 = trunc nuw i8 %1049 to i1
+  br i1 %1050, label %1051, label %1056
 
-905:                                              ; preds = %901
-  %906 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 25, ptr noundef nonnull %.017912165, i32 noundef %906, ptr noundef nonnull %94) #21
-  br label %907
+1051:                                             ; preds = %1048
+  %1052 = load i64, ptr %9, align 8, !tbaa !30
+  %1053 = trunc i64 %1052 to i32
+  %1054 = load ptr, ptr %7, align 8, !tbaa !199
+  %1055 = trunc i64 %.pre1396 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1053, ptr noundef %1054, i32 noundef %1055, ptr noundef %.pre1395) #21
+  br label %1056
 
-907:                                              ; preds = %.thread1971, %905, %901
+1056:                                             ; preds = %.thread1100, %1051, %1048
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #21
   br label %malloc_conf_error.exit.thread
 
-908:                                              ; preds = %890
-  %909 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.134, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 25) #25
-  %910 = icmp eq i32 %909, 0
-  br i1 %910, label %911, label %.thread2003
+1057:                                             ; preds = %1033, %1032
+  %1058 = icmp eq i64 %97, 25
+  br i1 %1058, label %1059, label %1109
 
-911:                                              ; preds = %908
+1059:                                             ; preds = %1057
+  %1060 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.133, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 25) #25
+  %1061 = icmp eq i32 %1060, 0
+  br i1 %1061, label %1062, label %1084
+
+1062:                                             ; preds = %1059
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #21
-  %912 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %912, align 4, !tbaa !3
-  %913 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %33, i32 noundef 0) #21
-  %914 = load i32, ptr %912, align 4, !tbaa !3
-  %.not844 = icmp eq i32 %914, 0
-  br i1 %.not844, label %915, label %.thread1976
+  %1063 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1063, align 4, !tbaa !3
+  %1064 = load ptr, ptr %8, align 8, !tbaa !199
+  %1065 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1064, ptr noundef nonnull %33, i32 noundef 0) #21
+  %1066 = load i32, ptr %1063, align 4, !tbaa !3
+  %.not846 = icmp eq i32 %1066, 0
+  %.pre1393 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1394 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not846, label %1067, label %.thread1104
 
-915:                                              ; preds = %911
-  %916 = load ptr, ptr %33, align 8, !tbaa !199
-  %917 = ptrtoint ptr %916 to i64
-  %918 = sub i64 %917, %95
-  %.not845 = icmp eq i64 %918, %.41780
-  br i1 %.not845, label %919, label %.thread1976
+1067:                                             ; preds = %1062
+  %1068 = load ptr, ptr %33, align 8, !tbaa !199
+  %1069 = ptrtoint ptr %1068 to i64
+  %1070 = ptrtoint ptr %.pre1393 to i64
+  %1071 = sub i64 %1069, %1070
+  %.not847 = icmp eq i64 %1071, %.pre1394
+  br i1 %.not847, label %1074, label %.thread1104
 
-.thread1976:                                      ; preds = %915, %911
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 25, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %925
+.thread1104:                                      ; preds = %1067, %1062
+  %1072 = load ptr, ptr %7, align 8, !tbaa !199
+  %1073 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1072, i64 noundef %1073, ptr noundef %.pre1393, i64 noundef %.pre1394)
+  br label %1083
 
-919:                                              ; preds = %915
-  %920 = icmp eq i64 %913, 0
-  %spec.select22252228 = call i64 @llvm.umin.i64(i64 %913, i64 16)
-  %spec.select2225 = trunc nuw nsw i64 %spec.select22252228 to i32
-  %.sink2215 = select i1 %920, i32 1, i32 %spec.select2225
-  store i32 %.sink2215, ptr @duckdb_je_opt_lg_tcache_flush_large_div, align 4, !tbaa !3
-  %921 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %922 = trunc nuw i8 %921 to i1
-  br i1 %922, label %923, label %925
+1074:                                             ; preds = %1067
+  %1075 = icmp eq i64 %1065, 0
+  %spec.select14341439 = call i64 @llvm.umin.i64(i64 %1065, i64 16)
+  %spec.select1434 = trunc nuw nsw i64 %spec.select14341439 to i32
+  %.sink1424 = select i1 %1075, i32 1, i32 %spec.select1434
+  store i32 %.sink1424, ptr @duckdb_je_opt_lg_tcache_flush_small_div, align 4, !tbaa !3
+  %1076 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1077 = trunc nuw i8 %1076 to i1
+  br i1 %1077, label %1078, label %1083
 
-923:                                              ; preds = %919
-  %924 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 25, ptr noundef nonnull %.017912165, i32 noundef %924, ptr noundef nonnull %94) #21
-  br label %925
+1078:                                             ; preds = %1074
+  %1079 = load i64, ptr %9, align 8, !tbaa !30
+  %1080 = trunc i64 %1079 to i32
+  %1081 = load ptr, ptr %7, align 8, !tbaa !199
+  %1082 = trunc i64 %.pre1394 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1080, ptr noundef %1081, i32 noundef %1082, ptr noundef %.pre1393) #21
+  br label %1083
 
-925:                                              ; preds = %.thread1976, %923, %919
+1083:                                             ; preds = %.thread1104, %1078, %1074
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #21
   br label %malloc_conf_error.exit.thread
 
-926:                                              ; preds = %888
-  switch i64 %98, label %965 [
-    i64 26, label %927
-    i64 24, label %945
-  ]
+1084:                                             ; preds = %1059
+  %1085 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.134, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 25) #25
+  %1086 = icmp eq i32 %1085, 0
+  br i1 %1086, label %1087, label %.thread1136
 
-927:                                              ; preds = %926
-  %928 = call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.135, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 26) #25
-  %929 = icmp eq i32 %928, 0
-  br i1 %929, label %930, label %.thread2003
-
-930:                                              ; preds = %927
+1087:                                             ; preds = %1084
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #21
-  %931 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %931, align 4, !tbaa !3
-  %932 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %34, i32 noundef 0) #21
-  %933 = load i32, ptr %931, align 4, !tbaa !3
-  %.not842 = icmp eq i32 %933, 0
-  br i1 %.not842, label %934, label %.thread1981
+  %1088 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1088, align 4, !tbaa !3
+  %1089 = load ptr, ptr %8, align 8, !tbaa !199
+  %1090 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1089, ptr noundef nonnull %34, i32 noundef 0) #21
+  %1091 = load i32, ptr %1088, align 4, !tbaa !3
+  %.not844 = icmp eq i32 %1091, 0
+  %.pre1391 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1392 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not844, label %1092, label %.thread1109
 
-934:                                              ; preds = %930
-  %935 = load ptr, ptr %34, align 8, !tbaa !199
-  %936 = ptrtoint ptr %935 to i64
-  %937 = sub i64 %936, %95
-  %.not843 = icmp eq i64 %937, %.41780
-  br i1 %.not843, label %938, label %.thread1981
+1092:                                             ; preds = %1087
+  %1093 = load ptr, ptr %34, align 8, !tbaa !199
+  %1094 = ptrtoint ptr %1093 to i64
+  %1095 = ptrtoint ptr %.pre1391 to i64
+  %1096 = sub i64 %1094, %1095
+  %.not845 = icmp eq i64 %1096, %.pre1392
+  br i1 %.not845, label %1099, label %.thread1109
 
-.thread1981:                                      ; preds = %934, %930
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 26, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %944
+.thread1109:                                      ; preds = %1092, %1087
+  %1097 = load ptr, ptr %7, align 8, !tbaa !199
+  %1098 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1097, i64 noundef %1098, ptr noundef %.pre1391, i64 noundef %.pre1392)
+  br label %1108
 
-938:                                              ; preds = %934
-  %939 = trunc i64 %932 to i32
-  store i32 %939, ptr @duckdb_je_opt_debug_double_free_max_scan, align 4, !tbaa !3
-  %940 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %941 = trunc nuw i8 %940 to i1
-  br i1 %941, label %942, label %944
+1099:                                             ; preds = %1092
+  %1100 = icmp eq i64 %1090, 0
+  %spec.select14351438 = call i64 @llvm.umin.i64(i64 %1090, i64 16)
+  %spec.select1435 = trunc nuw nsw i64 %spec.select14351438 to i32
+  %.sink1425 = select i1 %1100, i32 1, i32 %spec.select1435
+  store i32 %.sink1425, ptr @duckdb_je_opt_lg_tcache_flush_large_div, align 4, !tbaa !3
+  %1101 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1102 = trunc nuw i8 %1101 to i1
+  br i1 %1102, label %1103, label %1108
 
-942:                                              ; preds = %938
-  %943 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 26, ptr noundef nonnull %.017912165, i32 noundef %943, ptr noundef nonnull %94) #21
-  br label %944
+1103:                                             ; preds = %1099
+  %1104 = load i64, ptr %9, align 8, !tbaa !30
+  %1105 = trunc i64 %1104 to i32
+  %1106 = load ptr, ptr %7, align 8, !tbaa !199
+  %1107 = trunc i64 %.pre1392 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1105, ptr noundef %1106, i32 noundef %1107, ptr noundef %.pre1391) #21
+  br label %1108
 
-944:                                              ; preds = %.thread1981, %942, %938
+1108:                                             ; preds = %.thread1109, %1103, %1099
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #21
   br label %malloc_conf_error.exit.thread
 
-945:                                              ; preds = %926
-  %946 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.136, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 24) #25
-  %947 = icmp eq i32 %946, 0
-  br i1 %947, label %948, label %986
+1109:                                             ; preds = %1057
+  switch i64 %97, label %1164 [
+    i64 26, label %1110
+    i64 24, label %1135
+  ]
 
-948:                                              ; preds = %945
+1110:                                             ; preds = %1109
+  %1111 = call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.135, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 26) #25
+  %1112 = icmp eq i32 %1111, 0
+  br i1 %1112, label %1113, label %.thread1136
+
+1113:                                             ; preds = %1110
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #21
-  %949 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %949, align 4, !tbaa !3
-  %950 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %35, i32 noundef 0) #21
-  %951 = load i32, ptr %949, align 4, !tbaa !3
-  %.not840 = icmp eq i32 %951, 0
-  br i1 %.not840, label %952, label %956
+  %1114 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1114, align 4, !tbaa !3
+  %1115 = load ptr, ptr %8, align 8, !tbaa !199
+  %1116 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1115, ptr noundef nonnull %35, i32 noundef 0) #21
+  %1117 = load i32, ptr %1114, align 4, !tbaa !3
+  %.not842 = icmp eq i32 %1117, 0
+  %.pre1353 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1354 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not842, label %1118, label %.thread1114
 
-952:                                              ; preds = %948
-  %953 = load ptr, ptr %35, align 8, !tbaa !199
-  %954 = ptrtoint ptr %953 to i64
-  %955 = sub i64 %954, %95
-  %.not841 = icmp eq i64 %955, %.41780
-  br i1 %.not841, label %957, label %956
+1118:                                             ; preds = %1113
+  %1119 = load ptr, ptr %35, align 8, !tbaa !199
+  %1120 = ptrtoint ptr %1119 to i64
+  %1121 = ptrtoint ptr %.pre1353 to i64
+  %1122 = sub i64 %1120, %1121
+  %.not843 = icmp eq i64 %1122, %.pre1354
+  br i1 %.not843, label %1125, label %.thread1114
 
-956:                                              ; preds = %948, %952
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 24, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %.thread1989
+.thread1114:                                      ; preds = %1118, %1113
+  %1123 = load ptr, ptr %7, align 8, !tbaa !199
+  %1124 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1123, i64 noundef %1124, ptr noundef %.pre1353, i64 noundef %.pre1354)
+  br label %1134
 
-957:                                              ; preds = %952
-  %958 = icmp ugt i64 %950, 8070450532247928832
-  br i1 %958, label %959, label %960
+1125:                                             ; preds = %1118
+  %1126 = trunc i64 %1116 to i32
+  store i32 %1126, ptr @duckdb_je_opt_debug_double_free_max_scan, align 4, !tbaa !3
+  %1127 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1128 = trunc nuw i8 %1127 to i1
+  br i1 %1128, label %1129, label %1134
 
-959:                                              ; preds = %957
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.105, ptr noundef nonnull %.017912165, i64 noundef 24, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %.thread1989
+1129:                                             ; preds = %1125
+  %1130 = load i64, ptr %9, align 8, !tbaa !30
+  %1131 = trunc i64 %1130 to i32
+  %1132 = load ptr, ptr %7, align 8, !tbaa !199
+  %1133 = trunc i64 %.pre1354 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1131, ptr noundef %1132, i32 noundef %1133, ptr noundef %.pre1353) #21
+  br label %1134
 
-960:                                              ; preds = %957
-  store i64 %950, ptr @duckdb_je_opt_calloc_madvise_threshold, align 8, !tbaa !30
-  %961 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %962 = trunc nuw i8 %961 to i1
-  br i1 %962, label %963, label %.thread1989
-
-963:                                              ; preds = %960
-  %964 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 24, ptr noundef nonnull %.017912165, i32 noundef %964, ptr noundef nonnull %94) #21
-  br label %.thread1989
-
-.thread1989:                                      ; preds = %959, %956, %963, %960
+1134:                                             ; preds = %.thread1114, %1129, %1125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #21
   br label %malloc_conf_error.exit.thread
 
-965:                                              ; preds = %926
-  br i1 %442, label %966, label %.thread2003
+1135:                                             ; preds = %1109
+  %1136 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.136, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 24) #25
+  %1137 = icmp eq i32 %1136, 0
+  br i1 %1137, label %1138, label %1194
 
-966:                                              ; preds = %965
-  %967 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.137, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 18) #25
-  %968 = icmp eq i32 %967, 0
-  br i1 %968, label %969, label %.thread2003
-
-969:                                              ; preds = %966
+1138:                                             ; preds = %1135
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #21
-  %970 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %970, align 4, !tbaa !3
-  %971 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %36, i32 noundef 0) #21
-  %972 = load i32, ptr %970, align 4, !tbaa !3
-  %.not838 = icmp eq i32 %972, 0
-  br i1 %.not838, label %973, label %977
+  %1139 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1139, align 4, !tbaa !3
+  %1140 = load ptr, ptr %8, align 8, !tbaa !199
+  %1141 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1140, ptr noundef nonnull %36, i32 noundef 0) #21
+  %1142 = load i32, ptr %1139, align 4, !tbaa !3
+  %.not840 = icmp eq i32 %1142, 0
+  %.pre1351 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1352 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not840, label %1143, label %1148
 
-973:                                              ; preds = %969
-  %974 = load ptr, ptr %36, align 8, !tbaa !199
-  %975 = ptrtoint ptr %974 to i64
-  %976 = sub i64 %975, %95
-  %.not839 = icmp eq i64 %976, %.41780
-  br i1 %.not839, label %978, label %977
+1143:                                             ; preds = %1138
+  %1144 = load ptr, ptr %36, align 8, !tbaa !199
+  %1145 = ptrtoint ptr %1144 to i64
+  %1146 = ptrtoint ptr %.pre1351 to i64
+  %1147 = sub i64 %1145, %1146
+  %.not841 = icmp eq i64 %1147, %.pre1352
+  br i1 %.not841, label %1151, label %1148
 
-977:                                              ; preds = %969, %973
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 18, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %.thread1998
+1148:                                             ; preds = %1138, %1143
+  %1149 = load ptr, ptr %7, align 8, !tbaa !199
+  %1150 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1149, i64 noundef %1150, ptr noundef %.pre1351, i64 noundef %.pre1352)
+  br label %.thread1122
 
-978:                                              ; preds = %973
-  %979 = icmp ugt i64 %971, 8070450532247928832
-  br i1 %979, label %980, label %981
+1151:                                             ; preds = %1143
+  %1152 = icmp ugt i64 %1141, 8070450532247928832
+  br i1 %1152, label %1153, label %1156
 
-980:                                              ; preds = %978
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.105, ptr noundef nonnull %.017912165, i64 noundef 18, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %.thread1998
+1153:                                             ; preds = %1151
+  %1154 = load ptr, ptr %7, align 8, !tbaa !199
+  %1155 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.105, ptr noundef %1154, i64 noundef %1155, ptr noundef %.pre1351, i64 noundef %.pre1352)
+  br label %.thread1122
 
-981:                                              ; preds = %978
-  store i64 %971, ptr @duckdb_je_opt_oversize_threshold, align 8, !tbaa !30
-  %982 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %983 = trunc nuw i8 %982 to i1
-  br i1 %983, label %984, label %.thread1998
+1156:                                             ; preds = %1151
+  store i64 %1141, ptr @duckdb_je_opt_calloc_madvise_threshold, align 8, !tbaa !30
+  %1157 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1158 = trunc nuw i8 %1157 to i1
+  br i1 %1158, label %1159, label %.thread1122
 
-984:                                              ; preds = %981
-  %985 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 18, ptr noundef nonnull %.017912165, i32 noundef %985, ptr noundef nonnull %94) #21
-  br label %.thread1998
+1159:                                             ; preds = %1156
+  %1160 = load i64, ptr %9, align 8, !tbaa !30
+  %1161 = trunc i64 %1160 to i32
+  %1162 = load ptr, ptr %7, align 8, !tbaa !199
+  %1163 = trunc i64 %.pre1352 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1161, ptr noundef %1162, i32 noundef %1163, ptr noundef %.pre1351) #21
+  br label %.thread1122
 
-.thread1998:                                      ; preds = %980, %977, %984, %981
+.thread1122:                                      ; preds = %1153, %1148, %1159, %1156
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #21
   br label %malloc_conf_error.exit.thread
 
-986:                                              ; preds = %945
-  %987 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.138, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 24) #25
-  %988 = icmp eq i32 %987, 0
-  br i1 %988, label %989, label %.thread2003
+1164:                                             ; preds = %1109
+  br i1 %492, label %1165, label %.thread1136
 
-989:                                              ; preds = %986
+1165:                                             ; preds = %1164
+  %1166 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.137, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 18) #25
+  %1167 = icmp eq i32 %1166, 0
+  br i1 %1167, label %1168, label %.thread1136
+
+1168:                                             ; preds = %1165
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #21
-  %990 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %990, align 4, !tbaa !3
-  %991 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %37, i32 noundef 0) #21
-  %992 = load i32, ptr %990, align 4, !tbaa !3
-  %.not836 = icmp eq i32 %992, 0
-  br i1 %.not836, label %993, label %997
+  %1169 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1169, align 4, !tbaa !3
+  %1170 = load ptr, ptr %8, align 8, !tbaa !199
+  %1171 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1170, ptr noundef nonnull %37, i32 noundef 0) #21
+  %1172 = load i32, ptr %1169, align 4, !tbaa !3
+  %.not838 = icmp eq i32 %1172, 0
+  %.pre1355 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1356 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not838, label %1173, label %1178
 
-993:                                              ; preds = %989
-  %994 = load ptr, ptr %37, align 8, !tbaa !199
-  %995 = ptrtoint ptr %994 to i64
-  %996 = sub i64 %995, %95
-  %.not837 = icmp eq i64 %996, %.41780
-  br i1 %.not837, label %998, label %997
+1173:                                             ; preds = %1168
+  %1174 = load ptr, ptr %37, align 8, !tbaa !199
+  %1175 = ptrtoint ptr %1174 to i64
+  %1176 = ptrtoint ptr %.pre1355 to i64
+  %1177 = sub i64 %1175, %1176
+  %.not839 = icmp eq i64 %1177, %.pre1356
+  br i1 %.not839, label %1181, label %1178
 
-997:                                              ; preds = %989, %993
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 24, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %.thread2010
+1178:                                             ; preds = %1168, %1173
+  %1179 = load ptr, ptr %7, align 8, !tbaa !199
+  %1180 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1179, i64 noundef %1180, ptr noundef %.pre1355, i64 noundef %.pre1356)
+  br label %.thread1131
 
-998:                                              ; preds = %993
-  %999 = icmp ugt i64 %991, 64
-  br i1 %999, label %1000, label %1001
+1181:                                             ; preds = %1173
+  %1182 = icmp ugt i64 %1171, 8070450532247928832
+  br i1 %1182, label %1183, label %1186
 
-1000:                                             ; preds = %998
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.105, ptr noundef nonnull %.017912165, i64 noundef 24, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %.thread2010
+1183:                                             ; preds = %1181
+  %1184 = load ptr, ptr %7, align 8, !tbaa !199
+  %1185 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.105, ptr noundef %1184, i64 noundef %1185, ptr noundef %.pre1355, i64 noundef %.pre1356)
+  br label %.thread1131
 
-1001:                                             ; preds = %998
-  store i64 %991, ptr @duckdb_je_opt_lg_extent_max_active_fit, align 8, !tbaa !30
-  %1002 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1003 = trunc nuw i8 %1002 to i1
-  br i1 %1003, label %1004, label %.thread2010
+1186:                                             ; preds = %1181
+  store i64 %1171, ptr @duckdb_je_opt_oversize_threshold, align 8, !tbaa !30
+  %1187 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1188 = trunc nuw i8 %1187 to i1
+  br i1 %1188, label %1189, label %.thread1131
 
-1004:                                             ; preds = %1001
-  %1005 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 24, ptr noundef nonnull %.017912165, i32 noundef %1005, ptr noundef nonnull %94) #21
-  br label %.thread2010
+1189:                                             ; preds = %1186
+  %1190 = load i64, ptr %9, align 8, !tbaa !30
+  %1191 = trunc i64 %1190 to i32
+  %1192 = load ptr, ptr %7, align 8, !tbaa !199
+  %1193 = trunc i64 %.pre1356 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1191, ptr noundef %1192, i32 noundef %1193, ptr noundef %.pre1355) #21
+  br label %.thread1131
 
-.thread2010:                                      ; preds = %1000, %997, %1004, %1001
+.thread1131:                                      ; preds = %1183, %1178, %1189, %1186
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #21
   br label %malloc_conf_error.exit.thread
 
-.thread2003:                                      ; preds = %908, %965, %966, %927, %986
-  %1006 = phi i1 [ true, %986 ], [ false, %927 ], [ false, %966 ], [ false, %965 ], [ false, %908 ]
-  %1007 = phi i1 [ false, %986 ], [ true, %927 ], [ false, %966 ], [ false, %965 ], [ false, %908 ]
-  %1008 = call i32 @strncmp(ptr noundef nonnull @.str.139, ptr noundef nonnull %.017912165, i64 noundef %98) #25
-  %1009 = icmp eq i32 %1008, 0
-  br i1 %1009, label %.preheader2146, label %1017
+1194:                                             ; preds = %1135
+  %1195 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.138, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 24) #25
+  %1196 = icmp eq i32 %1195, 0
+  br i1 %1196, label %1197, label %.thread1136
 
-.preheader2146:                                   ; preds = %.thread2003, %1016
-  %indvars.iv2185 = phi i64 [ %indvars.iv.next2186, %1016 ], [ 0, %.thread2003 ]
-  %1010 = getelementptr inbounds nuw [0 x ptr], ptr @duckdb_je_percpu_arena_mode_names, i64 0, i64 %indvars.iv2185
-  %1011 = load ptr, ptr %1010, align 8, !tbaa !199
-  %1012 = call i32 @strncmp(ptr noundef %1011, ptr noundef nonnull %94, i64 noundef %.41780) #25
-  %1013 = icmp eq i32 %1012, 0
-  br i1 %1013, label %1014, label %1016
-
-1014:                                             ; preds = %.preheader2146
-  %1015 = trunc nuw nsw i64 %indvars.iv2185 to i32
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.140, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  store i32 %1015, ptr @duckdb_je_opt_percpu_arena, align 4, !tbaa !3
-  br label %malloc_conf_error.exit.thread
-
-1016:                                             ; preds = %.preheader2146
-  %indvars.iv.next2186 = add nuw nsw i64 %indvars.iv2185, 1
-  %exitcond2188 = icmp eq i64 %indvars.iv.next2186, 3
-  br i1 %exitcond2188, label %.critedge887, label %.preheader2146
-
-.critedge887:                                     ; preds = %1016
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %malloc_conf_error.exit.thread
-
-1017:                                             ; preds = %.thread2003
-  %1018 = icmp eq i64 %98, 17
-  br i1 %1018, label %1019, label %1034
-
-1019:                                             ; preds = %1017
-  %1020 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.141, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 17) #25
-  %1021 = icmp eq i32 %1020, 0
-  br i1 %1021, label %1022, label %.thread2031
-
-1022:                                             ; preds = %1019
-  switch i64 %.41780, label %.thread2015 [
-    i64 4, label %1023
-    i64 5, label %1026
-  ]
-
-1023:                                             ; preds = %1022
-  %1024 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %1025 = icmp eq i32 %1024, 0
-  br i1 %1025, label %1029, label %.thread2015
-
-1026:                                             ; preds = %1022
-  %1027 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %1028 = icmp eq i32 %1027, 0
-  br i1 %1028, label %1029, label %.thread2015
-
-.thread2015:                                      ; preds = %1022, %1026, %1023
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 17, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %malloc_conf_error.exit.thread
-
-1029:                                             ; preds = %1026, %1023
-  %storemerge2121 = phi i8 [ 1, %1023 ], [ 0, %1026 ]
-  store i8 %storemerge2121, ptr @duckdb_je_opt_background_thread, align 1, !tbaa !50
-  %1030 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1031 = trunc nuw i8 %1030 to i1
-  br i1 %1031, label %1032, label %malloc_conf_error.exit.thread
-
-1032:                                             ; preds = %1029
-  %1033 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 17, ptr noundef nonnull %.017912165, i32 noundef %1033, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit.thread
-
-1034:                                             ; preds = %1017
-  switch i64 %98, label %.thread2025 [
-    i64 22, label %1035
-    i64 3, label %sub_0
-  ]
-
-1035:                                             ; preds = %1034
-  %1036 = call i32 @strncmp(ptr noundef nonnull dereferenceable(23) @.str.142, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 22) #25
-  %1037 = icmp eq i32 %1036, 0
-  br i1 %1037, label %1038, label %.thread2031
-
-1038:                                             ; preds = %1035
+1197:                                             ; preds = %1194
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #21
-  %1039 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1039, align 4, !tbaa !3
-  %1040 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %38, i32 noundef 0) #21
-  %1041 = load i32, ptr %1039, align 4, !tbaa !3
-  %.not834 = icmp eq i32 %1041, 0
-  br i1 %.not834, label %1042, label %.thread2020
+  %1198 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1198, align 4, !tbaa !3
+  %1199 = load ptr, ptr %8, align 8, !tbaa !199
+  %1200 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1199, ptr noundef nonnull %38, i32 noundef 0) #21
+  %1201 = load i32, ptr %1198, align 4, !tbaa !3
+  %.not836 = icmp eq i32 %1201, 0
+  %.pre1349 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1350 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not836, label %1202, label %1207
 
-1042:                                             ; preds = %1038
-  %1043 = load ptr, ptr %38, align 8, !tbaa !199
-  %1044 = ptrtoint ptr %1043 to i64
-  %1045 = sub i64 %1044, %95
-  %.not835 = icmp eq i64 %1045, %.41780
-  br i1 %.not835, label %1046, label %.thread2020
+1202:                                             ; preds = %1197
+  %1203 = load ptr, ptr %38, align 8, !tbaa !199
+  %1204 = ptrtoint ptr %1203 to i64
+  %1205 = ptrtoint ptr %.pre1349 to i64
+  %1206 = sub i64 %1204, %1205
+  %.not837 = icmp eq i64 %1206, %.pre1350
+  br i1 %.not837, label %1210, label %1207
 
-.thread2020:                                      ; preds = %1042, %1038
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 22, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1056
+1207:                                             ; preds = %1197, %1202
+  %1208 = load ptr, ptr %7, align 8, !tbaa !199
+  %1209 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1208, i64 noundef %1209, ptr noundef %.pre1349, i64 noundef %.pre1350)
+  br label %.thread1143
 
-1046:                                             ; preds = %1042
-  %1047 = icmp eq i64 %1040, 0
-  br i1 %1047, label %.sink.split, label %1048
+1210:                                             ; preds = %1202
+  %1211 = icmp ugt i64 %1200, 64
+  br i1 %1211, label %1212, label %1215
 
-1048:                                             ; preds = %1046
-  %1049 = load i64, ptr @duckdb_je_opt_max_background_threads, align 8, !tbaa !30
-  %1050 = icmp ugt i64 %1040, %1049
-  br i1 %1050, label %1051, label %.sink.split
+1212:                                             ; preds = %1210
+  %1213 = load ptr, ptr %7, align 8, !tbaa !199
+  %1214 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.105, ptr noundef %1213, i64 noundef %1214, ptr noundef %.pre1349, i64 noundef %.pre1350)
+  br label %.thread1143
 
-.sink.split:                                      ; preds = %1048, %1046
-  %.sink2216 = phi i64 [ 1, %1046 ], [ %1040, %1048 ]
-  store i64 %.sink2216, ptr @duckdb_je_opt_max_background_threads, align 8, !tbaa !30
-  br label %1051
+1215:                                             ; preds = %1210
+  store i64 %1200, ptr @duckdb_je_opt_lg_extent_max_active_fit, align 8, !tbaa !30
+  %1216 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1217 = trunc nuw i8 %1216 to i1
+  br i1 %1217, label %1218, label %.thread1143
 
-1051:                                             ; preds = %.sink.split, %1048
-  %1052 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1053 = trunc nuw i8 %1052 to i1
-  br i1 %1053, label %1054, label %1056
+1218:                                             ; preds = %1215
+  %1219 = load i64, ptr %9, align 8, !tbaa !30
+  %1220 = trunc i64 %1219 to i32
+  %1221 = load ptr, ptr %7, align 8, !tbaa !199
+  %1222 = trunc i64 %.pre1350 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1220, ptr noundef %1221, i32 noundef %1222, ptr noundef %.pre1349) #21
+  br label %.thread1143
 
-1054:                                             ; preds = %1051
-  %1055 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 22, ptr noundef nonnull %.017912165, i32 noundef %1055, ptr noundef nonnull %94) #21
-  br label %1056
-
-1056:                                             ; preds = %.thread2020, %1054, %1051
+.thread1143:                                      ; preds = %1212, %1207, %1218, %1215
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #21
   br label %malloc_conf_error.exit.thread
 
-sub_0:                                            ; preds = %1034
-  %1057 = load i8, ptr %.017912165, align 1
-  %1058 = zext i8 %1057 to i32
-  %1059 = sub nsw i32 104, %1058
-  %.not = icmp eq i8 %1057, 104
-  br i1 %.not, label %sub_1, label %.tail
+.thread1136:                                      ; preds = %1084, %1164, %1165, %1110, %1194
+  %1223 = phi i1 [ true, %1194 ], [ false, %1110 ], [ false, %1165 ], [ false, %1164 ], [ false, %1084 ]
+  %1224 = phi i1 [ false, %1194 ], [ true, %1110 ], [ false, %1165 ], [ false, %1164 ], [ false, %1084 ]
+  %1225 = call i32 @strncmp(ptr noundef nonnull @.str.139, ptr noundef %201, i64 noundef %97) #25
+  %1226 = icmp eq i32 %1225, 0
+  br i1 %1226, label %.preheader1279, label %1237
 
-sub_1:                                            ; preds = %sub_0
-  %1060 = getelementptr inbounds nuw i8, ptr %.017912165, i64 1
-  %1061 = load i8, ptr %1060, align 1
-  %1062 = zext i8 %1061 to i32
-  %1063 = sub nsw i32 112, %1062
-  %.not2169 = icmp eq i8 %1061, 112
-  br i1 %.not2169, label %sub_2, label %.tail
+.preheader1279:                                   ; preds = %.thread1136
+  %1227 = load ptr, ptr %8, align 8, !tbaa !199
+  %1228 = load i64, ptr %10, align 8, !tbaa !30
+  br label %1229
 
-sub_2:                                            ; preds = %sub_1
-  %1064 = getelementptr inbounds nuw i8, ptr %.017912165, i64 2
-  %1065 = load i8, ptr %1064, align 1
-  %1066 = zext i8 %1065 to i32
-  %1067 = sub nsw i32 97, %1066
-  br label %.tail
+1229:                                             ; preds = %.preheader1279, %1236
+  %indvars.iv1308 = phi i64 [ 0, %.preheader1279 ], [ %indvars.iv.next1309, %1236 ]
+  %1230 = getelementptr inbounds nuw [0 x ptr], ptr @duckdb_je_percpu_arena_mode_names, i64 0, i64 %indvars.iv1308
+  %1231 = load ptr, ptr %1230, align 8, !tbaa !199
+  %1232 = call i32 @strncmp(ptr noundef %1231, ptr noundef %1227, i64 noundef %1228) #25
+  %1233 = icmp eq i32 %1232, 0
+  br i1 %1233, label %1234, label %1236
 
-.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
-  %1068 = phi i32 [ %1059, %sub_0 ], [ %1063, %sub_1 ], [ %1067, %sub_2 ]
-  %1069 = icmp eq i32 %1068, 0
-  br i1 %1069, label %1070, label %.thread2031
+1234:                                             ; preds = %1229
+  %1235 = trunc nuw nsw i64 %indvars.iv1308 to i32
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.140, ptr noundef %201, i64 noundef %97, ptr noundef %1227, i64 noundef %1228)
+  store i32 %1235, ptr @duckdb_je_opt_percpu_arena, align 4, !tbaa !3
+  br label %malloc_conf_error.exit.thread
 
-1070:                                             ; preds = %.tail
-  switch i64 %.41780, label %.thread2027 [
-    i64 4, label %1071
-    i64 5, label %1074
+1236:                                             ; preds = %1229
+  %indvars.iv.next1309 = add nuw nsw i64 %indvars.iv1308, 1
+  %exitcond1311 = icmp eq i64 %indvars.iv.next1309, 3
+  br i1 %exitcond1311, label %.critedge887, label %1229
+
+.critedge887:                                     ; preds = %1236
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %201, i64 noundef %97, ptr noundef %1227, i64 noundef %1228)
+  br label %malloc_conf_error.exit.thread
+
+1237:                                             ; preds = %.thread1136
+  %1238 = icmp eq i64 %97, 17
+  br i1 %1238, label %1239, label %1255
+
+1239:                                             ; preds = %1237
+  %1240 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.141, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 17) #25
+  %1241 = icmp eq i32 %1240, 0
+  br i1 %1241, label %1242, label %.thread1164
+
+1242:                                             ; preds = %1239
+  %1243 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1390 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %1243, label %.thread1148 [
+    i64 4, label %1244
+    i64 5, label %1247
   ]
 
-1071:                                             ; preds = %1070
-  %1072 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %1073 = icmp eq i32 %1072, 0
-  br i1 %1073, label %1077, label %.thread2027
+1244:                                             ; preds = %1242
+  %1245 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1390, i64 noundef 4) #25
+  %1246 = icmp eq i32 %1245, 0
+  br i1 %1246, label %1250, label %.thread1148
 
-1074:                                             ; preds = %1070
-  %1075 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %1076 = icmp eq i32 %1075, 0
-  br i1 %1076, label %1077, label %.thread2027
+1247:                                             ; preds = %1242
+  %1248 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1390, i64 noundef 5) #25
+  %1249 = icmp eq i32 %1248, 0
+  br i1 %1249, label %1250, label %.thread1148
 
-.thread2027:                                      ; preds = %1070, %1074, %1071
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 3, ptr noundef nonnull %94, i64 noundef %.41780)
+.thread1148:                                      ; preds = %1242, %1247, %1244
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %201, i64 noundef 17, ptr noundef %.pre1390, i64 noundef %1243)
   br label %malloc_conf_error.exit.thread
 
-1077:                                             ; preds = %1074, %1071
-  %storemerge2115 = phi i8 [ 1, %1071 ], [ 0, %1074 ]
-  store i8 %storemerge2115, ptr @duckdb_je_opt_hpa, align 1, !tbaa !50
-  %1078 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1079 = trunc nuw i8 %1078 to i1
-  br i1 %1079, label %1080, label %malloc_conf_error.exit.thread
+1250:                                             ; preds = %1247, %1244
+  %storemerge1257 = phi i8 [ 1, %1244 ], [ 0, %1247 ]
+  store i8 %storemerge1257, ptr @duckdb_je_opt_background_thread, align 1, !tbaa !50
+  %1251 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1252 = trunc nuw i8 %1251 to i1
+  br i1 %1252, label %1253, label %malloc_conf_error.exit.thread
 
-1080:                                             ; preds = %1077
-  %1081 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 3, ptr noundef nonnull %.017912165, i32 noundef %1081, ptr noundef nonnull %94) #21
+1253:                                             ; preds = %1250
+  %1254 = trunc nuw nsw i64 %1243 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 17, ptr noundef nonnull %201, i32 noundef %1254, ptr noundef nonnull %.pre1390) #21
   br label %malloc_conf_error.exit.thread
 
-.thread2025:                                      ; preds = %1034
-  br i1 %442, label %1082, label %.thread2031
+1255:                                             ; preds = %1237
+  switch i64 %97, label %.thread1158 [
+    i64 22, label %1256
+    i64 3, label %sub_0
+  ]
 
-1082:                                             ; preds = %.thread2025
-  %1083 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.144, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 18) #25
-  %1084 = icmp eq i32 %1083, 0
-  br i1 %1084, label %1085, label %.thread2031
+1256:                                             ; preds = %1255
+  %1257 = call i32 @strncmp(ptr noundef nonnull dereferenceable(23) @.str.142, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 22) #25
+  %1258 = icmp eq i32 %1257, 0
+  br i1 %1258, label %1259, label %.thread1164
 
-1085:                                             ; preds = %1082
+1259:                                             ; preds = %1256
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #21
-  %1086 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1086, align 4, !tbaa !3
-  %1087 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %39, i32 noundef 0) #21
-  %1088 = load i32, ptr %1086, align 4, !tbaa !3
-  %.not832 = icmp eq i32 %1088, 0
-  br i1 %.not832, label %1089, label %.thread2032
+  %1260 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1260, align 4, !tbaa !3
+  %1261 = load ptr, ptr %8, align 8, !tbaa !199
+  %1262 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1261, ptr noundef nonnull %39, i32 noundef 0) #21
+  %1263 = load i32, ptr %1260, align 4, !tbaa !3
+  %.not834 = icmp eq i32 %1263, 0
+  %.pre1358 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1359 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not834, label %1264, label %.thread1153
 
-1089:                                             ; preds = %1085
-  %1090 = load ptr, ptr %39, align 8, !tbaa !199
-  %1091 = ptrtoint ptr %1090 to i64
-  %1092 = sub i64 %1091, %95
-  %.not833 = icmp eq i64 %1092, %.41780
-  br i1 %.not833, label %1093, label %.thread2032
+1264:                                             ; preds = %1259
+  %1265 = load ptr, ptr %39, align 8, !tbaa !199
+  %1266 = ptrtoint ptr %1265 to i64
+  %1267 = ptrtoint ptr %.pre1358 to i64
+  %1268 = sub i64 %1266, %1267
+  %.not835 = icmp eq i64 %1268, %.pre1359
+  br i1 %.not835, label %1271, label %.thread1153
 
-.thread2032:                                      ; preds = %1089, %1085
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 18, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1099
+.thread1153:                                      ; preds = %1264, %1259
+  %1269 = load ptr, ptr %7, align 8, !tbaa !199
+  %1270 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1269, i64 noundef %1270, ptr noundef %.pre1358, i64 noundef %.pre1359)
+  br label %1284
 
-1093:                                             ; preds = %1089
-  %1094 = call i64 @llvm.umax.i64(i64 %1087, i64 4096)
-  %.sink2217 = call i64 @llvm.umin.i64(i64 %1094, i64 2097152)
-  store i64 %.sink2217, ptr @duckdb_je_opt_hpa_opts, align 8, !tbaa !206
-  %1095 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1096 = trunc nuw i8 %1095 to i1
-  br i1 %1096, label %1097, label %1099
+1271:                                             ; preds = %1264
+  %1272 = icmp eq i64 %1262, 0
+  br i1 %1272, label %.sink.split, label %1273
 
-1097:                                             ; preds = %1093
-  %1098 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 18, ptr noundef nonnull %.017912165, i32 noundef %1098, ptr noundef nonnull %94) #21
-  br label %1099
+1273:                                             ; preds = %1271
+  %1274 = load i64, ptr @duckdb_je_opt_max_background_threads, align 8, !tbaa !30
+  %1275 = icmp ugt i64 %1262, %1274
+  br i1 %1275, label %1276, label %.sink.split
 
-1099:                                             ; preds = %.thread2032, %1097, %1093
+.sink.split:                                      ; preds = %1273, %1271
+  %.sink1426 = phi i64 [ 1, %1271 ], [ %1262, %1273 ]
+  store i64 %.sink1426, ptr @duckdb_je_opt_max_background_threads, align 8, !tbaa !30
+  br label %1276
+
+1276:                                             ; preds = %.sink.split, %1273
+  %1277 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1278 = trunc nuw i8 %1277 to i1
+  br i1 %1278, label %1279, label %1284
+
+1279:                                             ; preds = %1276
+  %1280 = load i64, ptr %9, align 8, !tbaa !30
+  %1281 = trunc i64 %1280 to i32
+  %1282 = load ptr, ptr %7, align 8, !tbaa !199
+  %1283 = trunc i64 %.pre1359 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1281, ptr noundef %1282, i32 noundef %1283, ptr noundef %.pre1358) #21
+  br label %1284
+
+1284:                                             ; preds = %.thread1153, %1279, %1276
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #21
   br label %malloc_conf_error.exit.thread
 
-.thread2031:                                      ; preds = %1035, %1019, %.tail, %1082, %.thread2025
-  %1100 = phi i1 [ false, %1082 ], [ false, %.thread2025 ], [ true, %.tail ], [ false, %1019 ], [ false, %1035 ]
-  br i1 %1007, label %1101, label %1120
+sub_0:                                            ; preds = %1255
+  %1285 = load i8, ptr %201, align 1
+  %1286 = zext i8 %1285 to i32
+  %1287 = sub nsw i32 104, %1286
+  %.not = icmp eq i8 %1285, 104
+  br i1 %.not, label %sub_1, label %.tail
 
-1101:                                             ; preds = %.thread2031
-  %1102 = call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.145, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 26) #25
-  %1103 = icmp eq i32 %1102, 0
-  br i1 %1103, label %1104, label %1120
+sub_1:                                            ; preds = %sub_0
+  %1288 = getelementptr inbounds nuw i8, ptr %201, i64 1
+  %1289 = load i8, ptr %1288, align 1
+  %1290 = zext i8 %1289 to i32
+  %1291 = sub nsw i32 112, %1290
+  %.not1298 = icmp eq i8 %1289, 112
+  br i1 %.not1298, label %sub_2, label %.tail
 
-1104:                                             ; preds = %1101
+sub_2:                                            ; preds = %sub_1
+  %1292 = getelementptr inbounds nuw i8, ptr %201, i64 2
+  %1293 = load i8, ptr %1292, align 1
+  %1294 = zext i8 %1293 to i32
+  %1295 = sub nsw i32 97, %1294
+  br label %.tail
+
+.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
+  %1296 = phi i32 [ %1287, %sub_0 ], [ %1291, %sub_1 ], [ %1295, %sub_2 ]
+  %1297 = icmp eq i32 %1296, 0
+  br i1 %1297, label %1298, label %.thread1164
+
+1298:                                             ; preds = %.tail
+  %1299 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1357 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %1299, label %.thread1160 [
+    i64 4, label %1300
+    i64 5, label %1303
+  ]
+
+1300:                                             ; preds = %1298
+  %1301 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1357, i64 noundef 4) #25
+  %1302 = icmp eq i32 %1301, 0
+  br i1 %1302, label %1306, label %.thread1160
+
+1303:                                             ; preds = %1298
+  %1304 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1357, i64 noundef 5) #25
+  %1305 = icmp eq i32 %1304, 0
+  br i1 %1305, label %1306, label %.thread1160
+
+.thread1160:                                      ; preds = %1298, %1303, %1300
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %201, i64 noundef 3, ptr noundef %.pre1357, i64 noundef %1299)
+  br label %malloc_conf_error.exit.thread
+
+1306:                                             ; preds = %1303, %1300
+  %storemerge1251 = phi i8 [ 1, %1300 ], [ 0, %1303 ]
+  store i8 %storemerge1251, ptr @duckdb_je_opt_hpa, align 1, !tbaa !50
+  %1307 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1308 = trunc nuw i8 %1307 to i1
+  br i1 %1308, label %1309, label %malloc_conf_error.exit.thread
+
+1309:                                             ; preds = %1306
+  %1310 = trunc nuw nsw i64 %1299 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 3, ptr noundef nonnull %201, i32 noundef %1310, ptr noundef nonnull %.pre1357) #21
+  br label %malloc_conf_error.exit.thread
+
+.thread1158:                                      ; preds = %1255
+  br i1 %492, label %1311, label %.thread1164
+
+1311:                                             ; preds = %.thread1158
+  %1312 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.144, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 18) #25
+  %1313 = icmp eq i32 %1312, 0
+  br i1 %1313, label %1314, label %.thread1164
+
+1314:                                             ; preds = %1311
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #21
-  %1105 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1105, align 4, !tbaa !3
-  %1106 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %40, i32 noundef 0) #21
-  %1107 = load i32, ptr %1105, align 4, !tbaa !3
-  %.not830 = icmp eq i32 %1107, 0
-  br i1 %.not830, label %1108, label %.thread2036
+  %1315 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1315, align 4, !tbaa !3
+  %1316 = load ptr, ptr %8, align 8, !tbaa !199
+  %1317 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1316, ptr noundef nonnull %40, i32 noundef 0) #21
+  %1318 = load i32, ptr %1315, align 4, !tbaa !3
+  %.not832 = icmp eq i32 %1318, 0
+  %.pre1388 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1389 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not832, label %1319, label %.thread1165
 
-1108:                                             ; preds = %1104
-  %1109 = load ptr, ptr %40, align 8, !tbaa !199
-  %1110 = ptrtoint ptr %1109 to i64
-  %1111 = sub i64 %1110, %95
-  %.not831 = icmp eq i64 %1111, %.41780
-  br i1 %.not831, label %1112, label %.thread2036
+1319:                                             ; preds = %1314
+  %1320 = load ptr, ptr %40, align 8, !tbaa !199
+  %1321 = ptrtoint ptr %1320 to i64
+  %1322 = ptrtoint ptr %.pre1388 to i64
+  %1323 = sub i64 %1321, %1322
+  %.not833 = icmp eq i64 %1323, %.pre1389
+  br i1 %.not833, label %1326, label %.thread1165
 
-.thread2036:                                      ; preds = %1108, %1104
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1119
+.thread1165:                                      ; preds = %1319, %1314
+  %1324 = load ptr, ptr %7, align 8, !tbaa !199
+  %1325 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1324, i64 noundef %1325, ptr noundef %.pre1388, i64 noundef %.pre1389)
+  br label %1335
 
-1112:                                             ; preds = %1108
-  %1113 = call i64 @llvm.umax.i64(i64 %1106, i64 4096)
-  %.sink2218 = call i64 @llvm.umin.i64(i64 %1113, i64 2097152)
-  store i64 %.sink2218, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
-  %1114 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1115 = trunc nuw i8 %1114 to i1
-  br i1 %1115, label %1116, label %1119
+1326:                                             ; preds = %1319
+  %1327 = call i64 @llvm.umax.i64(i64 %1317, i64 4096)
+  %.sink1427 = call i64 @llvm.umin.i64(i64 %1327, i64 2097152)
+  store i64 %.sink1427, ptr @duckdb_je_opt_hpa_opts, align 8, !tbaa !206
+  %1328 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1329 = trunc nuw i8 %1328 to i1
+  br i1 %1329, label %1330, label %1335
 
-1116:                                             ; preds = %1112
-  %1117 = trunc i64 %98 to i32
-  %1118 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1117, ptr noundef nonnull %.017912165, i32 noundef %1118, ptr noundef nonnull %94) #21
-  br label %1119
+1330:                                             ; preds = %1326
+  %1331 = load i64, ptr %9, align 8, !tbaa !30
+  %1332 = trunc i64 %1331 to i32
+  %1333 = load ptr, ptr %7, align 8, !tbaa !199
+  %1334 = trunc i64 %.pre1389 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1332, ptr noundef %1333, i32 noundef %1334, ptr noundef %.pre1388) #21
+  br label %1335
 
-1119:                                             ; preds = %.thread2036, %1116, %1112
+1335:                                             ; preds = %.thread1165, %1330, %1326
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #21
   br label %malloc_conf_error.exit.thread
 
-1120:                                             ; preds = %1101, %.thread2031
-  %1121 = icmp eq i64 %98, 32
-  br i1 %1121, label %1122, label %1142
+.thread1164:                                      ; preds = %1256, %1239, %.tail, %1311, %.thread1158
+  %1336 = phi i1 [ false, %1311 ], [ false, %.thread1158 ], [ true, %.tail ], [ false, %1239 ], [ false, %1256 ]
+  br i1 %1224, label %1337, label %1362
 
-1122:                                             ; preds = %1120
-  %1123 = call i32 @strncmp(ptr noundef nonnull dereferenceable(33) @.str.146, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 32) #25
-  %1124 = icmp eq i32 %1123, 0
-  br i1 %1124, label %1125, label %1142
+1337:                                             ; preds = %.thread1164
+  %1338 = call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.145, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 26) #25
+  %1339 = icmp eq i32 %1338, 0
+  br i1 %1339, label %1340, label %1362
 
-1125:                                             ; preds = %1122
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #21
-  %1126 = call zeroext i1 @duckdb_je_fxp_parse(ptr noundef nonnull %41, ptr noundef nonnull %94, ptr noundef nonnull %42) #21
-  br i1 %1126, label %.thread2040, label %1127
+1340:                                             ; preds = %1337
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #21
+  %1341 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1341, align 4, !tbaa !3
+  %1342 = load ptr, ptr %8, align 8, !tbaa !199
+  %1343 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1342, ptr noundef nonnull %41, i32 noundef 0) #21
+  %1344 = load i32, ptr %1341, align 4, !tbaa !3
+  %.not830 = icmp eq i32 %1344, 0
+  %.pre1386 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1387 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not830, label %1345, label %.thread1169
 
-1127:                                             ; preds = %1125
-  %1128 = load ptr, ptr %42, align 8, !tbaa !199
-  %1129 = ptrtoint ptr %1128 to i64
-  %1130 = sub i64 %1129, %95
-  %1131 = icmp ne i64 %1130, %.41780
-  %1132 = load i32, ptr %41, align 4
-  %1133 = icmp ugt i32 %1132, 65536
-  %or.cond244 = select i1 %1131, i1 true, i1 %1133
-  br i1 %or.cond244, label %.thread2040, label %1134
+1345:                                             ; preds = %1340
+  %1346 = load ptr, ptr %41, align 8, !tbaa !199
+  %1347 = ptrtoint ptr %1346 to i64
+  %1348 = ptrtoint ptr %.pre1386 to i64
+  %1349 = sub i64 %1347, %1348
+  %.not831 = icmp eq i64 %1349, %.pre1387
+  br i1 %.not831, label %1352, label %.thread1169
 
-.thread2040:                                      ; preds = %1127, %1125
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 32, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1141
+.thread1169:                                      ; preds = %1345, %1340
+  %1350 = load ptr, ptr %7, align 8, !tbaa !199
+  %1351 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1350, i64 noundef %1351, ptr noundef %.pre1386, i64 noundef %.pre1387)
+  br label %1361
 
-1134:                                             ; preds = %1127
-  %1135 = shl nuw nsw i32 %1132, 5
-  %1136 = zext nneg i32 %1135 to i64
-  store i64 %1136, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
-  %1137 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1138 = trunc nuw i8 %1137 to i1
-  br i1 %1138, label %1139, label %1141
+1352:                                             ; preds = %1345
+  %1353 = call i64 @llvm.umax.i64(i64 %1343, i64 4096)
+  %.sink1428 = call i64 @llvm.umin.i64(i64 %1353, i64 2097152)
+  store i64 %.sink1428, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
+  %1354 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1355 = trunc nuw i8 %1354 to i1
+  br i1 %1355, label %1356, label %1361
 
-1139:                                             ; preds = %1134
-  %1140 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 32, ptr noundef nonnull %.017912165, i32 noundef %1140, ptr noundef nonnull %94) #21
-  br label %1141
+1356:                                             ; preds = %1352
+  %1357 = load i64, ptr %9, align 8, !tbaa !30
+  %1358 = trunc i64 %1357 to i32
+  %1359 = load ptr, ptr %7, align 8, !tbaa !199
+  %1360 = trunc i64 %.pre1387 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1358, ptr noundef %1359, i32 noundef %1360, ptr noundef %.pre1386) #21
+  br label %1361
 
-1141:                                             ; preds = %.thread2040, %1139, %1134
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #21
+1361:                                             ; preds = %.thread1169, %1356, %1352
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #21
   br label %malloc_conf_error.exit.thread
 
-1142:                                             ; preds = %1122, %1120
-  br i1 %691, label %1143, label %1161
+1362:                                             ; preds = %1337, %.thread1164
+  %1363 = icmp eq i64 %97, 32
+  br i1 %1363, label %1364, label %1391
 
-1143:                                             ; preds = %1142
-  %1144 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.147, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 19) #25
-  %1145 = icmp eq i32 %1144, 0
-  br i1 %1145, label %1146, label %1161
+1364:                                             ; preds = %1362
+  %1365 = call i32 @strncmp(ptr noundef nonnull dereferenceable(33) @.str.146, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 32) #25
+  %1366 = icmp eq i32 %1365, 0
+  br i1 %1366, label %1367, label %1391
 
-1146:                                             ; preds = %1143
+1367:                                             ; preds = %1364
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #21
-  %1147 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1147, align 4, !tbaa !3
-  %1148 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %43, i32 noundef 0) #21
-  %1149 = load i32, ptr %1147, align 4, !tbaa !3
-  %.not828 = icmp eq i32 %1149, 0
-  br i1 %.not828, label %1150, label %.thread2044
+  %1368 = load ptr, ptr %8, align 8, !tbaa !199
+  %1369 = call zeroext i1 @duckdb_je_fxp_parse(ptr noundef nonnull %42, ptr noundef %1368, ptr noundef nonnull %43) #21
+  %.pre1384 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1385 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %1369, label %.thread1173, label %1370
 
-1150:                                             ; preds = %1146
-  %1151 = load ptr, ptr %43, align 8, !tbaa !199
-  %1152 = ptrtoint ptr %1151 to i64
-  %1153 = sub i64 %1152, %95
-  %.not829 = icmp eq i64 %1153, %.41780
-  br i1 %.not829, label %1154, label %.thread2044
+1370:                                             ; preds = %1367
+  %1371 = load ptr, ptr %43, align 8, !tbaa !199
+  %1372 = ptrtoint ptr %1371 to i64
+  %1373 = ptrtoint ptr %.pre1384 to i64
+  %1374 = sub i64 %1372, %1373
+  %1375 = icmp ne i64 %1374, %.pre1385
+  %1376 = load i32, ptr %42, align 4
+  %1377 = icmp ugt i32 %1376, 65536
+  %or.cond244 = select i1 %1375, i1 true, i1 %1377
+  br i1 %or.cond244, label %.thread1173, label %1380
 
-.thread2044:                                      ; preds = %1150, %1146
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1160
+.thread1173:                                      ; preds = %1370, %1367
+  %1378 = load ptr, ptr %7, align 8, !tbaa !199
+  %1379 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1378, i64 noundef %1379, ptr noundef %.pre1384, i64 noundef %.pre1385)
+  br label %1390
 
-1154:                                             ; preds = %1150
-  store i64 %1148, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 24), align 8, !tbaa !208
-  %1155 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1156 = trunc nuw i8 %1155 to i1
-  br i1 %1156, label %1157, label %1160
+1380:                                             ; preds = %1370
+  %1381 = shl nuw nsw i32 %1376, 5
+  %1382 = zext nneg i32 %1381 to i64
+  store i64 %1382, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
+  %1383 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1384 = trunc nuw i8 %1383 to i1
+  br i1 %1384, label %1385, label %1390
 
-1157:                                             ; preds = %1154
-  %1158 = trunc i64 %98 to i32
-  %1159 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1158, ptr noundef nonnull %.017912165, i32 noundef %1159, ptr noundef nonnull %94) #21
-  br label %1160
+1385:                                             ; preds = %1380
+  %1386 = load i64, ptr %9, align 8, !tbaa !30
+  %1387 = trunc i64 %1386 to i32
+  %1388 = load ptr, ptr %7, align 8, !tbaa !199
+  %1389 = trunc i64 %.pre1385 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1387, ptr noundef %1388, i32 noundef %1389, ptr noundef %.pre1384) #21
+  br label %1390
 
-1160:                                             ; preds = %.thread2044, %1157, %1154
+1390:                                             ; preds = %.thread1173, %1385, %1380
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #21
   br label %malloc_conf_error.exit.thread
 
-1161:                                             ; preds = %1143, %1142
-  br i1 %889, label %1162, label %1179
+1391:                                             ; preds = %1364, %1362
+  br i1 %823, label %1392, label %1416
 
-1162:                                             ; preds = %1161
-  %1163 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.148, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 25) #25
-  %1164 = icmp eq i32 %1163, 0
-  br i1 %1164, label %1165, label %.thread2052
+1392:                                             ; preds = %1391
+  %1393 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.147, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 19) #25
+  %1394 = icmp eq i32 %1393, 0
+  br i1 %1394, label %1395, label %1416
 
-1165:                                             ; preds = %1162
+1395:                                             ; preds = %1392
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #21
-  %1166 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1166, align 4, !tbaa !3
-  %1167 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %44, i32 noundef 0) #21
-  %1168 = load i32, ptr %1166, align 4, !tbaa !3
-  %.not826 = icmp eq i32 %1168, 0
-  br i1 %.not826, label %1169, label %.thread2048
+  %1396 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1396, align 4, !tbaa !3
+  %1397 = load ptr, ptr %8, align 8, !tbaa !199
+  %1398 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1397, ptr noundef nonnull %44, i32 noundef 0) #21
+  %1399 = load i32, ptr %1396, align 4, !tbaa !3
+  %.not828 = icmp eq i32 %1399, 0
+  %.pre1382 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1383 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not828, label %1400, label %.thread1177
 
-1169:                                             ; preds = %1165
-  %1170 = load ptr, ptr %44, align 8, !tbaa !199
-  %1171 = ptrtoint ptr %1170 to i64
-  %1172 = sub i64 %1171, %95
-  %.not827 = icmp eq i64 %1172, %.41780
-  br i1 %.not827, label %1173, label %.thread2048
+1400:                                             ; preds = %1395
+  %1401 = load ptr, ptr %44, align 8, !tbaa !199
+  %1402 = ptrtoint ptr %1401 to i64
+  %1403 = ptrtoint ptr %.pre1382 to i64
+  %1404 = sub i64 %1402, %1403
+  %.not829 = icmp eq i64 %1404, %.pre1383
+  br i1 %.not829, label %1407, label %.thread1177
 
-.thread2048:                                      ; preds = %1169, %1165
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 25, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1178
+.thread1177:                                      ; preds = %1400, %1395
+  %1405 = load ptr, ptr %7, align 8, !tbaa !199
+  %1406 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1405, i64 noundef %1406, ptr noundef %.pre1382, i64 noundef %.pre1383)
+  br label %1415
 
-1173:                                             ; preds = %1169
-  store i64 %1167, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 32), align 8, !tbaa !209
-  %1174 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1175 = trunc nuw i8 %1174 to i1
-  br i1 %1175, label %1176, label %1178
+1407:                                             ; preds = %1400
+  store i64 %1398, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 24), align 8, !tbaa !208
+  %1408 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1409 = trunc nuw i8 %1408 to i1
+  br i1 %1409, label %1410, label %1415
 
-1176:                                             ; preds = %1173
-  %1177 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 25, ptr noundef nonnull %.017912165, i32 noundef %1177, ptr noundef nonnull %94) #21
-  br label %1178
+1410:                                             ; preds = %1407
+  %1411 = load i64, ptr %9, align 8, !tbaa !30
+  %1412 = trunc i64 %1411 to i32
+  %1413 = load ptr, ptr %7, align 8, !tbaa !199
+  %1414 = trunc i64 %.pre1383 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1412, ptr noundef %1413, i32 noundef %1414, ptr noundef %.pre1382) #21
+  br label %1415
 
-1178:                                             ; preds = %.thread2048, %1176, %1173
+1415:                                             ; preds = %.thread1177, %1410, %1407
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #21
   br label %malloc_conf_error.exit.thread
 
-1179:                                             ; preds = %1161
-  %1180 = icmp eq i64 %98, 29
-  br i1 %1180, label %1181, label %.thread2052
+1416:                                             ; preds = %1392, %1391
+  br i1 %1058, label %1417, label %1441
 
-1181:                                             ; preds = %1179
-  %1182 = call i32 @strncmp(ptr noundef nonnull dereferenceable(30) @.str.149, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 29) #25
-  %1183 = icmp eq i32 %1182, 0
-  br i1 %1183, label %1184, label %.thread2052
+1417:                                             ; preds = %1416
+  %1418 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.148, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 25) #25
+  %1419 = icmp eq i32 %1418, 0
+  br i1 %1419, label %1420, label %.thread1185
 
-1184:                                             ; preds = %1181
-  switch i64 %.41780, label %.thread2054 [
-    i64 4, label %1185
-    i64 5, label %1188
+1420:                                             ; preds = %1417
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #21
+  %1421 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1421, align 4, !tbaa !3
+  %1422 = load ptr, ptr %8, align 8, !tbaa !199
+  %1423 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1422, ptr noundef nonnull %45, i32 noundef 0) #21
+  %1424 = load i32, ptr %1421, align 4, !tbaa !3
+  %.not826 = icmp eq i32 %1424, 0
+  %.pre1380 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1381 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not826, label %1425, label %.thread1181
+
+1425:                                             ; preds = %1420
+  %1426 = load ptr, ptr %45, align 8, !tbaa !199
+  %1427 = ptrtoint ptr %1426 to i64
+  %1428 = ptrtoint ptr %.pre1380 to i64
+  %1429 = sub i64 %1427, %1428
+  %.not827 = icmp eq i64 %1429, %.pre1381
+  br i1 %.not827, label %1432, label %.thread1181
+
+.thread1181:                                      ; preds = %1425, %1420
+  %1430 = load ptr, ptr %7, align 8, !tbaa !199
+  %1431 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1430, i64 noundef %1431, ptr noundef %.pre1380, i64 noundef %.pre1381)
+  br label %1440
+
+1432:                                             ; preds = %1425
+  store i64 %1423, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 32), align 8, !tbaa !209
+  %1433 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1434 = trunc nuw i8 %1433 to i1
+  br i1 %1434, label %1435, label %1440
+
+1435:                                             ; preds = %1432
+  %1436 = load i64, ptr %9, align 8, !tbaa !30
+  %1437 = trunc i64 %1436 to i32
+  %1438 = load ptr, ptr %7, align 8, !tbaa !199
+  %1439 = trunc i64 %.pre1381 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1437, ptr noundef %1438, i32 noundef %1439, ptr noundef %.pre1380) #21
+  br label %1440
+
+1440:                                             ; preds = %.thread1181, %1435, %1432
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #21
+  br label %malloc_conf_error.exit.thread
+
+1441:                                             ; preds = %1416
+  %1442 = icmp eq i64 %97, 29
+  br i1 %1442, label %1443, label %.thread1185
+
+1443:                                             ; preds = %1441
+  %1444 = call i32 @strncmp(ptr noundef nonnull dereferenceable(30) @.str.149, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 29) #25
+  %1445 = icmp eq i32 %1444, 0
+  br i1 %1445, label %1446, label %.thread1185
+
+1446:                                             ; preds = %1443
+  %1447 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1360 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %1447, label %.thread1187 [
+    i64 4, label %1448
+    i64 5, label %1451
   ]
 
-1185:                                             ; preds = %1184
-  %1186 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %1187 = icmp eq i32 %1186, 0
-  br i1 %1187, label %1191, label %.thread2054
+1448:                                             ; preds = %1446
+  %1449 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.93, ptr noundef nonnull dereferenceable(1) %.pre1360, i64 noundef 4) #25
+  %1450 = icmp eq i32 %1449, 0
+  br i1 %1450, label %1454, label %.thread1187
 
-1188:                                             ; preds = %1184
-  %1189 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %1190 = icmp eq i32 %1189, 0
-  br i1 %1190, label %1191, label %.thread2054
+1451:                                             ; preds = %1446
+  %1452 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %.pre1360, i64 noundef 5) #25
+  %1453 = icmp eq i32 %1452, 0
+  br i1 %1453, label %1454, label %.thread1187
 
-.thread2054:                                      ; preds = %1184, %1188, %1185
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 29, ptr noundef nonnull %94, i64 noundef %.41780)
+.thread1187:                                      ; preds = %1446, %1451, %1448
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %201, i64 noundef 29, ptr noundef %.pre1360, i64 noundef %1447)
   br label %malloc_conf_error.exit.thread
 
-1191:                                             ; preds = %1188, %1185
-  %storemerge2116 = phi i8 [ 1, %1185 ], [ 0, %1188 ]
-  store i8 %storemerge2116, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 40), align 8, !tbaa !210
-  %1192 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1193 = trunc nuw i8 %1192 to i1
-  br i1 %1193, label %1194, label %malloc_conf_error.exit.thread
+1454:                                             ; preds = %1451, %1448
+  %storemerge1252 = phi i8 [ 1, %1448 ], [ 0, %1451 ]
+  store i8 %storemerge1252, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 40), align 8, !tbaa !210
+  %1455 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1456 = trunc nuw i8 %1455 to i1
+  br i1 %1456, label %1457, label %malloc_conf_error.exit.thread
 
-1194:                                             ; preds = %1191
-  %1195 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 29, ptr noundef nonnull %.017912165, i32 noundef %1195, ptr noundef nonnull %94) #21
+1457:                                             ; preds = %1454
+  %1458 = trunc nuw nsw i64 %1447 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 29, ptr noundef nonnull %201, i32 noundef %1458, ptr noundef nonnull %.pre1360) #21
   br label %malloc_conf_error.exit.thread
 
-.thread2052:                                      ; preds = %1162, %1181, %1179
-  br i1 %690, label %1196, label %1229
+.thread1185:                                      ; preds = %1417, %1443, %1441
+  br i1 %824, label %1459, label %1498
 
-1196:                                             ; preds = %.thread2052
-  %1197 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.150, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 14) #25
-  %1198 = icmp eq i32 %1197, 0
-  br i1 %1198, label %1199, label %1229
+1459:                                             ; preds = %.thread1185
+  %1460 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.150, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 14) #25
+  %1461 = icmp eq i32 %1460, 0
+  br i1 %1461, label %1462, label %1498
 
-1199:                                             ; preds = %1196
-  %1200 = icmp eq i64 %.41780, 2
-  br i1 %1200, label %sub_02128, label %1215
+1462:                                             ; preds = %1459
+  %1463 = load i64, ptr %10, align 8, !tbaa !30
+  %1464 = icmp eq i64 %1463, 2
+  %.pre1377 = load ptr, ptr %8, align 8, !tbaa !199
+  br i1 %1464, label %sub_01263, label %1479
 
-sub_02128:                                        ; preds = %1199
-  %1201 = load i8, ptr %94, align 1
-  %1202 = zext i8 %1201 to i32
-  %1203 = sub nsw i32 45, %1202
-  %.not2172 = icmp eq i8 %1201, 45
-  br i1 %.not2172, label %sub_12129, label %.tail2127
+sub_01263:                                        ; preds = %1462
+  %1465 = load i8, ptr %.pre1377, align 1
+  %1466 = zext i8 %1465 to i32
+  %1467 = sub nsw i32 45, %1466
+  %.not1301 = icmp eq i8 %1465, 45
+  br i1 %.not1301, label %sub_11264, label %.tail1262
 
-sub_12129:                                        ; preds = %sub_02128
-  %1204 = getelementptr inbounds nuw i8, ptr %.049.i, i64 2
-  %1205 = load i8, ptr %1204, align 1
-  %1206 = zext i8 %1205 to i32
-  %1207 = sub nsw i32 49, %1206
-  br label %.tail2127
+sub_11264:                                        ; preds = %sub_01263
+  %1468 = getelementptr inbounds nuw i8, ptr %.pre1377, i64 1
+  %1469 = load i8, ptr %1468, align 1
+  %1470 = zext i8 %1469 to i32
+  %1471 = sub nsw i32 49, %1470
+  br label %.tail1262
 
-.tail2127:                                        ; preds = %sub_02128, %sub_12129
-  %1208 = phi i32 [ %1203, %sub_02128 ], [ %1207, %sub_12129 ]
-  %1209 = icmp eq i32 %1208, 0
-  br i1 %1209, label %1210, label %1215
+.tail1262:                                        ; preds = %sub_01263, %sub_11264
+  %1472 = phi i32 [ %1467, %sub_01263 ], [ %1471, %sub_11264 ]
+  %1473 = icmp eq i32 %1472, 0
+  br i1 %1473, label %1474, label %1479
 
-1210:                                             ; preds = %.tail2127
+1474:                                             ; preds = %.tail1262
   store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 16), align 8, !tbaa !211
-  %1211 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1212 = trunc nuw i8 %1211 to i1
-  br i1 %1212, label %1213, label %malloc_conf_error.exit.thread
+  %1475 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1476 = trunc nuw i8 %1475 to i1
+  br i1 %1476, label %1477, label %malloc_conf_error.exit.thread
 
-1213:                                             ; preds = %1210
-  %1214 = trunc i64 %98 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1214, ptr noundef nonnull %.017912165, i32 noundef 2, ptr noundef nonnull %94) #21
+1477:                                             ; preds = %1474
+  %1478 = trunc i64 %97 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1478, ptr noundef nonnull %201, i32 noundef 2, ptr noundef nonnull %.pre1377) #21
   br label %malloc_conf_error.exit.thread
 
-1215:                                             ; preds = %.tail2127, %1199
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #21
-  %1216 = call zeroext i1 @duckdb_je_fxp_parse(ptr noundef nonnull %45, ptr noundef nonnull %94, ptr noundef nonnull %46) #21
-  br i1 %1216, label %.thread2058, label %1217
-
-1217:                                             ; preds = %1215
-  %1218 = load ptr, ptr %46, align 8, !tbaa !199
-  %1219 = ptrtoint ptr %1218 to i64
-  %1220 = sub i64 %1219, %95
-  %.not825 = icmp eq i64 %1220, %.41780
-  br i1 %.not825, label %1221, label %.thread2058
-
-.thread2058:                                      ; preds = %1217, %1215
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1228
-
-1221:                                             ; preds = %1217
-  %1222 = load i32, ptr %45, align 4, !tbaa !3
-  store i32 %1222, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 16), align 8, !tbaa !211
-  %1223 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1224 = trunc nuw i8 %1223 to i1
-  br i1 %1224, label %1225, label %1228
-
-1225:                                             ; preds = %1221
-  %1226 = trunc i64 %98 to i32
-  %1227 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1226, ptr noundef nonnull %.017912165, i32 noundef %1227, ptr noundef nonnull %94) #21
-  br label %1228
-
-1228:                                             ; preds = %.thread2058, %1225, %1221
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #21
-  br label %malloc_conf_error.exit.thread
-
-1229:                                             ; preds = %1196, %.thread2052
-  br i1 %264, label %1230, label %1248
-
-1230:                                             ; preds = %1229
-  %1231 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.152, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 15) #25
-  %1232 = icmp eq i32 %1231, 0
-  br i1 %1232, label %1233, label %1248
-
-1233:                                             ; preds = %1230
+1479:                                             ; preds = %.tail1262, %1462
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #21
-  %1234 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1234, align 4, !tbaa !3
-  %1235 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %47, i32 noundef 0) #21
-  %1236 = load i32, ptr %1234, align 4, !tbaa !3
-  %.not823 = icmp eq i32 %1236, 0
-  br i1 %.not823, label %1237, label %.thread2062
+  %1480 = call zeroext i1 @duckdb_je_fxp_parse(ptr noundef nonnull %46, ptr noundef %.pre1377, ptr noundef nonnull %47) #21
+  %.pre1378 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1379 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %1480, label %.thread1191, label %1481
 
-1237:                                             ; preds = %1233
-  %1238 = load ptr, ptr %47, align 8, !tbaa !199
-  %1239 = ptrtoint ptr %1238 to i64
-  %1240 = sub i64 %1239, %95
-  %.not824 = icmp eq i64 %1240, %.41780
-  br i1 %.not824, label %1241, label %.thread2062
+1481:                                             ; preds = %1479
+  %1482 = load ptr, ptr %47, align 8, !tbaa !199
+  %1483 = ptrtoint ptr %1482 to i64
+  %1484 = ptrtoint ptr %.pre1378 to i64
+  %1485 = sub i64 %1483, %1484
+  %.not825 = icmp eq i64 %1485, %.pre1379
+  br i1 %.not825, label %1488, label %.thread1191
 
-.thread2062:                                      ; preds = %1237, %1233
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1247
+.thread1191:                                      ; preds = %1481, %1479
+  %1486 = load ptr, ptr %7, align 8, !tbaa !199
+  %1487 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1486, i64 noundef %1487, ptr noundef %.pre1378, i64 noundef %.pre1379)
+  br label %1497
 
-1241:                                             ; preds = %1237
-  store i64 %1235, ptr @duckdb_je_opt_hpa_sec_opts, align 8, !tbaa !212
-  %1242 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1243 = trunc nuw i8 %1242 to i1
-  br i1 %1243, label %1244, label %1247
+1488:                                             ; preds = %1481
+  %1489 = load i32, ptr %46, align 4, !tbaa !3
+  store i32 %1489, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 16), align 8, !tbaa !211
+  %1490 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1491 = trunc nuw i8 %1490 to i1
+  br i1 %1491, label %1492, label %1497
 
-1244:                                             ; preds = %1241
-  %1245 = trunc i64 %98 to i32
-  %1246 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1245, ptr noundef nonnull %.017912165, i32 noundef %1246, ptr noundef nonnull %94) #21
-  br label %1247
+1492:                                             ; preds = %1488
+  %1493 = load i64, ptr %9, align 8, !tbaa !30
+  %1494 = trunc i64 %1493 to i32
+  %1495 = load ptr, ptr %7, align 8, !tbaa !199
+  %1496 = trunc i64 %.pre1379 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1494, ptr noundef %1495, i32 noundef %1496, ptr noundef %.pre1378) #21
+  br label %1497
 
-1247:                                             ; preds = %.thread2062, %1244, %1241
+1497:                                             ; preds = %.thread1191, %1492, %1488
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #21
   br label %malloc_conf_error.exit.thread
 
-1248:                                             ; preds = %1230, %1229
-  br i1 %1018, label %1249, label %1283
+1498:                                             ; preds = %1459, %.thread1185
+  br i1 %204, label %1499, label %1523
 
-1249:                                             ; preds = %1248
-  %1250 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.153, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 17) #25
-  %1251 = icmp eq i32 %1250, 0
-  br i1 %1251, label %1252, label %1266
+1499:                                             ; preds = %1498
+  %1500 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.152, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 15) #25
+  %1501 = icmp eq i32 %1500, 0
+  br i1 %1501, label %1502, label %1523
 
-1252:                                             ; preds = %1249
+1502:                                             ; preds = %1499
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #21
-  %1253 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1253, align 4, !tbaa !3
-  %1254 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %48, i32 noundef 0) #21
-  %1255 = load i32, ptr %1253, align 4, !tbaa !3
-  %.not821 = icmp eq i32 %1255, 0
-  br i1 %.not821, label %1256, label %.thread2066
+  %1503 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1503, align 4, !tbaa !3
+  %1504 = load ptr, ptr %8, align 8, !tbaa !199
+  %1505 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1504, ptr noundef nonnull %48, i32 noundef 0) #21
+  %1506 = load i32, ptr %1503, align 4, !tbaa !3
+  %.not823 = icmp eq i32 %1506, 0
+  %.pre1375 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1376 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not823, label %1507, label %.thread1195
 
-1256:                                             ; preds = %1252
-  %1257 = load ptr, ptr %48, align 8, !tbaa !199
-  %1258 = ptrtoint ptr %1257 to i64
-  %1259 = sub i64 %1258, %95
-  %.not822 = icmp eq i64 %1259, %.41780
-  br i1 %.not822, label %1260, label %.thread2066
+1507:                                             ; preds = %1502
+  %1508 = load ptr, ptr %48, align 8, !tbaa !199
+  %1509 = ptrtoint ptr %1508 to i64
+  %1510 = ptrtoint ptr %.pre1375 to i64
+  %1511 = sub i64 %1509, %1510
+  %.not824 = icmp eq i64 %1511, %.pre1376
+  br i1 %.not824, label %1514, label %.thread1195
 
-.thread2066:                                      ; preds = %1256, %1252
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 17, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1265
+.thread1195:                                      ; preds = %1507, %1502
+  %1512 = load ptr, ptr %7, align 8, !tbaa !199
+  %1513 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1512, i64 noundef %1513, ptr noundef %.pre1375, i64 noundef %.pre1376)
+  br label %1522
 
-1260:                                             ; preds = %1256
-  %.2139 = call i64 @llvm.umax.i64(i64 %1254, i64 4096)
-  store i64 %.2139, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_sec_opts, i64 8), align 8, !tbaa !213
-  %1261 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1262 = trunc nuw i8 %1261 to i1
-  br i1 %1262, label %1263, label %1265
+1514:                                             ; preds = %1507
+  store i64 %1505, ptr @duckdb_je_opt_hpa_sec_opts, align 8, !tbaa !212
+  %1515 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1516 = trunc nuw i8 %1515 to i1
+  br i1 %1516, label %1517, label %1522
 
-1263:                                             ; preds = %1260
-  %1264 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 17, ptr noundef nonnull %.017912165, i32 noundef %1264, ptr noundef nonnull %94) #21
-  br label %1265
+1517:                                             ; preds = %1514
+  %1518 = load i64, ptr %9, align 8, !tbaa !30
+  %1519 = trunc i64 %1518 to i32
+  %1520 = load ptr, ptr %7, align 8, !tbaa !199
+  %1521 = trunc i64 %.pre1376 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1519, ptr noundef %1520, i32 noundef %1521, ptr noundef %.pre1375) #21
+  br label %1522
 
-1265:                                             ; preds = %.thread2066, %1263, %1260
+1522:                                             ; preds = %.thread1195, %1517, %1514
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #21
   br label %malloc_conf_error.exit.thread
 
-1266:                                             ; preds = %1249
-  %1267 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.154, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 17) #25
-  %1268 = icmp eq i32 %1267, 0
-  br i1 %1268, label %1269, label %.thread2075
+1523:                                             ; preds = %1499, %1498
+  br i1 %1238, label %1524, label %1572
 
-1269:                                             ; preds = %1266
+1524:                                             ; preds = %1523
+  %1525 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.153, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 17) #25
+  %1526 = icmp eq i32 %1525, 0
+  br i1 %1526, label %1527, label %1548
+
+1527:                                             ; preds = %1524
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #21
-  %1270 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1270, align 4, !tbaa !3
-  %1271 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %49, i32 noundef 0) #21
-  %1272 = load i32, ptr %1270, align 4, !tbaa !3
-  %.not819 = icmp eq i32 %1272, 0
-  br i1 %.not819, label %1273, label %.thread2071
+  %1528 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1528, align 4, !tbaa !3
+  %1529 = load ptr, ptr %8, align 8, !tbaa !199
+  %1530 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1529, ptr noundef nonnull %49, i32 noundef 0) #21
+  %1531 = load i32, ptr %1528, align 4, !tbaa !3
+  %.not821 = icmp eq i32 %1531, 0
+  %.pre1373 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1374 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not821, label %1532, label %.thread1199
 
-1273:                                             ; preds = %1269
-  %1274 = load ptr, ptr %49, align 8, !tbaa !199
-  %1275 = ptrtoint ptr %1274 to i64
-  %1276 = sub i64 %1275, %95
-  %.not820 = icmp eq i64 %1276, %.41780
-  br i1 %.not820, label %1277, label %.thread2071
+1532:                                             ; preds = %1527
+  %1533 = load ptr, ptr %49, align 8, !tbaa !199
+  %1534 = ptrtoint ptr %1533 to i64
+  %1535 = ptrtoint ptr %.pre1373 to i64
+  %1536 = sub i64 %1534, %1535
+  %.not822 = icmp eq i64 %1536, %.pre1374
+  br i1 %.not822, label %1539, label %.thread1199
 
-.thread2071:                                      ; preds = %1273, %1269
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 17, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1282
+.thread1199:                                      ; preds = %1532, %1527
+  %1537 = load ptr, ptr %7, align 8, !tbaa !199
+  %1538 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1537, i64 noundef %1538, ptr noundef %.pre1373, i64 noundef %.pre1374)
+  br label %1547
 
-1277:                                             ; preds = %1273
-  %.2140 = call i64 @llvm.umax.i64(i64 %1271, i64 4096)
-  store i64 %.2140, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_sec_opts, i64 16), align 8, !tbaa !214
-  %1278 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1279 = trunc nuw i8 %1278 to i1
-  br i1 %1279, label %1280, label %1282
+1539:                                             ; preds = %1532
+  %.1274 = call i64 @llvm.umax.i64(i64 %1530, i64 4096)
+  store i64 %.1274, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_sec_opts, i64 8), align 8, !tbaa !213
+  %1540 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1541 = trunc nuw i8 %1540 to i1
+  br i1 %1541, label %1542, label %1547
 
-1280:                                             ; preds = %1277
-  %1281 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 17, ptr noundef nonnull %.017912165, i32 noundef %1281, ptr noundef nonnull %94) #21
-  br label %1282
+1542:                                             ; preds = %1539
+  %1543 = load i64, ptr %9, align 8, !tbaa !30
+  %1544 = trunc i64 %1543 to i32
+  %1545 = load ptr, ptr %7, align 8, !tbaa !199
+  %1546 = trunc i64 %.pre1374 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1544, ptr noundef %1545, i32 noundef %1546, ptr noundef %.pre1373) #21
+  br label %1547
 
-1282:                                             ; preds = %.thread2071, %1280, %1277
+1547:                                             ; preds = %.thread1199, %1542, %1539
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #21
   br label %malloc_conf_error.exit.thread
 
-1283:                                             ; preds = %1248
-  br i1 %889, label %1284, label %.thread2075
+1548:                                             ; preds = %1524
+  %1549 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.154, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 17) #25
+  %1550 = icmp eq i32 %1549, 0
+  br i1 %1550, label %1551, label %.thread1208
 
-1284:                                             ; preds = %1283
-  %1285 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.155, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 25) #25
-  %1286 = icmp eq i32 %1285, 0
-  br i1 %1286, label %1287, label %.thread2075
-
-1287:                                             ; preds = %1284
+1551:                                             ; preds = %1548
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #21
-  %1288 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1288, align 4, !tbaa !3
-  %1289 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %50, i32 noundef 0) #21
-  %1290 = load i32, ptr %1288, align 4, !tbaa !3
-  %.not817 = icmp eq i32 %1290, 0
-  br i1 %.not817, label %1291, label %.thread2076
+  %1552 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1552, align 4, !tbaa !3
+  %1553 = load ptr, ptr %8, align 8, !tbaa !199
+  %1554 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1553, ptr noundef nonnull %50, i32 noundef 0) #21
+  %1555 = load i32, ptr %1552, align 4, !tbaa !3
+  %.not819 = icmp eq i32 %1555, 0
+  %.pre1371 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1372 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not819, label %1556, label %.thread1204
 
-1291:                                             ; preds = %1287
-  %1292 = load ptr, ptr %50, align 8, !tbaa !199
-  %1293 = ptrtoint ptr %1292 to i64
-  %1294 = sub i64 %1293, %95
-  %.not818 = icmp eq i64 %1294, %.41780
-  br i1 %.not818, label %1295, label %.thread2076
+1556:                                             ; preds = %1551
+  %1557 = load ptr, ptr %50, align 8, !tbaa !199
+  %1558 = ptrtoint ptr %1557 to i64
+  %1559 = ptrtoint ptr %.pre1371 to i64
+  %1560 = sub i64 %1558, %1559
+  %.not820 = icmp eq i64 %1560, %.pre1372
+  br i1 %.not820, label %1563, label %.thread1204
 
-.thread2076:                                      ; preds = %1291, %1287
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 25, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1300
+.thread1204:                                      ; preds = %1556, %1551
+  %1561 = load ptr, ptr %7, align 8, !tbaa !199
+  %1562 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1561, i64 noundef %1562, ptr noundef %.pre1371, i64 noundef %.pre1372)
+  br label %1571
 
-1295:                                             ; preds = %1291
-  %.2141 = call i64 @llvm.umax.i64(i64 %1289, i64 4096)
-  store i64 %.2141, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_sec_opts, i64 24), align 8, !tbaa !215
-  %1296 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1297 = trunc nuw i8 %1296 to i1
-  br i1 %1297, label %1298, label %1300
+1563:                                             ; preds = %1556
+  %.1275 = call i64 @llvm.umax.i64(i64 %1554, i64 4096)
+  store i64 %.1275, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_sec_opts, i64 16), align 8, !tbaa !214
+  %1564 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1565 = trunc nuw i8 %1564 to i1
+  br i1 %1565, label %1566, label %1571
 
-1298:                                             ; preds = %1295
-  %1299 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 25, ptr noundef nonnull %.017912165, i32 noundef %1299, ptr noundef nonnull %94) #21
-  br label %1300
+1566:                                             ; preds = %1563
+  %1567 = load i64, ptr %9, align 8, !tbaa !30
+  %1568 = trunc i64 %1567 to i32
+  %1569 = load ptr, ptr %7, align 8, !tbaa !199
+  %1570 = trunc i64 %.pre1372 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1568, ptr noundef %1569, i32 noundef %1570, ptr noundef %.pre1371) #21
+  br label %1571
 
-1300:                                             ; preds = %.thread2076, %1298, %1295
+1571:                                             ; preds = %.thread1204, %1566, %1563
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #21
   br label %malloc_conf_error.exit.thread
 
-.thread2075:                                      ; preds = %1266, %1284, %1283
-  br i1 %1006, label %1301, label %1319
+1572:                                             ; preds = %1523
+  br i1 %1058, label %1573, label %.thread1208
 
-1301:                                             ; preds = %.thread2075
-  %1302 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.156, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 24) #25
-  %1303 = icmp eq i32 %1302, 0
-  br i1 %1303, label %1304, label %1319
+1573:                                             ; preds = %1572
+  %1574 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.155, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 25) #25
+  %1575 = icmp eq i32 %1574, 0
+  br i1 %1575, label %1576, label %.thread1208
 
-1304:                                             ; preds = %1301
+1576:                                             ; preds = %1573
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #21
-  %1305 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1305, align 4, !tbaa !3
-  %1306 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %51, i32 noundef 0) #21
-  %1307 = load i32, ptr %1305, align 4, !tbaa !3
-  %.not815 = icmp eq i32 %1307, 0
-  br i1 %.not815, label %1308, label %.thread2080
+  %1577 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1577, align 4, !tbaa !3
+  %1578 = load ptr, ptr %8, align 8, !tbaa !199
+  %1579 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1578, ptr noundef nonnull %51, i32 noundef 0) #21
+  %1580 = load i32, ptr %1577, align 4, !tbaa !3
+  %.not817 = icmp eq i32 %1580, 0
+  %.pre1361 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1362 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not817, label %1581, label %.thread1209
 
-1308:                                             ; preds = %1304
-  %1309 = load ptr, ptr %51, align 8, !tbaa !199
-  %1310 = ptrtoint ptr %1309 to i64
-  %1311 = sub i64 %1310, %95
-  %.not816 = icmp eq i64 %1311, %.41780
-  br i1 %.not816, label %1312, label %.thread2080
+1581:                                             ; preds = %1576
+  %1582 = load ptr, ptr %51, align 8, !tbaa !199
+  %1583 = ptrtoint ptr %1582 to i64
+  %1584 = ptrtoint ptr %.pre1361 to i64
+  %1585 = sub i64 %1583, %1584
+  %.not818 = icmp eq i64 %1585, %.pre1362
+  br i1 %.not818, label %1588, label %.thread1209
 
-.thread2080:                                      ; preds = %1308, %1304
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1318
+.thread1209:                                      ; preds = %1581, %1576
+  %1586 = load ptr, ptr %7, align 8, !tbaa !199
+  %1587 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1586, i64 noundef %1587, ptr noundef %.pre1361, i64 noundef %.pre1362)
+  br label %1596
 
-1312:                                             ; preds = %1308
-  %.2142 = call i64 @llvm.umin.i64(i64 %1306, i64 512)
-  store i64 %.2142, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_sec_opts, i64 32), align 8, !tbaa !216
-  %1313 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1314 = trunc nuw i8 %1313 to i1
-  br i1 %1314, label %1315, label %1318
+1588:                                             ; preds = %1581
+  %.1276 = call i64 @llvm.umax.i64(i64 %1579, i64 4096)
+  store i64 %.1276, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_sec_opts, i64 24), align 8, !tbaa !215
+  %1589 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1590 = trunc nuw i8 %1589 to i1
+  br i1 %1590, label %1591, label %1596
 
-1315:                                             ; preds = %1312
-  %1316 = trunc i64 %98 to i32
-  %1317 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1316, ptr noundef nonnull %.017912165, i32 noundef %1317, ptr noundef nonnull %94) #21
-  br label %1318
+1591:                                             ; preds = %1588
+  %1592 = load i64, ptr %9, align 8, !tbaa !30
+  %1593 = trunc i64 %1592 to i32
+  %1594 = load ptr, ptr %7, align 8, !tbaa !199
+  %1595 = trunc i64 %.pre1362 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1593, ptr noundef %1594, i32 noundef %1595, ptr noundef %.pre1361) #21
+  br label %1596
 
-1318:                                             ; preds = %.thread2080, %1315, %1312
+1596:                                             ; preds = %.thread1209, %1591, %1588
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #21
   br label %malloc_conf_error.exit.thread
 
-1319:                                             ; preds = %1301, %.thread2075
-  br i1 %263, label %1320, label %1350
+.thread1208:                                      ; preds = %1548, %1573, %1572
+  br i1 %1223, label %1597, label %1621
 
-1320:                                             ; preds = %1319
-  %1321 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.157, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 10) #25
-  %1322 = icmp eq i32 %1321, 0
-  br i1 %1322, label %1323, label %1350
+1597:                                             ; preds = %.thread1208
+  %1598 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.156, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 24) #25
+  %1599 = icmp eq i32 %1598, 0
+  br i1 %1599, label %1600, label %1621
 
-1323:                                             ; preds = %1320
-  %1324 = icmp eq i64 %.41780, 7
-  br i1 %1324, label %1325, label %1333
-
-1325:                                             ; preds = %1323
-  %1326 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.104, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 7) #25
-  %1327 = icmp eq i32 %1326, 0
-  br i1 %1327, label %1328, label %1333
-
-1328:                                             ; preds = %1325
-  call void @duckdb_je_sc_data_init(ptr noundef %0) #21
-  %1329 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1330 = trunc nuw i8 %1329 to i1
-  br i1 %1330, label %1331, label %malloc_conf_error.exit.thread
-
-1331:                                             ; preds = %1328
-  %1332 = trunc i64 %98 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1332, ptr noundef nonnull %.017912165, i32 noundef 7, ptr noundef nonnull %94) #21
-  br label %malloc_conf_error.exit.thread
-
-1333:                                             ; preds = %1325, %1323
+1600:                                             ; preds = %1597
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #21
-  store ptr %94, ptr %52, align 8, !tbaa !199
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #21
-  store i64 %.41780, ptr %53, align 8, !tbaa !30
-  br label %1334
+  %1601 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1601, align 4, !tbaa !3
+  %1602 = load ptr, ptr %8, align 8, !tbaa !199
+  %1603 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1602, ptr noundef nonnull %52, i32 noundef 0) #21
+  %1604 = load i32, ptr %1601, align 4, !tbaa !3
+  %.not815 = icmp eq i32 %1604, 0
+  %.pre1369 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1370 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not815, label %1605, label %.thread1213
 
-1334:                                             ; preds = %1336, %1333
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #21
-  %1335 = call zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef nonnull %52, ptr noundef nonnull %53, ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56) #21
-  br i1 %1335, label %.thread2088, label %1336
+1605:                                             ; preds = %1600
+  %1606 = load ptr, ptr %52, align 8, !tbaa !199
+  %1607 = ptrtoint ptr %1606 to i64
+  %1608 = ptrtoint ptr %.pre1369 to i64
+  %1609 = sub i64 %1607, %1608
+  %.not816 = icmp eq i64 %1609, %.pre1370
+  br i1 %.not816, label %1612, label %.thread1213
 
-.thread2088:                                      ; preds = %1334
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.158, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #21
-  br label %1349
+.thread1213:                                      ; preds = %1605, %1600
+  %1610 = load ptr, ptr %7, align 8, !tbaa !199
+  %1611 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1610, i64 noundef %1611, ptr noundef %.pre1369, i64 noundef %.pre1370)
+  br label %1620
 
-1336:                                             ; preds = %1334
-  %1337 = load i64, ptr %54, align 8, !tbaa !30
-  %1338 = load i64, ptr %55, align 8, !tbaa !30
-  %1339 = load i64, ptr %56, align 8, !tbaa !30
-  %1340 = trunc i64 %1339 to i32
-  call void @duckdb_je_sc_data_update_slab_size(ptr noundef %0, i64 noundef %1337, i64 noundef %1338, i32 noundef %1340) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #21
-  %1341 = load i64, ptr %53, align 8
-  %1342 = icmp eq i64 %1341, 0
-  br i1 %1342, label %1343, label %1334
+1612:                                             ; preds = %1605
+  %.1277 = call i64 @llvm.umin.i64(i64 %1603, i64 512)
+  store i64 %.1277, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_sec_opts, i64 32), align 8, !tbaa !216
+  %1613 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1614 = trunc nuw i8 %1613 to i1
+  br i1 %1614, label %1615, label %1620
 
-1343:                                             ; preds = %1336
-  %1344 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1345 = trunc nuw i8 %1344 to i1
-  %or.cond307 = select i1 %.not1795, i1 %1345, i1 false
-  br i1 %or.cond307, label %1346, label %1349
+1615:                                             ; preds = %1612
+  %1616 = load i64, ptr %9, align 8, !tbaa !30
+  %1617 = trunc i64 %1616 to i32
+  %1618 = load ptr, ptr %7, align 8, !tbaa !199
+  %1619 = trunc i64 %.pre1370 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1617, ptr noundef %1618, i32 noundef %1619, ptr noundef %.pre1369) #21
+  br label %1620
 
-1346:                                             ; preds = %1343
-  %1347 = trunc i64 %98 to i32
-  %1348 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1347, ptr noundef nonnull %.017912165, i32 noundef %1348, ptr noundef nonnull %94) #21
-  br label %1349
-
-1349:                                             ; preds = %.thread2088, %1346, %1343
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #21
+1620:                                             ; preds = %.thread1213, %1615, %1612
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #21
   br label %malloc_conf_error.exit.thread
 
-1350:                                             ; preds = %1320, %1319
-  br i1 %1100, label %sub_02132, label %1371
+1621:                                             ; preds = %1597, %.thread1208
+  br i1 %203, label %1622, label %1666
 
-sub_02132:                                        ; preds = %1350
-  %1351 = load i8, ptr %.017912165, align 1
-  %1352 = zext i8 %1351 to i32
-  %1353 = sub nsw i32 116, %1352
-  %.not2170 = icmp eq i8 %1351, 116
-  br i1 %.not2170, label %sub_12133, label %.tail2131
+1622:                                             ; preds = %1621
+  %1623 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.157, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 10) #25
+  %1624 = icmp eq i32 %1623, 0
+  br i1 %1624, label %1625, label %1666
 
-sub_12133:                                        ; preds = %sub_02132
-  %1354 = getelementptr inbounds nuw i8, ptr %.017912165, i64 1
-  %1355 = load i8, ptr %1354, align 1
-  %1356 = zext i8 %1355 to i32
-  %1357 = sub nsw i32 104, %1356
-  %.not2171 = icmp eq i8 %1355, 104
-  br i1 %.not2171, label %sub_22134, label %.tail2131
+1625:                                             ; preds = %1622
+  %1626 = load i64, ptr %10, align 8, !tbaa !30
+  %1627 = icmp eq i64 %1626, 7
+  %.pre1368 = load ptr, ptr %8, align 8, !tbaa !199
+  br i1 %1627, label %1628, label %1641
 
-sub_22134:                                        ; preds = %sub_12133
-  %1358 = getelementptr inbounds nuw i8, ptr %.017912165, i64 2
-  %1359 = load i8, ptr %1358, align 1
-  %1360 = zext i8 %1359 to i32
-  %1361 = sub nsw i32 112, %1360
-  br label %.tail2131
+1628:                                             ; preds = %1625
+  %1629 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.104, ptr noundef nonnull dereferenceable(1) %.pre1368, i64 noundef 7) #25
+  %1630 = icmp eq i32 %1629, 0
+  br i1 %1630, label %1631, label %1641
 
-.tail2131:                                        ; preds = %sub_02132, %sub_12133, %sub_22134
-  %1362 = phi i32 [ %1353, %sub_02132 ], [ %1357, %sub_12133 ], [ %1361, %sub_22134 ]
-  %1363 = icmp eq i32 %1362, 0
-  br i1 %1363, label %.preheader2147, label %1371
+1631:                                             ; preds = %1628
+  call void @duckdb_je_sc_data_init(ptr noundef %0) #21
+  %1632 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1633 = trunc nuw i8 %1632 to i1
+  br i1 %1633, label %1634, label %malloc_conf_error.exit.thread
 
-.preheader2147:                                   ; preds = %.tail2131, %1370
-  %indvars.iv = phi i64 [ %indvars.iv.next, %1370 ], [ 0, %.tail2131 ]
-  %1364 = getelementptr inbounds nuw [0 x ptr], ptr @duckdb_je_thp_mode_names, i64 0, i64 %indvars.iv
-  %1365 = load ptr, ptr %1364, align 8, !tbaa !199
-  %1366 = call i32 @strncmp(ptr noundef %1365, ptr noundef nonnull %94, i64 noundef %.41780) #25
-  %1367 = icmp eq i32 %1366, 0
-  br i1 %1367, label %1368, label %1370
-
-1368:                                             ; preds = %.preheader2147
-  %1369 = trunc nuw nsw i64 %indvars.iv to i32
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.160, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  store i32 %1369, ptr @duckdb_je_opt_thp, align 4, !tbaa !3
+1634:                                             ; preds = %1631
+  %1635 = load i64, ptr %9, align 8, !tbaa !30
+  %1636 = trunc i64 %1635 to i32
+  %1637 = load ptr, ptr %7, align 8, !tbaa !199
+  %1638 = load i64, ptr %10, align 8, !tbaa !30
+  %1639 = trunc i64 %1638 to i32
+  %1640 = load ptr, ptr %8, align 8, !tbaa !199
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1636, ptr noundef %1637, i32 noundef %1639, ptr noundef %1640) #21
   br label %malloc_conf_error.exit.thread
 
-1370:                                             ; preds = %.preheader2147
+1641:                                             ; preds = %1628, %1625
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #21
+  store ptr %.pre1368, ptr %53, align 8, !tbaa !199
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #21
+  store i64 %1626, ptr %54, align 8, !tbaa !30
+  br label %1642
+
+1642:                                             ; preds = %1648, %1641
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #21
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #21
+  %1643 = call zeroext i1 @duckdb_je_multi_setting_parse_next(ptr noundef nonnull %53, ptr noundef nonnull %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57) #21
+  br i1 %1643, label %.thread1221, label %1648
+
+.thread1221:                                      ; preds = %1642
+  %1644 = load ptr, ptr %7, align 8, !tbaa !199
+  %1645 = load i64, ptr %9, align 8, !tbaa !30
+  %1646 = load ptr, ptr %8, align 8, !tbaa !199
+  %1647 = load i64, ptr %10, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.158, ptr noundef %1644, i64 noundef %1645, ptr noundef %1646, i64 noundef %1647)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #21
+  br label %1665
+
+1648:                                             ; preds = %1642
+  %1649 = load i64, ptr %55, align 8, !tbaa !30
+  %1650 = load i64, ptr %56, align 8, !tbaa !30
+  %1651 = load i64, ptr %57, align 8, !tbaa !30
+  %1652 = trunc i64 %1651 to i32
+  call void @duckdb_je_sc_data_update_slab_size(ptr noundef %0, i64 noundef %1649, i64 noundef %1650, i32 noundef %1652) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #21
+  %1653 = load i64, ptr %54, align 8
+  %1654 = icmp eq i64 %1653, 0
+  br i1 %1654, label %1655, label %1642
+
+1655:                                             ; preds = %1648
+  %1656 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1657 = trunc nuw i8 %1656 to i1
+  %or.cond307 = select i1 %.not937, i1 %1657, i1 false
+  br i1 %or.cond307, label %1658, label %1665
+
+1658:                                             ; preds = %1655
+  %1659 = load i64, ptr %9, align 8, !tbaa !30
+  %1660 = trunc i64 %1659 to i32
+  %1661 = load ptr, ptr %7, align 8, !tbaa !199
+  %1662 = load i64, ptr %10, align 8, !tbaa !30
+  %1663 = trunc i64 %1662 to i32
+  %1664 = load ptr, ptr %8, align 8, !tbaa !199
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1660, ptr noundef %1661, i32 noundef %1663, ptr noundef %1664) #21
+  br label %1665
+
+1665:                                             ; preds = %.thread1221, %1658, %1655
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #21
+  br label %malloc_conf_error.exit.thread
+
+1666:                                             ; preds = %1622, %1621
+  br i1 %1336, label %sub_01267, label %1690
+
+sub_01267:                                        ; preds = %1666
+  %1667 = load i8, ptr %201, align 1
+  %1668 = zext i8 %1667 to i32
+  %1669 = sub nsw i32 116, %1668
+  %.not1299 = icmp eq i8 %1667, 116
+  br i1 %.not1299, label %sub_11268, label %.tail1266
+
+sub_11268:                                        ; preds = %sub_01267
+  %1670 = getelementptr inbounds nuw i8, ptr %201, i64 1
+  %1671 = load i8, ptr %1670, align 1
+  %1672 = zext i8 %1671 to i32
+  %1673 = sub nsw i32 104, %1672
+  %.not1300 = icmp eq i8 %1671, 104
+  br i1 %.not1300, label %sub_21269, label %.tail1266
+
+sub_21269:                                        ; preds = %sub_11268
+  %1674 = getelementptr inbounds nuw i8, ptr %201, i64 2
+  %1675 = load i8, ptr %1674, align 1
+  %1676 = zext i8 %1675 to i32
+  %1677 = sub nsw i32 112, %1676
+  br label %.tail1266
+
+.tail1266:                                        ; preds = %sub_01267, %sub_11268, %sub_21269
+  %1678 = phi i32 [ %1669, %sub_01267 ], [ %1673, %sub_11268 ], [ %1677, %sub_21269 ]
+  %1679 = icmp eq i32 %1678, 0
+  br i1 %1679, label %.preheader1280, label %1690
+
+.preheader1280:                                   ; preds = %.tail1266
+  %1680 = load ptr, ptr %8, align 8, !tbaa !199
+  %1681 = load i64, ptr %10, align 8, !tbaa !30
+  br label %1682
+
+1682:                                             ; preds = %.preheader1280, %1689
+  %indvars.iv = phi i64 [ 0, %.preheader1280 ], [ %indvars.iv.next, %1689 ]
+  %1683 = getelementptr inbounds nuw [0 x ptr], ptr @duckdb_je_thp_mode_names, i64 0, i64 %indvars.iv
+  %1684 = load ptr, ptr %1683, align 8, !tbaa !199
+  %1685 = call i32 @strncmp(ptr noundef %1684, ptr noundef %1680, i64 noundef %1681) #25
+  %1686 = icmp eq i32 %1685, 0
+  br i1 %1686, label %1687, label %1689
+
+1687:                                             ; preds = %1682
+  %1688 = trunc nuw nsw i64 %indvars.iv to i32
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.160, ptr noundef nonnull %201, i64 noundef %97, ptr noundef %1680, i64 noundef %1681)
+  store i32 %1688, ptr @duckdb_je_opt_thp, align 4, !tbaa !3
+  br label %malloc_conf_error.exit.thread
+
+1689:                                             ; preds = %1682
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %.critedge889, label %.preheader2147
+  br i1 %exitcond, label %.critedge889, label %1682
 
-.critedge889:                                     ; preds = %1370
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
+.critedge889:                                     ; preds = %1689
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %201, i64 noundef %97, ptr noundef %1680, i64 noundef %1681)
   br label %malloc_conf_error.exit.thread
 
-1371:                                             ; preds = %.tail2131, %1350
-  br i1 %126, label %1372, label %1390
+1690:                                             ; preds = %.tail1266, %1666
+  br i1 %98, label %1691, label %1710
 
-1372:                                             ; preds = %1371
-  %1373 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.161, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 12) #25
-  %1374 = icmp eq i32 %1373, 0
-  br i1 %1374, label %1375, label %1390
+1691:                                             ; preds = %1690
+  %1692 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.161, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 12) #25
+  %1693 = icmp eq i32 %1692, 0
+  br i1 %1693, label %1694, label %1710
 
-1375:                                             ; preds = %1372
-  switch i64 %.41780, label %.thread2095 [
-    i64 5, label %1376
-    i64 4, label %1379
+1694:                                             ; preds = %1691
+  %1695 = load i64, ptr %10, align 8, !tbaa !30
+  %.pre1367 = load ptr, ptr %8, align 8, !tbaa !199
+  switch i64 %1695, label %.thread1228 [
+    i64 5, label %1696
+    i64 4, label %1699
   ]
 
-1376:                                             ; preds = %1375
-  %1377 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %1378 = icmp eq i32 %1377, 0
-  br i1 %1378, label %1385, label %1382
+1696:                                             ; preds = %1694
+  %1697 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %.pre1367, i64 noundef 5) #25
+  %1698 = icmp eq i32 %1697, 0
+  br i1 %1698, label %1705, label %1702
 
-1379:                                             ; preds = %1375
-  %1380 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #25
-  %1381 = icmp eq i32 %1380, 0
-  br i1 %1381, label %1385, label %.thread2095
+1699:                                             ; preds = %1694
+  %1700 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %.pre1367, i64 noundef 4) #25
+  %1701 = icmp eq i32 %1700, 0
+  br i1 %1701, label %1705, label %.thread1228
 
-1382:                                             ; preds = %1376
-  %1383 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 5) #25
-  %1384 = icmp eq i32 %1383, 0
-  br i1 %1384, label %1385, label %.thread2095
+1702:                                             ; preds = %1696
+  %1703 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %.pre1367, i64 noundef 5) #25
+  %1704 = icmp eq i32 %1703, 0
+  br i1 %1704, label %1705, label %.thread1228
 
-.thread2095:                                      ; preds = %1375, %1382, %1379
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef 12, ptr noundef nonnull %94, i64 noundef %.41780)
+.thread1228:                                      ; preds = %1694, %1702, %1699
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %201, i64 noundef 12, ptr noundef %.pre1367, i64 noundef %1695)
   br label %malloc_conf_error.exit.thread
 
-1385:                                             ; preds = %1382, %1379, %1376
-  %.sink2219 = phi i32 [ 0, %1376 ], [ 1, %1379 ], [ 2, %1382 ]
-  store i32 %.sink2219, ptr @duckdb_je_opt_zero_realloc_action, align 4, !tbaa !3
-  %1386 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1387 = trunc nuw i8 %1386 to i1
-  br i1 %1387, label %1388, label %malloc_conf_error.exit.thread
+1705:                                             ; preds = %1702, %1699, %1696
+  %.sink1429 = phi i32 [ 0, %1696 ], [ 1, %1699 ], [ 2, %1702 ]
+  store i32 %.sink1429, ptr @duckdb_je_opt_zero_realloc_action, align 4, !tbaa !3
+  %1706 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1707 = trunc nuw i8 %1706 to i1
+  br i1 %1707, label %1708, label %malloc_conf_error.exit.thread
 
-1388:                                             ; preds = %1385
-  %1389 = trunc nuw nsw i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 12, ptr noundef nonnull %.017912165, i32 noundef %1389, ptr noundef nonnull %94) #21
+1708:                                             ; preds = %1705
+  %1709 = trunc nuw nsw i64 %1695 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 12, ptr noundef nonnull %201, i32 noundef %1709, ptr noundef nonnull %.pre1367) #21
   br label %malloc_conf_error.exit.thread
 
-1390:                                             ; preds = %1372, %1371
-  br i1 %264, label %1391, label %1427
+1710:                                             ; preds = %1691, %1690
+  br i1 %204, label %1711, label %1759
 
-1391:                                             ; preds = %1390
-  %1392 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.162, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 15) #25
-  %1393 = icmp eq i32 %1392, 0
-  br i1 %1393, label %1394, label %1409
+1711:                                             ; preds = %1710
+  %1712 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.162, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 15) #25
+  %1713 = icmp eq i32 %1712, 0
+  br i1 %1713, label %1714, label %1735
 
-1394:                                             ; preds = %1391
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #21
-  %1395 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1395, align 4, !tbaa !3
-  %1396 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %57, i32 noundef 0) #21
-  %1397 = load i32, ptr %1395, align 4, !tbaa !3
-  %.not811 = icmp eq i32 %1397, 0
-  br i1 %.not811, label %1398, label %.thread2099
-
-1398:                                             ; preds = %1394
-  %1399 = load ptr, ptr %57, align 8, !tbaa !199
-  %1400 = ptrtoint ptr %1399 to i64
-  %1401 = sub i64 %1400, %95
-  %.not812 = icmp eq i64 %1401, %.41780
-  br i1 %.not812, label %1402, label %.thread2099
-
-.thread2099:                                      ; preds = %1398, %1394
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1408
-
-1402:                                             ; preds = %1398
-  store i64 %1396, ptr @duckdb_je_opt_san_guard_small, align 8, !tbaa !30
-  %1403 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1404 = trunc nuw i8 %1403 to i1
-  br i1 %1404, label %1405, label %1408
-
-1405:                                             ; preds = %1402
-  %1406 = trunc i64 %98 to i32
-  %1407 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1406, ptr noundef nonnull %.017912165, i32 noundef %1407, ptr noundef nonnull %94) #21
-  br label %1408
-
-1408:                                             ; preds = %.thread2099, %1405, %1402
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #21
-  br label %malloc_conf_error.exit.thread
-
-1409:                                             ; preds = %1391
-  %1410 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.163, ptr noundef nonnull dereferenceable(1) %.017912165, i64 noundef 15) #25
-  %1411 = icmp eq i32 %1410, 0
-  br i1 %1411, label %1412, label %1427
-
-1412:                                             ; preds = %1409
+1714:                                             ; preds = %1711
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #21
-  %1413 = tail call ptr @__errno_location() #23
-  store i32 0, ptr %1413, align 4, !tbaa !3
-  %1414 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef nonnull %94, ptr noundef nonnull %58, i32 noundef 0) #21
-  %1415 = load i32, ptr %1413, align 4, !tbaa !3
-  %.not809 = icmp eq i32 %1415, 0
-  br i1 %.not809, label %1416, label %.thread2104
+  %1715 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1715, align 4, !tbaa !3
+  %1716 = load ptr, ptr %8, align 8, !tbaa !199
+  %1717 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1716, ptr noundef nonnull %58, i32 noundef 0) #21
+  %1718 = load i32, ptr %1715, align 4, !tbaa !3
+  %.not811 = icmp eq i32 %1718, 0
+  %.pre1365 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1366 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not811, label %1719, label %.thread1232
 
-1416:                                             ; preds = %1412
-  %1417 = load ptr, ptr %58, align 8, !tbaa !199
-  %1418 = ptrtoint ptr %1417 to i64
-  %1419 = sub i64 %1418, %95
-  %.not810 = icmp eq i64 %1419, %.41780
-  br i1 %.not810, label %1420, label %.thread2104
+1719:                                             ; preds = %1714
+  %1720 = load ptr, ptr %58, align 8, !tbaa !199
+  %1721 = ptrtoint ptr %1720 to i64
+  %1722 = ptrtoint ptr %.pre1365 to i64
+  %1723 = sub i64 %1721, %1722
+  %.not812 = icmp eq i64 %1723, %.pre1366
+  br i1 %.not812, label %1726, label %.thread1232
 
-.thread2104:                                      ; preds = %1416, %1412
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
-  br label %1426
+.thread1232:                                      ; preds = %1719, %1714
+  %1724 = load ptr, ptr %7, align 8, !tbaa !199
+  %1725 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1724, i64 noundef %1725, ptr noundef %.pre1365, i64 noundef %.pre1366)
+  br label %1734
 
-1420:                                             ; preds = %1416
-  store i64 %1414, ptr @duckdb_je_opt_san_guard_large, align 8, !tbaa !30
-  %1421 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
-  %1422 = trunc nuw i8 %1421 to i1
-  br i1 %1422, label %1423, label %1426
+1726:                                             ; preds = %1719
+  store i64 %1717, ptr @duckdb_je_opt_san_guard_small, align 8, !tbaa !30
+  %1727 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1728 = trunc nuw i8 %1727 to i1
+  br i1 %1728, label %1729, label %1734
 
-1423:                                             ; preds = %1420
-  %1424 = trunc i64 %98 to i32
-  %1425 = trunc i64 %.41780 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1424, ptr noundef nonnull %.017912165, i32 noundef %1425, ptr noundef nonnull %94) #21
-  br label %1426
+1729:                                             ; preds = %1726
+  %1730 = load i64, ptr %9, align 8, !tbaa !30
+  %1731 = trunc i64 %1730 to i32
+  %1732 = load ptr, ptr %7, align 8, !tbaa !199
+  %1733 = trunc i64 %.pre1366 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1731, ptr noundef %1732, i32 noundef %1733, ptr noundef %.pre1365) #21
+  br label %1734
 
-1426:                                             ; preds = %.thread2104, %1423, %1420
+1734:                                             ; preds = %.thread1232, %1729, %1726
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #21
   br label %malloc_conf_error.exit.thread
 
-1427:                                             ; preds = %1390, %1409
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.164, ptr noundef nonnull %.017912165, i64 noundef %98, ptr noundef nonnull %94, i64 noundef %.41780)
+1735:                                             ; preds = %1711
+  %1736 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.163, ptr noundef nonnull dereferenceable(1) %201, i64 noundef 15) #25
+  %1737 = icmp eq i32 %1736, 0
+  br i1 %1737, label %1738, label %1759
+
+1738:                                             ; preds = %1735
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #21
+  %1739 = tail call ptr @__errno_location() #23
+  store i32 0, ptr %1739, align 4, !tbaa !3
+  %1740 = load ptr, ptr %8, align 8, !tbaa !199
+  %1741 = call i64 @duckdb_je_malloc_strtoumax(ptr noundef %1740, ptr noundef nonnull %59, i32 noundef 0) #21
+  %1742 = load i32, ptr %1739, align 4, !tbaa !3
+  %.not809 = icmp eq i32 %1742, 0
+  %.pre1363 = load ptr, ptr %8, align 8, !tbaa !199
+  %.pre1364 = load i64, ptr %10, align 8, !tbaa !30
+  br i1 %.not809, label %1743, label %.thread1237
+
+1743:                                             ; preds = %1738
+  %1744 = load ptr, ptr %59, align 8, !tbaa !199
+  %1745 = ptrtoint ptr %1744 to i64
+  %1746 = ptrtoint ptr %.pre1363 to i64
+  %1747 = sub i64 %1745, %1746
+  %.not810 = icmp eq i64 %1747, %.pre1364
+  br i1 %.not810, label %1750, label %.thread1237
+
+.thread1237:                                      ; preds = %1743, %1738
+  %1748 = load ptr, ptr %7, align 8, !tbaa !199
+  %1749 = load i64, ptr %9, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.94, ptr noundef %1748, i64 noundef %1749, ptr noundef %.pre1363, i64 noundef %.pre1364)
+  br label %1758
+
+1750:                                             ; preds = %1743
+  store i64 %1741, ptr @duckdb_je_opt_san_guard_large, align 8, !tbaa !30
+  %1751 = load i8, ptr @duckdb_je_opt_confirm_conf, align 1, !range !55
+  %1752 = trunc nuw i8 %1751 to i1
+  br i1 %1752, label %1753, label %1758
+
+1753:                                             ; preds = %1750
+  %1754 = load i64, ptr %9, align 8, !tbaa !30
+  %1755 = trunc i64 %1754 to i32
+  %1756 = load ptr, ptr %7, align 8, !tbaa !199
+  %1757 = trunc i64 %.pre1364 to i32
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %1755, ptr noundef %1756, i32 noundef %1757, ptr noundef %.pre1363) #21
+  br label %1758
+
+1758:                                             ; preds = %.thread1237, %1753, %1750
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #21
   br label %malloc_conf_error.exit.thread
 
-malloc_conf_error.exit.thread:                    ; preds = %.thread1805, %137, %706, %.thread1938, %685, %.thread1934, %667, %.thread1926, %649, %.thread1920, %552, %.thread1893, %448, %452, %283, %.critedge884, %256, %.thread1839, %.critedge882, %234, %214, %.thread1831, %196, %.thread1823, %178, %.thread1817, %160, %.thread1812, %142, %138, %.thread2095, %1368, %.thread2054, %.thread2027, %.thread2015, %1014, %.thread1810, %1385, %1388, %.critedge889, %1328, %1331, %1210, %1213, %1191, %1194, %1077, %1080, %1029, %1032, %.critedge887, %malloc_conf_error.exit929, %709, %malloc_conf_error.exit928, %688, %malloc_conf_error.exit927, %670, %malloc_conf_error.exit926, %652, %init_opt_stats_opts.exit925, %624, %init_opt_stats_opts.exit, %576, %malloc_conf_error.exit913, %555, %malloc_conf_error.exit906, %455, %297, %300, %malloc_conf_error.exit898, %286, %malloc_conf_error.exit896, %259, %malloc_conf_error.exit895, %238, %malloc_conf_error.exit894, %217, %malloc_conf_error.exit893, %199, %malloc_conf_error.exit892, %181, %malloc_conf_error.exit891, %163, %145, %malloc_conf_error.exit, %143, %1427, %1426, %1408, %1349, %1318, %1300, %1282, %1265, %1247, %1228, %1178, %1160, %1141, %1119, %1099, %1056, %.thread2010, %.thread1998, %.thread1989, %944, %925, %907, %887, %868, %malloc_conf_error.exit935.thread, %malloc_conf_error.exit934.thread, %malloc_conf_error.exit933.thread, %malloc_conf_error.exit932.thread, %malloc_conf_error.exit931.thread, %malloc_conf_error.exit930.thread, %malloc_conf_error.exit915.thread, %malloc_conf_error.exit911.thread, %malloc_conf_error.exit909.thread, %malloc_conf_error.exit907.thread, %malloc_conf_error.exit905.thread, %malloc_conf_error.exit904.thread, %malloc_conf_error.exit903.thread, %373, %malloc_conf_error.exit901.thread, %malloc_conf_error.exit899.thread
-  %1428 = load i8, ptr %.11792, align 1, !tbaa !10
-  %.not807 = icmp eq i8 %1428, 0
-  br i1 %.not807, label %.critedge, label %.preheader2148
+1759:                                             ; preds = %1710, %1735
+  %1760 = load ptr, ptr %8, align 8, !tbaa !199
+  %1761 = load i64, ptr %10, align 8, !tbaa !30
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.164, ptr noundef %201, i64 noundef %97, ptr noundef %1760, i64 noundef %1761)
+  br label %malloc_conf_error.exit.thread
 
-.critedge.sink.split:                             ; preds = %99, %102
-  %.sink2246 = phi ptr [ %103, %102 ], [ %.049.i, %99 ]
-  %.str.167.sink = phi ptr [ @.str.167, %102 ], [ @.str.168, %99 ]
-  %1429 = ptrtoint ptr %.sink2246 to i64
-  %1430 = ptrtoint ptr %.017912165 to i64
-  %reass.sub = sub i64 %1429, %1430
-  %1431 = add i64 %reass.sub, 1
-  %1432 = call i64 @llvm.umin.i64(i64 %1431, i64 64)
-  %1433 = trunc nuw nsw i64 %1432 to i32
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.170, ptr noundef nonnull %.str.167.sink, i32 noundef %1433, ptr noundef nonnull %.017912165) #21
-  store i1 true, ptr @had_conf_error, align 1
-  br label %.critedge
+malloc_conf_error.exit.thread:                    ; preds = %.thread938, %113, %818, %.thread1071, %799, %.thread1066, %780, %.thread1058, %761, %.thread1052, %648, %.thread1025, %500, %509, %279, %.critedge884, %242, %.thread969, %.critedge882, %219, %196, %.thread963, %177, %.thread955, %158, %.thread949, %139, %.thread944, %119, %114, %.thread1228, %1687, %.thread1187, %.thread1160, %.thread1148, %1234, %.thread942, %1705, %1708, %.critedge889, %1631, %1634, %1474, %1477, %1454, %1457, %1306, %1309, %1250, %1253, %.critedge887, %malloc_conf_error.exit928, %821, %malloc_conf_error.exit927, %802, %malloc_conf_error.exit926, %783, %malloc_conf_error.exit925, %764, %init_opt_stats_opts.exit924, %735, %init_opt_stats_opts.exit, %674, %malloc_conf_error.exit912, %651, %malloc_conf_error.exit905, %512, %300, %303, %malloc_conf_error.exit897, %282, %malloc_conf_error.exit895, %245, %malloc_conf_error.exit894, %223, %malloc_conf_error.exit893, %199, %malloc_conf_error.exit892, %180, %malloc_conf_error.exit891, %161, %malloc_conf_error.exit890, %142, %123, %malloc_conf_error.exit, %120, %1759, %1758, %1734, %1665, %1620, %1596, %1571, %1547, %1522, %1497, %1440, %1415, %1390, %1361, %1335, %1284, %.thread1143, %.thread1131, %.thread1122, %1134, %1108, %1083, %1056, %1031, %malloc_conf_error.exit934.thread, %malloc_conf_error.exit933.thread, %malloc_conf_error.exit932.thread, %malloc_conf_error.exit931.thread, %malloc_conf_error.exit930.thread, %malloc_conf_error.exit929.thread, %malloc_conf_error.exit914.thread, %malloc_conf_error.exit910.thread, %malloc_conf_error.exit908.thread, %malloc_conf_error.exit906.thread, %malloc_conf_error.exit904.thread, %malloc_conf_error.exit903.thread, %malloc_conf_error.exit902.thread, %401, %malloc_conf_error.exit900.thread, %malloc_conf_error.exit898.thread
+  %1762 = load ptr, ptr %6, align 8, !tbaa !199
+  %1763 = load i8, ptr %1762, align 1, !tbaa !10
+  %.not807 = icmp eq i8 %1763, 0
+  br i1 %.not807, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %malloc_conf_error.exit.thread, %.critedge.sink.split, %.preheader2149, %101
-  %1434 = call zeroext i1 @duckdb_je_hpa_supported() #21
-  %1435 = load i8, ptr @duckdb_je_opt_hpa, align 1, !range !55
-  %1436 = trunc nuw i8 %1435 to i1
-  %or.cond.i = select i1 %1434, i1 %1436, i1 false
-  %1437 = load i32, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 16), align 8
-  %1438 = icmp ne i32 %1437, -1
-  %or.cond3.not.i = select i1 %or.cond.i, i1 %1438, i1 false
-  br i1 %or.cond3.not.i, label %1439, label %validate_hpa_settings.exit
-
-1439:                                             ; preds = %.critedge
-  %1440 = zext i32 %1437 to i64
-  %1441 = shl nuw nsw i64 %1440, 5
-  %1442 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
-  %1443 = add i64 %1442, %1441
-  %1444 = icmp ugt i64 %1443, 2097152
-  br i1 %1444, label %validate_hpa_settings.exit, label %1445
-
-1445:                                             ; preds = %1439
-  store i1 true, ptr @had_conf_error, align 1
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %6) #21
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %7) #21
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %8, i8 0, i64 256, i1 false)
-  call void @duckdb_je_fxp_print(i32 noundef %1437, ptr noundef nonnull %6) #21
-  %1446 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
-  %1447 = trunc i64 %1446 to i32
-  %1448 = lshr i32 %1447, 5
-  %1449 = and i32 %1448, 8388480
-  call void @duckdb_je_fxp_print(i32 noundef %1449, ptr noundef nonnull %7) #21
-  %1450 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
-  %1451 = trunc nuw i8 %1450 to i1
-  br i1 %1451, label %1459, label %1452
-
-1452:                                             ; preds = %1445
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %9) #21
-  %1453 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
-  %reass.sub.i = sub i64 %1453, %1443
-  %1454 = add i64 %reass.sub.i, 2097152
-  store i64 %1454, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
-  %1455 = trunc i64 %1454 to i32
-  %1456 = lshr i32 %1455, 5
-  %1457 = and i32 %1456, 8388480
-  call void @duckdb_je_fxp_print(i32 noundef %1457, ptr noundef nonnull %9) #21
-  %1458 = call i64 (ptr, i64, ptr, ...) @duckdb_je_malloc_snprintf(ptr noundef nonnull %8, i64 noundef 256, ptr noundef nonnull @.str.173, ptr noundef nonnull %9) #21
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %9) #21
-  br label %1459
-
-1459:                                             ; preds = %1452, %1445
-  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.174, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #21
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #21
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %7) #21
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %6) #21
-  br label %validate_hpa_settings.exit
-
-validate_hpa_settings.exit:                       ; preds = %.critedge, %1439, %1459
-  %1460 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
-  %1461 = trunc nuw i8 %1460 to i1
+.critedge:                                        ; preds = %.lr.ph, %malloc_conf_error.exit.thread, %.preheader1281
+  call fastcc void @validate_hpa_settings()
+  %1764 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
+  %1765 = trunc nuw i8 %1764 to i1
   %.b808 = load i1, ptr @had_conf_error, align 1
-  %or.cond331 = select i1 %1461, i1 %.b808, i1 false
-  br i1 %or.cond331, label %1462, label %1463
+  %or.cond331 = select i1 %1765, i1 %.b808, i1 false
+  br i1 %or.cond331, label %1766, label %1767
 
-1462:                                             ; preds = %validate_hpa_settings.exit
+1766:                                             ; preds = %.critedge
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.176) #21
   call void @abort()
   unreachable
 
-1463:                                             ; preds = %validate_hpa_settings.exit, %89
-  %indvars.iv.next2197 = add nuw nsw i64 %indvars.iv2196, 1
-  %exitcond2199.not = icmp eq i64 %indvars.iv.next2197, 5
-  br i1 %exitcond2199.not, label %atomic_store_b.exit, label %59
+1767:                                             ; preds = %.critedge, %91
+  %indvars.iv.next1320 = add nuw nsw i64 %indvars.iv1319, 1
+  %exitcond1322.not = icmp eq i64 %indvars.iv.next1320, 5
+  br i1 %exitcond1322.not, label %atomic_store_b.exit, label %60
 
-atomic_store_b.exit:                              ; preds = %1463
+atomic_store_b.exit:                              ; preds = %1767
   store atomic i8 1, ptr @duckdb_je_log_init_done release, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
   ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc noundef zeroext i1 @malloc_conf_next(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) initializes((0, 8)) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #2 {
+  %6 = load ptr, ptr %0, align 8, !tbaa !199
+  store ptr %6, ptr %1, align 8, !tbaa !199
+  br label %13
+
+.preheader:                                       ; preds = %13
+  %7 = getelementptr inbounds nuw i8, ptr %.049, i64 1
+  %8 = ptrtoint ptr %7 to i64
+  %9 = load ptr, ptr %1, align 8, !tbaa !199
+  %10 = ptrtoint ptr %9 to i64
+  %11 = xor i64 %10, -1
+  %12 = add i64 %11, %8
+  store i64 %12, ptr %2, align 8, !tbaa !30
+  store ptr %7, ptr %3, align 8, !tbaa !199
+  br label %33
+
+13:                                               ; preds = %31, %5
+  %.049 = phi ptr [ %6, %5 ], [ %32, %31 ]
+  %14 = load i8, ptr %.049, align 1, !tbaa !10
+  switch i8 %14, label %24 [
+    i8 65, label %31
+    i8 66, label %31
+    i8 67, label %31
+    i8 68, label %31
+    i8 69, label %31
+    i8 70, label %31
+    i8 71, label %31
+    i8 72, label %31
+    i8 73, label %31
+    i8 74, label %31
+    i8 75, label %31
+    i8 76, label %31
+    i8 77, label %31
+    i8 78, label %31
+    i8 79, label %31
+    i8 80, label %31
+    i8 81, label %31
+    i8 82, label %31
+    i8 83, label %31
+    i8 84, label %31
+    i8 85, label %31
+    i8 86, label %31
+    i8 87, label %31
+    i8 88, label %31
+    i8 89, label %31
+    i8 90, label %31
+    i8 97, label %31
+    i8 98, label %31
+    i8 99, label %31
+    i8 100, label %31
+    i8 101, label %31
+    i8 102, label %31
+    i8 103, label %31
+    i8 104, label %31
+    i8 105, label %31
+    i8 106, label %31
+    i8 107, label %31
+    i8 108, label %31
+    i8 109, label %31
+    i8 110, label %31
+    i8 111, label %31
+    i8 112, label %31
+    i8 113, label %31
+    i8 114, label %31
+    i8 115, label %31
+    i8 116, label %31
+    i8 117, label %31
+    i8 118, label %31
+    i8 119, label %31
+    i8 120, label %31
+    i8 121, label %31
+    i8 122, label %31
+    i8 48, label %31
+    i8 49, label %31
+    i8 50, label %31
+    i8 51, label %31
+    i8 52, label %31
+    i8 53, label %31
+    i8 54, label %31
+    i8 55, label %31
+    i8 56, label %31
+    i8 57, label %31
+    i8 95, label %31
+    i8 58, label %.preheader
+    i8 0, label %15
+  ]
+
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %0, align 8, !tbaa !199
+  %.not = icmp eq ptr %.049, %16
+  br i1 %.not, label %60, label %17
+
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds i8, ptr %.049, i64 -1
+  %19 = ptrtoint ptr %18 to i64
+  %20 = ptrtoint ptr %16 to i64
+  %reass.sub.i = add i64 %19, 1
+  %21 = sub i64 %reass.sub.i, %20
+  %22 = tail call i64 @llvm.umin.i64(i64 %21, i64 64)
+  %23 = trunc nuw nsw i64 %22 to i32
+  tail call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.167, i32 noundef %23, ptr noundef %16) #21
+  store i1 true, ptr @had_conf_error, align 1
+  br label %60
+
+24:                                               ; preds = %13
+  %25 = load ptr, ptr %0, align 8, !tbaa !199
+  %26 = ptrtoint ptr %.049 to i64
+  %27 = ptrtoint ptr %25 to i64
+  %reass.sub.i39 = add i64 %26, 1
+  %28 = sub i64 %reass.sub.i39, %27
+  %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 64)
+  %30 = trunc nuw nsw i64 %29 to i32
+  tail call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.168, i32 noundef %30, ptr noundef %25) #21
+  store i1 true, ptr @had_conf_error, align 1
+  br label %60
+
+31:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
+  %32 = getelementptr inbounds nuw i8, ptr %.049, i64 1
+  br label %13
+
+33:                                               ; preds = %57, %.preheader
+  %.250 = phi ptr [ %7, %.preheader ], [ %58, %57 ]
+  %34 = load i8, ptr %.250, align 1, !tbaa !10
+  switch i8 %34, label %57 [
+    i8 44, label %35
+    i8 0, label %52
+  ]
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %.250, i64 1
+  %37 = load i8, ptr %36, align 1, !tbaa !10
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %39, label %46
+
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %0, align 8, !tbaa !199
+  %41 = ptrtoint ptr %.250 to i64
+  %42 = ptrtoint ptr %40 to i64
+  %reass.sub.i40 = add i64 %41, 1
+  %43 = sub i64 %reass.sub.i40, %42
+  %44 = tail call i64 @llvm.umin.i64(i64 %43, i64 64)
+  %45 = trunc nuw nsw i64 %44 to i32
+  tail call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.169, i32 noundef %45, ptr noundef %40) #21
+  store i1 true, ptr @had_conf_error, align 1
+  br label %46
+
+46:                                               ; preds = %39, %35
+  %47 = ptrtoint ptr %36 to i64
+  %48 = load ptr, ptr %3, align 8, !tbaa !199
+  %49 = ptrtoint ptr %48 to i64
+  %50 = xor i64 %49, -1
+  %51 = add i64 %50, %47
+  br label %59
+
+52:                                               ; preds = %33
+  %53 = ptrtoint ptr %.250 to i64
+  %54 = load ptr, ptr %3, align 8, !tbaa !199
+  %55 = ptrtoint ptr %54 to i64
+  %56 = sub i64 %53, %55
+  br label %59
+
+57:                                               ; preds = %33
+  %58 = getelementptr inbounds nuw i8, ptr %.250, i64 1
+  br label %33
+
+59:                                               ; preds = %46, %52
+  %.sink = phi i64 [ %51, %46 ], [ %56, %52 ]
+  %.3.ph = phi ptr [ %36, %46 ], [ %.250, %52 ]
+  store i64 %.sink, ptr %4, align 8, !tbaa !30
+  store ptr %.3.ph, ptr %0, align 8, !tbaa !199
+  br label %60
+
+60:                                               ; preds = %15, %17, %59, %24
+  %.037 = phi i1 [ true, %15 ], [ true, %17 ], [ false, %59 ], [ true, %24 ]
+  ret i1 %.037
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -13813,6 +14415,70 @@ declare zeroext i1 @tcache_bin_info_default_init(ptr noundef, i64 noundef) local
 declare void @duckdb_je_sc_data_init(ptr noundef) local_unnamed_addr #5
 
 declare void @duckdb_je_sc_data_update_slab_size(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @validate_hpa_settings() unnamed_addr #2 {
+  %1 = alloca [21 x i8], align 16
+  %2 = alloca [21 x i8], align 16
+  %3 = alloca [256 x i8], align 16
+  %4 = alloca [21 x i8], align 16
+  %5 = tail call zeroext i1 @duckdb_je_hpa_supported() #21
+  %6 = load i8, ptr @duckdb_je_opt_hpa, align 1, !range !55
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %5, i1 %7, i1 false
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 16), align 8
+  %9 = icmp ne i32 %8, -1
+  %or.cond3.not = select i1 %or.cond, i1 %9, i1 false
+  br i1 %or.cond3.not, label %10, label %31
+
+10:                                               ; preds = %0
+  %11 = zext i32 %8 to i64
+  %12 = shl nuw nsw i64 %11, 5
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
+  %14 = add i64 %13, %12
+  %15 = icmp ugt i64 %14, 2097152
+  br i1 %15, label %31, label %16
+
+16:                                               ; preds = %10
+  store i1 true, ptr @had_conf_error, align 1
+  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %1) #21
+  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
+  call void @duckdb_je_fxp_print(i32 noundef %8, ptr noundef nonnull %1) #21
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
+  %18 = trunc i64 %17 to i32
+  %19 = lshr i32 %18, 5
+  %20 = and i32 %19, 8388480
+  call void @duckdb_je_fxp_print(i32 noundef %20, ptr noundef nonnull %2) #21
+  %21 = load i8, ptr @duckdb_je_opt_abort_conf, align 1, !tbaa !50, !range !55, !noundef !56
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %30, label %23
+
+23:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4) #21
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
+  %reass.sub = sub i64 %24, %14
+  %25 = add i64 %reass.sub, 2097152
+  store i64 %25, ptr getelementptr inbounds nuw (i8, ptr @duckdb_je_opt_hpa_opts, i64 8), align 8, !tbaa !207
+  %26 = trunc i64 %25 to i32
+  %27 = lshr i32 %26, 5
+  %28 = and i32 %27, 8388480
+  call void @duckdb_je_fxp_print(i32 noundef %28, ptr noundef nonnull %4) #21
+  %29 = call i64 (ptr, i64, ptr, ...) @duckdb_je_malloc_snprintf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef nonnull @.str.173, ptr noundef nonnull %4) #21
+  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %4) #21
+  br label %30
+
+30:                                               ; preds = %23, %16
+  call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.174, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %3) #21
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #21
+  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %1) #21
+  br label %31
+
+31:                                               ; preds = %30, %10, %0
+  ret void
+}
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #14
