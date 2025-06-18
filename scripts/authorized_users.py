@@ -1,7 +1,10 @@
 import requests
 import os
 
+allow_list = ['dtcxzyw','nikic','preames','topperc','goldsteinn','fhahn','RKSimon','arsenm','antoniofrighetto','asb','michaelmaitland','artagnon','XChy','andjo403']
 def is_authorized_users(user):
+    if user in allow_list:
+        return True
     try:
         github_token = os.environ["GITHUB_TOKEN_LLVM"]
         session = requests.Session()
