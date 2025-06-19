@@ -135,114 +135,95 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: write, errnomem: readwrite) uwtable
 define hidden void @_ZN2cv4face18FacemarkKazemiImpl13getTestSplitsESt6vectorINS_6Point_IfEESaIS4_EEi(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::face::splitr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %6 = load i64, ptr %5, align 8, !tbaa !3
-  %7 = trunc i64 %6 to i32
-  %8 = icmp eq i32 %7, 0
-  %9 = load ptr, ptr %2, align 8, !tbaa !32
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %11 = load float, ptr %10, align 8, !tbaa !33
-  %12 = fpext float %11 to double
-  br i1 %8, label %.split.us.split, label %_ZN2cv3RNG7uniformEii.exit11.preheader
-
-_ZN2cv3RNG7uniformEii.exit11.preheader:           ; preds = %4
+_ZN2cv3RNG7uniformEii.exit11.preheader:
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %5 = load i64, ptr %4, align 8, !tbaa !3
+  %6 = trunc i64 %5 to i32
+  %7 = icmp ne i32 %6, 0
+  %8 = load ptr, ptr %2, align 8, !tbaa !32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %10 = load float, ptr %9, align 8, !tbaa !33
+  %11 = fpext float %10 to double
+  tail call void @llvm.assume(i1 %7)
   %.not.i = icmp eq i32 %3, 0
-  %13 = sext i32 %3 to i64
-  %14 = select i1 %.not.i, i64 4294967295, i64 %13
+  %12 = sext i32 %3 to i64
+  %13 = select i1 %.not.i, i64 4294967295, i64 %12
   br label %_ZN2cv3RNG7uniformEii.exit11
 
-.split.us.split:                                  ; preds = %4
-  %.val.us = load float, ptr %9, align 4, !tbaa !34
-  %15 = getelementptr i8, ptr %9, i64 4
-  %.val8.us = load float, ptr %15, align 4, !tbaa !36
-  %16 = fsub float %.val.us, %.val.us
-  %17 = fsub float %.val8.us, %.val8.us
-  %18 = fmul float %17, %17
-  %19 = tail call float @llvm.fmuladd.f32(float %16, float %16, float %18)
-  %sqrt.us = tail call float @llvm.sqrt.f32(float %19)
-  %20 = fpext float %sqrt.us to double
-  %21 = fneg double %20
-  %22 = fdiv double %21, %12
-  br label %_ZN2cv3RNG7uniformEii.exit.thread.us
-
-_ZN2cv3RNG7uniformEii.exit.thread.us:             ; preds = %_ZN2cv3RNG7uniformEii.exit.thread.us, %.split.us.split
-  %23 = tail call double @exp(double noundef %22) #22, !tbaa !37
-  br label %_ZN2cv3RNG7uniformEii.exit.thread.us
-
 _ZN2cv3RNG7uniformEii.exit11:                     ; preds = %_ZN2cv3RNG7uniformEii.exit11.preheader, %_ZN2cv3RNG7uniformEii.exit11
-  %.sroa.0.0 = phi i64 [ %58, %_ZN2cv3RNG7uniformEii.exit11 ], [ %14, %_ZN2cv3RNG7uniformEii.exit11.preheader ]
-  %24 = and i64 %.sroa.0.0, 4294967295
-  %25 = mul nuw i64 %24, 4164903690
-  %26 = lshr i64 %.sroa.0.0, 32
-  %27 = add nuw i64 %25, %26
-  %28 = trunc i64 %27 to i32
-  %29 = urem i32 %28, %7
-  %30 = sext i32 %29 to i64
-  %31 = and i64 %27, 4294967295
-  %32 = mul nuw i64 %31, 4164903690
-  %33 = lshr i64 %27, 32
-  %34 = add nuw i64 %32, %33
-  %35 = trunc i64 %34 to i32
-  %36 = urem i32 %35, %7
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.cv::Point_", ptr %9, i64 %30
-  %39 = getelementptr inbounds nuw %"class.cv::Point_", ptr %9, i64 %37
-  %.val = load float, ptr %38, align 4, !tbaa !34
-  %40 = getelementptr i8, ptr %38, i64 4
-  %.val8 = load float, ptr %40, align 4, !tbaa !36
-  %.val9 = load float, ptr %39, align 4, !tbaa !34
-  %41 = getelementptr i8, ptr %39, i64 4
-  %.val10 = load float, ptr %41, align 4, !tbaa !36
-  %42 = fsub float %.val, %.val9
-  %43 = fsub float %.val8, %.val10
-  %44 = fmul float %43, %43
-  %45 = tail call float @llvm.fmuladd.f32(float %42, float %42, float %44)
-  %sqrt = tail call float @llvm.sqrt.f32(float %45)
-  %46 = fpext float %sqrt to double
-  %47 = fneg double %46
-  %48 = fdiv double %47, %12
-  %49 = tail call double @exp(double noundef %48) #22, !tbaa !37
-  %50 = and i64 %34, 4294967295
-  %51 = mul nuw i64 %50, 4164903690
-  %52 = lshr i64 %34, 32
-  %53 = add nuw i64 %51, %52
-  %54 = shl i64 %53, 32
-  %55 = and i64 %53, 4294967295
-  %56 = mul nuw i64 %55, 4164903690
-  %57 = lshr i64 %53, 32
-  %58 = add nuw i64 %56, %57
-  %59 = and i64 %58, 4294967295
-  %60 = or disjoint i64 %59, %54
-  %61 = uitofp i64 %60 to double
-  %62 = fmul double %61, 0x3BF0000000000000
-  %63 = fcmp ogt double %62, %49
-  %64 = icmp eq i32 %29, %36
-  %65 = or i1 %64, %63
-  br i1 %65, label %_ZN2cv3RNG7uniformEii.exit11, label %.split20, !llvm.loop !39
+  %.sroa.0.0 = phi i64 [ %48, %_ZN2cv3RNG7uniformEii.exit11 ], [ %13, %_ZN2cv3RNG7uniformEii.exit11.preheader ]
+  %14 = and i64 %.sroa.0.0, 4294967295
+  %15 = mul nuw i64 %14, 4164903690
+  %16 = lshr i64 %.sroa.0.0, 32
+  %17 = add nuw i64 %15, %16
+  %18 = trunc i64 %17 to i32
+  %19 = urem i32 %18, %6
+  %20 = sext i32 %19 to i64
+  %21 = and i64 %17, 4294967295
+  %22 = mul nuw i64 %21, 4164903690
+  %23 = lshr i64 %17, 32
+  %24 = add nuw i64 %22, %23
+  %25 = trunc i64 %24 to i32
+  %26 = urem i32 %25, %6
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds nuw %"class.cv::Point_", ptr %8, i64 %20
+  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %8, i64 %27
+  %.val = load float, ptr %28, align 4, !tbaa !34
+  %30 = getelementptr i8, ptr %28, i64 4
+  %.val8 = load float, ptr %30, align 4, !tbaa !36
+  %.val9 = load float, ptr %29, align 4, !tbaa !34
+  %31 = getelementptr i8, ptr %29, i64 4
+  %.val10 = load float, ptr %31, align 4, !tbaa !36
+  %32 = fsub float %.val, %.val9
+  %33 = fsub float %.val8, %.val10
+  %34 = fmul float %33, %33
+  %35 = tail call float @llvm.fmuladd.f32(float %32, float %32, float %34)
+  %sqrt = tail call float @llvm.sqrt.f32(float %35)
+  %36 = fpext float %sqrt to double
+  %37 = fneg double %36
+  %38 = fdiv double %37, %11
+  %39 = tail call double @exp(double noundef %38) #22, !tbaa !37
+  %40 = and i64 %24, 4294967295
+  %41 = mul nuw i64 %40, 4164903690
+  %42 = lshr i64 %24, 32
+  %43 = add nuw i64 %41, %42
+  %44 = shl i64 %43, 32
+  %45 = and i64 %43, 4294967295
+  %46 = mul nuw i64 %45, 4164903690
+  %47 = lshr i64 %43, 32
+  %48 = add nuw i64 %46, %47
+  %49 = and i64 %48, 4294967295
+  %50 = or disjoint i64 %49, %44
+  %51 = uitofp i64 %50 to double
+  %52 = fmul double %51, 0x3BF0000000000000
+  %53 = fcmp ogt double %52, %39
+  %54 = icmp eq i32 %19, %26
+  %55 = or i1 %54, %53
+  br i1 %55, label %_ZN2cv3RNG7uniformEii.exit11, label %.split20, !llvm.loop !39
 
 .split20:                                         ; preds = %_ZN2cv3RNG7uniformEii.exit11
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %30, ptr %0, align 8
-  store i64 %37, ptr %66, align 8, !tbaa !41
-  %67 = mul nuw i64 %59, 4164903690
-  %68 = lshr i64 %58, 32
-  %69 = add nuw i64 %67, %68
-  %70 = shl i64 %69, 32
-  %71 = mul i64 %69, 4164903690
-  %72 = lshr i64 %69, 32
-  %73 = add i64 %71, %72
-  %74 = and i64 %73, 4294967295
-  %75 = or disjoint i64 %74, %70
-  %76 = uitofp i64 %75 to double
-  %77 = fmul double %76, 0x3BF0000000000000
-  %78 = fadd double %77, 0.000000e+00
-  %79 = tail call double @llvm.fmuladd.f64(double %78, double 2.560000e+02, double -1.280000e+02)
-  %80 = fmul double %79, 5.000000e-01
-  %81 = fptrunc double %80 to float
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %81, ptr %82, align 8, !tbaa !43
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %20, ptr %0, align 8
+  store i64 %27, ptr %56, align 8, !tbaa !41
+  %57 = mul nuw i64 %49, 4164903690
+  %58 = lshr i64 %48, 32
+  %59 = add nuw i64 %57, %58
+  %60 = shl i64 %59, 32
+  %61 = mul i64 %59, 4164903690
+  %62 = lshr i64 %59, 32
+  %63 = add i64 %61, %62
+  %64 = and i64 %63, 4294967295
+  %65 = or disjoint i64 %64, %60
+  %66 = uitofp i64 %65 to double
+  %67 = fmul double %66, 0x3BF0000000000000
+  %68 = fadd double %67, 0.000000e+00
+  %69 = tail call double @llvm.fmuladd.f64(double %68, double 2.560000e+02, double -1.280000e+02)
+  %70 = fmul double %69, 5.000000e-01
+  %71 = fptrunc double %70 to float
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %71, ptr %72, align 8, !tbaa !43
   ret void
 }
 
@@ -4152,7 +4133,7 @@ declare double @exp2(double) local_unnamed_addr
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: write, errnomem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

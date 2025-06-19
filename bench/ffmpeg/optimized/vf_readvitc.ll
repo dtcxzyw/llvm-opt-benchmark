@@ -107,7 +107,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %32 = sext i32 %19 to i64
   %33 = sext i32 %11 to i64
-  br i1 %21, label %.preheader72.lr.ph.i.us.preheader, label %._crit_edge.thread.i
+  br i1 %21, label %.preheader72.lr.ph.i.us.preheader, label %.lr.ph89.i.split
 
 .preheader72.lr.ph.i.us.preheader:                ; preds = %.lr.ph89.i
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 44
@@ -327,68 +327,65 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %exitcond102.not.i.us = icmp eq i32 %176, %.068.i
   br i1 %exitcond102.not.i.us, label %read_vitc_line.exit.thread, label %.preheader72.lr.ph.i.us, !llvm.loop !51
 
-._crit_edge.thread.i:                             ; preds = %.lr.ph89.i, %._crit_edge.thread.i
-  %.06387.i = phi i32 [ %177, %._crit_edge.thread.i ], [ 0, %.lr.ph89.i ]
+.lr.ph89.i.split:                                 ; preds = %.lr.ph89.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %20, i8 0, i64 9, i1 false)
-  %177 = add nuw nsw i32 %.06387.i, 1
-  %exitcond102.not.i = icmp eq i32 %177, %.068.i
-  br i1 %exitcond102.not.i, label %read_vitc_line.exit.thread, label %._crit_edge.thread.i, !llvm.loop !51
+  br label %read_vitc_line.exit.thread
 
-read_vitc_line.exit.thread:                       ; preds = %._crit_edge.thread.i, %._crit_edge.thread.i.us, %2
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %179 = tail call i32 @av_dict_set(ptr noundef nonnull %178, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, i32 noundef 0) #6
-  br label %207
+read_vitc_line.exit.thread:                       ; preds = %._crit_edge.thread.i.us, %.lr.ph89.i.split, %2
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %178 = tail call i32 @av_dict_set(ptr noundef nonnull %177, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, i32 noundef 0) #6
+  br label %206
 
 .split.us:                                        ; preds = %131
-  %180 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %181 = tail call i32 @av_dict_set(ptr noundef nonnull %180, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0) #6
-  %182 = getelementptr inbounds nuw i8, ptr %9, i64 57
-  %183 = load i8, ptr %30, align 1, !tbaa !45
-  %184 = and i8 %183, 3
-  %185 = load i8, ptr %29, align 1, !tbaa !45
-  %186 = and i8 %185, 15
-  %187 = icmp samesign ugt i8 %186, 9
-  %narrow.i.i = mul nuw nsw i8 %184, 10
-  %narrow9.i.i = add nuw nsw i8 %narrow.i.i, %186
-  %narrow10.i.i = select i1 %187, i8 0, i8 %narrow9.i.i
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %180 = tail call i32 @av_dict_set(ptr noundef nonnull %179, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 0) #6
+  %181 = getelementptr inbounds nuw i8, ptr %9, i64 57
+  %182 = load i8, ptr %30, align 1, !tbaa !45
+  %183 = and i8 %182, 3
+  %184 = load i8, ptr %29, align 1, !tbaa !45
+  %185 = and i8 %184, 15
+  %186 = icmp samesign ugt i8 %185, 9
+  %narrow.i.i = mul nuw nsw i8 %183, 10
+  %narrow9.i.i = add nuw nsw i8 %narrow.i.i, %185
+  %narrow10.i.i = select i1 %186, i8 0, i8 %narrow9.i.i
   %.0.i.i = zext nneg i8 %narrow10.i.i to i32
-  %188 = load i8, ptr %28, align 1, !tbaa !45
-  %189 = and i8 %188, 7
-  %190 = load i8, ptr %27, align 1, !tbaa !45
-  %191 = and i8 %190, 15
-  %192 = icmp samesign ugt i8 %191, 9
-  %narrow.i15.i = mul nuw nsw i8 %189, 10
-  %narrow9.i16.i = add nuw nsw i8 %narrow.i15.i, %191
-  %narrow10.i17.i = select i1 %192, i8 0, i8 %narrow9.i16.i
+  %187 = load i8, ptr %28, align 1, !tbaa !45
+  %188 = and i8 %187, 7
+  %189 = load i8, ptr %27, align 1, !tbaa !45
+  %190 = and i8 %189, 15
+  %191 = icmp samesign ugt i8 %190, 9
+  %narrow.i15.i = mul nuw nsw i8 %188, 10
+  %narrow9.i16.i = add nuw nsw i8 %narrow.i15.i, %190
+  %narrow10.i17.i = select i1 %191, i8 0, i8 %narrow9.i16.i
   %.0.i18.i = zext nneg i8 %narrow10.i17.i to i32
-  %193 = load i8, ptr %26, align 1, !tbaa !45
-  %194 = and i8 %193, 7
-  %195 = load i8, ptr %25, align 1, !tbaa !45
-  %196 = and i8 %195, 15
-  %197 = icmp samesign ugt i8 %196, 9
-  %narrow.i19.i = mul nuw nsw i8 %194, 10
-  %narrow9.i20.i = add nuw nsw i8 %narrow.i19.i, %196
-  %narrow10.i21.i = select i1 %197, i8 0, i8 %narrow9.i20.i
+  %192 = load i8, ptr %26, align 1, !tbaa !45
+  %193 = and i8 %192, 7
+  %194 = load i8, ptr %25, align 1, !tbaa !45
+  %195 = and i8 %194, 15
+  %196 = icmp samesign ugt i8 %195, 9
+  %narrow.i19.i = mul nuw nsw i8 %193, 10
+  %narrow9.i20.i = add nuw nsw i8 %narrow.i19.i, %195
+  %narrow10.i21.i = select i1 %196, i8 0, i8 %narrow9.i20.i
   %.0.i22.i = zext nneg i8 %narrow10.i21.i to i32
-  %198 = load i8, ptr %24, align 1, !tbaa !45
-  %199 = and i8 %198, 3
-  %200 = load i8, ptr %20, align 1, !tbaa !45
-  %201 = and i8 %200, 15
-  %202 = icmp samesign ugt i8 %201, 9
-  %narrow.i23.i = mul nuw nsw i8 %199, 10
-  %narrow9.i24.i = add nuw nsw i8 %narrow.i23.i, %201
-  %narrow10.i25.i = select i1 %202, i8 0, i8 %narrow9.i24.i
+  %197 = load i8, ptr %24, align 1, !tbaa !45
+  %198 = and i8 %197, 3
+  %199 = load i8, ptr %20, align 1, !tbaa !45
+  %200 = and i8 %199, 15
+  %201 = icmp samesign ugt i8 %200, 9
+  %narrow.i23.i = mul nuw nsw i8 %198, 10
+  %narrow9.i24.i = add nuw nsw i8 %narrow.i23.i, %200
+  %narrow10.i25.i = select i1 %201, i8 0, i8 %narrow9.i24.i
   %.0.i26.i = zext nneg i8 %narrow10.i25.i to i32
-  %203 = and i8 %198, 4
-  %.not.i = icmp eq i8 %203, 0
-  %204 = select i1 %.not.i, i32 58, i32 59
-  %205 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %182, i64 noundef 23, ptr noundef nonnull @.str.7, i32 noundef %.0.i.i, i32 noundef %.0.i18.i, i32 noundef %.0.i22.i, i32 noundef %204, i32 noundef %.0.i26.i) #6
-  %206 = tail call i32 @av_dict_set(ptr noundef nonnull %180, ptr noundef nonnull @.str.6, ptr noundef nonnull %182, i32 noundef 0) #6
-  br label %207
+  %202 = and i8 %197, 4
+  %.not.i = icmp eq i8 %202, 0
+  %203 = select i1 %.not.i, i32 58, i32 59
+  %204 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %181, i64 noundef 23, ptr noundef nonnull @.str.7, i32 noundef %.0.i.i, i32 noundef %.0.i18.i, i32 noundef %.0.i22.i, i32 noundef %203, i32 noundef %.0.i26.i) #6
+  %205 = tail call i32 @av_dict_set(ptr noundef nonnull %179, ptr noundef nonnull @.str.6, ptr noundef nonnull %181, i32 noundef 0) #6
+  br label %206
 
-207:                                              ; preds = %read_vitc_line.exit.thread, %.split.us
-  %208 = tail call i32 @ff_filter_frame(ptr noundef %7, ptr noundef nonnull %1) #6
-  ret i32 %208
+206:                                              ; preds = %read_vitc_line.exit.thread, %.split.us
+  %207 = tail call i32 @ff_filter_frame(ptr noundef %7, ptr noundef nonnull %1) #6
+  ret i32 %207
 }
 
 ; Function Attrs: nounwind uwtable

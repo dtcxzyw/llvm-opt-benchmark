@@ -2346,14 +2346,14 @@ define void @_ZN6colvar18CartesianBasedPath32computeDistanceToReferenceFramesERS
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %5 = load ptr, ptr %4, align 8, !tbaa !124
   %6 = load ptr, ptr %3, align 8, !tbaa !125
-  %.not = icmp eq ptr %5, %6
-  br i1 %.not, label %._crit_edge18, label %.preheader.lr.ph
-
-.preheader.lr.ph:                                 ; preds = %2
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %._crit_edge18, label %.preheader.lr.ph
+
+.preheader.lr.ph:                                 ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %12 = load ptr, ptr %11, align 8, !tbaa !119
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 504
@@ -2369,11 +2369,11 @@ define void @_ZN6colvar18CartesianBasedPath32computeDistanceToReferenceFramesERS
   %22 = load ptr, ptr %21, align 8
   %23 = uitofp i64 %20 to double
   %24 = load ptr, ptr %1, align 8, !tbaa !142
-  %umax23 = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br i1 %.not19, label %.preheader.lr.ph.split, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %umax = tail call i64 @llvm.umax.i64(i64 %20, i64 1)
+  %umax21 = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -2418,16 +2418,17 @@ define void @_ZN6colvar18CartesianBasedPath32computeDistanceToReferenceFramesERS
   %54 = getelementptr inbounds nuw double, ptr %24, i64 %.01017.us
   store double %53, ptr %54, align 8, !tbaa !136
   %55 = add nuw i64 %.01017.us, 1
-  %exitcond22.not = icmp eq i64 %55, %umax23
+  %exitcond22.not = icmp eq i64 %55, %umax21
   br i1 %exitcond22.not, label %._crit_edge18, label %.preheader.us, !llvm.loop !187
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   %56 = fdiv double 0.000000e+00, %23
+  %57 = tail call noundef double @sqrt(double noundef %56) #30, !tbaa !176
+  %umax23 = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.preheader
   %.01017 = phi i64 [ 0, %.preheader.lr.ph.split ], [ %59, %.preheader ]
-  %57 = tail call noundef double @sqrt(double noundef %56) #30, !tbaa !176
   %58 = getelementptr inbounds nuw double, ptr %24, i64 %.01017
   store double %57, ptr %58, align 8, !tbaa !136
   %59 = add nuw i64 %.01017, 1

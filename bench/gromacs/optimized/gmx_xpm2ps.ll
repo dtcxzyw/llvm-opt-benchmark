@@ -8534,8 +8534,8 @@ define internal fastcc void @_ZL12tick_spacingiPffcS_S_(i32 noundef %0, ptr noun
   %40 = zext i1 %39 to i32
   %spec.select.us.us = add nuw nsw i32 %.04776.us.us, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond101.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond101.not, label %._crit_edge.us.us, label %35, !llvm.loop !208
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %35, !llvm.loop !208
 
 ._crit_edge.us.us:                                ; preds = %35
   %41 = icmp sge i32 %spec.select.us.us, %12
@@ -8552,63 +8552,54 @@ define internal fastcc void @_ZL12tick_spacingiPffcS_S_(i32 noundef %0, ptr noun
   %48 = select i1 %47, i1 %43, i1 false
   br i1 %48, label %.preheader.us, label %.split89.us, !llvm.loop !210
 
-.preheader:                                       ; preds = %6, %.split
-  %.04586 = phi i32 [ %53, %.split ], [ %25, %6 ]
+.preheader:                                       ; preds = %6, %.preheader
+  %.04586 = phi i32 [ %51, %.preheader ], [ %25, %6 ]
   %49 = sitofp i32 %.04586 to float
-  br label %50
-
-50:                                               ; preds = %.preheader, %50
-  %.14478 = phi i32 [ 0, %.preheader ], [ %52, %50 ]
-  %51 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %49) #28, !tbaa !4
-  %52 = add nuw nsw i32 %.14478, 1
-  %exitcond.not = icmp eq i32 %52, 4
-  br i1 %exitcond.not, label %.split, label %50, !llvm.loop !209
-
-.split:                                           ; preds = %50
-  %53 = add nsw i32 %.04586, -1
-  %54 = icmp sgt i32 %53, %26
-  br i1 %54, label %.preheader, label %.split89.us.thread, !llvm.loop !210
+  %50 = tail call noundef float @powf(float noundef 1.000000e+01, float noundef %49) #28, !tbaa !4
+  %51 = add nsw i32 %.04586, -1
+  %52 = icmp sgt i32 %51, %26
+  br i1 %52, label %.preheader, label %.split89.us.thread, !llvm.loop !210
 
 .split89.us:                                      ; preds = %.split.us.us
-  %55 = trunc nuw nsw i64 %indvars.iv.next103 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv.next103 to i32
   br i1 %43, label %.split89.us.thread, label %.split89.us._crit_edge
 
 .split89.us._crit_edge:                           ; preds = %.split89.us
   %.pre = zext nneg i8 %3 to i32
-  br label %67
+  br label %65
 
-.split89.us.thread:                               ; preds = %.split, %.split89.us
-  %.us-phi90109 = phi i32 [ %55, %.split89.us ], [ 4, %.split ]
-  %56 = load float, ptr %7, align 4, !tbaa !30
-  %57 = load float, ptr %1, align 4, !tbaa !30
-  %58 = fneg float %57
-  %59 = tail call float @llvm.fmuladd.f32(float %56, float 1.000000e+01, float %58)
-  %60 = load float, ptr %15, align 4, !tbaa !30
-  %61 = fsub float %60, %57
-  %62 = fcmp olt float %59, %61
-  %.sroa.speculated58 = select i1 %62, float %61, float %59
-  %63 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %64 = zext nneg i8 %3 to i32
-  %65 = fpext float %.sroa.speculated58 to double
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.182, i32 noundef %64, double noundef %65) #31
-  br label %67
+.split89.us.thread:                               ; preds = %.preheader, %.split89.us
+  %.us-phi90109 = phi i32 [ %53, %.split89.us ], [ 4, %.preheader ]
+  %54 = load float, ptr %7, align 4, !tbaa !30
+  %55 = load float, ptr %1, align 4, !tbaa !30
+  %56 = fneg float %55
+  %57 = tail call float @llvm.fmuladd.f32(float %54, float 1.000000e+01, float %56)
+  %58 = load float, ptr %15, align 4, !tbaa !30
+  %59 = fsub float %58, %55
+  %60 = fcmp olt float %57, %59
+  %.sroa.speculated58 = select i1 %60, float %59, float %57
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %62 = zext nneg i8 %3 to i32
+  %63 = fpext float %.sroa.speculated58 to double
+  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.182, i32 noundef %62, double noundef %63) #31
+  br label %65
 
-67:                                               ; preds = %.split89.us._crit_edge, %.split89.us.thread
-  %.us-phi90108 = phi i32 [ %55, %.split89.us._crit_edge ], [ %.us-phi90109, %.split89.us.thread ]
-  %.pre-phi = phi i32 [ %.pre, %.split89.us._crit_edge ], [ %64, %.split89.us.thread ]
+65:                                               ; preds = %.split89.us._crit_edge, %.split89.us.thread
+  %.us-phi90108 = phi i32 [ %53, %.split89.us._crit_edge ], [ %.us-phi90109, %.split89.us.thread ]
+  %.pre-phi = phi i32 [ %.pre, %.split89.us._crit_edge ], [ %62, %.split89.us.thread ]
   %.2 = phi float [ %33, %.split89.us._crit_edge ], [ %.sroa.speculated58, %.split89.us.thread ]
   store float %.2, ptr %4, align 4, !tbaa !30
-  %68 = tail call i32 @llvm.usub.sat.i32(i32 %.us-phi90108, i32 1)
-  %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw [4 x float], ptr @__const._ZL12tick_spacingiPffcS_S_.minor_fact, i64 0, i64 %69
-  %71 = load float, ptr %70, align 4, !tbaa !30
-  %72 = fdiv float %.2, %71
-  store float %72, ptr %5, align 4, !tbaa !30
-  %73 = load ptr, ptr @stderr, align 8, !tbaa !48
-  %74 = load float, ptr %4, align 4, !tbaa !30
-  %75 = fpext float %74 to double
-  %76 = fpext float %72 to double
-  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.183, i32 noundef %.pre-phi, double noundef %75, double noundef %76) #31
+  %66 = tail call i32 @llvm.usub.sat.i32(i32 %.us-phi90108, i32 1)
+  %67 = zext nneg i32 %66 to i64
+  %68 = getelementptr inbounds nuw [4 x float], ptr @__const._ZL12tick_spacingiPffcS_S_.minor_fact, i64 0, i64 %67
+  %69 = load float, ptr %68, align 4, !tbaa !30
+  %70 = fdiv float %.2, %69
+  store float %70, ptr %5, align 4, !tbaa !30
+  %71 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %72 = load float, ptr %4, align 4, !tbaa !30
+  %73 = fpext float %72 to double
+  %74 = fpext float %70 to double
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.183, i32 noundef %.pre-phi, double noundef %73, double noundef %74) #31
   ret void
 }
 

@@ -301,7 +301,11 @@ bytestream2_get_byte.exit:                        ; preds = %4
   %123 = getelementptr inbounds nuw i8, ptr %20, i64 1352
   %124 = getelementptr inbounds nuw i8, ptr %20, i64 1360
   %125 = getelementptr inbounds nuw i8, ptr %20, i64 1368
-  br i1 %.not219, label %.lr.ph211.split, label %.lr.ph.us.preheader
+  br i1 %.not219, label %.lr.ph211.split.preheader, label %.lr.ph.us.preheader
+
+.lr.ph211.split.preheader:                        ; preds = %.lr.ph211
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %115, i8 0, i64 64, i1 false)
+  br label %.lr.ph211.split
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph211
   %wide.trip.count = zext nneg i32 %71 to i64
@@ -1449,9 +1453,8 @@ mss4_update_dc_cache.exit.us:                     ; preds = %718, %mss4_decode_d
   %exitcond248.not = icmp eq i32 %741, %70
   br i1 %exitcond248.not, label %._crit_edge212, label %.lr.ph.us, !llvm.loop !81
 
-.lr.ph211.split:                                  ; preds = %.lr.ph211, %.lr.ph211.split
-  %.0103209 = phi i32 [ %742, %.lr.ph211.split ], [ 0, %.lr.ph211 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %115, i8 0, i64 64, i1 false)
+.lr.ph211.split:                                  ; preds = %.lr.ph211.split.preheader, %.lr.ph211.split
+  %.0103209 = phi i32 [ %742, %.lr.ph211.split ], [ 0, %.lr.ph211.split.preheader ]
   %742 = add nuw nsw i32 %.0103209, 1
   %exitcond249.not = icmp eq i32 %742, %70
   br i1 %exitcond249.not, label %._crit_edge212, label %.lr.ph211.split, !llvm.loop !81

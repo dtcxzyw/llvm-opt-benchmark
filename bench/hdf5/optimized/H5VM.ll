@@ -451,32 +451,32 @@ define noundef i32 @H5VM_hyper_fill(i32 noundef %0, ptr noundef readonly capture
 
 .lr.ph.preheader.i:                               ; preds = %14
   %16 = zext i32 %0 to i64
-  %indvars.iv.next.i25 = add nsw i64 %16, -1
-  %17 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.next.i25
+  %indvars.iv.next.i24 = add nsw i64 %16, -1
+  %17 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.next.i24
   %18 = load i64, ptr %17, align 8, !tbaa !3
   %19 = icmp eq i64 %18, 1
   br i1 %19, label %.lr.ph, label %H5VM__stride_optimize1.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
   %20 = phi i64 [ %24, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
-  %21 = phi i64 [ %30, %.lr.ph.i ], [ %indvars.iv.next.i25, %.lr.ph.preheader.i ]
-  %indvars.iv.next.i29 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %indvars.iv.next.i25, %.lr.ph.preheader.i ]
-  %indvars.iv.i28 = phi i64 [ %indvars.iv.next.i29, %.lr.ph.i ], [ %16, %.lr.ph.preheader.i ]
-  %indvars.i30 = trunc i64 %indvars.iv.next.i29 to i32
+  %21 = phi i64 [ %30, %.lr.ph.i ], [ %indvars.iv.next.i24, %.lr.ph.preheader.i ]
+  %indvars.iv.next.i28 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %indvars.iv.next.i24, %.lr.ph.preheader.i ]
+  %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i28, %.lr.ph.i ], [ %16, %.lr.ph.preheader.i ]
+  %indvars.i29 = trunc i64 %indvars.iv.next.i28 to i32
   %22 = getelementptr inbounds nuw i64, ptr %8, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !3
   %24 = mul i64 %23, %20
-  %cond.i = icmp eq i32 %indvars.i30, 0
+  %cond.i = icmp eq i32 %indvars.i29, 0
   br i1 %cond.i, label %.lr.ph45.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %25 = add nsw i64 %indvars.iv.i28, 4294967294
+  %25 = add nsw i64 %indvars.iv.i27, 4294967294
   %26 = and i64 %25, 4294967295
   %27 = getelementptr inbounds nuw i64, ptr %9, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !3
   %29 = add i64 %28, %24
   store i64 %29, ptr %27, align 8, !tbaa !3
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.next.i29, -1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.next.i28, -1
   %30 = and i64 %indvars.iv.next.i, 4294967295
   %31 = getelementptr inbounds nuw i64, ptr %9, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !3
@@ -486,12 +486,12 @@ define noundef i32 @H5VM_hyper_fill(i32 noundef %0, ptr noundef readonly capture
   br i1 %or.cond, label %.lr.ph, label %H5VM__stride_optimize1.exit.loopexit
 
 H5VM__stride_optimize1.exit.loopexit:             ; preds = %.lr.ph.i
-  %.pre = and i64 %indvars.iv.next.i29, 4294967295
+  %.pre = and i64 %indvars.iv.next.i28, 4294967295
   br label %H5VM__stride_optimize1.exit
 
 H5VM__stride_optimize1.exit:                      ; preds = %H5VM__stride_optimize1.exit.loopexit, %.lr.ph.preheader.i
   %.pre-phi = phi i64 [ %.pre, %H5VM__stride_optimize1.exit.loopexit ], [ %16, %.lr.ph.preheader.i ]
-  %.014.lcssa = phi i32 [ %indvars.i30, %H5VM__stride_optimize1.exit.loopexit ], [ %0, %.lr.ph.preheader.i ]
+  %.014.lcssa = phi i32 [ %indvars.i29, %H5VM__stride_optimize1.exit.loopexit ], [ %0, %.lr.ph.preheader.i ]
   %.0.lcssa = phi i64 [ %24, %H5VM__stride_optimize1.exit.loopexit ], [ 1, %.lr.ph.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7) #7
   %34 = shl nuw nsw i64 %.pre-phi, 3
@@ -503,7 +503,7 @@ H5VM__stride_optimize1.exit:                      ; preds = %H5VM__stride_optimi
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 %15
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7) #7
   %36 = trunc i32 %5 to i8
-  br label %.lr.ph45.split.preheader.i
+  br label %.lr.ph45.split.i
 
 .lr.ph.i.i:                                       ; preds = %H5VM__stride_optimize1.exit, %.lr.ph.i.i
   %.111.i.i = phi i64 [ %40, %.lr.ph.i.i ], [ 1, %H5VM__stride_optimize1.exit ]
@@ -525,56 +525,49 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   %42 = trunc i32 %5 to i8
   %.02340.i = add i32 %.014.lcssa, -1
   %43 = icmp sgt i32 %.02340.i, -1
-  br i1 %43, label %.lr.ph.us.i, label %.lr.ph45.split.preheader.i
-
-.lr.ph45.split.preheader.i:                       ; preds = %.lr.ph45.i, %.lr.ph45.thread.i
-  %44 = phi ptr [ %35, %.lr.ph45.thread.i ], [ %41, %.lr.ph45.i ]
-  %.118 = phi i64 [ %.1.ph, %.lr.ph45.thread.i ], [ %.0.lcssa, %.lr.ph45.i ]
-  %45 = phi i8 [ %36, %.lr.ph45.thread.i ], [ %42, %.lr.ph45.i ]
-  %phi.call5356.i = phi i64 [ 1, %.lr.ph45.thread.i ], [ %40, %.lr.ph45.i ]
-  br label %.lr.ph45.split.i
+  br i1 %43, label %.lr.ph.us.i, label %.lr.ph45.split.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph45.i, %._crit_edge.us.i
-  %.02444.us.i = phi i64 [ %58, %._crit_edge.us.i ], [ 0, %.lr.ph45.i ]
-  %.02543.us.i = phi ptr [ %50, %._crit_edge.us.i ], [ %41, %.lr.ph45.i ]
+  %.02444.us.i = phi i64 [ %56, %._crit_edge.us.i ], [ 0, %.lr.ph45.i ]
+  %.02543.us.i = phi ptr [ %48, %._crit_edge.us.i ], [ %41, %.lr.ph45.i ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.02543.us.i, i8 %42, i64 %.0.lcssa, i1 false)
-  br label %46
+  br label %44
 
-46:                                               ; preds = %54, %.lr.ph.us.i
-  %.02342.us.i = phi i32 [ %.02340.i, %.lr.ph.us.i ], [ %.023.us.i, %54 ]
-  %.12641.us.i = phi ptr [ %.02543.us.i, %.lr.ph.us.i ], [ %50, %54 ]
-  %47 = zext nneg i32 %.02342.us.i to i64
-  %48 = getelementptr inbounds nuw i64, ptr %9, i64 %47
-  %49 = load i64, ptr %48, align 8, !tbaa !3
-  %50 = getelementptr inbounds nuw i8, ptr %.12641.us.i, i64 %49
-  %51 = getelementptr inbounds nuw [33 x i64], ptr %7, i64 0, i64 %47
-  %52 = load i64, ptr %51, align 8, !tbaa !3
-  %53 = add i64 %52, -1
-  store i64 %53, ptr %51, align 8, !tbaa !3
-  %.not30.us.i = icmp eq i64 %53, 0
-  br i1 %.not30.us.i, label %54, label %._crit_edge.us.i
+44:                                               ; preds = %52, %.lr.ph.us.i
+  %.02342.us.i = phi i32 [ %.02340.i, %.lr.ph.us.i ], [ %.023.us.i, %52 ]
+  %.12641.us.i = phi ptr [ %.02543.us.i, %.lr.ph.us.i ], [ %48, %52 ]
+  %45 = zext nneg i32 %.02342.us.i to i64
+  %46 = getelementptr inbounds nuw i64, ptr %9, i64 %45
+  %47 = load i64, ptr %46, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw i8, ptr %.12641.us.i, i64 %47
+  %49 = getelementptr inbounds nuw [33 x i64], ptr %7, i64 0, i64 %45
+  %50 = load i64, ptr %49, align 8, !tbaa !3
+  %51 = add i64 %50, -1
+  store i64 %51, ptr %49, align 8, !tbaa !3
+  %.not30.us.i = icmp eq i64 %51, 0
+  br i1 %.not30.us.i, label %52, label %._crit_edge.us.i
 
-54:                                               ; preds = %46
-  %55 = getelementptr inbounds nuw i64, ptr %8, i64 %47
-  %56 = load i64, ptr %55, align 8, !tbaa !3
-  store i64 %56, ptr %51, align 8, !tbaa !3
+52:                                               ; preds = %44
+  %53 = getelementptr inbounds nuw i64, ptr %8, i64 %45
+  %54 = load i64, ptr %53, align 8, !tbaa !3
+  store i64 %54, ptr %49, align 8, !tbaa !3
   %.023.us.i = add nsw i32 %.02342.us.i, -1
-  %57 = icmp sgt i32 %.02342.us.i, 0
-  br i1 %57, label %46, label %._crit_edge.us.i, !llvm.loop !11
+  %55 = icmp sgt i32 %.02342.us.i, 0
+  br i1 %55, label %44, label %._crit_edge.us.i, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %54, %46
-  %58 = add nuw i64 %.02444.us.i, 1
-  %exitcond50.not.i = icmp eq i64 %58, %40
-  br i1 %exitcond50.not.i, label %H5VM_stride_fill.exit, label %.lr.ph.us.i, !llvm.loop !12
+._crit_edge.us.i:                                 ; preds = %52, %44
+  %56 = add nuw i64 %.02444.us.i, 1
+  %exitcond.not.i = icmp eq i64 %56, %40
+  br i1 %exitcond.not.i, label %H5VM_stride_fill.exit, label %.lr.ph.us.i, !llvm.loop !12
 
-.lr.ph45.split.i:                                 ; preds = %.lr.ph45.split.i, %.lr.ph45.split.preheader.i
-  %.02444.i = phi i64 [ %59, %.lr.ph45.split.i ], [ 0, %.lr.ph45.split.preheader.i ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %44, i8 %45, i64 %.118, i1 false)
-  %59 = add nuw i64 %.02444.i, 1
-  %exitcond.not.i = icmp eq i64 %59, %phi.call5356.i
-  br i1 %exitcond.not.i, label %H5VM_stride_fill.exit, label %.lr.ph45.split.i, !llvm.loop !12
+.lr.ph45.split.i:                                 ; preds = %.lr.ph45.i, %.lr.ph45.thread.i
+  %57 = phi ptr [ %35, %.lr.ph45.thread.i ], [ %41, %.lr.ph45.i ]
+  %.118 = phi i64 [ %.1.ph, %.lr.ph45.thread.i ], [ %.0.lcssa, %.lr.ph45.i ]
+  %58 = phi i8 [ %36, %.lr.ph45.thread.i ], [ %42, %.lr.ph45.i ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %57, i8 %58, i64 %.118, i1 false)
+  br label %H5VM_stride_fill.exit
 
-H5VM_stride_fill.exit:                            ; preds = %._crit_edge.us.i, %.lr.ph45.split.i, %H5VM_vector_reduce_product.exit.i
+H5VM_stride_fill.exit:                            ; preds = %._crit_edge.us.i, %H5VM_vector_reduce_product.exit.i, %.lr.ph45.split.i
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %8) #7
@@ -603,7 +596,7 @@ define noundef i32 @H5VM_stride_fill(i32 noundef %0, i64 noundef %1, ptr noundef
 
 .lr.ph45.thread:                                  ; preds = %.split
   %11 = trunc i32 %5 to i8
-  br label %.lr.ph45.split.preheader
+  br label %.lr.ph45.split
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.111.i = phi i64 [ %15, %.lr.ph.i ], [ 1, %.split ]
@@ -630,54 +623,47 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i, %.split28
   %16 = trunc i32 %5 to i8
   %.02340 = add i32 %0, -1
   %17 = icmp sgt i32 %.02340, -1
-  br i1 %17, label %.lr.ph.us, label %.lr.ph45.split.preheader
-
-.lr.ph45.split.preheader:                         ; preds = %.lr.ph45.thread, %.lr.ph45
-  %18 = phi i8 [ %11, %.lr.ph45.thread ], [ %16, %.lr.ph45 ]
-  %phi.call5356 = phi i64 [ 1, %.lr.ph45.thread ], [ %phi.call, %.lr.ph45 ]
-  br label %.lr.ph45.split
+  br i1 %17, label %.lr.ph.us, label %.lr.ph45.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph45, %._crit_edge.us
-  %.02444.us = phi i64 [ %31, %._crit_edge.us ], [ 0, %.lr.ph45 ]
-  %.02543.us = phi ptr [ %23, %._crit_edge.us ], [ %4, %.lr.ph45 ]
+  %.02444.us = phi i64 [ %30, %._crit_edge.us ], [ 0, %.lr.ph45 ]
+  %.02543.us = phi ptr [ %22, %._crit_edge.us ], [ %4, %.lr.ph45 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.02543.us, i8 %16, i64 %1, i1 false)
-  br label %19
+  br label %18
 
-19:                                               ; preds = %.lr.ph.us, %27
-  %.02342.us = phi i32 [ %.02340, %.lr.ph.us ], [ %.023.us, %27 ]
-  %.12641.us = phi ptr [ %.02543.us, %.lr.ph.us ], [ %23, %27 ]
-  %20 = zext nneg i32 %.02342.us to i64
-  %21 = getelementptr inbounds nuw i64, ptr %3, i64 %20
-  %22 = load i64, ptr %21, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw i8, ptr %.12641.us, i64 %22
-  %24 = getelementptr inbounds nuw [33 x i64], ptr %7, i64 0, i64 %20
-  %25 = load i64, ptr %24, align 8, !tbaa !3
-  %26 = add i64 %25, -1
-  store i64 %26, ptr %24, align 8, !tbaa !3
-  %.not30.us = icmp eq i64 %26, 0
-  br i1 %.not30.us, label %27, label %._crit_edge.us
+18:                                               ; preds = %.lr.ph.us, %26
+  %.02342.us = phi i32 [ %.02340, %.lr.ph.us ], [ %.023.us, %26 ]
+  %.12641.us = phi ptr [ %.02543.us, %.lr.ph.us ], [ %22, %26 ]
+  %19 = zext nneg i32 %.02342.us to i64
+  %20 = getelementptr inbounds nuw i64, ptr %3, i64 %19
+  %21 = load i64, ptr %20, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %.12641.us, i64 %21
+  %23 = getelementptr inbounds nuw [33 x i64], ptr %7, i64 0, i64 %19
+  %24 = load i64, ptr %23, align 8, !tbaa !3
+  %25 = add i64 %24, -1
+  store i64 %25, ptr %23, align 8, !tbaa !3
+  %.not30.us = icmp eq i64 %25, 0
+  br i1 %.not30.us, label %26, label %._crit_edge.us
 
-27:                                               ; preds = %19
-  %28 = getelementptr inbounds nuw i64, ptr %2, i64 %20
-  %29 = load i64, ptr %28, align 8, !tbaa !3
-  store i64 %29, ptr %24, align 8, !tbaa !3
+26:                                               ; preds = %18
+  %27 = getelementptr inbounds nuw i64, ptr %2, i64 %19
+  %28 = load i64, ptr %27, align 8, !tbaa !3
+  store i64 %28, ptr %23, align 8, !tbaa !3
   %.023.us = add nsw i32 %.02342.us, -1
-  %30 = icmp sgt i32 %.02342.us, 0
-  br i1 %30, label %19, label %._crit_edge.us, !llvm.loop !11
+  %29 = icmp sgt i32 %.02342.us, 0
+  br i1 %29, label %18, label %._crit_edge.us, !llvm.loop !11
 
-._crit_edge.us:                                   ; preds = %19, %27
-  %31 = add nuw i64 %.02444.us, 1
-  %exitcond50.not = icmp eq i64 %31, %phi.call
-  br i1 %exitcond50.not, label %._crit_edge46, label %.lr.ph.us, !llvm.loop !12
+._crit_edge.us:                                   ; preds = %18, %26
+  %30 = add nuw i64 %.02444.us, 1
+  %exitcond.not = icmp eq i64 %30, %phi.call
+  br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph.us, !llvm.loop !12
 
-.lr.ph45.split:                                   ; preds = %.lr.ph45.split.preheader, %.lr.ph45.split
-  %.02444 = phi i64 [ %32, %.lr.ph45.split ], [ 0, %.lr.ph45.split.preheader ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 %18, i64 %1, i1 false)
-  %32 = add nuw i64 %.02444, 1
-  %exitcond.not = icmp eq i64 %32, %phi.call5356
-  br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45.split, !llvm.loop !12
+.lr.ph45.split:                                   ; preds = %.lr.ph45.thread, %.lr.ph45
+  %31 = phi i8 [ %11, %.lr.ph45.thread ], [ %16, %.lr.ph45 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 %31, i64 %1, i1 false)
+  br label %._crit_edge46
 
-._crit_edge46:                                    ; preds = %.lr.ph45.split, %._crit_edge.us, %H5VM_vector_reduce_product.exit
+._crit_edge46:                                    ; preds = %._crit_edge.us, %.lr.ph45.split, %H5VM_vector_reduce_product.exit
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %7) #7
   ret i32 0
 }

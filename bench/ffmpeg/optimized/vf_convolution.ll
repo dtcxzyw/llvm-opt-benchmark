@@ -2152,7 +2152,7 @@ define internal void @filter16_column(ptr noundef writeonly captures(none) %0, i
   br i1 %16, label %.preheader36.us.us.preheader, label %._crit_edge45
 
 .preheader36.us.us.preheader:                     ; preds = %.lr.ph44.split.us
-  %wide.trip.count83 = zext nneg i32 %13 to i64
+  %wide.trip.count81 = zext nneg i32 %13 to i64
   br label %.preheader36.us.us
 
 .preheader36.us.us:                               ; preds = %.preheader36.us.us.preheader, %._crit_edge.us46.us
@@ -2162,8 +2162,8 @@ define internal void @filter16_column(ptr noundef writeonly captures(none) %0, i
   br label %19
 
 19:                                               ; preds = %.preheader36.us.us, %19
-  %indvars.iv80 = phi i64 [ 0, %.preheader36.us.us ], [ %indvars.iv.next81, %19 ]
-  %20 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv80
+  %indvars.iv78 = phi i64 [ 0, %.preheader36.us.us ], [ %indvars.iv.next79, %19 ]
+  %20 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv78
   %21 = load i32, ptr %20, align 4, !tbaa !39
   %22 = sitofp i32 %21 to float
   %23 = tail call nsz float @llvm.fmuladd.f32(float %22, float %2, float %3)
@@ -2174,17 +2174,17 @@ define internal void @filter16_column(ptr noundef writeonly captures(none) %0, i
   %..i.us.us = tail call i32 @llvm.smin.i32(i32 %6, i32 %25)
   %27 = trunc i32 %..i.us.us to i16
   %28 = select i1 %26, i16 0, i16 %27
-  %29 = getelementptr inbounds nuw i16, ptr %.03541.us.us, i64 %indvars.iv80
+  %29 = getelementptr inbounds nuw i16, ptr %.03541.us.us, i64 %indvars.iv78
   store i16 %28, ptr %29, align 2, !tbaa !103
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge.us46.us, label %19, !llvm.loop !107
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
+  br i1 %exitcond82.not, label %._crit_edge.us46.us, label %19, !llvm.loop !107
 
 ._crit_edge.us46.us:                              ; preds = %19
   %30 = getelementptr inbounds i16, ptr %.03541.us.us, i64 %18
   %31 = add nuw nsw i32 %.03442.us.us, 1
-  %exitcond85.not = icmp eq i32 %31, %1
-  br i1 %exitcond85.not, label %._crit_edge45, label %.preheader36.us.us, !llvm.loop !108
+  %exitcond83.not = icmp eq i32 %31, %1
+  br i1 %exitcond83.not, label %._crit_edge45, label %.preheader36.us.us, !llvm.loop !108
 
 .lr.ph44.split:                                   ; preds = %.lr.ph44
   br i1 %16, label %.preheader.lr.ph.us.preheader, label %._crit_edge45
@@ -2193,27 +2193,27 @@ define internal void @filter16_column(ptr noundef writeonly captures(none) %0, i
   %smax = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
   %32 = or disjoint i32 %smax, 1
   %33 = sext i32 %9 to i64
-  %wide.trip.count77 = zext nneg i32 %1 to i64
-  %wide.trip.count67 = zext nneg i32 %32 to i64
+  %wide.trip.count76 = zext nneg i32 %1 to i64
+  %wide.trip.count66 = zext nneg i32 %32 to i64
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %.preheader.lr.ph.us
 
 .preheader.lr.ph.us:                              ; preds = %.preheader.lr.ph.us.preheader, %._crit_edge.us52
-  %indvars.iv74 = phi i64 [ 0, %.preheader.lr.ph.us.preheader ], [ %indvars.iv.next75, %._crit_edge.us52 ]
+  %indvars.iv73 = phi i64 [ 0, %.preheader.lr.ph.us.preheader ], [ %indvars.iv.next74, %._crit_edge.us52 ]
   %.03541.us48 = phi ptr [ %0, %.preheader.lr.ph.us.preheader ], [ %35, %._crit_edge.us52 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %12, i8 0, i64 64, i1 false)
-  %34 = mul nsw i64 %indvars.iv74, %33
+  %34 = mul nsw i64 %indvars.iv73, %33
   br label %.preheader.us.us
 
 ._crit_edge.us52:                                 ; preds = %.lr.ph.us51
   %35 = getelementptr inbounds i16, ptr %.03541.us48, i64 %18
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %._crit_edge45, label %.preheader.lr.ph.us, !llvm.loop !108
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
+  br i1 %exitcond77.not, label %._crit_edge45, label %.preheader.lr.ph.us, !llvm.loop !108
 
 .lr.ph.us51:                                      ; preds = %._crit_edge.us.us, %.lr.ph.us51
-  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.lr.ph.us51 ], [ 0, %._crit_edge.us.us ]
-  %36 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv69
+  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph.us51 ], [ 0, %._crit_edge.us.us ]
+  %36 = getelementptr inbounds nuw [16 x i32], ptr %12, i64 0, i64 %indvars.iv68
   %37 = load i32, ptr %36, align 4, !tbaa !39
   %38 = sitofp i32 %37 to float
   %39 = tail call nsz float @llvm.fmuladd.f32(float %38, float %2, float %3)
@@ -2224,17 +2224,17 @@ define internal void @filter16_column(ptr noundef writeonly captures(none) %0, i
   %..i.us50 = tail call i32 @llvm.smin.i32(i32 %6, i32 %41)
   %43 = trunc i32 %..i.us50 to i16
   %44 = select i1 %42, i16 0, i16 %43
-  %45 = getelementptr inbounds nuw i16, ptr %.03541.us48, i64 %indvars.iv69
+  %45 = getelementptr inbounds nuw i16, ptr %.03541.us48, i64 %indvars.iv68
   store i16 %44, ptr %45, align 2, !tbaa !103
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
-  br i1 %exitcond73.not, label %._crit_edge.us52, label %.lr.ph.us51, !llvm.loop !107
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count
+  br i1 %exitcond72.not, label %._crit_edge.us52, label %.lr.ph.us51, !llvm.loop !107
 
 .preheader.us.us:                                 ; preds = %._crit_edge.us.us, %.preheader.lr.ph.us
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %._crit_edge.us.us ], [ 0, %.preheader.lr.ph.us ]
-  %46 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv64
+  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %._crit_edge.us.us ], [ 0, %.preheader.lr.ph.us ]
+  %46 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv63
   %47 = load ptr, ptr %46, align 8, !tbaa !46
-  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv64
+  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv63
   %49 = load i32, ptr %48, align 4, !tbaa !39
   %invariant.gep = getelementptr i8, ptr %47, i64 %34
   br label %50
@@ -2251,13 +2251,13 @@ define internal void @filter16_column(ptr noundef writeonly captures(none) %0, i
   %57 = add nsw i32 %56, %54
   store i32 %57, ptr %55, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond63.not, label %._crit_edge.us.us, label %50, !llvm.loop !109
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %50, !llvm.loop !109
 
 ._crit_edge.us.us:                                ; preds = %50
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %.lr.ph.us51, label %.preheader.us.us, !llvm.loop !110
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
+  br i1 %exitcond67.not, label %.lr.ph.us51, label %.preheader.us.us, !llvm.loop !110
 
 ._crit_edge45:                                    ; preds = %._crit_edge.us52, %._crit_edge.us46.us, %.lr.ph44.split, %.lr.ph44.split.us, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #12

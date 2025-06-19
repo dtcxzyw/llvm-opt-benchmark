@@ -56517,11 +56517,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %44 = sext i32 %3 to i64
   %wide.trip.count68 = sext i32 %5 to i64
+  %45 = tail call noundef float @logf(float noundef 0.000000e+00) #26, !tbaa !66
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv65 = phi i64 [ %44, %.lr.ph.split.us.preheader ], [ %indvars.iv.next66, %.lr.ph.split.us ]
-  %45 = tail call noundef float @logf(float noundef 0.000000e+00) #26, !tbaa !66
   %46 = getelementptr inbounds float, ptr %13, i64 %indvars.iv65
   store float %45, ptr %46, align 4, !tbaa !780
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, 1
@@ -57868,11 +57868,11 @@ define linkonce_odr hidden void @_ZNK2cv3dnn15ReduceLayerImpl13ReduceInvokerINS1
 .lr.ph60.split.us.preheader:                      ; preds = %.lr.ph60
   %44 = sext i32 %3 to i64
   %wide.trip.count68 = sext i32 %5 to i64
+  %45 = tail call noundef float @logf(float noundef 0.000000e+00) #26, !tbaa !66
   br label %.lr.ph60.split.us
 
 .lr.ph60.split.us:                                ; preds = %.lr.ph60.split.us.preheader, %.lr.ph60.split.us
   %indvars.iv65 = phi i64 [ %44, %.lr.ph60.split.us.preheader ], [ %indvars.iv.next66, %.lr.ph60.split.us ]
-  %45 = tail call noundef float @logf(float noundef 0.000000e+00) #26, !tbaa !66
   %46 = getelementptr inbounds float, ptr %13, i64 %indvars.iv65
   store float %45, ptr %46, align 4, !tbaa !780
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, 1

@@ -1891,11 +1891,11 @@ define internal void @_ZN5faiss20LocalSearchQuantizer5trainEmPKf.omp_outlined(pt
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   %40 = fdiv float 0.000000e+00, %21
+  %41 = call float @sqrtf(float noundef %40) #16, !tbaa !81
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.preheader
   %.046 = phi i64 [ %18, %.preheader.lr.ph.split ], [ %43, %.preheader ]
-  %41 = call float @sqrtf(float noundef %40) #16, !tbaa !81
   %42 = getelementptr inbounds nuw float, ptr %22, i64 %.046
   store float %41, ptr %42, align 4, !tbaa !86
   %43 = add nuw i64 %.046, 1

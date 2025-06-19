@@ -2462,66 +2462,66 @@ define dso_local void @_ZNK4pbrt5Image14GaussianFilterERKNS_16ImageChannelDescEi
   store ptr %22, ptr %27, align 8, !tbaa !84
   %28 = fmul float %4, 0x401921FB60000000
   %29 = fmul float %4, %28
-  %30 = fmul float %4, 2.000000e+00
-  %31 = fmul float %4, %30
+  %30 = tail call noundef float @sqrtf(float noundef %29) #35, !tbaa !13
+  %31 = fmul float %4, 2.000000e+00
+  %32 = fmul float %4, %31
+  %33 = fdiv float 1.000000e+00, %30
   %smax = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
-  %32 = or disjoint i32 %smax, 1
-  %wide.trip.count = zext nneg i32 %32 to i64
-  br label %36
+  %34 = or disjoint i32 %smax, 1
+  %wide.trip.count = zext nneg i32 %34 to i64
+  br label %38
 
-.lr.ph.i:                                         ; preds = %64, %.lr.ph.i
-  %.07.i = phi float [ %34, %.lr.ph.i ], [ 0.000000e+00, %64 ]
-  %.sroa.02.06.i = phi ptr [ %35, %.lr.ph.i ], [ %21, %64 ]
-  %33 = load float, ptr %.sroa.02.06.i, align 4, !tbaa !68
-  %34 = fadd float %.07.i, %33
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 4
-  %.not.i = icmp eq ptr %35, %22
+.lr.ph.i:                                         ; preds = %65, %.lr.ph.i
+  %.07.i = phi float [ %36, %.lr.ph.i ], [ 0.000000e+00, %65 ]
+  %.sroa.02.06.i = phi ptr [ %37, %.lr.ph.i ], [ %21, %65 ]
+  %35 = load float, ptr %.sroa.02.06.i, align 4, !tbaa !68
+  %36 = fadd float %.07.i, %35
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 4
+  %.not.i = icmp eq ptr %37, %22
   br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit, label %.lr.ph.i, !llvm.loop !85
 
-36:                                               ; preds = %.lr.ph, %64
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %37 = trunc i64 %indvars.iv to i32
-  %38 = sub i32 %37, %3
-  %39 = sitofp i32 %38 to float
-  %40 = tail call noundef float @sqrtf(float noundef %29) #35, !tbaa !13
-  %41 = fneg float %39
-  %42 = fmul float %39, %41
-  %43 = fdiv float %42, %31
-  %44 = fmul float %43, 0x3FF7154760000000
-  %45 = tail call noundef float @llvm.floor.f32(float %44)
-  %46 = fsub float %44, %45
-  %47 = fptosi float %45 to i32
-  %48 = tail call noundef float @llvm.fma.f32(float %46, float 0x3FB4015920000000, float 0x3FCCF34160000000)
-  %49 = tail call noundef float @llvm.fma.f32(float %46, float %48, float 0x3FE6420080000000)
-  %50 = tail call noundef float @llvm.fma.f32(float %46, float %49, float 1.000000e+00)
-  %51 = bitcast float %50 to i32
-  %52 = lshr i32 %51, 23
-  %53 = add i32 %47, -127
-  %54 = add i32 %53, %52
-  %55 = icmp slt i32 %54, -126
-  br i1 %55, label %64, label %56
+38:                                               ; preds = %.lr.ph, %65
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
+  %39 = trunc i64 %indvars.iv to i32
+  %40 = sub i32 %39, %3
+  %41 = sitofp i32 %40 to float
+  %42 = fneg float %41
+  %43 = fmul float %41, %42
+  %44 = fdiv float %43, %32
+  %45 = fmul float %44, 0x3FF7154760000000
+  %46 = tail call noundef float @llvm.floor.f32(float %45)
+  %47 = fsub float %45, %46
+  %48 = fptosi float %46 to i32
+  %49 = tail call noundef float @llvm.fma.f32(float %47, float 0x3FB4015920000000, float 0x3FCCF34160000000)
+  %50 = tail call noundef float @llvm.fma.f32(float %47, float %49, float 0x3FE6420080000000)
+  %51 = tail call noundef float @llvm.fma.f32(float %47, float %50, float 1.000000e+00)
+  %52 = bitcast float %51 to i32
+  %53 = lshr i32 %52, 23
+  %54 = add i32 %48, -127
+  %55 = add i32 %54, %53
+  %56 = icmp slt i32 %55, -126
+  br i1 %56, label %65, label %57
 
-56:                                               ; preds = %36
-  %57 = icmp sgt i32 %54, 127
-  br i1 %57, label %64, label %58
+57:                                               ; preds = %38
+  %58 = icmp sgt i32 %55, 127
+  br i1 %58, label %65, label %59
 
-58:                                               ; preds = %56
-  %59 = and i32 %51, -2139095041
-  %60 = shl nsw i32 %54, 23
-  %61 = add nsw i32 %60, 1065353216
-  %62 = or i32 %61, %59
-  %63 = bitcast i32 %62 to float
-  br label %64
+59:                                               ; preds = %57
+  %60 = and i32 %52, -2139095041
+  %61 = shl nsw i32 %55, 23
+  %62 = add nsw i32 %61, 1065353216
+  %63 = or i32 %62, %60
+  %64 = bitcast i32 %63 to float
+  br label %65
 
-64:                                               ; preds = %58, %56, %36
-  %.0.i.i = phi float [ %63, %58 ], [ 0.000000e+00, %36 ], [ 0x7FF0000000000000, %56 ]
-  %65 = fdiv float 1.000000e+00, %40
-  %66 = fmul float %65, %.0.i.i
+65:                                               ; preds = %59, %57, %38
+  %.0.i.i = phi float [ %64, %59 ], [ 0.000000e+00, %38 ], [ 0x7FF0000000000000, %57 ]
+  %66 = fmul float %33, %.0.i.i
   %67 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv
   store float %66, ptr %67, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph.i, label %36, !llvm.loop !86
+  br i1 %exitcond.not, label %.lr.ph.i, label %38, !llvm.loop !86
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit._crit_edge: ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #35
@@ -2534,7 +2534,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit: ; preds = %.lr.ph.i, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit
   %.sroa.079.087 = phi ptr [ %71, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET0_T_S8_S7_.exit ], [ %21, %.lr.ph.i ]
   %69 = load float, ptr %.sroa.079.087, align 4, !tbaa !68
-  %70 = fdiv float %69, %34
+  %70 = fdiv float %69, %36
   store float %70, ptr %.sroa.079.087, align 4, !tbaa !68
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.079.087, i64 4
   %.not83 = icmp eq ptr %71, %22
