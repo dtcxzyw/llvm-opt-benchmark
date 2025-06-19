@@ -245,9 +245,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread48.us:    ; preds = %36, %32, %30
   %.us-phi65 = phi i64 [ %27, %.split.us ], [ %41, %.split ]
   %.not43 = icmp eq i32 %.us-phi, -1
   %44 = sext i32 %.us-phi to i64
-  %.sink88 = select i1 %.not43, i64 %.us-phi65, i64 %44
+  %.sink87 = select i1 %.not43, i64 %.us-phi65, i64 %44
   %.1.ph.ph = select i1 %.not43, i32 %.us-phi64, i32 %.us-phi
-  %45 = getelementptr inbounds i32, ptr %22, i64 %.sink88
+  %45 = getelementptr inbounds i32, ptr %22, i64 %.sink87
   store i32 %3, ptr %45, align 4, !tbaa !17
   br label %.thread
 
@@ -481,10 +481,10 @@ _ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9
   %47 = load i32, ptr %46, align 4, !tbaa !15
   %48 = add i32 %47, -1
   store i32 %48, ptr %46, align 4, !tbaa !15
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load i32, ptr %49, align 8, !tbaa !10
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 8, !tbaa !10
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = load i32, ptr %48, align 8, !tbaa !10
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %48, align 8, !tbaa !10
   br label %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit.thread
 
 _ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit.thread: ; preds = %.split.i.i, %.split.us.i.i, %3, %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit

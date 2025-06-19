@@ -207,7 +207,7 @@ hex_encode.exit:                                  ; preds = %.lr.ph.i
   %41 = add i64 %40, 53
   %42 = sub i64 %.0306514, %.0172516
   %43 = icmp ult i64 %42, %41
-  br i1 %43, label %44, label %ensure_bufsize.exit.thread314
+  br i1 %43, label %44, label %ensure_bufsize.exit
 
 44:                                               ; preds = %hex_encode.exit
   %45 = add i64 %.0306514, 512
@@ -228,7 +228,7 @@ ensure_bufsize.exit.thread:                       ; preds = %44
   call void @free(ptr noundef %.0176515) #14
   br label %.loopexit
 
-ensure_bufsize.exit.thread314:                    ; preds = %hex_encode.exit, %.ensure_bufsize.exit.thread314_crit_edge
+ensure_bufsize.exit:                              ; preds = %hex_encode.exit, %.ensure_bufsize.exit.thread314_crit_edge
   %.pre-phi610 = phi i64 [ %.pre609, %.ensure_bufsize.exit.thread314_crit_edge ], [ %42, %hex_encode.exit ]
   %.010.i319 = phi ptr [ %46, %.ensure_bufsize.exit.thread314_crit_edge ], [ %.0176515, %hex_encode.exit ]
   %.5318 = phi i64 [ %45, %.ensure_bufsize.exit.thread314_crit_edge ], [ %.0306514, %hex_encode.exit ]
@@ -727,7 +727,7 @@ ensure_bufsize.exit261:                           ; preds = %269
   %.0172.lcssa = phi i64 [ %26, %23 ], [ %.1173, %284 ]
   %286 = sub i64 %.0306.lcssa, %.0172.lcssa
   %287 = icmp ult i64 %286, 15
-  br i1 %287, label %288, label %ensure_bufsize.exit264.thread383
+  br i1 %287, label %288, label %ensure_bufsize.exit264
 
 288:                                              ; preds = %._crit_edge520
   %289 = add i64 %.0306.lcssa, 512
@@ -748,7 +748,7 @@ ensure_bufsize.exit264.thread:                    ; preds = %288
   call void @free(ptr noundef %.0176.lcssa) #14
   br label %.loopexit
 
-ensure_bufsize.exit264.thread383:                 ; preds = %._crit_edge520, %.ensure_bufsize.exit264.thread383_crit_edge
+ensure_bufsize.exit264:                           ; preds = %._crit_edge520, %.ensure_bufsize.exit264.thread383_crit_edge
   %.pre-phi608 = phi i64 [ %.pre607, %.ensure_bufsize.exit264.thread383_crit_edge ], [ %286, %._crit_edge520 ]
   %.010.i262388 = phi ptr [ %290, %.ensure_bufsize.exit264.thread383_crit_edge ], [ %.0176.lcssa, %._crit_edge520 ]
   %295 = getelementptr inbounds nuw i8, ptr %.010.i262388, i64 %.0172.lcssa

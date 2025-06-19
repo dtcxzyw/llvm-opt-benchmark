@@ -2057,7 +2057,7 @@ if.else:                                          ; preds = %sw.bb78
 
 for.body.i200.preheader:                          ; preds = %if.else
   %add = add nsw i32 %39, 1900
-  %div1818 = udiv i32 %add, 100
+  %div1803 = udiv i32 %add, 100
   br label %for.body.i200
 
 while.cond.preheader.i:                           ; preds = %for.body.i200, %if.else
@@ -2084,7 +2084,7 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
 
 for.body.i200:                                    ; preds = %for.body.i200.preheader, %for.body.i200
   %p.017.i = phi ptr [ %incdec.ptr.i201, %for.body.i200 ], [ %add.ptr.i186, %for.body.i200.preheader ]
-  %n.addr.016.i = phi i32 [ %div.i, %for.body.i200 ], [ %div1818, %for.body.i200.preheader ]
+  %n.addr.016.i = phi i32 [ %div.i, %for.body.i200 ], [ %div1803, %for.body.i200.preheader ]
   %digits.addr.015.i = phi i32 [ %dec.i202, %for.body.i200 ], [ 2, %for.body.i200.preheader ]
   %rem.i = urem i32 %n.addr.016.i, 10
   %47 = trunc nuw nsw i32 %rem.i to i8
@@ -3206,7 +3206,7 @@ if.else239:                                       ; preds = %sw.bb225
   br i1 %cmp14.i718, label %for.body.i751.preheader, label %while.cond.preheader.i719
 
 for.body.i751.preheader:                          ; preds = %if.else239
-  %div2301819 = udiv i32 %sub229, 7
+  %div2301804 = udiv i32 %sub229, 7
   br label %for.body.i751
 
 while.cond.preheader.i719:                        ; preds = %for.body.i751, %if.else239
@@ -3233,7 +3233,7 @@ while.body.preheader.i746:                        ; preds = %while.cond.preheade
 
 for.body.i751:                                    ; preds = %for.body.i751.preheader, %for.body.i751
   %p.017.i752 = phi ptr [ %incdec.ptr.i757, %for.body.i751 ], [ %add.ptr.i717, %for.body.i751.preheader ]
-  %n.addr.016.i753 = phi i32 [ %div.i758, %for.body.i751 ], [ %div2301819, %for.body.i751.preheader ]
+  %n.addr.016.i753 = phi i32 [ %div.i758, %for.body.i751 ], [ %div2301804, %for.body.i751.preheader ]
   %digits.addr.015.i754 = phi i32 [ %dec.i759, %for.body.i751 ], [ 2, %for.body.i751.preheader ]
   %rem.i755 = urem i32 %n.addr.016.i753, 10
   %163 = trunc nuw nsw i32 %rem.i755 to i8
@@ -3535,7 +3535,7 @@ if.else310:                                       ; preds = %sw.bb288
   br i1 %cmp14.i890, label %for.body.i923.preheader, label %while.cond.preheader.i891
 
 for.body.i923.preheader:                          ; preds = %if.else310
-  %div3011820 = udiv i32 %sub300, 7
+  %div3011805 = udiv i32 %sub300, 7
   br label %for.body.i923
 
 while.cond.preheader.i891:                        ; preds = %for.body.i923, %if.else310
@@ -3562,7 +3562,7 @@ while.body.preheader.i918:                        ; preds = %while.cond.preheade
 
 for.body.i923:                                    ; preds = %for.body.i923.preheader, %for.body.i923
   %p.017.i924 = phi ptr [ %incdec.ptr.i929, %for.body.i923 ], [ %add.ptr.i889, %for.body.i923.preheader ]
-  %n.addr.016.i925 = phi i32 [ %div.i930, %for.body.i923 ], [ %div3011820, %for.body.i923.preheader ]
+  %n.addr.016.i925 = phi i32 [ %div.i930, %for.body.i923 ], [ %div3011805, %for.body.i923.preheader ]
   %digits.addr.015.i926 = phi i32 [ %dec.i931, %for.body.i923 ], [ 2, %for.body.i923.preheader ]
   %rem.i927 = urem i32 %n.addr.016.i925, 10
   %198 = trunc nuw nsw i32 %rem.i927 to i8
@@ -4508,7 +4508,7 @@ do.body.i123:                                     ; preds = %do.body.i123.prehea
   %44 = phi i8 [ %45, %land.lhs.true4.i133 ], [ %42, %do.body.i123.preheader ]
   %incdec.ptr16.i124 = phi ptr [ %incdec.ptr.i128, %land.lhs.true4.i133 ], [ %p.0512, %do.body.i123.preheader ]
   %result.0.i125 = phi i32 [ %add.i131, %land.lhs.true4.i133 ], [ 0, %do.body.i123.preheader ]
-  %tobool.not.i132 = phi i1 [ true, %land.lhs.true4.i133 ], [ false, %do.body.i123.preheader ]
+  %rMax.0.i126 = phi i1 [ true, %land.lhs.true4.i133 ], [ false, %do.body.i123.preheader ]
   %mul.i127 = mul nsw i32 %result.0.i125, 10
   %conv3.i129 = zext nneg i8 %44 to i32
   %sub.i130 = add i32 %mul.i127, -48
@@ -4632,7 +4632,7 @@ do.body.i195:                                     ; preds = %do.body.i195.prehea
   %61 = phi i8 [ %62, %land.lhs.true4.i205 ], [ %59, %do.body.i195.preheader ]
   %incdec.ptr16.i196 = phi ptr [ %incdec.ptr.i200, %land.lhs.true4.i205 ], [ %p.0512, %do.body.i195.preheader ]
   %result.0.i197 = phi i32 [ %add.i203, %land.lhs.true4.i205 ], [ 0, %do.body.i195.preheader ]
-  %tobool.not.i204 = phi i1 [ true, %land.lhs.true4.i205 ], [ false, %do.body.i195.preheader ]
+  %rMax.0.i198 = phi i1 [ true, %land.lhs.true4.i205 ], [ false, %do.body.i195.preheader ]
   %mul.i199 = mul nsw i32 %result.0.i197, 10
   %conv3.i201 = zext nneg i8 %61 to i32
   %sub.i202 = add i32 %mul.i199, -48

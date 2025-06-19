@@ -655,7 +655,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17ha2c41f9e0634d
   %.sroa.7.1 = phi i64 [ 0, %2 ], [ %12, %13 ], [ %12, %.noexc ]
   %.sroa.16.1 = phi i64 [ 0, %2 ], [ 1, %13 ], [ 1, %.noexc ]
   %.not3.i = icmp eq i64 %.sroa.7.1, %4
-  br i1 %.not3.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit", label %.lr.ph.i2.preheader
+  br i1 %.not3.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit._crit_edge", label %.lr.ph.i2.preheader
 
 .lr.ph.i2.preheader:                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha6d42b8552bef76fE.llvm.7213935477003618358.exit"
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -687,17 +687,17 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17ha2c41f9e0634d
 
 31:                                               ; preds = %25
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.3009195400206169856(i8 noundef 2)
-          to label %.noexc8 unwind label %38
+          to label %.noexc8 unwind label %37
 
 .noexc8:                                          ; preds = %31
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2c09fde1f7b1612fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22)
-          to label %.backedge.i unwind label %38
+          to label %.backedge.i unwind label %37
 
 .backedge.i:                                      ; preds = %.noexc8, %32, %25
   %.sroa.7.2 = phi i64 [ %26, %25 ], [ %35, %32 ], [ %26, %.noexc8 ]
   %.sroa.16.3 = phi i64 [ %27, %25 ], [ %.sroa.16.2, %32 ], [ %27, %.noexc8 ]
   %.not.i7 = icmp eq i64 %.sroa.7.2, %4
-  br i1 %.not.i7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit", label %.lr.ph.i2
+  br i1 %.not.i7, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit._crit_edge", label %.lr.ph.i2
 
 32:                                               ; preds = %.lr.ph.i2
   %33 = sub i64 %20, %.sroa.16.2
@@ -706,9 +706,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17ha2c41f9e0634d
   %35 = add i64 %20, 1
   br label %.backedge.i
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit": ; preds = %.backedge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha6d42b8552bef76fE.llvm.7213935477003618358.exit"
-  %.sroa.16.4 = phi i64 [ %.sroa.16.1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha6d42b8552bef76fE.llvm.7213935477003618358.exit" ], [ %.sroa.16.3, %.backedge.i ]
-  %36 = sub i64 %4, %.sroa.16.4
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit._crit_edge": ; preds = %.backedge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha6d42b8552bef76fE.llvm.7213935477003618358.exit"
+  %.sroa.16.451 = phi i64 [ %.sroa.16.1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17ha6d42b8552bef76fE.llvm.7213935477003618358.exit" ], [ %.sroa.16.3, %.backedge.i ]
+  %.pre-phi = sub i64 %4, %.sroa.16.451
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit._crit_edge"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit._crit_edge": ; preds = %18, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h084a1753cb32b7ecE.llvm.7213935477003618358.exit"
@@ -716,36 +716,36 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17ha2c41f9e0634d
   store i64 %.pre-phi, ptr %3, align 8, !noalias !176
   ret void
 
-._crit_edge.i.i12:                                ; preds = %38, %39
+._crit_edge.i.i12:                                ; preds = %37, %38
   %lpad.phi32 = phi { ptr, i32 } [ %lpad.phi33, %39 ], [ %lpad.thr_comm.split-lp, %38 ]
   %.sroa.16.031 = phi i64 [ %.sroa.16.030, %39 ], [ 0, %38 ]
-  %37 = sub i64 %4, %.sroa.16.031
-  store i64 %37, ptr %3, align 8, !noalias !181
+  %36 = sub i64 %4, %.sroa.16.031
+  store i64 %36, ptr %3, align 8, !noalias !181
   resume { ptr, i32 } %lpad.phi32
 
 .thread:                                          ; preds = %.noexc, %17
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %38
 
-38:                                               ; preds = %31, %.noexc8
+37:                                               ; preds = %31, %.noexc8
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %.not.i.i10 = icmp eq i64 %27, 0
-  br i1 %.not.i.i10, label %._crit_edge.i.i12, label %39
+  br i1 %.not.i.i10, label %._crit_edge.i.i12, label %38
 
-39:                                               ; preds = %.thread, %38
+38:                                               ; preds = %.thread, %37
   %lpad.phi33 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %38 ]
   %.sroa.16.030 = phi i64 [ 1, %.thread ], [ %27, %38 ]
   %.sroa.7.029 = phi i64 [ %12, %.thread ], [ %26, %38 ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8, !noalias !181, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds { ptr, i64, ptr }, ptr %41, i64 %.sroa.7.029
-  %43 = sub i64 %.sroa.7.029, %.sroa.16.030
-  %44 = getelementptr inbounds { ptr, i64, ptr }, ptr %41, i64 %43
-  %45 = sub i64 %4, %.sroa.7.029
-  %46 = mul i64 %45, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull align 8 %42, i64 %46, i1 false), !noalias !181
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %40 = load ptr, ptr %39, align 8, !noalias !181, !nonnull !4, !noundef !4
+  %41 = getelementptr inbounds { ptr, i64, ptr }, ptr %40, i64 %.sroa.7.029
+  %42 = sub i64 %.sroa.7.029, %.sroa.16.030
+  %43 = getelementptr inbounds { ptr, i64, ptr }, ptr %40, i64 %42
+  %44 = sub i64 %4, %.sroa.7.029
+  %45 = mul i64 %44, 24
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 8 %41, i64 %45, i1 false), !noalias !181
   br label %._crit_edge.i.i12
 }
 

@@ -6628,10 +6628,10 @@ _ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit: ; preds = %31
   br label %41
 
 41:                                               ; preds = %39, %_ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit, %35
-  %.sink87 = phi i64 [ 0, %39 ], [ %25, %_ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit ], [ 3, %35 ]
+  %.sink79 = phi i64 [ 0, %39 ], [ %25, %_ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit ], [ 3, %35 ]
   %.sink = phi i64 [ 1, %39 ], [ 0, %_ZN6rustls4msgs5codec6Reader4rest17hbb076687c8a6d97bE.exit ], [ 1, %35 ]
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sink87, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %.sink79, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -6682,7 +6682,7 @@ define void @_ZN6rustls4msgs8deframer15MessageDeframer3pop17hfac2e1b197d90ca0E(p
     i8 19, label %86
   ]
 
-default.unreachable609:                           ; preds = %230, %156, %22
+default.unreachable21.i:                          ; preds = %230, %156, %22
   unreachable
 
 23:                                               ; preds = %22
@@ -6844,10 +6844,10 @@ default.unreachable609:                           ; preds = %230, %156, %22
   store i8 %.sroa.23.0, ptr %.sroa.3.0..sroa_idx, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %.sroa.28.0, ptr %.sroa.4.0..sroa_idx, align 2
-  %.sroa.51039.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.31251.0, ptr %.sroa.51039.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx1040 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.38.0, ptr %.sroa.6.0..sroa_idx1040, align 8
+  %.sroa.51002.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.31251.0, ptr %.sroa.51002.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx1003 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sroa.38.0, ptr %.sroa.6.0..sroa_idx1003, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.43.0, ptr %.sroa.7.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
@@ -7278,13 +7278,13 @@ _ZN6rustls4msgs8deframer19DeframerSliceBuffer25raw_slice_to_filled_range17h1685f
   unreachable
 
 .loopexit.thread:                                 ; preds = %144, %.loopexit
-  %.0195611 = phi i64 [ %232, %.loopexit ], [ %145, %144 ]
+  %.0195574 = phi i64 [ %232, %.loopexit ], [ %145, %144 ]
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %239 = load i16, ptr %238, align 8, !range !2491, !noundef !4
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %241 = load i16, ptr %240, align 2
   %242 = load i64, ptr %108, align 8, !noundef !4
-  %243 = add i64 %242, %.0195611
+  %243 = add i64 %242, %.0195574
   call void @llvm.experimental.noalias.scope.decl(metadata !2492)
   call void @llvm.experimental.noalias.scope.decl(metadata !2495)
   %244 = load i64, ptr %97, align 8, !alias.scope !2498, !noundef !4
@@ -7315,7 +7315,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.e
   %256 = getelementptr inbounds i8, ptr %255, i64 %242
   %.val210 = load i64, ptr %109, align 8, !alias.scope !2463, !noalias !2460, !noundef !4
   %spec.select.i.i216 = call noundef i64 @llvm.usub.sat.i64(i64 %.val210, i64 %242)
-  %257 = icmp ule i64 %spec.select.i.i216, %.0195611
+  %257 = icmp ule i64 %spec.select.i.i216, %.0195574
   br i1 %257, label %258, label %261
 
 258:                                              ; preds = %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.exit
@@ -7366,7 +7366,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.e
   %281 = ptrtoint ptr %278 to i64
   %282 = ptrtoint ptr %256 to i64
   %283 = sub i64 %282, %281
-  %284 = add i64 %283, %.0195611
+  %284 = add i64 %283, %.0195574
   %285 = load i64, ptr %97, align 8, !alias.scope !2510, !noundef !4
   store ptr @anon.c43cdfa0e8c33ad4539906867d1667f9.6, ptr %5, align 8, !alias.scope !2510
   store i64 0, ptr %97, align 8, !alias.scope !2510
@@ -7398,7 +7398,7 @@ _ZN6rustls4msgs8deframer19DeframerSliceBuffer4take17h341a93816d54b6acE.exit220: 
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %293, ptr %295, align 8
   %.sroa.4144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.0195611, ptr %.sroa.4144.0..sroa_idx, align 8
+  store i64 %.0195574, ptr %.sroa.4144.0..sroa_idx, align 8
   %.sroa.5145.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 2, ptr %.sroa.5145.0..sroa_idx, align 8
   %.sroa.7147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26

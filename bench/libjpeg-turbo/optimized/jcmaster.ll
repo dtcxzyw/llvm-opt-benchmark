@@ -61,7 +61,7 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   %.not.i = icmp eq i32 %25, 0
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %27 = load i32, ptr %26, align 4, !tbaa !42
-  %.pre93 = load ptr, ptr %5, align 8, !tbaa !3
+  %.pre94 = load ptr, ptr %5, align 8, !tbaa !3
   br i1 %.not.i, label %36, label %28
 
 28:                                               ; preds = %22
@@ -69,7 +69,7 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %.pre93, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.pre94, i64 32
   store i32 1, ptr %31, align 8, !tbaa !43
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i32 0, ptr %32, align 4, !tbaa !44
@@ -85,7 +85,7 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
 37:                                               ; preds = %36, %28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i32 1, ptr %38, align 4, !tbaa !44
-  %39 = getelementptr inbounds nuw i8, ptr %.pre93, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.pre94, i64 32
   store i32 0, ptr %39, align 8, !tbaa !43
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %41 = load i32, ptr %40, align 4, !tbaa !45
@@ -99,7 +99,7 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   br label %.loopexit247.i
 
 45:                                               ; preds = %36
-  %46 = getelementptr inbounds nuw i8, ptr %.pre93, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.pre94, i64 32
   store i32 0, ptr %46, align 8, !tbaa !43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i32 0, ptr %47, align 4, !tbaa !44
@@ -383,10 +383,10 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   %174 = icmp sgt i32 %173, -1
   %.not235.i = icmp eq i32 %.fr.i, %173
   %175 = and i1 %.not235.i, %174
-  %or.cond359.i = and i1 %.not236.fr.i, %175
-  br i1 %or.cond359.i, label %181, label %.sink.split345.i
+  %or.cond350.i = and i1 %.not236.fr.i, %175
+  br i1 %or.cond350.i, label %181, label %.sink.split336.i
 
-.sink.split345.i:                                 ; preds = %.lr.ph263.split.i
+.sink.split336.i:                                 ; preds = %.lr.ph263.split.i
   %176 = load ptr, ptr %0, align 8, !tbaa !33
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 40
   store i32 17, ptr %177, align 8, !tbaa !34
@@ -397,7 +397,7 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   tail call void %180(ptr noundef nonnull %0) #6
   br label %181
 
-181:                                              ; preds = %.sink.split345.i, %.lr.ph263.split.i
+181:                                              ; preds = %.sink.split336.i, %.lr.ph263.split.i
   store i32 %104, ptr %172, align 4, !tbaa !46
   %indvars.iv.next294.i = add nsw i64 %indvars.iv293.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next294.i to i32
@@ -424,12 +424,12 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   %or.cond15.i = select i1 %or.cond11.i, i1 true, i1 %189
   %190 = icmp slt i32 %104, 0
   %or.cond17.i = select i1 %or.cond15.i, i1 true, i1 %190
-  br i1 %or.cond17.i, label %.sink.split352.i, label %191
+  br i1 %or.cond17.i, label %.sink.split343.i, label %191
 
 191:                                              ; preds = %186
   %192 = load i32, ptr %58, align 8, !tbaa !52
   %.not229.i = icmp slt i32 %104, %192
-  br i1 %.not229.i, label %203, label %.sink.split352.i
+  br i1 %.not229.i, label %203, label %.sink.split343.i
 
 193:                                              ; preds = %182
   %194 = icmp ne i32 %100, 63
@@ -438,9 +438,9 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   %or.cond21.i = select i1 %196, i1 true, i1 %194
   %197 = icmp ne i32 %104, 0
   %or.cond23.i = select i1 %or.cond21.i, i1 true, i1 %197
-  br i1 %or.cond23.i, label %.sink.split352.i, label %203
+  br i1 %or.cond23.i, label %.sink.split343.i, label %203
 
-.sink.split352.i:                                 ; preds = %193, %191, %186
+.sink.split343.i:                                 ; preds = %193, %191, %186
   %198 = load ptr, ptr %0, align 8, !tbaa !33
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 40
   store i32 17, ptr %199, align 8, !tbaa !34
@@ -451,7 +451,7 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
   tail call void %202(ptr noundef nonnull %0) #6
   br label %203
 
-203:                                              ; preds = %.sink.split352.i, %193, %191
+203:                                              ; preds = %.sink.split343.i, %193, %191
   br i1 %96, label %.lr.ph270.i, label %.loopexit245.i
 
 .lr.ph270.i:                                      ; preds = %203
@@ -495,11 +495,11 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
 
 ._crit_edge278.loopexit.i:                        ; preds = %.loopexit245.i
   %.pre.i = load i32, ptr %57, align 4, !tbaa !44
-  %.pre95 = load i32, ptr %56, align 4, !tbaa !45
+  %.pre96 = load i32, ptr %56, align 4, !tbaa !45
   br label %._crit_edge278.i
 
 ._crit_edge278.i:                                 ; preds = %._crit_edge278.loopexit.i, %.loopexit247.i
-  %221 = phi i32 [ %.pre95, %._crit_edge278.loopexit.i ], [ %53, %.loopexit247.i ]
+  %221 = phi i32 [ %.pre96, %._crit_edge278.loopexit.i ], [ %53, %.loopexit247.i ]
   %222 = phi i32 [ %.pre.i, %._crit_edge278.loopexit.i ], [ %54, %.loopexit247.i ]
   %.not225.i = icmp eq i32 %222, 0
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -563,7 +563,7 @@ define void @jinit_c_master_control(ptr noundef %0, i32 noundef %1) local_unname
 validate_script.exit:                             ; preds = %233, %244, %.preheader243.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 2560, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
-  %.pre96 = load ptr, ptr %5, align 8, !tbaa !3
+  %.pre97 = load ptr, ptr %5, align 8, !tbaa !3
   br label %250
 
 248:                                              ; preds = %2
@@ -573,7 +573,7 @@ validate_script.exit:                             ; preds = %233, %244, %.prehea
   br label %250
 
 250:                                              ; preds = %248, %validate_script.exit
-  %251 = phi ptr [ %6, %248 ], [ %.pre96, %validate_script.exit ]
+  %251 = phi ptr [ %6, %248 ], [ %.pre97, %validate_script.exit ]
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 32
   %253 = load i32, ptr %252, align 8, !tbaa !43
   %.not53 = icmp eq i32 %253, 0
@@ -596,14 +596,14 @@ validate_script.exit:                             ; preds = %233, %244, %.prehea
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.083 = phi ptr [ %265, %.lr.ph ], [ %261, %.lr.ph.preheader ]
-  %.05082 = phi i32 [ %264, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %262 = getelementptr inbounds nuw i8, ptr %.083, i64 12
+  %.084 = phi ptr [ %265, %.lr.ph ], [ %261, %.lr.ph.preheader ]
+  %.05083 = phi i32 [ %264, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %262 = getelementptr inbounds nuw i8, ptr %.084, i64 12
   store i32 1, ptr %262, align 4, !tbaa !62
-  %263 = getelementptr inbounds nuw i8, ptr %.083, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %.084, i64 8
   store i32 1, ptr %263, align 8, !tbaa !64
-  %264 = add nuw nsw i32 %.05082, 1
-  %265 = getelementptr inbounds nuw i8, ptr %.083, i64 96
+  %264 = add nuw nsw i32 %.05083, 1
+  %265 = getelementptr inbounds nuw i8, ptr %.084, i64 96
   %exitcond.not = icmp eq i32 %264, %258
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
@@ -929,8 +929,8 @@ initial_setup.exit:                               ; preds = %._crit_edge.._crit_
 
 451:                                              ; preds = %455
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond92.not, label %458, label %452, !llvm.loop !83
+  %exitcond93.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond93.not, label %458, label %452, !llvm.loop !83
 
 452:                                              ; preds = %448, %451
   %indvars.iv = phi i64 [ 0, %448 ], [ %indvars.iv.next, %451 ]
@@ -983,10 +983,10 @@ initial_setup.exit:                               ; preds = %._crit_edge.._crit_
   br i1 %478, label %using_std_huff_tables.exit.thread, label %.preheader.i70
 
 479:                                              ; preds = %482
-  br i1 %exitcond.not.i71, label %485, label %.preheader.i70, !llvm.loop !85
+  br i1 %indvars.iv.i71, label %485, label %.preheader.i70, !llvm.loop !85
 
 .preheader.i70:                                   ; preds = %475, %479
-  %exitcond.not.i71 = phi i1 [ true, %479 ], [ false, %475 ]
+  %indvars.iv.i71 = phi i1 [ true, %479 ], [ false, %475 ]
   %indvars.iv.i72 = phi i64 [ 3, %479 ], [ 2, %475 ]
   %480 = getelementptr inbounds nuw [4 x ptr], ptr %449, i64 0, i64 %indvars.iv.i72
   %481 = load ptr, ptr %480, align 8, !tbaa !84
@@ -1001,8 +1001,8 @@ initial_setup.exit:                               ; preds = %._crit_edge.._crit_
 
 485:                                              ; preds = %479
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %466, ptr noundef nonnull dereferenceable(17) @using_std_huff_tables.bits_dc_luminance, i64 17)
-  %.not.i73 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i73, label %486, label %using_std_huff_tables.exit.thread
+  %.not.i74 = icmp eq i32 %bcmp.i, 0
+  br i1 %.not.i74, label %486, label %using_std_huff_tables.exit.thread
 
 486:                                              ; preds = %485
   %487 = getelementptr inbounds nuw i8, ptr %466, i64 17
@@ -1058,9 +1058,9 @@ using_std_huff_tables.exit.thread:                ; preds = %.preheader.i70, %48
   %500 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %501 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %502 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  br i1 %.not63, label %.thread, label %.thread124
+  br i1 %.not63, label %.thread, label %.thread101
 
-.thread124:                                       ; preds = %497
+.thread101:                                       ; preds = %497
   store i32 1, ptr %500, align 8, !tbaa !86
   store i32 0, ptr %501, align 4, !tbaa !87
   store i32 0, ptr %502, align 4, !tbaa !88
@@ -1075,16 +1075,16 @@ using_std_huff_tables.exit.thread:                ; preds = %.preheader.i70, %48
 503:                                              ; preds = %using_std_huff_tables.exit.thread
   %504 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %504, align 8, !tbaa !86
-  %.phi.trans.insert97 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %.pre98 = load i32, ptr %.phi.trans.insert97, align 8, !tbaa !82
-  %505 = icmp eq i32 %.pre98, 0
+  %.phi.trans.insert98 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %.pre99 = load i32, ptr %.phi.trans.insert98, align 8, !tbaa !82
+  %505 = icmp eq i32 %.pre99, 0
   %506 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 0, ptr %506, align 4, !tbaa !87
   %507 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 0, ptr %507, align 4, !tbaa !88
   br i1 %505, label %512, label %508
 
-508:                                              ; preds = %.thread124, %503
+508:                                              ; preds = %.thread101, %503
   %509 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %510 = load i32, ptr %509, align 8, !tbaa !32
   %511 = shl nsw i32 %510, 1

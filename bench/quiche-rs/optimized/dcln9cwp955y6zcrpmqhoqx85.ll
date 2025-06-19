@@ -2982,11 +2982,11 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler15RecentAckPoints6update1
   unreachable
 
 _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler15choose_a0_point17h84ee27ae4b21c69bE.exit.sink.split.i: ; preds = %.lr.ph.i.i, %._crit_edge.thread.i.i
-  %.sink81.i = phi ptr [ %114, %._crit_edge.thread.i.i ], [ %103, %.lr.ph.i.i ]
+  %.sink78.i = phi ptr [ %114, %._crit_edge.thread.i.i ], [ %103, %.lr.ph.i.i ]
   %.sroa.0.0.ph.i = phi i64 [ %.sroa.0.0.copyload.i, %._crit_edge.thread.i.i ], [ %104, %.lr.ph.i.i ]
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink81.i, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink78.i, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !169
-  %.sroa.4.0..sroa_idx58.i = getelementptr inbounds nuw i8, ptr %.sink81.i, i64 16
+  %.sroa.4.0..sroa_idx58.i = getelementptr inbounds nuw i8, ptr %.sink78.i, i64 16
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx58.i, align 8, !noalias !169
   br label %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler15choose_a0_point17h84ee27ae4b21c69bE.exit.i
 
@@ -3577,7 +3577,7 @@ define void @"_ZN126_$LT$quiche..recovery..gcongestion..bbr2..probe_bw..ProbeBW$
     i8 4, label %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_refill17h36c5b754a4c2f704E.exit
   ]
 
-default.unreachable2:                             ; preds = %5
+default.unreachable1:                             ; preds = %5
   unreachable
 
 10:                                               ; preds = %5
@@ -3739,7 +3739,7 @@ define void @"_ZN126_$LT$quiche..recovery..gcongestion..bbr2..probe_bw..ProbeBW$
   store i64 %41, ptr %39, align 8
   br label %19
 
-default.unreachable104:                           ; preds = %19
+default.unreachable85:                            ; preds = %19
   unreachable
 
 42:                                               ; preds = %19
@@ -4080,7 +4080,7 @@ _ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW26probe_inflight_high_upwa
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 712
   %191 = load i32, ptr %190, align 8, !range !19, !alias.scope !272, !noalias !273, !noundef !3
   %.not.i.i27 = icmp eq i32 %191, 1000000000
-  br i1 %.not.i.i27, label %.invoke105, label %192, !prof !23
+  br i1 %.not.i.i27, label %.invoke86, label %192, !prof !23
 
 192:                                              ; preds = %.noexc31
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 704
@@ -4108,11 +4108,11 @@ _ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW16has_cycle_lasted17h40519
   %204 = icmp ugt i64 %198, %194
   br i1 %204, label %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW26is_time_to_probe_bandwidth17h44a880ca7f2f34b8E.exit.thread.i, label %205
 
-.invoke105:                                       ; preds = %.noexc65, %.noexc31
+.invoke86:                                        ; preds = %.noexc65, %.noexc31
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e0fe9ce77117508c5438894567f8179.85) #22
           to label %.cont106 unwind label %408
 
-.cont106:                                         ; preds = %.invoke105
+.cont87:                                          ; preds = %.invoke86
   unreachable
 
 205:                                              ; preds = %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW16has_cycle_lasted17h40519e93e540c5a7E.exit.i.i, %200
@@ -4365,7 +4365,7 @@ _ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_cruise17h4af
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 712
   %306 = load i32, ptr %305, align 8, !range !19, !alias.scope !318, !noalias !319, !noundef !3
   %.not.i.i54 = icmp eq i32 %306, 1000000000
-  br i1 %.not.i.i54, label %.invoke105, label %307, !prof !23
+  br i1 %.not.i.i54, label %.invoke86, label %307, !prof !23
 
 307:                                              ; preds = %.noexc65
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 704
@@ -4629,7 +4629,7 @@ _ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW17update_probe_down17h121a
   %eh.lpad-body80 = phi { ptr, i32 } [ %lpad.thr_comm, %408 ], [ %403, %402 ]
   resume { ptr, i32 } %eh.lpad-body80
 
-408:                                              ; preds = %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_refill17h36c5b754a4c2f704E.exit.i.invoke, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_cruise17h4afc1d60b2f3256bE.exit.i.invoke, %.noexc36.invoke, %.noexc47.invoke, %.noexc37.invoke, %.invoke105, %.critedge10.sink.split.i.invoke, %.invoke, %42, %383, %382, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW15update_probe_up17hd4d33b1127133cf1E.exit, %379, %43, %71, %81, %100, %.noexc13, %108, %109, %128, %133, %141, %151, %154, %.noexc22, %181, %186, %192, %228, %248, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW26is_time_to_probe_bandwidth17h44a880ca7f2f34b8E.exit.thread14.i, %.noexc39, %271, %276, %288, %290, %300, %301, %307, %344, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_refill17h36c5b754a4c2f704E.exit.i63, %.noexc69, %351
+408:                                              ; preds = %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_refill17h36c5b754a4c2f704E.exit.i.invoke, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_cruise17h4afc1d60b2f3256bE.exit.i.invoke, %.noexc36.invoke, %.noexc47.invoke, %.noexc37.invoke, %.invoke86, %.critedge10.sink.split.i.invoke, %.invoke, %42, %383, %382, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW15update_probe_up17hd4d33b1127133cf1E.exit, %379, %43, %71, %81, %100, %.noexc13, %108, %109, %128, %133, %141, %151, %154, %.noexc22, %181, %186, %192, %228, %248, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW26is_time_to_probe_bandwidth17h44a880ca7f2f34b8E.exit.thread14.i, %.noexc39, %271, %276, %288, %290, %300, %301, %307, %344, %_ZN6quiche8recovery11gcongestion4bbr28probe_bw7ProbeBW18enter_probe_refill17h36c5b754a4c2f704E.exit.i63, %.noexc69, %351
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$quiche..recovery..gcongestion..bbr2..probe_bw..ProbeBW$GT$17he4cdfafed7edeb05E"(ptr noalias noundef nonnull align 8 dereferenceable(760) %1) #20
@@ -5070,7 +5070,7 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery11gcongestion8recovery9G
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   br label %.outer.i.outer
 
-.outer.i.outer:                                   ; preds = %.loopexit198.i, %37
+.outer.i.outer:                                   ; preds = %.loopexit191.i, %37
   %.sroa.018.0.ph.i.ph = phi i64 [ %.sroa.018.3.i, %.loopexit198.i ], [ 0, %37 ]
   %.sroa.07.sroa.9.0.ph.i.ph = phi ptr [ %.sroa.07.sroa.9.1.i, %.loopexit198.i ], [ %.sroa.07.sroa.9.0.copyload.i, %37 ]
   %.sroa.07.sroa.0.0.ph.i.ph = phi ptr [ %.sroa.07.sroa.0.2.i, %.loopexit198.i ], [ %.sroa.07.sroa.0.0.copyload.i, %37 ]
@@ -5181,7 +5181,7 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery11gcongestion8recovery9G
   %75 = load i64, ptr %23, align 8, !alias.scope !378, !noalias !367, !noundef !3
   %76 = load i64, ptr %12, align 8, !range !184, !alias.scope !378, !noalias !367, !noundef !3
   %77 = icmp eq i64 %75, %76
-  br i1 %77, label %78, label %.loopexit198.i
+  br i1 %77, label %78, label %.loopexit191.i
 
 78:                                               ; preds = %.loopexit56.i
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3f7d2b0c948f1badE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4e0fe9ce77117508c5438894567f8179.99)
@@ -5231,7 +5231,7 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery11gcongestion8recovery9G
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.69)
   br label %42
 
-.loopexit198.i:                                   ; preds = %.loopexit56.i, %78
+.loopexit191.i:                                   ; preds = %.loopexit56.i, %78
   %99 = load ptr, ptr %41, align 8, !alias.scope !378, !noalias !367, !nonnull !3, !noundef !3
   %100 = getelementptr inbounds nuw { i64, i64 }, ptr %99, i64 %75
   store i64 %74, ptr %100, align 8, !noalias !369
@@ -8089,14 +8089,14 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$12ack_and_drop1
   %.sroa.07.sroa.7.1 = phi ptr [ %.sroa.9.sroa.5.0, %25 ], [ %.sroa.07.sroa.7.0, %23 ]
   %.sroa.9.sroa.5.1 = phi ptr [ %.sroa.07.sroa.7.0, %25 ], [ %.sroa.9.sroa.5.0, %23 ]
   %.sroa.9.sroa.0.1 = phi ptr [ %.sroa.07.sroa.0.0, %25 ], [ %.sroa.9.sroa.0.0, %23 ]
-  %.sink9.i.i = phi ptr [ %.sroa.9.sroa.0.0, %25 ], [ %.sroa.07.sroa.0.0, %23 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 48
+  %.sink7.i.i = phi ptr [ %.sroa.9.sroa.0.0, %25 ], [ %.sroa.07.sroa.0.0, %23 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.sink7.i.i, i64 48
   %28 = add i64 %.sroa.12.0, 1
-  %.not = icmp eq ptr %.sink9.i.i, null
+  %.not = icmp eq ptr %.sink7.i.i, null
   br i1 %.not, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957aec7f7aef557eE.exit.thread", label %29
 
 29:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957aec7f7aef557eE.exit"
-  %30 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.sink7.i.i, i64 32
   %31 = load i64, ptr %30, align 8, !noundef !3
   %.not5 = icmp ult i64 %31, %.sroa.0.0.i
   br i1 %.not5, label %32, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957aec7f7aef557eE.exit.thread"
@@ -8105,7 +8105,7 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$12ack_and_drop1
   br i1 %.sroa.03.0, label %35, label %21
 
 32:                                               ; preds = %29
-  %33 = call noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sink9.i.i)
+  %33 = call noundef i64 @"_ZN6quiche9range_buf17RangeBuf$LT$F$GT$7max_off17h16ae5aaa3fed9784E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sink7.i.i)
   %34 = icmp ult i64 %.sroa.0.0.i, %33
   br i1 %34, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h957aec7f7aef557eE.exit.thread", label %23
 

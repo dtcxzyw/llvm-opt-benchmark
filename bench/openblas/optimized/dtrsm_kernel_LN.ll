@@ -86,7 +86,7 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i.preheader, %._crit_edge.us.i
-  %exitcond64.not.i = phi i1 [ true, %._crit_edge.us.i ], [ false, %.lr.ph.us.i.preheader ]
+  %indvars.iv61.i = phi i1 [ true, %._crit_edge.us.i ], [ false, %.lr.ph.us.i.preheader ]
   %indvars.iv61.i = phi i64 [ 1, %._crit_edge.us.i ], [ 0, %.lr.ph.us.i.preheader ]
   %.148.us.i = phi ptr [ %58, %._crit_edge.us.i ], [ %.04452.i294, %.lr.ph.us.i.preheader ]
   %48 = mul nuw nsw i64 %indvars.iv61.i, %7
@@ -191,7 +191,7 @@ solve.exit:                                       ; preds = %.split.i, %.prehead
   br label %.lr.ph.us.i207
 
 .lr.ph.us.i207:                                   ; preds = %.lr.ph.us.i207.preheader, %._crit_edge.us.i215
-  %exitcond64.not.i217 = phi i1 [ true, %._crit_edge.us.i215 ], [ false, %.lr.ph.us.i207.preheader ]
+  %indvars.iv61.i208 = phi i1 [ true, %._crit_edge.us.i215 ], [ false, %.lr.ph.us.i207.preheader ]
   %indvars.iv61.i208 = phi i64 [ 1, %._crit_edge.us.i215 ], [ 0, %.lr.ph.us.i207.preheader ]
   %.148.us.i209 = phi ptr [ %98, %._crit_edge.us.i215 ], [ %.04452.i205301, %.lr.ph.us.i207.preheader ]
   %88 = mul nuw nsw i64 %indvars.iv61.i208, %7

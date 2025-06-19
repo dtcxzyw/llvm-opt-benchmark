@@ -1532,15 +1532,15 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
   br i1 %exitcond442.not, label %.preheader396.preheader, label %.preheader397, !llvm.loop !11
 
 .preheader396.preheader:                          ; preds = %155
-  %invariant.gep455 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %105, i64 %114
+  %invariant.gep448 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %105, i64 %114
   br label %.preheader396
 
 .preheader396:                                    ; preds = %.preheader396.preheader, %180
   %indvars.iv443 = phi i64 [ 0, %.preheader396.preheader ], [ %indvars.iv.next444, %180 ]
   %.4300413 = phi ptr [ %.3299, %.preheader396.preheader ], [ %.5301, %180 ]
   %.0318412 = phi i16 [ 0, %.preheader396.preheader ], [ %.1319, %180 ]
-  %gep456 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %invariant.gep455, i64 %indvars.iv443
-  %156 = getelementptr inbounds nuw i8, ptr %gep456, i64 8
+  %gep449 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %invariant.gep448, i64 %indvars.iv443
+  %156 = getelementptr inbounds nuw i8, ptr %gep449, i64 8
   %157 = load i8, ptr %156, align 2
   %158 = zext i8 %157 to i32
   %159 = and i32 %158, 4
@@ -1578,7 +1578,7 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
 180:                                              ; preds = %168, %170, %160
   %.1319 = phi i16 [ %167, %160 ], [ %.0318412, %168 ], [ %178, %170 ]
   %.5301 = phi ptr [ %161, %160 ], [ %.4300413, %168 ], [ %179, %170 ]
-  %181 = getelementptr inbounds nuw i8, ptr %gep456, i64 2
+  %181 = getelementptr inbounds nuw i8, ptr %gep449, i64 2
   store i16 %.1319, ptr %181, align 2
   %indvars.iv.next444 = add nuw nsw i64 %indvars.iv443, 1
   %exitcond446.not = icmp eq i64 %indvars.iv.next444, %wide.trip.count437
@@ -2179,13 +2179,13 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
   %512 = icmp sgt i32 %.6403, 0
   br i1 %512, label %513, label %._crit_edge
 
-513:                                              ; preds = %511
+514:                                              ; preds = %511
   %514 = zext nneg i32 %.6403 to i64
   %515 = mul nuw nsw i64 %514, 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %507, ptr align 2 %.1404, i64 %515, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %511, %513
+._crit_edge:                                      ; preds = %511, %514
   %.pre-phi = phi i64 [ %514, %513 ], [ 0, %511 ]
   %516 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %507, i64 %.pre-phi
   %517 = mul nuw nsw i64 %wide.trip.count, 10
@@ -3772,8 +3772,8 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %118 = getelementptr inbounds %struct.stbtt__edge, ptr %101, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = fcmp olt float %112, %114
-  %sext155.i = shl i64 %indvars.iv35.i, 32
-  %.pre45.i = ashr exact i64 %sext155.i, 32
+  %sext59.i = shl i64 %indvars.iv35.i, 32
+  %.pre45.i = ashr exact i64 %sext59.i, 32
   %..pre45.i = select i1 %120, i64 %110, i64 %.pre45.i
   %.pre45..i = select i1 %120, i64 %.pre45.i, i64 %110
   %..i = zext i1 %120 to i32
@@ -3841,12 +3841,12 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %152 = getelementptr inbounds %struct.stbtt__edge, ptr %101, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = fcmp ogt float %146, %148
-  %sext153.i = shl i64 %indvars.iv25.i, 32
-  %.pre.i29 = ashr exact i64 %sext153.i, 32
+  %sext57.i = shl i64 %indvars.iv25.i, 32
+  %.pre.i29 = ashr exact i64 %sext57.i, 32
   %..pre.i = select i1 %154, i64 %144, i64 %.pre.i29
   %.pre..i = select i1 %154, i64 %.pre.i29, i64 %144
-  %.163.i = zext i1 %154 to i32
-  store i32 %.163.i, ptr %153, align 4
+  %.67.i = zext i1 %154 to i32
+  store i32 %.67.i, ptr %153, align 4
   %155 = getelementptr inbounds %struct.stbtt__point, ptr %138, i64 %..pre.i
   %156 = load float, ptr %155, align 4
   %157 = tail call float @llvm.fmuladd.f32(float %156, float %4, float %6)
@@ -4061,9 +4061,9 @@ _ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i: ; preds = %236
 240:                                              ; preds = %238
   %241 = tail call noalias noundef dereferenceable_or_null(25608) ptr @malloc(i64 noundef 25608) #27
   %242 = icmp eq ptr %241, null
-  br i1 %242, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i, label %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread10.i.i.i
+  br i1 %242, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i, label %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i
 
-_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread10.i.i.i: ; preds = %240
+_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i: ; preds = %240
   store ptr %.sroa.0.113.i.i, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %241, i64 25568
   %.pre.i.i = load float, ptr %233, align 4
@@ -4078,7 +4078,7 @@ _ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i: ; preds = %238
   %.not.i.i98.i = icmp eq ptr %.sroa.0.113.i.i, null
   br i1 %.not.i.i98.i, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i, label %_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i
 
-_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i: ; preds = %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread10.i.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i
+_ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.i.i: ; preds = %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread8.i.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i
   %248 = phi float [ %.pre41.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread10.i.i.i ], [ %231, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ %231, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i ]
   %249 = phi float [ %.pre.i.i, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread10.i.i.i ], [ %234, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ %234, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i ]
   %.sroa.5.4.i.i = phi ptr [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread10.i.i.i ], [ null, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.i.i.i ], [ %237, %_ZL18stbtt__hheap_allocP12stbtt__hheapmPv.exit.thread4.i.i.i ]

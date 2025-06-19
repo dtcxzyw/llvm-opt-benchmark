@@ -601,21 +601,21 @@ thread-pre-split.i.i.i.i.i.i130:                  ; preds = %_ZN5Eigen15PlainObj
 
 194:                                              ; preds = %191
   %195 = icmp samesign ugt i64 %188, 4611686018427387903
-  br i1 %195, label %.invoke453, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i
+  br i1 %195, label %.invoke403, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i: ; preds = %194
   %196 = shl nuw i64 %188, 2
   %197 = call noalias ptr @malloc(i64 noundef %196) #25
   %198 = icmp eq ptr %197, null
-  br i1 %198, label %.invoke453, label %.sink.split.i.i
+  br i1 %198, label %.invoke403, label %.sink.split.i.i
 
-.invoke453:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i, %194
+.invoke403:                                       ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i, %194
   %199 = call ptr @__cxa_allocate_exception(i64 8) #21
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %199, align 8, !tbaa !65
   invoke void @__cxa_throw(ptr nonnull %199, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #22
           to label %.cont454 unwind label %508
 
-.cont454:                                         ; preds = %.invoke453
+.cont404:                                         ; preds = %.invoke403
   unreachable
 
 .sink.split.i.i:                                  ; preds = %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i, %191
@@ -1284,7 +1284,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   invoke void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EE18conservativeResizeElll(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %.063.lcssa, i64 noundef %.063.lcssa, i64 noundef 1)
           to label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE18conservativeResizeEl.exit unwind label %580
 
-508:                                              ; preds = %.invoke453
+508:                                              ; preds = %.invoke403
   %509 = landingpad { ptr, i32 }
           cleanup
   br label %.body151
@@ -2729,7 +2729,7 @@ define linkonce_odr dso_local void @_ZZN3igl17split_nonmanifoldIN5Eigen6MatrixIi
 22:                                               ; preds = %16, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %23 = phi ptr [ %17, %16 ], [ %70, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %24 = phi ptr [ %18, %16 ], [ %71, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %exitcond.not = phi i1 [ false, %16 ], [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.027 = phi i1 [ false, %16 ], [ true, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %.027 = phi i32 [ 1, %16 ], [ 2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %25 = phi ptr [ %.promoted, %16 ], [ %72, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %26 = load ptr, ptr %11, align 8, !tbaa !137

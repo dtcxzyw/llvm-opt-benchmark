@@ -179,8 +179,8 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %33 = shl i64 %9, 31
   %sext = add i64 %33, -4294967296
   %34 = ashr i64 %sext, 32
-  %sext118 = shl i64 %9, 31
-  %35 = ashr i64 %sext118, 32
+  %sext116 = shl i64 %9, 31
+  %35 = ashr i64 %sext116, 32
   br label %39
 
 .preheader92:                                     ; preds = %18

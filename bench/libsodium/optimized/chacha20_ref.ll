@@ -321,7 +321,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %36 = load i32, ptr %35, align 4
   br label %37
 
-37:                                               ; preds = %231, %4
+37:                                               ; preds = %232, %4
   %.0294 = phi i64 [ %3, %4 ], [ %232, %231 ]
   %.0293 = phi i32 [ %30, %4 ], [ %208, %231 ]
   %.0291 = phi i32 [ %32, %4 ], [ %spec.select, %231 ]
@@ -576,15 +576,15 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
 226:                                              ; preds = %144
   br i1 %38, label %.lr.ph335, label %.loopexit
 
-.lr.ph335:                                        ; preds = %226, %.lr.ph335
+.lr.ph335:; preds = %226, %.lr.ph335
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph335 ], [ 0, %226 ]
   %227 = getelementptr i8, ptr %.1290, i64 %indvars.iv
   %228 = load i8, ptr %227, align 1
-  %229 = getelementptr i8, ptr %.1286, i64 %indvars.iv
-  store i8 %228, ptr %229, align 1
+  %228 = getelementptr i8, ptr %.1286, i64 %indvars.iv
+  store i8 %228, ptr %228, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %230 = icmp samesign ult i64 %indvars.iv.next, %.0294
-  br i1 %230, label %.lr.ph335, label %.loopexit, !llvm.loop !7
+  %231 = icmp samesign ult i64 %indvars.iv.next, %.0294
+  br i1 %231, label %.lr.ph335, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph335, %226
   store i32 %208, ptr %29, align 4
@@ -592,7 +592,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
   ret void
 
-231:                                              ; preds = %144
+232:                                              ; preds = %144
   %232 = add i64 %.0294, -64
   %233 = getelementptr i8, ptr %.1290, i64 64
   %234 = getelementptr i8, ptr %.1288, i64 64

@@ -1837,12 +1837,12 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
   br label %463
 
 443:                                              ; preds = %448, %441
-  %.sink670.i.i = phi i64 [ 120, %448 ], [ 144, %441 ]
-  %.sink669.i.i = phi ptr [ %214, %448 ], [ %305, %441 ]
+  %.sink658.i.i = phi i64 [ 120, %448 ], [ 144, %441 ]
+  %.sink657.i.i = phi ptr [ %214, %448 ], [ %305, %441 ]
   %.sink.i.i = phi i64 [ 128, %448 ], [ 152, %441 ]
   %.pn.i.i = phi { ptr, i32 } [ %449, %448 ], [ %442, %441 ]
-  %.sroa.5160.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.sink670.i.i
-  store ptr %.sink669.i.i, ptr %.sroa.5160.0..sroa_idx.i.i, align 8, !alias.scope !105, !noalias !106
+  %.sroa.5160.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.sink658.i.i
+  store ptr %.sink657.i.i, ptr %.sroa.5160.0..sroa_idx.i.i, align 8, !alias.scope !105, !noalias !106
   %.sroa.6163.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.sink.i.i
   store i64 %122, ptr %.sroa.6163.0..sroa_idx.i.i, align 8, !alias.scope !105, !noalias !106
   br label %.body.i
@@ -2087,7 +2087,7 @@ _ZN5uu_dd9parseargs6Parser4read17h4273c84f79c6e53bE.exit: ; preds = %463, %4
   %521 = icmp eq i8 %.064.i, 2
   br i1 %520, label %522, label %523
 
-default.unreachable:                              ; preds = %547, %546, %525
+default.unreachable.i.i:                          ; preds = %547, %546, %525
   unreachable
 
 522:                                              ; preds = %519
@@ -2817,7 +2817,7 @@ define internal fastcc void @_ZN5uu_dd9parseargs16parse_bytes_no_x17h7518c8a3e6b
   %switch.not.not = icmp eq i64 %23, 0
   br i1 %switch.not.not, label %48, label %49
 
-default.unreachable197:                           ; preds = %52
+default.unreachable192:                           ; preds = %52
   unreachable
 
 48:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h5a6ab99f8235f45cE.exit122"

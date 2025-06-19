@@ -2187,7 +2187,7 @@ _parse_number.exit378.i:                          ; preds = %585, %.critedge.i36
   br label %718
 
 612:                                              ; preds = %_parse_number.exit412.i, %601
-  %exitcond.not.i167 = phi i1 [ false, %601 ], [ true, %_parse_number.exit412.i ]
+  %indvars.iv645.i = phi i1 [ false, %601 ], [ true, %_parse_number.exit412.i ]
   %indvars.iv645.i = phi i64 [ 1, %601 ], [ 2, %_parse_number.exit412.i ]
   %.5611.i = phi ptr [ %.2241544.i, %601 ], [ %.0.i400.i, %_parse_number.exit412.i ]
   %613 = ptrtoint ptr %.5611.i to i64
@@ -4738,8 +4738,8 @@ _parse_number.exit.thread.i.i:                    ; preds = %_parse_number.exit.
   br label %_parse_clock_time.exit.i
 
 _parse_clock_time.exit.i:                         ; preds = %_parse_number.exit.thread.i.i, %1512, %1510, %1506
-  %.sink34.i.sink.i = phi float [ %1514, %_parse_number.exit.thread.i.i ], [ %1511, %1510 ], [ %1513, %1512 ], [ %1497, %1506 ]
-  %1515 = call float @llvm.round.f32(float %.sink34.i.sink.i)
+  %.sink29.i.sink.i = phi float [ %1514, %_parse_number.exit.thread.i.i ], [ %1511, %1510 ], [ %1513, %1512 ], [ %1497, %1506 ]
+  %1515 = call float @llvm.round.f32(float %.sink29.i.sink.i)
   br label %_process_clock_time.exit
 
 _process_clock_time.exit:                         ; preds = %1486, %_parse_clock_time.exit.i
@@ -7597,8 +7597,8 @@ _parse_number.exit.thread.i:                      ; preds = %_parse_number.exit.
   br label %_parse_clock_time.exit
 
 _parse_clock_time.exit:                           ; preds = %51, %55, %57, %_parse_number.exit.thread.i
-  %.sink34.i.sink = phi float [ %60, %_parse_number.exit.thread.i ], [ %56, %55 ], [ %58, %57 ], [ %42, %51 ]
-  %61 = tail call float @llvm.round.f32(float %.sink34.i.sink)
+  %.sink29.i.sink = phi float [ %60, %_parse_number.exit.thread.i ], [ %56, %55 ], [ %58, %57 ], [ %42, %51 ]
+  %61 = tail call float @llvm.round.f32(float %.sink29.i.sink)
   store float %61, ptr %.0, align 4, !tbaa !64
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !99

@@ -832,10 +832,10 @@ setOne.exit115.i:                                 ; preds = %308
   unreachable
 
 init.exit:                                        ; preds = %335
-  %.b453 = load i1, ptr @opts.8, align 8
+  %.b415 = load i1, ptr @opts.8, align 8
   %344 = load ptr, ptr @opts.11, align 8, !tbaa !12
-  %.str.2..str.1 = select i1 %.b453, ptr @.str.1, ptr @.str.2
-  %undirfn.dirfn = select i1 %.b453, ptr @dirfn, ptr @undirfn
+  %.str.2..str.1 = select i1 %.b415, ptr @.str.1, ptr @.str.2
+  %undirfn.dirfn = select i1 %.b415, ptr @dirfn, ptr @undirfn
   %345 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %336, ptr noundef nonnull %.str.2..str.1, ptr noundef %344) #11
   switch i32 %.0.i, label %default.unreachable [
     i32 1, label %346
@@ -860,8 +860,8 @@ init.exit:                                        ; preds = %335
 346:                                              ; preds = %init.exit
   %347 = load i32, ptr @opts.0, align 8, !tbaa !20
   %348 = load i32, ptr @opts.1, align 4, !tbaa !21
-  %.b451 = load i1, ptr @opts.7, align 4
-  %349 = zext i1 %.b451 to i32
+  %.b413 = load i1, ptr @opts.7, align 4
+  %349 = zext i1 %.b413 to i32
   %.b = load i1, ptr @opts.6, align 8
   %350 = zext i1 %.b to i32
   tail call void @makeSquareGrid(i32 noundef %347, i32 noundef %348, i32 noundef %349, i32 noundef %350, ptr noundef nonnull %undirfn.dirfn) #11
@@ -979,9 +979,9 @@ init.exit:                                        ; preds = %335
   br i1 %.not32, label %closeOpen.exit, label %399
 
 399:                                              ; preds = %.lr.ph
-  %.b452 = load i1, ptr @opts.8, align 8
+  %.b414 = load i1, ptr @opts.8, align 8
   %400 = load ptr, ptr @opts.9, align 8, !tbaa !22
-  br i1 %.b452, label %401, label %403
+  br i1 %.b414, label %401, label %403
 
 401:                                              ; preds = %399
   %402 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 12, i64 1, ptr %400)
@@ -1018,7 +1018,7 @@ closeOpen.exit:                                   ; preds = %403, %401, %.lr.ph
   tail call void @makeWheel(i32 noundef %415, ptr noundef nonnull %undirfn.dirfn) #11
   br label %416
 
-default.unreachable:                              ; preds = %init.exit
+416:                                              ; preds = %init.exit
   unreachable
 
 416:                                              ; preds = %385, %386, %373, %374, %359, %360, %414, %412, %410, %407, %._crit_edge, %389, %387, %378, %375, %363, %361, %353, %351, %346

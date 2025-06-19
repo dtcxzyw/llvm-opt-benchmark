@@ -296,7 +296,7 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
   br i1 %exitcond, label %.thread, label %97, !llvm.loop !10
 
 97:                                               ; preds = %94, %.loopexit7
-  %exitcond = phi i1 [ true, %94 ], [ false, %.loopexit7 ]
+  %indvars.iv = phi i1 [ true, %94 ], [ false, %.loopexit7 ]
   %indvars.iv = phi i64 [ 2, %94 ], [ 1, %.loopexit7 ]
   %98 = phi ptr [ %96, %94 ], [ @.str.16, %.loopexit7 ]
   %99 = phi ptr [ %95, %94 ], [ @field_table, %.loopexit7 ]

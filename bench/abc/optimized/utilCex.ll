@@ -988,7 +988,7 @@ define noundef ptr @Abc_CexTransformPhase(ptr noundef readonly captures(address)
 
 .Abc_CexDup.exit_crit_edge:                       ; preds = %4
   %.pre = load i32, ptr inttoptr (i64 5 to ptr), align 4, !tbaa !11
-  %.pre15 = load i32, ptr inttoptr (i64 17 to ptr), align 4, !tbaa !9
+  %.pre = load i32, ptr inttoptr (i64 17 to ptr), align 4, !tbaa !9
   %.pre16 = add nsw i32 %.pre, 1
   br label %Abc_CexDup.exit
 

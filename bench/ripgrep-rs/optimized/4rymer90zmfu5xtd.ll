@@ -1081,8 +1081,8 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !196
+  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !196
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 15:                                               ; preds = %6
@@ -1094,13 +1094,13 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !196
+  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !196
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !196
+  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !196
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 26:                                               ; preds = %6
@@ -2706,9 +2706,9 @@ common.resume.i:                                  ; preds = %.body.thread.i.i, %
   resume { ptr, i32 } %common.resume.op.i
 
 common.resume.i.i:                                ; preds = %240, %219
-  %.sink14.i.i = phi ptr [ %22, %240 ], [ %23, %219 ]
+  %.sink9.i.i = phi ptr [ %22, %240 ], [ %23, %219 ]
   %common.resume.op.i.i = phi { ptr, i32 } [ %241, %240 ], [ %220, %219 ]
-  %218 = load ptr, ptr %.sink14.i.i, align 8, !noalias !721, !nonnull !9, !noundef !9
+  %218 = load ptr, ptr %.sink9.i.i, align 8, !noalias !721, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %218, i64 noundef 2, i64 noundef 1) #21, !noalias !730
   br label %common.resume.i
 
@@ -2851,9 +2851,9 @@ _ZN7globset14PrefixStrategy12matches_into17h6f28eaf7c387d152E.exit.i: ; preds = 
   unreachable
 
 common.resume.i64.i:                              ; preds = %307, %286
-  %.sink14.i65.i = phi ptr [ %18, %307 ], [ %19, %286 ]
+  %.sink9.i65.i = phi ptr [ %18, %307 ], [ %19, %286 ]
   %common.resume.op.i66.i = phi { ptr, i32 } [ %308, %307 ], [ %287, %286 ]
-  %285 = load ptr, ptr %.sink14.i65.i, align 8, !noalias !745, !nonnull !9, !noundef !9
+  %285 = load ptr, ptr %.sink9.i65.i, align 8, !noalias !745, !nonnull !9, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %285, i64 noundef 2, i64 noundef 1) #21, !noalias !730
   br label %common.resume.i
 

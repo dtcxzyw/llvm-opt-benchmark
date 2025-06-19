@@ -7839,7 +7839,7 @@ define hidden void @_ZN5hyper5proto2h16decode7Decoder6decode17h80546eec68aecbd9E
   %.not = icmp eq i64 %78, 5
   br i1 %.not, label %.critedge, label %79
 
-default.unreachable411:                           ; preds = %212, %.critedge
+default.unreachable370:                           ; preds = %212, %.critedge
   unreachable
 
 79:                                               ; preds = %4
@@ -8219,8 +8219,8 @@ default.unreachable411:                           ; preds = %212, %.critedge
   ret void
 
 211:                                              ; preds = %176, %182
-  %storemerge419 = phi i64 [ 0, %182 ], [ 1, %176 ]
-  store i64 %storemerge419, ptr %0, align 8
+  %storemerge378 = phi i64 [ 0, %182 ], [ 1, %176 ]
+  store i64 %storemerge378, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %72)
   br label %205
 
@@ -10417,7 +10417,7 @@ define hidden void @_ZN5hyper5proto2h16decode7Decoder6decode17hc6be8af3b4d2d04cE
   %.not = icmp eq i64 %78, 5
   br i1 %.not, label %.critedge, label %79
 
-default.unreachable411:                           ; preds = %212, %.critedge
+default.unreachable370:                           ; preds = %212, %.critedge
   unreachable
 
 79:                                               ; preds = %4
@@ -10797,8 +10797,8 @@ default.unreachable411:                           ; preds = %212, %.critedge
   ret void
 
 211:                                              ; preds = %176, %182
-  %storemerge419 = phi i64 [ 0, %182 ], [ 1, %176 ]
-  store i64 %storemerge419, ptr %0, align 8
+  %storemerge378 = phi i64 [ 0, %182 ], [ 1, %176 ]
+  store i64 %storemerge378, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %72)
   br label %205
 
@@ -12995,7 +12995,7 @@ define hidden void @_ZN5hyper5proto2h16decode7Decoder6decode17hc7e1942e7ac33650E
   %.not = icmp eq i64 %78, 5
   br i1 %.not, label %.critedge, label %79
 
-default.unreachable411:                           ; preds = %212, %.critedge
+default.unreachable370:                           ; preds = %212, %.critedge
   unreachable
 
 79:                                               ; preds = %4
@@ -13375,8 +13375,8 @@ default.unreachable411:                           ; preds = %212, %.critedge
   ret void
 
 211:                                              ; preds = %176, %182
-  %storemerge419 = phi i64 [ 0, %182 ], [ 1, %176 ]
-  store i64 %storemerge419, ptr %0, align 8
+  %storemerge378 = phi i64 [ 0, %182 ], [ 1, %176 ]
+  store i64 %storemerge378, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %72)
   br label %205
 

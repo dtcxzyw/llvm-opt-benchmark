@@ -1623,11 +1623,11 @@ define range(i32 0, 2) i32 @png_set_text_2(ptr noalias noundef %0, ptr noalias n
   %101 = load i32, ptr %36, align 8, !tbaa !155
   %102 = icmp sgt i32 %101, 0
   %spec.select = select i1 %102, i64 0, i64 %.0134
-  %spec.select178 = select i1 %102, i64 %.0134, i64 0
+  %spec.select168 = select i1 %102, i64 %.0134, i64 0
   %103 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 %spec.select, ptr %103, align 8, !tbaa !159
   %104 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store i64 %spec.select178, ptr %104, align 8, !tbaa !160
+  store i64 %spec.select168, ptr %104, align 8, !tbaa !160
   %105 = add nsw i32 %34, 1
   store i32 %105, ptr %12, align 4, !tbaa !151
   br label %106
@@ -1909,7 +1909,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(a
   %38 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %37) #12
   store ptr %38, ptr %.055, align 8, !tbaa !176
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread72.sink.split, label %40
+  br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %32
   %41 = load ptr, ptr %.0, align 8, !tbaa !176
@@ -1926,7 +1926,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(a
   %48 = load ptr, ptr %.055, align 8, !tbaa !176
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef %48) #12
   store ptr null, ptr %.055, align 8, !tbaa !176
-  br label %.thread72.sink.split
+  br label %.loopexit
 
 49:                                               ; preds = %40
   %50 = load i32, ptr %42, align 8, !tbaa !181
@@ -1953,7 +1953,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(a
   %.not = icmp eq i32 %62, 0
   br i1 %.not, label %.thread72, label %23, !llvm.loop !182
 
-.thread72.sink.split:                             ; preds = %32, %47, %9
+.loopexit:                                        ; preds = %32, %47, %9
   %.str.59.sink = phi ptr [ @.str.57, %9 ], [ @.str.59, %47 ], [ @.str.59, %32 ]
   tail call void @png_chunk_report(ptr noundef nonnull %0, ptr noundef nonnull %.str.59.sink, i32 noundef 1) #12
   br label %.thread72
@@ -2301,7 +2301,7 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
   br label %add_one_chunk.exit.us
 
 .preheader:                                       ; preds = %.sink.split.i, %add_one_chunk.exit.us
-  %.068125127 = phi ptr [ %19, %add_one_chunk.exit.us ], [ %28, %.sink.split.i ]
+  %.068116118 = phi ptr [ %19, %add_one_chunk.exit.us ], [ %28, %.sink.split.i ]
   %.us-phi = phi i32 [ %spec.store.select, %add_one_chunk.exit.us ], [ %.016.ph.i, %.sink.split.i ]
   %.not100 = icmp eq i32 %.us-phi, 0
   br i1 %.not100, label %._crit_edge.thread, label %.lr.ph
@@ -2346,8 +2346,8 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
 
 .lr.ph:                                           ; preds = %.preheader, %61
   %.199 = phi i32 [ %62, %61 ], [ 0, %.preheader ]
-  %.06298 = phi ptr [ %.163, %61 ], [ %.068125127, %.preheader ]
-  %.06496 = phi ptr [ %63, %61 ], [ %.068125127, %.preheader ]
+  %.06298 = phi ptr [ %.163, %61 ], [ %.068116118, %.preheader ]
+  %.06496 = phi ptr [ %63, %61 ], [ %.068116118, %.preheader ]
   %.16795 = phi i32 [ %.2, %61 ], [ 0, %.preheader ]
   %54 = getelementptr inbounds nuw i8, ptr %.06496, i64 4
   %55 = load i8, ptr %54, align 1, !tbaa !4
@@ -2381,15 +2381,15 @@ add_one_chunk.exit.us:                            ; preds = %40, %.sink.split.i.
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %65 = load ptr, ptr %18, align 8, !tbaa !198
-  %.not82 = icmp eq ptr %65, %.068125127
+  %.not82 = icmp eq ptr %65, %.068116118
   br i1 %.not82, label %67, label %66
 
 66:                                               ; preds = %._crit_edge.thread
-  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %.068125127) #12
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %.068116118) #12
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %33, %66, %._crit_edge, %34
-  %.270.ph = phi ptr [ null, %34 ], [ null, %66 ], [ %.068125127, %._crit_edge ], [ null, %33 ]
+  %.270.ph = phi ptr [ null, %34 ], [ null, %66 ], [ %.068116118, %._crit_edge ], [ null, %33 ]
   %.3.ph = phi i32 [ 0, %34 ], [ 0, %66 ], [ %.2, %._crit_edge ], [ 0, %33 ]
   %.pr = load ptr, ptr %18, align 8, !tbaa !198
   br label %67
