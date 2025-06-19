@@ -1648,7 +1648,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
   br i1 %25, label %26, label %"_ZN4core4iter6traits8iterator8Iterator5eq_by7compare28_$u7b$$u7b$closure$u7d$$u7d$17h2e59593960e130bfE.exit.thread.i.i"
 
 26:                                               ; preds = %24
-  switch i8 %8, label %default.unreachable24.i.i.i.i.i.i [
+  switch i8 %8, label %default.unreachable [
     i8 0, label %27
     i8 1, label %32
     i8 2, label %36
@@ -1657,7 +1657,7 @@ define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits12double_ended19Dou
     i8 5, label %47
   ]
 
-default.unreachable24.i.i.i.i.i.i:                ; preds = %26
+default.unreachable:                              ; preds = %26
   unreachable
 
 27:                                               ; preds = %26
@@ -2821,17 +2821,17 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 138:                                              ; preds = %96
   %.sroa.2.0.copyload = load i64, ptr %100, align 8
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !345
-  switch i64 %98, label %default.unreachable1.i [
+  switch i64 %98, label %default.unreachable [
     i64 0, label %139
     i64 1, label %142
     i64 2, label %145
   ]
 
-default.unreachable1.i:                           ; preds = %138
+default.unreachable:                              ; preds = %227, %138
   unreachable
 
 139:                                              ; preds = %138
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !345
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !349
   %140 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %.sroa.2.0.copyload, ptr %140, align 8, !noalias !349
@@ -2841,6 +2841,7 @@ default.unreachable1.i:                           ; preds = %138
   br label %151
 
 142:                                              ; preds = %138
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !345
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !352
   %143 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.2.0.copyload, ptr %143, align 8, !noalias !352
@@ -2850,6 +2851,7 @@ default.unreachable1.i:                           ; preds = %138
   br label %151
 
 145:                                              ; preds = %138
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !345
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !355
   %146 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %.sroa.2.0.copyload, ptr %146, align 8, !noalias !355
@@ -3084,17 +3086,14 @@ default.unreachable1.i:                           ; preds = %138
 
 227:                                              ; preds = %223
   %.sroa.2127.0.copyload = load i64, ptr %226, align 8
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !370
-  switch i64 %224, label %default.unreachable1.i121 [
+  switch i64 %224, label %default.unreachable [
     i64 0, label %228
     i64 1, label %231
     i64 2, label %234
   ]
 
-default.unreachable1.i121:                        ; preds = %227
-  unreachable
-
 228:                                              ; preds = %227
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !370
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !374
   %229 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.2127.0.copyload, ptr %229, align 8, !noalias !374
@@ -3104,6 +3103,7 @@ default.unreachable1.i121:                        ; preds = %227
   br label %240
 
 231:                                              ; preds = %227
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !370
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !377
   %232 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.2127.0.copyload, ptr %232, align 8, !noalias !377
@@ -3113,6 +3113,7 @@ default.unreachable1.i121:                        ; preds = %227
   br label %240
 
 234:                                              ; preds = %227
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !370
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !380
   %235 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.2127.0.copyload, ptr %235, align 8, !noalias !380

@@ -1428,8 +1428,8 @@ define dso_local ptr @read_gitfile_gently(ptr noundef %0, ptr noundef writeonly 
   %36 = ptrtoint ptr %0 to i64
   %37 = sub i64 %35, %36
   %38 = trunc i64 %37 to i32
-  %39 = trunc i64 %.038 to i32
-  %40 = add i32 %39, -8
+  %39 = trunc nuw nsw i64 %.038 to i32
+  %40 = add nsw i32 %39, -8
   %41 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.42, i32 noundef %38, ptr noundef nonnull %0, i32 noundef %40, ptr noundef nonnull %30) #25
   tail call void @free(ptr noundef nonnull %18) #25
   br label %42
@@ -3031,8 +3031,7 @@ is_implicit_bare_repo.exit.thread:                ; preds = %111, %108, %is_impl
   br i1 %60, label %.preheader.preheader, label %.critedge.thread5
 
 .preheader.preheader:                             ; preds = %117
-  %sext49 = shl i64 %58, 32
-  %118 = ashr exact i64 %sext49, 32
+  %118 = and i64 %58, 4294967295
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %120
@@ -3830,7 +3829,7 @@ setup_discovered_git_dir.exit.thread:             ; preds = %setup_discovered_gi
   br i1 %.not29, label %234, label %208
 
 208:                                              ; preds = %203, %205
-  %.04562 = phi ptr [ %.04750, %205 ], [ %.0, %203 ]
+  %.04572 = phi ptr [ %.04750, %205 ], [ %.0, %203 ]
   %209 = phi i32 [ 0, %205 ], [ 1, %203 ]
   %210 = load ptr, ptr @the_repository, align 8, !tbaa !9
   %211 = load ptr, ptr %210, align 8, !tbaa !94
@@ -3879,13 +3878,13 @@ setup_discovered_git_dir.exit.thread:             ; preds = %setup_discovered_gi
   br label %234
 
 234:                                              ; preds = %214, %216, %205
-  %.04563 = phi ptr [ %.04562, %214 ], [ %.04562, %216 ], [ %.04750, %205 ]
-  %.not33 = icmp eq ptr %.04563, null
+  %.04573 = phi ptr [ %.04572, %214 ], [ %.04572, %216 ], [ %.04750, %205 ]
+  %.not33 = icmp eq ptr %.04573, null
   %235 = load ptr, ptr @startup_info, align 8, !tbaa !90
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  %.str.1..04563 = select i1 %.not33, ptr @.str.1, ptr %.04563
-  store ptr %.04563, ptr %236, align 8, !tbaa !98
-  %237 = call i32 @setenv(ptr noundef nonnull @.str.63, ptr noundef nonnull %.str.1..04563, i32 noundef 1) #25
+  %.str.1..04573 = select i1 %.not33, ptr @.str.1, ptr %.04573
+  store ptr %.04573, ptr %236, align 8, !tbaa !98
+  %237 = call i32 @setenv(ptr noundef nonnull @.str.63, ptr noundef nonnull %.str.1..04573, i32 noundef 1) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.create_object_directory.path, i64 24, i1 false)
   %238 = load ptr, ptr @tmp_original_cwd, align 8, !tbaa !58
@@ -3975,7 +3974,7 @@ setup_original_cwd.exit:                          ; preds = %234, %241, %267, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #25
-  ret ptr %.04563
+  ret ptr %.04573
 }
 
 ; Function Attrs: nounwind uwtable

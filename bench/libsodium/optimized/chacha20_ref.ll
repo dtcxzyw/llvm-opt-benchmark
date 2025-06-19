@@ -321,15 +321,15 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %36 = load i32, ptr %35, align 4
   br label %37
 
-37:                                               ; preds = %232, %4
-  %.0294 = phi i64 [ %3, %4 ], [ %226, %232 ]
-  %.0293 = phi i32 [ %30, %4 ], [ %208, %232 ]
-  %.0291 = phi i32 [ %32, %4 ], [ %spec.select, %232 ]
-  %.0289 = phi ptr [ %2, %4 ], [ %233, %232 ]
-  %.0287 = phi ptr [ %1, %4 ], [ %234, %232 ]
-  %.0285 = phi ptr [ null, %4 ], [ %.1286, %232 ]
-  %38 = icmp ugt i64 %.0294, 63
-  br i1 %38, label %.loopexit314, label %.lr.ph.preheader
+37:                                               ; preds = %231, %4
+  %.0294 = phi i64 [ %3, %4 ], [ %232, %231 ]
+  %.0293 = phi i32 [ %30, %4 ], [ %208, %231 ]
+  %.0291 = phi i32 [ %32, %4 ], [ %spec.select, %231 ]
+  %.0289 = phi ptr [ %2, %4 ], [ %233, %231 ]
+  %.0287 = phi ptr [ %1, %4 ], [ %234, %231 ]
+  %.0285 = phi ptr [ null, %4 ], [ %.1286, %231 ]
+  %38 = icmp ult i64 %.0294, 64
+  br i1 %38, label %.lr.ph.preheader, label %.loopexit314
 
 .lr.ph.preheader:                                 ; preds = %37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 noundef 0, i64 noundef 64, i1 noundef false) #6
@@ -571,30 +571,29 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %224 = getelementptr i8, ptr %.1290, i64 60
   store i32 %207, ptr %224, align 1
   %225 = icmp ult i64 %.0294, 65
-  %226 = add i64 %.0294, -64
-  br i1 %225, label %227, label %232
+  br i1 %225, label %226, label %231
 
-227:                                              ; preds = %144
-  %or.cond = icmp ult i64 %226, -63
-  br i1 %or.cond, label %.loopexit, label %.lr.ph335
+226:                                              ; preds = %144
+  br i1 %38, label %.lr.ph335, label %.loopexit
 
-.lr.ph335:                                        ; preds = %227, %.lr.ph335
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph335 ], [ 0, %227 ]
-  %228 = getelementptr i8, ptr %.1290, i64 %indvars.iv
-  %229 = load i8, ptr %228, align 1
-  %230 = getelementptr i8, ptr %.1286, i64 %indvars.iv
-  store i8 %229, ptr %230, align 1
+.lr.ph335:                                        ; preds = %226, %.lr.ph335
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph335 ], [ 0, %226 ]
+  %227 = getelementptr i8, ptr %.1290, i64 %indvars.iv
+  %228 = load i8, ptr %227, align 1
+  %229 = getelementptr i8, ptr %.1286, i64 %indvars.iv
+  store i8 %228, ptr %229, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %231 = icmp samesign ult i64 %indvars.iv.next, %.0294
-  br i1 %231, label %.lr.ph335, label %.loopexit, !llvm.loop !7
+  %230 = icmp samesign ult i64 %indvars.iv.next, %.0294
+  br i1 %230, label %.lr.ph335, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.lr.ph335, %227
+.loopexit:                                        ; preds = %.lr.ph335, %226
   store i32 %208, ptr %29, align 4
   store i32 %spec.select, ptr %31, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
   ret void
 
-232:                                              ; preds = %144
+231:                                              ; preds = %144
+  %232 = add i64 %.0294, -64
   %233 = getelementptr i8, ptr %.1290, i64 64
   %234 = getelementptr i8, ptr %.1288, i64 64
   br label %37

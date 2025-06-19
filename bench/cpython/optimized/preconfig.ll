@@ -2357,7 +2357,7 @@ define hidden void @_PyPreConfig_Read(ptr dead_on_unwind noalias writable writeo
   store i32 %.sroa.19.0.copyload, ptr %.sroa.19.0..sroa_idx62, align 8, !tbaa !4
   %.sroa.20.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.20.0.copyload, ptr %.sroa.20.0..sroa_idx74, align 4
-  br label %217
+  br label %215
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %1, align 4, !tbaa !55
@@ -2415,7 +2415,7 @@ preconfig_get_global_vars.exit:                   ; preds = %10, %25, %28
   store i32 0, ptr %36, align 8, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %37, align 4
-  br label %217
+  br label %215
 
 38:                                               ; preds = %preconfig_get_global_vars.exit
   %39 = call ptr @_PyMem_RawStrdup(ptr noundef nonnull %30) #17
@@ -2434,7 +2434,7 @@ preconfig_get_global_vars.exit:                   ; preds = %10, %25, %28
   store i32 0, ptr %45, align 8, !tbaa !23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %46, align 4
-  br label %217
+  br label %215
 
 47:                                               ; preds = %38
   %48 = load i32, ptr %1, align 4, !tbaa !55, !noalias !63
@@ -2523,7 +2523,7 @@ preconfig_get_global_vars.exit:                   ; preds = %10, %25, %28
   %90 = phi i32 [ %.pre185, %67 ], [ %52, %.thread ]
   %91 = phi i32 [ %.pre184, %67 ], [ %50, %.thread ]
   %92 = phi i32 [ %.pre, %67 ], [ %48, %.thread ]
-  %93 = phi i32 [ 1, %67 ], [ %214, %.thread ]
+  %93 = phi i1 [ false, %67 ], [ true, %.thread ]
   %.0104178 = phi i32 [ 0, %67 ], [ %.2, %.thread ]
   %94 = phi i32 [ %.pr, %67 ], [ %209, %.thread ]
   store i32 %92, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10432), align 8, !tbaa !55
@@ -2872,9 +2872,7 @@ preconfig_read.exit:                              ; preds = %200, %.thread13.i.i
   store i32 %64, ptr %63, align 4, !tbaa !60
   store i32 %209, ptr %62, align 4, !tbaa !57
   store i32 %213, ptr %59, align 4, !tbaa !58
-  %214 = add nuw nsw i32 %93, 1
-  %215 = icmp eq i32 %214, 3
-  br i1 %215, label %.thread148, label %83
+  br i1 %93, label %.thread148, label %83
 
 .thread148:                                       ; preds = %210, %212, %162, %168, %_Py_GetEnv.exit.tail.i23.i, %.tail.i.i, %96, %95, %.thread, %201
   %.sroa.016.1 = phi i32 [ 1, %201 ], [ 0, %210 ], [ 0, %212 ], [ %.sroa.0.0.copyload.i, %96 ], [ 1, %.tail.i.i ], [ 1, %_Py_GetEnv.exit.tail.i23.i ], [ 1, %168 ], [ 1, %162 ], [ 1, %.thread ], [ %.sroa.016.0.copyload23, %95 ]
@@ -2883,7 +2881,7 @@ preconfig_read.exit:                              ; preds = %200, %.thread13.i.i
   %.sroa.18.1 = phi ptr [ @.str.32, %201 ], [ null, %210 ], [ null, %212 ], [ %.sroa.11.sroa.10.0.copyload.i, %96 ], [ @.str.28, %.tail.i.i ], [ @.str.28, %_Py_GetEnv.exit.tail.i23.i ], [ @.str.28, %168 ], [ @.str.25, %162 ], [ @.str.17, %.thread ], [ %.sroa.18.0.copyload57, %95 ]
   %.sroa.19.1 = phi i32 [ 0, %201 ], [ 0, %210 ], [ 0, %212 ], [ %.sroa.11.sroa.12.0.copyload.i, %96 ], [ 0, %.tail.i.i ], [ 0, %_Py_GetEnv.exit.tail.i23.i ], [ 0, %168 ], [ 0, %162 ], [ 0, %.thread ], [ %.sroa.19.0.copyload69, %95 ]
   %.sroa.20.1 = phi i32 [ 0, %201 ], [ 0, %210 ], [ 0, %212 ], [ %.sroa.11.sroa.14.0.copyload.i, %96 ], [ 0, %.tail.i.i ], [ 0, %_Py_GetEnv.exit.tail.i23.i ], [ 0, %168 ], [ 0, %162 ], [ 0, %.thread ], [ %.sroa.20.0.copyload81, %95 ]
-  %216 = call ptr @setlocale(i32 noundef 0, ptr noundef nonnull %39) #17
+  %214 = call ptr @setlocale(i32 noundef 0, ptr noundef nonnull %39) #17
   call void @PyMem_RawFree(ptr noundef nonnull %39) #17
   store i32 %68, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10432), align 8, !tbaa !55
   store i32 %69, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10436), align 4, !tbaa !49
@@ -2909,9 +2907,9 @@ preconfig_read.exit:                              ; preds = %200, %.thread13.i.i
   %.sroa.20.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.20.1, ptr %.sroa.20.0..sroa_idx84, align 4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #17
-  br label %217
+  br label %215
 
-217:                                              ; preds = %32, %.thread148, %41, %9
+215:                                              ; preds = %32, %.thread148, %41, %9
   ret void
 }
 

@@ -207,7 +207,7 @@ hex_encode.exit:                                  ; preds = %.lr.ph.i
   %41 = add i64 %40, 53
   %42 = sub i64 %.0306514, %.0172516
   %43 = icmp ult i64 %42, %41
-  br i1 %43, label %44, label %ensure_bufsize.exit
+  br i1 %43, label %44, label %ensure_bufsize.exit.thread314
 
 44:                                               ; preds = %hex_encode.exit
   %45 = add i64 %.0306514, 512
@@ -228,14 +228,10 @@ ensure_bufsize.exit.thread:                       ; preds = %44
   call void @free(ptr noundef %.0176515) #14
   br label %.loopexit
 
-ensure_bufsize.exit:                              ; preds = %hex_encode.exit
-  %.not207 = icmp eq ptr %.0176515, null
-  br i1 %.not207, label %.loopexit, label %ensure_bufsize.exit.thread314
-
-ensure_bufsize.exit.thread314:                    ; preds = %.ensure_bufsize.exit.thread314_crit_edge, %ensure_bufsize.exit
-  %.pre-phi610 = phi i64 [ %.pre609, %.ensure_bufsize.exit.thread314_crit_edge ], [ %42, %ensure_bufsize.exit ]
-  %.010.i319 = phi ptr [ %46, %.ensure_bufsize.exit.thread314_crit_edge ], [ %.0176515, %ensure_bufsize.exit ]
-  %.5318 = phi i64 [ %45, %.ensure_bufsize.exit.thread314_crit_edge ], [ %.0306514, %ensure_bufsize.exit ]
+ensure_bufsize.exit.thread314:                    ; preds = %hex_encode.exit, %.ensure_bufsize.exit.thread314_crit_edge
+  %.pre-phi610 = phi i64 [ %.pre609, %.ensure_bufsize.exit.thread314_crit_edge ], [ %42, %hex_encode.exit ]
+  %.010.i319 = phi ptr [ %46, %.ensure_bufsize.exit.thread314_crit_edge ], [ %.0176515, %hex_encode.exit ]
+  %.5318 = phi i64 [ %45, %.ensure_bufsize.exit.thread314_crit_edge ], [ %.0306514, %hex_encode.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %.010.i319, i64 %.0172516
   %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %51, i64 noundef %.pre-phi610, ptr noundef nonnull @.str.6) #14
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #17
@@ -731,7 +727,7 @@ ensure_bufsize.exit261:                           ; preds = %269
   %.0172.lcssa = phi i64 [ %26, %23 ], [ %.1173, %284 ]
   %286 = sub i64 %.0306.lcssa, %.0172.lcssa
   %287 = icmp ult i64 %286, 15
-  br i1 %287, label %288, label %ensure_bufsize.exit264
+  br i1 %287, label %288, label %ensure_bufsize.exit264.thread383
 
 288:                                              ; preds = %._crit_edge520
   %289 = add i64 %.0306.lcssa, 512
@@ -752,19 +748,15 @@ ensure_bufsize.exit264.thread:                    ; preds = %288
   call void @free(ptr noundef %.0176.lcssa) #14
   br label %.loopexit
 
-ensure_bufsize.exit264:                           ; preds = %._crit_edge520
-  %.not206 = icmp eq ptr %.0176.lcssa, null
-  br i1 %.not206, label %.loopexit, label %ensure_bufsize.exit264.thread383
-
-ensure_bufsize.exit264.thread383:                 ; preds = %.ensure_bufsize.exit264.thread383_crit_edge, %ensure_bufsize.exit264
-  %.pre-phi608 = phi i64 [ %.pre607, %.ensure_bufsize.exit264.thread383_crit_edge ], [ %286, %ensure_bufsize.exit264 ]
-  %.010.i262388 = phi ptr [ %290, %.ensure_bufsize.exit264.thread383_crit_edge ], [ %.0176.lcssa, %ensure_bufsize.exit264 ]
+ensure_bufsize.exit264.thread383:                 ; preds = %._crit_edge520, %.ensure_bufsize.exit264.thread383_crit_edge
+  %.pre-phi608 = phi i64 [ %.pre607, %.ensure_bufsize.exit264.thread383_crit_edge ], [ %286, %._crit_edge520 ]
+  %.010.i262388 = phi ptr [ %290, %.ensure_bufsize.exit264.thread383_crit_edge ], [ %.0176.lcssa, %._crit_edge520 ]
   %295 = getelementptr inbounds nuw i8, ptr %.010.i262388, i64 %.0172.lcssa
   %296 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %295, i64 noundef %.pre-phi608, ptr noundef nonnull @.str.23) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %ensure_bufsize.exit, %ensure_bufsize.exit264.thread, %ensure_bufsize.exit261, %ensure_bufsize.exit258, %ensure_bufsize.exit255, %ensure_bufsize.exit252, %ensure_bufsize.exit249, %ensure_bufsize.exit246, %ensure_bufsize.exit243, %ensure_bufsize.exit240, %ensure_bufsize.exit237, %ensure_bufsize.exit234, %ensure_bufsize.exit231, %ensure_bufsize.exit228, %ensure_bufsize.exit.thread, %ensure_bufsize.exit264, %12, %ensure_bufsize.exit264.thread383
-  %.0175 = phi ptr [ %.010.i262388, %ensure_bufsize.exit264.thread383 ], [ null, %12 ], [ null, %ensure_bufsize.exit228 ], [ null, %ensure_bufsize.exit231 ], [ null, %ensure_bufsize.exit234 ], [ null, %ensure_bufsize.exit237 ], [ null, %ensure_bufsize.exit240 ], [ null, %ensure_bufsize.exit243 ], [ null, %ensure_bufsize.exit246 ], [ null, %ensure_bufsize.exit249 ], [ null, %ensure_bufsize.exit252 ], [ null, %ensure_bufsize.exit255 ], [ null, %ensure_bufsize.exit258 ], [ null, %ensure_bufsize.exit261 ], [ null, %ensure_bufsize.exit264 ], [ null, %ensure_bufsize.exit.thread ], [ null, %ensure_bufsize.exit264.thread ], [ null, %ensure_bufsize.exit ]
+.loopexit:                                        ; preds = %ensure_bufsize.exit264.thread, %ensure_bufsize.exit261, %ensure_bufsize.exit258, %ensure_bufsize.exit255, %ensure_bufsize.exit252, %ensure_bufsize.exit249, %ensure_bufsize.exit246, %ensure_bufsize.exit243, %ensure_bufsize.exit240, %ensure_bufsize.exit237, %ensure_bufsize.exit234, %ensure_bufsize.exit231, %ensure_bufsize.exit228, %ensure_bufsize.exit.thread, %12, %ensure_bufsize.exit264.thread383
+  %.0175 = phi ptr [ %.010.i262388, %ensure_bufsize.exit264.thread383 ], [ null, %12 ], [ null, %ensure_bufsize.exit228 ], [ null, %ensure_bufsize.exit231 ], [ null, %ensure_bufsize.exit234 ], [ null, %ensure_bufsize.exit237 ], [ null, %ensure_bufsize.exit240 ], [ null, %ensure_bufsize.exit243 ], [ null, %ensure_bufsize.exit246 ], [ null, %ensure_bufsize.exit249 ], [ null, %ensure_bufsize.exit252 ], [ null, %ensure_bufsize.exit255 ], [ null, %ensure_bufsize.exit258 ], [ null, %ensure_bufsize.exit261 ], [ null, %ensure_bufsize.exit.thread ], [ null, %ensure_bufsize.exit264.thread ]
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %3) #14
   ret ptr %.0175
 }

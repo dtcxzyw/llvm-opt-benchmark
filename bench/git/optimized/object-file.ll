@@ -305,7 +305,8 @@ define dso_local range(i32 0, 3) i32 @hash_algo_by_name(ptr noundef readonly cap
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %5
-  %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 1, %1 ]
+  %exitcond.not = phi i1 [ true, %5 ], [ false, %1 ]
+  %indvars.iv = phi i64 [ 2, %5 ], [ 1, %1 ]
   %2 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 16, !tbaa !36
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3) #28
@@ -313,8 +314,6 @@ define dso_local range(i32 0, 3) i32 @hash_algo_by_name(ptr noundef readonly cap
   br i1 %.not8, label %.loopexit.loopexit.split.loop.exit, label %5
 
 5:                                                ; preds = %.preheader
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.preheader
@@ -340,15 +339,14 @@ define dso_local range(i32 0, 3) i32 @hash_algo_by_id(i32 noundef %0) local_unna
   br label %2
 
 2:                                                ; preds = %1, %6
-  %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %6 ]
+  %exitcond.not = phi i1 [ false, %1 ], [ true, %6 ]
+  %indvars.iv = phi i64 [ 1, %1 ], [ 2, %6 ]
   %3 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %indvars.iv, i32 1
   %4 = load i32, ptr %3, align 8, !tbaa !39
   %5 = icmp eq i32 %0, %4
   br i1 %5, label %.split.loop.exit9, label %6
 
 6:                                                ; preds = %2
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !40
 
 .split.loop.exit9:                                ; preds = %2
@@ -366,15 +364,14 @@ define dso_local range(i32 0, 3) i32 @hash_algo_by_length(i32 noundef %0) local_
   br label %3
 
 3:                                                ; preds = %1, %7
-  %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %7 ]
+  %exitcond.not = phi i1 [ false, %1 ], [ true, %7 ]
+  %indvars.iv = phi i64 [ 1, %1 ], [ 2, %7 ]
   %4 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %indvars.iv, i32 2
   %5 = load i64, ptr %4, align 16, !tbaa !41
   %6 = icmp eq i64 %5, %2
   br i1 %6, label %.split.loop.exit9, label %7
 
 7:                                                ; preds = %3
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split.loop.exit, label %3, !llvm.loop !42
 
 .split.loop.exit9:                                ; preds = %3
@@ -6258,8 +6255,8 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.not65 = icmp eq ptr %2, null
   %58 = tail call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %29) #27
-  %.not6394 = icmp eq ptr %58, null
-  br i1 %.not6394, label %.thread, label %.lr.ph
+  %.not63112 = icmp eq ptr %58, null
+  br i1 %.not63112, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %strbuf_addch.exit, %select.unfold
   %59 = phi ptr [ %101, %select.unfold ], [ %58, %strbuf_addch.exit ]
@@ -6339,7 +6336,7 @@ oid_set_algo.exit:                                ; preds = %87, %.split.loop.ex
   %95 = load ptr, ptr %27, align 8, !tbaa !49
   %96 = call i32 %2(ptr noundef nonnull %7, ptr noundef %95, ptr noundef %5) #27
   %.not66 = icmp eq i32 %96, 0
-  br i1 %.not66, label %select.unfold, label %..thread_crit_edge95, !llvm.loop !165
+  br i1 %.not66, label %select.unfold, label %..thread_crit_edge113, !llvm.loop !165
 
 97:                                               ; preds = %76, %strbuf_setlen.exit77
   br i1 %.not67, label %select.unfold, label %98
@@ -6355,11 +6352,11 @@ select.unfold:                                    ; preds = %98, %94, %97, %oid_
   %.not63 = icmp eq ptr %101, null
   br i1 %.not63, label %.thread, label %.lr.ph
 
-..thread_crit_edge95:                             ; preds = %94
+..thread_crit_edge113:                            ; preds = %94
   br label %.thread, !llvm.loop !165
 
-.thread:                                          ; preds = %select.unfold, %98, %..thread_crit_edge95, %strbuf_addch.exit
-  %.2 = phi i32 [ %96, %..thread_crit_edge95 ], [ 0, %strbuf_addch.exit ], [ 0, %select.unfold ], [ %100, %98 ]
+.thread:                                          ; preds = %select.unfold, %98, %..thread_crit_edge113, %strbuf_addch.exit
+  %.2 = phi i32 [ %96, %..thread_crit_edge113 ], [ 0, %strbuf_addch.exit ], [ 0, %select.unfold ], [ %100, %98 ]
   %102 = call i32 @closedir(ptr noundef nonnull %29)
   %103 = add i64 %55, -1
   %104 = load i64, ptr %1, align 8, !tbaa !72
@@ -6411,9 +6408,9 @@ strbuf_setlen.exit81:                             ; preds = %107, %109
   br i1 %.not9.i83, label %strbuf_setlen.exit, label %strbuf_setlen.exit.sink.split
 
 strbuf_setlen.exit.sink.split:                    ; preds = %120, %43
-  %.sink92 = phi ptr [ %44, %43 ], [ %121, %120 ]
+  %.sink110 = phi ptr [ %44, %43 ], [ %121, %120 ]
   %.0.ph = phi i32 [ %.050, %43 ], [ %.6, %120 ]
-  %122 = getelementptr inbounds nuw i8, ptr %.sink92, i64 %12
+  %122 = getelementptr inbounds nuw i8, ptr %.sink110, i64 %12
   store i8 0, ptr %122, align 1, !tbaa !51
   br label %strbuf_setlen.exit
 

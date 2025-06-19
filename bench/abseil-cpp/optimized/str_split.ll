@@ -154,48 +154,44 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %21
   %39 = load i8, ptr %27, align 1, !tbaa !14
   %40 = sext i8 %39 to i32
   %41 = ptrtoint ptr %35 to i64
-  br label %42
+  br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
 
-42:                                               ; preds = %48, %.lr.ph.i.i.i.i
-  %.033.i.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i.i ], [ %51, %48 ]
-  %.02132.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %49, %48 ]
-  %43 = sub nuw i64 %.033.i.i.i.i, %6
-  %44 = add i64 %43, 1
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
-
-_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %42
-  %46 = tail call ptr @memchr(ptr noundef %.02132.i.i.i.i, i32 noundef %40, i64 noundef %44) #11
-  %.not26.i.i.i.i = icmp eq ptr %46, null
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %45, %.lr.ph.i.i.i.i
+  %.033.i.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i.i ], [ %48, %45 ]
+  %.02132.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %46, %45 ]
+  %reass.sub = sub i64 %.033.i.i.i.i, %6
+  %42 = add i64 %reass.sub, 1
+  %43 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i.i.i, i32 noundef %40, i64 noundef %42) #11
+  %.not26.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not26.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %46, ptr nonnull readonly %27, i64 %6)
-  %47 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %47, label %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, label %48
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %43, ptr nonnull readonly %27, i64 %6)
+  %44 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %44, label %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, label %45
 
-48:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  %50 = ptrtoint ptr %49 to i64
-  %51 = sub i64 %41, %50
-  %.not25.i.i.i.i = icmp ult i64 %51, %6
-  br i1 %.not25.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %42, !llvm.loop !16
+45:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 1
+  %47 = ptrtoint ptr %46 to i64
+  %48 = sub i64 %41, %47
+  %.not25.i.i.i.i = icmp ult i64 %48, %6
+  br i1 %.not25.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, !llvm.loop !16
 
 _ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %52 = ptrtoint ptr %46 to i64
-  %53 = ptrtoint ptr %2 to i64
-  %54 = sub i64 %52, %53
-  %.not8.i = icmp eq i64 %54, -1
+  %49 = ptrtoint ptr %43 to i64
+  %50 = ptrtoint ptr %2 to i64
+  %51 = sub i64 %49, %50
+  %.not8.i = icmp eq i64 %51, -1
   br i1 %.not8.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i
 
 _ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i: ; preds = %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, %33
-  %.020.i.i.i27.i = phi i64 [ %54, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ 0, %33 ]
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 %.020.i.i.i27.i
+  %.020.i.i.i27.i = phi i64 [ %51, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ 0, %33 ]
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 %.020.i.i.i27.i
   br label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit
 
-_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit: ; preds = %48, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %42, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, %36, %34, %33, %30, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %.sroa.016.0 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread ], [ %.sroa.speculated.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %6, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i ], [ 0, %30 ], [ 0, %34 ], [ 0, %36 ], [ 0, %33 ], [ 0, %42 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %48 ]
-  %.sroa.4.0 = phi ptr [ %20, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread ], [ %25, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %35, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %55, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i ], [ %32, %30 ], [ %35, %34 ], [ %35, %36 ], [ %2, %33 ], [ %35, %42 ], [ %35, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ %35, %48 ]
+_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit: ; preds = %45, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, %36, %34, %33, %30, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+  %.sroa.016.0 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread ], [ %.sroa.speculated.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %6, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i ], [ 0, %30 ], [ 0, %34 ], [ 0, %36 ], [ 0, %33 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %45 ]
+  %.sroa.4.0 = phi ptr [ %20, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread ], [ %25, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %35, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %52, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i ], [ %32, %30 ], [ %35, %34 ], [ %35, %36 ], [ %2, %33 ], [ %35, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ %35, %45 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.016.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { i64, ptr } %.fca.1.insert

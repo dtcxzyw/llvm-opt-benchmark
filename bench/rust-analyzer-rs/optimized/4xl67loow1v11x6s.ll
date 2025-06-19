@@ -1180,16 +1180,13 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 20:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  switch i32 %18, label %default.unreachable26.i [
+  switch i32 %18, label %default.unreachable [
     i32 0, label %21
     i32 1, label %39
     i32 2, label %45
   ]
 
-default.unreachable:                              ; preds = %45, %21
-  unreachable
-
-default.unreachable26.i:                          ; preds = %20
+default.unreachable:                              ; preds = %45, %21, %20
   unreachable
 
 21:                                               ; preds = %20
@@ -3425,7 +3422,7 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$7subtree17h677
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1, i64 noundef %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ced7cb14528d243819e0f1d745e7b7af.63) #29
   unreachable
 
-default.unreachable50:                            ; preds = %122, %56, %51
+default.unreachable60:                            ; preds = %122, %56, %51
   unreachable
 
 ._crit_edge:                                      ; preds = %166, %24
@@ -3442,7 +3439,7 @@ default.unreachable50:                            ; preds = %122, %56, %51
 
 51:                                               ; preds = %46
   %52 = load i32, ptr %.sroa.0.043, align 8, !range !122, !noundef !7
-  switch i32 %52, label %default.unreachable50 [
+  switch i32 %52, label %default.unreachable60 [
     i32 0, label %56
     i32 1, label %97
     i32 2, label %122
@@ -3460,7 +3457,7 @@ default.unreachable50:                            ; preds = %122, %56, %51
   %60 = load i8, ptr %59, align 8, !range !133, !alias.scope !525, !noundef !7
   %61 = add nsw i8 %60, -24
   %narrow.i = call i8 @llvm.umin.i8(i8 %61, i8 2)
-  switch i8 %narrow.i, label %default.unreachable50 [
+  switch i8 %narrow.i, label %default.unreachable60 [
     i8 0, label %62
     i8 1, label %68
     i8 2, label %73
@@ -3590,7 +3587,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit: ; preds = %62, %68, %73
   %126 = load i8, ptr %125, align 8, !range !133, !alias.scope !568, !noundef !7
   %127 = add nsw i8 %126, -24
   %narrow.i27 = call i8 @llvm.umin.i8(i8 %127, i8 2)
-  switch i8 %narrow.i27, label %default.unreachable50 [
+  switch i8 %narrow.i27, label %default.unreachable60 [
     i8 0, label %128
     i8 1, label %134
     i8 2, label %139
@@ -3742,7 +3739,7 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$7subtree17hb3f
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ced7cb14528d243819e0f1d745e7b7af.63) #29
   unreachable
 
-default.unreachable51:                            ; preds = %131, %76, %40
+default.unreachable65:                            ; preds = %131, %76, %40
   unreachable
 
 ._crit_edge:                                      ; preds = %170, %15
@@ -3753,7 +3750,7 @@ default.unreachable51:                            ; preds = %131, %76, %40
   %.sroa.0.044 = phi ptr [ %22, %.lr.ph ], [ %41, %170 ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.044, i64 40
   %42 = load i32, ptr %.sroa.0.044, align 8, !range !194, !noundef !7
-  switch i32 %42, label %default.unreachable51 [
+  switch i32 %42, label %default.unreachable65 [
     i32 3, label %43
     i32 0, label %76
     i32 1, label %112
@@ -3832,7 +3829,7 @@ default.unreachable51:                            ; preds = %131, %76, %40
   %80 = load i8, ptr %79, align 8, !range !133, !alias.scope !613, !noundef !7
   %81 = add nsw i8 %80, -24
   %narrow.i = tail call i8 @llvm.umin.i8(i8 %81, i8 2)
-  switch i8 %narrow.i, label %default.unreachable51 [
+  switch i8 %narrow.i, label %default.unreachable65 [
     i8 0, label %82
     i8 1, label %88
     i8 2, label %93
@@ -3931,7 +3928,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit: ; preds = %82, %88, %93
   %135 = load i8, ptr %134, align 8, !range !133, !alias.scope !624, !noundef !7
   %136 = add nsw i8 %135, -24
   %narrow.i28 = tail call i8 @llvm.umin.i8(i8 %136, i8 2)
-  switch i8 %narrow.i28, label %default.unreachable51 [
+  switch i8 %narrow.i28, label %default.unreachable65 [
     i8 0, label %137
     i8 1, label %143
     i8 2, label %148

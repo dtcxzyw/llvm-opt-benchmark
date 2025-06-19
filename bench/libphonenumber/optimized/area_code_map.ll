@@ -453,8 +453,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %_ZN
 .lr.ph.i:                                         ; preds = %139, %146
   %.02035.i = phi i32 [ %.222.i, %146 ], [ 0, %139 ]
   %.02334.i = phi i32 [ %.225.i, %146 ], [ %.026, %139 ]
-  %141 = add nsw i32 %.02334.i, %.02035.i
-  %142 = sdiv i32 %141, 2
+  %141 = add nuw nsw i32 %.02334.i, %.02035.i
+  %142 = lshr i32 %141, 1
   %143 = load ptr, ptr %10, align 8, !tbaa !9
   %144 = invoke noundef i32 @_ZNK4i18n12phonenumbers17DefaultMapStorage9GetPrefixEi(ptr noundef nonnull align 8 dereferenceable(44) %143, i32 noundef %142)
           to label %.noexc74 unwind label %151
@@ -462,24 +462,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %_ZN
 .noexc74:                                         ; preds = %.lr.ph.i
   %145 = sext i32 %144 to i64
   %.not28.i = icmp eq i64 %140, %145
-  br i1 %.not28.i, label %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit, label %146
+  br i1 %.not28.i, label %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread, label %146
 
 146:                                              ; preds = %.noexc74
   %147 = icmp slt i64 %140, %145
   %148 = add nsw i32 %142, -1
-  %149 = add nsw i32 %142, 1
+  %149 = add nuw nsw i32 %142, 1
   %.225.i = select i1 %147, i32 %148, i32 %.02334.i
   %.222.i = select i1 %147, i32 %.02035.i, i32 %149
   %.not.i = icmp sgt i32 %.222.i, %.225.i
   br i1 %.not.i, label %..thread_crit_edge36.i, label %.lr.ph.i
 
 ..thread_crit_edge36.i:                           ; preds = %146
-  %.219.le.i = select i1 %147, i32 %148, i32 %142
-  br label %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit
+  br i1 %147, label %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit, label %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread
 
-_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit: ; preds = %.noexc74, %..thread_crit_edge36.i
-  %.2.i = phi i32 [ %.219.le.i, %..thread_crit_edge36.i ], [ %142, %.noexc74 ]
-  %150 = icmp slt i32 %.2.i, 0
+_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit: ; preds = %..thread_crit_edge36.i
+  %150 = icmp ult i32 %141, 2
   br i1 %150, label %163, label %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread
 
 151:                                              ; preds = %.lr.ph.i
@@ -487,8 +485,8 @@ _ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit: ; preds = %.noexc74
           cleanup
   br label %170
 
-_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread: ; preds = %139, %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit
-  %.2.i88 = phi i32 [ %.2.i, %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit ], [ 0, %139 ]
+_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread: ; preds = %.noexc74, %..thread_crit_edge36.i, %139, %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit
+  %.2.i88 = phi i32 [ %148, %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit ], [ 0, %139 ], [ %142, %..thread_crit_edge36.i ], [ %142, %.noexc74 ]
   %153 = load ptr, ptr %10, align 8, !tbaa !9
   %154 = invoke noundef i32 @_ZNK4i18n12phonenumbers17DefaultMapStorage9GetPrefixEi(ptr noundef nonnull align 8 dereferenceable(44) %153, i32 noundef %.2.i88)
           to label %155 unwind label %161
@@ -510,7 +508,7 @@ _ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread: ; preds = %1
   br label %170
 
 163:                                              ; preds = %158, %155, %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit
-  %.2.i89 = phi i32 [ %.2.i, %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit ], [ %.2.i88, %155 ], [ %.2.i88, %158 ]
+  %.2.i89 = phi i32 [ -1, %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit ], [ %.2.i88, %155 ], [ %.2.i88, %158 ]
   %.123 = phi i1 [ false, %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit ], [ true, %155 ], [ false, %158 ]
   %.3 = phi ptr [ null, %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit ], [ %.1, %155 ], [ %160, %158 ]
   %164 = load ptr, ptr %8, align 8, !tbaa !38

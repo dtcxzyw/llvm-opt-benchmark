@@ -1419,8 +1419,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !429, !noalias !426
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !429, !noalias !426
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 15:                                               ; preds = %6
@@ -1432,13 +1432,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !429, !noalias !426
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !429, !noalias !426
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !429, !noalias !426
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !429, !noalias !426
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 26:                                               ; preds = %6
@@ -1684,15 +1684,15 @@ define hidden void @"_ZN89_$LT$actix_web..http..header..if_match..IfMatch$u20$as
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i"
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i": ; preds = %41, %35
-  %.sink5.i.i = phi ptr [ %44, %41 ], [ %38, %35 ]
-  %.sink3.in.i.i = phi ptr [ %45, %41 ], [ %31, %35 ]
-  %.sink3.i.i = load i64, ptr %.sink3.in.i.i, align 8, !noalias !467, !noundef !7
-  %46 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink5.i.i, i64 %.sink3.i.i
+  %.sink6.i.i = phi ptr [ %44, %41 ], [ %38, %35 ]
+  %.sink4.in.i.i = phi ptr [ %45, %41 ], [ %31, %35 ]
+  %.sink4.i.i = load i64, ptr %.sink4.in.i.i, align 8, !noalias !467, !noundef !7
+  %46 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink6.i.i, i64 %.sink4.i.i
   br label %_ZN10actix_http6header3map9HeaderMap7get_all17hd9fbbf08990cc4bfE.exit
 
 _ZN10actix_http6header3map9HeaderMap7get_all17hd9fbbf08990cc4bfE.exit: ; preds = %.critedge, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i"
   %.sroa.3.0.i = phi ptr [ %46, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i" ], [ @anon.c29a8bfa518d85917f471cda279c2d29.1.llvm.12734530818944442833, %.critedge ]
-  %.sroa.0.0.i = phi ptr [ %.sink5.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i" ], [ @anon.c29a8bfa518d85917f471cda279c2d29.1.llvm.12734530818944442833, %.critedge ]
+  %.sroa.0.0.i = phi ptr [ %.sink6.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i" ], [ @anon.c29a8bfa518d85917f471cda279c2d29.1.llvm.12734530818944442833, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   %47 = ptrtoint ptr %.sroa.3.0.i to i64
@@ -1993,15 +1993,15 @@ define hidden void @"_ZN98_$LT$actix_web..http..header..if_none_match..IfNoneMat
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i"
 
 "_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i": ; preds = %41, %35
-  %.sink5.i.i = phi ptr [ %44, %41 ], [ %38, %35 ]
-  %.sink3.in.i.i = phi ptr [ %45, %41 ], [ %31, %35 ]
-  %.sink3.i.i = load i64, ptr %.sink3.in.i.i, align 8, !noalias !500, !noundef !7
-  %46 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink5.i.i, i64 %.sink3.i.i
+  %.sink6.i.i = phi ptr [ %44, %41 ], [ %38, %35 ]
+  %.sink4.in.i.i = phi ptr [ %45, %41 ], [ %31, %35 ]
+  %.sink4.i.i = load i64, ptr %.sink4.in.i.i, align 8, !noalias !500, !noundef !7
+  %46 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink6.i.i, i64 %.sink4.i.i
   br label %_ZN10actix_http6header3map9HeaderMap7get_all17hd9fbbf08990cc4bfE.exit
 
 _ZN10actix_http6header3map9HeaderMap7get_all17hd9fbbf08990cc4bfE.exit: ; preds = %.critedge, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i"
   %.sroa.3.0.i = phi ptr [ %46, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i" ], [ @anon.c29a8bfa518d85917f471cda279c2d29.1.llvm.12734530818944442833, %.critedge ]
-  %.sroa.0.0.i = phi ptr [ %.sink5.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i" ], [ @anon.c29a8bfa518d85917f471cda279c2d29.1.llvm.12734530818944442833, %.critedge ]
+  %.sroa.0.0.i = phi ptr [ %.sink6.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833.exit.i" ], [ @anon.c29a8bfa518d85917f471cda279c2d29.1.llvm.12734530818944442833, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   %47 = ptrtoint ptr %.sroa.3.0.i to i64
@@ -2629,7 +2629,7 @@ define hidden void @"_ZN101_$LT$actix_files..chunked..ChunkedReadFile$LT$F$C$Fut
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %13 = load i8, ptr %12, align 4, !range !626, !noundef !7
-  switch i8 %13, label %default.unreachable69.i [
+  switch i8 %13, label %default.unreachable [
     i8 4, label %.lr.ph
     i8 0, label %18
     i8 1, label %30
@@ -2646,10 +2646,7 @@ define hidden void @"_ZN101_$LT$actix_files..chunked..ChunkedReadFile$LT$F$C$Fut
   %17 = icmp eq i64 %14, %16
   br i1 %17, label %95, label %92
 
-default.unreachable:                              ; preds = %32
-  unreachable
-
-default.unreachable69.i:                          ; preds = %3
+default.unreachable:                              ; preds = %3, %32
   unreachable
 
 18:                                               ; preds = %3, %tailrecurse._crit_edge.thread

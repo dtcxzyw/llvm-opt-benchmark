@@ -160,10 +160,8 @@ _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112ba
 
 ._crit_edge.i.i26:                                ; preds = %.noexc.i27, %77
   %82 = phi ptr [ %80, %.noexc.i27 ], [ %78, %77 ]
-  switch i64 %9, label %85 [
-    i64 1, label %83
-    i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  ]
+  %cond = icmp eq i64 %9, 1
+  br i1 %cond, label %83, label %85
 
 83:                                               ; preds = %._crit_edge.i.i26
   %84 = load i8, ptr %13, align 1, !tbaa !13
@@ -174,7 +172,7 @@ _ZSt4findISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112ba
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr align 1 %13, i64 %9, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i26, %83, %85
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %83, %85
   %86 = load i64, ptr %6, align 8, !tbaa !27
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %86, ptr %87, align 8, !tbaa !4

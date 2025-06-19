@@ -987,10 +987,8 @@ define noundef ptr @Abc_CexTransformPhase(ptr noundef readonly captures(address)
   br i1 %7, label %.Abc_CexDup.exit_crit_edge, label %8
 
 .Abc_CexDup.exit_crit_edge:                       ; preds = %4
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !11
-  %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre15 = load i32, ptr %.phi.trans.insert14, align 4, !tbaa !9
+  %.pre = load i32, ptr inttoptr (i64 5 to ptr), align 4, !tbaa !11
+  %.pre15 = load i32, ptr inttoptr (i64 17 to ptr), align 4, !tbaa !9
   %.pre16 = add nsw i32 %.pre, 1
   br label %Abc_CexDup.exit
 
@@ -1384,9 +1382,9 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(n
 80:                                               ; preds = %71
   %81 = and i32 %.273, 31
   %82 = shl nuw i32 1, %81
-  %83 = ashr i32 %.273, 5
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %37, i64 %84
+  %83 = lshr i32 %.273, 5
+  %84 = zext nneg i32 %83 to i64
+  %85 = getelementptr inbounds nuw i32, ptr %37, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !12
   %87 = or i32 %86, %82
   store i32 %87, ptr %85, align 4, !tbaa !12
@@ -1396,7 +1394,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(n
 88:                                               ; preds = %71, %80
   %89 = phi i32 [ %72, %71 ], [ %.pre, %80 ]
   %90 = add nuw nsw i32 %.15672, 1
-  %91 = add nsw i32 %.273, 1
+  %91 = add nuw nsw i32 %.273, 1
   %92 = icmp slt i32 %90, %89
   br i1 %92, label %71, label %._crit_edge75, !llvm.loop !40
 

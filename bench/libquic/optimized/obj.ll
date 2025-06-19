@@ -2201,7 +2201,6 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
 
 .thread183:                                       ; preds = %51, %53
   %.3123188 = phi ptr [ %.1121223, %53 ], [ %.4124, %51 ]
-  %.2127187 = phi i32 [ %.0125222, %53 ], [ 1, %51 ]
   %54 = call i32 @BN_lshift(ptr noundef %.3123188, ptr noundef %.3123188, i32 noundef 7) #10
   %.not165 = icmp eq i32 %54, 0
   br i1 %.not165, label %.thread189, label %57
@@ -2211,7 +2210,7 @@ define hidden i32 @OBJ_obj2txt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br label %57
 
 57:                                               ; preds = %.thread183, %55
-  %.1126 = phi i32 [ 0, %55 ], [ %.2127187, %.thread183 ]
+  %.1126 = phi i32 [ 0, %55 ], [ 1, %.thread183 ]
   %.2122 = phi ptr [ %.1121223, %55 ], [ %.3123188, %.thread183 ]
   %.1115 = phi i64 [ %56, %55 ], [ %.2116, %.thread183 ]
   %58 = load i8, ptr %38, align 1, !tbaa !24

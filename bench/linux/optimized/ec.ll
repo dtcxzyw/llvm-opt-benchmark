@@ -291,14 +291,13 @@ define dso_local void @mpi_ec_init(ptr noundef captures(none) initializes((0, 40
 
 94:                                               ; preds = %102
   tail call void @mpi_free(ptr noundef nonnull %100) #9
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %95 = getelementptr [3 x %struct.field_table], ptr @field_table, i64 0, i64 %indvars.iv.next
+  %95 = getelementptr [3 x %struct.field_table], ptr @field_table, i64 0, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 16
-  %exitcond = icmp eq i64 %indvars.iv.next, 2
   br i1 %exitcond, label %.thread, label %97, !llvm.loop !10
 
 97:                                               ; preds = %94, %.loopexit7
-  %indvars.iv = phi i64 [ %indvars.iv.next, %94 ], [ 0, %.loopexit7 ]
+  %exitcond = phi i1 [ true, %94 ], [ false, %.loopexit7 ]
+  %indvars.iv = phi i64 [ 2, %94 ], [ 1, %.loopexit7 ]
   %98 = phi ptr [ %96, %94 ], [ @.str.16, %.loopexit7 ]
   %99 = phi ptr [ %95, %94 ], [ @field_table, %.loopexit7 ]
   %100 = tail call ptr @mpi_scanval(ptr noundef nonnull %98) #9

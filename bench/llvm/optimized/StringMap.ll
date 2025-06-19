@@ -145,7 +145,7 @@ _ZN4llvm11safe_callocEmm.exit:                    ; preds = %1, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(none) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, -1) i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr readonly captures(none) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %.fr68 = freeze i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !14
@@ -245,9 +245,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread48.us:    ; preds = %36, %32, %30
   %.us-phi65 = phi i64 [ %27, %.split.us ], [ %41, %.split ]
   %.not43 = icmp eq i32 %.us-phi, -1
   %44 = sext i32 %.us-phi to i64
-  %.sink87 = select i1 %.not43, i64 %.us-phi65, i64 %44
+  %.sink88 = select i1 %.not43, i64 %.us-phi65, i64 %44
   %.1.ph.ph = select i1 %.not43, i32 %.us-phi64, i32 %.us-phi
-  %45 = getelementptr inbounds i32, ptr %22, i64 %.sink87
+  %45 = getelementptr inbounds i32, ptr %22, i64 %.sink88
   store i32 %3, ptr %45, align 4, !tbaa !17
   br label %.thread
 
@@ -473,26 +473,22 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread32.i.i:   ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %26
   %.0.i.i = phi i32 [ %.022.us.i.i, %26 ], [ %.022.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
-  %43 = icmp eq i32 %.0.i.i, -1
-  br i1 %43, label %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit.thread, label %44
-
-44:                                               ; preds = %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit
-  %45 = sext i32 %.0.i.i to i64
-  %46 = getelementptr inbounds ptr, ptr %11, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !11
-  store ptr inttoptr (i64 -8 to ptr), ptr %46, align 8, !tbaa !11
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %49 = load i32, ptr %48, align 4, !tbaa !15
-  %50 = add i32 %49, -1
-  store i32 %50, ptr %48, align 4, !tbaa !15
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !10
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %51, align 8, !tbaa !10
+  %43 = sext i32 %.0.i.i to i64
+  %44 = getelementptr inbounds ptr, ptr %11, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !11
+  store ptr inttoptr (i64 -8 to ptr), ptr %44, align 8, !tbaa !11
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %47 = load i32, ptr %46, align 4, !tbaa !15
+  %48 = add i32 %47, -1
+  store i32 %48, ptr %46, align 4, !tbaa !15
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %50 = load i32, ptr %49, align 8, !tbaa !10
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %49, align 8, !tbaa !10
   br label %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit.thread
 
-_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit.thread: ; preds = %.split.i.i, %.split.us.i.i, %3, %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit, %44
-  %.0 = phi ptr [ %47, %44 ], [ null, %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit ], [ null, %3 ], [ null, %.split.us.i.i ], [ null, %.split.i.i ]
+_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit.thread: ; preds = %.split.i.i, %.split.us.i.i, %3, %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit
+  %.0 = phi ptr [ %45, %_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefE.exit ], [ null, %3 ], [ null, %.split.us.i.i ], [ null, %.split.i.i ]
   ret ptr %.0
 }
 

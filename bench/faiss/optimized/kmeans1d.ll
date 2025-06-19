@@ -1902,9 +1902,9 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %177
 .noexc184:                                        ; preds = %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i
   store float 0.000000e+00, ptr %183, align 4, !tbaa !54
   %184 = icmp eq i64 %176, 1
-  br i1 %184, label %.thread290, label %194
+  br i1 %184, label %.thread321, label %194
 
-.thread290:                                       ; preds = %.noexc184
+.thread321:                                       ; preds = %.noexc184
   store ptr %183, ptr %7, align 8, !tbaa !84
   %185 = getelementptr inbounds nuw float, ptr %183, i64 %176
   store ptr %185, ptr %178, align 8, !tbaa !85
@@ -1944,7 +1944,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %177
 .noexc190:                                        ; preds = %199
   unreachable
 
-_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i:  ; preds = %.thread290, %194
+_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i:  ; preds = %.thread321, %194
   %200 = shl nuw nsw i64 %176, 3
   %201 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %200) #20
           to label %.noexc191 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit.i
@@ -2029,8 +2029,8 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
 _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
   store i64 1, ptr %8, align 8, !tbaa !9
-  %.not324 = icmp eq i64 %2, 1
-  br i1 %.not324, label %.lr.ph266.preheader, label %.lr.ph258
+  %.not355 = icmp eq i64 %2, 1
+  br i1 %.not355, label %.lr.ph266.preheader, label %.lr.ph258
 
 .lr.ph258:                                        ; preds = %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
   %231 = icmp ugt i64 %1, 1152921504606846975
@@ -2047,7 +2047,6 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i142.preheader: ; preds = %.
 
 .lr.ph266.preheader:                              ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  %.084260 = add nsw i64 %2, -1
   br label %.lr.ph266
 
 238:                                              ; preds = %211
@@ -2266,15 +2265,15 @@ _ZNSt6vectorIlSaIlEED2Ev.exit153:                 ; preds = %.loopexit, %.loopex
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit172
 
-.loopexit313:                                     ; preds = %393
-  %328 = uitofp i64 %2 to double
+.loopexit344:                                     ; preds = %393
+  %328 = uitofp nneg i64 %2 to double
   %329 = fmul double %399, %328
   %330 = fmul double %398, %398
   %331 = fdiv double %329, %330
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit155
 
-_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %.loopexit313
-  %332 = phi double [ %331, %.loopexit313 ], [ 0x7FF8000000000000, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %.loopexit344
+  %332 = phi double [ %331, %.loopexit344 ], [ 0x7FF8000000000000, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.not.i.i.i.i156 = icmp eq ptr %.sroa.0211.0, null
   br i1 %.not.i.i.i.i156, label %_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.exit, label %333
 
@@ -2338,10 +2337,11 @@ _ZN5faiss12_GLOBAL__N_114CostCalculatorD2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 .lr.ph266:                                        ; preds = %.lr.ph266.preheader, %393
-  %.084264 = phi i64 [ %.084, %393 ], [ %.084260, %.lr.ph266.preheader ]
+  %.084264.in = phi i64 [ %.084264, %393 ], [ %2, %.lr.ph266.preheader ]
   %.085263 = phi i64 [ %361, %393 ], [ %1, %.lr.ph266.preheader ]
   %.086262 = phi double [ %399, %393 ], [ 0.000000e+00, %.lr.ph266.preheader ]
   %.087261 = phi double [ %398, %393 ], [ 0.000000e+00, %.lr.ph266.preheader ]
+  %.084264 = add nsw i64 %.084264.in, -1
   %357 = mul nsw i64 %.084264, %1
   %358 = getelementptr i64, ptr %.sroa.0211.0, i64 %357
   %359 = getelementptr i64, ptr %358, i64 %.085263
@@ -2438,9 +2438,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
   %397 = uitofp nneg i64 %367 to double
   %398 = fadd double %.087261, %397
   %399 = call double @llvm.fmuladd.f64(double %397, double %397, double %.086262)
-  %.084 = add i64 %.084264, -1
-  %400 = icmp sgt i64 %.084, -1
-  br i1 %400, label %.lr.ph266, label %.loopexit313, !llvm.loop !95
+  %400 = icmp sgt i64 %.084264.in, 1
+  br i1 %400, label %.lr.ph266, label %.loopexit344, !llvm.loop !95
 
 _ZNSt6vectorIlSaIlEED2Ev.exit172:                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170, %_ZNSt6vectorIlSaIlEED2Ev.exit153, %238
   %.pn98.pn.pn.pn = phi { ptr, i32 } [ %239, %238 ], [ %.pn98.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit153 ], [ %.pn94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170 ]
@@ -2821,7 +2820,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds float, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw float, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw float, ptr %0, i64 %16
   br label %.split
 

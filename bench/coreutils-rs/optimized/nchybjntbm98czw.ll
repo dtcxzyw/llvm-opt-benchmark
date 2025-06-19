@@ -1837,12 +1837,12 @@ define void @_ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE(ptr noalias no
   br label %463
 
 443:                                              ; preds = %448, %441
-  %.sink658.i.i = phi i64 [ 120, %448 ], [ 144, %441 ]
-  %.sink657.i.i = phi ptr [ %214, %448 ], [ %305, %441 ]
+  %.sink670.i.i = phi i64 [ 120, %448 ], [ 144, %441 ]
+  %.sink669.i.i = phi ptr [ %214, %448 ], [ %305, %441 ]
   %.sink.i.i = phi i64 [ 128, %448 ], [ 152, %441 ]
   %.pn.i.i = phi { ptr, i32 } [ %449, %448 ], [ %442, %441 ]
-  %.sroa.5160.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.sink658.i.i
-  store ptr %.sink657.i.i, ptr %.sroa.5160.0..sroa_idx.i.i, align 8, !alias.scope !105, !noalias !106
+  %.sroa.5160.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.sink670.i.i
+  store ptr %.sink669.i.i, ptr %.sroa.5160.0..sroa_idx.i.i, align 8, !alias.scope !105, !noalias !106
   %.sroa.6163.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.sink.i.i
   store i64 %122, ptr %.sroa.6163.0..sroa_idx.i.i, align 8, !alias.scope !105, !noalias !106
   br label %.body.i
@@ -2087,7 +2087,7 @@ _ZN5uu_dd9parseargs6Parser4read17h4273c84f79c6e53bE.exit: ; preds = %463, %4
   %521 = icmp eq i8 %.064.i, 2
   br i1 %520, label %522, label %523
 
-default.unreachable.i.i:                          ; preds = %525
+default.unreachable:                              ; preds = %547, %546, %525
   unreachable
 
 522:                                              ; preds = %519
@@ -2102,23 +2102,25 @@ default.unreachable.i.i:                          ; preds = %525
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 525:                                              ; preds = %523
-  %trunc19.i.i = trunc nuw i8 %.064.i to i1
-  switch i8 %.0.i, label %default.unreachable.i.i [
+  switch i8 %.0.i, label %default.unreachable [
     i8 0, label %526
     i8 1, label %527
     i8 2, label %528
   ]
 
 526:                                              ; preds = %525
+  %trunc19.i.i = trunc nuw i8 %.064.i to i1
   %anon.c1442423ab71096c578c2ca821fd175a.144.anon.c1442423ab71096c578c2ca821fd175a.145.i.i = select i1 %trunc19.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.145, ptr @anon.c1442423ab71096c578c2ca821fd175a.144
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 527:                                              ; preds = %525
-  %anon.c1442423ab71096c578c2ca821fd175a.146.anon.c1442423ab71096c578c2ca821fd175a.147.i.i = select i1 %trunc19.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.147, ptr @anon.c1442423ab71096c578c2ca821fd175a.146
+  %trunc18.i.i = trunc nuw i8 %.064.i to i1
+  %anon.c1442423ab71096c578c2ca821fd175a.146.anon.c1442423ab71096c578c2ca821fd175a.147.i.i = select i1 %trunc18.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.147, ptr @anon.c1442423ab71096c578c2ca821fd175a.146
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 528:                                              ; preds = %525
-  %anon.c1442423ab71096c578c2ca821fd175a.145.anon.c1442423ab71096c578c2ca821fd175a.144.i.i = select i1 %trunc19.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.144, ptr @anon.c1442423ab71096c578c2ca821fd175a.145
+  %trunc.i.i = trunc nuw i8 %.064.i to i1
+  %anon.c1442423ab71096c578c2ca821fd175a.145.anon.c1442423ab71096c578c2ca821fd175a.144.i.i = select i1 %trunc.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.144, ptr @anon.c1442423ab71096c578c2ca821fd175a.145
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 switch.lookup:                                    ; preds = %523
@@ -2170,9 +2172,6 @@ _ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i: ; preds = %switch.lo
   %.sroa.013.0.i = phi i64 [ %.73.i, %540 ], [ %.76.i, %541 ], [ 0, %543 ], [ 2, %537 ]
   %545 = icmp eq ptr %.014.i.i, null
   br i1 %545, label %546, label %547
-
-default.unreachable:                              ; preds = %547, %546
-  unreachable
 
 546:                                              ; preds = %544
   switch i64 %.sroa.013.0.i, label %default.unreachable [
@@ -2818,7 +2817,7 @@ define internal fastcc void @_ZN5uu_dd9parseargs16parse_bytes_no_x17h7518c8a3e6b
   %switch.not.not = icmp eq i64 %23, 0
   br i1 %switch.not.not, label %48, label %49
 
-default.unreachable192:                           ; preds = %52
+default.unreachable197:                           ; preds = %52
   unreachable
 
 48:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h5a6ab99f8235f45cE.exit122"
@@ -2838,7 +2837,7 @@ default.unreachable192:                           ; preds = %52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @_ZN6uucore6parser10parse_size6Parser9parse_u6417h64c8b0daca682127E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %12, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   %53 = load i64, ptr %11, align 8, !range !4, !noundef !5
-  switch i64 %53, label %default.unreachable192 [
+  switch i64 %53, label %default.unreachable197 [
     i64 3, label %62
     i64 0, label %66
     i64 1, label %66

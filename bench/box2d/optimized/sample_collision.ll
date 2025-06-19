@@ -2033,16 +2033,16 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   %93 = fcmp ogt float %92, 0.000000e+00
   %94 = fmul float %81, %70
   %. = select i1 %93, float %94, float %81
-  %.69 = select i1 %93, float %81, float %94
+  %.75 = select i1 %93, float %81, float %94
   %95 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store float %., ptr %95, align 4, !tbaa !152
   %96 = getelementptr inbounds nuw i8, ptr %56, i64 44
-  store float %.69, ptr %96, align 4, !tbaa !155
+  store float %.75, ptr %96, align 4, !tbaa !155
   store float %.05158, ptr %56, align 4, !tbaa !15
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 4
   store float %.060, ptr %.sroa.49.0..sroa_idx, align 4, !tbaa !15
   %97 = fadd float %.05158, %.
-  %98 = fadd float %.060, %.69
+  %98 = fadd float %.060, %.75
   %99 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store float %97, ptr %99, align 4, !tbaa !15
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 12
@@ -2385,9 +2385,9 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   br label %135
 
 135:                                              ; preds = %66, %79, %130
-  %.sink155 = phi i8 [ 1, %130 ], [ 0, %79 ], [ 0, %66 ]
+  %.sink158 = phi i8 [ 1, %130 ], [ 0, %79 ], [ 0, %66 ]
   %136 = getelementptr inbounds nuw i8, ptr %57, i64 60
-  store i8 %.sink155, ptr %136, align 4, !tbaa !159
+  store i8 %.sink158, ptr %136, align 4, !tbaa !159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %137 = load i32, ptr %39, align 8, !tbaa !40
   %138 = sext i32 %137 to i64
@@ -5074,27 +5074,22 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
 
 .preheader:                                       ; preds = %21
   %23 = icmp slt i64 %indvars.iv, 2
-  br i1 %23, label %.lr.ph, label %.preheader.._crit_edge_crit_edge
-
-.preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
-  %.pre = and i64 %indvars.iv, 4294967295
-  br label %._crit_edge
+  br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19, %.preheader
-  %.15355 = phi i64 [ %indvars.iv, %.preheader ], [ 0, %19 ]
+  %.15456 = phi i64 [ %indvars.iv, %.preheader ], [ 0, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %sext = shl i64 %.15355, 32
-  %25 = ashr exact i64 %sext, 32
+  %25 = and i64 %.15456, 4294967295
   br label %33
 
-._crit_edge:                                      ; preds = %33, %.preheader.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %25, %33 ]
-  %26 = getelementptr inbounds [3 x %struct.b2Vec2], ptr %4, i64 0, i64 %.pre-phi
+._crit_edge:                                      ; preds = %33, %.preheader
+  %.pre-phi = phi i64 [ 2, %.preheader ], [ %25, %33 ]
+  %26 = getelementptr inbounds nuw [3 x %struct.b2Vec2], ptr %4, i64 0, i64 %.pre-phi
   store <2 x float> %1, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %28 = getelementptr inbounds [3 x %struct.b2Vec2], ptr %27, i64 0, i64 %.pre-phi
+  %28 = getelementptr inbounds nuw [3 x %struct.b2Vec2], ptr %27, i64 0, i64 %.pre-phi
   store <2 x float> %2, ptr %28, align 4
-  %29 = getelementptr inbounds [3 x float], ptr %14, i64 0, i64 %.pre-phi
+  %29 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %.pre-phi
   store float %3, ptr %29, align 4, !tbaa !15
   %30 = tail call i32 @llvm.smin.i32(i32 %13, i32 2)
   %31 = add nsw i32 %30, 1

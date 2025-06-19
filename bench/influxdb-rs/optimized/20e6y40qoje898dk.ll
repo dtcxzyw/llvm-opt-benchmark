@@ -268,9 +268,9 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h50263d2e15235608E.exit.thre
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h37c684beaf126e96E.exit.i
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h37c684beaf126e96E.exit.i: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit4.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit.i.i"
-  %.sink41.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit4.i.i" ]
+  %.sink44.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9aeb0a3180269bf5E.llvm.7682522193326259475.exit4.i.i" ]
   %98 = load i64, ptr %5, align 8, !noalias !28, !noundef !9
-  %99 = add i64 %98, %.sink41.i
+  %99 = add i64 %98, %.sink44.i
   store i64 %99, ptr %5, align 8, !noalias !28
   br label %.outer.i
 
@@ -526,7 +526,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$imp
   %6 = alloca { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }, align 8
   %7 = alloca { i8, [15 x i8] }, align 8
   %8 = load i8, ptr %0, align 8, !range !208, !noundef !9
-  switch i8 %8, label %default.unreachable84 [
+  switch i8 %8, label %default.unreachable104 [
     i8 0, label %9
     i8 1, label %23
     i8 2, label %44
@@ -535,7 +535,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json5value3ser76_$LT$imp
     i8 5, label %262
   ]
 
-default.unreachable84:                            ; preds = %44, %2
+default.unreachable104:                           ; preds = %44, %2
   unreachable
 
 9:                                                ; preds = %2
@@ -623,7 +623,7 @@ default.unreachable84:                            ; preds = %44, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
   %46 = load i64, ptr %45, align 8, !range !266, !alias.scope !263, !noundef !9
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  switch i64 %46, label %default.unreachable84 [
+  switch i64 %46, label %default.unreachable104 [
     i64 0, label %48
     i64 1, label %104
     i64 2, label %165
@@ -854,8 +854,8 @@ default.unreachable84:                            ; preds = %44, %2
 165:                                              ; preds = %44
   %166 = load double, ptr %47, align 8, !alias.scope !263, !noundef !9
   %167 = tail call double @llvm.fabs.f64(double %166)
-  %or.cond3.i.i = fcmp ueq double %167, 0x7FF0000000000000
-  br i1 %or.cond3.i.i, label %select.unfold.i.i, label %168
+  %or.cond4.i.i = fcmp ueq double %167, 0x7FF0000000000000
+  br i1 %or.cond4.i.i, label %select.unfold.i.i, label %168
 
 168:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !263
@@ -973,12 +973,12 @@ _ZN10serde_json3ser9Formatter10write_null17h7659524ff21d466eE.llvm.7682522193326
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader": ; preds = %223, %212
-  %.ph100 = xor i1 %218, true
+  %.ph120 = xor i1 %218, true
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit"
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader", %_ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i
   %229 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i ], [ %218, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader" ]
-  %230 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i ], [ %.ph100, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader" ]
+  %230 = phi i1 [ false, %_ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i ], [ %.ph120, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader" ]
   %.sroa.044.0 = phi ptr [ %233, %_ZN10serde_json3ser9Formatter17begin_array_value17h36a5a7a956948914E.exit.i.i ], [ %.val.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hb78b1f754028f54dE.exit.preheader" ]
   %231 = icmp eq ptr %.sroa.044.0, %205
   br i1 %231, label %249, label %232
@@ -1522,13 +1522,12 @@ select.unfold.i.i:                                ; preds = %"_ZN95_$LT$$RF$mut$
   br label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %select.unfold.i.i, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h2e5fb9dc1ebfef7eE.exit.i.i.i.i.i.i.i"
-  %.sroa.09.0.i.i.ph = phi i64 [ 0, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h2e5fb9dc1ebfef7eE.exit.i.i.i.i.i.i.i" ], [ 1, %select.unfold.i.i ]
   %.sroa.13.0.i.i.ph = phi i64 [ undef, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h2e5fb9dc1ebfef7eE.exit.i.i.i.i.i.i.i" ], [ %74, %select.unfold.i.i ]
   %.sroa.19.0.i.i.ph = phi i64 [ 0, %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h2e5fb9dc1ebfef7eE.exit.i.i.i.i.i.i.i" ], [ %48, %select.unfold.i.i ]
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE.exit.i.i
-  %.sroa.09.0.i.i = phi i64 [ %.sroa.09.1.i.i, %_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE.exit.i.i ], [ %.sroa.09.0.i.i.ph, %.preheader.i.i.preheader ]
+  %.sroa.09.0.i.i = phi i1 [ false, %_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE.exit.i.i ], [ %.not.i.i.i.i.i.i.not.i.i, %.preheader.i.i.preheader ]
   %.sroa.6.0.i.i = phi ptr [ %.sroa.018.0.copyload.i.i, %_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE.exit.i.i ], [ null, %.preheader.i.i.preheader ]
   %.sroa.11.0.i.i = phi ptr [ %.sroa.4.0.copyload.i.i, %_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE.exit.i.i ], [ %72, %.preheader.i.i.preheader ]
   %.sroa.5.0.i.i = phi i8 [ 2, %_ZN5serde3ser12SerializeMap15serialize_entry17h2a28d7caabc6af9eE.exit.i.i ], [ %.sroa.7.0.i.i.i.i.i.i.i, %.preheader.i.i.preheader ]
@@ -1539,8 +1538,7 @@ select.unfold.i.i:                                ; preds = %"_ZN95_$LT$$RF$mut$
 
 76:                                               ; preds = %.preheader.i.i
   %77 = add i64 %.sroa.19.0.i.i, -1
-  %.not.not.i.i.i.i = icmp eq i64 %.sroa.09.0.i.i, 0
-  br i1 %.not.not.i.i.i.i, label %82, label %78
+  br i1 %.sroa.09.0.i.i, label %82, label %78
 
 78:                                               ; preds = %76
   %79 = icmp eq ptr %.sroa.6.0.i.i, null
@@ -1562,7 +1560,6 @@ select.unfold.i.i:                                ; preds = %"_ZN95_$LT$$RF$mut$
   unreachable
 
 83:                                               ; preds = %80, %78
-  %.sroa.09.1.i.i = phi i64 [ 1, %80 ], [ %.sroa.09.0.i.i, %78 ]
   %.sroa.6.1.i.i = phi ptr [ %.sroa.6.8.copyload11.i.i, %80 ], [ %.sroa.6.0.i.i, %78 ]
   %.sroa.11.1.i.i = phi ptr [ %.sroa.11.8.copyload14.i.i, %80 ], [ %.sroa.11.0.i.i, %78 ]
   %.sroa.13.1.i.i = phi i64 [ %.sroa.13.8.copyload17.i.i, %80 ], [ %.sroa.13.0.i.i, %78 ]

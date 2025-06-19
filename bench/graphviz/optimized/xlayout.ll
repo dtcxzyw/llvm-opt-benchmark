@@ -81,7 +81,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr noundef readonly captures(none) %1)
 
 32:                                               ; preds = %29, %27
   %.not26 = icmp eq i32 %.020, 0
-  br i1 %.not26, label %423, label %33
+  br i1 %.not26, label %x_layout.exit, label %33
 
 33:                                               ; preds = %32
   %34 = tail call i32 @agnnodes(ptr noundef %0) #13
@@ -239,7 +239,6 @@ cntOverlaps.exit.i:                               ; preds = %._crit_edge.i.i
   br label %123
 
 123:                                              ; preds = %.thread.i, %.lr.ph68.i
-  %.03067.i = phi i32 [ %.1.lcssa.i.i, %.lr.ph68.i ], [ %.2.i, %.thread.i ]
   %.03266.i = phi i32 [ 0, %.lr.ph68.i ], [ %419, %.thread.i ]
   %.sroa.5.065.i = phi double [ %.sroa.5.0.copyload.i, %.lr.ph68.i ], [ %418, %.thread.i ]
   store double %.sroa.5.065.i, ptr @xParams.2, align 8, !tbaa !46
@@ -729,11 +728,11 @@ applyAttr.exit.i.i:                               ; preds = %RAD.exit31.i.i.i, %
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %401, %396
-  %.sink123.i.i = phi ptr [ %398, %396 ], [ %405, %401 ]
-  %.sink121.i.i = phi double [ %392, %396 ], [ %409, %401 ]
-  %410 = getelementptr inbounds nuw i8, ptr %.sink123.i.i, i64 8
+  %.sink134.i.i = phi ptr [ %398, %396 ], [ %405, %401 ]
+  %.sink132.i.i = phi double [ %392, %396 ], [ %409, %401 ]
+  %410 = getelementptr inbounds nuw i8, ptr %.sink134.i.i, i64 8
   %411 = load double, ptr %410, align 8, !tbaa !10
-  %412 = fadd double %.sink121.i.i, %411
+  %412 = fadd double %.sink132.i.i, %411
   store double %412, ptr %410, align 8, !tbaa !10
   br label %413
 
@@ -752,23 +751,16 @@ adjust.exit.thread50.i..thread.i.loopexit_crit_edge: ; preds = %adjust.exit.thre
   br label %.thread.i, !llvm.loop !52
 
 .thread.i:                                        ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %adjust.exit.thread50.i..thread.i.loopexit_crit_edge, %xinit_params.exit.i
-  %.2.i = phi i32 [ %.03067.i, %xinit_params.exit.i ], [ %.1.lcssa.i41.i, %adjust.exit.thread50.i..thread.i.loopexit_crit_edge ], [ %.03067.i, %.lr.ph.i.preheader ], [ %.1.lcssa.i41.i, %.lr.ph.i ]
   %418 = fadd double %.sroa.5.0.copyload.i, %.sroa.5.065.i
   %419 = add nuw nsw i32 %.03266.i, 1
-  %420 = icmp ne i32 %.2.i, 0
-  %421 = icmp samesign ult i32 %419, %.020
-  %422 = select i1 %420, i1 %421, i1 false
-  br i1 %422, label %123, label %x_layout.exit, !llvm.loop !65
+  %420 = icmp samesign ult i32 %419, %.020
+  br i1 %420, label %123, label %x_layout.exit, !llvm.loop !65
 
-x_layout.exit:                                    ; preds = %.thread.i
-  %.not27 = icmp eq i32 %.2.i, 0
-  br i1 %.not27, label %x_layout.exit.thread, label %423
-
-423:                                              ; preds = %x_layout.exit, %32
-  %424 = call i32 @removeOverlapAs(ptr noundef %0, ptr noundef nonnull %.0) #13
+x_layout.exit:                                    ; preds = %.thread.i, %32
+  %421 = call i32 @removeOverlapAs(ptr noundef %0, ptr noundef nonnull %.0) #13
   br label %x_layout.exit.thread
 
-x_layout.exit.thread:                             ; preds = %._crit_edge.i40.i, %._crit_edge92.i.i, %43, %cntOverlaps.exit.i, %x_layout.exit, %423
+x_layout.exit.thread:                             ; preds = %._crit_edge.i40.i, %._crit_edge92.i.i, %43, %cntOverlaps.exit.i, %x_layout.exit
   ret void
 }
 

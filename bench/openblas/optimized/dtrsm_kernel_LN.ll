@@ -86,7 +86,8 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i.preheader, %._crit_edge.us.i
-  %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %._crit_edge.us.i ], [ 0, %.lr.ph.us.i.preheader ]
+  %exitcond64.not.i = phi i1 [ true, %._crit_edge.us.i ], [ false, %.lr.ph.us.i.preheader ]
+  %indvars.iv61.i = phi i64 [ 1, %._crit_edge.us.i ], [ 0, %.lr.ph.us.i.preheader ]
   %.148.us.i = phi ptr [ %58, %._crit_edge.us.i ], [ %.04452.i294, %.lr.ph.us.i.preheader ]
   %48 = mul nuw nsw i64 %indvars.iv61.i, %7
   %49 = getelementptr inbounds double, ptr %47, i64 %48
@@ -112,8 +113,6 @@ define noundef i32 @dtrsm_kernel_LN(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 ._crit_edge.us.i:                                 ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %.148.us.i, i64 8
-  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %exitcond64.not.i = icmp eq i64 %indvars.iv.next62.i, 2
   br i1 %exitcond64.not.i, label %.split51.us.i, label %.lr.ph.us.i, !llvm.loop !9
 
 .split.i:                                         ; preds = %.split.i.preheader, %.split.i
@@ -192,7 +191,8 @@ solve.exit:                                       ; preds = %.split.i, %.prehead
   br label %.lr.ph.us.i207
 
 .lr.ph.us.i207:                                   ; preds = %.lr.ph.us.i207.preheader, %._crit_edge.us.i215
-  %indvars.iv61.i208 = phi i64 [ %indvars.iv.next62.i216, %._crit_edge.us.i215 ], [ 0, %.lr.ph.us.i207.preheader ]
+  %exitcond64.not.i217 = phi i1 [ true, %._crit_edge.us.i215 ], [ false, %.lr.ph.us.i207.preheader ]
+  %indvars.iv61.i208 = phi i64 [ 1, %._crit_edge.us.i215 ], [ 0, %.lr.ph.us.i207.preheader ]
   %.148.us.i209 = phi ptr [ %98, %._crit_edge.us.i215 ], [ %.04452.i205301, %.lr.ph.us.i207.preheader ]
   %88 = mul nuw nsw i64 %indvars.iv61.i208, %7
   %89 = getelementptr inbounds double, ptr %86, i64 %88
@@ -218,8 +218,6 @@ solve.exit:                                       ; preds = %.split.i, %.prehead
 
 ._crit_edge.us.i215:                              ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %.148.us.i209, i64 8
-  %indvars.iv.next62.i216 = add nuw nsw i64 %indvars.iv61.i208, 1
-  %exitcond64.not.i217 = icmp eq i64 %indvars.iv.next62.i216, 2
   br i1 %exitcond64.not.i217, label %.split51.us.i218, label %.lr.ph.us.i207, !llvm.loop !9
 
 .split.i221:                                      ; preds = %.split51.us.i218, %.split.i221

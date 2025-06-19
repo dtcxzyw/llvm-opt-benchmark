@@ -151,7 +151,7 @@ sub_1:                                            ; preds = %sub_0
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
-  br i1 %40, label %44, label %.thread498
+  br i1 %40, label %44, label %.thread502
 
 .tail.thread:                                     ; preds = %sub_1
   %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(6) @.str.2) #9
@@ -160,19 +160,19 @@ sub_1:                                            ; preds = %sub_0
 
 .tail.thread.thread:                              ; preds = %sub_0
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(6) @.str.2) #9
-  %.not223513 = icmp eq i32 %42, 0
-  br i1 %.not223513, label %44, label %.tail354.thread
+  %.not223515 = icmp eq i32 %42, 0
+  br i1 %.not223515, label %44, label %.tail354.thread
 
-.thread498:                                       ; preds = %.tail
+.thread502:                                       ; preds = %.tail
   %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(6) @.str.2) #9
-  %.not223499 = icmp eq i32 %43, 0
-  br i1 %.not223499, label %44, label %sub_1356
+  %.not223503 = icmp eq i32 %43, 0
+  br i1 %.not223503, label %44, label %sub_1356
 
-44:                                               ; preds = %.tail.thread.thread, %.thread498, %.tail.thread, %.tail
+44:                                               ; preds = %.tail.thread.thread, %.thread502, %.tail.thread, %.tail
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.thread312
 
-sub_1356:                                         ; preds = %.tail.thread, %.thread498
+sub_1356:                                         ; preds = %.tail.thread, %.thread502
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %46 = load i8, ptr %45, align 1
   %.not442 = icmp eq i8 %46, 111
@@ -533,13 +533,13 @@ sub_1366:                                         ; preds = %sub_0365
   %201 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %202 = load i8, ptr %201, align 1
   %.not446 = icmp eq i8 %202, 45
-  br i1 %.not446, label %.tail364, label %.thread505
+  br i1 %.not446, label %.tail364, label %.thread509
 
 .tail364:                                         ; preds = %sub_1366
   %203 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %204 = load i8, ptr %203, align 1
   %205 = icmp eq i8 %204, 0
-  br i1 %205, label %206, label %.thread505
+  br i1 %205, label %206, label %.thread509
 
 206:                                              ; preds = %.tail364
   br i1 %58, label %207, label %213
@@ -549,7 +549,7 @@ sub_1366:                                         ; preds = %sub_0365
   %209 = load ptr, ptr %208, align 8, !tbaa !4
   br label %213
 
-.thread505:                                       ; preds = %.tail364, %sub_1366
+.thread509:                                       ; preds = %.tail364, %sub_1366
   %210 = load ptr, ptr @stderr, align 8, !tbaa !9
   %211 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %210, ptr noundef nonnull @.str.45, ptr noundef nonnull %34) #10
   %puts.i287 = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -570,8 +570,8 @@ sub_1366:                                         ; preds = %sub_0365
   %puts.i288 = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %.thread312
 
-.thread312:                                       ; preds = %.thread505, %.loopexit369, %79, %44
-  %.3.ph = phi i32 [ 0, %44 ], [ 0, %79 ], [ 1, %.loopexit369 ], [ 1, %.thread505 ]
+.thread312:                                       ; preds = %.thread509, %.loopexit369, %79, %44
+  %.3.ph = phi i32 [ 0, %44 ], [ 0, %79 ], [ 1, %.loopexit369 ], [ 1, %.thread509 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   br label %424
 
@@ -627,7 +627,7 @@ sub_1366:                                         ; preds = %sub_0365
   br label %424
 
 223:                                              ; preds = %221
-  switch i32 %.0206402, label %default.unreachable496 [
+  switch i32 %.0206402, label %default.unreachable500 [
     i32 0, label %224
     i32 1, label %228
     i32 2, label %229
@@ -731,7 +731,7 @@ sub_1366:                                         ; preds = %sub_0365
 254:                                              ; preds = %223
   br label %255
 
-default.unreachable496:                           ; preds = %223
+default.unreachable500:                           ; preds = %223
   unreachable
 
 255:                                              ; preds = %223, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243
@@ -883,7 +883,6 @@ AllocateExternalBuffer.exit:                      ; preds = %285, %314
   br label %.thread339
 
 .thread339:                                       ; preds = %224, %228, %229, %230, %234, %238, %242, %AllocateExternalBuffer.exit, %255
-  %.0206402511 = phi i32 [ %.0206402, %AllocateExternalBuffer.exit ], [ %.0206402, %255 ], [ 7, %242 ], [ %.0206402, %238 ], [ 5, %234 ], [ 4, %230 ], [ 2, %229 ], [ 1, %228 ], [ 0, %224 ]
   %.1205 = phi ptr [ %.089.i, %AllocateExternalBuffer.exit ], [ null, %255 ], [ null, %242 ], [ null, %238 ], [ null, %234 ], [ null, %230 ], [ null, %229 ], [ null, %228 ], [ null, %224 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
   %.b221 = load i1, ptr @verbose, align 4
@@ -983,7 +982,7 @@ sub_1.i:                                          ; preds = %364
   br label %371
 
 371:                                              ; preds = %369, %.tail.i
-  %372 = call i32 @WebPSaveImage(ptr noundef nonnull %9, i32 noundef range(i32 0, 21) %.0206402511, ptr noundef nonnull %.0211411) #7
+  %372 = call i32 @WebPSaveImage(ptr noundef nonnull %9, i32 noundef range(i32 0, 21) %.0206402, ptr noundef nonnull %.0211411) #7
   %.not13.i = icmp eq i32 %372, 0
   br i1 %.not13.i, label %395, label %373
 

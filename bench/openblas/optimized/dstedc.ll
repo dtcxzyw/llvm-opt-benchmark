@@ -167,14 +167,7 @@ pow_ii.exit:                                      ; preds = %.lr.ph.i, %54, %61
 
 pow_ii.exit297:                                   ; preds = %.lr.ph.i290, %pow_ii.exit, %74
   %.1.i287 = phi i32 [ %spec.select32.i286, %pow_ii.exit ], [ %77, %74 ], [ %spec.select.i295, %.lr.ph.i290 ]
-  switch i32 %.sink, label %.thread307 [
-    i32 1, label %82
-    i32 2, label %90
-  ]
-
-.thread307:                                       ; preds = %pow_ii.exit297
-  store double 0.000000e+00, ptr %6, align 8, !tbaa !7
-  br label %.thread300
+  br i1 %36, label %82, label %90
 
 82:                                               ; preds = %pow_ii.exit297
   %83 = icmp slt i32 %.1.i287, %69
@@ -220,20 +213,18 @@ pow_ii.exit297:                                   ; preds = %.lr.ph.i290, %pow_i
   %or.cond5 = select i1 %103, i1 true, i1 %29
   br i1 %or.cond5, label %.thread300, label %.thread318.sink.split
 
-.thread300:                                       ; preds = %.thread307, %101
-  %.0250.ph.ph = phi i32 [ %.1251, %101 ], [ undef, %.thread307 ]
-  %.0245.ph.ph = phi i32 [ %.1246, %101 ], [ undef, %.thread307 ]
+.thread300:                                       ; preds = %101
   %.pr312.pr = load i32, ptr %10, align 4, !tbaa !3
   %.not275 = icmp eq i32 %.pr312.pr, 0
   br i1 %.not275, label %107, label %.thread318
 
 .thread318.sink.split:                            ; preds = %101, %97, %40, %35, %33
-  %.sink378 = phi i32 [ -1, %33 ], [ -2, %35 ], [ -6, %40 ], [ -8, %97 ], [ -10, %101 ]
-  store i32 %.sink378, ptr %10, align 4, !tbaa !3
+  %.sink390 = phi i32 [ -1, %33 ], [ -2, %35 ], [ -6, %40 ], [ -8, %97 ], [ -10, %101 ]
+  store i32 %.sink390, ptr %10, align 4, !tbaa !3
   br label %.thread318
 
 .thread318:                                       ; preds = %.thread318.sink.split, %44, %.thread300
-  %104 = phi i32 [ %.pr312.pr, %.thread300 ], [ %.pr, %44 ], [ %.sink378, %.thread318.sink.split ]
+  %104 = phi i32 [ %.pr312.pr, %.thread300 ], [ %.pr, %44 ], [ %.sink390, %.thread318.sink.split ]
   %105 = sub nsw i32 0, %104
   store i32 %105, ptr %12, align 4, !tbaa !3
   %106 = call i32 @xerbla_(ptr noundef nonnull @.str.3, ptr noundef nonnull %12, i32 noundef 6) #5
@@ -370,7 +361,7 @@ pow_ii.exit297:                                   ; preds = %.lr.ph.i290, %pow_i
   %169 = add nsw i32 %..0249, %168
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds double, ptr %21, i64 %170
-  call void @dlaed0_(ptr noundef nonnull %15, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull %161, ptr noundef nonnull %162, ptr noundef %171, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %127, ptr noundef %8, ptr noundef nonnull %10) #5
+  call void @dlaed0_(ptr noundef nonnull %15, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull %161, ptr noundef nonnull %162, ptr noundef %171, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef nonnull %127, ptr noundef nonnull %8, ptr noundef nonnull %10) #5
   %172 = load i32, ptr %10, align 4, !tbaa !3
   %.not283 = icmp eq i32 %172, 0
   br i1 %.not283, label %185, label %173
@@ -407,19 +398,19 @@ pow_ii.exit297:                                   ; preds = %.lr.ph.i290, %pow_i
   %191 = mul nsw i32 %156, %156
   %192 = zext nneg i32 %191 to i64
   %gep = getelementptr inbounds nuw double, ptr %6, i64 %192
-  call void @dsteqr_(ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef nonnull %188, ptr noundef nonnull %189, ptr noundef %6, ptr noundef nonnull %14, ptr noundef nonnull %gep, ptr noundef nonnull %10) #5
+  call void @dsteqr_(ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef nonnull %188, ptr noundef nonnull %189, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull %gep, ptr noundef nonnull %10) #5
   %193 = mul nsw i32 %.0249342, %19
   %194 = sext i32 %193 to i64
   %gep340 = getelementptr double, ptr %invariant.gep339, i64 %194
   call void @dlacpy_(ptr noundef nonnull @.str.9, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef %gep340, ptr noundef nonnull %5, ptr noundef nonnull %127, ptr noundef nonnull %1) #5
-  call void @dgemm_(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull @c_b18, ptr noundef nonnull %127, ptr noundef nonnull %1, ptr noundef %6, ptr noundef nonnull %14, ptr noundef nonnull @c_b17, ptr noundef %gep340, ptr noundef nonnull %5) #5
+  call void @dgemm_(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull @c_b18, ptr noundef nonnull %127, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull @c_b17, ptr noundef %gep340, ptr noundef nonnull %5) #5
   br label %200
 
 195:                                              ; preds = %186
   %196 = mul i32 %.0249342, %128
   %197 = sext i32 %196 to i64
   %198 = getelementptr inbounds double, ptr %21, i64 %197
-  call void @dsteqr_(ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef nonnull %188, ptr noundef nonnull %189, ptr noundef %198, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %10) #5
+  call void @dsteqr_(ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef nonnull %188, ptr noundef nonnull %189, ptr noundef %198, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %10) #5
   br label %200
 
 199:                                              ; preds = %186
@@ -523,9 +514,9 @@ pow_ii.exit297:                                   ; preds = %.lr.ph.i290, %pow_i
   br i1 %.not278.not, label %.lr.ph358, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %231, %210, %115, %209, %121, %202, %173, %113
-  %234 = sitofp i32 %.0250.ph.ph to double
+  %234 = sitofp i32 %.1251 to double
   store double %234, ptr %6, align 8, !tbaa !7
-  store i32 %.0245.ph.ph, ptr %8, align 4, !tbaa !3
+  store i32 %.1246, ptr %8, align 4, !tbaa !3
   br label %235
 
 235:                                              ; preds = %110, %111, %108, %107, %.loopexit, %.thread318
