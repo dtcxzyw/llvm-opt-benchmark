@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    if: github.event.issue.pull_request && github.event.sender.login == 'zyw-bot'
     runs-on: [self-hosted, precommit]
     permissions:
       pull-requests: write
