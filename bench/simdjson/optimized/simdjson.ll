@@ -299,7 +299,7 @@ define dso_local noundef ptr @_ZN8simdjson8internal8to_charsEPcPKcd(ptr noundef 
   %22 = sext i32 %18 to i64
   %23 = getelementptr inbounds i8, ptr %.012, i64 %22
   %24 = sext i32 %20 to i64
-  %25 = sub nsw i64 %24, %22
+  %25 = zext nneg i32 %19 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %23, i8 48, i64 %25, i1 false)
   %26 = getelementptr inbounds i8, ptr %.012, i64 %24
   store i8 46, ptr %26, align 1, !tbaa !4

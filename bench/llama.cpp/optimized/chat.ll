@@ -201933,7 +201933,7 @@ define linkonce_odr noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_36detail9d
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   %16 = sext i32 %12 to i64
-  %17 = sub nsw i64 %16, %14
+  %17 = zext nneg i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 48, i64 %17, i1 false)
   %18 = getelementptr inbounds i8, ptr %0, i64 %16
   store i8 46, ptr %18, align 1, !tbaa !12
