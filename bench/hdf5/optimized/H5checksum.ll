@@ -7,6 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
 @H5_crc_table_computed = internal unnamed_addr global i1 false, align 1
 @H5_crc_table = internal unnamed_addr global [256 x i32] zeroinitializer, align 16
+@.crctable = private unnamed_addr constant [256 x i32] [i32 0, i32 102971031, i32 96753217, i32 65495254, i32 34248685, i32 69837178, i32 130990508, i32 32372539, i32 68497370, i32 37099853, i32 30505371, i32 133320460, i32 102742071, i32 3968672, i32 64745078, i32 100194529, i32 27813083, i32 126571084, i32 74199706, i32 38732813, i32 61010742, i32 92390817, i32 107390327, i32 4559840, i32 96291585, i32 60718486, i32 7937344, i32 106572759, i32 129490156, i32 26536571, i32 41126573, i32 72399930, i32 55626166, i32 91488033, i32 110403575, i32 12036448, i32 22699611, i32 125397196, i32 77465626, i32 45956749, i32 122021484, i32 23515387, i32 42053677, i32 77760186, i32 89092481, i32 57427734, i32 9119680, i32 111677783, i32 49851757, i32 81501178, i32 121436972, i32 18861499, i32 15874688, i32 114363415, i32 87452865, i32 51731030, i32 116228791, i32 13546528, i32 53073142, i32 84599393, i32 82253146, i32 46408653, i32 19088155, i32 117470604, i32 111252332, i32 8562171, i32 57001261, i32 88535994, i32 78316673, i32 42480150, i32 24072896, i32 122446935, i32 45399222, i32 77040161, i32 124840695, i32 22273120, i32 12462939, i32 110960076, i32 91913498, i32 56183693, i32 118093751, i32 19579168, i32 47030774, i32 82745185, i32 84107354, i32 52451021, i32 13055515, i32 115605644, i32 52222061, i32 88076026, i32 114855468, i32 16496827, i32 18239360, i32 120944919, i32 80878017, i32 49360726, i32 99703514, i32 64121933, i32 3476635, i32 102119948, i32 133942583, i32 30997408, i32 37722998, i32 68988385, i32 31749376, i32 130499479, i32 69215041, i32 33756630, i32 65987309, i32 97375354, i32 103462060, i32 623163, i32 72957441, i32 41552022, i32 27093056, i32 129916631, i32 106146284, i32 7380859, i32 60293037, i32 95734074, i32 4985307, i32 107947852, i32 92817306, i32 61567245, i32 38176310, i32 73773217, i32 126013559, i32 27387616, i32 79764919, i32 48376608, i32 17124342, i32 119962977, i32 114002522, i32 15252685, i32 51371035, i32 86829708, i32 13906541, i32 116851962, i32 84960300, i32 53695163, i32 48145792, i32 83727127, i32 119206849, i32 20563286, i32 90798444, i32 55201787, i32 11349805, i32 109975994, i32 123989633, i32 21026838, i32 44546240, i32 75796055, i32 24925878, i32 123691041, i32 79167735, i32 43726432, i32 58114395, i32 89520076, i32 112367386, i32 9544077, i32 126997505, i32 28500630, i32 39158336, i32 74888407, i32 94061548, i32 62420347, i32 6231469, i32 108798778, i32 59046875, i32 94883148, i32 104902042, i32 6527757, i32 26111030, i32 128801441, i32 71973495, i32 40439008, i32 104444122, i32 1738317, i32 66971291, i32 98488332, i32 70461239, i32 34607520, i32 32993654, i32 131352545, i32 36478720, i32 68135319, i32 132696385, i32 30146518, i32 2492653, i32 101006970, i32 98721452, i32 63006779, i32 39882459, i32 71546956, i32 128243866, i32 25685517, i32 6953270, i32 105459617, i32 95309687, i32 59603424, i32 108372225, i32 5674902, i32 61994816, i32 93503959, i32 75445996, i32 39583867, i32 29057197, i32 127424058, i32 63498752, i32 99343511, i32 101497921, i32 3115734, i32 29523437, i32 132205434, i32 67513260, i32 35986747, i32 131974618, i32 33485645, i32 35230619, i32 70952204, i32 97997367, i32 66348192, i32 1246326, i32 103822049, i32 19941229, i32 118714874, i32 83104044, i32 47654843, i32 54186112, i32 85583383, i32 117343937, i32 14528598, i32 86337719, i32 50748960, i32 14761718, i32 113379425, i32 120586074, i32 17615309, i32 48998683, i32 80256908, i32 9970614, i32 112923937, i32 89945591, i32 58671968, i32 43168859, i32 78742220, i32 123134490, i32 24499341, i32 76352620, i32 44972795, i32 21584429, i32 124415162, i32 109550465, i32 10792214, i32 54775232, i32 90241879]
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @H5_checksum_fletcher32(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -116,62 +117,51 @@ define i32 @H5_checksum_crc(ptr noundef readonly captures(none) %0, i64 noundef 
 
 9:                                                ; preds = %2
   %.b8.i = load i1, ptr @H5_crc_table_computed, align 1
-  br i1 %.b8.i, label %18, label %.preheader.i.i
+  br i1 %.b8.i, label %12, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %9, %16
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %16 ], [ 0, %9 ]
+.preheader.i.i:                                   ; preds = %9, %.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i ], [ 0, %9 ]
   %10 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  br label %11
-
-11:                                               ; preds = %11, %.preheader.i.i
-  %.014.i.i = phi i32 [ 0, %.preheader.i.i ], [ %15, %11 ]
-  %.01113.i.i = phi i32 [ %10, %.preheader.i.i ], [ %.1.i.i, %11 ]
-  %12 = and i32 %.01113.i.i, 1
-  %.not.i.i = icmp eq i32 %12, 0
-  %13 = lshr i32 %.01113.i.i, 1
-  %14 = xor i32 %13, 79764919
-  %.1.i.i = select i1 %.not.i.i, i32 %13, i32 %14
-  %15 = add nuw nsw i32 %.014.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %15, 8
-  br i1 %exitcond.not.i.i, label %16, label %11, !llvm.loop !14
-
-16:                                               ; preds = %11
-  %17 = getelementptr inbounds nuw [256 x i32], ptr @H5_crc_table, i64 0, i64 %indvars.iv.i.i
-  store i32 %.1.i.i, ptr %17, align 4, !tbaa !15
+  %crc.le.shift.i.i = lshr i32 %10, 8
+  %tbl.ptradd.i.i = getelementptr inbounds nuw i32, ptr @.crctable, i64 %indvars.iv.i.i
+  %tbl.ld.i.i = load i32, ptr %tbl.ptradd.i.i, align 4
+  %crc.next.i.i = xor i32 %crc.le.shift.i.i, %tbl.ld.i.i
+  %11 = getelementptr inbounds nuw [256 x i32], ptr @H5_crc_table, i64 0, i64 %indvars.iv.i.i
+  store i32 %crc.next.i.i, ptr %11, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond17.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
-  br i1 %exitcond17.not.i.i, label %H5__checksum_crc_make_table.exit.i, label %.preheader.i.i, !llvm.loop !17
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
+  br i1 %exitcond.not.i.i, label %H5__checksum_crc_make_table.exit.i, label %.preheader.i.i, !llvm.loop !16
 
-H5__checksum_crc_make_table.exit.i:               ; preds = %16
+H5__checksum_crc_make_table.exit.i:               ; preds = %.preheader.i.i
   store i1 true, ptr @H5_crc_table_computed, align 1
-  br label %18
+  br label %12
 
-18:                                               ; preds = %H5__checksum_crc_make_table.exit.i, %9
+12:                                               ; preds = %H5__checksum_crc_make_table.exit.i, %9
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %H5__checksum_crc_update.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %18, %.lr.ph.i
-  %.010.i = phi i64 [ %26, %.lr.ph.i ], [ 0, %18 ]
-  %.19.i = phi i32 [ %25, %.lr.ph.i ], [ -1, %18 ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.010.i
-  %20 = load i8, ptr %19, align 1, !tbaa !10
+.lr.ph.i:                                         ; preds = %12, %.lr.ph.i
+  %.010.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %12 ]
+  %.19.i = phi i32 [ %19, %.lr.ph.i ], [ -1, %12 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.010.i
+  %14 = load i8, ptr %13, align 1, !tbaa !10
   %.1.tr.i = trunc i32 %.19.i to i8
-  %.narrow.i = xor i8 %20, %.1.tr.i
-  %21 = zext i8 %.narrow.i to i64
-  %22 = getelementptr inbounds nuw [256 x i32], ptr @H5_crc_table, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !15
-  %24 = lshr i32 %.19.i, 8
-  %25 = xor i32 %23, %24
-  %26 = add nuw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %26, %1
-  br i1 %exitcond.not.i, label %H5__checksum_crc_update.exit.loopexit, label %.lr.ph.i, !llvm.loop !18
+  %.narrow.i = xor i8 %14, %.1.tr.i
+  %15 = zext i8 %.narrow.i to i64
+  %16 = getelementptr inbounds nuw [256 x i32], ptr @H5_crc_table, i64 0, i64 %15
+  %17 = load i32, ptr %16, align 4, !tbaa !14
+  %18 = lshr i32 %.19.i, 8
+  %19 = xor i32 %17, %18
+  %20 = add nuw i64 %.010.i, 1
+  %exitcond.not.i = icmp eq i64 %20, %1
+  br i1 %exitcond.not.i, label %H5__checksum_crc_update.exit.loopexit, label %.lr.ph.i, !llvm.loop !17
 
 H5__checksum_crc_update.exit.loopexit:            ; preds = %.lr.ph.i
-  %27 = xor i32 %25, -1
+  %21 = xor i32 %19, -1
   br label %H5__checksum_crc_update.exit
 
-H5__checksum_crc_update.exit:                     ; preds = %H5__checksum_crc_update.exit.loopexit, %2, %18
-  %.07.i = phi i32 [ 0, %2 ], [ 0, %18 ], [ %27, %H5__checksum_crc_update.exit.loopexit ]
+H5__checksum_crc_update.exit:                     ; preds = %H5__checksum_crc_update.exit.loopexit, %2, %12
+  %.07.i = phi i32 [ 0, %2 ], [ 0, %12 ], [ %21, %H5__checksum_crc_update.exit.loopexit ]
   ret i32 %.07.i
 }
 
@@ -281,7 +271,7 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   %95 = add i64 %.0147148, -12
   %96 = getelementptr inbounds nuw i8, ptr %.0146149, i64 12
   %97 = icmp ugt i64 %95, 12
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.0147.lcssa = phi i64 [ %1, %10 ], [ %95, %.lr.ph ]
@@ -478,7 +468,7 @@ define i32 @H5_hash_string(ptr noundef readonly captures(none) %0) local_unnamed
   %13 = add i32 %12, %10
   %14 = load i8, ptr %11, align 1, !tbaa !10
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   %.04 = phi i32 [ 5381, %1 ], [ 5381, %.preheader ], [ %13, %.lr.ph ]
@@ -511,10 +501,9 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !5, i64 0}
+!16 = distinct !{!16, !12}
 !17 = distinct !{!17, !12}
 !18 = distinct !{!18, !12}
 !19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
