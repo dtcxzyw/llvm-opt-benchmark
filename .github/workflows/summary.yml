@@ -6,7 +6,7 @@ on:
 
 jobs:
   summary:
-    if: github.event.issue.pull_request && github.event.sender.login == 'dtcxzyw' && contains(github.event.comment.body, 'Diff mode')
+    if: github.event.issue.pull_request && github.event.sender.login == 'zyw-bot' && contains(github.event.comment.body, 'Diff mode')
     runs-on: [self-hosted, praction]
 
     permissions:
