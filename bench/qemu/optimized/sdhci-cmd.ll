@@ -39,14 +39,14 @@ define dso_local i64 @sdhci_read_cmd(ptr noundef %0, i64 noundef %1, ptr noundef
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %read_fifo.exit, label %.lr.ph30.i
 
-.loopexit.i:                                      ; preds = %24, %.lr.ph30.i
-  %.1.lcssa.i = phi i64 [ %.01929.i, %.lr.ph30.i ], [ %22, %24 ]
+.loopexit.i:                                      ; preds = %22, %.lr.ph30.i
+  %.1.lcssa.i = phi i64 [ %.01929.i, %.lr.ph30.i ], [ %20, %22 ]
   %12 = icmp ult i64 %.1.lcssa.i, %3
   br i1 %12, label %.lr.ph30.i, label %read_fifo.exit, !llvm.loop !4
 
 .lr.ph30.i:                                       ; preds = %4, %.loopexit.i
   %.01929.i = phi i64 [ %.1.lcssa.i, %.loopexit.i ], [ 0, %4 ]
-  %13 = sub i64 %3, %.01929.i
+  %13 = sub nuw i64 %3, %.01929.i
   %14 = trunc i64 %13 to i32
   %15 = tail call i32 @qtest_readl(ptr noundef %0, i64 noundef %11) #3
   %16 = icmp sgt i32 %14, 0
@@ -54,29 +54,28 @@ define dso_local i64 @sdhci_read_cmd(ptr noundef %0, i64 noundef %1, ptr noundef
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph30.i
   %17 = tail call i32 @llvm.umin.i32(i32 %14, i32 4)
-  %18 = trunc i64 %.01929.i to i32
-  %19 = add i32 %17, %18
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
-  %.01827.i = phi i32 [ %25, %24 ], [ %15, %.lr.ph.preheader.i ]
-  %.126.i = phi i64 [ %22, %24 ], [ %.01929.i, %.lr.ph.preheader.i ]
-  %20 = trunc i32 %.01827.i to i8
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %.126.i
-  store i8 %20, ptr %21, align 1
-  %22 = add i64 %.126.i, 1
+.lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
+  %.028.i = phi i32 [ %24, %22 ], [ %17, %.lr.ph.preheader.i ]
+  %.01827.i = phi i32 [ %23, %22 ], [ %15, %.lr.ph.preheader.i ]
+  %.126.i = phi i64 [ %20, %22 ], [ %.01929.i, %.lr.ph.preheader.i ]
+  %18 = trunc i32 %.01827.i to i8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %.126.i
+  store i8 %18, ptr %19, align 1
+  %20 = add i64 %.126.i, 1
   %sext.mask.i = and i32 %.01827.i, 255
-  %23 = icmp eq i32 %sext.mask.i, 0
-  br i1 %23, label %read_fifo.exit, label %24
+  %21 = icmp eq i32 %sext.mask.i, 0
+  br i1 %21, label %read_fifo.exit, label %22
 
-24:                                               ; preds = %.lr.ph.i
-  %25 = lshr i32 %.01827.i, 8
-  %lftr.wideiv = trunc i64 %22 to i32
-  %exitcond = icmp eq i32 %19, %lftr.wideiv
-  br i1 %exitcond, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !6
+22:                                               ; preds = %.lr.ph.i
+  %23 = lshr i32 %.01827.i, 8
+  %24 = add nsw i32 %.028.i, -1
+  %25 = icmp sgt i32 %.028.i, 1
+  br i1 %25, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !6
 
 read_fifo.exit:                                   ; preds = %.loopexit.i, %.lr.ph.i, %4
-  %.020.i = phi i64 [ 0, %4 ], [ %22, %.lr.ph.i ], [ %.1.lcssa.i, %.loopexit.i ]
+  %.020.i = phi i64 [ 0, %4 ], [ %20, %.lr.ph.i ], [ %.1.lcssa.i, %.loopexit.i ]
   tail call void @qtest_writew(ptr noundef %0, i64 noundef %6, i16 noundef zeroext 0) #3
   tail call void @qtest_writew(ptr noundef %0, i64 noundef %7, i16 noundef zeroext 0) #3
   tail call void @qtest_writel(ptr noundef %0, i64 noundef %8, i32 noundef 0) #3

@@ -38003,7 +38003,7 @@ define internal i32 @dissect_mbo_oce(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal range(i32 0, -2147483648) i32 @dissect_wfa_wnm_non_pref_chan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #2 {
+define internal range(i32 3, 2) i32 @dissect_wfa_wnm_non_pref_chan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #2 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %24, label %7
@@ -38020,28 +38020,26 @@ define internal range(i32 0, -2147483648) i32 @dissect_wfa_wnm_non_pref_chan(ptr
   %12 = load i32, ptr @hf_ieee80211_wfa_ie_mbo_non_pref_chan_op_class, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %.not = icmp eq i32 %5, 3
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %11
-  %14 = add nsw i32 %5, -2
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.029 = phi i32 [ %17, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %15 = load i32, ptr @hf_ieee80211_wfa_ie_mbo_non_pref_chan_chan, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %.029, i32 noundef 1, i32 noundef 0)
-  %17 = add nuw nsw i32 %.029, 1
-  %exitcond.not = icmp eq i32 %17, %14
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !182
+.lr.ph:                                           ; preds = %11, %.lr.ph
+  %.029 = phi i32 [ %16, %.lr.ph ], [ 1, %11 ]
+  %.025.in28 = phi i32 [ %.025, %.lr.ph ], [ %5, %11 ]
+  %.025 = add nsw i32 %.025.in28, -1
+  %14 = load i32, ptr @hf_ieee80211_wfa_ie_mbo_non_pref_chan_chan, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %.029, i32 noundef 1, i32 noundef 0)
+  %16 = add nuw nsw i32 %.029, 1
+  %17 = icmp samesign ugt i32 %.025.in28, 4
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !182
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  %.0.lcssa = phi i32 [ 1, %11 ], [ %14, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 1, %11 ], [ %16, %.lr.ph ]
   %18 = load i32, ptr @hf_ieee80211_wfa_ie_mbo_non_pref_chan_pref, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %.0.lcssa, i32 noundef 1, i32 noundef 0)
-  %20 = add nuw nsw i32 %.0.lcssa, 1
+  %20 = add i32 %.0.lcssa, 1
   %21 = load i32, ptr @hf_ieee80211_wfa_ie_mbo_non_pref_chan_reason, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0)
-  %23 = add nuw nsw i32 %.0.lcssa, 2
+  %23 = add i32 %.0.lcssa, 2
   br label %24
 
 24:                                               ; preds = %4, %._crit_edge, %9

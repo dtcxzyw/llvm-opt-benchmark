@@ -9453,12 +9453,12 @@ define internal i32 @dissect_mbim_bulk(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
   %11 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %12 = icmp ult i32 %11, 12
-  br i1 %12, label %365, label %13
+  br i1 %12, label %364, label %13
 
 13:                                               ; preds = %4
   %14 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i32 %14, 1213023054
-  switch i32 %14, label %365 [
+  switch i32 %14, label %364 [
     i32 1751999342, label %15
     i32 1213023054, label %15
   ]
@@ -9553,7 +9553,7 @@ proto_item_set_hidden.exit:                       ; preds = %15, %25, %28
   %64 = select i1 %.not, i32 4, i32 8
   %65 = add nsw i32 %64, -1
   %. = select i1 %.not, i32 2, i32 4
-  %.500 = select i1 %.not, i32 4, i32 8
+  %.499 = select i1 %.not, i32 4, i32 8
   br label %69
 
 66:                                               ; preds = %61
@@ -9567,7 +9567,7 @@ thread-pre-split:                                 ; preds = %proto_item_set_gene
   br i1 %.not287, label %._crit_edge, label %69
 
 69:                                               ; preds = %.lr.ph, %thread-pre-split
-  %.1396 = phi ptr [ %.0265, %.lr.ph ], [ %345, %thread-pre-split ]
+  %.1396 = phi ptr [ %.0265, %.lr.ph ], [ %344, %thread-pre-split ]
   %.0270395 = phi i32 [ 0, %.lr.ph ], [ %68, %thread-pre-split ]
   %.0271394 = phi i32 [ 0, %.lr.ph ], [ %.1272, %thread-pre-split ]
   %70 = phi i32 [ %57, %.lr.ph ], [ %.pr, %thread-pre-split ]
@@ -9920,161 +9920,158 @@ sub_1356:                                         ; preds = %.critedge312.tail, 
 
 290:                                              ; preds = %285
   %291 = icmp ugt i32 %286, %52
-  br i1 %291, label %294, label %.preheader
+  br i1 %291, label %292, label %.preheader
 
 .preheader:                                       ; preds = %290
   %.not303 = icmp eq ptr %.0268, null
-  %umax = call i32 @llvm.umax.i32(i32 %.0271394, i32 1000)
-  %292 = add i32 %umax, 1
-  %293 = sub i32 %292, %.0271394
-  br label %296
+  br label %294
 
-294:                                              ; preds = %290
-  %295 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.1267, ptr noundef nonnull @ei_mbim_out_of_bounds_index)
+292:                                              ; preds = %290
+  %293 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.1267, ptr noundef nonnull @ei_mbim_out_of_bounds_index)
   br label %.sink.split
 
-296:                                              ; preds = %.preheader, %330
-  %.1275 = phi i32 [ %306, %330 ], [ %.0274, %.preheader ]
-  %.0273 = phi i32 [ %333, %330 ], [ 0, %.preheader ]
-  %.1272 = phi i32 [ %334, %330 ], [ %.0271394, %.preheader ]
-  %297 = sub i32 %.1275, %70
-  %298 = load i32, ptr %5, align 4
-  %299 = icmp ult i32 %297, %298
-  br i1 %299, label %300, label %.loopexit
+294:                                              ; preds = %.preheader, %328
+  %.1275 = phi i32 [ %304, %328 ], [ %.0274, %.preheader ]
+  %.0273 = phi i32 [ %331, %328 ], [ 0, %.preheader ]
+  %.1272 = phi i32 [ %332, %328 ], [ %.0271394, %.preheader ]
+  %295 = sub i32 %.1275, %70
+  %296 = load i32, ptr %5, align 4
+  %297 = icmp ult i32 %295, %296
+  br i1 %297, label %298, label %.loopexit
 
-300:                                              ; preds = %296
+298:                                              ; preds = %294
   %hf_mbim_bulk_ndp_datagram_index.val = load i32, ptr @hf_mbim_bulk_ndp_datagram_index, align 4
   %hf_mbim_bulk_ndp_datagram_index_32.val = load i32, ptr @hf_mbim_bulk_ndp_datagram_index_32, align 4
-  %301 = select i1 %.not, i32 %hf_mbim_bulk_ndp_datagram_index.val, i32 %hf_mbim_bulk_ndp_datagram_index_32.val
-  %302 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %301, ptr noundef %0, i32 noundef %.1275, i32 noundef %., i32 noundef -2147483648, ptr noundef nonnull %7)
-  %303 = add i32 %.1275, %.
+  %299 = select i1 %.not, i32 %hf_mbim_bulk_ndp_datagram_index.val, i32 %hf_mbim_bulk_ndp_datagram_index_32.val
+  %300 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %299, ptr noundef %0, i32 noundef %.1275, i32 noundef %., i32 noundef -2147483648, ptr noundef nonnull %7)
+  %301 = add i32 %.1275, %.
   %hf_mbim_bulk_ndp_datagram_length.val = load i32, ptr @hf_mbim_bulk_ndp_datagram_length, align 4
   %hf_mbim_bulk_ndp_datagram_length_32.val = load i32, ptr @hf_mbim_bulk_ndp_datagram_length_32, align 4
-  %304 = select i1 %.not, i32 %hf_mbim_bulk_ndp_datagram_length.val, i32 %hf_mbim_bulk_ndp_datagram_length_32.val
-  %305 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %304, ptr noundef %0, i32 noundef %303, i32 noundef %., i32 noundef -2147483648, ptr noundef nonnull %8)
-  %306 = add i32 %.1275, %.500
-  %307 = load i32, ptr %6, align 4
-  %308 = icmp ugt i32 %307, %52
-  br i1 %308, label %309, label %311
+  %302 = select i1 %.not, i32 %hf_mbim_bulk_ndp_datagram_length.val, i32 %hf_mbim_bulk_ndp_datagram_length_32.val
+  %303 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %302, ptr noundef %0, i32 noundef %301, i32 noundef %., i32 noundef -2147483648, ptr noundef nonnull %8)
+  %304 = add i32 %.1275, %.499
+  %305 = load i32, ptr %6, align 4
+  %306 = icmp ugt i32 %305, %52
+  br i1 %306, label %307, label %309
 
-309:                                              ; preds = %300
-  %310 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %302, ptr noundef nonnull @ei_mbim_out_of_bounds_index)
+307:                                              ; preds = %298
+  %308 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %300, ptr noundef nonnull @ei_mbim_out_of_bounds_index)
   br label %.sink.split
 
-311:                                              ; preds = %300
-  %312 = load i32, ptr %7, align 4
+309:                                              ; preds = %298
+  %310 = load i32, ptr %7, align 4
+  %311 = icmp ne i32 %310, 0
+  %312 = load i32, ptr %8, align 4
   %313 = icmp ne i32 %312, 0
-  %314 = load i32, ptr %8, align 4
-  %315 = icmp ne i32 %314, 0
-  %or.cond = select i1 %313, i1 %315, i1 false
-  br i1 %or.cond, label %316, label %337
+  %or.cond = select i1 %311, i1 %313, i1 false
+  br i1 %or.cond, label %314, label %336
 
-316:                                              ; preds = %311
-  %317 = load i32, ptr @hf_mbim_bulk_ndp_datagram, align 4
-  %318 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %317, ptr noundef %0, i32 noundef %312, i32 noundef %314, i32 noundef 0)
-  %319 = load i32, ptr %7, align 4
-  %320 = load i32, ptr %8, align 4
-  %321 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %319, i32 noundef %320)
-  br i1 %.not303, label %330, label %322
+314:                                              ; preds = %309
+  %315 = load i32, ptr @hf_mbim_bulk_ndp_datagram, align 4
+  %316 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %315, ptr noundef %0, i32 noundef %310, i32 noundef %312, i32 noundef 0)
+  %317 = load i32, ptr %7, align 4
+  %318 = load i32, ptr %8, align 4
+  %319 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %317, i32 noundef %318)
+  br i1 %.not303, label %328, label %320
 
-322:                                              ; preds = %316
+320:                                              ; preds = %314
   %.not304 = icmp eq i32 %.1272, 0
-  br i1 %.not304, label %328, label %323
+  br i1 %.not304, label %326, label %321
 
-323:                                              ; preds = %322
+321:                                              ; preds = %320
+  %322 = load ptr, ptr %16, align 8
+  call void @col_set_str(ptr noundef %322, i32 noundef 35, ptr noundef nonnull @.str.2769)
+  %323 = load ptr, ptr %16, align 8
+  call void @col_set_fence(ptr noundef %323, i32 noundef 35)
   %324 = load ptr, ptr %16, align 8
-  call void @col_set_str(ptr noundef %324, i32 noundef 35, ptr noundef nonnull @.str.2769)
+  call void @col_set_str(ptr noundef %324, i32 noundef 25, ptr noundef nonnull @.str.2770)
   %325 = load ptr, ptr %16, align 8
-  call void @col_set_fence(ptr noundef %325, i32 noundef 35)
-  %326 = load ptr, ptr %16, align 8
-  call void @col_set_str(ptr noundef %326, i32 noundef 25, ptr noundef nonnull @.str.2770)
-  %327 = load ptr, ptr %16, align 8
-  call void @col_set_fence(ptr noundef %327, i32 noundef 25)
+  call void @col_set_fence(ptr noundef %325, i32 noundef 25)
+  br label %326
+
+326:                                              ; preds = %321, %320
+  %327 = call i32 @call_dissector(ptr noundef nonnull %.0268, ptr noundef %319, ptr noundef %1, ptr noundef %2)
   br label %328
 
-328:                                              ; preds = %323, %322
-  %329 = call i32 @call_dissector(ptr noundef nonnull %.0268, ptr noundef %321, ptr noundef %1, ptr noundef %2)
-  br label %330
+328:                                              ; preds = %326, %314
+  %329 = load ptr, ptr %16, align 8
+  call void @col_set_fence(ptr noundef %329, i32 noundef 35)
+  %330 = load ptr, ptr %16, align 8
+  call void @col_set_fence(ptr noundef %330, i32 noundef 25)
+  %331 = add nuw nsw i32 %.0273, 1
+  %332 = add nuw nsw i32 %.1272, 1
+  %333 = icmp ugt i32 %.1272, 999
+  br i1 %333, label %334, label %294, !llvm.loop !8
 
-330:                                              ; preds = %328, %316
-  %331 = load ptr, ptr %16, align 8
-  call void @col_set_fence(ptr noundef %331, i32 noundef 35)
-  %332 = load ptr, ptr %16, align 8
-  call void @col_set_fence(ptr noundef %332, i32 noundef 25)
-  %333 = add nuw nsw i32 %.0273, 1
-  %334 = add nuw nsw i32 %.1272, 1
-  %exitcond = icmp eq i32 %333, %293
-  br i1 %exitcond, label %335, label %296, !llvm.loop !8
-
-335:                                              ; preds = %330
-  %336 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_mbim_too_many_items, ptr noundef nonnull @.str.2771, i32 noundef 1000)
+334:                                              ; preds = %328
+  %335 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_mbim_too_many_items, ptr noundef nonnull @.str.2771, i32 noundef 1000)
   br label %.sink.split
 
-337:                                              ; preds = %311
-  %338 = sub i32 %306, %70
-  %339 = load i32, ptr %5, align 4
-  %.not302.not = icmp ugt i32 %339, %338
-  br i1 %.not302.not, label %340, label %.loopexit
+336:                                              ; preds = %309
+  %337 = sub i32 %304, %70
+  %338 = load i32, ptr %5, align 4
+  %.not302.not = icmp ugt i32 %338, %337
+  br i1 %.not302.not, label %339, label %.loopexit
 
-340:                                              ; preds = %337
-  %341 = sub nuw i32 %339, %338
-  %342 = load i32, ptr @hf_mbim_bulk_ndp_padding, align 4
-  %343 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %342, ptr noundef %0, i32 noundef %306, i32 noundef %341, i32 noundef 0)
+339:                                              ; preds = %336
+  %340 = sub nuw i32 %338, %337
+  %341 = load i32, ptr @hf_mbim_bulk_ndp_padding, align 4
+  %342 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %341, ptr noundef %0, i32 noundef %304, i32 noundef %340, i32 noundef 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %296, %337, %340
-  %344 = load i32, ptr @hf_mbim_bulk_ndp_nb_datagrams, align 4
-  %345 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %344, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0273)
-  %.not.i326 = icmp eq ptr %345, null
-  br i1 %.not.i326, label %proto_item_set_generated.exit, label %346
+.loopexit:                                        ; preds = %294, %336, %339
+  %343 = load i32, ptr @hf_mbim_bulk_ndp_nb_datagrams, align 4
+  %344 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %343, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0273)
+  %.not.i326 = icmp eq ptr %344, null
+  br i1 %.not.i326, label %proto_item_set_generated.exit, label %345
 
-346:                                              ; preds = %.loopexit
-  %347 = getelementptr inbounds nuw i8, ptr %345, i64 40
-  %348 = load ptr, ptr %347, align 8
-  %.not5.i327 = icmp eq ptr %348, null
-  br i1 %.not5.i327, label %proto_item_set_generated.exit, label %349
+345:                                              ; preds = %.loopexit
+  %346 = getelementptr inbounds nuw i8, ptr %344, i64 40
+  %347 = load ptr, ptr %346, align 8
+  %.not5.i327 = icmp eq ptr %347, null
+  br i1 %.not5.i327, label %proto_item_set_generated.exit, label %348
 
-349:                                              ; preds = %346
-  %350 = getelementptr inbounds nuw i8, ptr %348, i64 28
-  %351 = load i32, ptr %350, align 4
-  %352 = or i32 %351, 2
-  store i32 %352, ptr %350, align 4
+348:                                              ; preds = %345
+  %349 = getelementptr inbounds nuw i8, ptr %347, i64 28
+  %350 = load i32, ptr %349, align 4
+  %351 = or i32 %350, 2
+  store i32 %351, ptr %349, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %.loopexit, %346, %349
-  %exitcond437 = icmp eq i32 %.0270395, 1000
-  br i1 %exitcond437, label %353, label %thread-pre-split, !llvm.loop !10
+proto_item_set_generated.exit:                    ; preds = %.loopexit, %345, %348
+  %exitcond = icmp eq i32 %.0270395, 1000
+  br i1 %exitcond, label %352, label %thread-pre-split, !llvm.loop !10
 
-353:                                              ; preds = %proto_item_set_generated.exit
-  %354 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_mbim_too_many_items, ptr noundef nonnull @.str.2772, i32 noundef 1000)
+352:                                              ; preds = %proto_item_set_generated.exit
+  %353 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_mbim_too_many_items, ptr noundef nonnull @.str.2772, i32 noundef 1000)
   br label %.sink.split
 
 ._crit_edge:                                      ; preds = %thread-pre-split, %.preheader359
   %.0271.lcssa = phi i32 [ 0, %.preheader359 ], [ %.1272, %thread-pre-split ]
-  %355 = load i32, ptr @hf_mbim_bulk_total_nb_datagrams, align 4
-  %356 = call ptr @proto_tree_add_uint(ptr noundef %22, i32 noundef %355, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0271.lcssa)
-  %.not.i328 = icmp eq ptr %356, null
-  br i1 %.not.i328, label %.sink.split, label %357
+  %354 = load i32, ptr @hf_mbim_bulk_total_nb_datagrams, align 4
+  %355 = call ptr @proto_tree_add_uint(ptr noundef %22, i32 noundef %354, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0271.lcssa)
+  %.not.i328 = icmp eq ptr %355, null
+  br i1 %.not.i328, label %.sink.split, label %356
 
-357:                                              ; preds = %._crit_edge
-  %358 = getelementptr inbounds nuw i8, ptr %356, i64 40
-  %359 = load ptr, ptr %358, align 8
-  %.not5.i329 = icmp eq ptr %359, null
-  br i1 %.not5.i329, label %.sink.split, label %360
+356:                                              ; preds = %._crit_edge
+  %357 = getelementptr inbounds nuw i8, ptr %355, i64 40
+  %358 = load ptr, ptr %357, align 8
+  %.not5.i329 = icmp eq ptr %358, null
+  br i1 %.not5.i329, label %.sink.split, label %359
 
-360:                                              ; preds = %357
-  %361 = getelementptr inbounds nuw i8, ptr %359, i64 28
-  %362 = load i32, ptr %361, align 4
-  %363 = or i32 %362, 2
-  store i32 %363, ptr %361, align 4
+359:                                              ; preds = %356
+  %360 = getelementptr inbounds nuw i8, ptr %358, i64 28
+  %361 = load i32, ptr %360, align 4
+  %362 = or i32 %361, 2
+  store i32 %362, ptr %360, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %360, %357, %._crit_edge, %59, %66, %268, %288, %294, %309, %335, %353
-  %364 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %365
+.sink.split:                                      ; preds = %359, %356, %._crit_edge, %59, %66, %268, %288, %292, %307, %334, %352
+  %363 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %364
 
-365:                                              ; preds = %.sink.split, %13, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ %364, %.sink.split ]
+364:                                              ; preds = %.sink.split, %13, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ %363, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
@@ -19897,9 +19894,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

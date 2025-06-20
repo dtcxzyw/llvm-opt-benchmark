@@ -1531,10 +1531,10 @@ define internal range(i32 0, 101) i32 @matroska_probe(ptr noundef readonly captu
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph62, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph62, %15
-  %.042.lcssa8790 = phi i32 [ 1, %15 ], [ %9, %.lr.ph62 ]
+  %.042.lcssa8689 = phi i32 [ 1, %15 ], [ %9, %.lr.ph62 ]
   %.044.lcssa = phi i64 [ %16, %15 ], [ %23, %.lr.ph62 ]
   %24 = add i64 %.044.lcssa, 1
-  %25 = mul nuw nsw i32 %.042.lcssa8790, 7
+  %25 = mul nuw nsw i32 %.042.lcssa8689, 7
   %26 = zext nneg i32 %25 to i64
   %27 = shl nuw nsw i64 1, %26
   %28 = icmp eq i64 %24, %27
@@ -1543,61 +1543,56 @@ define internal range(i32 0, 101) i32 @matroska_probe(ptr noundef readonly captu
   br i1 %28, label %31, label %34
 
 31:                                               ; preds = %._crit_edge
-  %reass.sub = sub i32 %30, %.042.lcssa8790
+  %reass.sub = sub i32 %30, %.042.lcssa8689
   %32 = add i32 %reass.sub, -4
   %33 = sext i32 %32 to i64
-  %.pre = add nuw nsw i32 %.042.lcssa8790, 4
-  %.pre80 = zext nneg i32 %.pre to i64
-  %.pre82 = add nsw i64 %33, %.pre80
+  %.pre = add nuw nsw i32 %.042.lcssa8689, 4
+  %.pre79 = zext nneg i32 %.pre to i64
+  %.pre81 = add nsw i64 %33, %.pre79
   br label %40
 
 34:                                               ; preds = %._crit_edge
   %35 = sext i32 %30 to i64
-  %36 = add nuw nsw i32 %.042.lcssa8790, 4
+  %36 = add nuw nsw i32 %.042.lcssa8689, 4
   %37 = zext nneg i32 %36 to i64
   %38 = add i64 %.044.lcssa, %37
   %39 = icmp ugt i64 %38, %35
   br i1 %39, label %.loopexit54, label %40
 
 40:                                               ; preds = %34, %31
-  %.pre-phi83 = phi i64 [ %38, %34 ], [ %.pre82, %31 ]
-  %.pre-phi81 = phi i64 [ %37, %34 ], [ %.pre80, %31 ]
+  %.pre-phi82 = phi i64 [ %38, %34 ], [ %.pre81, %31 ]
+  %.pre-phi80 = phi i64 [ %37, %34 ], [ %.pre79, %31 ]
   %.145 = phi i64 [ %.044.lcssa, %34 ], [ %33, %31 ]
-  %41 = zext nneg i32 %.042.lcssa8790 to i64
-  %42 = add i64 %.145, %41
-  %43 = add i64 %42, 5
-  br label %44
+  br label %41
 
-44:                                               ; preds = %40, %.loopexit
-  %45 = phi i1 [ true, %40 ], [ false, %.loopexit ]
-  %indvars.iv77 = phi i64 [ 0, %40 ], [ 1, %.loopexit ]
-  %46 = getelementptr inbounds nuw [2 x ptr], ptr @matroska_doctypes, i64 0, i64 %indvars.iv77
-  %47 = load ptr, ptr %46, align 8, !tbaa !125
-  %48 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #16
-  %49 = icmp ult i64 %.145, %48
-  %50 = sub i64 %.pre-phi83, %48
-  %.not5064 = icmp ult i64 %50, %.pre-phi81
-  %or.cond95 = select i1 %49, i1 true, i1 %.not5064
-  br i1 %or.cond95, label %.loopexit, label %.lr.ph67.preheader
+41:                                               ; preds = %40, %.loopexit
+  %42 = phi i1 [ true, %40 ], [ false, %.loopexit ]
+  %indvars.iv76 = phi i64 [ 0, %40 ], [ 1, %.loopexit ]
+  %43 = getelementptr inbounds nuw [2 x ptr], ptr @matroska_doctypes, i64 0, i64 %indvars.iv76
+  %44 = load ptr, ptr %43, align 8, !tbaa !125
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #16
+  %46 = icmp ult i64 %.145, %45
+  br i1 %46, label %.loopexit, label %47
 
-.lr.ph67.preheader:                               ; preds = %44
-  %51 = sub i64 %43, %48
-  br label %.lr.ph67
+47:                                               ; preds = %41
+  %48 = sub i64 %.pre-phi82, %45
+  %.not5064 = icmp ult i64 %48, %.pre-phi80
+  br i1 %.not5064, label %.loopexit, label %.lr.ph67
 
-52:                                               ; preds = %.lr.ph67
-  %indvars.iv.next74 = add nuw i64 %indvars.iv73, 1
-  %exitcond76 = icmp eq i64 %indvars.iv.next74, %51
-  br i1 %exitcond76, label %.loopexit, label %.lr.ph67, !llvm.loop !133
+49:                                               ; preds = %.lr.ph67
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %.not50.not = icmp ugt i64 %48, %indvars.iv73
+  br i1 %.not50.not, label %.lr.ph67, label %.loopexit, !llvm.loop !133
 
-.lr.ph67:                                         ; preds = %.lr.ph67.preheader, %52
-  %indvars.iv73 = phi i64 [ %.pre-phi81, %.lr.ph67.preheader ], [ %indvars.iv.next74, %52 ]
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv73
-  %bcmp = tail call i32 @bcmp(ptr nonnull %53, ptr nonnull %47, i64 %48)
+.lr.ph67:                                         ; preds = %47, %49
+  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %49 ], [ %.pre-phi80, %47 ]
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv73
+  %bcmp = tail call i32 @bcmp(ptr nonnull %50, ptr nonnull %44, i64 %45)
   %.not51 = icmp eq i32 %bcmp, 0
-  br i1 %.not51, label %.loopexit54, label %52
+  br i1 %.not51, label %.loopexit54, label %49
 
-.loopexit:                                        ; preds = %52, %44
-  br i1 %45, label %44, label %.loopexit54, !llvm.loop !134
+.loopexit:                                        ; preds = %49, %47, %41
+  br i1 %42, label %41, label %.loopexit54, !llvm.loop !134
 
 .loopexit54:                                      ; preds = %.loopexit, %.lr.ph67, %34, %.critedge, %1
   %.0 = phi i32 [ 0, %1 ], [ 0, %.critedge ], [ 0, %34 ], [ 100, %.lr.ph67 ], [ 50, %.loopexit ]

@@ -4515,9 +4515,6 @@ for.body.lr.ph:                                   ; preds = %while.body
   %keyTag.sroa.3.0.extract.trunc = trunc nuw i64 %keyTag.sroa.3.0.extract.shift to i32
   %conv3.i = and i32 %keyTag.sroa.3.0.extract.trunc, 255
   %2 = call i32 @llvm.fshl.i32(i32 %conv3.i, i32 %conv3.i, i32 28)
-  %3 = add i32 %count.addr.093, -1
-  %4 = add nsw i32 %keyTag.sroa.0.0.extract.trunc, -1
-  %umin = call i32 @llvm.umin.i32(i32 %3, i32 %4)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN12_GLOBAL__N_112UsageCounter22countSerializedLiteralEhPKhPj.exit
@@ -4526,11 +4523,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %keyInd.187 = phi i32 [ %add, %for.body.lr.ph ], [ %keyInd.2, %_ZN12_GLOBAL__N_112UsageCounter22countSerializedLiteralEhPKhPj.exit ]
   %idx.ext.i = zext i32 %keyInd.187 to i64
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %array.coerce0, i64 %idx.ext.i
-  %5 = load i64, ptr %bundleStart_, align 8
-  %idx.neg.i = sub i64 0, %5
+  %3 = load i64, ptr %bundleStart_, align 8
+  %idx.neg.i = sub i64 0, %3
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  %6 = ptrtoint ptr %add.ptr2.i to i64
-  %conv.i = trunc i64 %6 to i32
+  %4 = ptrtoint ptr %add.ptr2.i to i64
+  %conv.i = trunc i64 %4 to i32
   switch i32 %2, label %_ZN12_GLOBAL__N_112UsageCounter22countSerializedLiteralEhPKhPj.exit [
     i32 6, label %sw.bb.i
     i32 5, label %sw.bb7.i
@@ -4554,37 +4551,37 @@ sw.bb.i:                                          ; preds = %for.body
 if.end3.i71:                                      ; preds = %sw.bb.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i.i64)
   %call.i.i.i.i72 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPKS9_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i66, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i.i64)
-  %7 = load ptr, ptr %ConstFoundBucket.i.i.i.i64, align 8
+  %5 = load ptr, ptr %ConstFoundBucket.i.i.i.i64, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i.i64)
   br i1 %call.i.i.i.i72, label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i77, label %if.end.i.i.i73
 
 if.end.i.i.i73:                                   ; preds = %if.end3.i71
-  %call.i2.i.i.i74 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i66, ptr noundef nonnull align 8 dereferenceable(20) %key.i66, ptr noundef %7)
+  %call.i2.i.i.i74 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i66, ptr noundef nonnull align 8 dereferenceable(20) %key.i66, ptr noundef %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %call.i2.i.i.i74, ptr noundef nonnull align 8 dereferenceable(20) %key.i66, i64 16, i1 false)
-  %8 = load i32, ptr %second.i.i68, align 8
+  %6 = load i32, ptr %second.i.i68, align 8
   %second3.i.i.i.i.i75 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i74, i64 16
-  store i32 %8, ptr %second3.i.i.i.i.i75, align 8
+  store i32 %6, ptr %second3.i.i.i.i.i75, align 8
   %second.i6.i.i.i.i76 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i74, i64 24
   store i32 0, ptr %second.i6.i.i.i.i76, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i77
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i77: ; preds = %if.end.i.i.i73, %if.end3.i71
-  %retval.0.i.i.i78 = phi ptr [ %call.i2.i.i.i74, %if.end.i.i.i73 ], [ %7, %if.end3.i71 ]
+  %retval.0.i.i.i78 = phi ptr [ %call.i2.i.i.i74, %if.end.i.i.i73 ], [ %5, %if.end3.i71 ]
   %second.i7.i79 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i78, i64 24
   store i32 1, ptr %second.i7.i79, align 4
+  %7 = load ptr, ptr %emitter_.i, align 8
+  call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %7) #22
+  %8 = load ptr, ptr %emitter_.i, align 8
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.28, i64 4) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr nonnull @.str.43, i64 29) #22
   %9 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %9) #22
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr nonnull @.str.29, i64 8) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %9, i32 noundef %conv.i) #22
   %10 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr nonnull @.str.28, i64 4) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr nonnull @.str.43, i64 29) #22
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr nonnull @.str.30, i64 4) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %10, i32 noundef 1) #22
   %11 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr nonnull @.str.29, i64 8) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %11, i32 noundef %conv.i) #22
-  %12 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr nonnull @.str.30, i64 4) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %12, i32 noundef 1) #22
-  %13 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %13) #22
+  call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %11) #22
   br label %_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit81
 
 _ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit81: ; preds = %sw.bb.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i77
@@ -4608,37 +4605,37 @@ sw.bb7.i:                                         ; preds = %for.body
 if.end3.i53:                                      ; preds = %sw.bb7.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i.i46)
   %call.i.i.i.i54 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPKS9_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i48, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i.i46)
-  %14 = load ptr, ptr %ConstFoundBucket.i.i.i.i46, align 8
+  %12 = load ptr, ptr %ConstFoundBucket.i.i.i.i46, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i.i46)
   br i1 %call.i.i.i.i54, label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i59, label %if.end.i.i.i55
 
 if.end.i.i.i55:                                   ; preds = %if.end3.i53
-  %call.i2.i.i.i56 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i48, ptr noundef nonnull align 8 dereferenceable(20) %key.i48, ptr noundef %14)
+  %call.i2.i.i.i56 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i48, ptr noundef nonnull align 8 dereferenceable(20) %key.i48, ptr noundef %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %call.i2.i.i.i56, ptr noundef nonnull align 8 dereferenceable(20) %key.i48, i64 16, i1 false)
-  %15 = load i32, ptr %second.i.i50, align 8
+  %13 = load i32, ptr %second.i.i50, align 8
   %second3.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i56, i64 16
-  store i32 %15, ptr %second3.i.i.i.i.i57, align 8
+  store i32 %13, ptr %second3.i.i.i.i.i57, align 8
   %second.i6.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i56, i64 24
   store i32 0, ptr %second.i6.i.i.i.i58, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i59
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i59: ; preds = %if.end.i.i.i55, %if.end3.i53
-  %retval.0.i.i.i60 = phi ptr [ %call.i2.i.i.i56, %if.end.i.i.i55 ], [ %14, %if.end3.i53 ]
+  %retval.0.i.i.i60 = phi ptr [ %call.i2.i.i.i56, %if.end.i.i.i55 ], [ %12, %if.end3.i53 ]
   %second.i7.i61 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i60, i64 24
   store i32 2, ptr %second.i7.i61, align 4
+  %14 = load ptr, ptr %emitter_.i, align 8
+  call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %14) #22
+  %15 = load ptr, ptr %emitter_.i, align 8
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr nonnull @.str.28, i64 4) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr nonnull @.str.44, i64 30) #22
   %16 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %16) #22
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr nonnull @.str.29, i64 8) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %16, i32 noundef %conv.i) #22
   %17 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr nonnull @.str.28, i64 4) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr nonnull @.str.44, i64 30) #22
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr nonnull @.str.30, i64 4) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %17, i32 noundef 2) #22
   %18 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr nonnull @.str.29, i64 8) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %18, i32 noundef %conv.i) #22
-  %19 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr nonnull @.str.30, i64 4) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %19, i32 noundef 2) #22
-  %20 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %20) #22
+  call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %18) #22
   br label %_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit63
 
 _ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit63: ; preds = %sw.bb7.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i59
@@ -4662,37 +4659,37 @@ sw.bb15.i:                                        ; preds = %for.body
 if.end3.i35:                                      ; preds = %sw.bb15.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i.i28)
   %call.i.i.i.i36 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPKS9_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i30, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i.i28)
-  %21 = load ptr, ptr %ConstFoundBucket.i.i.i.i28, align 8
+  %19 = load ptr, ptr %ConstFoundBucket.i.i.i.i28, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i.i28)
   br i1 %call.i.i.i.i36, label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i41, label %if.end.i.i.i37
 
 if.end.i.i.i37:                                   ; preds = %if.end3.i35
-  %call.i2.i.i.i38 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i30, ptr noundef nonnull align 8 dereferenceable(20) %key.i30, ptr noundef %21)
+  %call.i2.i.i.i38 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i30, ptr noundef nonnull align 8 dereferenceable(20) %key.i30, ptr noundef %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %call.i2.i.i.i38, ptr noundef nonnull align 8 dereferenceable(20) %key.i30, i64 16, i1 false)
-  %22 = load i32, ptr %second.i.i32, align 8
+  %20 = load i32, ptr %second.i.i32, align 8
   %second3.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i38, i64 16
-  store i32 %22, ptr %second3.i.i.i.i.i39, align 8
+  store i32 %20, ptr %second3.i.i.i.i.i39, align 8
   %second.i6.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i38, i64 24
   store i32 0, ptr %second.i6.i.i.i.i40, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i41
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i41: ; preds = %if.end.i.i.i37, %if.end3.i35
-  %retval.0.i.i.i42 = phi ptr [ %call.i2.i.i.i38, %if.end.i.i.i37 ], [ %21, %if.end3.i35 ]
+  %retval.0.i.i.i42 = phi ptr [ %call.i2.i.i.i38, %if.end.i.i.i37 ], [ %19, %if.end3.i35 ]
   %second.i7.i43 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i42, i64 24
   store i32 4, ptr %second.i7.i43, align 4
+  %21 = load ptr, ptr %emitter_.i, align 8
+  call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %21) #22
+  %22 = load ptr, ptr %emitter_.i, align 8
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.28, i64 4) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr nonnull @.str.45, i64 29) #22
   %23 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %23) #22
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr nonnull @.str.29, i64 8) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %23, i32 noundef %conv.i) #22
   %24 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr nonnull @.str.28, i64 4) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr nonnull @.str.45, i64 29) #22
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %24, ptr nonnull @.str.30, i64 4) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %24, i32 noundef 4) #22
   %25 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr nonnull @.str.29, i64 8) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %25, i32 noundef %conv.i) #22
-  %26 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr nonnull @.str.30, i64 4) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %26, i32 noundef 4) #22
-  %27 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %27) #22
+  call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %25) #22
   br label %_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit45
 
 _ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit45: ; preds = %sw.bb15.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i41
@@ -4713,37 +4710,37 @@ _ZN4llvh9StringRefC2EPKc.exit58.i:                ; preds = %for.body
 if.end3.i17:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit58.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i.i10)
   %call.i.i.i.i18 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPKS9_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i12, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i.i10)
-  %28 = load ptr, ptr %ConstFoundBucket.i.i.i.i10, align 8
+  %26 = load ptr, ptr %ConstFoundBucket.i.i.i.i10, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i.i10)
   br i1 %call.i.i.i.i18, label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i23, label %if.end.i.i.i19
 
 if.end.i.i.i19:                                   ; preds = %if.end3.i17
-  %call.i2.i.i.i20 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i12, ptr noundef nonnull align 8 dereferenceable(20) %key.i12, ptr noundef %28)
+  %call.i2.i.i.i20 = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i12, ptr noundef nonnull align 8 dereferenceable(20) %key.i12, ptr noundef %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %call.i2.i.i.i20, ptr noundef nonnull align 8 dereferenceable(20) %key.i12, i64 16, i1 false)
-  %29 = load i32, ptr %second.i.i14, align 8
+  %27 = load i32, ptr %second.i.i14, align 8
   %second3.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i20, i64 16
-  store i32 %29, ptr %second3.i.i.i.i.i21, align 8
+  store i32 %27, ptr %second3.i.i.i.i.i21, align 8
   %second.i6.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i20, i64 24
   store i32 0, ptr %second.i6.i.i.i.i22, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i23
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i23: ; preds = %if.end.i.i.i19, %if.end3.i17
-  %retval.0.i.i.i24 = phi ptr [ %call.i2.i.i.i20, %if.end.i.i.i19 ], [ %28, %if.end3.i17 ]
+  %retval.0.i.i.i24 = phi ptr [ %call.i2.i.i.i20, %if.end.i.i.i19 ], [ %26, %if.end3.i17 ]
   %second.i7.i25 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i24, i64 24
   store i32 8, ptr %second.i7.i25, align 4
+  %28 = load ptr, ptr %emitter_.i, align 8
+  call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %28) #22
+  %29 = load ptr, ptr %emitter_.i, align 8
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr nonnull @.str.28, i64 4) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr nonnull @.str.46, i64 25) #22
   %30 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %30) #22
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr nonnull @.str.29, i64 8) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %30, i32 noundef %conv.i) #22
   %31 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr nonnull @.str.28, i64 4) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr nonnull @.str.46, i64 25) #22
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr nonnull @.str.30, i64 4) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %31, i32 noundef 8) #22
   %32 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr nonnull @.str.29, i64 8) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %32, i32 noundef %conv.i) #22
-  %33 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr nonnull @.str.30, i64 4) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %33, i32 noundef 8) #22
-  %34 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %34) #22
+  call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %32) #22
   br label %_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit27
 
 _ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit27: ; preds = %_ZN4llvh9StringRefC2EPKc.exit58.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i23
@@ -4763,37 +4760,37 @@ _ZN4llvh9StringRefC2EPKc.exit68.i:                ; preds = %for.body
 if.end3.i:                                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit68.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i.i)
   %call.i.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E15LookupBucketForIS4_EEbRKT_RPKS9_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i.i)
-  %35 = load ptr, ptr %ConstFoundBucket.i.i.i.i, align 8
+  %33 = load ptr, ptr %ConstFoundBucket.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i.i)
   br i1 %call.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end3.i
-  %call.i2.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i, ptr noundef %35)
+  %call.i2.i.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E20InsertIntoBucketImplIS4_EEPS9_RKS4_RKT_SD_(ptr noundef nonnull align 1 dereferenceable(1) %emitted_.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i, ptr noundef %33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %call.i2.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %key.i, i64 16, i1 false)
-  %36 = load i32, ptr %second.i.i, align 8
+  %34 = load i32, ptr %second.i.i, align 8
   %second3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i, i64 16
-  store i32 %36, ptr %second3.i.i.i.i.i, align 8
+  store i32 %34, ptr %second3.i.i.i.i.i, align 8
   %second.i6.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i2.i.i.i, i64 24
   store i32 0, ptr %second.i6.i.i.i.i, align 4
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i: ; preds = %if.end.i.i.i, %if.end3.i
-  %retval.0.i.i.i = phi ptr [ %call.i2.i.i.i, %if.end.i.i.i ], [ %35, %if.end3.i ]
+  %retval.0.i.i.i = phi ptr [ %call.i2.i.i.i, %if.end.i.i.i ], [ %33, %if.end3.i ]
   %second.i7.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 24
   store i32 4, ptr %second.i7.i, align 4
+  %35 = load ptr, ptr %emitter_.i, align 8
+  call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %35) #22
+  %36 = load ptr, ptr %emitter_.i, align 8
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr nonnull @.str.28, i64 4) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %36, ptr nonnull @.str.47, i64 22) #22
   %37 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %37) #22
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %37, ptr nonnull @.str.29, i64 8) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %37, i32 noundef %conv.i) #22
   %38 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr nonnull @.str.28, i64 4) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr nonnull @.str.47, i64 22) #22
+  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %38, ptr nonnull @.str.30, i64 4) #22
+  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %38, i32 noundef 4) #22
   %39 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %39, ptr nonnull @.str.29, i64 8) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %39, i32 noundef %conv.i) #22
-  %40 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr nonnull @.str.30, i64 4) #22
-  call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %40, i32 noundef 4) #22
-  %41 = load ptr, ptr %emitter_.i, align 8
-  call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %41) #22
+  call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %39) #22
   br label %_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit
 
 _ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj.exit: ; preds = %_ZN4llvh9StringRefC2EPKc.exit68.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairINS_9StringRefEjEjNS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_EixERKS4_.exit.i
@@ -4809,8 +4806,10 @@ _ZN12_GLOBAL__N_112UsageCounter22countSerializedLiteralEhPKhPj.exit: ; preds = %
   %keyInd.2 = phi i32 [ %keyInd.187, %for.body ], [ %add27.i, %sw.epilog.sink.split.i ]
   %dec = add nsw i32 %count.addr.188, -1
   %inc = add nuw nsw i32 %i.089, 1
-  %exitcond.not = icmp eq i32 %i.089, %umin
-  br i1 %exitcond.not, label %while.cond.loopexit, label %for.body, !llvm.loop !37
+  %cmp8 = icmp slt i32 %inc, %keyTag.sroa.0.0.extract.trunc
+  %tobool = icmp ne i32 %dec, 0
+  %40 = select i1 %cmp8, i1 %tobool, i1 false
+  br i1 %40, label %for.body, label %while.cond.loopexit, !llvm.loop !37
 
 while.end:                                        ; preds = %while.cond.loopexit, %entry
   ret void
@@ -5013,9 +5012,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

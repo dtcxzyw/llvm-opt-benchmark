@@ -285,7 +285,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_netlink_sock_diag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.netlink_sock_diag_info_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %6
 
@@ -295,7 +295,7 @@ define internal i32 @dissect_netlink_sock_diag(ptr noundef %0, ptr noundef %1, p
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %6, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.172, i32 noundef 968, ptr noundef nonnull @.str.173) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.172, i32 noundef 968, ptr noundef nonnull @.str.173) #5
   unreachable
 
 10:                                               ; preds = %6
@@ -694,7 +694,7 @@ dissect_sock_diag_packet_request.exit.i:          ; preds = %245, %243
 
 dissect_sock_diag_by_family.exit:                 ; preds = %287, %dissect_sock_diag_packet_request.exit.i, %199, %dissect_sock_diag_netlink_request.exit.i, %134, %dissect_sock_diag_inet_request.exit.i, %dissect_sock_diag_unix_reply.exit.i, %dissect_sock_diag_unix_request.exit.i, %24, %10
   %.0 = phi i32 [ %21, %10 ], [ %21, %24 ], [ %77, %dissect_sock_diag_unix_request.exit.i ], [ %108, %dissect_sock_diag_unix_reply.exit.i ], [ %133, %dissect_sock_diag_inet_request.exit.i ], [ %155, %134 ], [ %198, %dissect_sock_diag_netlink_request.exit.i ], [ %234, %199 ], [ %286, %dissect_sock_diag_packet_request.exit.i ], [ %310, %287 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %.0
 }
 
@@ -790,14 +790,14 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   br i1 %28, label %29, label %dissect_sock_diag_meminfo.exit
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
   %30 = load i32, ptr @hf_netlink_sock_diag_unix_peer_inode, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %32, ptr noundef nonnull %8)
   %34 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.177, i32 noundef %34)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   br label %dissect_sock_diag_meminfo.exit
 
 35:                                               ; preds = %7
@@ -827,25 +827,24 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %50 = add nsw i32 %6, -4
-  %51 = lshr exact i32 %50, 2
-  %52 = tail call i32 @llvm.umin.i32(i32 %51, i32 5)
-  %narrow = add nuw nsw i32 %52, 1
-  %53 = zext nneg i32 %narrow to i64
-  br label %54
+  br label %50
 
-54:                                               ; preds = %54, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %54 ]
-  %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %60, %54 ]
-  %55 = getelementptr [6 x ptr], ptr @dissect_sock_diag_meminfo.hfs, i64 0, i64 %indvars.iv.i
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %56, align 4
-  %58 = load i32, ptr %49, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %57, ptr noundef %0, i32 noundef %.0141.i, i32 noundef 4, i32 noundef %58)
-  %60 = add i32 %.0141.i, 4
+50:                                               ; preds = %50, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
+  %.0132.i = phi i32 [ %6, %.lr.ph.i ], [ %57, %50 ]
+  %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %56, %50 ]
+  %51 = getelementptr [6 x ptr], ptr @dissect_sock_diag_meminfo.hfs, i64 0, i64 %indvars.iv.i
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %52, align 4
+  %54 = load i32, ptr %49, align 4
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %53, ptr noundef %0, i32 noundef %.0141.i, i32 noundef 4, i32 noundef %54)
+  %56 = add i32 %.0141.i, 4
+  %57 = add nsw i32 %.0132.i, -4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %53
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %54, !llvm.loop !8
+  %58 = icmp samesign ugt i32 %.0132.i, 7
+  %59 = icmp samesign ult i64 %indvars.iv.i, 5
+  %60 = select i1 %58, i1 %59, i1 false
+  br i1 %60, label %50, label %dissect_sock_diag_meminfo.exit, !llvm.loop !8
 
 61:                                               ; preds = %7
   %62 = icmp eq i32 %6, 1
@@ -860,8 +859,8 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.176, ptr noundef %68)
   br label %dissect_sock_diag_meminfo.exit
 
-dissect_sock_diag_meminfo.exit:                   ; preds = %54, %.preheader.i, %45, %7, %61, %63, %35, %27, %37, %29, %24
-  %.044 = phi i32 [ 1, %24 ], [ 1, %29 ], [ 1, %37 ], [ 0, %27 ], [ 0, %35 ], [ 0, %63 ], [ 0, %61 ], [ 0, %7 ], [ 0, %45 ], [ 1, %.preheader.i ], [ 1, %54 ]
+dissect_sock_diag_meminfo.exit:                   ; preds = %50, %.preheader.i, %45, %7, %61, %63, %35, %27, %37, %29, %24
+  %.044 = phi i32 [ 1, %24 ], [ 1, %29 ], [ 1, %37 ], [ 0, %27 ], [ 0, %35 ], [ 0, %63 ], [ 0, %61 ], [ 0, %7 ], [ 0, %45 ], [ 1, %.preheader.i ], [ 1, %50 ]
   ret i32 %.044
 }
 
@@ -948,7 +947,7 @@ _dissect_padding.exit:                            ; preds = %16, %18
   br label %_dissect_padding.exit47
 
 36:                                               ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.172, i32 noundef 605) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.172, i32 noundef 605) #5
   unreachable
 
 _dissect_padding.exit47:                          ; preds = %27, %25, %30
@@ -1015,25 +1014,24 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %32 = add nsw i32 %6, -4
-  %33 = lshr exact i32 %32, 2
-  %34 = tail call i32 @llvm.umin.i32(i32 %33, i32 5)
-  %narrow = add nuw nsw i32 %34, 1
-  %35 = zext nneg i32 %narrow to i64
-  br label %36
+  br label %32
 
-36:                                               ; preds = %36, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
-  %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %42, %36 ]
-  %37 = getelementptr [6 x ptr], ptr @dissect_sock_diag_meminfo.hfs, i64 0, i64 %indvars.iv.i
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %38, align 4
-  %40 = load i32, ptr %31, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %39, ptr noundef %0, i32 noundef %.0141.i, i32 noundef 4, i32 noundef %40)
-  %42 = add i32 %.0141.i, 4
+32:                                               ; preds = %32, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
+  %.0132.i = phi i32 [ %6, %.lr.ph.i ], [ %39, %32 ]
+  %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %38, %32 ]
+  %33 = getelementptr [6 x ptr], ptr @dissect_sock_diag_meminfo.hfs, i64 0, i64 %indvars.iv.i
+  %34 = load ptr, ptr %33, align 8
+  %35 = load i32, ptr %34, align 4
+  %36 = load i32, ptr %31, align 4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %35, ptr noundef %0, i32 noundef %.0141.i, i32 noundef 4, i32 noundef %36)
+  %38 = add i32 %.0141.i, 4
+  %39 = add nsw i32 %.0132.i, -4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %35
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %36, !llvm.loop !8
+  %40 = icmp samesign ugt i32 %.0132.i, 7
+  %41 = icmp samesign ult i64 %indvars.iv.i, 5
+  %42 = select i1 %40, i1 %41, i1 false
+  br i1 %42, label %32, label %dissect_sock_diag_meminfo.exit, !llvm.loop !8
 
 43:                                               ; preds = %7
   %44 = icmp eq i32 %6, 1
@@ -1048,8 +1046,8 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.176, ptr noundef %50)
   br label %dissect_sock_diag_meminfo.exit
 
-dissect_sock_diag_meminfo.exit:                   ; preds = %36, %.preheader.i, %27, %7, %43, %45, %8, %10
-  %.0 = phi i32 [ 1, %10 ], [ 0, %8 ], [ 0, %45 ], [ 0, %43 ], [ 0, %7 ], [ 0, %27 ], [ 1, %.preheader.i ], [ 1, %36 ]
+dissect_sock_diag_meminfo.exit:                   ; preds = %32, %.preheader.i, %27, %7, %43, %45, %8, %10
+  %.0 = phi i32 [ 1, %10 ], [ 0, %8 ], [ 0, %45 ], [ 0, %43 ], [ 0, %7 ], [ 0, %27 ], [ 1, %.preheader.i ], [ 1, %32 ]
   ret i32 %.0
 }
 
@@ -1071,28 +1069,27 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_netlink_attributes(ptr no
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %13 = add nsw i32 %6, -4
-  %14 = lshr exact i32 %13, 2
-  %15 = tail call i32 @llvm.umin.i32(i32 %14, i32 5)
-  %narrow = add nuw nsw i32 %15, 1
-  %16 = zext nneg i32 %narrow to i64
-  br label %17
+  br label %13
 
-17:                                               ; preds = %17, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
-  %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %23, %17 ]
-  %18 = getelementptr [6 x ptr], ptr @dissect_sock_diag_meminfo.hfs, i64 0, i64 %indvars.iv.i
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %19, align 4
-  %21 = load i32, ptr %12, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %.0141.i, i32 noundef 4, i32 noundef %21)
-  %23 = add i32 %.0141.i, 4
+13:                                               ; preds = %13, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
+  %.0132.i = phi i32 [ %6, %.lr.ph.i ], [ %20, %13 ]
+  %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %19, %13 ]
+  %14 = getelementptr [6 x ptr], ptr @dissect_sock_diag_meminfo.hfs, i64 0, i64 %indvars.iv.i
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i32, ptr %15, align 4
+  %17 = load i32, ptr %12, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %16, ptr noundef %0, i32 noundef %.0141.i, i32 noundef 4, i32 noundef %17)
+  %19 = add i32 %.0141.i, 4
+  %20 = add nsw i32 %.0132.i, -4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %16
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %17, !llvm.loop !8
+  %21 = icmp samesign ugt i32 %.0132.i, 7
+  %22 = icmp samesign ult i64 %indvars.iv.i, 5
+  %23 = select i1 %21, i1 %22, i1 false
+  br i1 %23, label %13, label %dissect_sock_diag_meminfo.exit, !llvm.loop !8
 
-dissect_sock_diag_meminfo.exit:                   ; preds = %17, %.preheader.i, %8, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %8 ], [ 1, %.preheader.i ], [ 1, %17 ]
+dissect_sock_diag_meminfo.exit:                   ; preds = %13, %.preheader.i, %8, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %8 ], [ 1, %.preheader.i ], [ 1, %13 ]
   ret i32 %.0
 }
 
@@ -1114,41 +1111,36 @@ define internal range(i32 0, 2) i32 @dissect_netlink_packet_sock_diag_reply_attr
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %13 = add nsw i32 %6, -4
-  %14 = lshr exact i32 %13, 2
-  %15 = tail call i32 @llvm.umin.i32(i32 %14, i32 5)
-  %narrow = add nuw nsw i32 %15, 1
-  %16 = zext nneg i32 %narrow to i64
-  br label %17
+  br label %13
 
-17:                                               ; preds = %17, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
-  %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %23, %17 ]
-  %18 = getelementptr [6 x ptr], ptr @dissect_sock_diag_meminfo.hfs, i64 0, i64 %indvars.iv.i
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %19, align 4
-  %21 = load i32, ptr %12, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %.0141.i, i32 noundef 4, i32 noundef %21)
-  %23 = add i32 %.0141.i, 4
+13:                                               ; preds = %13, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
+  %.0132.i = phi i32 [ %6, %.lr.ph.i ], [ %20, %13 ]
+  %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %19, %13 ]
+  %14 = getelementptr [6 x ptr], ptr @dissect_sock_diag_meminfo.hfs, i64 0, i64 %indvars.iv.i
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i32, ptr %15, align 4
+  %17 = load i32, ptr %12, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %16, ptr noundef %0, i32 noundef %.0141.i, i32 noundef 4, i32 noundef %17)
+  %19 = add i32 %.0141.i, 4
+  %20 = add nsw i32 %.0132.i, -4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %16
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %17, !llvm.loop !8
+  %21 = icmp samesign ugt i32 %.0132.i, 7
+  %22 = icmp samesign ult i64 %indvars.iv.i, 5
+  %23 = select i1 %21, i1 %22, i1 false
+  br i1 %23, label %13, label %dissect_sock_diag_meminfo.exit, !llvm.loop !8
 
-dissect_sock_diag_meminfo.exit:                   ; preds = %17, %.preheader.i, %8, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %8 ], [ 1, %.preheader.i ], [ 1, %17 ]
+dissect_sock_diag_meminfo.exit:                   ; preds = %13, %.preheader.i, %8, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %8 ], [ 1, %.preheader.i ], [ 1, %13 ]
   ret i32 %.0
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn }
+attributes #4 = { nounwind }
+attributes #5 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

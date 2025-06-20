@@ -6782,8 +6782,10 @@ ir_ival_spill_for_fuse_load.exit.i:               ; preds = %ir_add_to_unhandled
 ir_merge_to_unhandled.exit.i:                     ; preds = %.critedge.i290.i, %246, %._crit_edge523.i
   %264 = load i32, ptr %94, align 8, !tbaa !38
   %265 = sext i32 %264 to i64
-  %266 = add nsw i32 %264, 33
-  %267 = sext i32 %266 to i64
+  %266 = add i32 %264, 33
+  %smax.i = call i32 @llvm.smax.i32(i32 %264, i32 %266)
+  %267 = add i32 %smax.i, 1
+  %wide.trip.count.i = sext i32 %267 to i64
   br label %268
 
 268:                                              ; preds = %275, %ir_merge_to_unhandled.exit.i
@@ -6805,8 +6807,8 @@ ir_merge_to_unhandled.exit.i:                     ; preds = %.critedge.i290.i, %
 
 275:                                              ; preds = %271, %268
   %.1396.i = phi ptr [ %.0395530.i, %268 ], [ %270, %271 ]
-  %.not238.not.i = icmp slt i64 %indvars.iv670.i, %267
-  br i1 %.not238.not.i, label %268, label %276
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next671.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %276, label %268
 
 276:                                              ; preds = %275
   %277 = load i32, ptr %15, align 4, !tbaa !40

@@ -1619,73 +1619,69 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @dump_buffer(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %.not40 = icmp eq i64 %2, 0
-  br i1 %.not40, label %._crit_edge, label %.lr.ph39.preheader
+  br i1 %.not40, label %._crit_edge, label %.lr.ph39
 
-.lr.ph39.preheader:                               ; preds = %3
-  %4 = add i64 %2, -1
-  br label %.lr.ph39
+.lr.ph39:                                         ; preds = %3, %.critedge2
+  %.02338 = phi ptr [ %10, %.critedge2 ], [ %0, %3 ]
+  %.02637 = phi i64 [ %34, %.critedge2 ], [ 0, %3 ]
+  %4 = add i64 %.02637, %1
+  %5 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.34, i64 noundef %4) #26
+  br label %6
 
-.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %.critedge2
-  %indvars.iv45 = phi i64 [ %4, %.lr.ph39.preheader ], [ %indvars.iv.next46, %.critedge2 ]
-  %.02338 = phi ptr [ %0, %.lr.ph39.preheader ], [ %11, %.critedge2 ]
-  %.02637 = phi i64 [ 0, %.lr.ph39.preheader ], [ %32, %.critedge2 ]
-  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv45, i64 15)
-  %5 = add i64 %.02637, %1
-  %6 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.34, i64 noundef %5) #26
-  br label %7
-
-7:                                                ; preds = %.lr.ph39, %7
-  %indvars.iv = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next, %7 ]
-  %.134 = phi ptr [ %.02338, %.lr.ph39 ], [ %11, %7 ]
-  %8 = load i8, ptr %.134, align 1
-  %9 = zext i8 %8 to i32
-  %10 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.35, i32 noundef %9) #26
+6:                                                ; preds = %.lr.ph39, %6
+  %indvars.iv = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next, %6 ]
+  %.134 = phi ptr [ %.02338, %.lr.ph39 ], [ %10, %6 ]
+  %7 = load i8, ptr %.134, align 1
+  %8 = zext i8 %7 to i32
+  %9 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.35, i32 noundef %8) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw i8, ptr %.134, i64 1
-  %12 = icmp samesign ult i64 %indvars.iv, 15
-  %13 = or disjoint i64 %.02637, %indvars.iv.next
-  %14 = icmp ult i64 %13, %2
-  %or.cond = select i1 %12, i1 %14, i1 false
-  br i1 %or.cond, label %7, label %.lr.ph, !llvm.loop !13
+  %10 = getelementptr inbounds nuw i8, ptr %.134, i64 1
+  %11 = icmp samesign ult i64 %indvars.iv, 15
+  %12 = or disjoint i64 %.02637, %indvars.iv.next
+  %13 = icmp ult i64 %12, %2
+  %or.cond = select i1 %11, i1 %13, i1 false
+  br i1 %or.cond, label %6, label %.lr.ph, !llvm.loop !13
 
-.lr.ph:                                           ; preds = %7
-  %15 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.4) #26
-  %16 = tail call ptr @__ctype_b_loc() #29
-  br label %17
+.lr.ph:                                           ; preds = %6
+  %14 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.4) #26
+  %15 = tail call ptr @__ctype_b_loc() #29
+  br label %16
 
-17:                                               ; preds = %.lr.ph, %29
-  %indvars.iv42 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next43, %29 ]
-  %.036 = phi ptr [ %.02338, %.lr.ph ], [ %30, %29 ]
-  %18 = load ptr, ptr %16, align 8
-  %19 = load i8, ptr %.036, align 1
-  %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %18, i64 %20
-  %22 = load i16, ptr %21, align 2
-  %23 = and i16 %22, 8
-  %.not = icmp eq i16 %23, 0
-  br i1 %.not, label %27, label %24
+16:                                               ; preds = %.lr.ph, %28
+  %indvars.iv42 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next43, %28 ]
+  %.036 = phi ptr [ %.02338, %.lr.ph ], [ %29, %28 ]
+  %17 = load ptr, ptr %15, align 8
+  %18 = load i8, ptr %.036, align 1
+  %19 = zext i8 %18 to i64
+  %20 = getelementptr inbounds nuw i16, ptr %17, i64 %19
+  %21 = load i16, ptr %20, align 2
+  %22 = and i16 %21, 8
+  %.not = icmp eq i16 %22, 0
+  br i1 %.not, label %26, label %23
 
-24:                                               ; preds = %17
-  %25 = zext i8 %19 to i32
-  %26 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.36, i32 noundef %25) #26
-  br label %29
+23:                                               ; preds = %16
+  %24 = zext i8 %18 to i32
+  %25 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.36, i32 noundef %24) #26
+  br label %28
 
-27:                                               ; preds = %17
-  %28 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.37) #26
-  br label %29
+26:                                               ; preds = %16
+  %27 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.37) #26
+  br label %28
 
-29:                                               ; preds = %24, %27
+28:                                               ; preds = %23, %26
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %30 = getelementptr inbounds nuw i8, ptr %.036, i64 1
-  %exitcond.not = icmp eq i64 %indvars.iv42, %umin
-  br i1 %exitcond.not, label %.critedge2, label %17, !llvm.loop !14
+  %29 = getelementptr inbounds nuw i8, ptr %.036, i64 1
+  %30 = icmp samesign ult i64 %indvars.iv42, 15
+  %31 = or disjoint i64 %.02637, %indvars.iv.next43
+  %32 = icmp ult i64 %31, %2
+  %or.cond32 = select i1 %30, i1 %32, i1 false
+  br i1 %or.cond32, label %16, label %.critedge2, !llvm.loop !14
 
-.critedge2:                                       ; preds = %29
-  %31 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.38) #26
-  %32 = add i64 %.02637, 16
-  %33 = icmp ult i64 %32, %2
-  %indvars.iv.next46 = add i64 %indvars.iv45, -16
-  br i1 %33, label %.lr.ph39, label %._crit_edge, !llvm.loop !15
+.critedge2:                                       ; preds = %28
+  %33 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.38) #26
+  %34 = add i64 %.02637, 16
+  %35 = icmp ult i64 %34, %2
+  br i1 %35, label %.lr.ph39, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.critedge2, %3
   ret void
@@ -5465,9 +5461,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strcpy(ptr noalias returned writeonly, ptr noalias readonly captures(none)) #24

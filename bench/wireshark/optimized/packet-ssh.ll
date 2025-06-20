@@ -6266,77 +6266,75 @@ define internal fastcc void @ssh_print_data(ptr noundef %0, ptr noundef readonly
 
 .lr.ph43:                                         ; preds = %5
   %8 = load ptr, ptr @g_ascii_table, align 8
-  %9 = add nsw i64 %2, -1
-  br label %10
+  br label %9
 
-10:                                               ; preds = %.lr.ph43, %._crit_edge40
-  %indvars.iv = phi i64 [ %9, %.lr.ph43 ], [ %indvars.iv.next, %._crit_edge40 ]
-  %.041 = phi i64 [ 0, %.lr.ph43 ], [ %47, %._crit_edge40 ]
-  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 15)
-  %11 = load ptr, ptr @ssh_debug_file, align 8
-  %12 = trunc nuw i64 %.041 to i32
-  %13 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %11, i32 noundef 2, ptr noundef nonnull @.str.491, i32 noundef %12)
-  br label %14
+9:                                                ; preds = %.lr.ph43, %._crit_edge40
+  %.041 = phi i64 [ 0, %.lr.ph43 ], [ %49, %._crit_edge40 ]
+  %10 = load ptr, ptr @ssh_debug_file, align 8
+  %11 = trunc nuw i64 %.041 to i32
+  %12 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.491, i32 noundef %11)
+  br label %13
 
-.preheader:                                       ; preds = %14
-  br i1 %22, label %.lr.ph, label %.lr.ph39.preheader
+.preheader:                                       ; preds = %13
+  br i1 %21, label %.lr.ph, label %.lr.ph39.preheader
 
-14:                                               ; preds = %10, %14
-  %.02834 = phi i64 [ 0, %10 ], [ %21, %14 ]
-  %.02933 = phi i64 [ %.041, %10 ], [ %20, %14 ]
-  %15 = load ptr, ptr @ssh_debug_file, align 8
-  %16 = getelementptr i8, ptr %1, i64 %.02933
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %15, i32 noundef 2, ptr noundef nonnull @.str.492, i32 noundef %18)
-  %20 = add nuw nsw i64 %.02933, 1
-  %21 = add nuw nsw i64 %.02834, 1
-  %22 = icmp samesign ult i64 %.02834, 15
-  %23 = icmp samesign ult i64 %20, %2
-  %24 = select i1 %22, i1 %23, i1 false
-  br i1 %24, label %14, label %.preheader, !llvm.loop !72
+13:                                               ; preds = %9, %13
+  %.02834 = phi i64 [ 0, %9 ], [ %20, %13 ]
+  %.02933 = phi i64 [ %.041, %9 ], [ %19, %13 ]
+  %14 = load ptr, ptr @ssh_debug_file, align 8
+  %15 = getelementptr i8, ptr %1, i64 %.02933
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i32
+  %18 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %14, i32 noundef 2, ptr noundef nonnull @.str.492, i32 noundef %17)
+  %19 = add nuw nsw i64 %.02933, 1
+  %20 = add nuw nsw i64 %.02834, 1
+  %21 = icmp samesign ult i64 %.02834, 15
+  %22 = icmp samesign ult i64 %19, %2
+  %23 = select i1 %21, i1 %22, i1 false
+  br i1 %23, label %13, label %.preheader, !llvm.loop !72
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.135 = phi i64 [ %27, %.lr.ph ], [ %21, %.preheader ]
-  %25 = load ptr, ptr @ssh_debug_file, align 8
-  %26 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %25, i32 noundef 2, ptr noundef nonnull @.str.493)
-  %27 = add nuw nsw i64 %.135, 1
-  %28 = icmp samesign ult i64 %.135, 15
-  br i1 %28, label %.lr.ph, label %.lr.ph39.preheader, !llvm.loop !73
+  %.135 = phi i64 [ %26, %.lr.ph ], [ %20, %.preheader ]
+  %24 = load ptr, ptr @ssh_debug_file, align 8
+  %25 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %24, i32 noundef 2, ptr noundef nonnull @.str.493)
+  %26 = add nuw nsw i64 %.135, 1
+  %27 = icmp samesign ult i64 %.135, 15
+  br i1 %27, label %.lr.ph, label %.lr.ph39.preheader, !llvm.loop !73
 
 .lr.ph39.preheader:                               ; preds = %.lr.ph, %.preheader
-  %29 = load ptr, ptr @ssh_debug_file, align 8
-  %30 = tail call i32 @fputc(i32 noundef 32, ptr noundef %29)
+  %28 = load ptr, ptr @ssh_debug_file, align 8
+  %29 = tail call i32 @fputc(i32 noundef 32, ptr noundef %28)
   br label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %.lr.ph39
-  %.237 = phi i64 [ %44, %.lr.ph39 ], [ 0, %.lr.ph39.preheader ]
-  %.13036 = phi i64 [ %43, %.lr.ph39 ], [ %.041, %.lr.ph39.preheader ]
-  %31 = getelementptr i8, ptr %1, i64 %.13036
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i64
-  %34 = getelementptr i16, ptr %8, i64 %33
-  %35 = load i16, ptr %34, align 2
-  %36 = and i16 %35, 64
-  %37 = icmp eq i16 %36, 0
-  %38 = icmp eq i8 %32, 9
-  %or.cond = or i1 %38, %37
-  %39 = zext i8 %32 to i32
-  %40 = select i1 %or.cond, i32 46, i32 %39
-  %41 = load ptr, ptr @ssh_debug_file, align 8
-  %42 = tail call i32 @fputc(i32 noundef %40, ptr noundef %41)
-  %43 = add nuw nsw i64 %.13036, 1
-  %44 = add nuw nsw i64 %.237, 1
-  %exitcond.not = icmp eq i64 %.237, %umin
-  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !74
+  %.237 = phi i64 [ %43, %.lr.ph39 ], [ 0, %.lr.ph39.preheader ]
+  %.13036 = phi i64 [ %42, %.lr.ph39 ], [ %.041, %.lr.ph39.preheader ]
+  %30 = getelementptr i8, ptr %1, i64 %.13036
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i64
+  %33 = getelementptr i16, ptr %8, i64 %32
+  %34 = load i16, ptr %33, align 2
+  %35 = and i16 %34, 64
+  %36 = icmp eq i16 %35, 0
+  %37 = icmp eq i8 %31, 9
+  %or.cond = or i1 %37, %36
+  %38 = zext i8 %31 to i32
+  %39 = select i1 %or.cond, i32 46, i32 %38
+  %40 = load ptr, ptr @ssh_debug_file, align 8
+  %41 = tail call i32 @fputc(i32 noundef %39, ptr noundef %40)
+  %42 = add nuw nsw i64 %.13036, 1
+  %43 = add nuw nsw i64 %.237, 1
+  %44 = icmp samesign ult i64 %.237, 15
+  %45 = icmp samesign ult i64 %42, %2
+  %46 = select i1 %44, i1 %45, i1 false
+  br i1 %46, label %.lr.ph39, label %._crit_edge40, !llvm.loop !74
 
 ._crit_edge40:                                    ; preds = %.lr.ph39
-  %45 = load ptr, ptr @ssh_debug_file, align 8
-  %46 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %45, i32 noundef 2, ptr noundef nonnull @.str.494)
-  %47 = add nuw nsw i64 %.041, 16
-  %48 = icmp samesign ult i64 %47, %2
-  %indvars.iv.next = add nsw i64 %indvars.iv, -16
-  br i1 %48, label %10, label %.loopexit, !llvm.loop !75
+  %47 = load ptr, ptr @ssh_debug_file, align 8
+  %48 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %47, i32 noundef 2, ptr noundef nonnull @.str.494)
+  %49 = add nuw nsw i64 %.041, 16
+  %50 = icmp samesign ult i64 %49, %2
+  br i1 %50, label %9, label %.loopexit, !llvm.loop !75
 
 .loopexit:                                        ; preds = %._crit_edge40, %5, %3
   ret void
@@ -8792,9 +8790,6 @@ declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #20
