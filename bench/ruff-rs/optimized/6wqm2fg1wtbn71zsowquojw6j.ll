@@ -642,10 +642,10 @@ define void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python
   %24 = load i64, ptr %23, align 8, !noundef !22
   %25 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %22, i64 %24
   %26 = icmp eq i64 %24, 0
-  br i1 %26, label %.loopexit, label %.lr.ph54
+  br i1 %26, label %.loopexit, label %.lr.ph53
 
-.lr.ph54:                                         ; preds = %20
-  %.sroa.014.151 = getelementptr inbounds nuw i8, ptr %22, i64 72
+.lr.ph53:                                         ; preds = %20
+  %.sroa.014.150 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -662,16 +662,16 @@ define void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python
   %.not = icmp eq i8 %32, -38
   br i1 %.not, label %71, label %66
 
-.loopexit:                                        ; preds = %137, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit", %71, %20, %16, %146, %.loopexit42, %15
+.loopexit:                                        ; preds = %137, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit", %71, %20, %16, %146, %.loopexit41, %15
   ret void
 
-33:                                               ; preds = %.lr.ph54, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit"
-  %.sroa.6.0 = phi i64 [ undef, %.lr.ph54 ], [ %.sroa.6.166, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit" ]
-  %.sroa.5.0 = phi i64 [ undef, %.lr.ph54 ], [ %.sroa.5.168, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit" ]
-  %.sroa.0.060 = phi ptr [ undef, %.lr.ph54 ], [ %.sroa.0.170, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit" ]
-  %.sroa.014.153 = phi ptr [ %.sroa.014.151, %.lr.ph54 ], [ %.sroa.014.1, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit" ]
-  %.sroa.014.052 = phi ptr [ %22, %.lr.ph54 ], [ %.sroa.014.153, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit" ]
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.052, i64 48
+33:                                               ; preds = %.lr.ph53, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit"
+  %.sroa.6.0 = phi i64 [ undef, %.lr.ph53 ], [ %.sroa.6.165, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit" ]
+  %.sroa.5.0 = phi i64 [ undef, %.lr.ph53 ], [ %.sroa.5.167, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit" ]
+  %.sroa.0.059 = phi ptr [ undef, %.lr.ph53 ], [ %.sroa.0.169, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit" ]
+  %.sroa.014.152 = phi ptr [ %.sroa.014.150, %.lr.ph53 ], [ %.sroa.014.1, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit" ]
+  %.sroa.014.051 = phi ptr [ %22, %.lr.ph53 ], [ %.sroa.014.152, %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit" ]
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.014.051, i64 48
   %35 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34)
   %36 = extractvalue { ptr, i64 } %35, 0
   %37 = extractvalue { ptr, i64 } %35, 1
@@ -738,19 +738,19 @@ _ZN11compact_str13CompactString7try_new17hdde7aa40648adacaE.exit.thread.i: ; pre
 _ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit: ; preds = %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i.i, %39
   %.sroa.6.1 = phi i64 [ %.sroa.6.23.insert.insert, %39 ], [ %.sroa.7.0.i.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i.i ]
   %.sroa.5.1 = phi i64 [ %.sroa.5.0, %39 ], [ %.sroa.6.0.i.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i.i ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.060, %39 ], [ %.sroa.02.0.i.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i.i ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.059, %39 ], [ %.sroa.02.0.i.i, %_ZN11compact_str4repr4Repr3new17h8584b3340276480bE.exit.i.i ]
   %.sroa.6.23.extract.shift.mask = and i64 %.sroa.6.1, -72057594037927936
   %.not25 = icmp eq i64 %.sroa.6.23.extract.shift.mask, -2738188573441261568
   br i1 %.not25, label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit", label %53
 
 53:                                               ; preds = %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit.thread, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit
-  %.sroa.0.171 = phi ptr [ null, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit.thread ], [ %.sroa.0.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
-  %.sroa.5.169 = phi i64 [ 0, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit.thread ], [ %.sroa.5.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
-  %.sroa.6.167 = phi i64 [ -4611686018427387904, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit.thread ], [ %.sroa.6.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
+  %.sroa.0.170 = phi ptr [ null, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit.thread ], [ %.sroa.0.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
+  %.sroa.5.168 = phi i64 [ 0, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit.thread ], [ %.sroa.5.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
+  %.sroa.6.166 = phi i64 [ -4611686018427387904, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit.thread ], [ %.sroa.6.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  store ptr %.sroa.0.171, ptr %27, align 8
-  store i64 %.sroa.5.169, ptr %.sroa.2.0..sroa_idx, align 8
-  store i64 %.sroa.6.167, ptr %.sroa.3.0..sroa_idx, align 8
+  store ptr %.sroa.0.170, ptr %27, align 8
+  store i64 %.sroa.5.168, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %.sroa.6.166, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %4, align 8
   %54 = load i64, ptr %28, align 8, !alias.scope !82, !noalias !85, !noundef !22
   %55 = load i64, ptr %0, align 8, !range !88, !alias.scope !82, !noalias !85, !noundef !22
@@ -787,12 +787,12 @@ common.resume:                                    ; preds = %143, %129, %58
   br label %"_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit"
 
 "_ZN4core3ptr92drop_in_place$LT$core..option..Option$LT$ty_python_semantic..module_name..ModuleName$GT$$GT$17h12349565ab77ca23E.exit": ; preds = %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h738fccdc28433b4aE.exit"
-  %.sroa.0.170 = phi ptr [ %.sroa.0.171, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h738fccdc28433b4aE.exit" ], [ %.sroa.0.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
-  %.sroa.5.168 = phi i64 [ %.sroa.5.169, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h738fccdc28433b4aE.exit" ], [ %.sroa.5.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
-  %.sroa.6.166 = phi i64 [ %.sroa.6.167, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h738fccdc28433b4aE.exit" ], [ %.sroa.6.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
-  %65 = icmp eq ptr %.sroa.014.153, %25
+  %.sroa.0.169 = phi ptr [ %.sroa.0.170, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h738fccdc28433b4aE.exit" ], [ %.sroa.0.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
+  %.sroa.5.167 = phi i64 [ %.sroa.5.168, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h738fccdc28433b4aE.exit" ], [ %.sroa.5.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
+  %.sroa.6.165 = phi i64 [ %.sroa.6.166, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h738fccdc28433b4aE.exit" ], [ %.sroa.6.1, %_ZN18ty_python_semantic11module_name10ModuleName3new17h9836f2cd9ad9b8bfE.exit ]
+  %65 = icmp eq ptr %.sroa.014.152, %25
   %.sroa.014.1.idx = select i1 %65, i64 0, i64 72
-  %.sroa.014.1 = getelementptr inbounds nuw i8, ptr %.sroa.014.153, i64 %.sroa.014.1.idx
+  %.sroa.014.1 = getelementptr inbounds nuw i8, ptr %.sroa.014.152, i64 %.sroa.014.1.idx
   br i1 %65, label %.loopexit, label %33
 
 66:                                               ; preds = %30
@@ -816,7 +816,7 @@ common.resume:                                    ; preds = %143, %129, %58
 .lr.ph:                                           ; preds = %71
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %79 = load i32, ptr %78, align 8, !noundef !22
-  %.sroa.011.147 = getelementptr inbounds nuw i8, ptr %73, i64 72
+  %.sroa.011.146 = getelementptr inbounds nuw i8, ptr %73, i64 72
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.not20 = icmp eq i32 %79, 0
@@ -840,21 +840,21 @@ common.resume:                                    ; preds = %143, %129, %58
   br label %88
 
 88:                                               ; preds = %.lr.ph, %137
-  %.sroa.011.149 = phi ptr [ %.sroa.011.147, %.lr.ph ], [ %.sroa.011.1, %137 ]
-  %.sroa.011.048 = phi ptr [ %73, %.lr.ph ], [ %.sroa.011.149, %137 ]
+  %.sroa.011.148 = phi ptr [ %.sroa.011.146, %.lr.ph ], [ %.sroa.011.1, %137 ]
+  %.sroa.011.047 = phi ptr [ %73, %.lr.ph ], [ %.sroa.011.148, %137 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store i64 0, ptr %9, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %80, align 8
   store i64 0, ptr %81, align 8
-  br i1 %.not20, label %.loopexit41, label %89
+  br i1 %.not20, label %.loopexit40, label %89
 
-.loopexit41:                                      ; preds = %139, %88
+.loopexit40:                                      ; preds = %139, %88
   br i1 %.not22, label %100, label %103
 
 89:                                               ; preds = %88
   %90 = load ptr, ptr %82, align 8, !align !90, !noundef !22
   %.not21 = icmp eq ptr %90, null
-  br i1 %.not21, label %.loopexit42, label %91
+  br i1 %.not21, label %.loopexit41, label %91
 
 91:                                               ; preds = %89
   %92 = load i64, ptr %83, align 8, !noundef !22
@@ -867,7 +867,7 @@ common.resume:                                    ; preds = %143, %129, %58
   %94 = load i64, ptr %9, align 8, !range !88
   br label %95
 
-.loopexit42:                                      ; preds = %89, %95
+.loopexit41:                                      ; preds = %89, %95
   call void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17h91ee2f06dafb3c5eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %.loopexit
@@ -878,14 +878,14 @@ common.resume:                                    ; preds = %143, %129, %58
   %98 = icmp ult i64 %97, 576460752303423488
   call void @llvm.assume(i1 %98)
   %99 = icmp eq i64 %97, 0
-  br i1 %99, label %.loopexit42, label %139
+  br i1 %99, label %.loopexit41, label %139
 
-100:                                              ; preds = %103, %.loopexit41
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.011.048, i64 48
+100:                                              ; preds = %103, %.loopexit40
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.011.047, i64 48
   %102 = invoke { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %101)
           to label %104 unwind label %143
 
-103:                                              ; preds = %.loopexit41
+103:                                              ; preds = %.loopexit40
   store i64 0, ptr %8, align 8
   store i64 %.sroa.7.0, ptr %.sroa.4.0..sroa_idx, align 8
   store ptr %.sroa.0.0, ptr %.sroa.5.0..sroa_idx, align 8
@@ -982,9 +982,9 @@ common.resume:                                    ; preds = %143, %129, %58
 137:                                              ; preds = %109, %133
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %138 = icmp eq ptr %.sroa.011.149, %76
+  %138 = icmp eq ptr %.sroa.011.148, %76
   %.sroa.011.1.idx = select i1 %138, i64 0, i64 72
-  %.sroa.011.1 = getelementptr inbounds nuw i8, ptr %.sroa.011.149, i64 %.sroa.011.1.idx
+  %.sroa.011.1 = getelementptr inbounds nuw i8, ptr %.sroa.011.148, i64 %.sroa.011.1.idx
   br i1 %138, label %.loopexit, label %88
 
 139:                                              ; preds = %95
@@ -994,7 +994,7 @@ common.resume:                                    ; preds = %143, %129, %58
   call void @llvm.assume(i1 %141)
   %142 = add i32 %96, 1
   %exitcond.not = icmp eq i32 %96, %79
-  br i1 %exitcond.not, label %.loopexit41, label %95
+  br i1 %exitcond.not, label %.loopexit40, label %95
 
 143:                                              ; preds = %111, %104, %100, %103, %91, %119
   %lpad.thr_comm = landingpad { ptr, i32 }

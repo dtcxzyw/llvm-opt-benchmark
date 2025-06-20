@@ -6493,11 +6493,11 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   br label %"_ZN90_$LT$hyper..body..body..Body$u20$as$u20$core..convert..From$LT$bytes..bytes..Bytes$GT$$GT$4from17he6088acfa9ab5e32E.exit"
 
 137:                                              ; preds = %131
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %51, i8 0, i64 16, i1 false), !alias.scope !1072, !noalias !1075
   %138 = getelementptr inbounds nuw i8, ptr %51, i64 40
   store ptr null, ptr %138, align 8, !alias.scope !1072, !noalias !1075
   call void @llvm.experimental.noalias.scope.decl(metadata !1078)
   call void @llvm.experimental.noalias.scope.decl(metadata !1081)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %51, i8 0, i64 16, i1 false), !alias.scope !1072, !noalias !1075
   %139 = load ptr, ptr %44, align 8, !alias.scope !1084, !noalias !1072, !nonnull !4, !align !18, !noundef !4
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %141 = load ptr, ptr %140, align 8, !noalias !1085, !nonnull !4, !noundef !4
@@ -6831,11 +6831,11 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   br label %"_ZN90_$LT$hyper..body..body..Body$u20$as$u20$core..convert..From$LT$bytes..bytes..Bytes$GT$$GT$4from17he6088acfa9ab5e32E.exit136"
 
 216:                                              ; preds = %210
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %49, i8 0, i64 16, i1 false), !alias.scope !1139, !noalias !1142
   %217 = getelementptr inbounds nuw i8, ptr %49, i64 40
   store ptr null, ptr %217, align 8, !alias.scope !1139, !noalias !1142
   call void @llvm.experimental.noalias.scope.decl(metadata !1145)
   call void @llvm.experimental.noalias.scope.decl(metadata !1148)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %49, i8 0, i64 16, i1 false), !alias.scope !1139, !noalias !1142
   %218 = load ptr, ptr %40, align 8, !alias.scope !1151, !noalias !1139, !nonnull !4, !align !18, !noundef !4
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %220 = load ptr, ptr %219, align 8, !noalias !1152, !nonnull !4, !noundef !4
@@ -7100,11 +7100,11 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   br label %"_ZN90_$LT$hyper..body..body..Body$u20$as$u20$core..convert..From$LT$bytes..bytes..Bytes$GT$$GT$4from17he6088acfa9ab5e32E.exit157"
 
 283:                                              ; preds = %277
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %46, i8 0, i64 16, i1 false), !alias.scope !1199, !noalias !1202
   %284 = getelementptr inbounds nuw i8, ptr %46, i64 40
   store ptr null, ptr %284, align 8, !alias.scope !1199, !noalias !1202
   call void @llvm.experimental.noalias.scope.decl(metadata !1205)
   call void @llvm.experimental.noalias.scope.decl(metadata !1208)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %46, i8 0, i64 16, i1 false), !alias.scope !1199, !noalias !1202
   %285 = load ptr, ptr %36, align 8, !alias.scope !1211, !noalias !1199, !nonnull !4, !align !18, !noundef !4
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
   %287 = load ptr, ptr %286, align 8, !noalias !1212, !nonnull !4, !noundef !4
@@ -7331,11 +7331,11 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   br label %"_ZN90_$LT$hyper..body..body..Body$u20$as$u20$core..convert..From$LT$bytes..bytes..Bytes$GT$$GT$4from17he6088acfa9ab5e32E.exit171"
 
 334:                                              ; preds = %328
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %45, i8 0, i64 16, i1 false), !alias.scope !1259, !noalias !1262
   %335 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store ptr null, ptr %335, align 8, !alias.scope !1259, !noalias !1262
   call void @llvm.experimental.noalias.scope.decl(metadata !1265)
   call void @llvm.experimental.noalias.scope.decl(metadata !1268)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %45, i8 0, i64 16, i1 false), !alias.scope !1259, !noalias !1262
   %336 = load ptr, ptr %32, align 8, !alias.scope !1271, !noalias !1259, !nonnull !4, !align !18, !noundef !4
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %338 = load ptr, ptr %337, align 8, !noalias !1272, !nonnull !4, !noundef !4
@@ -7603,8 +7603,8 @@ define void @_ZN16influxdb3_server4http16validate_db_name17h1ddca540ed810586E(pt
   %9 = phi i64 [ %2, %.lr.ph ], [ %360, %394 ]
   %10 = phi ptr [ %1, %.lr.ph ], [ %359, %394 ]
   %11 = phi i64 [ 0, %.lr.ph ], [ %358, %394 ]
-  %.0211 = phi i1 [ true, %.lr.ph ], [ false, %394 ]
-  %.sroa.8.0210 = phi i64 [ undef, %.lr.ph ], [ %.sroa.8.286, %394 ]
+  %.0201 = phi i1 [ true, %.lr.ph ], [ false, %394 ]
+  %.sroa.8.0200 = phi i64 [ undef, %.lr.ph ], [ %.sroa.8.286, %394 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1301)
   call void @llvm.experimental.noalias.scope.decl(metadata !1304)
   call void @llvm.experimental.noalias.scope.decl(metadata !1307)
@@ -7622,16 +7622,16 @@ define void @_ZN16influxdb3_server4http16validate_db_name17h1ddca540ed810586E(pt
 
 17:                                               ; preds = %16
   %18 = icmp eq i64 %11, %9
-  br i1 %18, label %.thread.i.i, label %.loopexit90
+  br i1 %18, label %.thread.i.i, label %.loopexit92
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit.i.i.i": ; preds = %16
   %19 = getelementptr inbounds i8, ptr %10, i64 %11
   %20 = load i8, ptr %19, align 1, !alias.scope !1312, !noalias !1317, !noundef !4
   %21 = icmp sgt i8 %20, -65
   %22 = sub nuw i64 %9, %11
-  br i1 %21, label %23, label %.loopexit90
+  br i1 %21, label %23, label %.loopexit92
 
-.loopexit90:                                      ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit.i.i.i", %17
+.loopexit92:                                      ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17h3e064cc84751aba6E.exit.i.i.i", %17
   call void @_ZN4core3str16slice_error_fail17hb822a60a30984aeeE(ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %9, i64 noundef %11, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.14) #20, !noalias !1318
   unreachable
 
@@ -7705,7 +7705,7 @@ define void @_ZN16influxdb3_server4http16validate_db_name17h1ddca540ed810586E(pt
   unreachable
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i
-  %.sroa.8.1 = phi i64 [ %.sroa.8.2, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i ], [ %.sroa.8.0210, %.preheader.i.i.preheader ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.2, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i ], [ %.sroa.8.0200, %.preheader.i.i.preheader ]
   %.sroa.0.0.i.i = phi ptr [ %.sroa.0.3.ph84.i.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i ], [ %.sroa.0.0.i.i.ph, %.preheader.i.i.preheader ]
   %.sroa.5.0.i.i = phi i64 [ %.sroa.5.1.i.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i ], [ undef, %.preheader.i.i.preheader ]
   %.0.i.i = phi i32 [ %.sroa.4.0.i58.ph85.i.i, %_ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9d7E.exit.thread.i.i ], [ %.0.i.i.ph, %.preheader.i.i.preheader ]
@@ -8496,7 +8496,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9
   %387 = add i8 %386, -65
   %388 = icmp ult i8 %387, 26
   %389 = or i1 %.0.i45, %388
-  br i1 %.0211, label %392, label %391
+  br i1 %.0201, label %392, label %391
 
 390:                                              ; preds = %381
   call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.242) #20
@@ -8519,9 +8519,9 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9
   %396 = icmp eq i64 %358, %395
   br i1 %396, label %._crit_edge, label %8
 
-397:                                              ; preds = %392, %393, %376
-  %.sink = phi i8 [ 30, %376 ], [ 30, %393 ], [ 29, %392 ]
-  store i8 %.sink, ptr %0, align 8
+397:                                              ; preds = %393, %392, %376
+  %storemerge91 = phi i8 [ 30, %376 ], [ 30, %393 ], [ 29, %392 ]
+  store i8 %storemerge91, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
   br label %380
 }

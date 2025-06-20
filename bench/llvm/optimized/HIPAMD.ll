@@ -890,9 +890,9 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %148, %154
-  %.sink = phi i8 [ 3, %154 ], [ 1, %148 ]
+  %storemerge = phi i8 [ 3, %154 ], [ 1, %148 ]
   store i8 3, ptr %143, align 8, !tbaa !228
-  store i8 %.sink, ptr %144, align 1, !tbaa !228
+  store i8 %storemerge, ptr %144, align 1, !tbaa !228
   %155 = call noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(34) %20)
   %156 = load i32, ptr %29, align 8, !tbaa !11
   %157 = load i32, ptr %30, align 4, !tbaa !9

@@ -1403,8 +1403,6 @@ _ZN5salsa11zalsa_local10ZalsaLocal20with_query_stack_mut17h804714d49284b33eE.exi
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5salsa11zalsa_local14QueryRevisions16fixpoint_initial17h93b8d5b2349b2eacE(ptr dead_on_unwind noalias noundef writable writeonly sret([88 x i8]) align 8 captures(none) dereferenceable(88) %0, i32 noundef range(i32 1, 0) %1, i32 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
-  %.sroa.4 = alloca [20 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @anon.914cfe31fe786126402fd6faca243d9a.19, i64 32, i1 false)
   %5 = invoke i64 @_ZN5salsa5cycle10CycleHeads7initial17h90f90649582c5a3cE(i32 noundef %1, i32 noundef %2)
@@ -1422,8 +1420,6 @@ define void @_ZN5salsa11zalsa_local14QueryRevisions16fixpoint_initial17h93b8d5b2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 2, ptr %10, align 8
   store i32 3, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4, i64 20, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) @anon.914cfe31fe786126402fd6faca243d9a.19, i64 32, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1435,7 +1431,6 @@ define void @_ZN5salsa11zalsa_local14QueryRevisions16fixpoint_initial17h93b8d5b2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %5, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.4)
   ret void
 
 16:                                               ; preds = %6, %18

@@ -4856,10 +4856,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %.sink.i.i.i = phi ptr [ %24, %25 ], [ %31, %32 ]
   %storemerge.i.i.i = phi i64 [ %21, %25 ], [ %28, %32 ]
   store i64 %storemerge.i.i.i, ptr %0, align 8
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink.i.i.i, ptr %.sroa.413.0..sroa_idx, align 8
-  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.8.0, ptr %.sroa.514.0..sroa_idx, align 8
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink.i.i.i, ptr %.sroa.412.0..sroa_idx, align 8
+  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.8.0, ptr %.sroa.513.0..sroa_idx, align 8
   br label %37
 
 34:                                               ; preds = %26, %33

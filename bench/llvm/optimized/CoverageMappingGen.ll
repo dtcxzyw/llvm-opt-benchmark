@@ -23199,24 +23199,24 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLo
   %.val55 = load ptr, ptr %46, align 8, !tbaa !1355
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   %.val54 = load ptr, ptr %47, align 8, !tbaa !1355
-  %.not130141 = icmp eq ptr %.val55, %.val54
-  br i1 %.not130141, label %_ZN4llvm11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EED2Ev.exit, label %.lr.ph143
+  %.not129140 = icmp eq ptr %.val55, %.val54
+  br i1 %.not129140, label %_ZN4llvm11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EED2Ev.exit, label %.lr.ph142
 
-.lr.ph143:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5clearEv.exit
+.lr.ph142:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5clearEv.exit
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %70
 
-._crit_edge144:                                   ; preds = %319
+._crit_edge143:                                   ; preds = %319
   %.pre = load ptr, ptr %8, align 8, !tbaa !25
-  %.pre157 = load i32, ptr %44, align 8, !tbaa !26
-  %50 = zext i32 %.pre157 to i64
+  %.pre156 = load i32, ptr %44, align 8, !tbaa !26
+  %50 = zext i32 %.pre156 to i64
   %51 = getelementptr inbounds nuw %"struct.std::pair.1820", ptr %.pre, i64 %50
-  %52 = icmp eq i32 %.pre157, 0
-  br i1 %52, label %._crit_edge148, label %.lr.ph.i.i.i.i.i
+  %52 = icmp eq i32 %.pre156, 0
+  br i1 %52, label %._crit_edge147, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge144, %select.unfold.i.i.i.i.i
-  %.010.i.i.in.in.i.i.i = phi i64 [ %.010.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %50, %._crit_edge144 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge143, %select.unfold.i.i.i.i.i
+  %.010.i.i.in.in.i.i.i = phi i64 [ %.010.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %50, %._crit_edge143 ]
   %.010.i.i.in.i.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i.i, 1
   %.010.i.i.i.i.i = lshr i64 %.010.i.i.in.i.i.i, 1
   %53 = shl nuw nsw i64 %.010.i.i.i.i.i, 3
@@ -23272,23 +23272,23 @@ select.unfold.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i
 _ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EEENS_11less_secondEEEvOT_T0_.exit: ; preds = %._crit_edge.i.i.i.i.i.i, %.loopexit.i.i.i
   %.sroa.3.021.i.i.i = phi i64 [ %53, %._crit_edge.i.i.i.i.i.i ], [ 0, %.loopexit.i.i.i ]
   call void @_ZdlPvm(ptr noundef %54, i64 noundef %.sroa.3.021.i.i.i) #25
-  %.pre158 = load ptr, ptr %8, align 8, !tbaa !25
-  %.pre159 = load i32, ptr %44, align 8, !tbaa !26
-  %64 = zext i32 %.pre159 to i64
-  %65 = getelementptr inbounds nuw %"struct.std::pair.1820", ptr %.pre158, i64 %64
-  %.not145 = icmp eq i32 %.pre159, 0
-  br i1 %.not145, label %._crit_edge148, label %.lr.ph147
+  %.pre157 = load ptr, ptr %8, align 8, !tbaa !25
+  %.pre158 = load i32, ptr %44, align 8, !tbaa !26
+  %64 = zext i32 %.pre158 to i64
+  %65 = getelementptr inbounds nuw %"struct.std::pair.1820", ptr %.pre157, i64 %64
+  %.not144 = icmp eq i32 %.pre158, 0
+  br i1 %.not144, label %._crit_edge147, label %.lr.ph146
 
-.lr.ph147:                                        ; preds = %_ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EEENS_11less_secondEEEvOT_T0_.exit
+.lr.ph146:                                        ; preds = %_ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EEENS_11less_secondEEEvOT_T0_.exit
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %329
 
-70:                                               ; preds = %.lr.ph143, %319
-  %.sroa.0122.0142 = phi ptr [ %.val55, %.lr.ph143 ], [ %320, %319 ]
-  %71 = getelementptr i8, ptr %.sroa.0122.0142, i64 32
+70:                                               ; preds = %.lr.ph142, %319
+  %.sroa.0121.0141 = phi ptr [ %.val55, %.lr.ph142 ], [ %320, %319 ]
+  %71 = getelementptr i8, ptr %.sroa.0121.0141, i64 32
   %.val = load i32, ptr %71, align 4, !tbaa !312
   %72 = call fastcc { i64, i8 } @_ZN12_GLOBAL__N_122CoverageMappingBuilder25getNonScratchExpansionLocEN5clang14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(1960) %0, i32 %.val)
   %.fca.0.extract34 = extractvalue { i64, i8 } %72, 0
@@ -23300,7 +23300,7 @@ _ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EEE
 
 74:                                               ; preds = %70
   %.sroa.039.0.extract.trunc = trunc i64 %.fca.0.extract34 to i32
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0142, i64 36
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0141, i64 36
   %76 = load i8, ptr %75, align 4, !tbaa !1353, !range !54, !noundef !55
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %_ZNRSt8optionalIN5clang14SourceLocationEE5valueEv.exit, label %78
@@ -23311,7 +23311,7 @@ _ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EEE
 
 _ZNRSt8optionalIN5clang14SourceLocationEE5valueEv.exit: ; preds = %78, %74
   store i32 %.sroa.039.0.extract.trunc, ptr %71, align 4, !tbaa !312
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0142, i64 44
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0141, i64 44
   %80 = load i8, ptr %79, align 4, !tbaa !1353, !range !54, !noundef !55
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit, label %82
@@ -23321,33 +23321,33 @@ _ZNRSt8optionalIN5clang14SourceLocationEE5valueEv.exit: ; preds = %78, %74
   br label %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit
 
 _ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit: ; preds = %_ZNRSt8optionalIN5clang14SourceLocationEE5valueEv.exit, %82
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0142, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0141, i64 40
   store i32 %.sroa.039.4.extract.trunc, ptr %83, align 4, !tbaa !312
   br label %84
 
 84:                                               ; preds = %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit, %70
-  %.sroa.0115.0 = phi i32 [ %.sroa.039.0.extract.trunc, %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit ], [ %.val, %70 ]
+  %.sroa.0114.0 = phi i32 [ %.sroa.039.0.extract.trunc, %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit ], [ %.val, %70 ]
   %85 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 120), align 8, !tbaa !34, !range !54, !noundef !55
   %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %129, label %87
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %48, align 8, !tbaa !1180
-  %89 = call noundef zeroext i1 @_ZNK5clang13SourceManager15isInSystemMacroENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %88, i32 %.sroa.0115.0)
+  %89 = call noundef zeroext i1 @_ZNK5clang13SourceManager15isInSystemMacroENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %88, i32 %.sroa.0114.0)
   br i1 %89, label %90, label %129
 
 90:                                               ; preds = %87
-  %91 = icmp sgt i32 %.sroa.0115.0, -1
+  %91 = icmp sgt i32 %.sroa.0114.0, -1
   br i1 %91, label %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit, label %92
 
 92:                                               ; preds = %90
   %93 = load ptr, ptr %48, align 8, !tbaa !1180
-  %94 = call i32 @_ZNK5clang13SourceManager22getSpellingLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %93, i32 %.sroa.0115.0) #25
+  %94 = call i32 @_ZNK5clang13SourceManager22getSpellingLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %93, i32 %.sroa.0114.0) #25
   br label %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit
 
 _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %90, %92
-  %.sroa.01.0.i = phi i32 [ %94, %92 ], [ %.sroa.0115.0, %90 ]
-  %95 = getelementptr i8, ptr %.sroa.0122.0142, i64 40
+  %.sroa.01.0.i = phi i32 [ %94, %92 ], [ %.sroa.0114.0, %90 ]
+  %95 = getelementptr i8, ptr %.sroa.0121.0141, i64 40
   %.val58 = load i32, ptr %95, align 4, !tbaa !312
   %96 = icmp sgt i32 %.val58, -1
   br i1 %96, label %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit62, label %97
@@ -23400,12 +23400,12 @@ _ZNK5clang13SourceManager19isWrittenInSameFileENS_14SourceLocationES1_.exit: ; p
 
 114:                                              ; preds = %113
   %115 = load ptr, ptr %48, align 8, !tbaa !1180
-  %116 = call i32 @_ZNK5clang13SourceManager18getFileLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %115, i32 %.sroa.0115.0) #25
+  %116 = call i32 @_ZNK5clang13SourceManager18getFileLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %115, i32 %.sroa.0114.0) #25
   br label %_ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit
 
 _ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit: ; preds = %113, %114
-  %.sroa.01.0.i63 = phi i32 [ %116, %114 ], [ %.sroa.0115.0, %113 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0142, i64 36
+  %.sroa.01.0.i63 = phi i32 [ %116, %114 ], [ %.sroa.0114.0, %113 ]
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0141, i64 36
   %118 = load i8, ptr %117, align 4, !tbaa !1353, !range !54, !noundef !55
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %_ZN12_GLOBAL__N_119SourceMappingRegion11setStartLocEN5clang14SourceLocationE.exit64, label %120
@@ -23427,7 +23427,7 @@ _ZN12_GLOBAL__N_119SourceMappingRegion11setStartLocEN5clang14SourceLocationE.exi
 
 _ZNK5clang13SourceManager10getFileLocENS_14SourceLocationE.exit66: ; preds = %_ZN12_GLOBAL__N_119SourceMappingRegion11setStartLocEN5clang14SourceLocationE.exit64, %122
   %.sroa.01.0.i65 = phi i32 [ %124, %122 ], [ %.val57, %_ZN12_GLOBAL__N_119SourceMappingRegion11setStartLocEN5clang14SourceLocationE.exit64 ]
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0142, i64 44
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0141, i64 44
   %126 = load i8, ptr %125, align 4, !tbaa !1353, !range !54, !noundef !55
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit67, label %128
@@ -23441,10 +23441,10 @@ _ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit67
   br label %129
 
 129:                                              ; preds = %_ZNK5clang13SourceManager19isWrittenInSameFileENS_14SourceLocationES1_.exit, %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit67, %87, %84
-  %.sroa.0115.1 = phi i32 [ %.sroa.0115.0, %84 ], [ %.sroa.01.0.i63, %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit67 ], [ %.sroa.0115.0, %_ZNK5clang13SourceManager19isWrittenInSameFileENS_14SourceLocationES1_.exit ], [ %.sroa.0115.0, %87 ]
+  %.sroa.0114.1 = phi i32 [ %.sroa.0114.0, %84 ], [ %.sroa.01.0.i63, %_ZN12_GLOBAL__N_119SourceMappingRegion9setEndLocEN5clang14SourceLocationE.exit67 ], [ %.sroa.0114.0, %_ZNK5clang13SourceManager19isWrittenInSameFileENS_14SourceLocationES1_.exit ], [ %.sroa.0114.0, %87 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #25
   %130 = load ptr, ptr %48, align 8, !tbaa !1180
-  %131 = and i32 %.sroa.0115.1, 2147483647
+  %131 = and i32 %.sroa.0114.1, 2147483647
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 408
   %.sroa.0.0.copyload.i.i = load i32, ptr %132, align 8, !tbaa !312
   %133 = call noundef zeroext i1 @_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj(ptr noundef nonnull align 8 dereferenceable(696) %130, i32 %.sroa.0.0.copyload.i.i, i32 noundef %131)
@@ -23469,14 +23469,14 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %134, %
   br i1 %138, label %139, label %319
 
 139:                                              ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit
-  %140 = icmp slt i32 %.sroa.0115.1, 0
+  %140 = icmp slt i32 %.sroa.0114.1, 0
   %141 = load ptr, ptr %48, align 8, !tbaa !1180
   br i1 %140, label %151, label %142
 
 142:                                              ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 408
   %.sroa.0.0.copyload.i.i.i68 = load i32, ptr %143, align 8, !tbaa !312
-  %144 = call noundef zeroext i1 @_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj(ptr noundef nonnull align 8 dereferenceable(696) %141, i32 %.sroa.0.0.copyload.i.i.i68, i32 noundef %.sroa.0115.1)
+  %144 = call noundef zeroext i1 @_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj(ptr noundef nonnull align 8 dereferenceable(696) %141, i32 %.sroa.0.0.copyload.i.i.i68, i32 noundef %.sroa.0114.1)
   br i1 %144, label %145, label %146
 
 145:                                              ; preds = %142
@@ -23484,7 +23484,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %134, %
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i69
 
 146:                                              ; preds = %142
-  %147 = call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %141, i32 noundef %.sroa.0115.1) #25
+  %147 = call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %141, i32 noundef %.sroa.0114.1) #25
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i69
 
 _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i69: ; preds = %146, %145
@@ -23499,15 +23499,15 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i69: ; preds = %14
   br label %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit
 
 151:                                              ; preds = %139
-  %152 = call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %141, i32 %.sroa.0115.1) #25
+  %152 = call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %141, i32 %.sroa.0114.1) #25
   %.fca.0.extract3.i = extractvalue { i64, i8 } %152, 0
   %.sroa.0.0.extract.trunc.i = trunc i64 %.fca.0.extract3.i to i32
   br label %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit
 
 _ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit: ; preds = %149, %151
   %.sroa.011.0.i = phi i32 [ %.sroa.0.0.copyload.i.i12.i, %149 ], [ %.sroa.0.0.extract.trunc.i, %151 ]
-  %.not132138 = icmp eq i32 %.sroa.011.0.i, 0
-  br i1 %.not132138, label %._crit_edge, label %.lr.ph
+  %.not131137 = icmp eq i32 %.sroa.011.0.i, 0
+  br i1 %.not131137, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %312, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit82, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i
   %153 = zext i32 %166 to i64
@@ -23516,7 +23516,7 @@ _ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14Sou
 
 ._crit_edge:                                      ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i69, %._crit_edge.loopexit, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit
   %.0.lcssa = phi i64 [ 0, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit ], [ %154, %._crit_edge.loopexit ], [ 0, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i69 ]
-  %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0115.1 to i64
+  %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0114.1 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.0.lcssa, %.sroa.0.0.insert.ext.i
   %155 = load i32, ptr %44, align 8, !tbaa !26
   %156 = load i32, ptr %45, align 4, !tbaa !27
@@ -23542,10 +23542,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationEjELb1EE9push_b
   br label %319
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit82
-  %storemerge140 = phi i32 [ %.sroa.011.0.i78, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit82 ], [ %.sroa.011.0.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit ]
-  %.0139 = phi i32 [ %166, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit82 ], [ 0, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit ]
-  %166 = add i32 %.0139, 1
-  %167 = icmp slt i32 %storemerge140, 0
+  %storemerge139 = phi i32 [ %.sroa.011.0.i78, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit82 ], [ %.sroa.011.0.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit ]
+  %.0138 = phi i32 [ %166, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit82 ], [ 0, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit ]
+  %166 = add i32 %.0138, 1
+  %167 = icmp slt i32 %storemerge139, 0
   %168 = load ptr, ptr %48, align 8, !tbaa !1180
   br i1 %167, label %317, label %169
 
@@ -23635,8 +23635,8 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i: ; preds = %209, %2
   %.0.i.i.i = phi ptr [ %174, %172 ], [ %213, %209 ], [ %206, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i96 ], [ %208, %207 ]
   %214 = load i32, ptr %.0.i.i.i, align 8
   %215 = and i32 %214, 2147483647
-  %216 = icmp samesign ult i32 %storemerge140, %215
-  br i1 %216, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread124, label %217
+  %216 = icmp samesign ult i32 %storemerge139, %215
+  br i1 %216, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread123, label %217
 
 217:                                              ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i
   %218 = icmp eq i32 %.sroa.0.0.copyload.i.i.i73, -2
@@ -23652,8 +23652,8 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i: ; preds = %209, %2
 224:                                              ; preds = %219
   %225 = getelementptr inbounds nuw i8, ptr %168, i64 248
   %226 = load i32, ptr %225, align 8, !tbaa !1264
-  %227 = icmp ult i32 %storemerge140, %226
-  br i1 %227, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread124
+  %227 = icmp ult i32 %storemerge139, %226
+  br i1 %227, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread123
 
 228:                                              ; preds = %219
   %229 = icmp slt i32 %171, 0
@@ -23728,19 +23728,19 @@ _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit: ; preds = %_ZNK4l
   %.0.i.i12.i = phi ptr [ %265, %262 ], [ %259, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i ], [ %261, %260 ]
   %266 = load i32, ptr %.0.i.i12.i, align 8
   %267 = and i32 %266, 2147483647
-  %268 = icmp samesign ult i32 %storemerge140, %267
-  br i1 %268, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread124
+  %268 = icmp samesign ult i32 %storemerge139, %267
+  br i1 %268, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread, label %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread123
 
 _ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread: ; preds = %217, %224, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit
   %.sroa.02.0.copyload.i.i.i79 = load i32, ptr %170, align 8, !tbaa !312
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i74
 
-_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread124: ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i, %224, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit
-  %269 = call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %168, i32 noundef %storemerge140) #25
+_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread123: ; preds = %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.i, %224, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit
+  %269 = call i32 @_ZNK5clang13SourceManager13getFileIDSlowEj(ptr noundef nonnull align 8 dereferenceable(696) %168, i32 noundef %storemerge139) #25
   br label %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i74
 
-_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i74: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread124, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread
-  %.sroa.02.0.i.i.i75 = phi i32 [ %.sroa.02.0.copyload.i.i.i79, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread ], [ %269, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread124 ]
+_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i74: ; preds = %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread123, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread
+  %.sroa.02.0.i.i.i75 = phi i32 [ %.sroa.02.0.copyload.i.i.i79, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread ], [ %269, %_ZNK5clang13SourceManager16isOffsetInFileIDENS_6FileIDEj.exit.thread123 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #25
   store i8 0, ptr %3, align 1, !tbaa !53
   %270 = add i32 %.sroa.02.0.i.i.i75, 1
@@ -23845,36 +23845,36 @@ _ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit: ; preds = %312
   br label %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit82
 
 317:                                              ; preds = %.lr.ph
-  %318 = call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %168, i32 %storemerge140) #25
+  %318 = call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %168, i32 %storemerge139) #25
   %.fca.0.extract3.i80 = extractvalue { i64, i8 } %318, 0
   %.sroa.0.0.extract.trunc.i81 = trunc i64 %.fca.0.extract3.i80 to i32
   br label %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit82
 
 _ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit82: ; preds = %_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit, %317
   %.sroa.011.0.i78 = phi i32 [ %.sroa.0.0.copyload.i.i12.i77, %_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit ], [ %.sroa.0.0.extract.trunc.i81, %317 ]
-  %.not132 = icmp eq i32 %.sroa.011.0.i78, 0
-  br i1 %.not132, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !1562
+  %.not131 = icmp eq i32 %.sroa.011.0.i78, 0
+  br i1 %.not131, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !1562
 
 319:                                              ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationEjELb1EE9push_backES4_.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #25
-  %320 = getelementptr inbounds nuw i8, ptr %.sroa.0122.0142, i64 52
-  %.not130 = icmp eq ptr %320, %.val54
-  br i1 %.not130, label %._crit_edge144, label %70
+  %320 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0141, i64 52
+  %.not129 = icmp eq ptr %320, %.val54
+  br i1 %.not129, label %._crit_edge143, label %70
 
-._crit_edge148.loopexit:                          ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread
-  %.pre160 = load ptr, ptr %8, align 8, !tbaa !25
-  br label %._crit_edge148
+._crit_edge147.loopexit:                          ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread
+  %.pre159 = load ptr, ptr %8, align 8, !tbaa !25
+  br label %._crit_edge147
 
-._crit_edge148:                                   ; preds = %._crit_edge144, %._crit_edge148.loopexit, %_ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EEENS_11less_secondEEEvOT_T0_.exit
-  %321 = phi ptr [ %.pre160, %._crit_edge148.loopexit ], [ %.pre158, %_ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EEENS_11less_secondEEEvOT_T0_.exit ], [ %.pre, %._crit_edge144 ]
+._crit_edge147:                                   ; preds = %._crit_edge143, %._crit_edge147.loopexit, %_ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EEENS_11less_secondEEEvOT_T0_.exit
+  %321 = phi ptr [ %.pre159, %._crit_edge147.loopexit ], [ %.pre157, %_ZN4llvm11stable_sortIRNS_11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EEENS_11less_secondEEEvOT_T0_.exit ], [ %.pre, %._crit_edge143 ]
   %322 = icmp eq ptr %321, %43
   br i1 %322, label %_ZN4llvm11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EED2Ev.exit, label %323
 
-323:                                              ; preds = %._crit_edge148
+323:                                              ; preds = %._crit_edge147
   call void @free(ptr noundef %321) #25
   br label %_ZN4llvm11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EED2Ev.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5clearEv.exit, %._crit_edge148, %323
+_ZN4llvm11SmallVectorISt4pairIN5clang14SourceLocationEjELj8EED2Ev.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5clearEv.exit, %._crit_edge147, %323
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #25
   %324 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %325 = load ptr, ptr %39, align 8, !tbaa !1201
@@ -23891,9 +23891,9 @@ _ZN4llvm8SmallSetIN5clang6FileIDELj8ESt4lessIS2_EED2Ev.exit: ; preds = %_ZN4llvm
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #25
   ret void
 
-329:                                              ; preds = %.lr.ph147, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread
-  %.053146 = phi ptr [ %.pre158, %.lr.ph147 ], [ %371, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread ]
-  %330 = load i32, ptr %.053146, align 4, !tbaa !312
+329:                                              ; preds = %.lr.ph146, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread
+  %.053145 = phi ptr [ %.pre157, %.lr.ph146 ], [ %371, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread ]
+  %330 = load i32, ptr %.053145, align 4, !tbaa !312
   %331 = load ptr, ptr %66, align 8, !tbaa !1180
   %332 = call i64 @_ZNK5clang13SourceManager24getDecomposedSpellingLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %331, i32 %330)
   %.sroa.07.0.extract.trunc = trunc i64 %332 to i32
@@ -23910,8 +23910,8 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit: ; preds = %329
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %339 = load i64, ptr %338, align 8
   %340 = inttoptr i64 %339 to ptr
-  %.not131 = icmp eq i64 %339, 0
-  br i1 %.not131, label %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread, label %341
+  %.not130 = icmp eq i64 %339, 0
+  br i1 %.not130, label %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread, label %341
 
 341:                                              ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit
   %342 = load i32, ptr %67, align 8, !tbaa !26
@@ -23980,9 +23980,9 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZNK5clang
   br label %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread
 
 _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.thread: ; preds = %329, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
-  %371 = getelementptr inbounds nuw i8, ptr %.053146, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %.053145, i64 8
   %.not = icmp eq ptr %371, %65
-  br i1 %.not, label %._crit_edge148.loopexit, label %329
+  br i1 %.not, label %._crit_edge147.loopexit, label %329
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

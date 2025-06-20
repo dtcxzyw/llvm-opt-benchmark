@@ -10193,18 +10193,18 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1508)
   %5 = getelementptr inbounds nuw i8, ptr %.8.val, i64 32
   %6 = load i8, ptr %5, align 8, !tbaa !1111, !noalias !1511
+  %.sink7.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
   switch i8 %6, label %8 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit.i
     i8 1, label %7
   ]
 
 7:                                                ; preds = %1
-  %.sink3.sroa.gep4 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.0.0.copyload, ptr %4, align 8
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit.i.sink.split
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i
 
 8:                                                ; preds = %1
-  %.sink3.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink7.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %.8.val, i64 33
   %10 = load i8, ptr %9, align 1, !tbaa !1108, !noalias !1511
   %11 = icmp eq i8 %10, 1
@@ -10215,26 +10215,25 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL25
   %.sroa.05.0.i.i.i = select i1 %11, ptr %.sroa.05.0.copyload.i.i.i, ptr %.8.val
   %.sroa.56.0.i.i.i = select i1 %11, i64 %.sroa.56.0.copyload.i.i.i, i64 undef
   store ptr %.sroa.05.0.i.i.i, ptr %4, align 8, !alias.scope !1511
-  %.sroa.23.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.56.0.i.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !tbaa !11, !alias.scope !1511
+  store i64 %.sroa.56.0.i.i.i, ptr %.sink7.i.sroa.gep, align 8, !tbaa !11, !alias.scope !1511
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sroa.0.0.copyload, ptr %12, align 8, !alias.scope !1511
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit.i.sink.split
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i
 
-_ZN4llvmplERKNS_5TwineES2_.exit.i.sink.split:     ; preds = %7, %8
-  %.sink3.sroa.phi = phi ptr [ %.sink3.sroa.gep, %8 ], [ %.sink3.sroa.gep4, %7 ]
-  %.014.i.i.i.sink.ph = phi i8 [ %.014.i.i.i, %8 ], [ 5, %7 ]
-  %.sink.ph = phi i8 [ 5, %8 ], [ 1, %7 ]
-  store i64 %.sroa.2.0.copyload, ptr %.sink3.sroa.phi, align 8, !tbaa !11
+_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i:     ; preds = %8, %7
+  %.sink7.i.sroa.phi = phi ptr [ %.sink7.i.sroa.gep, %7 ], [ %.sink7.i.sroa.gep1, %8 ]
+  %.sink5.ph.i = phi i8 [ 5, %7 ], [ %.014.i.i.i, %8 ]
+  %.sink.ph.i = phi i8 [ 1, %7 ], [ 5, %8 ]
+  store i64 %.sroa.2.0.copyload, ptr %.sink7.i.sroa.phi, align 8, !tbaa !11
   br label %_ZN4llvmplERKNS_5TwineES2_.exit.i
 
-_ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i.sink.split, %1
-  %.014.i.i.i.sink = phi i8 [ %6, %1 ], [ %.014.i.i.i.sink.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.i.sink.split ]
-  %.sink = phi i8 [ 1, %1 ], [ %.sink.ph, %_ZN4llvmplERKNS_5TwineES2_.exit.i.sink.split ]
+_ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i, %1
+  %.sink5.i = phi i8 [ %6, %1 ], [ %.sink5.ph.i, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i ]
+  %.sink.i = phi i8 [ 1, %1 ], [ %.sink.ph.i, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i ]
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 %.014.i.i.i.sink, ptr %13, align 8, !tbaa !1441
+  store i8 %.sink5.i, ptr %13, align 8, !tbaa !1441
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 %.sink, ptr %14, align 1, !tbaa !1441
+  store i8 %.sink.i, ptr %14, align 1, !tbaa !1441
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(34) %4) #20
   %15 = load ptr, ptr %3, align 8, !tbaa !1040
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8

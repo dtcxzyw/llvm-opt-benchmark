@@ -204203,7 +204203,6 @@ _ZN5boost8geometry6detail12sectionalize16enlarge_sectionsINS0_8sectionsINS0_5mod
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost8geometry6detail12sectionalize17sectionalize_partISt16integer_sequenceImJLm0ELm1EEEE5applyIN9__gnu_cxx17__normal_iteratorIPKNS0_5model5pointIeLm2ENS0_2cs9cartesianEEESt6vectorISE_SaISE_EEEENS1_17no_rescale_policyENS0_8sectionsINSA_3boxISE_EELm2EEENS0_10strategies6relate9cartesianIvEEEEvRT1_T_SW_RKT0_RKT2_NS0_15ring_identifierEm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef byval(%"struct.boost::geometry::ring_identifier") align 8 %5, i64 noundef %6) local_unnamed_addr #4 comdat align 2 {
   %.sroa.1283 = alloca %"struct.boost::geometry::ring_identifier", align 8
-  %.sroa.67 = alloca [14 x i8], align 2
   %8 = ptrtoint ptr %2 to i64
   %9 = ptrtoint ptr %1 to i64
   %10 = sub i64 %8, %9
@@ -204213,7 +204212,6 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail12sectionalize17sectio
 
 13:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.1283)
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %.sroa.67)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.1283, i8 -1, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !3978
@@ -204397,8 +204395,6 @@ _ZN5boost8geometry6detail12sectionalize12compare_loopIiLm0ELm2EE5applyEPKiS6_.ex
   store i8 %.sroa.62.0294, ptr %.sroa.62.0..sroa_idx, align 16, !tbaa !15
   %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 145
   store i8 0, ptr %.sroa.65.0..sroa_idx, align 1, !tbaa !15
-  %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 146
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.67.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.67, i64 14, i1 false), !tbaa.struct !18
   %85 = load ptr, ptr %14, align 8, !tbaa !3978
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 160
   store ptr %86, ptr %14, align 8, !tbaa !3978
@@ -204459,8 +204455,6 @@ _ZNKSt6vectorIN5boost8geometry7sectionINS1_5model3boxINS3_5pointIeLm2ENS1_2cs9ca
   store i8 %.sroa.62.0294, ptr %.sroa.62.0..sroa_idx167, align 16, !tbaa !15
   %.sroa.65.0..sroa_idx173 = getelementptr inbounds nuw i8, ptr %101, i64 145
   store i8 0, ptr %.sroa.65.0..sroa_idx173, align 1, !tbaa !15
-  %.sroa.67.0..sroa_idx179 = getelementptr inbounds nuw i8, ptr %101, i64 146
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.67.0..sroa_idx179, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.67, i64 14, i1 false), !tbaa.struct !18
   %.not10.i.i.i.i.i = icmp eq ptr %88, %29
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN5boost8geometry7sectionINS1_5model3boxINS3_5pointIeLm2ENS1_2cs9cartesianEEEEELm2EEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -204594,8 +204588,6 @@ _ZN5boost8geometry6detail12sectionalize20box_first_in_sectionINS0_13cartesian_ta
   store i8 %.sroa.62.3, ptr %.sroa.62.0..sroa_idx169, align 16, !tbaa !15
   %.sroa.65.0..sroa_idx175 = getelementptr inbounds nuw i8, ptr %116, i64 145
   store i8 0, ptr %.sroa.65.0..sroa_idx175, align 1, !tbaa !15
-  %.sroa.67.0..sroa_idx180 = getelementptr inbounds nuw i8, ptr %116, i64 146
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.67.0..sroa_idx180, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.67, i64 14, i1 false), !tbaa.struct !18
   %132 = load ptr, ptr %14, align 8, !tbaa !3978
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 160
   store ptr %133, ptr %14, align 8, !tbaa !3978
@@ -204653,8 +204645,6 @@ _ZNKSt6vectorIN5boost8geometry7sectionINS1_5model3boxINS3_5pointIeLm2ENS1_2cs9ca
   store i8 %.sroa.62.3, ptr %.sroa.62.0..sroa_idx171, align 16, !tbaa !15
   %.sroa.65.0..sroa_idx177 = getelementptr inbounds nuw i8, ptr %148, i64 145
   store i8 0, ptr %.sroa.65.0..sroa_idx177, align 1, !tbaa !15
-  %.sroa.67.0..sroa_idx181 = getelementptr inbounds nuw i8, ptr %148, i64 146
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.67.0..sroa_idx181, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.67, i64 14, i1 false), !tbaa.struct !18
   %.not10.i.i.i.i.i48 = icmp eq ptr %135, %116
   br i1 %.not10.i.i.i.i.i48, label %_ZNSt6vectorIN5boost8geometry7sectionINS1_5model3boxINS3_5pointIeLm2ENS1_2cs9cartesianEEEEELm2EEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22.i.i53, label %.lr.ph.i.i.i.i.i49
 
@@ -204709,7 +204699,6 @@ _ZNSt6vectorIN5boost8geometry7sectionINS1_5model3boxINS3_5pointIeLm2ENS1_2cs9car
 
 168:                                              ; preds = %166, %161, %_ZNSt6vectorIN5boost8geometry7sectionINS1_5model3boxINS3_5pointIeLm2ENS1_2cs9cartesianEEEEELm2EEESaISA_EE9push_backERKSA_.exit57
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.1283)
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %.sroa.67)
   br label %169
 
 169:                                              ; preds = %7, %168
@@ -214379,12 +214368,6 @@ define linkonce_odr hidden void @_ZN5boost8geometry8strategy12intersection18cart
   %.sroa.5.i5 = alloca [42 x i8], align 2
   %8 = alloca %"struct.boost::geometry::segment_intersection_points.1379", align 16
   %.sroa.5.i = alloca [42 x i8], align 2
-  %.sroa.6 = alloca [6 x i8], align 2
-  %.sroa.9 = alloca [6 x i8], align 2
-  %.sroa.10 = alloca [6 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.10)
   %9 = fsub x86_fp80 %2, %3
   %10 = fsub x86_fp80 %4, %3
   %11 = fcmp olt x86_fp80 %10, 0xK00000000000000000000
@@ -214536,16 +214519,10 @@ _ZN5boost8geometry13segment_ratioIeE4zeroEv.exit5.i.i: ; preds = %59, %57, %56
 _ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIeLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIeEEEEE14one_degenerateINS5_17referring_segmentIKS9_EESB_EENSD_11return_typeERKT_RKT0_b.exit: ; preds = %_ZN5boost8geometry13segment_ratioIeE4zeroEv.exit.i.i, %_ZN5boost8geometry13segment_ratioIeE4zeroEv.exit5.i.i
   %.sink.i = phi ptr [ %55, %_ZN5boost8geometry13segment_ratioIeE4zeroEv.exit.i.i ], [ %47, %_ZN5boost8geometry13segment_ratioIeE4zeroEv.exit5.i.i ]
   store x86_fp80 %.sroa.0.0, ptr %.sink.i, align 16, !noalias !4251
-  %.sroa.6.0..sink.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.6.0..sink.i.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.6, i64 6, i1 false), !noalias !4251
   %.sroa.613.0..sink.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i, i64 16
   store x86_fp80 %.sroa.613.0, ptr %.sroa.613.0..sink.i.sroa_idx, align 16, !noalias !4251
-  %.sroa.9.0..sink.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9.0..sink.i.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9, i64 6, i1 false), !noalias !4251
   %.sroa.914.0..sink.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i, i64 32
   store x86_fp80 %18, ptr %.sroa.914.0..sink.i.sroa_idx, align 16, !noalias !4251
-  %.sroa.10.0..sink.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i, i64 42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.10.0..sink.i.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.10, i64 6, i1 false), !noalias !4251
   call void @llvm.lifetime.start.p0(i64 42, ptr nonnull %.sroa.5.i5)
   %.sroa.5.i5.2.i5.2.i5.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i5, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i5.2.i5.2.i5.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !4264, !noalias !4251
@@ -214561,9 +214538,6 @@ _ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_i
   br label %63
 
 63:                                               ; preds = %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIeLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIeEEEEE14one_degenerateINS5_17referring_segmentIKS9_EESB_EENSD_11return_typeERKT_RKT0_b.exit, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIeLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIeEEEEE8disjointEv.exit
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.10)
   ret void
 }
 

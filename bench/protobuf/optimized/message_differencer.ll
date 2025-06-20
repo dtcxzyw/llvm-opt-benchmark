@@ -9887,7 +9887,6 @@ define noundef zeroext i1 @_ZN6google8protobuf4util18MessageDifferencer7IsMatchE
 entry:
   %current_parent_fields = alloca %"class.std::vector.74", align 8
   %specific_field.sroa.17 = alloca <{ ptr, ptr }>, align 8
-  %specific_field.sroa.20 = alloca [7 x i8], align 1
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %parent_fields, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %parent_fields, align 8
@@ -10126,8 +10125,6 @@ if.then.i:                                        ; preds = %if.end24
   store i32 -1, ptr %specific_field.sroa.18.0..sroa_idx, align 4
   %specific_field.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 88
   store i8 0, ptr %specific_field.sroa.19.0..sroa_idx, align 8
-  %specific_field.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %specific_field.sroa.20.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %specific_field.sroa.20, i64 7, i1 false)
   %25 = load ptr, ptr %_M_finish.i.i.i85, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i85, align 8
@@ -10190,8 +10187,6 @@ call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIN6goo
   store i32 -1, ptr %specific_field.sroa.18.0.add.ptr.i.i.sroa_idx, align 4
   %specific_field.sroa.19.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 88
   store i8 0, ptr %specific_field.sroa.19.0.add.ptr.i.i.sroa_idx, align 8
-  %specific_field.sroa.20.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %specific_field.sroa.20.0.add.ptr.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %specific_field.sroa.20, i64 7, i1 false)
   %cmp.not5.i.i.i.i.i = icmp eq ptr %26, %23
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i, label %for.body.i.i.i.i.i52
 
@@ -10283,7 +10278,6 @@ entry:
   %it353 = alloca %"class.google::protobuf::MapIterator", align 8
   %ref.tmp355 = alloca %"class.google::protobuf::MapIterator", align 8
   %value2370 = alloca %"class.google::protobuf::MapValueConstRef", align 8
-  %specific_value_field.sroa.16 = alloca [7 x i8], align 1
   %vtable.i = load ptr, ptr %message1, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 80
   %0 = load ptr, ptr %vfn.i, align 8
@@ -11434,8 +11428,6 @@ if.then.i:                                        ; preds = %invoke.cont374
   store i32 -1, ptr %specific_value_field.sroa.14.0..sroa_idx, align 4
   %specific_value_field.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 88
   store i8 0, ptr %specific_value_field.sroa.15.0..sroa_idx, align 8
-  %specific_value_field.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %specific_value_field.sroa.16.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %specific_value_field.sroa.16, i64 7, i1 false)
   %101 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %101, i64 96
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
@@ -11494,8 +11486,6 @@ call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIN6goo
   store i32 -1, ptr %specific_value_field.sroa.14.0.add.ptr.i.i.sroa_idx, align 4
   %specific_value_field.sroa.15.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 88
   store i8 0, ptr %specific_value_field.sroa.15.0.add.ptr.i.i.sroa_idx, align 8
-  %specific_value_field.sroa.16.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %specific_value_field.sroa.16.0.add.ptr.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %specific_value_field.sroa.16, i64 7, i1 false)
   %cmp.not5.i.i.i.i.i = icmp eq ptr %102, %99
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN6google8protobuf4util18MessageDifferencer13SpecificFieldESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i, label %for.body.i.i.i.i.i
 

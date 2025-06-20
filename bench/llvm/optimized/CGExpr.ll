@@ -39674,14 +39674,14 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %31
   store ptr %6, ptr %313, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 64
-  store i8 0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.8276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 152
-  store i8 0, ptr %.sroa.8276.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 153
-  store i8 0, ptr %.sroa.9.0..sroa_idx, align 1
-  %.sroa.10277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 160
-  store i64 %.sroa.0.0.copyload.i172, ptr %.sroa.10277.0..sroa_idx, align 8
+  %.sroa.5275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 64
+  store i8 0, ptr %.sroa.5275.0..sroa_idx, align 8
+  %.sroa.6276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 152
+  store i8 0, ptr %.sroa.6276.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 153
+  store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.8277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 160
+  store i64 %.sroa.0.0.copyload.i172, ptr %.sroa.8277.0..sroa_idx, align 8
   store i32 1, ptr %314, align 8, !tbaa !26
   br label %330
 

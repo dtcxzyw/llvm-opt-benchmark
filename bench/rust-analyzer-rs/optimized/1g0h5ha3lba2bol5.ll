@@ -15223,14 +15223,13 @@ define hidden void @_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path17h267
   %39 = alloca { i64, [4 x i64] }, align 8
   %40 = alloca { i64, [4 x i64] }, align 8
   %41 = alloca { { ptr, ptr }, { { { i64, [1 x i64] } } }, ptr, i32, [1 x i32] }, align 8
-  %.sroa.18 = alloca [3 x i8], align 1
   %42 = tail call noundef align 8 dereferenceable(8) ptr @"_ZN76_$LT$syntax..ast..generated..nodes..Path$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h885cc27dbc08ca8fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2843)
   %43 = load ptr, ptr %42, align 8, !alias.scope !2843, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8, !noalias !2843, !noundef !4
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17hb8db9354f43f44beE.exit", label %47
+  br i1 %46, label %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit.thread", label %47
 
 47:                                               ; preds = %5
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 48
@@ -15243,14 +15242,9 @@ define hidden void @_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path17h267
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #34, !noalias !2843
   unreachable
 
-"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17hb8db9354f43f44beE.exit": ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.18)
-  br label %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit.thread"
-
 "_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17hb8db9354f43f44beE.exit.thread": ; preds = %47
   %53 = extractvalue { i32, i1 } %50, 0
   store i32 %53, ptr %48, align 4, !noalias !2843
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.18)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %55 = load ptr, ptr %54, align 8, !alias.scope !2846, !noalias !2849, !noundef !4
   %56 = icmp eq ptr %55, null
@@ -15879,15 +15873,12 @@ _ZN4core3ops8function6FnOnce9call_once17hc468883bc175475aE.exit.i: ; preds = %_Z
   %.sroa.0.3454 = phi i8 [ %.sroa.0.2, %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit" ], [ %.sroa.0.0436, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit.i" ], [ 3, %133 ], [ %switch.masked672, %.noexc222 ], [ 3, %189 ], [ 3, %212 ]
   %.sroa.18384.3453 = phi i32 [ %.sroa.18384.2, %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit" ], [ %.sroa.18384.0, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17h6b815c147d7679cfE.exit.i" ], [ %134, %133 ], [ %.sroa.464.0.i, %.noexc222 ], [ %190, %189 ], [ %213, %212 ]
   store i8 %.sroa.0.3454, ptr %0, align 4
-  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.18.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.18, i64 3, i1 false)
   %.sroa.18384.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.18384.3453, ptr %.sroa.18384.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.18)
   br label %277
 
-"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit.thread": ; preds = %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17hb8db9354f43f44beE.exit", %.noexc223, %.noexc228, %.noexc233, %.noexc234, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit235.i", %.noexc213, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17hb8db9354f43f44beE.exit.thread", %.noexc208, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit208.i", %.noexc229, %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit"
-  %.1438446 = phi i1 [ false, %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit" ], [ true, %.noexc213 ], [ false, %.noexc223 ], [ false, %.noexc228 ], [ false, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit235.i" ], [ false, %.noexc234 ], [ false, %.noexc233 ], [ false, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17hb8db9354f43f44beE.exit" ], [ false, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17hb8db9354f43f44beE.exit.thread" ], [ false, %.noexc208 ], [ false, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit208.i" ], [ false, %.noexc229 ]
+"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit.thread": ; preds = %5, %.noexc223, %.noexc228, %.noexc233, %.noexc234, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit235.i", %.noexc213, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17hb8db9354f43f44beE.exit.thread", %.noexc208, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit208.i", %.noexc229, %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit"
+  %.1438446 = phi i1 [ false, %"_ZN3hir15source_analyzer14SourceAnalyzer12resolve_path28_$u7b$$u7b$closure$u7d$$u7d$17h54660f1ccc368e36E.exit" ], [ true, %.noexc213 ], [ false, %.noexc223 ], [ false, %.noexc228 ], [ false, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit235.i" ], [ false, %.noexc234 ], [ false, %.noexc233 ], [ false, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17hb8db9354f43f44beE.exit.thread" ], [ false, %.noexc208 ], [ false, %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Pat$GT$17h86e352efe47af9b0E.exit208.i" ], [ false, %.noexc229 ], [ false, %5 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %41)
   %273 = getelementptr inbounds nuw i8, ptr %3, i64 1296
   %274 = load ptr, ptr %273, align 8, !invariant.load !4
@@ -15896,7 +15887,6 @@ _ZN4core3ops8function6FnOnce9call_once17hc468883bc175475aE.exit.i: ; preds = %_Z
 
 276:                                              ; preds = %997
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.18)
   br i1 %46, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h9a948c6e35f0cfb3E.exit238", label %277
 
 277:                                              ; preds = %.thread455, %276
@@ -17960,7 +17950,6 @@ _ZN4core3ops8function6FnOnce9call_once17h8f19ffcb85ad5365E.exit.thread.thread: ;
 
 1019:                                             ; preds = %1018
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.18)
   br i1 %46, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17h9a948c6e35f0cfb3E.exit238", label %1020
 
 1020:                                             ; preds = %1019
@@ -21350,10 +21339,10 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   %.sroa.7.sroa.0.0.insert.ext = and i32 %126, 255
   %.sroa.7.sroa.0.0.insert.insert = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert, %.sroa.7.sroa.0.0.insert.ext
   store i32 %.sroa.0114.0328, ptr %.sroa.21, align 8
-  %.sroa.21.4..sroa_idx347 = getelementptr inbounds nuw i8, ptr %.sroa.21, i64 4
-  store i32 %.sroa.7.sroa.0.0.insert.insert, ptr %.sroa.21.4..sroa_idx347, align 4
-  %.sroa.21.8..sroa_idx349 = getelementptr inbounds nuw i8, ptr %.sroa.21, i64 8
-  store i32 %.sroa.4190.4.extract.trunc, ptr %.sroa.21.8..sroa_idx349, align 8
+  %.sroa.21.4..sroa_idx348 = getelementptr inbounds nuw i8, ptr %.sroa.21, i64 4
+  store i32 %.sroa.7.sroa.0.0.insert.insert, ptr %.sroa.21.4..sroa_idx348, align 4
+  %.sroa.21.8..sroa_idx350 = getelementptr inbounds nuw i8, ptr %.sroa.21, i64 8
+  store i32 %.sroa.4190.4.extract.trunc, ptr %.sroa.21.8..sroa_idx350, align 8
   br label %142
 
 127:                                              ; preds = %78
@@ -21410,6 +21399,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   br label %142
 
 142:                                              ; preds = %143, %139, %136, %133, %130, %127, %124, %121
+  %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255 = phi i32 [ %.sroa.7.sroa.0.0.insert.insert21, %121 ], [ %.sroa.0114.0328, %124 ], [ %.sroa.7.sroa.0.0.insert.insert27, %143 ], [ %.sroa.7.sroa.0.0.insert.insert30, %127 ], [ %.sroa.7.sroa.0.0.insert.insert33, %130 ], [ undef, %133 ], [ %.sroa.7.sroa.0.0.insert.insert36, %136 ], [ %.sroa.7.sroa.0.0.insert.insert39, %139 ]
   %.sroa.12.sroa.0.0 = phi i16 [ 0, %121 ], [ 0, %124 ], [ 0, %143 ], [ 0, %127 ], [ 0, %130 ], [ %135, %133 ], [ 0, %136 ], [ 0, %139 ]
   %.sroa.12.sroa.10.0 = phi i16 [ 0, %121 ], [ 0, %124 ], [ 0, %143 ], [ 0, %127 ], [ 0, %130 ], [ %134, %133 ], [ 0, %136 ], [ 0, %139 ]
   %.sroa.0.0 = phi i8 [ 14, %121 ], [ 12, %124 ], [ 2, %143 ], [ 3, %127 ], [ 8, %130 ], [ 9, %133 ], [ 6, %136 ], [ 7, %139 ]
@@ -21425,8 +21415,8 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   %.sroa.7.sroa.0.0.insert.ext25 = and i32 %145, 255
   %.sroa.7.sroa.0.0.insert.insert27 = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert55, %.sroa.7.sroa.0.0.insert.ext25
   store i32 %.sroa.7.sroa.0.0.insert.insert27, ptr %.sroa.21, align 8
-  %.sroa.21.4..sroa_idx348 = getelementptr inbounds nuw i8, ptr %.sroa.21, i64 4
-  store i32 %.sroa.4190.4.extract.trunc, ptr %.sroa.21.4..sroa_idx348, align 4
+  %.sroa.21.4..sroa_idx349 = getelementptr inbounds nuw i8, ptr %.sroa.21, i64 4
+  store i32 %.sroa.4190.4.extract.trunc, ptr %.sroa.21.4..sroa_idx349, align 4
   br label %142
 
 146:                                              ; preds = %142
@@ -21486,8 +21476,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   ]
 
 166:                                              ; preds = %158
-  %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.254 = load i32, ptr %.sroa.21, align 8
-  %.sroa.10.4.insert.ext.i = zext i32 %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.254 to i64
+  %.sroa.10.4.insert.ext.i = zext i32 %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255 to i64
   br label %172
 
 167:                                              ; preds = %165
@@ -21495,8 +21484,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   br label %172
 
 168:                                              ; preds = %165
-  %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255 = load i32, ptr %.sroa.21, align 8
-  %.sroa.10.4.insert.ext9.i = zext i32 %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255 to i64
+  %.sroa.10.4.insert.ext9.i = zext i32 %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255 to i64
   br label %172
 
 169:                                              ; preds = %165
@@ -21505,10 +21493,9 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   br label %172
 
 _ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i: ; preds = %158
-  %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4..sroa.0.0.copyload.i = load i32, ptr %.sroa.21, align 8
-  %.sroa.21.4..sroa_idx346 = getelementptr inbounds nuw i8, ptr %.sroa.21, i64 4
-  %.sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.8..sroa.10.0.copyload.i = load i64, ptr %.sroa.21.4..sroa_idx346, align 4
-  %171 = icmp eq i32 %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4..sroa.0.0.copyload.i, 20
+  %.sroa.21.4..sroa_idx347 = getelementptr inbounds nuw i8, ptr %.sroa.21, i64 4
+  %.sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.8..sroa.10.0.copyload.i = load i64, ptr %.sroa.21.4..sroa_idx347, align 4
+  %171 = icmp eq i32 %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255, 20
   br i1 %171, label %.thread335, label %172
 
 .thread335:                                       ; preds = %165, %_ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i, %158, %158, %165, %165, %165, %165, %165
@@ -21517,7 +21504,7 @@ _ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i: ; pred
 
 172:                                              ; preds = %166, %167, %168, %169, %_ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i
   %.sroa.7.024.i = phi i64 [ %.sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.8..sroa.10.0.copyload.i, %_ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i ], [ %.sroa.10.4.insert.ext.i, %166 ], [ %170, %169 ], [ %.sroa.10.4.insert.ext9.i, %168 ], [ %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4., %167 ]
-  %.sroa.0.023.i = phi i32 [ %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4..sroa.0.0.copyload.i, %_ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i ], [ 11, %166 ], [ 17, %169 ], [ 16, %168 ], [ 13, %167 ]
+  %.sroa.0.023.i = phi i32 [ %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255, %_ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i ], [ 11, %166 ], [ 17, %169 ], [ 16, %168 ], [ 13, %167 ]
   store i32 %.sroa.0.023.i, ptr %5, align 4, !noalias !4412
   %.sroa.7.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i64 %.sroa.7.024.i, ptr %.sroa.7.0..sroa_idx4.i, align 4, !noalias !4412
@@ -22276,6 +22263,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   br label %130
 
 130:                                              ; preds = %131, %127, %124, %121, %118, %115, %112, %109
+  %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255.i = phi i32 [ %.sroa.7.sroa.0.0.insert.insert21.i, %109 ], [ %.sroa.0114.0328.i, %112 ], [ %.sroa.7.sroa.0.0.insert.insert27.i, %131 ], [ %.sroa.7.sroa.0.0.insert.insert30.i, %115 ], [ %.sroa.7.sroa.0.0.insert.insert33.i, %118 ], [ undef, %121 ], [ %.sroa.7.sroa.0.0.insert.insert36.i, %124 ], [ %.sroa.7.sroa.0.0.insert.insert39.i, %127 ]
   %.sroa.12.sroa.0.0.i = phi i16 [ 0, %109 ], [ 0, %112 ], [ 0, %131 ], [ 0, %115 ], [ 0, %118 ], [ %123, %121 ], [ 0, %124 ], [ 0, %127 ]
   %.sroa.12.sroa.10.0.i = phi i16 [ 0, %109 ], [ 0, %112 ], [ 0, %131 ], [ 0, %115 ], [ 0, %118 ], [ %122, %121 ], [ 0, %124 ], [ 0, %127 ]
   %.sroa.0.0.i = phi i8 [ 14, %109 ], [ 12, %112 ], [ 2, %131 ], [ 3, %115 ], [ 8, %118 ], [ 9, %121 ], [ 6, %124 ], [ 7, %127 ]
@@ -22345,8 +22333,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   ]
 
 147:                                              ; preds = %139
-  %.sroa.21.i.0..sroa.21.i.0..sroa.21.i.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.254.i = load i32, ptr %.sroa.21.i, align 8, !noalias !4444
-  %.sroa.10.4.insert.ext.i.i = zext i32 %.sroa.21.i.0..sroa.21.i.0..sroa.21.i.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.254.i to i64
+  %.sroa.10.4.insert.ext.i.i = zext i32 %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255.i to i64
   br label %153
 
 148:                                              ; preds = %146
@@ -22354,8 +22341,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   br label %153
 
 149:                                              ; preds = %146
-  %.sroa.21.i.0..sroa.21.i.0..sroa.21.i.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255.i = load i32, ptr %.sroa.21.i, align 8, !noalias !4444
-  %.sroa.10.4.insert.ext9.i.i = zext i32 %.sroa.21.i.0..sroa.21.i.0..sroa.21.i.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255.i to i64
+  %.sroa.10.4.insert.ext9.i.i = zext i32 %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255.i to i64
   br label %153
 
 150:                                              ; preds = %146
@@ -22364,10 +22350,9 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   br label %153
 
 _ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i.i: ; preds = %139
-  %.sroa.21.i.0..sroa.21.i.0..sroa.21.i.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4..sroa.0.0.copyload.i.i = load i32, ptr %.sroa.21.i, align 8, !noalias !4444
   %.sroa.21.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.21.i, i64 4
   %.sroa.21.i.4..sroa.21.i.4..sroa.21.i.4..sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.8..sroa.10.0.copyload.i.i = load i64, ptr %.sroa.21.i.4.i.4.i.4..sroa_idx, align 4, !noalias !4444
-  %152 = icmp eq i32 %.sroa.21.i.0..sroa.21.i.0..sroa.21.i.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4..sroa.0.0.copyload.i.i, 20
+  %152 = icmp eq i32 %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255.i, 20
   br i1 %152, label %.thread335.i, label %153
 
 .thread335.i:                                     ; preds = %_ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i.i, %146, %146, %146, %146, %146, %146, %139, %139
@@ -22376,7 +22361,7 @@ _ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i.i: ; pr
 
 153:                                              ; preds = %_ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i.i, %150, %149, %148, %147
   %.sroa.7.024.i.i = phi i64 [ %.sroa.21.i.4..sroa.21.i.4..sroa.21.i.4..sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.4..sroa.21.8..sroa.10.0.copyload.i.i, %_ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i.i ], [ %.sroa.10.4.insert.ext.i.i, %147 ], [ %151, %150 ], [ %.sroa.10.4.insert.ext9.i.i, %149 ], [ %.sroa.21.i.0..sroa.21.i.0..sroa.21.i.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4..i, %148 ]
-  %.sroa.0.023.i.i = phi i32 [ %.sroa.21.i.0..sroa.21.i.0..sroa.21.i.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4..sroa.0.0.copyload.i.i, %_ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i.i ], [ 11, %147 ], [ 17, %150 ], [ 16, %149 ], [ 13, %148 ]
+  %.sroa.0.023.i.i = phi i32 [ %.sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.0..sroa.21.4.255.i, %_ZN3hir9semantics14PathResolution10in_type_ns17h9f13aa33a7ab2dd9E.exit.i.i ], [ 11, %147 ], [ 17, %150 ], [ 16, %149 ], [ 13, %148 ]
   store i32 %.sroa.0.023.i.i, ptr %12, align 4, !noalias !4498
   %.sroa.7.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i64 %.sroa.7.024.i.i, ptr %.sroa.7.0..sroa_idx4.i.i, align 4, !noalias !4498

@@ -25524,7 +25524,7 @@ common.resume.i:                                  ; preds = %.thread158.i, %"_ZN
   %172 = invoke { ptr, ptr } %171(ptr noundef nonnull align 1 %2)
           to label %176 unwind label %.thread149.i, !noalias !3516
 
-173:                                              ; preds = %176, %.noexc105.i, %184, %167
+173:                                              ; preds = %184, %.noexc105.i, %176, %167
   %174 = load ptr, ptr %28, align 8, !noalias !3516, !nonnull !20, !align !1062, !noundef !20
   %175 = load i32, ptr %27, align 4, !range !21, !noalias !3516, !noundef !20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !3516
@@ -26238,7 +26238,7 @@ common.resume.i:                                  ; preds = %.thread158.i, %"_ZN
   %172 = invoke { ptr, ptr } %171(ptr noundef nonnull align 1 %2)
           to label %176 unwind label %.thread149.i, !noalias !3561
 
-173:                                              ; preds = %176, %.noexc105.i, %184, %167
+173:                                              ; preds = %184, %.noexc105.i, %176, %167
   %174 = load ptr, ptr %28, align 8, !noalias !3561, !nonnull !20, !align !1062, !noundef !20
   %175 = load i32, ptr %27, align 4, !range !21, !noalias !3561, !noundef !20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !3561
@@ -26959,7 +26959,7 @@ common.resume.i:                                  ; preds = %.thread158.i, %"_ZN
   %175 = invoke { ptr, ptr } %174(ptr noundef nonnull align 1 %2)
           to label %179 unwind label %.thread149.i, !noalias !3606
 
-176:                                              ; preds = %179, %.noexc105.i, %187, %170
+176:                                              ; preds = %187, %.noexc105.i, %179, %170
   %177 = load ptr, ptr %28, align 8, !noalias !3606, !nonnull !20, !align !1062, !noundef !20
   %178 = load i32, ptr %27, align 4, !range !21, !noalias !3606, !noundef !20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !3606
@@ -37362,12 +37362,12 @@ define hidden noundef zeroext i1 @_ZN6ide_db7imports13merge_imports8eq_attrs17h3
   store i64 0, ptr %.sroa.440.0..sroa_idx, align 8
   %.sroa.542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 1, ptr %.sroa.542.0..sroa_idx, align 8
-  %.sroa.643.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %0, ptr %.sroa.643.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i64 2, ptr %.sroa.7.0..sroa_idx44, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store i64 2, ptr %.sroa.9.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr %0, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i64 2, ptr %.sroa.7.0..sroa_idx43, align 8
+  %.sroa.844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store i64 2, ptr %.sroa.844.0..sroa_idx, align 8
   %5 = call noundef zeroext i1 @_ZN4stdx10iter_eq_by17h47809c42057fe6abE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %4)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   ret i1 %5

@@ -569,8 +569,8 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i.i.i.th
   store i8 0, ptr %192, align 8, !alias.scope !75
   %193 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i8 0, ptr %193, align 8
-  %.sroa.8.8..sroa_idx104 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr %9, ptr %.sroa.8.8..sroa_idx104, align 8
+  %.sroa.8.8..sroa_idx103 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store ptr %9, ptr %.sroa.8.8..sroa_idx103, align 8
   %194 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %194, i8 0, i64 16, i1 false), !alias.scope !78
   br label %206
@@ -610,7 +610,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i.i: ; preds 
 
 206:                                              ; preds = %203, %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i.i.i.thread.i
   %207 = phi ptr [ %204, %203 ], [ %194, %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i.i.i.thread.i ]
-  %.sroa.9.0105 = phi ptr [ %189, %203 ], [ null, %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i.i.i.thread.i ]
+  %.sroa.9.0104 = phi ptr [ %189, %203 ], [ null, %_ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i.i.i.i.thread.i ]
   %208 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %5, ptr %208, align 8, !tbaa !43, !alias.scope !78
   %209 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Eigen12SparseMatrixIdLi0EiEaSINS_7ProductINS_9TransposeIS1_EENS_14DiagonalMatrixIdLin1ELin1EEELi0EEES1_EERS1_RKNS3_IT_T0_Li2EEE(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(56) %13)
@@ -619,7 +619,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i.i.i.i: ; preds 
 210:                                              ; preds = %206
   %211 = load ptr, ptr %207, align 8, !tbaa !69
   call void @free(ptr noundef %211) #21
-  call void @free(ptr noundef %.sroa.9.0105) #21
+  call void @free(ptr noundef %.sroa.9.0104) #21
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #21
   %212 = load ptr, ptr %11, align 8, !tbaa !69
   call void @free(ptr noundef %212) #21
@@ -731,9 +731,9 @@ _ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit53:       ; preds = %241, %245
   br label %257
 
 257:                                              ; preds = %254, %252
-  %.sroa.9.0107 = phi ptr [ %.sroa.9.0105, %254 ], [ %189, %252 ]
+  %.sroa.9.0106 = phi ptr [ %.sroa.9.0104, %254 ], [ %189, %252 ]
   %.pn = phi { ptr, i32 } [ %255, %254 ], [ %253, %252 ]
-  call void @free(ptr noundef %.sroa.9.0107) #21
+  call void @free(ptr noundef %.sroa.9.0106) #21
   br label %258
 
 258:                                              ; preds = %257, %250

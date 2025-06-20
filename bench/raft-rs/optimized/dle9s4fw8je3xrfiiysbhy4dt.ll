@@ -210,10 +210,10 @@ define hidden void @_ZN8protobuf7message7Message14write_to_bytes17h48b5a5aaecde7
   %.sroa.8.0.ph = phi i64 [ 0, %8 ], [ %19, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %21, align 8
-  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.74.0.ph, ptr %.sroa.319.0..sroa_idx, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.8.0.ph, ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.74.0.ph, ptr %.sroa.318.0..sroa_idx, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.8.0.ph, ptr %.sroa.419.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %51
 
@@ -352,10 +352,10 @@ define hidden void @_ZN8protobuf7message7Message14write_to_bytes17h62f04687b38bd
   %.sroa.8.0.ph = phi i64 [ 0, %8 ], [ %19, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %21, align 8
-  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.74.0.ph, ptr %.sroa.319.0..sroa_idx, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.8.0.ph, ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.74.0.ph, ptr %.sroa.318.0..sroa_idx, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.8.0.ph, ptr %.sroa.419.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %51
 
@@ -494,10 +494,10 @@ define hidden void @_ZN8protobuf7message7Message14write_to_bytes17h7621f0114940d
   %.sroa.8.0.ph = phi i64 [ 0, %8 ], [ %19, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %21, align 8
-  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.74.0.ph, ptr %.sroa.319.0..sroa_idx, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.8.0.ph, ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.74.0.ph, ptr %.sroa.318.0..sroa_idx, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.8.0.ph, ptr %.sroa.419.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %51
 
@@ -636,10 +636,10 @@ define hidden void @_ZN8protobuf7message7Message14write_to_bytes17h8435cde90b727
   %.sroa.8.0.ph = phi i64 [ 0, %8 ], [ %19, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %21, align 8
-  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.74.0.ph, ptr %.sroa.319.0..sroa_idx, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.8.0.ph, ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.74.0.ph, ptr %.sroa.318.0..sroa_idx, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.8.0.ph, ptr %.sroa.419.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %51
 
@@ -778,10 +778,10 @@ define hidden void @_ZN8protobuf7message7Message14write_to_bytes17h86899cf5b817a
   %.sroa.8.0.ph = phi i64 [ 0, %8 ], [ %19, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %21, align 8
-  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.74.0.ph, ptr %.sroa.319.0..sroa_idx, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.8.0.ph, ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.74.0.ph, ptr %.sroa.318.0..sroa_idx, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.8.0.ph, ptr %.sroa.419.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %51
 
@@ -920,10 +920,10 @@ define hidden void @_ZN8protobuf7message7Message14write_to_bytes17h874688a4f1b53
   %.sroa.8.0.ph = phi i64 [ 0, %8 ], [ %19, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %21, align 8
-  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.74.0.ph, ptr %.sroa.319.0..sroa_idx, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.8.0.ph, ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.74.0.ph, ptr %.sroa.318.0..sroa_idx, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.8.0.ph, ptr %.sroa.419.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %51
 
@@ -1062,10 +1062,10 @@ define hidden void @_ZN8protobuf7message7Message14write_to_bytes17hc5cfa78924b89
   %.sroa.8.0.ph = phi i64 [ 0, %8 ], [ %19, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %21, align 8
-  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.74.0.ph, ptr %.sroa.319.0..sroa_idx, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.8.0.ph, ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.74.0.ph, ptr %.sroa.318.0..sroa_idx, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.8.0.ph, ptr %.sroa.419.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %51
 
@@ -1204,10 +1204,10 @@ define hidden void @_ZN8protobuf7message7Message14write_to_bytes17hde280647cd11f
   %.sroa.8.0.ph = phi i64 [ 0, %8 ], [ %19, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %21, align 8
-  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.74.0.ph, ptr %.sroa.319.0..sroa_idx, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.8.0.ph, ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.74.0.ph, ptr %.sroa.318.0..sroa_idx, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.8.0.ph, ptr %.sroa.419.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %51
 
@@ -1346,10 +1346,10 @@ define hidden void @_ZN8protobuf7message7Message14write_to_bytes17hfbbaf97d86250
   %.sroa.8.0.ph = phi i64 [ 0, %8 ], [ %19, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %21, align 8
-  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.74.0.ph, ptr %.sroa.319.0..sroa_idx, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.8.0.ph, ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.74.0.ph, ptr %.sroa.318.0..sroa_idx, align 8
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.8.0.ph, ptr %.sroa.419.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %51
 
@@ -2724,8 +2724,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 18:                                               ; preds = %15, %12
   %.sroa.0.0.ph = phi i32 [ %11, %12 ], [ %14, %15 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.218.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.217.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
   br label %24
 
 19:                                               ; preds = %.noexc5
@@ -2824,8 +2824,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 18:                                               ; preds = %15, %12
   %.sroa.0.0.ph = phi i32 [ %11, %12 ], [ %14, %15 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.218.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.217.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
   br label %24
 
 19:                                               ; preds = %.noexc5
@@ -2924,8 +2924,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 18:                                               ; preds = %15, %12
   %.sroa.0.0.ph = phi i32 [ %11, %12 ], [ %14, %15 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.218.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.217.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
   br label %24
 
 19:                                               ; preds = %.noexc5
@@ -3024,8 +3024,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 18:                                               ; preds = %15, %12
   %.sroa.0.0.ph = phi i32 [ %11, %12 ], [ %14, %15 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.218.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.217.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
   br label %24
 
 19:                                               ; preds = %.noexc5
@@ -3124,8 +3124,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 18:                                               ; preds = %15, %12
   %.sroa.0.0.ph = phi i32 [ %11, %12 ], [ %14, %15 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.218.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.217.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
   br label %24
 
 19:                                               ; preds = %.noexc5
@@ -3224,8 +3224,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 18:                                               ; preds = %15, %12
   %.sroa.0.0.ph = phi i32 [ %11, %12 ], [ %14, %15 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.218.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.217.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
   br label %24
 
 19:                                               ; preds = %.noexc5
@@ -3324,8 +3324,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 18:                                               ; preds = %15, %12
   %.sroa.0.0.ph = phi i32 [ %11, %12 ], [ %14, %15 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.218.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.217.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
   br label %24
 
 19:                                               ; preds = %.noexc5
@@ -3424,8 +3424,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 18:                                               ; preds = %15, %12
   %.sroa.0.0.ph = phi i32 [ %11, %12 ], [ %14, %15 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.218.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.217.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
   br label %24
 
 19:                                               ; preds = %.noexc5
@@ -3524,8 +3524,8 @@ define hidden void @_ZN8protobuf7message7Message29write_length_delimited_to_vec1
 18:                                               ; preds = %15, %12
   %.sroa.0.0.ph = phi i32 [ %11, %12 ], [ %14, %15 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.218.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.217.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.8, i64 20, i1 false)
   br label %24
 
 19:                                               ; preds = %.noexc5

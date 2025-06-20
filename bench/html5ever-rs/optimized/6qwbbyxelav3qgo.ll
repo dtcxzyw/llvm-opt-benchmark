@@ -254,7 +254,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %.fca.1.extract.i22.i = extractvalue { i64, i64 } %14, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !37
   %trunc23.i = trunc nuw i64 %.fca.0.extract.i21.i to i1
-  br i1 %trunc23.i, label %.lr.ph.i, label %.loopexit62
+  br i1 %trunc23.i, label %.lr.ph.i, label %.loopexit61
 
 .lr.ph.i:                                         ; preds = %.noexc
   %.sroa.8.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -302,7 +302,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %24, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !37
   %trunc.i = trunc nuw i64 %.fca.0.extract.i.i to i1
-  br i1 %trunc.i, label %16, label %.loopexit62.loopexit
+  br i1 %trunc.i, label %16, label %.loopexit61.loopexit
 
 .critedge:                                        ; preds = %3
   store ptr %1, ptr %0, align 8
@@ -327,24 +327,24 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   store i64 %28, ptr %.sroa.48.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.04.0.copyload.i, ptr %.sroa.5.0..sroa_idx9, align 8
-  %.sroa.5.sroa.442.0..sroa.5.0..sroa_idx9.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.45.0.copyload.i, ptr %.sroa.5.sroa.442.0..sroa.5.0..sroa_idx9.sroa_idx, align 8
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx9.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.45.0.copyload.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx9.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx9.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.56.0.copyload.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx9.sroa_idx, align 8
   br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$$GT$17h7bae43038dc2dbb2E.exit"
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$$GT$17h7bae43038dc2dbb2E.exit": ; preds = %38, %33, %.loopexit62, %27, %.critedge
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$$GT$17h7bae43038dc2dbb2E.exit": ; preds = %38, %33, %.loopexit61, %27, %.critedge
   ret void
 
-.loopexit62.loopexit:                             ; preds = %.noexc21
+.loopexit61.loopexit:                             ; preds = %.noexc21
   %.val17.pre = load i64, ptr %7, align 8
-  br label %.loopexit62
+  br label %.loopexit61
 
-.loopexit62:                                      ; preds = %.loopexit62.loopexit, %.noexc
-  %.val17 = phi i64 [ %2, %.noexc ], [ %.val17.pre, %.loopexit62.loopexit ]
-  %.sroa.9.0.ph = phi i64 [ %12, %.noexc ], [ %23, %.loopexit62.loopexit ]
-  %.sroa.523.0.ph = phi ptr [ %8, %.noexc ], [ %22, %.loopexit62.loopexit ]
-  %.sroa.10.0.ph = phi i64 [ %.fca.1.extract.i22.i, %.noexc ], [ %.fca.1.extract.i.i, %.loopexit62.loopexit ]
+.loopexit61:                                      ; preds = %.loopexit61.loopexit, %.noexc
+  %.val17 = phi i64 [ %2, %.noexc ], [ %.val17.pre, %.loopexit61.loopexit ]
+  %.sroa.9.0.ph = phi i64 [ %12, %.noexc ], [ %23, %.loopexit61.loopexit ]
+  %.sroa.523.0.ph = phi ptr [ %8, %.noexc ], [ %22, %.loopexit61.loopexit ]
+  %.sroa.10.0.ph = phi i64 [ %.fca.1.extract.i22.i, %.noexc ], [ %.fca.1.extract.i.i, %.loopexit61.loopexit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.523.0.ph, ptr %29, align 8
@@ -361,7 +361,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %or.cond.i = and i1 %30, %32
   br i1 %or.cond.i, label %33, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$$GT$17h7bae43038dc2dbb2E.exit"
 
-33:                                               ; preds = %.loopexit62
+33:                                               ; preds = %.loopexit61
   %34 = inttoptr i64 %.val17 to ptr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = atomicrmw sub ptr %35, i64 1 seq_cst, align 8

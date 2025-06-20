@@ -2691,8 +2691,8 @@ common.resume:                                    ; preds = %37, %32
   store ptr %13, ptr %5, align 8, !alias.scope !395, !noalias !399
   %.sroa.4.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %13, ptr %.sroa.4.0..sroa_idx22, align 8, !alias.scope !395, !noalias !399
-  %.sroa.623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 1, ptr %.sroa.623.0..sroa_idx, align 8, !alias.scope !395, !noalias !399
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 1, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !395, !noalias !399
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !395, !noalias !399
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17ha8a9d6ad2c864c53E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cec645e476e329cb697b2f1a8afe5872.14)

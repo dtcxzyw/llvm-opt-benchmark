@@ -80386,9 +80386,9 @@ _ZN5clang20CodeCompletionResultD2Ev.exit:         ; preds = %_ZSt8_DestroyIPN5cl
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %149, %150
-  %.sink = phi i8 [ 1, %149 ], [ 3, %150 ]
+  %storemerge = phi i8 [ 3, %150 ], [ 1, %149 ]
   store i8 3, ptr %62, align 8, !tbaa !2719
-  store i8 %.sink, ptr %63, align 1, !tbaa !2719
+  store i8 %storemerge, ptr %63, align 1, !tbaa !2719
   %151 = call noundef ptr @_ZN5clang23CodeCompletionAllocator10CopyStringERKN4llvm5TwineE(ptr noundef nonnull align 8 dereferenceable(96) %.val10, ptr noundef nonnull align 8 dereferenceable(34) %7) #30
   store ptr null, ptr %6, align 8, !tbaa !756
   store ptr %151, ptr %64, align 8, !tbaa !21

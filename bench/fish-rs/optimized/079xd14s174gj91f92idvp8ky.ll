@@ -97554,7 +97554,7 @@ define hidden void @_ZN4fish3ast9Populator13populate_list17h779ce25dbfd3ca6dE(pt
   %137 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.5.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.5.i.i, i64 12
   %138 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.44.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 36
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 96
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 104
@@ -98028,7 +98028,7 @@ _ZN4fish3ast9Populator9try_parse17hbaaf6b5b376920b3E.exit.thread: ; preds = %.no
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !9958
   store i32 2, ptr %8, align 8, !alias.scope !9955, !noalias !9951
   store i32 2, ptr %138, align 8, !alias.scope !9955, !noalias !9951
-  store i32 2, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !alias.scope !9955, !noalias !9951
+  store i32 2, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !alias.scope !9955, !noalias !9951
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5.i.i, i64 60, i1 false), !noalias !9951
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !9955, !noalias !9951
   store i64 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !9955, !noalias !9951
@@ -104128,7 +104128,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652
   %10 = alloca [24 x i8], align 8
   %11 = alloca [48 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %.sroa.57.i.i = alloca [60 x i8], align 4
+  %.sroa.5.i.i = alloca [60 x i8], align 4
   %13 = alloca [32 x i8], align 8
   %14 = alloca [144 x i8], align 8
   %15 = alloca [4 x i8], align 4
@@ -104306,12 +104306,12 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652
   %139 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %140 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %141 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.57.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.57.i.i, i64 12
+  %.sroa.5.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.5.i.i, i64 12
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 12
   %142 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %143 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sroa.57.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 36
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 36
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 96
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 104
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 112
@@ -104760,7 +104760,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652
           to label %.noexc199 unwind label %.loopexit.split-lp.loopexit
 
 .noexc199:                                        ; preds = %266
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.57.i.i)
+  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.5.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !10548
   store ptr inttoptr (i64 4 to ptr), ptr %12, align 8, !noalias !10548
   store i64 0, ptr %141, align 8, !noalias !10548
@@ -104781,7 +104781,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652
   unreachable
 
 "_ZN80_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$core..default..Default$GT$7default17h0c59aa1e17a01cdeE.exit.i": ; preds = %.noexc199
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.57.32..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !10551
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.5.32..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !10551
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !10548
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !10548
   store i32 0, ptr %14, align 8, !alias.scope !10545, !noalias !10541
@@ -104789,12 +104789,12 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hd294756c652
   store i32 0, ptr %142, align 8, !alias.scope !10545, !noalias !10541
   store i32 2, ptr %143, align 8, !alias.scope !10545, !noalias !10541
   store i32 2, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !alias.scope !10545, !noalias !10541
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.57.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.57.i.i, i64 60, i1 false), !noalias !10541
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5.i.i, i64 60, i1 false), !noalias !10541
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !10545, !noalias !10541
   store i64 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !10545, !noalias !10541
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !10545, !noalias !10541
   store i64 0, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !10545, !noalias !10541
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.57.i.i)
+  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.5.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !10541
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !10552
   invoke void @"_ZN73_$LT$fish..ast..JobConjunctionContinuation$u20$as$u20$fish..ast..Node$GT$8kind_mut17h4c0529b3ccecdadbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 dereferenceable(144) %14)
@@ -106649,7 +106649,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382
   %10 = alloca [24 x i8], align 8
   %11 = alloca [48 x i8], align 8
   %12 = alloca [16 x i8], align 8
-  %.sroa.517.i.i = alloca [60 x i8], align 4
+  %.sroa.5.i.i = alloca [60 x i8], align 4
   %13 = alloca [32 x i8], align 8
   %14 = alloca [224 x i8], align 8
   %15 = alloca [4 x i8], align 4
@@ -106827,7 +106827,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382
   %139 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %140 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %141 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.517.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.517.i.i, i64 12
+  %.sroa.5.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.5.i.i, i64 12
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 12
   %142 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.01.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 28
@@ -107286,7 +107286,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382
 265:                                              ; preds = %.noexc103
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %14), !noalias !10749
   call void @llvm.experimental.noalias.scope.decl(metadata !10753)
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.517.i.i)
+  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.5.i.i)
   %266 = invoke noundef i8 @"_ZN78_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..default..Default$GT$7default17h30f756cf70474047E"()
           to label %.noexc199 unwind label %.loopexit.split-lp.loopexit
 
@@ -107315,7 +107315,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382
   unreachable
 
 "_ZN66_$LT$fish..ast..ElseifClause$u20$as$u20$core..default..Default$GT$7default17h7f2a84a60ecdad51E.exit.i": ; preds = %.noexc200
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.517.32..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !10759
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.5.32..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !10759
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !10756
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !10756
   store i32 0, ptr %14, align 8, !alias.scope !10753, !noalias !10749
@@ -107325,7 +107325,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382
   store i32 2, ptr %.sroa.01.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !10753, !noalias !10749
   store i32 2, ptr %.sroa.01.sroa.7.sroa.0.sroa.5.0..sroa.01.sroa.7.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10753, !noalias !10749
   store i32 2, ptr %.sroa.01.sroa.7.sroa.0.sroa.5.sroa.5.0..sroa.01.sroa.7.sroa.0.sroa.5.0..sroa.01.sroa.7.0..sroa_idx.sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10753, !noalias !10749
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.01.sroa.7.sroa.0.sroa.5.sroa.6.0..sroa.01.sroa.7.sroa.0.sroa.5.0..sroa.01.sroa.7.0..sroa_idx.sroa_idx.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.517.i.i, i64 60, i1 false), !noalias !10749
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.01.sroa.7.sroa.0.sroa.5.sroa.6.0..sroa.01.sroa.7.sroa.0.sroa.5.0..sroa.01.sroa.7.0..sroa_idx.sroa_idx.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5.i.i, i64 60, i1 false), !noalias !10749
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.01.sroa.7.sroa.0.sroa.5.sroa.7.0..sroa.01.sroa.7.sroa.0.sroa.5.0..sroa.01.sroa.7.0..sroa_idx.sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10753, !noalias !10749
   store i64 0, ptr %.sroa.01.sroa.7.sroa.0.sroa.5.sroa.8.0..sroa.01.sroa.7.sroa.0.sroa.5.0..sroa.01.sroa.7.0..sroa_idx.sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10753, !noalias !10749
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.01.sroa.7.sroa.0.sroa.5.sroa.9.0..sroa.01.sroa.7.sroa.0.sroa.5.0..sroa.01.sroa.7.0..sroa_idx.sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10753, !noalias !10749
@@ -107337,7 +107337,7 @@ define internal fastcc void @_ZN4fish3ast9Populator13populate_list17hebc1a336382
   store i64 0, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !10753, !noalias !10749
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !10753, !noalias !10749
   store i64 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !10753, !noalias !10749
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.517.i.i)
+  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.5.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !10749
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !10760
   invoke void @"_ZN59_$LT$fish..ast..ElseifClause$u20$as$u20$fish..ast..Node$GT$8kind_mut17h31e1acb3010f544dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 dereferenceable(224) %14)
@@ -111160,12 +111160,12 @@ define hidden void @_ZN4fish3ast9Populator14allocate_visit17hfee972e4b42377d6E(p
   %9 = alloca [24 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = alloca [16 x i8], align 8
-  %.sroa.58.i = alloca [60 x i8], align 4
+  %.sroa.5.i = alloca [60 x i8], align 4
   %12 = alloca [32 x i8], align 8
   %13 = alloca [192 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11066)
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.58.i)
+  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.5.i)
   %14 = tail call noundef i8 @"_ZN78_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..default..Default$GT$7default17h30f756cf70474047E"(), !noalias !11066
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !11069
   store ptr inttoptr (i64 4 to ptr), ptr %11, align 8, !noalias !11069
@@ -111192,8 +111192,8 @@ common.resume:                                    ; preds = %90, %16
   resume { ptr, i32 } %common.resume.op
 
 "_ZN65_$LT$fish..ast..WhileHeader$u20$as$u20$core..default..Default$GT$7default17h6bd97d1b16e705f2E.exit": ; preds = %2
-  %.sroa.58.32..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.58.i, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.58.32..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false), !noalias !11066
+  %.sroa.5.32..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.5.i, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.5.32..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false), !noalias !11066
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !11069
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !11069
   store i32 0, ptr %13, align 8, !alias.scope !11066
@@ -111206,7 +111206,7 @@ common.resume:                                    ; preds = %90, %16
   %.sroa.01.sroa.5.sroa.5.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i32 2, ptr %.sroa.01.sroa.5.sroa.5.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !11066
   %.sroa.01.sroa.5.sroa.6.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.01.sroa.5.sroa.6.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.58.i, i64 60, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.01.sroa.5.sroa.6.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5.i, i64 60, i1 false)
   %.sroa.01.sroa.5.sroa.7.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 112
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.01.sroa.5.sroa.7.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !11066
   %.sroa.01.sroa.5.sroa.8.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 120
@@ -111225,7 +111225,7 @@ common.resume:                                    ; preds = %90, %16
   store ptr inttoptr (i64 8 to ptr), ptr %21, align 8, !alias.scope !11066
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 184
   store i64 0, ptr %22, align 8, !alias.scope !11066
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.58.i)
+  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !11072
   invoke void @"_ZN58_$LT$fish..ast..WhileHeader$u20$as$u20$fish..ast..Node$GT$8kind_mut17h61d4a67b064e6472E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(192) %13)
@@ -112488,14 +112488,14 @@ define hidden noundef nonnull align 8 ptr @_ZN4fish3ast9Populator20allocate_boxe
   %8 = alloca [24 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = alloca [16 x i8], align 8
-  %.sroa.515.i.i = alloca [60 x i8], align 4
+  %.sroa.5.i.i = alloca [60 x i8], align 4
   %11 = alloca [16 x i8], align 8
   %12 = alloca [208 x i8], align 8
   %.sroa.01.i = alloca [208 x i8], align 8
   %13 = alloca [32 x i8], align 8
   %14 = tail call noundef nonnull align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h2b37a0c0a7a6fe3aE"()
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %.sroa.01.i)
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.515.i.i)
+  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.5.i.i)
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %12), !noalias !11141
   %15 = invoke noundef i8 @"_ZN78_$LT$fish..parse_constants..ParseKeyword$u20$as$u20$core..default..Default$GT$7default17h30f756cf70474047E"()
           to label %.noexc.i unwind label %32
@@ -112522,8 +112522,8 @@ define hidden noundef nonnull align 8 ptr @_ZN4fish3ast9Populator20allocate_boxe
   unreachable
 
 "_ZN65_$LT$fish..ast..JobPipeline$u20$as$u20$core..default..Default$GT$7default17hdc646ae4ff6b43c7E.exit.i.i": ; preds = %.noexc.i
-  %.sroa.515.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.515.i.i, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.515.32..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !11141
+  %.sroa.5.32..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.5.i.i, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.5.32..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !11141
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !11144
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !11144
   store i32 0, ptr %12, align 8, !noalias !11141
@@ -112536,7 +112536,7 @@ define hidden noundef nonnull align 8 ptr @_ZN4fish3ast9Populator20allocate_boxe
   %.sroa.04.sroa.5.sroa.5.0..sroa.04.sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 2, ptr %.sroa.04.sroa.5.sroa.5.0..sroa.04.sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !11141
   %.sroa.04.sroa.5.sroa.6.0..sroa.04.sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.04.sroa.5.sroa.6.0..sroa.04.sroa.5.0..sroa_idx.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.515.i.i, i64 60, i1 false), !noalias !11141
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.04.sroa.5.sroa.6.0..sroa.04.sroa.5.0..sroa_idx.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5.i.i, i64 60, i1 false), !noalias !11141
   %.sroa.04.sroa.5.sroa.7.0..sroa.04.sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 112
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.04.sroa.5.sroa.7.0..sroa.04.sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !11141
   %.sroa.04.sroa.5.sroa.8.0..sroa.04.sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 120
@@ -112600,7 +112600,7 @@ common.resume:                                    ; preds = %102, %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %.sroa.01.i, ptr noundef nonnull align 8 dereferenceable(208) %12, i64 208, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !11141
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %12), !noalias !11141
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.515.i.i)
+  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.5.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %14, ptr noundef nonnull align 8 dereferenceable(208) %.sroa.01.i, i64 208, i1 false)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 208
   store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 8

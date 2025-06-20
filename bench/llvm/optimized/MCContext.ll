@@ -6003,15 +6003,15 @@ _ZN4llvm9MCContext25createLinkerPrivateSymbolERKNS_5TwineE.exit:
   %.sroa.0.0.copyload.pn.in.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.0.0.copyload.pn.in.v.i.i
   %.pn1.i.i = select i1 %.not.i.i, i64 %.sroa.2.0.copyload.i.i.i, i64 %5
   %.sroa.0.0.copyload.pn.i.i = load ptr, ptr %.sroa.0.0.copyload.pn.in.i.i, align 8, !tbaa !4
+  %.sink6.i.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.sroa.0.0.copyload.pn.i.i, ptr %1, align 8, !alias.scope !493
-  %.sroa.23.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.pn1.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !tbaa !16, !alias.scope !493
+  store i64 %.pn1.i.i, ptr %.sink6.i.sroa.gep, align 8, !tbaa !16, !alias.scope !493
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @.str.6, ptr %6, align 8, !alias.scope !493
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i8 5, ptr %7, align 8, !tbaa !338, !alias.scope !493
+  store i8 5, ptr %7, align 8, !tbaa !406
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  store i8 3, ptr %8, align 1, !tbaa !335, !alias.scope !493
+  store i8 3, ptr %8, align 1, !tbaa !406
   %9 = call noundef ptr @_ZN4llvm9MCContext21createRenamableSymbolERKNS_5TwineEbb(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i1 noundef zeroext true, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #22
   ret ptr %9
@@ -6096,6 +6096,7 @@ define dso_local noundef ptr @_ZN4llvm9MCContext16createTempSymbolEv(ptr noundef
   br label %_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %1
+  %.sink7.i.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #22
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8, !tbaa !175
@@ -6104,14 +6105,13 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 96
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !9
   store ptr %.sroa.0.0.copyload.i.i, ptr %2, align 8, !alias.scope !505
-  %.sroa.23.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !tbaa !16, !alias.scope !505
+  store i64 %.sroa.2.0.copyload.i.i, ptr %.sink7.i.sroa.gep, align 8, !tbaa !16, !alias.scope !505
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str.6, ptr %11, align 8, !alias.scope !505
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 5, ptr %12, align 8, !tbaa !338, !alias.scope !505
+  store i8 5, ptr %12, align 8, !tbaa !406
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  store i8 3, ptr %13, align 1, !tbaa !335, !alias.scope !505
+  store i8 3, ptr %13, align 1, !tbaa !406
   %14 = call noundef ptr @_ZN4llvm9MCContext21createRenamableSymbolERKNS_5TwineEbb(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull align 8 dereferenceable(34) %2, i1 noundef zeroext true, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #22
   br label %_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb.exit
@@ -6132,15 +6132,15 @@ _ZN4llvm9MCContext21createNamedTempSymbolERKNS_5TwineE.exit:
   %.sroa.0.0.copyload.i.i = load ptr, ptr %4, align 8, !tbaa !4
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 96
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !9
+  %.sink6.i.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.sroa.0.0.copyload.i.i, ptr %1, align 8, !alias.scope !510
-  %.sroa.23.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !tbaa !16, !alias.scope !510
+  store i64 %.sroa.2.0.copyload.i.i, ptr %.sink6.i.sroa.gep, align 8, !tbaa !16, !alias.scope !510
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @.str.6, ptr %5, align 8, !alias.scope !510
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i8 5, ptr %6, align 8, !tbaa !338, !alias.scope !510
+  store i8 5, ptr %6, align 8, !tbaa !406
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  store i8 3, ptr %7, align 1, !tbaa !335, !alias.scope !510
+  store i8 3, ptr %7, align 1, !tbaa !406
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1883
   %9 = load i8, ptr %8, align 1, !tbaa !198, !range !220, !noundef !221
   %10 = trunc nuw i8 %9 to i1
@@ -6420,15 +6420,15 @@ define dso_local noundef ptr @_ZN4llvm9MCContext33getOrCreateDirectionalLocalSym
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %12, align 8, !tbaa !4
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 96
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !9
+  %.sink6.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %4, align 8, !alias.scope !523
-  %.sroa.23.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.2.0.copyload.i.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !16, !alias.scope !523
+  store i64 %.sroa.2.0.copyload.i.i.i, ptr %.sink6.i.sroa.gep.i, align 8, !tbaa !16, !alias.scope !523
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @.str.6, ptr %13, align 8, !alias.scope !523
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 5, ptr %14, align 8, !tbaa !338, !alias.scope !523
+  store i8 5, ptr %14, align 8, !tbaa !406
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 3, ptr %15, align 1, !tbaa !335, !alias.scope !523
+  store i8 3, ptr %15, align 1, !tbaa !406
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1883
   %17 = load i8, ptr %16, align 1, !tbaa !198, !range !220, !noundef !221
   %18 = trunc nuw i8 %17 to i1
@@ -6666,15 +6666,15 @@ _ZN4llvm9MCContext12NextInstanceEj.exit:          ; preds = %2, %29
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %40, align 8, !tbaa !4
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 96
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !9
+  %.sink6.i.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %3, align 8, !alias.scope !535
-  %.sroa.23.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.sroa.2.0.copyload.i.i.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !16, !alias.scope !535
+  store i64 %.sroa.2.0.copyload.i.i.i.i, ptr %.sink6.i.sroa.gep.i.i, align 8, !tbaa !16, !alias.scope !535
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @.str.6, ptr %41, align 8, !alias.scope !535
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 5, ptr %42, align 8, !tbaa !338, !alias.scope !535
+  store i8 5, ptr %42, align 8, !tbaa !406
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  store i8 3, ptr %43, align 1, !tbaa !335, !alias.scope !535
+  store i8 3, ptr %43, align 1, !tbaa !406
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1883
   %45 = load i8, ptr %44, align 1, !tbaa !198, !range !220, !noundef !221
   %46 = trunc nuw i8 %45 to i1
@@ -6770,15 +6770,15 @@ _ZN4llvm9MCContext11GetInstanceEj.exit:           ; preds = %3, %30
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %41, align 8, !tbaa !4
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 96
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !9
+  %.sink6.i.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %4, align 8, !alias.scope !540
-  %.sroa.23.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.2.0.copyload.i.i.i.i, ptr %.sroa.23.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !16, !alias.scope !540
+  store i64 %.sroa.2.0.copyload.i.i.i.i, ptr %.sink6.i.sroa.gep.i.i, align 8, !tbaa !16, !alias.scope !540
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @.str.6, ptr %42, align 8, !alias.scope !540
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 5, ptr %43, align 8, !tbaa !338, !alias.scope !540
+  store i8 5, ptr %43, align 8, !tbaa !406
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 3, ptr %44, align 1, !tbaa !335, !alias.scope !540
+  store i8 3, ptr %44, align 1, !tbaa !406
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1883
   %46 = load i8, ptr %45, align 1, !tbaa !198, !range !220, !noundef !221
   %47 = trunc nuw i8 %46 to i1
@@ -7018,6 +7018,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit31:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #22
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #22
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #22
+  %.sink7.i.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink7.i.sroa.gep45 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %1, ptr %12, align 8, !alias.scope !557
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %2, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !tbaa !16, !alias.scope !557
@@ -7072,7 +7074,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %34 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !229
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !567
-  br label %118
+  br label %117
 
 37:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.not = icmp eq ptr %8, null
@@ -7104,137 +7106,138 @@ _ZN4llvm5TwineC2EPKc.exit.thread:                 ; preds = %38
   %.sroa.0.0.copyload.i.i = load ptr, ptr %48, align 8, !tbaa !4
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %47, i64 96
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !9
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit.i
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i
 
 49:                                               ; preds = %_ZN4llvm5TwineC2EPKc.exit.thread
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #22
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %51 = load ptr, ptr %50, align 8, !tbaa !175
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 88
-  %.sroa.0.0.copyload.i.i60 = load ptr, ptr %52, align 8, !tbaa !4
-  %.sroa.2.0..sroa_idx.i.i61 = getelementptr inbounds nuw i8, ptr %51, i64 96
-  %.sroa.2.0.copyload.i.i62 = load i64, ptr %.sroa.2.0..sroa_idx.i.i61, align 8, !tbaa !9
+  %.sroa.0.0.copyload.i.i61 = load ptr, ptr %52, align 8, !tbaa !4
+  %.sroa.2.0..sroa_idx.i.i62 = getelementptr inbounds nuw i8, ptr %51, i64 96
+  %.sroa.2.0.copyload.i.i63 = load i64, ptr %.sroa.2.0..sroa_idx.i.i62, align 8, !tbaa !9
+  store i64 %.sroa.2.0.copyload.i.i63, ptr %.sink7.i.sroa.gep, align 8, !tbaa !16, !alias.scope !570
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %8, ptr %53, align 8, !alias.scope !570
-  br label %_ZN4llvmplERKNS_5TwineES2_.exit.i
+  br label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i
 
-_ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %49, %45
-  %.sroa.2.0.copyload.i.i66 = phi i64 [ %.sroa.2.0.copyload.i.i, %45 ], [ %.sroa.2.0.copyload.i.i62, %49 ]
-  %.sroa.0.0.copyload.i.i64 = phi ptr [ %.sroa.0.0.copyload.i.i, %45 ], [ %.sroa.0.0.copyload.i.i60, %49 ]
-  %storemerge.i.sink = phi i8 [ 1, %45 ], [ 3, %49 ]
-  store ptr %.sroa.0.0.copyload.i.i64, ptr %9, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.sroa.2.0.copyload.i.i66, ptr %54, align 8, !tbaa !16
-  %55 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i8 5, ptr %55, align 8, !tbaa !406
-  %56 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 %storemerge.i.sink, ptr %56, align 1, !tbaa !406
-  %57 = call noundef ptr @_ZN4llvm9MCContext21createRenamableSymbolERKNS_5TwineEbb(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext false, i1 noundef zeroext true)
+_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i:     ; preds = %49, %45
+  %.sroa.0.0.copyload.i.i66 = phi ptr [ %.sroa.0.0.copyload.i.i, %45 ], [ %.sroa.0.0.copyload.i.i61, %49 ]
+  %storemerge.i5964 = phi i8 [ 1, %45 ], [ 3, %49 ]
+  %.sink7.i.sroa.phi = phi ptr [ %.sink7.i.sroa.gep, %45 ], [ %.sink7.i.sroa.gep45, %49 ]
+  %.sroa.2.0.copyload.i.sink.i = phi i64 [ %.sroa.2.0.copyload.i.i, %45 ], [ undef, %49 ]
+  store ptr %.sroa.0.0.copyload.i.i66, ptr %9, align 8
+  store i64 %.sroa.2.0.copyload.i.sink.i, ptr %.sink7.i.sroa.phi, align 8, !tbaa !16
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i8 5, ptr %54, align 8, !tbaa !406
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 %storemerge.i5964, ptr %55, align 1, !tbaa !406
+  %56 = call noundef ptr @_ZN4llvm9MCContext21createRenamableSymbolERKNS_5TwineEbb(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext false, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22
   br label %_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb.exit
 
-_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb.exit: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i, %43, %37
-  %.015 = phi ptr [ null, %37 ], [ %57, %_ZN4llvmplERKNS_5TwineES2_.exit.i ], [ %44, %43 ]
-  %58 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !229
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %60 = load i64, ptr %58, align 8, !tbaa !231
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %63 = load i64, ptr %62, align 8, !tbaa !262
-  %64 = add i64 %63, 192
-  store i64 %64, ptr %62, align 8, !tbaa !262
-  %65 = load ptr, ptr %61, align 8, !tbaa !263
-  %66 = ptrtoint ptr %65 to i64
-  %67 = add i64 %66, 7
-  %68 = and i64 %67, -8
-  %69 = add i64 %68, 192
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %71 = load ptr, ptr %70, align 8, !tbaa !264
-  %72 = ptrtoint ptr %71 to i64
-  %.not.i.i.i.i.i = icmp ule i64 %69, %72
-  %73 = icmp ne ptr %65, null
-  %74 = and i1 %73, %.not.i.i.i.i.i
-  br i1 %74, label %75, label %78, !prof !311
+_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb.exit: ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i, %43, %37
+  %.015 = phi ptr [ null, %37 ], [ %56, %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i ], [ %44, %43 ]
+  %57 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !229
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %59 = load i64, ptr %57, align 8, !tbaa !231
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %62 = load i64, ptr %61, align 8, !tbaa !262
+  %63 = add i64 %62, 192
+  store i64 %63, ptr %61, align 8, !tbaa !262
+  %64 = load ptr, ptr %60, align 8, !tbaa !263
+  %65 = ptrtoint ptr %64 to i64
+  %66 = add i64 %65, 7
+  %67 = and i64 %66, -8
+  %68 = add i64 %67, 192
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %70 = load ptr, ptr %69, align 8, !tbaa !264
+  %71 = ptrtoint ptr %70 to i64
+  %.not.i.i.i.i.i = icmp ule i64 %68, %71
+  %72 = icmp ne ptr %64, null
+  %73 = and i1 %72, %.not.i.i.i.i.i
+  br i1 %73, label %74, label %77, !prof !311
 
-75:                                               ; preds = %_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb.exit
-  %76 = inttoptr i64 %69 to ptr
-  store ptr %76, ptr %61, align 8, !tbaa !263
-  %77 = inttoptr i64 %68 to ptr
+74:                                               ; preds = %_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb.exit
+  %75 = inttoptr i64 %68 to ptr
+  store ptr %75, ptr %60, align 8, !tbaa !263
+  %76 = inttoptr i64 %67 to ptr
   br label %_ZN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionMachOEE8AllocateEm.exit
 
-78:                                               ; preds = %_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb.exit
-  %79 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %61, i64 noundef 192, i64 noundef 192, i8 3)
+77:                                               ; preds = %_ZN4llvm9MCContext16createTempSymbolERKNS_5TwineEb.exit
+  %78 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %60, i64 noundef 192, i64 noundef 192, i8 3)
   br label %_ZN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionMachOEE8AllocateEm.exit
 
-_ZN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionMachOEE8AllocateEm.exit: ; preds = %75, %78
-  %.0.i.i.i.i.i = phi ptr [ %77, %75 ], [ %79, %78 ]
-  %80 = sub i64 %60, %4
-  %.sroa.speculated4.i = call i64 @llvm.umin.i64(i64 %60, i64 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %59, i64 %.sroa.speculated4.i
-  %82 = sub i64 %60, %.sroa.speculated4.i
-  call void @_ZN4llvm14MCSectionMachOC1ENS_9StringRefES1_jjNS_11SectionKindEPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(192) %.0.i.i.i.i.i, ptr %1, i64 %2, ptr nonnull %81, i64 %82, i32 noundef %5, i32 noundef %6, i32 %7, ptr noundef %.015) #22
-  %83 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !229
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store ptr %.0.i.i.i.i.i, ptr %84, align 8, !tbaa !567
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %87 = load i64, ptr %86, align 8, !tbaa !262
-  %88 = add i64 %87, 208
-  store i64 %88, ptr %86, align 8, !tbaa !262
-  %89 = load ptr, ptr %85, align 8, !tbaa !263
-  %90 = ptrtoint ptr %89 to i64
-  %91 = add i64 %90, 7
-  %92 = and i64 %91, -8
-  %93 = add i64 %92, 208
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %95 = load ptr, ptr %94, align 8, !tbaa !264
-  %96 = ptrtoint ptr %95 to i64
-  %.not.i.i.i.i = icmp ule i64 %93, %96
-  %97 = icmp ne ptr %89, null
-  %98 = and i1 %97, %.not.i.i.i.i
-  br i1 %98, label %99, label %102, !prof !311
+_ZN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionMachOEE8AllocateEm.exit: ; preds = %74, %77
+  %.0.i.i.i.i.i = phi ptr [ %76, %74 ], [ %78, %77 ]
+  %79 = sub i64 %59, %4
+  %.sroa.speculated4.i = call i64 @llvm.umin.i64(i64 %59, i64 %79)
+  %80 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.speculated4.i
+  %81 = sub i64 %59, %.sroa.speculated4.i
+  call void @_ZN4llvm14MCSectionMachOC1ENS_9StringRefES1_jjNS_11SectionKindEPNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(192) %.0.i.i.i.i.i, ptr %1, i64 %2, ptr nonnull %80, i64 %81, i32 noundef %5, i32 noundef %6, i32 %7, ptr noundef %.015) #22
+  %82 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !229
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  store ptr %.0.i.i.i.i.i, ptr %83, align 8, !tbaa !567
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %86 = load i64, ptr %85, align 8, !tbaa !262
+  %87 = add i64 %86, 208
+  store i64 %87, ptr %85, align 8, !tbaa !262
+  %88 = load ptr, ptr %84, align 8, !tbaa !263
+  %89 = ptrtoint ptr %88 to i64
+  %90 = add i64 %89, 7
+  %91 = and i64 %90, -8
+  %92 = add i64 %91, 208
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %94 = load ptr, ptr %93, align 8, !tbaa !264
+  %95 = ptrtoint ptr %94 to i64
+  %.not.i.i.i.i = icmp ule i64 %92, %95
+  %96 = icmp ne ptr %88, null
+  %97 = and i1 %96, %.not.i.i.i.i
+  br i1 %97, label %98, label %101, !prof !311
 
-99:                                               ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionMachOEE8AllocateEm.exit
-  %100 = inttoptr i64 %93 to ptr
-  store ptr %100, ptr %85, align 8, !tbaa !263
-  %101 = inttoptr i64 %92 to ptr
+98:                                               ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionMachOEE8AllocateEm.exit
+  %99 = inttoptr i64 %92 to ptr
+  store ptr %99, ptr %84, align 8, !tbaa !263
+  %100 = inttoptr i64 %91 to ptr
   br label %_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit
 
-102:                                              ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionMachOEE8AllocateEm.exit
-  %103 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %85, i64 noundef 208, i64 noundef 208, i8 3)
+101:                                              ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_14MCSectionMachOEE8AllocateEm.exit
+  %102 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %84, i64 noundef 208, i64 noundef 208, i8 3)
   br label %_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit
 
-_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit: ; preds = %99, %102
-  %.0.i.i.i.i = phi ptr [ %101, %99 ], [ %103, %102 ]
+_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit: ; preds = %98, %101
+  %.0.i.i.i.i = phi ptr [ %100, %98 ], [ %102, %101 ]
   call void @_ZN4llvm10MCFragmentC2ENS0_12FragmentTypeEb(ptr noundef nonnull align 8 dereferenceable(208) %.0.i.i.i.i, i8 noundef zeroext 1, i1 noundef zeroext false) #22
-  %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 30
-  store i8 0, ptr %104, align 2, !tbaa !312
-  %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store ptr null, ptr %105, align 8, !tbaa !317
-  %106 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
-  %107 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
-  store ptr %107, ptr %106, align 8, !tbaa !188
-  %108 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
-  store i64 0, ptr %108, align 8, !tbaa !189
-  %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
-  store i64 32, ptr %109, align 8, !tbaa !190
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 96
-  %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 112
-  store ptr %111, ptr %110, align 8, !tbaa !179
-  %112 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 104
-  store i32 0, ptr %112, align 8, !tbaa !180
-  %113 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 108
-  store i32 4, ptr %113, align 4, !tbaa !181
-  %114 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store ptr %.0.i.i.i.i.i, ptr %114, align 8, !tbaa !318
-  %115 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !319
-  store ptr %.0.i.i.i.i, ptr %116, align 8, !tbaa !332
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store ptr %.0.i.i.i.i, ptr %117, align 8, !tbaa !334
-  br label %118
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 30
+  store i8 0, ptr %103, align 2, !tbaa !312
+  %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store ptr null, ptr %104, align 8, !tbaa !317
+  %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
+  store ptr %106, ptr %105, align 8, !tbaa !188
+  %107 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  store i64 0, ptr %107, align 8, !tbaa !189
+  %108 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  store i64 32, ptr %108, align 8, !tbaa !190
+  %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 96
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 112
+  store ptr %110, ptr %109, align 8, !tbaa !179
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 104
+  store i32 0, ptr %111, align 8, !tbaa !180
+  %112 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 108
+  store i32 4, ptr %112, align 4, !tbaa !181
+  %113 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store ptr %.0.i.i.i.i.i, ptr %113, align 8, !tbaa !318
+  %114 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
+  %115 = load ptr, ptr %114, align 8, !tbaa !319
+  store ptr %.0.i.i.i.i, ptr %115, align 8, !tbaa !332
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  store ptr %.0.i.i.i.i, ptr %116, align 8, !tbaa !334
+  br label %117
 
-118:                                              ; preds = %_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit, %33
+117:                                              ; preds = %_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit, %33
   %.0 = phi ptr [ %.0.i.i.i.i.i, %_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit ], [ %36, %33 ]
   ret ptr %.0
 }

@@ -4765,16 +4765,16 @@ switch.lookup:                                    ; preds = %10
   br label %13
 
 13:                                               ; preds = %switch.lookup, %7
-  %.sroa.338.0 = phi i64 [ 0, %7 ], [ %switch.load, %switch.lookup ]
+  %.sroa.1712122.0 = phi i64 [ 0, %7 ], [ %switch.load, %switch.lookup ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 172
   %15 = load i32, ptr %14, align 4, !tbaa !97
   %.not1080 = icmp eq i32 %15, 0
   br i1 %.not1080, label %18, label %16
 
 16:                                               ; preds = %13
-  %switch.tableidx2121 = add i32 %15, -33
-  %17 = icmp ult i32 %switch.tableidx2121, 160
-  br i1 %17, label %switch.lookup2120, label %156
+  %switch.tableidx2124 = add i32 %15, -33
+  %17 = icmp ult i32 %switch.tableidx2124, 160
+  br i1 %17, label %switch.lookup2123, label %156
 
 18:                                               ; preds = %13
   br i1 %3, label %32, label %19
@@ -4809,14 +4809,14 @@ switch.lookup:                                    ; preds = %10
   %.sroa.3.8.insert.ext.i1537 = select i1 %30, i64 30, i64 59
   br label %32
 
-switch.lookup2120:                                ; preds = %16
-  %31 = zext nneg i32 %switch.tableidx2121 to i64
-  %switch.gep2122 = getelementptr inbounds nuw [160 x i64], ptr @switch.table._ZL17translateRMMemoryRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionEPKNS_14MCDisassemblerEb.10, i64 0, i64 %31
-  %switch.load2123 = load i64, ptr %switch.gep2122, align 8
+switch.lookup2123:                                ; preds = %16
+  %31 = zext nneg i32 %switch.tableidx2124 to i64
+  %switch.gep2125 = getelementptr inbounds nuw [160 x i64], ptr @switch.table._ZL17translateRMMemoryRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionEPKNS_14MCDisassemblerEb.10, i64 0, i64 %31
+  %switch.load2126 = load i64, ptr %switch.gep2125, align 8
   br label %32
 
-32:                                               ; preds = %switch.lookup2120, %18, %26, %26, %26, %26, %26, %27
-  %.sroa.340.0 = phi i64 [ %.sroa.3.8.insert.ext.i1537, %27 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %18 ], [ %switch.load2123, %switch.lookup2120 ]
+32:                                               ; preds = %switch.lookup2123, %18, %26, %26, %26, %26, %26, %27
+  %.sroa.1722118.0 = phi i64 [ %.sroa.3.8.insert.ext.i1537, %27 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %26 ], [ 0, %18 ], [ %switch.load2126, %switch.lookup2123 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %34 = load i8, ptr %33, align 8, !tbaa !131
   %35 = zext i8 %34 to i64
@@ -4865,21 +4865,21 @@ switch.lookup2120:                                ; preds = %16
   br label %67
 
 64:                                               ; preds = %4
-  %switch.tableidx2125 = add i32 %6, -5
-  %65 = icmp ult i32 %switch.tableidx2125, 92
-  br i1 %65, label %switch.lookup2124, label %156
+  %switch.tableidx2128 = add i32 %6, -5
+  %65 = icmp ult i32 %switch.tableidx2128, 92
+  br i1 %65, label %switch.lookup2127, label %156
 
-switch.lookup2124:                                ; preds = %64
-  %66 = zext nneg i32 %switch.tableidx2125 to i64
-  %switch.gep2126 = getelementptr inbounds nuw [92 x i64], ptr @switch.table._ZL17translateRMMemoryRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionEPKNS_14MCDisassemblerEb.11, i64 0, i64 %66
-  %switch.load2127 = load i64, ptr %switch.gep2126, align 8
+switch.lookup2127:                                ; preds = %64
+  %66 = zext nneg i32 %switch.tableidx2128 to i64
+  %switch.gep2129 = getelementptr inbounds nuw [92 x i64], ptr @switch.table._ZL17translateRMMemoryRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionEPKNS_14MCDisassemblerEb.11, i64 0, i64 %66
+  %switch.load2130 = load i64, ptr %switch.gep2129, align 8
   br label %67
 
-67:                                               ; preds = %switch.lookup2124, %61, %62, %63, %40, %44, %4, %32
-  %.sroa.340.1 = phi i64 [ %.sroa.340.0, %32 ], [ 16, %61 ], [ 62, %62 ], [ 16, %63 ], [ 0, %40 ], [ 0, %44 ], [ 62, %4 ], [ 0, %switch.lookup2124 ]
-  %.sroa.8.0 = phi i64 [ %35, %32 ], [ 1, %61 ], [ 1, %62 ], [ 1, %63 ], [ 1, %40 ], [ 1, %44 ], [ 1, %4 ], [ 1, %switch.lookup2124 ]
-  %.sroa.338.1 = phi i64 [ %.sroa.338.0, %32 ], [ 9, %61 ], [ 6, %62 ], [ 6, %63 ], [ 0, %40 ], [ %.sroa.3.8.insert.ext.i1542, %44 ], [ 9, %4 ], [ %switch.load2127, %switch.lookup2124 ]
-  %.01075 = phi i64 [ 0, %32 ], [ 0, %61 ], [ 0, %62 ], [ 0, %63 ], [ 0, %40 ], [ %49, %44 ], [ 0, %4 ], [ 0, %switch.lookup2124 ]
+67:                                               ; preds = %switch.lookup2127, %61, %62, %63, %40, %44, %4, %32
+  %.sroa.1722118.1 = phi i64 [ %.sroa.1722118.0, %32 ], [ 16, %61 ], [ 62, %62 ], [ 16, %63 ], [ 0, %40 ], [ 0, %44 ], [ 62, %4 ], [ 0, %switch.lookup2127 ]
+  %.sroa.62120.0 = phi i64 [ %35, %32 ], [ 1, %61 ], [ 1, %62 ], [ 1, %63 ], [ 1, %40 ], [ 1, %44 ], [ 1, %4 ], [ 1, %switch.lookup2127 ]
+  %.sroa.1712122.1 = phi i64 [ %.sroa.1712122.0, %32 ], [ 9, %61 ], [ 6, %62 ], [ 6, %63 ], [ 0, %40 ], [ %.sroa.3.8.insert.ext.i1542, %44 ], [ 9, %4 ], [ %switch.load2130, %switch.lookup2127 ]
+  %.01075 = phi i64 [ 0, %32 ], [ 0, %61 ], [ 0, %62 ], [ 0, %63 ], [ 0, %40 ], [ %49, %44 ], [ 0, %4 ], [ 0, %switch.lookup2127 ]
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %69 = load i32, ptr %68, align 4, !tbaa !101
   %70 = sext i32 %69 to i64
@@ -4912,7 +4912,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %67, %81
   %88 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %86, i64 %87
   store i8 1, ptr %88, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store i64 %.sroa.338.1, ptr %.sroa.22.0..sroa_idx.i.i, align 1
+  store i64 %.sroa.1712122.1, ptr %.sroa.22.0..sroa_idx.i.i, align 1
   %89 = load i32, ptr %77, align 8, !tbaa !118
   %90 = add i32 %89, 1
   store i32 %90, ptr %77, align 8, !tbaa !118
@@ -4935,7 +4935,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1764: ; preds = %_ZN4llvm6MCInst1
   %99 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %97, i64 %98
   store i8 2, ptr %99, align 1
   %.sroa.22.0..sroa_idx.i.i1763 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i64 %.sroa.8.0, ptr %.sroa.22.0..sroa_idx.i.i1763, align 1
+  store i64 %.sroa.62120.0, ptr %.sroa.22.0..sroa_idx.i.i1763, align 1
   %100 = load i32, ptr %77, align 8, !tbaa !118
   %101 = add i32 %100, 1
   store i32 %101, ptr %77, align 8, !tbaa !118
@@ -4958,7 +4958,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit1768: ; preds = %_ZN4llvm6MCInst1
   %110 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %108, i64 %109
   store i8 1, ptr %110, align 1
   %.sroa.22.0..sroa_idx.i.i1767 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store i64 %.sroa.340.1, ptr %.sroa.22.0..sroa_idx.i.i1767, align 1
+  store i64 %.sroa.1722118.1, ptr %.sroa.22.0..sroa_idx.i.i1767, align 1
   %111 = load i32, ptr %77, align 8, !tbaa !118
   %112 = add i32 %111, 1
   store i32 %112, ptr %77, align 8, !tbaa !118

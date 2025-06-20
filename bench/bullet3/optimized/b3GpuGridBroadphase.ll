@@ -4100,12 +4100,11 @@ _ZN20b3AlignedObjectArrayI6b3Int4E6resizeEiRKS0_.exit: ; preds = %19, %2
   br label %35
 
 .loopexit.loopexit:                               ; preds = %_Z22b3TestAabbAgainstAabb2RK9b3Vector3S1_S1_S1_.exit.thread
-  %.pre42 = sext i32 %115 to i64
+  %.pre37 = sext i32 %115 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %35
-  %.pre-phi = phi i64 [ %.pre42, %.loopexit.loopexit ], [ %37, %35 ]
-  %.pre38 = phi i32 [ %.pre40, %.loopexit.loopexit ], [ %.pre37, %35 ]
+  %.pre-phi = phi i64 [ %.pre37, %.loopexit.loopexit ], [ %37, %35 ]
   %31 = phi i32 [ %115, %.loopexit.loopexit ], [ %36, %35 ]
   %32 = icmp slt i64 %indvars.iv.next35, %.pre-phi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4118,7 +4117,6 @@ _ZN20b3AlignedObjectArrayI6b3Int4E6resizeEiRKS0_.exit: ; preds = %19, %2
   ret void
 
 35:                                               ; preds = %.lr.ph30, %.loopexit
-  %.pre37 = phi i32 [ %25, %.lr.ph30 ], [ %.pre38, %.loopexit ]
   %36 = phi i32 [ %25, %.lr.ph30 ], [ %31, %.loopexit ]
   %indvars.iv34 = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next35, %.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph30 ], [ %indvars.iv.next, %.loopexit ]
@@ -4128,7 +4126,6 @@ _ZN20b3AlignedObjectArrayI6b3Int4E6resizeEiRKS0_.exit: ; preds = %19, %2
   br i1 %38, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %35, %_Z22b3TestAabbAgainstAabb2RK9b3Vector3S1_S1_S1_.exit.thread
-  %.pre39 = phi i32 [ %.pre40, %_Z22b3TestAabbAgainstAabb2RK9b3Vector3S1_S1_S1_.exit.thread ], [ %.pre37, %35 ]
   %39 = phi i32 [ %115, %_Z22b3TestAabbAgainstAabb2RK9b3Vector3S1_S1_S1_.exit.thread ], [ %36, %35 ]
   %40 = phi i32 [ %116, %_Z22b3TestAabbAgainstAabb2RK9b3Vector3S1_S1_S1_.exit.thread ], [ %36, %35 ]
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %_Z22b3TestAabbAgainstAabb2RK9b3Vector3S1_S1_S1_.exit.thread ], [ %indvars.iv, %35 ]
@@ -4280,13 +4277,12 @@ _ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit: ; preds = %87, %90, %_Z
   %113 = load i32, ptr %3, align 4, !tbaa !55
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr %3, align 4, !tbaa !55
-  %.pre.pre = load i32, ptr %24, align 4, !tbaa !43
+  %.pre = load i32, ptr %24, align 4, !tbaa !43
   br label %_Z22b3TestAabbAgainstAabb2RK9b3Vector3S1_S1_S1_.exit.thread
 
 _Z22b3TestAabbAgainstAabb2RK9b3Vector3S1_S1_S1_.exit.thread: ; preds = %80, %_ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit, %74, %68
-  %.pre40 = phi i32 [ %.pre39, %74 ], [ %.pre39, %68 ], [ %.pre.pre, %_ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit ], [ %.pre39, %80 ]
-  %115 = phi i32 [ %39, %74 ], [ %39, %68 ], [ %.pre.pre, %_ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit ], [ %.pre39, %80 ]
-  %116 = phi i32 [ %40, %74 ], [ %40, %68 ], [ %.pre.pre, %_ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit ], [ %.pre39, %80 ]
+  %115 = phi i32 [ %39, %80 ], [ %.pre, %_ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit ], [ %39, %74 ], [ %39, %68 ]
+  %116 = phi i32 [ %40, %80 ], [ %.pre, %_ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit ], [ %40, %74 ], [ %40, %68 ]
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %117 = trunc nuw i64 %indvars.iv.next32 to i32
   %118 = icmp sgt i32 %116, %117

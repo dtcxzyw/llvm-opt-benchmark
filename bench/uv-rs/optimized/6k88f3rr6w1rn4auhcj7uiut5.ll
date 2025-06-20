@@ -11026,7 +11026,7 @@ _ZN4core3ops8function6FnOnce9call_once17hae5f3877545e6ee7E.exit: ; preds = %8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %12 = icmp eq i64 %.sroa.5.0.copyload, %.sroa.6.0.copyload
   %.sroa.3.sroa.0.0 = select i1 %switch, i64 undef, i64 %.sroa.5.0.copyload
-  %.sroa.3.sroa.3.0 = select i1 %switch, i64 undef, i64 %.sroa.6.0.copyload
+  %.sroa.3.sroa.2.0 = select i1 %switch, i64 undef, i64 %.sroa.6.0.copyload
   %13 = select i1 %switch, i1 true, i1 %12
   %.sroa.07.0 = select i1 %13, i64 -9223372036854775808, i64 -9223372036854775806
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11037,7 +11037,7 @@ _ZN4core3ops8function6FnOnce9call_once17hae5f3877545e6ee7E.exit: ; preds = %8
   %.sroa.01.sroa.5.sroa.4.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 %.sroa.3.sroa.0.0, ptr %.sroa.01.sroa.5.sroa.4.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.01.sroa.5.sroa.4.sroa.4.0..sroa.01.sroa.5.sroa.4.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 %.sroa.3.sroa.3.0, ptr %.sroa.01.sroa.5.sroa.4.sroa.4.0..sroa.01.sroa.5.sroa.4.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.3.sroa.2.0, ptr %.sroa.01.sroa.5.sroa.4.sroa.4.0..sroa.01.sroa.5.sroa.4.0..sroa.01.sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %2, ptr %.sroa.52.0..sroa_idx, align 8
   %.sroa.63.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 208

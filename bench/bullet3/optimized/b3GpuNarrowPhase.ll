@@ -10902,7 +10902,7 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %_
   %212 = getelementptr inbounds nuw i8, ptr %207, i64 536
   %213 = load i32, ptr %212, align 8, !tbaa !324
   %214 = icmp slt i32 %213, 0
-  br i1 %214, label %215, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit.loopexit
+  br i1 %214, label %215, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit
 
 215:                                              ; preds = %211
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 301)
@@ -10925,14 +10925,11 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i: ; preds = 
   store i8 1, ptr %218, align 8, !tbaa !322
   store ptr null, ptr %216, align 8, !tbaa !321
   store i32 0, ptr %212, align 8, !tbaa !324
-  br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit.loopexit
-
-_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit.loopexit: ; preds = %211, %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i
-  %.pre87 = load ptr, ptr %3, align 8, !tbaa !7
+  %.pre87.pre = load ptr, ptr %3, align 8, !tbaa !7
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit
 
-_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit.loopexit, %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit
-  %222 = phi ptr [ %.pre87, %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit.loopexit ], [ %207, %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit ]
+_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %211, %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i, %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit
+  %222 = phi ptr [ %207, %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit ], [ %.pre87.pre, %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i ], [ %207, %211 ]
   store i32 0, ptr %208, align 4, !tbaa !323
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 564
   %224 = load i32, ptr %223, align 4, !tbaa !319

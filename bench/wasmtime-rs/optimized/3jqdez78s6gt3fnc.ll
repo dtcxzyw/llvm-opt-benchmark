@@ -944,8 +944,8 @@ define internal fastcc noundef nonnull align 4 dereferenceable(16) ptr @"_ZN16cr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN16cranelift_entity3map25SecondaryMap$LT$K$C$V$GT$3new17h812b38403a86482cE.llvm.7808069312437652055"(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { i32, [3 x i32] }, {} }) align 8 captures(none) dereferenceable(40) initializes((0, 28)) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   store i64 0, ptr %0, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr inttoptr (i64 4 to ptr), ptr %.sroa.41.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11560,8 +11560,8 @@ _ZN18wasmtime_cranelift25BuiltinFunctionSignatures3new17h00dde6d2f0fb7a62E.exit.
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   store i64 0, ptr %10, align 8, !alias.scope !1331
-  %.sroa.41.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr inttoptr (i64 4 to ptr), ptr %.sroa.41.0..sroa_idx.i, align 8, !alias.scope !1331
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr inttoptr (i64 4 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1331
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1331
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -14053,13 +14053,13 @@ _ZN18wasmtime_cranelift12func_environ15FuncEnvironment20add_field_to_memtype17h5
   %.sroa.51.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 %31, ptr %.sroa.51.0..sroa_idx.i.i, align 4, !noalias !1865
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %.sroa.82.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %67, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i, i8 0, i64 16, i1 false), !noalias !1865
-  %.sroa.93.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %67, i64 40
-  store i64 %64, ptr %.sroa.93.0..sroa_idx.i.i, align 8, !noalias !1865
-  %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %67, i64 48
-  store i16 %57, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !noalias !1865
-  %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %67, i64 50
-  store i8 1, ptr %.sroa.11.0..sroa_idx.i.i, align 2, !noalias !1865
+  store i64 %64, ptr %.sroa.82.0..sroa_idx.i.i, align 8, !noalias !1865
+  %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %67, i64 48
+  store i16 %57, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !noalias !1865
+  %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %67, i64 50
+  store i8 1, ptr %.sroa.10.0..sroa_idx.i.i, align 2, !noalias !1865
   %68 = load i64, ptr %58, align 8, !alias.scope !1881, !noalias !1884, !noundef !4
   %69 = add i64 %68, 1
   store i64 %69, ptr %58, align 8, !alias.scope !1881, !noalias !1884

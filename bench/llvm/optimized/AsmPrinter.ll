@@ -11538,8 +11538,8 @@ _ZN4llvm10AsmPrinter19emitPCSectionsLabelERKNS_15MachineFunctionERKNS_6MDNodeE.e
   %588 = extractvalue { i64, i8 } %584, 0
   %589 = and i64 %588, 4611686018427387903
   %590 = and i64 %588, 4611686018427387904
-  %.not118.i = icmp eq i64 %590, 0
-  br i1 %.not118.i, label %_ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQuantityIT_T0_EE.exit.i, label %591
+  %.not117.i = icmp eq i64 %590, 0
+  br i1 %.not117.i, label %_ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQuantityIT_T0_EE.exit.i, label %591
 
 591:                                              ; preds = %587
   %592 = getelementptr inbounds nuw i8, ptr %576, i64 24
@@ -11623,13 +11623,13 @@ _ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQu
 
 639:                                              ; preds = %624
   %640 = and i64 %621, 4611686018427387903
-  %.not116.i = icmp eq i64 %640, 0
-  br i1 %.not116.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i, label %641
+  %.not115.i = icmp eq i64 %640, 0
+  br i1 %.not115.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i, label %641
 
 641:                                              ; preds = %639
   %642 = and i64 %621, 4611686018427387904
-  %.not117.i = icmp eq i64 %642, 0
-  br i1 %.not117.i, label %_ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQuantityIT_T0_EE.exit63.i, label %643
+  %.not116.i = icmp eq i64 %642, 0
+  br i1 %.not116.i, label %_ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQuantityIT_T0_EE.exit63.i, label %643
 
 643:                                              ; preds = %641
   %644 = getelementptr inbounds nuw i8, ptr %576, i64 24
@@ -11686,8 +11686,8 @@ _ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQu
   %676 = extractvalue { i64, i8 } %672, 0
   %677 = and i64 %676, 4611686018427387903
   %678 = and i64 %676, 4611686018427387904
-  %.not115.i = icmp eq i64 %678, 0
-  br i1 %.not115.i, label %_ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQuantityIT_T0_EE.exit69.i, label %679
+  %.not114.i = icmp eq i64 %678, 0
+  br i1 %.not114.i, label %_ZN4llvmlsINS_8TypeSizeEmEERNS_11raw_ostreamES3_RKNS_7details23FixedOrScalableQuantityIT_T0_EE.exit69.i, label %679
 
 679:                                              ; preds = %675
   %680 = getelementptr inbounds nuw i8, ptr %576, i64 24
@@ -11828,8 +11828,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %756, %754, %727, %7
   %759 = getelementptr inbounds nuw i8, ptr %.sroa.0459.0606, i64 44
   %760 = load i32, ptr %759, align 4
   %761 = and i32 %760, 16777216
-  %.not119.i = icmp eq i32 %761, 0
-  br i1 %.not119.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit84.i, label %762
+  %.not118.i = icmp eq i32 %761, 0
+  br i1 %.not118.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit84.i, label %762
 
 762:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i
   %763 = getelementptr inbounds nuw i8, ptr %576, i64 24

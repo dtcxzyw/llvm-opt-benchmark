@@ -3531,8 +3531,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define internal fastcc range(i32 -1094995529, 2) i32 @parse_time_sequence(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %.sroa.9 = alloca [7 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   store i64 0, ptr %3, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
@@ -4010,15 +4008,13 @@ is_space.exit.thread.i.i80:                       ; preds = %.lr.ph.i.i79, %.lr.
   store i64 %81, ptr %180, align 8, !tbaa !61
   %.sroa.689.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i8 %73, ptr %.sroa.689.0..sroa_idx, align 8, !tbaa !79
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false), !tbaa.struct !191
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  store ptr %129, ptr %182, align 8, !tbaa !192
+  store ptr %129, ptr %182, align 8, !tbaa !191
   %183 = ptrtoint ptr %.0.lcssa.i to i64
   %184 = sub i64 %183, %131
   %185 = trunc i64 %184 to i32
   %186 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  store i32 %185, ptr %186, align 8, !tbaa !193
+  store i32 %185, ptr %186, align 8, !tbaa !192
   %187 = getelementptr inbounds nuw i8, ptr %180, i64 32
   store i8 %.sroa.083.0.ph, ptr %187, align 8, !tbaa !79
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 33
@@ -4029,7 +4025,6 @@ is_space.exit.thread.i.i80:                       ; preds = %.lr.ph.i.i79, %.lr.
 
 parse_fade.exit:                                  ; preds = %lex_space.exit, %.critedge.i, %166, %lex_char.exit16.i, %lex_char.exit16.thread.i, %.thread, %parse_timestamp.exit.thread100, %.loopexit, %._crit_edge, %64, %181, %71
   %.0 = phi i32 [ 1, %181 ], [ -1094995529, %71 ], [ -1094995529, %64 ], [ -1094995529, %._crit_edge ], [ -12, %.loopexit ], [ 0, %parse_timestamp.exit.thread100 ], [ -1094995529, %.thread ], [ -1094995529, %lex_char.exit16.i ], [ -1094995529, %lex_char.exit16.thread.i ], [ -1094995529, %166 ], [ -1094995529, %.critedge.i ], [ -1094995529, %lex_space.exit ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
   ret i32 %.0
 }
 
@@ -4205,17 +4200,17 @@ declare i32 @avio_read_to_bprint(ptr noundef, ptr noundef, i64 noundef) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -22, 1) i32 @expand_tseq(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4) unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %7 = load i32, ptr %6, align 4, !tbaa !194
+  %7 = load i32, ptr %6, align 4, !tbaa !193
   %8 = add nsw i32 %7, 1
-  store i32 %8, ptr %6, align 4, !tbaa !194
+  store i32 %8, ptr %6, align 4, !tbaa !193
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !193
+  %11 = load i32, ptr %10, align 8, !tbaa !192
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !192
+  %13 = load ptr, ptr %12, align 8, !tbaa !191
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.40, i32 noundef %11, ptr noundef %13) #16
   br label %alloc_array_elem.exit.thread
 
@@ -4233,19 +4228,19 @@ define internal fastcc range(i32 -22, 1) i32 @expand_tseq(ptr noundef %0, ptr no
 
 .preheader:                                       ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %24 = load i32, ptr %23, align 8, !tbaa !195
+  %24 = load i32, ptr %23, align 8, !tbaa !194
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph, label %.preheader.._crit_edge_crit_edge
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !193
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !192
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %26 = load ptr, ptr %1, align 8, !tbaa !196
+  %26 = load ptr, ptr %1, align 8, !tbaa !195
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %28 = load i32, ptr %27, align 8, !tbaa !193
+  %28 = load i32, ptr %27, align 8, !tbaa !192
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %30 = sext i32 %28 to i64
   %wide.trip.count = zext nneg i32 %24 to i64
@@ -4261,7 +4256,7 @@ define internal fastcc range(i32 -22, 1) i32 @expand_tseq(ptr noundef %0, ptr no
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %32, align 8, !tbaa !174
-  %38 = load ptr, ptr %29, align 8, !tbaa !192
+  %38 = load ptr, ptr %29, align 8, !tbaa !191
   %bcmp = tail call i32 @bcmp(ptr %37, ptr %38, i64 %30)
   %.not59 = icmp eq i32 %bcmp, 0
   br i1 %.not59, label %43, label %39
@@ -4269,12 +4264,12 @@ define internal fastcc range(i32 -22, 1) i32 @expand_tseq(ptr noundef %0, ptr no
 39:                                               ; preds = %31, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !197
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !196
 
 ._crit_edge:                                      ; preds = %39, %.preheader.._crit_edge_crit_edge
   %40 = phi i32 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %28, %39 ]
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !192
+  %42 = load ptr, ptr %41, align 8, !tbaa !191
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.41, i32 noundef %40, ptr noundef %42) #16
   br label %alloc_array_elem.exit.thread
 
@@ -4288,7 +4283,7 @@ define internal fastcc range(i32 -22, 1) i32 @expand_tseq(ptr noundef %0, ptr no
 
 49:                                               ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !198
+  %51 = load ptr, ptr %50, align 8, !tbaa !197
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !179
   %54 = sext i32 %53 to i64
@@ -4303,7 +4298,7 @@ define internal fastcc range(i32 -22, 1) i32 @expand_tseq(ptr noundef %0, ptr no
   %60 = load i32, ptr %56, align 8, !tbaa !180
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next73, %61
-  br i1 %62, label %.lr.ph68, label %.loopexit, !llvm.loop !199
+  br i1 %62, label %.lr.ph68, label %.loopexit, !llvm.loop !198
 
 .lr.ph68:                                         ; preds = %49, %59
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %59 ], [ 0, %49 ]
@@ -4367,13 +4362,13 @@ alloc_array_elem.exit:                            ; preds = %._crit_edge.i, %.cr
   store i32 %92, ptr %93, align 4, !tbaa !88
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %94, ptr noundef nonnull align 8 dereferenceable(3) %95, i64 3, i1 false), !tbaa.struct !200
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %94, ptr noundef nonnull align 8 dereferenceable(3) %95, i64 3, i1 false), !tbaa.struct !199
   br label %.loopexit
 
 .loopexit:                                        ; preds = %59, %49, %alloc_array_elem.exit
-  %96 = load i32, ptr %6, align 4, !tbaa !194
+  %96 = load i32, ptr %6, align 4, !tbaa !193
   %97 = add nsw i32 %96, -1
-  store i32 %97, ptr %6, align 4, !tbaa !194
+  store i32 %97, ptr %6, align 4, !tbaa !193
   br label %alloc_array_elem.exit.thread
 
 alloc_array_elem.exit.thread:                     ; preds = %.lr.ph68, %72, %76, %14, %.loopexit, %._crit_edge, %9
@@ -4536,7 +4531,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @generate_interval(ptr noun
 95:                                               ; preds = %add_interval.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %add_bell.exit, label %96, !llvm.loop !201
+  br i1 %exitcond.not.i, label %add_bell.exit, label %96, !llvm.loop !200
 
 96:                                               ; preds = %95, %68
   %indvars.iv.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i, %95 ]
@@ -5024,14 +5019,13 @@ attributes #18 = { nounwind willreturn memory(read) }
 !188 = distinct !{!188, !53}
 !189 = !{!156, !8, i64 144}
 !190 = !{!156, !22, i64 136}
-!191 = !{}
-!192 = !{!49, !6, i64 16}
-!193 = !{!49, !10, i64 24}
-!194 = !{!49, !10, i64 28}
-!195 = !{!38, !10, i64 40}
-!196 = !{!38, !39, i64 0}
-!197 = distinct !{!197, !53}
-!198 = !{!38, !41, i64 24}
-!199 = distinct !{!199, !53}
-!200 = !{i64 0, i64 1, !79, i64 1, i64 1, !79, i64 2, i64 1, !79}
-!201 = distinct !{!201, !53}
+!191 = !{!49, !6, i64 16}
+!192 = !{!49, !10, i64 24}
+!193 = !{!49, !10, i64 28}
+!194 = !{!38, !10, i64 40}
+!195 = !{!38, !39, i64 0}
+!196 = distinct !{!196, !53}
+!197 = !{!38, !41, i64 24}
+!198 = distinct !{!198, !53}
+!199 = !{i64 0, i64 1, !79, i64 1, i64 1, !79, i64 2, i64 1, !79}
+!200 = distinct !{!200, !53}

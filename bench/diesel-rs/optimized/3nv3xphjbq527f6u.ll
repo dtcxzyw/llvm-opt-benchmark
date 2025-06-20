@@ -6348,8 +6348,8 @@ define void @_ZN6diesel10connection19transaction_manager24TransactionManagerStat
   br label %10
 
 10:                                               ; preds = %2, %6
-  %.sink = phi i64 [ -9223372036854775798, %6 ], [ -9223372036854775799, %2 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ -9223372036854775798, %6 ], [ -9223372036854775799, %2 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -8722,8 +8722,8 @@ define void @_ZN6diesel10connection19transaction_manager24TransactionManagerStat
   br label %8
 
 8:                                                ; preds = %2, %6
-  %.sink = phi i64 [ -9223372036854775798, %6 ], [ -9223372036854775799, %2 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ -9223372036854775798, %6 ], [ -9223372036854775799, %2 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 

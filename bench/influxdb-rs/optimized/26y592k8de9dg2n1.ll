@@ -4575,7 +4575,6 @@ define internal fastcc void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i8 0, ptr %15, align 8
   store ptr null, ptr %11, align 8
-  %.sroa.011.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !51, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -5151,9 +5150,10 @@ _ZN3std4sync6poison4Flag4done17hd9bab5cd828871c1E.llvm.10746823393314531435.exit
   br i1 %215, label %.invoke, label %216
 
 216:                                              ; preds = %.loopexit107
+  %.sroa.498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.097.0.copyload, ptr %0, align 8
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.488.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.011.sroa.4.0..sroa_idx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.488.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.498.0..sroa_idx, i64 16, i1 false)
   br label %150
 
 "_ZN4core3ptr114drop_in_place$LT$crossbeam_channel..flavors..zero..Packet$LT$alloc..vec..Vec$LT$influxdb3_write..WalOp$GT$$GT$$GT$17h001e66788d837ee3E.exit41": ; preds = %153, %150
@@ -10503,14 +10503,14 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   store i64 13, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !2072, !noalias !2074
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr @anon.d959fead79ebb29ab0eec5bcadc87655.116, ptr %74, align 8, !alias.scope !2075, !noalias !2065
-  %.sroa.29.80..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i64 2, ptr %.sroa.29.80..sroa_idx3.i, align 8, !alias.scope !2075, !noalias !2065
-  %.sroa.30.80..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store ptr %4, ptr %.sroa.30.80..sroa_idx5.i, align 8, !alias.scope !2075, !noalias !2065
-  %.sroa.31.80..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i64 2, ptr %.sroa.31.80..sroa_idx7.i, align 8, !alias.scope !2075, !noalias !2065
-  %.sroa.32.80..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store ptr null, ptr %.sroa.32.80..sroa_idx9.i, align 8, !alias.scope !2075, !noalias !2065
+  %.sroa.27.80..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store i64 2, ptr %.sroa.27.80..sroa_idx3.i, align 8, !alias.scope !2075, !noalias !2065
+  %.sroa.28.80..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %5, i64 96
+  store ptr %4, ptr %.sroa.28.80..sroa_idx5.i, align 8, !alias.scope !2075, !noalias !2065
+  %.sroa.29.80..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store i64 2, ptr %.sroa.29.80..sroa_idx7.i, align 8, !alias.scope !2075, !noalias !2065
+  %.sroa.30.80..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %5, i64 112
+  store ptr null, ptr %.sroa.30.80..sroa_idx9.i, align 8, !alias.scope !2075, !noalias !2065
   store i64 %.sroa.048.0.i, ptr %5, align 8, !alias.scope !2072, !noalias !2074
   %.sroa.53.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %49, ptr %.sroa.53.0..sroa_idx4.i.i, align 8, !noalias !2074
@@ -10577,14 +10577,14 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
   store i64 13, ptr %.sroa.5.0..sroa_idx.i118.i, align 8, !alias.scope !2079, !noalias !2081
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr @anon.d959fead79ebb29ab0eec5bcadc87655.107, ptr %97, align 8, !alias.scope !2082, !noalias !2065
-  %.sroa.2930.80..sroa_idx31.i = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store i64 2, ptr %.sroa.2930.80..sroa_idx31.i, align 8, !alias.scope !2082, !noalias !2065
-  %.sroa.3033.80..sroa_idx34.i = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store ptr %8, ptr %.sroa.3033.80..sroa_idx34.i, align 8, !alias.scope !2082, !noalias !2065
-  %.sroa.3136.80..sroa_idx37.i = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i64 1, ptr %.sroa.3136.80..sroa_idx37.i, align 8, !alias.scope !2082, !noalias !2065
-  %.sroa.3239.80..sroa_idx40.i = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store ptr null, ptr %.sroa.3239.80..sroa_idx40.i, align 8, !alias.scope !2082, !noalias !2065
+  %.sroa.2731.80..sroa_idx32.i = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store i64 2, ptr %.sroa.2731.80..sroa_idx32.i, align 8, !alias.scope !2082, !noalias !2065
+  %.sroa.2834.80..sroa_idx35.i = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store ptr %8, ptr %.sroa.2834.80..sroa_idx35.i, align 8, !alias.scope !2082, !noalias !2065
+  %.sroa.2937.80..sroa_idx38.i = getelementptr inbounds nuw i8, ptr %2, i64 104
+  store i64 1, ptr %.sroa.2937.80..sroa_idx38.i, align 8, !alias.scope !2082, !noalias !2065
+  %.sroa.3040.80..sroa_idx41.i = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store ptr null, ptr %.sroa.3040.80..sroa_idx41.i, align 8, !alias.scope !2082, !noalias !2065
   store i64 %.sroa.097.0.i, ptr %2, align 8, !alias.scope !2079, !noalias !2081
   %.sroa.53.0..sroa_idx4.i119.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %52, ptr %.sroa.53.0..sroa_idx4.i119.i, align 8, !noalias !2081
@@ -13120,7 +13120,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
           to label %28 unwind label %.thread
 
 26:                                               ; preds = %174, %172
-  br i1 %.153108, label %._crit_edge, label %"_ZN4core3ptr157drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$$GT$17h96a9e76b619a3680E.exit91"
+  br i1 %.153107, label %._crit_edge, label %"_ZN4core3ptr157drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$$GT$17h96a9e76b619a3680E.exit91"
 
 ._crit_edge:                                      ; preds = %26
   %.pre = load ptr, ptr %25, align 8, !alias.scope !2265
@@ -13146,18 +13146,18 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
   invoke void @_ZN5tokio4sync15batch_semaphore9Semaphore3new17h047ea47eccaa0710E(ptr noalias noundef nonnull sret({ { { i64, [3 x i64] }, ptr }, { {}, { { { i8 } }, [7 x i8], { { { ptr, ptr }, i8, [7 x i8] } } } }, { { { i64 } } } }) align 8 captures(none) dereferenceable(80) %5, i64 noundef 10000)
-          to label %.noexc unwind label %.thread101
+          to label %.noexc unwind label %.thread100
 
 .noexc:                                           ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i64 10000, ptr %35, align 8, !noalias !2270
   %36 = invoke { ptr, ptr } @_ZN5tokio4sync4mpsc4chan7channel17h77da3e2a0a0cd73aE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %5)
-          to label %39 unwind label %.thread101
+          to label %39 unwind label %.thread100
 
 37:                                               ; preds = %171, %"_ZN4core3ptr125drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17hbe47bce70ef0b11cE.exit"
-  br i1 %.038123, label %173, label %172
+  br i1 %.038122, label %173, label %172
 
-.thread101:                                       ; preds = %28, %.noexc
+.thread100:                                       ; preds = %28, %.noexc
   %38 = landingpad { ptr, i32 }
           cleanup
   br label %173
@@ -13247,10 +13247,10 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   tail call void @llvm.trap()
   unreachable
 
-"_ZN4core3ptr157drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$$GT$17h96a9e76b619a3680E.exit": ; preds = %145, %149, %139, %.thread155, %160, %91
-  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %91 ], [ %.pn146, %160 ], [ %.pn146, %.thread155 ], [ %140, %139 ], [ %146, %149 ], [ %146, %145 ]
-  %.030 = phi i1 [ false, %91 ], [ %.131147, %160 ], [ %.131147, %.thread155 ], [ false, %139 ], [ false, %149 ], [ false, %145 ]
-  %.028 = phi i8 [ 0, %91 ], [ 1, %160 ], [ 1, %.thread155 ], [ 0, %139 ], [ 0, %149 ], [ 0, %145 ]
+"_ZN4core3ptr157drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$$GT$17h96a9e76b619a3680E.exit": ; preds = %145, %149, %139, %.thread154, %160, %91
+  %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %91 ], [ %.pn145, %160 ], [ %.pn145, %.thread154 ], [ %140, %139 ], [ %146, %149 ], [ %146, %145 ]
+  %.030 = phi i1 [ false, %91 ], [ %.131146, %160 ], [ %.131146, %.thread154 ], [ false, %139 ], [ false, %149 ], [ false, %145 ]
+  %.028 = phi i8 [ 0, %91 ], [ 1, %160 ], [ 1, %.thread154 ], [ 0, %139 ], [ 0, %149 ], [ 0, %145 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$influxdb3_write..write_buffer..flusher..WriteBufferFlusher$GT$17h2e0e0bc20ec47fd0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %13) #23
           to label %161 unwind label %153
 
@@ -13269,7 +13269,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
 76:                                               ; preds = %78
   %77 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread155
+  br label %.thread154
 
 78:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h84bdf4f6f3146af6E.exit"
   %79 = extractvalue { ptr, i64 } %75, 0
@@ -13278,10 +13278,10 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   tail call void @llvm.assume(i1 %81)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %79, ptr noundef nonnull align 1 dereferenceable(23) @anon.d959fead79ebb29ab0eec5bcadc87655.124, i64 23, i1 false), !noalias !2274
   store ptr %79, ptr %8, align 8
-  %.sroa.4.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %80, ptr %.sroa.4.0..sroa_idx95, align 8
-  %.sroa.596.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 23, ptr %.sroa.596.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %80, ptr %.sroa.4.0..sroa_idx94, align 8
+  %.sroa.595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 23, ptr %.sroa.595.0..sroa_idx, align 8
   invoke void @_ZN3std6thread7Builder4name17hd113a9b7104eea1dE(ptr noalias noundef nonnull sret({ { i64, i64 }, { ptr, [2 x i64] } }) align 8 captures(none) dereferenceable(40) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
           to label %82 unwind label %76
 
@@ -13300,7 +13300,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   store ptr %61, ptr %86, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2277
   invoke void @_ZN3std6thread7Builder16spawn_unchecked_17h820b3397d7d6371eE.llvm.12936710431969675094(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %7, ptr noundef null)
-          to label %.noexc72 unwind label %.thread159
+          to label %.noexc72 unwind label %.thread158
 
 .noexc72:                                         ; preds = %82
   %87 = load ptr, ptr %4, align 8, !noalias !2277, !noundef !4
@@ -13314,10 +13314,10 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   br i1 %88, label %92, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hef6d80db30db3aa8E.exit"
 
-.thread159:                                       ; preds = %82, %117
+.thread158:                                       ; preds = %82, %117
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.thread155
+  br label %.thread154
 
 91:                                               ; preds = %"_ZN4core3ptr158drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h5a23462dd8183434E.exit79", %152
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -13336,7 +13336,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   %95 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfce5dfdb476a3501E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3) #23
-          to label %.thread155 unwind label %97, !noalias !2282
+          to label %.thread154 unwind label %97, !noalias !2282
 
 96:                                               ; preds = %92
   unreachable
@@ -13349,8 +13349,8 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hef6d80db30db3aa8E.exit": ; preds = %.noexc72
   store ptr %87, ptr %11, align 8
-  %.sroa.0.sroa.493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %90, ptr %.sroa.0.sroa.493.0..sroa_idx, align 8
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %90, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %.sroa.5.0.copyload.i, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %99 = cmpxchg weak ptr %69, i8 0, i8 1 acquire monotonic, align 1
@@ -13366,11 +13366,11 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
           cleanup
   %104 = load ptr, ptr %11, align 8, !alias.scope !2286, !noundef !4
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %.thread155, label %106
+  br i1 %105, label %.thread154, label %106
 
 106:                                              ; preds = %102
   invoke void @"_ZN4core3ptr59drop_in_place$LT$std..thread..JoinInner$LT$$LP$$RP$$GT$$GT$17h795db97d9aab0c84E.llvm.12494526139044184965"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
-          to label %.thread155 unwind label %153
+          to label %.thread154 unwind label %153
 
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h82eea67fab0d09f5E.llvm.10746823393314531435.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hef6d80db30db3aa8E.exit", %100
   %107 = load ptr, ptr %.sroa.417.sroa.3.0..sroa.417.0..sroa_idx.sroa_idx, align 8, !alias.scope !2289, !noundef !4
@@ -13387,11 +13387,11 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.417.sroa.3.0..sroa.417.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   %112 = cmpxchg ptr %69, i8 1, i8 0 release monotonic, align 1
   %113 = extractvalue { i8, i1 } %112, 1
-  br i1 %113, label %.thread155, label %114
+  br i1 %113, label %.thread154, label %114
 
 114:                                              ; preds = %110
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hd961f6baf0cf5d82E(ptr noundef nonnull align 1 %69, i1 noundef zeroext false)
-          to label %.thread155 unwind label %153
+          to label %.thread154 unwind label %153
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$17hf01aaec0e5d62670E.exit76": ; preds = %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h82eea67fab0d09f5E.llvm.10746823393314531435.exit", %109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.417.sroa.3.0..sroa.417.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
@@ -13402,7 +13402,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
 
 117:                                              ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$17hf01aaec0e5d62670E.exit76"
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17hd961f6baf0cf5d82E(ptr noundef nonnull align 1 %69, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h5a23462dd8183434E.exit79" unwind label %.thread159
+          to label %"_ZN4core3ptr158drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h5a23462dd8183434E.exit79" unwind label %.thread158
 
 "_ZN4core3ptr158drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h5a23462dd8183434E.exit79": ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$std..thread..JoinHandle$LT$$LP$$RP$$GT$$GT$$GT$17hf01aaec0e5d62670E.exit76", %117
   %118 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
@@ -13510,11 +13510,11 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   %156 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr41drop_in_place$LT$std..thread..Builder$GT$17hb51313f80caeedc1E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #23
-          to label %.thread155 unwind label %153
+          to label %.thread154 unwind label %153
 
-.thread155:                                       ; preds = %110, %114, %102, %106, %76, %155, %94, %.thread159
-  %.131147 = phi i1 [ false, %.thread159 ], [ false, %94 ], [ true, %76 ], [ true, %155 ], [ false, %106 ], [ false, %102 ], [ false, %114 ], [ false, %110 ]
-  %.pn146 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread159 ], [ %95, %94 ], [ %77, %76 ], [ %156, %155 ], [ %103, %106 ], [ %103, %102 ], [ %111, %114 ], [ %111, %110 ]
+.thread154:                                       ; preds = %110, %114, %102, %106, %76, %155, %94, %.thread158
+  %.131146 = phi i1 [ false, %.thread158 ], [ false, %94 ], [ true, %76 ], [ true, %155 ], [ false, %106 ], [ false, %102 ], [ false, %114 ], [ false, %110 ]
+  %.pn145 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread158 ], [ %95, %94 ], [ %77, %76 ], [ %156, %155 ], [ %103, %106 ], [ %103, %102 ], [ %111, %114 ], [ %111, %110 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2292)
   call void @llvm.experimental.noalias.scope.decl(metadata !2295)
   %157 = load ptr, ptr %12, align 8, !alias.scope !2298, !nonnull !4, !noundef !4
@@ -13522,7 +13522,7 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
   %159 = icmp eq i64 %158, 1
   br i1 %159, label %160, label %"_ZN4core3ptr157drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$$GT$17h96a9e76b619a3680E.exit"
 
-160:                                              ; preds = %.thread155
+160:                                              ; preds = %.thread154
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h83a94eac73d76466E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
           to label %"_ZN4core3ptr157drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$$GT$17h96a9e76b619a3680E.exit" unwind label %153
@@ -13543,11 +13543,11 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
           to label %168 unwind label %153
 
 166:                                              ; preds = %163, %168
-  %.032137 = phi i1 [ true, %168 ], [ false, %163 ]
-  %.035135 = phi i8 [ %.035.ph, %168 ], [ %.028, %163 ]
-  %.143133 = phi i1 [ %.143.ph, %168 ], [ false, %163 ]
-  %.pn.pn.pn131 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %168 ], [ %.pn.pn, %163 ]
-  %167 = trunc nuw i8 %.035135 to i1
+  %.032136 = phi i1 [ true, %168 ], [ false, %163 ]
+  %.035134 = phi i8 [ %.035.ph, %168 ], [ %.028, %163 ]
+  %.143132 = phi i1 [ %.143.ph, %168 ], [ false, %163 ]
+  %.pn.pn.pn130 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %168 ], [ %.pn.pn, %163 ]
+  %167 = trunc nuw i8 %.035134 to i1
   br i1 %167, label %169, label %"_ZN4core3ptr125drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17hbe47bce70ef0b11cE.exit"
 
 168:                                              ; preds = %165, %56
@@ -13562,16 +13562,16 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
           to label %170 unwind label %153
 
 "_ZN4core3ptr125drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17hbe47bce70ef0b11cE.exit": ; preds = %170, %166
-  %.038123 = phi i1 [ false, %166 ], [ true, %170 ]
-  %.042121 = phi i1 [ %.143133, %166 ], [ %.042.ph, %170 ]
-  %.254119 = phi i1 [ %.032137, %166 ], [ %.254.ph, %170 ]
-  %.pn.pn.pn.pn117 = phi { ptr, i32 } [ %.pn.pn.pn131, %166 ], [ %.pn.pn.pn.pn.ph, %170 ]
-  br i1 %.042121, label %171, label %37
+  %.038122 = phi i1 [ false, %166 ], [ true, %170 ]
+  %.042120 = phi i1 [ %.143132, %166 ], [ %.042.ph, %170 ]
+  %.254118 = phi i1 [ %.032136, %166 ], [ %.254.ph, %170 ]
+  %.pn.pn.pn.pn116 = phi { ptr, i32 } [ %.pn.pn.pn130, %166 ], [ %.pn.pn.pn.pn.ph, %170 ]
+  br i1 %.042120, label %171, label %37
 
 170:                                              ; preds = %169, %44
-  %.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %45, %44 ], [ %.pn.pn.pn131, %169 ]
-  %.254.ph = phi i1 [ true, %44 ], [ %.032137, %169 ]
-  %.042.ph = phi i1 [ true, %44 ], [ %.143133, %169 ]
+  %.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %45, %44 ], [ %.pn.pn.pn130, %169 ]
+  %.254.ph = phi i1 [ true, %44 ], [ %.032136, %169 ]
+  %.042.ph = phi i1 [ true, %44 ], [ %.143132, %169 ]
   invoke void @"_ZN4core3ptr156drop_in_place$LT$tokio..sync..mpsc..chan..Rx$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$C$tokio..sync..mpsc..bounded..Semaphore$GT$$GT$17hc4e77433f0ba42f0E.llvm.12494526139044184965"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20)
           to label %"_ZN4core3ptr125drop_in_place$LT$tokio..sync..mpsc..bounded..Receiver$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17hbe47bce70ef0b11cE.exit" unwind label %153
 
@@ -13580,15 +13580,15 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
           to label %37 unwind label %153
 
 172:                                              ; preds = %173, %37
-  %.049110 = phi i1 [ %.049111, %173 ], [ %.042121, %37 ]
-  %.153108 = phi i1 [ %.153109, %173 ], [ %.254119, %37 ]
-  %.pn.pn.pn.pn.pn106 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn107, %173 ], [ %.pn.pn.pn.pn117, %37 ]
-  br i1 %.049110, label %174, label %26
+  %.049109 = phi i1 [ %.049110, %173 ], [ %.042120, %37 ]
+  %.153107 = phi i1 [ %.153108, %173 ], [ %.254118, %37 ]
+  %.pn.pn.pn.pn.pn105 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn106, %173 ], [ %.pn.pn.pn.pn116, %37 ]
+  br i1 %.049109, label %174, label %26
 
-173:                                              ; preds = %.thread101, %37
-  %.049111 = phi i1 [ true, %.thread101 ], [ %.042121, %37 ]
-  %.153109 = phi i1 [ true, %.thread101 ], [ %.254119, %37 ]
-  %.pn.pn.pn.pn.pn107 = phi { ptr, i32 } [ %38, %.thread101 ], [ %.pn.pn.pn.pn117, %37 ]
+173:                                              ; preds = %.thread100, %37
+  %.049110 = phi i1 [ true, %.thread100 ], [ %.042120, %37 ]
+  %.153108 = phi i1 [ true, %.thread100 ], [ %.254118, %37 ]
+  %.pn.pn.pn.pn.pn106 = phi { ptr, i32 } [ %38, %.thread100 ], [ %.pn.pn.pn.pn116, %37 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$tokio..sync..watch..Receiver$LT$$LP$$RP$$GT$$GT$17hdc84802bd720a04dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23) #23
           to label %172 unwind label %153
 
@@ -13597,12 +13597,12 @@ define void @_ZN15influxdb3_write12write_buffer7flusher18WriteBufferFlusher3new1
           to label %26 unwind label %153
 
 "_ZN4core3ptr157drop_in_place$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$influxdb3_write..write_buffer..SegmentState$GT$$GT$$GT$17h96a9e76b619a3680E.exit91": ; preds = %175, %179, %26
-  %.pn.pn.pn.pn.pn.pn99 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn106, %26 ], [ %.pn.pn.pn.pn.pn.pn100, %179 ], [ %.pn.pn.pn.pn.pn.pn100, %175 ]
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn99
+  %.pn.pn.pn.pn.pn.pn98 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn105, %26 ], [ %.pn.pn.pn.pn.pn.pn99, %179 ], [ %.pn.pn.pn.pn.pn.pn99, %175 ]
+  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn98
 
 175:                                              ; preds = %._crit_edge, %.thread
   %176 = phi ptr [ %1, %.thread ], [ %.pre, %._crit_edge ]
-  %.pn.pn.pn.pn.pn.pn100 = phi { ptr, i32 } [ %27, %.thread ], [ %.pn.pn.pn.pn.pn106, %._crit_edge ]
+  %.pn.pn.pn.pn.pn.pn99 = phi { ptr, i32 } [ %27, %.thread ], [ %.pn.pn.pn.pn.pn105, %._crit_edge ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2299)
   call void @llvm.experimental.noalias.scope.decl(metadata !2300)
   %177 = atomicrmw sub ptr %176, i64 1 release, align 8, !noalias !2265

@@ -30507,14 +30507,14 @@ _ZNK4llvm12InfoByHwModeINS_19MachineValueTypeSetEE8isSimpleEv.exit: ; preds = %6
   br i1 %77, label %.preheader, label %_ZN4llvm5ErrorD2Ev.exit6
 
 .preheader:                                       ; preds = %_ZNK4llvm12InfoByHwModeINS_19MachineValueTypeSetEE8isSimpleEv.exit, %.preheader
-  %.0.i32 = phi i32 [ %81, %.preheader ], [ 0, %_ZNK4llvm12InfoByHwModeINS_19MachineValueTypeSetEE8isSimpleEv.exit ]
-  %.09.i.idx31 = phi i64 [ %.09.i.add, %.preheader ], [ 40, %_ZNK4llvm12InfoByHwModeINS_19MachineValueTypeSetEE8isSimpleEv.exit ]
-  %.09.i.ptr = getelementptr inbounds nuw i8, ptr %74, i64 %.09.i.idx31
+  %.0.i31 = phi i32 [ %81, %.preheader ], [ 0, %_ZNK4llvm12InfoByHwModeINS_19MachineValueTypeSetEE8isSimpleEv.exit ]
+  %.09.i.idx30 = phi i64 [ %.09.i.add, %.preheader ], [ 40, %_ZNK4llvm12InfoByHwModeINS_19MachineValueTypeSetEE8isSimpleEv.exit ]
+  %.09.i.ptr = getelementptr inbounds nuw i8, ptr %74, i64 %.09.i.idx30
   %78 = load i64, ptr %.09.i.ptr, align 8, !tbaa !45
   %79 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %78)
   %80 = trunc nuw nsw i64 %79 to i32
-  %81 = add i32 %.0.i32, %80
-  %.09.i.add = add nuw nsw i64 %.09.i.idx31, 8
+  %81 = add i32 %.0.i31, %80
+  %.09.i.add = add nuw nsw i64 %.09.i.idx30, 8
   %.not.i = icmp eq i64 %.09.i.add, 104
   br i1 %.not.i, label %_ZNK4llvm15TypeSetByHwMode18isMachineValueTypeEv.exit, label %.preheader
 
@@ -30583,7 +30583,7 @@ _ZN4llvm5ErrorD2Ev.exit6:                         ; preds = %69, %_ZNK4llvm12Inf
   store i64 %109, ptr %0, align 8, !tbaa !61
   br label %113
 
-113:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit6, %108, %_ZN4llvm5ErrorD2Ev.exit5, %_ZN4llvm5ErrorD2Ev.exit
+113:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit5, %108, %_ZN4llvm5ErrorD2Ev.exit6, %_ZN4llvm5ErrorD2Ev.exit
   ret void
 }
 

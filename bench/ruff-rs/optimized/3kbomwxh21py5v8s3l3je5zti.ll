@@ -36532,8 +36532,8 @@ define void @_ZN18ty_python_semantic14semantic_index10definition10Definition11fo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN18ty_python_semantic14semantic_index10definition11Definitions6single17hc6ae00238296a632E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 4), (16, 24)) %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   store i32 %1, ptr %0, align 8
-  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %.sroa.58.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 

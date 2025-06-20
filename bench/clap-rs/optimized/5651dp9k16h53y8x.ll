@@ -7886,17 +7886,17 @@ common.resume:                                    ; preds = %95, %100, %45
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb125f2576f3f194fE.exit": ; preds = %47
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %8), !noalias !1674
-  %.sroa.026.sroa.0.0.copyload30 = load i64, ptr %11, align 8, !noalias !1679
-  %.sroa.026.sroa.5.0.copyload32 = load ptr, ptr %.sroa.4.0..sroa_idx.i18, align 8, !noalias !1679
-  %.sroa.026.sroa.6.0.copyload34 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1679
+  %.sroa.026.sroa.0.0.copyload28 = load i64, ptr %11, align 8, !noalias !1679
+  %.sroa.026.sroa.5.0.copyload30 = load ptr, ptr %.sroa.4.0..sroa_idx.i18, align 8, !noalias !1679
+  %.sroa.026.sroa.6.0.copyload32 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1679
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !1674
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1674
   br label %51
 
 51:                                               ; preds = %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb125f2576f3f194fE.exit", %32
-  %.sroa.026.sroa.0.0 = phi i64 [ %34, %32 ], [ %.sroa.026.sroa.0.0.copyload30, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb125f2576f3f194fE.exit" ]
-  %.sroa.026.sroa.5.0 = phi ptr [ %35, %32 ], [ %.sroa.026.sroa.5.0.copyload32, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb125f2576f3f194fE.exit" ]
-  %.sroa.026.sroa.6.0 = phi i64 [ 2, %32 ], [ %.sroa.026.sroa.6.0.copyload34, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb125f2576f3f194fE.exit" ]
+  %.sroa.026.sroa.0.0 = phi i64 [ %34, %32 ], [ %.sroa.026.sroa.0.0.copyload28, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb125f2576f3f194fE.exit" ]
+  %.sroa.026.sroa.5.0 = phi ptr [ %35, %32 ], [ %.sroa.026.sroa.5.0.copyload30, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb125f2576f3f194fE.exit" ]
+  %.sroa.026.sroa.6.0 = phi i64 [ 2, %32 ], [ %.sroa.026.sroa.6.0.copyload32, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb125f2576f3f194fE.exit" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   store i64 %.sroa.026.sroa.0.0, ptr %21, align 8
   %.sroa.026.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8

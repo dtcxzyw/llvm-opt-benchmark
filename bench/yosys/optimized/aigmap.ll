@@ -1497,7 +1497,6 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i: ; preds = %585, %578
 606:                                              ; preds = %602
   %607 = getelementptr inbounds nuw i8, ptr %572, i64 8
   %608 = load i8, ptr %607, align 8, !tbaa !109, !range !60, !noundef !61
-  store ptr null, ptr %27, align 8, !tbaa !106
   store i8 %608, ptr %124, align 8
   br label %1818
 

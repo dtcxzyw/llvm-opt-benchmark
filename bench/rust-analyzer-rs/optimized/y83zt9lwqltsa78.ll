@@ -730,8 +730,8 @@ _ZN9text_edit24assert_disjoint_or_equal17h7bd35a41777e2f70E.exit: ; preds = %.no
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %10, ptr %21, align 8, !noalias !162
-  %.sroa.41.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %10, ptr %.sroa.41.0..sroa_idx.i, align 8, !noalias !162
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %10, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !162
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %.sroa.0.0.copyload, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !162
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 56

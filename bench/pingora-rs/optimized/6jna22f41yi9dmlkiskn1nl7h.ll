@@ -183,8 +183,8 @@ define void @_ZN15pingora_timeout12fast_timeout18check_clock_thread17h0222d3628d
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %24, ptr noundef nonnull align 1 dereferenceable(12) @anon.4337e16d35405c474663f2969c9a2dfc.12, i64 12, i1 false), !noalias !14
   store i64 %19, ptr %4, align 8
-  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %24, ptr %.sroa.45.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %24, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 12, ptr %.sroa.5.0..sroa_idx, align 8
   call void @_ZN3std6thread7Builder4name17he744ab6b9d2f534cE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)

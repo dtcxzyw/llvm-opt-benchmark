@@ -753,7 +753,12 @@ _ZN18btQuantizedBvhTree17calc_quantizationER18GIM_BVH_DATA_ARRAYf.exit: ; preds 
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load i32, ptr %51, align 8, !tbaa !43
   %53 = icmp slt i32 %52, %46
-  br i1 %53, label %54, label %.lr.ph.i5
+  br i1 %53, label %54, label %..lr.ph.i5_crit_edge
+
+..lr.ph.i5_crit_edge:                             ; preds = %50
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !36
+  br label %.lr.ph.i5
 
 54:                                               ; preds = %50
   %.not.i.i.i = icmp eq i32 %45, 0
@@ -807,30 +812,28 @@ _ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE10deallocateEv.exit.i.i: ; pre
   store i32 %46, ptr %51, align 8, !tbaa !43
   br label %.lr.ph.i5
 
-.lr.ph.i5:                                        ; preds = %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE10deallocateEv.exit.i.i, %50
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
+.lr.ph.i5:                                        ; preds = %..lr.ph.i5_crit_edge, %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE10deallocateEv.exit.i.i
+  %72 = phi ptr [ %.pre, %..lr.ph.i5_crit_edge ], [ %.0.i.i.i, %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE10deallocateEv.exit.i.i ]
   %73 = sext i32 %48 to i64
   %wide.trip.count.i6 = sext i32 %46 to i64
-  %74 = load ptr, ptr %72, align 8, !tbaa !36
-  %invariant.gep = getelementptr i8, ptr %74, i64 12
-  br label %75
+  br label %74
 
-75:                                               ; preds = %75, %.lr.ph.i5
-  %indvars.iv.i7 = phi i64 [ %73, %.lr.ph.i5 ], [ %indvars.iv.next.i8, %75 ]
-  %gep = getelementptr %struct.BT_QUANTIZED_BVH_NODE, ptr %invariant.gep, i64 %indvars.iv.i7
-  store i32 0, ptr %gep, align 4, !tbaa !28
+74:                                               ; preds = %74, %.lr.ph.i5
+  %indvars.iv.i7 = phi i64 [ %73, %.lr.ph.i5 ], [ %indvars.iv.next.i8, %74 ]
+  %.sroa.3.0..sroa_idx = getelementptr inbounds %struct.BT_QUANTIZED_BVH_NODE, ptr %72, i64 %indvars.iv.i7, i32 2
+  store i32 0, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !28
   %indvars.iv.next.i8 = add nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, %wide.trip.count.i6
-  br i1 %exitcond.not.i9, label %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE6resizeEiRKS0_.exit.loopexit, label %75, !llvm.loop !48
+  br i1 %exitcond.not.i9, label %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE6resizeEiRKS0_.exit.loopexit, label %74, !llvm.loop !48
 
-_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE6resizeEiRKS0_.exit.loopexit: ; preds = %75
-  %.pre = load i32, ptr %3, align 4, !tbaa !4
+_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE6resizeEiRKS0_.exit.loopexit: ; preds = %74
+  %.pre16 = load i32, ptr %3, align 4, !tbaa !4
   br label %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE6resizeEiRKS0_.exit
 
 _ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE6resizeEiRKS0_.exit: ; preds = %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE6resizeEiRKS0_.exit.loopexit, %_ZN18btQuantizedBvhTree17calc_quantizationER18GIM_BVH_DATA_ARRAYf.exit
-  %76 = phi i32 [ %.pre, %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE6resizeEiRKS0_.exit.loopexit ], [ %45, %_ZN18btQuantizedBvhTree17calc_quantizationER18GIM_BVH_DATA_ARRAYf.exit ]
+  %75 = phi i32 [ %.pre16, %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE6resizeEiRKS0_.exit.loopexit ], [ %45, %_ZN18btQuantizedBvhTree17calc_quantizationER18GIM_BVH_DATA_ARRAYf.exit ]
   store i32 %46, ptr %47, align 4, !tbaa !42
-  tail call void @_ZN18btQuantizedBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 0, i32 noundef %76)
+  tail call void @_ZN18btQuantizedBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 0, i32 noundef %75)
   ret void
 }
 

@@ -26909,14 +26909,14 @@ define hidden { i64, ptr } @"_ZN13wasmtime_wasi3tcp14TcpWriteStream16background_
   %8 = alloca { i64, [1 x i64] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = load i8, ptr %9, align 8, !range !15, !noundef !4
-  switch i8 %10, label %default.unreachable67 [
+  switch i8 %10, label %default.unreachable68 [
     i8 0, label %157
     i8 1, label %11
     i8 2, label %12
     i8 3, label %13
   ]
 
-default.unreachable67:                            ; preds = %107, %24, %13, %2
+default.unreachable68:                            ; preds = %107, %24, %13, %2
   unreachable
 
 11:                                               ; preds = %2
@@ -26932,16 +26932,16 @@ default.unreachable67:                            ; preds = %107, %24, %13, %2
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !15, !noalias !4451
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  switch i8 %.pre, label %default.unreachable67 [
+  switch i8 %.pre, label %default.unreachable68 [
     i8 0, label %.thread23.i
     i8 1, label %.invoke
     i8 2, label %21
     i8 3, label %24
   ]
 
-.thread23.i:                                      ; preds = %.thread68, %13
-  %16 = phi ptr [ %171, %.thread68 ], [ %15, %13 ]
-  %17 = phi ptr [ %170, %.thread68 ], [ %14, %13 ]
+.thread23.i:                                      ; preds = %.thread69, %13
+  %16 = phi ptr [ %171, %.thread69 ], [ %15, %13 ]
+  %17 = phi ptr [ %170, %.thread69 ], [ %14, %13 ]
   %18 = load ptr, ptr %17, align 8, !noalias !4451, !nonnull !4, !align !95, !noundef !4
   %.sroa.815.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %18, ptr %.sroa.815.0..sroa_idx.i, align 8, !noalias !4451
@@ -26972,27 +26972,27 @@ default.unreachable67:                            ; preds = %107, %24, %13, %2
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 145
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !range !15, !noalias !4454
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  switch i8 %.pre.i, label %default.unreachable67 [
-    i8 0, label %._crit_edge
+  switch i8 %.pre.i, label %default.unreachable68 [
+    i8 0, label %._crit_edge63
     i8 1, label %.invoke.i
     i8 2, label %33
     i8 3, label %36
   ]
 
-._crit_edge:                                      ; preds = %24
-  %.phi.trans.insert63 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %.pre64 = load ptr, ptr %.phi.trans.insert63, align 8, !noalias !4454
-  %.phi.trans.insert65 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %.pre66 = load i8, ptr %.phi.trans.insert65, align 8, !range !3113, !noalias !4454
+._crit_edge63:                                    ; preds = %24
+  %.phi.trans.insert64 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %.pre65 = load ptr, ptr %.phi.trans.insert64, align 8, !noalias !4454
+  %.phi.trans.insert66 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %.pre67 = load i8, ptr %.phi.trans.insert66, align 8, !range !3113, !noalias !4454
   br label %26
 
-26:                                               ; preds = %._crit_edge, %.thread23.i
-  %27 = phi ptr [ %16, %.thread23.i ], [ %15, %._crit_edge ]
-  %28 = phi ptr [ %17, %.thread23.i ], [ %14, %._crit_edge ]
-  %29 = phi i8 [ 2, %.thread23.i ], [ %.pre66, %._crit_edge ]
-  %30 = phi ptr [ %18, %.thread23.i ], [ %.pre64, %._crit_edge ]
-  %31 = phi ptr [ %.sroa.10.0..sroa_idx.i, %.thread23.i ], [ %.phi.trans.insert.i, %._crit_edge ]
-  %32 = phi ptr [ %19, %.thread23.i ], [ %25, %._crit_edge ]
+26:                                               ; preds = %._crit_edge63, %.thread23.i
+  %27 = phi ptr [ %16, %.thread23.i ], [ %15, %._crit_edge63 ]
+  %28 = phi ptr [ %17, %.thread23.i ], [ %14, %._crit_edge63 ]
+  %29 = phi i8 [ 2, %.thread23.i ], [ %.pre67, %._crit_edge63 ]
+  %30 = phi ptr [ %18, %.thread23.i ], [ %.pre65, %._crit_edge63 ]
+  %31 = phi ptr [ %.sroa.10.0..sroa_idx.i, %.thread23.i ], [ %.phi.trans.insert.i, %._crit_edge63 ]
+  %32 = phi ptr [ %19, %.thread23.i ], [ %25, %._crit_edge63 ]
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %30, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !noalias !4454
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -27019,10 +27019,10 @@ default.unreachable67:                            ; preds = %107, %24, %13, %2
   unreachable
 
 36:                                               ; preds = %26, %24
-  %37 = phi ptr [ %15, %24 ], [ %27, %26 ]
-  %38 = phi ptr [ %14, %24 ], [ %28, %26 ]
-  %39 = phi ptr [ %.phi.trans.insert.i, %24 ], [ %31, %26 ]
-  %40 = phi ptr [ %25, %24 ], [ %32, %26 ]
+  %37 = phi ptr [ %27, %26 ], [ %15, %24 ]
+  %38 = phi ptr [ %28, %26 ], [ %14, %24 ]
+  %39 = phi ptr [ %31, %26 ], [ %.phi.trans.insert.i, %24 ]
+  %40 = phi ptr [ %32, %26 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !4454
   invoke fastcc void @"_ZN5tokio7runtime2io12registration12Registration9readiness28_$u7b$$u7b$closure$u7d$$u7d$17h80bb637537ca8988E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull align 8 %40, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %43 unwind label %41, !noalias !4458
@@ -27203,7 +27203,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
   %108 = load ptr, ptr %104, align 8, !alias.scope !4481, !nonnull !4, !noundef !4
   %109 = ptrtoint ptr %108 to i64
   %110 = and i64 %109, 3
-  switch i64 %110, label %default.unreachable67 [
+  switch i64 %110, label %default.unreachable68 [
     i64 2, label %112
     i64 3, label %111
     i64 0, label %116
@@ -27332,7 +27332,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
   %158 = getelementptr i8, ptr %0, i64 16
   %.val = load i64, ptr %158, align 8, !noundef !4
   %159 = icmp eq i64 %.val, 0
-  br i1 %159, label %160, label %.thread68
+  br i1 %159, label %160, label %.thread69
 
 160:                                              ; preds = %157
   call void @llvm.experimental.noalias.scope.decl(metadata !4508)
@@ -27346,7 +27346,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
   invoke void %163(ptr noalias noundef nonnull align 8 dereferenceable(8) %164, ptr noundef %166, i64 noundef 0)
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.exit44" unwind label %172
 
-.thread68:                                        ; preds = %157
+.thread69:                                        ; preds = %157
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val25 = load ptr, ptr %167, align 8, !nonnull !4, !noundef !4
   %168 = getelementptr inbounds nuw i8, ptr %.val25, i64 16

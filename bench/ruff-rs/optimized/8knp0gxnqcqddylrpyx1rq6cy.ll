@@ -308,8 +308,8 @@ _ZN5salsa6attach8Attached6attach7DbGuard3new17hc2625a4250797772E.exit.i.i.i: ; p
   store i64 1, ptr %.sroa.6.0..sroa_idx22.i.i.i.i, align 8, !noalias !31
   %.sroa.7.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %.sroa.7.0..sroa_idx.i.i.i.i, align 8, !noalias !31
-  %.sroa.823.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 1, ptr %.sroa.823.0..sroa_idx.i.i.i.i, align 8, !noalias !31
+  %.sroa.8.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 1, ptr %.sroa.8.0..sroa_idx.i.i.i.i, align 8, !noalias !31
   invoke void @_ZN5alloc3fmt6format12format_inner17h9fdd91b8084950bfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %.noexc.i.i.i unwind label %39, !noalias !32
 
@@ -2863,7 +2863,7 @@ define void @"_ZN101_$LT$ty_test..assertion..LineAssertionsIterator$u20$as$u20$c
           cleanup
   br label %15
 
-.loopexit.split-lp:                               ; preds = %16, %62, %20, %.noexc
+.loopexit.split-lp:                               ; preds = %16, %62, %19, %.noexc
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %15
@@ -2878,32 +2878,32 @@ define void @"_ZN101_$LT$ty_test..assertion..LineAssertionsIterator$u20$as$u20$c
   %.sroa.565.0.copyload = load i32, ptr %.sroa.565.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %19 = invoke noundef i64 @_ZN16ruff_source_file10line_index9LineIndex10line_index17h1804a19986ceff9aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18, i32 noundef %.sroa.565.0.copyload)
-          to label %20 unwind label %.loopexit.split-lp
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %18 = invoke noundef i64 @_ZN16ruff_source_file10line_index9LineIndex10line_index17h1804a19986ceff9aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17, i32 noundef %.sroa.565.0.copyload)
+          to label %19 unwind label %.loopexit.split-lp
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %22 = invoke { ptr, i64 } @_ZN7ruff_db6source10SourceText6as_str17hd1556e4e2b202767E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21)
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %21 = invoke { ptr, i64 } @_ZN7ruff_db6source10SourceText6as_str17hd1556e4e2b202767E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20)
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %20
-  %23 = extractvalue { ptr, i64 } %22, 0
-  %24 = extractvalue { ptr, i64 } %22, 1
-  %25 = invoke noundef zeroext i1 @_ZN18ruff_python_trivia14comment_ranges13CommentRanges11is_own_line17h42a51d8190133b0cE(i32 noundef %.sroa.565.0.copyload, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %24)
+.noexc:                                           ; preds = %19
+  %22 = extractvalue { ptr, i64 } %21, 0
+  %23 = extractvalue { ptr, i64 } %21, 1
+  %24 = invoke noundef zeroext i1 @_ZN18ruff_python_trivia14comment_ranges13CommentRanges11is_own_line17h42a51d8190133b0cE(i32 noundef %.sroa.565.0.copyload, ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %23)
           to label %_ZN7ty_test9assertion20InlineFileAssertions19is_own_line_comment17hd05a0342ffe22d0aE.exit unwind label %.loopexit.split-lp
 
 _ZN7ty_test9assertion20InlineFileAssertions19is_own_line_comment17hd05a0342ffe22d0aE.exit: ; preds = %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  br i1 %25, label %27, label %26
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  br i1 %24, label %27, label %26
 
 26:                                               ; preds = %_ZN7ty_test9assertion20InlineFileAssertions19is_own_line_comment17hd05a0342ffe22d0aE.exit
   store i64 1, ptr %5, align 8, !alias.scope !244, !noalias !247
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %57, %62, %26
-  %.sroa.04.0 = phi i64 [ %19, %26 ], [ %63, %62 ], [ %38, %57 ]
+  %.sroa.04.0 = phi i64 [ %18, %26 ], [ %63, %62 ], [ %38, %57 ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   store i64 %.sroa.04.0, ptr %0, align 8
@@ -2920,7 +2920,7 @@ _ZN7ty_test9assertion20InlineFileAssertions19is_own_line_comment17hd05a0342ffe22
 
 30:                                               ; preds = %57, %27
   %31 = phi i64 [ %.pre, %27 ], [ 3, %57 ]
-  %.sroa.04.1 = phi i64 [ %19, %27 ], [ %38, %57 ]
+  %.sroa.04.1 = phi i64 [ %18, %27 ], [ %38, %57 ]
   %.not.i = icmp eq i64 %31, 3
   br i1 %.not.i, label %32, label %34
 
@@ -2949,7 +2949,7 @@ _ZN7ty_test9assertion20InlineFileAssertions19is_own_line_comment17hd05a0342ffe22
 
 39:                                               ; preds = %37
   %40 = load i32, ptr %29, align 8, !alias.scope !260, !noundef !3
-  %41 = invoke noundef i64 @_ZN16ruff_source_file10line_index9LineIndex10line_index17h1804a19986ceff9aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18, i32 noundef %40)
+  %41 = invoke noundef i64 @_ZN16ruff_source_file10line_index9LineIndex10line_index17h1804a19986ceff9aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17, i32 noundef %40)
           to label %42 unwind label %.loopexit
 
 42:                                               ; preds = %39
@@ -2957,7 +2957,7 @@ _ZN7ty_test9assertion20InlineFileAssertions19is_own_line_comment17hd05a0342ffe22
   br i1 %43, label %44, label %62
 
 44:                                               ; preds = %42
-  %45 = invoke { ptr, i64 } @_ZN7ruff_db6source10SourceText6as_str17hd1556e4e2b202767E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21)
+  %45 = invoke { ptr, i64 } @_ZN7ruff_db6source10SourceText6as_str17hd1556e4e2b202767E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20)
           to label %.noexc39 unwind label %.loopexit
 
 .noexc39:                                         ; preds = %44
@@ -2970,8 +2970,8 @@ _ZN7ty_test9assertion20InlineFileAssertions19is_own_line_comment17hd05a0342ffe22
   store i64 3, ptr %1, align 8
   %50 = load i64, ptr %5, align 8, !alias.scope !263, !noalias !268, !noundef !3
   %51 = icmp ugt i64 %50, 1
-  %52 = load ptr, ptr %17, align 8, !alias.scope !263, !noalias !268, !nonnull !3
-  %.sink10.i.i42 = select i1 %51, ptr %52, ptr %17
+  %52 = load ptr, ptr %25, align 8, !alias.scope !263, !noalias !268, !nonnull !3
+  %.sink10.i.i42 = select i1 %51, ptr %52, ptr %25
   %.sink9.idx.i.i43.sroa.sel = select i1 %51, ptr %.sroa.gep60, ptr %5
   %.sink.i.i45 = tail call i64 @llvm.umax.i64(i64 %50, i64 1)
   %53 = load i64, ptr %.sink9.idx.i.i43.sroa.sel, align 8, !alias.scope !271, !noalias !272, !noundef !3
@@ -2983,7 +2983,7 @@ _ZN7ty_test9assertion20InlineFileAssertions19is_own_line_comment17hd05a0342ffe22
           to label %.noexc49 unwind label %.loopexit
 
 .noexc49:                                         ; preds = %55
-  %56 = load ptr, ptr %17, align 8, !alias.scope !271, !noalias !272, !nonnull !3, !noundef !3
+  %56 = load ptr, ptr %25, align 8, !alias.scope !271, !noalias !272, !nonnull !3, !noundef !3
   %.pre.i48 = load i64, ptr %.sroa.gep60, align 8, !alias.scope !271, !noalias !272
   br label %57
 
@@ -3478,10 +3478,10 @@ _ZN7ty_test9assertion20ErrorAssertionParser6offset17h5a1935246c770986E.exit117.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13), !noalias !279
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.14.0.ph, ptr %188, align 8
-  %.sroa.455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.28.0.ph, ptr %.sroa.455.0..sroa_idx, align 8
-  %.sroa.556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.32.0.ph, ptr %.sroa.556.0..sroa_idx, align 8
+  %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.28.0.ph, ptr %.sroa.454.0..sroa_idx, align 8
+  %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.32.0.ph, ptr %.sroa.555.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %187
 

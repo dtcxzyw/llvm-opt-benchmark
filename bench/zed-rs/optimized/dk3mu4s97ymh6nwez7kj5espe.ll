@@ -47116,7 +47116,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h2205b7b01355b567E.llvm.15
   %.sroa.6.i = alloca [16 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
-  %.sroa.4 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
   %14 = alloca [40 x i8], align 8
   %15 = alloca [264 x i8], align 8
@@ -47201,7 +47200,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h2205b7b01355b567E.llvm.15
   store i64 %37, ptr %13, align 8
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %36, ptr %38, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4)
   %39 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %40 unwind label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit"
 
@@ -47219,8 +47217,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h2205b7b01355b567E.llvm.15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i64 3, ptr %46, align 8
-  %.sroa.4.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx24, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, i64 24, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 369
   store i8 2, ptr %47, align 1
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 352
@@ -47229,7 +47225,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h2205b7b01355b567E.llvm.15
   store i64 %41, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 368
   store i8 1, ptr %50, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %15)
@@ -47362,7 +47357,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h28fbacaba086f2baE.llvm.15
   %.sroa.6.i = alloca [16 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
-  %.sroa.4 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
   %14 = alloca [40 x i8], align 8
   %15 = alloca [88 x i8], align 8
@@ -47447,7 +47441,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h28fbacaba086f2baE.llvm.15
   store i64 %37, ptr %13, align 8
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %36, ptr %38, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4)
   %39 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %40 unwind label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit"
 
@@ -47465,8 +47458,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h28fbacaba086f2baE.llvm.15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i64 3, ptr %46, align 8
-  %.sroa.4.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx24, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, i64 24, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 193
   store i8 2, ptr %47, align 1
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 88
@@ -47475,7 +47466,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h28fbacaba086f2baE.llvm.15
   store i64 %41, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %16, i64 192
   store i8 1, ptr %50, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %15)
@@ -60897,8 +60887,8 @@ define hidden void @_ZN9workspace5Toast3new17h8e8025948d030d41E(ptr dead_on_unwi
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 -9223372036854775808, ptr %5, align 8
-  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %2, ptr %.sroa.43.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112

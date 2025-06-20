@@ -6768,8 +6768,6 @@ define hidden void @_ZN9uv_pep50824parse_pep508_requirement17hfc561fdb1b373a85E.
   %134 = alloca [40 x i8], align 8
   %135 = alloca [4 x i8], align 4
   %.sroa.14409 = alloca [136 x i8], align 8
-  %.sroa.738.sroa.8 = alloca [136 x i8], align 8
-  %.sroa.940 = alloca [128 x i8], align 8
   %.sroa.16397.sroa.8.sroa.8 = alloca [104 x i8], align 8
   %.sroa.6385 = alloca [136 x i8], align 8
   %.sroa.720.sroa.0 = alloca [136 x i8], align 8
@@ -8942,7 +8940,6 @@ _ZN9uv_pep50810parse_name17h4004f84dd2d8ac2bE.exit: ; preds = %260, %322, %324
           to label %.thread582 unwind label %655, !noalias !1287
 
 730:                                              ; preds = %598, %598, %598, %598, %598
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %.sroa.940)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %.sroa.14409)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
@@ -9782,32 +9779,25 @@ _ZN4core3ops8function6FnOnce9call_once17h18d8a28aa3505115E.exit.thread.i: ; pred
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.14409)
-  %.sroa.443.sroa.5.0..sroa.443.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.443.sroa.5.0..sroa.443.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.738.sroa.8, i64 136, i1 false)
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.544.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.940, i64 128, i1 false)
   store i64 6, ptr %136, align 8
   %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i64 %814, ptr %.sroa.443.0..sroa_idx, align 8
   %.sroa.443.sroa.4.0..sroa.443.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 16
   store i64 %813, ptr %.sroa.443.sroa.4.0..sroa.443.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.940)
   br label %_ZN9uv_pep50818looks_like_archive17hde702ebb73ca8a4dE.exit.thread650
 
 966:                                              ; preds = %823
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36), !noalias !1367
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.738.sroa.8, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.14409, i64 136, i1 false)
+  %.sroa.3516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.3516.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.14409, i64 136, i1 false)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.14409)
   %967 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6404.0, ptr %967, align 8
   %.sroa.2515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.11406.0, ptr %.sroa.2515.0..sroa_idx, align 8
-  %.sroa.3516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.3516.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.738.sroa.8, i64 136, i1 false)
   store i64 8, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.940)
   br label %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$uv_pep508..VersionOrUrl$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h01321e3b7307a5f1E.exit"
 
 _ZN9uv_pep50818looks_like_archive17hde702ebb73ca8a4dE.exit.thread650: ; preds = %959, %962, %965, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit44.i", %1017, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit40.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbdb97ffb31c12435E.exit36.thread.i", %991, %.noexc289, %1020, %_ZN9uv_pep50818looks_like_archive17hde702ebb73ca8a4dE.exit

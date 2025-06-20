@@ -2330,7 +2330,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i.i: ; preds = %34, %
   store i32 %9, ptr %14, align 8, !tbaa !31
   br label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i
 
-_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i: ; preds = %13, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i.i, %4
+_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i: ; preds = %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i.i, %13, %4
   store i32 %9, ptr %10, align 4, !tbaa !30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !29
@@ -5152,7 +5152,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %64, %_Z
   store i32 0, ptr %56, align 8, !tbaa !31
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i, %55, %.loopexit72
+.loopexit:                                        ; preds = %55, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i, %.loopexit72
   store i32 0, ptr %25, align 4, !tbaa !30
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !25
@@ -6606,7 +6606,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %34, %_Z
   store i32 %.030.lcssa, ptr %14, align 8, !tbaa !31
   br label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
 
-_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i, %13, %._crit_edge
+_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %13, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i, %._crit_edge
   store i32 %.030.lcssa, ptr %10, align 4, !tbaa !30
   br label %41
 
@@ -6655,7 +6655,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %_ZN20btAlig
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %58 = load i32, ptr %57, align 8, !tbaa !31
   %59 = icmp slt i32 %58, %52
-  br i1 %59, label %60, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50.loopexit
+  br i1 %59, label %60, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50
 
 60:                                               ; preds = %56
   %.not.i.i.i37 = icmp eq i32 %52, 0
@@ -6707,17 +6707,14 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i44: ; preds = %77, %
   store i8 1, ptr %74, align 8, !tbaa !28
   store ptr %.0.i.i.i40, ptr %72, align 8, !tbaa !29
   store i32 %52, ptr %57, align 8, !tbaa !31
-  br label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50.loopexit
-
-_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50.loopexit: ; preds = %56, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i44
-  %.pre = load ptr, ptr %49, align 8, !tbaa !393
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 180
-  %.pre87 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !116
+  %.pre.pre = load ptr, ptr %49, align 8, !tbaa !393
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 180
+  %.pre87.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 4, !tbaa !116
   br label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50
 
-_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50: ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50.loopexit, %._crit_edge63
-  %78 = phi i32 [ %.pre87, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50.loopexit ], [ %52, %._crit_edge63 ]
-  %79 = phi ptr [ %.pre, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50.loopexit ], [ %50, %._crit_edge63 ]
+_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit50: ; preds = %56, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i44, %._crit_edge63
+  %78 = phi i32 [ %52, %._crit_edge63 ], [ %.pre87.pre, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i44 ], [ %52, %56 ]
+  %79 = phi ptr [ %50, %._crit_edge63 ], [ %.pre.pre, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i44 ], [ %50, %56 ]
   store i32 %52, ptr %53, align 4, !tbaa !30
   %80 = icmp sgt i32 %78, 0
   br i1 %80, label %.lr.ph.i51, label %_ZN17KKTPreconditioner14buildDiagonalSERK20btAlignedObjectArrayI9btVector3ERS2_.exit

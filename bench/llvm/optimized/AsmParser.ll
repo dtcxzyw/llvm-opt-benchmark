@@ -17673,7 +17673,6 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser18parseDir
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
-  %.sroa.9 = alloca [7 x i8], align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.llvm::StringRef", align 8
   %14 = alloca %"class.llvm::Twine", align 8
@@ -17802,7 +17801,6 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser18parseDir
   %.sroa.0103.0 = load ptr, ptr %.sroa.0103.0.in, align 8, !tbaa !370
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #29
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #29
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %89, ptr %12, align 8, !tbaa !506
@@ -18222,8 +18220,6 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is
   store i64 %.sroa.591.0, ptr %.sroa.591.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i8 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
   %260 = load ptr, ptr %259, align 8, !tbaa !10
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 720
   %262 = load ptr, ptr %261, align 8
@@ -18248,8 +18244,6 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is
   store i64 %.sroa.591.0, ptr %.sroa.591.0..sroa_idx92, align 8
   %.sroa.6.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx94, align 8
-  %.sroa.9.0..sroa_idx96 = getelementptr inbounds nuw i8, ptr %25, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx96, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
   %269 = load ptr, ptr %267, align 8, !tbaa !10
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 712
   %271 = load ptr, ptr %270, align 8
@@ -18421,7 +18415,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i68
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #29
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #29
   br label %338

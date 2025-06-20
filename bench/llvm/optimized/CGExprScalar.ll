@@ -10811,7 +10811,7 @@ define internal fastcc noundef ptr @_ZL24EmitIsNegativeTestHelperPN4llvm5ValueEN
 14:                                               ; preds = %4
   %15 = load ptr, ptr %13, align 8, !tbaa !1205
   %16 = tail call noundef ptr @_ZN4llvm11ConstantInt8getFalseERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %15) #21
-  br label %32
+  br label %33
 
 17:                                               ; preds = %4
   %18 = tail call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %13, i64 noundef 0, i1 noundef zeroext false) #21
@@ -10827,46 +10827,46 @@ define internal fastcc noundef ptr @_ZL24EmitIsNegativeTestHelperPN4llvm5ValueEN
   br label %_ZN4llvmplERKNS_5TwineES2_.exit40
 
 21:                                               ; preds = %17
-  %.sroa.751.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %7, align 8, !alias.scope !1206
-  store ptr @.str.6, ptr %.sroa.751.0..sroa_idx, align 8, !alias.scope !1206
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @.str.6, ptr %22, align 8, !alias.scope !1206
   br label %_ZN4llvmplERKNS_5TwineES2_.exit40
 
 _ZN4llvmplERKNS_5TwineES2_.exit40:                ; preds = %20, %21
-  %.sink = phi i8 [ 1, %20 ], [ 3, %21 ]
   %.014.i.i13 = phi i8 [ 3, %20 ], [ 2, %21 ]
+  %.sink = phi i8 [ 1, %20 ], [ 3, %21 ]
   %.sroa.05.0.i.i14 = phi ptr [ @.str.6, %20 ], [ %7, %21 ]
   %.sroa.752.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 3, ptr %.sroa.752.0..sroa_idx, align 8, !tbaa !1211
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 %.sink, ptr %.sroa.11.0..sroa_idx, align 1, !tbaa !1211
-  %22 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
-  %23 = extractvalue { ptr, i64 } %22, 1
-  %24 = extractvalue { ptr, i64 } %22, 0
+  %23 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
+  %24 = extractvalue { ptr, i64 } %23, 1
+  %25 = extractvalue { ptr, i64 } %23, 0
   store ptr %.sroa.05.0.i.i14, ptr %6, align 8, !alias.scope !1212
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %24, ptr %25, align 8, !alias.scope !1212
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %25, ptr %26, align 8, !alias.scope !1212
   %.sroa.2.0..sroa_idx.i.i.i23 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %23, ptr %.sroa.2.0..sroa_idx.i.i.i23, align 8, !tbaa !3, !alias.scope !1212
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 %.014.i.i13, ptr %26, align 8, !tbaa !25, !alias.scope !1212
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 5, ptr %27, align 1, !tbaa !22, !alias.scope !1212
+  store i64 %24, ptr %.sroa.2.0..sroa_idx.i.i.i23, align 8, !tbaa !3, !alias.scope !1212
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i8 %.014.i.i13, ptr %27, align 8, !tbaa !25, !alias.scope !1212
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 33
+  store i8 5, ptr %28, align 1, !tbaa !22, !alias.scope !1212
   store ptr %6, ptr %5, align 8, !alias.scope !1217
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @.str.7, ptr %28, align 8, !alias.scope !1217
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 2, ptr %29, align 8, !tbaa !25, !alias.scope !1217
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 3, ptr %30, align 1, !tbaa !22, !alias.scope !1217
-  %31 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef 40, ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(34) %5)
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @.str.7, ptr %29, align 8, !alias.scope !1217
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i8 2, ptr %30, align 8, !tbaa !25, !alias.scope !1217
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 3, ptr %31, align 1, !tbaa !22, !alias.scope !1217
+  %32 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %3, i32 noundef 40, ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(34) %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
-  br label %32
+  br label %33
 
-32:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit40, %14
-  %.0 = phi ptr [ %31, %_ZN4llvmplERKNS_5TwineES2_.exit40 ], [ %16, %14 ]
+33:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit40, %14
+  %.0 = phi ptr [ %32, %_ZN4llvmplERKNS_5TwineES2_.exit40 ], [ %16, %14 ]
   ret ptr %.0
 }
 

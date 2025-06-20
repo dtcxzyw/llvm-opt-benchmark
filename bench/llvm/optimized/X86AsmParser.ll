@@ -30341,30 +30341,30 @@ _ZN4llvm5X86II24isX86_64NonExtLowByteRegENS_10MCRegisterE.exit.thread: ; preds =
 
 355:                                              ; preds = %.critedge16
   store ptr @.str.787, ptr %26, align 8
-  br label %357
+  br label %358
 
 356:                                              ; preds = %.critedge16
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %.str.785..str.786, ptr %26, align 8, !alias.scope !847
-  store ptr @.str.787, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !847
-  br label %357
+  %357 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store ptr @.str.787, ptr %357, align 8, !alias.scope !847
+  br label %358
 
-357:                                              ; preds = %356, %355
+358:                                              ; preds = %356, %355
   %.sink = phi i8 [ 3, %356 ], [ 1, %355 ]
-  %358 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store i8 3, ptr %358, align 8, !tbaa !500
-  %359 = getelementptr inbounds nuw i8, ptr %26, i64 33
-  store i8 %.sink, ptr %359, align 1, !tbaa !500
-  %360 = load ptr, ptr %27, align 8, !tbaa !82
-  %361 = load ptr, ptr %360, align 8, !tbaa !3
-  %362 = getelementptr inbounds nuw i8, ptr %361, i64 168
-  %363 = load ptr, ptr %362, align 8
-  %364 = call noundef zeroext i1 %363(ptr noundef nonnull align 8 dereferenceable(34) %360, ptr %351, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr null, ptr null) #25
+  %359 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store i8 3, ptr %359, align 8, !tbaa !500
+  %360 = getelementptr inbounds nuw i8, ptr %26, i64 33
+  store i8 %.sink, ptr %360, align 1, !tbaa !500
+  %361 = load ptr, ptr %27, align 8, !tbaa !82
+  %362 = load ptr, ptr %361, align 8, !tbaa !3
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 168
+  %364 = load ptr, ptr %363, align 8
+  %365 = call noundef zeroext i1 %364(ptr noundef nonnull align 8 dereferenceable(34) %361, ptr %351, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr null, ptr null) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #25
   br label %.thread254
 
-.thread254:                                       ; preds = %343, %.thread249, %357, %321, %286, %.thread237, %243, %147, %.thread233, %.thread
-  %.1 = phi i1 [ %364, %357 ], [ %336, %321 ], [ %181, %147 ], [ %295, %286 ], [ %76, %.thread ], [ %114, %.thread233 ], [ %256, %243 ], [ %228, %.thread237 ], [ false, %.thread249 ], [ false, %343 ]
+.thread254:                                       ; preds = %343, %.thread249, %358, %321, %286, %.thread237, %243, %147, %.thread233, %.thread
+  %.1 = phi i1 [ %365, %358 ], [ %336, %321 ], [ %181, %147 ], [ %295, %286 ], [ %76, %.thread ], [ %114, %.thread233 ], [ %256, %243 ], [ %228, %.thread237 ], [ false, %.thread249 ], [ false, %343 ]
   ret i1 %.1
 }
 

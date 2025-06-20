@@ -2962,18 +2962,18 @@ define internal fastcc void @_ZN3cfg3dnf7flatten17h275c9a5bc7f65a23E(ptr noalias
   br label %23
 
 15:                                               ; preds = %2
-  %.sroa.031.0.copyload = load i64, ptr %1, align 8
-  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.232.0.copyload = load ptr, ptr %.sroa.232.0..sroa_idx, align 8, !nonnull !5, !noundef !5
-  %.sroa.333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.333.0.copyload = load i64, ptr %.sroa.333.0..sroa_idx, align 8
+  %.sroa.030.0.copyload = load i64, ptr %1, align 8
+  %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.231.0.copyload = load ptr, ptr %.sroa.231.0..sroa_idx, align 8, !nonnull !5, !noundef !5
+  %.sroa.332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.332.0.copyload = load i64, ptr %.sroa.332.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %16 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %.sroa.232.0.copyload, i64 %.sroa.333.0.copyload
-  store ptr %.sroa.232.0.copyload, ptr %3, align 8
+  %16 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %.sroa.231.0.copyload, i64 %.sroa.332.0.copyload
+  store ptr %.sroa.231.0.copyload, ptr %3, align 8
   %.sroa.013.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sroa.232.0.copyload, ptr %.sroa.013.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.231.0.copyload, ptr %.sroa.013.sroa.4.0..sroa_idx, align 8
   %.sroa.013.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %.sroa.031.0.copyload, ptr %.sroa.013.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.030.0.copyload, ptr %.sroa.013.sroa.5.0..sroa_idx, align 8
   %.sroa.013.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %16, ptr %.sroa.013.sroa.6.0..sroa_idx, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32

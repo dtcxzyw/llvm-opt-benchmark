@@ -3092,15 +3092,15 @@ define dso_local void @_ZN4llvm9DWARFUnit22tryExtractDIEsIfNeededEb(ptr dead_on_
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.llvm::Error", align 8
   %17 = alloca %"class.std::optional.71", align 8
-  %.sroa.795 = alloca [22 x i8], align 2
+  %.sroa.794 = alloca [22 x i8], align 2
   %18 = alloca %"class.std::unique_ptr.114", align 8
   br i1 %2, label %19, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 296
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !314
-  %.phi.trans.insert114 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %.pre115 = load ptr, ptr %.phi.trans.insert114, align 8, !tbaa !141
+  %.phi.trans.insert113 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %.pre114 = load ptr, ptr %.phi.trans.insert113, align 8, !tbaa !141
   br label %25
 
 19:                                               ; preds = %3
@@ -3112,7 +3112,7 @@ define dso_local void @_ZN4llvm9DWARFUnit22tryExtractDIEsIfNeededEb(ptr dead_on_
   br i1 %24, label %25, label %_ZN4llvm5ErrorD2Ev.exit
 
 25:                                               ; preds = %._crit_edge, %19
-  %26 = phi ptr [ %.pre115, %._crit_edge ], [ %21, %19 ]
+  %26 = phi ptr [ %.pre114, %._crit_edge ], [ %21, %19 ]
   %27 = phi ptr [ %.pre, %._crit_edge ], [ %21, %19 ]
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %26 to i64
@@ -3194,8 +3194,8 @@ _ZN4llvm5dwarf10toUnsignedERKSt8optionalINS_14DWARFFormValueEE.exit: ; preds = %
 
 _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit.thread: ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %.sroa.413.0..sroa_idx121 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  store i8 0, ptr %.sroa.413.0..sroa_idx121, align 8
+  %.sroa.413.0..sroa_idx120 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  store i8 0, ptr %.sroa.413.0..sroa_idx120, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #24
   br label %67
 
@@ -3212,7 +3212,7 @@ _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit: ; pred
   br i1 %66, label %76, label %67
 
 67:                                               ; preds = %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit.thread, %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit
-  %.sroa.413.0..sroa_idx123 = phi ptr [ %.sroa.413.0..sroa_idx121, %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit.thread ], [ %.sroa.413.0..sroa_idx, %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit ]
+  %.sroa.413.0..sroa_idx121 = phi ptr [ %.sroa.413.0..sroa_idx120, %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit.thread ], [ %.sroa.413.0..sroa_idx, %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit ]
   %68 = phi ptr [ %61, %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit.thread ], [ %65, %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #24
   call void @_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.71") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %5, i16 noundef zeroext 8499) #24
@@ -3231,7 +3231,7 @@ _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEE.exit39: ; pr
   %.sroa.2.0.i35 = phi i8 [ %75, %72 ], [ 0, %67 ]
   %.sroa.0.0.i36 = phi i64 [ %74, %72 ], [ undef, %67 ]
   store i64 %.sroa.0.0.i36, ptr %68, align 8
-  store i8 %.sroa.2.0.i35, ptr %.sroa.413.0..sroa_idx123, align 8
+  store i8 %.sroa.2.0.i35, ptr %.sroa.413.0..sroa_idx121, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #24
   br label %76
 
@@ -3276,8 +3276,8 @@ _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEEm.exit41: ; p
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i64 %.sroa.2.0.i.i40, ptr %96, align 8, !tbaa !361
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #24
-  %.pre116 = load i8, ptr %54, align 1, !tbaa !118, !range !127
-  %97 = trunc nuw i8 %.pre116 to i1
+  %.pre115 = load i8, ptr %54, align 1, !tbaa !118, !range !127
+  %97 = trunc nuw i8 %.pre115 to i1
   br label %98
 
 98:                                               ; preds = %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEEm.exit41, %53
@@ -3311,7 +3311,7 @@ _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEEm.exit41: ; p
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %114 = load i16, ptr %113, align 8, !tbaa !194
   %115 = icmp ugt i16 %114, 4
-  br i1 %115, label %117, label %.thread125
+  br i1 %115, label %117, label %.thread122
 
 116:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #24
@@ -3472,10 +3472,10 @@ _ZN4llvm8ExpectedISt8optionalINS_32StrOffsetsContributionDescriptorEEED2Ev.exit:
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %175, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #24
-  %.phi.trans.insert117 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.pre118 = load i16, ptr %.phi.trans.insert117, align 8, !tbaa !194
-  %176 = icmp ugt i16 %.pre118, 4
-  br i1 %176, label %177, label %.thread125
+  %.phi.trans.insert116 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.pre117 = load i16, ptr %.phi.trans.insert116, align 8, !tbaa !194
+  %176 = icmp ugt i16 %.pre117, 4
+  br i1 %176, label %177, label %.thread122
 
 177:                                              ; preds = %174
   %178 = load i8, ptr %54, align 1, !tbaa !118, !range !127, !noundef !128
@@ -3515,7 +3515,7 @@ _ZN4llvm8ExpectedISt8optionalINS_32StrOffsetsContributionDescriptorEEED2Ev.exit:
   store ptr %194, ptr %198, align 8, !tbaa !111
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 %197, ptr %199, align 8, !tbaa !313
-  br label %.thread125
+  br label %.thread122
 
 200:                                              ; preds = %177
   %201 = load ptr, ptr %100, align 8, !tbaa !143
@@ -3551,9 +3551,9 @@ _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEEm.exit51: ; p
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 %.sroa.2.0.i.i50, ptr %220, align 8, !tbaa !313
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #24
-  br label %.thread125
+  br label %.thread122
 
-.thread125:                                       ; preds = %112, %187, %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEEm.exit51, %174
+.thread122:                                       ; preds = %112, %187, %_ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEEm.exit51, %174
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %222 = load i8, ptr %54, align 1, !tbaa !118, !range !127, !noundef !128
   %223 = trunc nuw i8 %222 to i1
@@ -3561,7 +3561,7 @@ _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEEm.exit51: ; p
   %225 = icmp ugt i16 %224, 4
   br i1 %223, label %226, label %263
 
-226:                                              ; preds = %.thread125
+226:                                              ; preds = %.thread122
   %227 = load ptr, ptr %100, align 8, !tbaa !143
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 96
   %229 = load ptr, ptr %228, align 8, !tbaa !3
@@ -3570,9 +3570,9 @@ _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEEm.exit51: ; p
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 %.
   %232 = load ptr, ptr %231, align 8
   %233 = call noundef nonnull align 8 dereferenceable(24) ptr %232(ptr noundef nonnull align 8 dereferenceable(32) %229) #24
-  %.sroa.096.0.copyload = load ptr, ptr %233, align 8, !tbaa !114
-  %.sroa.697.0..sroa_idx = getelementptr inbounds nuw i8, ptr %233, i64 8
-  %.sroa.697.0.copyload = load i64, ptr %.sroa.697.0..sroa_idx, align 8, !tbaa !10
+  %.sroa.095.0.copyload = load ptr, ptr %233, align 8, !tbaa !114
+  %.sroa.696.0..sroa_idx = getelementptr inbounds nuw i8, ptr %233, i64 8
+  %.sroa.696.0.copyload = load i64, ptr %.sroa.696.0..sroa_idx, align 8, !tbaa !10
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %235 = load ptr, ptr %234, align 8, !tbaa !192
   %.not27 = icmp eq ptr %235, null
@@ -3590,33 +3590,33 @@ _ZN4llvm5dwarf15toSectionOffsetERKSt8optionalINS_14DWARFFormValueEEm.exit51: ; p
   %242 = load i64, ptr %240, align 8, !tbaa !104
   %243 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %244 = load i64, ptr %243, align 8, !tbaa !312
-  %.sroa.speculated4.i = call i64 @llvm.umin.i64(i64 %.sroa.697.0.copyload, i64 %242)
-  %245 = getelementptr inbounds nuw i8, ptr %.sroa.096.0.copyload, i64 %.sroa.speculated4.i
-  %246 = sub i64 %.sroa.697.0.copyload, %.sroa.speculated4.i
+  %.sroa.speculated4.i = call i64 @llvm.umin.i64(i64 %.sroa.696.0.copyload, i64 %242)
+  %245 = getelementptr inbounds nuw i8, ptr %.sroa.095.0.copyload, i64 %.sroa.speculated4.i
+  %246 = sub i64 %.sroa.696.0.copyload, %.sroa.speculated4.i
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %246, i64 %244)
   br label %247
 
 247:                                              ; preds = %236, %241, %226
-  %.sroa.096.0 = phi ptr [ %.sroa.096.0.copyload, %226 ], [ %.sroa.096.0.copyload, %236 ], [ %245, %241 ]
-  %.sroa.697.0 = phi i64 [ %.sroa.697.0.copyload, %226 ], [ %.sroa.697.0.copyload, %236 ], [ %.sroa.speculated.i, %241 ]
-  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %.sroa.795)
+  %.sroa.095.0 = phi ptr [ %.sroa.095.0.copyload, %226 ], [ %.sroa.095.0.copyload, %236 ], [ %245, %241 ]
+  %.sroa.696.0 = phi i64 [ %.sroa.696.0.copyload, %226 ], [ %.sroa.696.0.copyload, %236 ], [ %.sroa.speculated.i, %241 ]
+  call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %.sroa.794)
   %248 = load i8, ptr %106, align 8, !tbaa !117, !range !127, !noundef !128
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %250 = load i8, ptr %249, align 2, !tbaa !144
-  %.sroa.795.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.795, i64 6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.795.6..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.794.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.794, i64 6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.794.6..sroa_idx, i8 0, i64 16, i1 false)
   %251 = load i16, ptr %221, align 8, !tbaa !194
   %252 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25, !noalias !371
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  store ptr %.sroa.096.0, ptr %253, align 8, !noalias !371
-  %.sroa.492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 16
-  store i64 %.sroa.697.0, ptr %.sroa.492.0..sroa_idx, align 8, !noalias !371
-  %.sroa.593.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 24
-  store i8 %248, ptr %.sroa.593.0..sroa_idx, align 8, !noalias !371
-  %.sroa.694.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 25
-  store i8 %250, ptr %.sroa.694.0..sroa_idx, align 1, !noalias !371
-  %.sroa.795.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %.sroa.795.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(22) %.sroa.795, i64 22, i1 false), !noalias !371
+  store ptr %.sroa.095.0, ptr %253, align 8, !noalias !371
+  %.sroa.491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 16
+  store i64 %.sroa.696.0, ptr %.sroa.491.0..sroa_idx, align 8, !noalias !371
+  %.sroa.592.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 24
+  store i8 %248, ptr %.sroa.592.0..sroa_idx, align 8, !noalias !371
+  %.sroa.693.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 25
+  store i8 %250, ptr %.sroa.693.0..sroa_idx, align 1, !noalias !371
+  %.sroa.794.0..sroa_idx = getelementptr inbounds nuw i8, ptr %252, i64 26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(22) %.sroa.794.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(22) %.sroa.794, i64 22, i1 false), !noalias !371
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm18DWARFDebugLoclistsE, i64 16), ptr %252, align 8, !tbaa !8, !noalias !371
   %254 = getelementptr inbounds nuw i8, ptr %252, i64 48
   store i16 %251, ptr %254, align 8, !tbaa !374, !noalias !371
@@ -3640,10 +3640,10 @@ _ZNSt10unique_ptrIN4llvm18DWARFDebugLoclistsESt14default_deleteIS1_EED2Ev.exit: 
   %..i56 = select i1 %switch.i55, i64 12, i64 20
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i64 %..i56, ptr %262, align 8, !tbaa !361
-  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %.sroa.795)
+  call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %.sroa.794)
   br label %_ZN4llvm5ErrorD2Ev.exit73
 
-263:                                              ; preds = %.thread125
+263:                                              ; preds = %.thread122
   br i1 %225, label %264, label %284
 
 264:                                              ; preds = %263
@@ -3664,16 +3664,16 @@ _ZNSt10unique_ptrIN4llvm18DWARFDebugLoclistsESt14default_deleteIS1_EED2Ev.exit: 
   %276 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25, !noalias !377
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store ptr %.sroa.0.0.copyload.i57, ptr %277, align 8, !noalias !377
-  %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 16
-  store i64 %.sroa.2.0.copyload.i59, ptr %.sroa.480.0..sroa_idx, align 8, !noalias !377
-  %.sroa.581.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 24
-  store i8 %272, ptr %.sroa.581.0..sroa_idx, align 8, !noalias !377
-  %.sroa.682.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 25
-  store i8 %274, ptr %.sroa.682.0..sroa_idx, align 1, !noalias !377
-  %.sroa.784.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 32
-  store ptr %267, ptr %.sroa.784.0..sroa_idx, align 8, !noalias !377
-  %.sroa.885.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 40
-  store ptr %271, ptr %.sroa.885.0..sroa_idx, align 8, !noalias !377
+  %.sroa.479.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 16
+  store i64 %.sroa.2.0.copyload.i59, ptr %.sroa.479.0..sroa_idx, align 8, !noalias !377
+  %.sroa.580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 24
+  store i8 %272, ptr %.sroa.580.0..sroa_idx, align 8, !noalias !377
+  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 25
+  store i8 %274, ptr %.sroa.681.0..sroa_idx, align 1, !noalias !377
+  %.sroa.783.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 32
+  store ptr %267, ptr %.sroa.783.0..sroa_idx, align 8, !noalias !377
+  %.sroa.884.0..sroa_idx = getelementptr inbounds nuw i8, ptr %276, i64 40
+  store ptr %271, ptr %.sroa.884.0..sroa_idx, align 8, !noalias !377
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm18DWARFDebugLoclistsE, i64 16), ptr %276, align 8, !tbaa !8, !noalias !377
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 48
   store i16 %275, ptr %278, align 8, !tbaa !374, !noalias !377
@@ -3710,12 +3710,12 @@ _ZNKSt14default_deleteIN4llvm18DWARFLocationTableEEclEPS1_.exit.i.i.i62: ; preds
   store ptr %.sroa.0.0.copyload.i67, ptr %296, align 8, !noalias !380
   %.sroa.4.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %295, i64 16
   store i64 %.sroa.2.0.copyload.i69, ptr %.sroa.4.0..sroa_idx76, align 8, !noalias !380
-  %.sroa.577.0..sroa_idx = getelementptr inbounds nuw i8, ptr %295, i64 24
-  store i8 %292, ptr %.sroa.577.0..sroa_idx, align 8, !noalias !380
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %295, i64 24
+  store i8 %292, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !380
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %295, i64 25
   store i8 %294, ptr %.sroa.6.0..sroa_idx, align 1, !noalias !380
-  %.sroa.778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %295, i64 32
-  store ptr %287, ptr %.sroa.778.0..sroa_idx, align 8, !noalias !380
+  %.sroa.777.0..sroa_idx = getelementptr inbounds nuw i8, ptr %295, i64 32
+  store ptr %287, ptr %.sroa.777.0..sroa_idx, align 8, !noalias !380
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %295, i64 40
   store ptr %291, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !380
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN4llvm13DWARFDebugLocE, i64 16), ptr %295, align 8, !tbaa !8, !noalias !380

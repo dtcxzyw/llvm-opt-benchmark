@@ -7529,25 +7529,24 @@ define hidden noundef ptr @_ZN13mini_lsm_mvcc9iterators15concat_iterator17SstCon
   %2 = alloca { [1 x i64], i64, [11 x i64] }, align 8
   %3 = alloca ptr, align 8
   %.sroa.716.sroa.0 = alloca [10 x i64], align 8
-  %.sroa.5 = alloca [13 x i64], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %4, align 8, !range !501, !noundef !4
   %7 = icmp ne i64 %6, -9223372036854775808
   %8 = load i64, ptr %5, align 8
-  %.not76 = icmp eq i64 %8, 0
-  %or.cond77 = select i1 %7, i1 %.not76, i1 false
-  br i1 %or.cond77, label %.lr.ph, label %.loopexit
+  %.not75 = icmp eq i64 %8, 0
+  %or.cond76 = select i1 %7, i1 %.not75, i1 false
+  br i1 %or.cond76, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %.sroa.5.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.02.sroa.2.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.6.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.716.sroa.7.0..sroa.716.0..sroa_idx17.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %14
 
@@ -7617,7 +7616,6 @@ common.resume:                                    ; preds = %.body31, %.body, %2
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %.sroa.5)
   call void @llvm.experimental.noalias.scope.decl(metadata !604)
   call void @llvm.experimental.noalias.scope.decl(metadata !607)
   call void @llvm.experimental.noalias.scope.decl(metadata !610)
@@ -7702,7 +7700,7 @@ common.resume:                                    ; preds = %.body31, %.body, %2
 .body31:                                          ; preds = %53, %58
   %eh.lpad-body32 = phi { ptr, i32 } [ %59, %58 ], [ %54, %53 ]
   store i64 %27, ptr %4, align 8
-  store ptr %.sroa.02.sroa.2.i.sroa.0.0.copyload, ptr %.sroa.5.0..sroa_idx4, align 8
+  store ptr %.sroa.02.sroa.2.i.sroa.0.0.copyload, ptr %.sroa.6.0..sroa_idx14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.716.sroa.0, i64 80, i1 false)
   store ptr %.val29, ptr %11, align 8
   store i64 %.sroa.03.0.copyload.i, ptr %.sroa.716.sroa.7.0..sroa.716.0..sroa_idx17.sroa_idx, align 8
@@ -7710,7 +7708,7 @@ common.resume:                                    ; preds = %.body31, %.body, %2
 
 60:                                               ; preds = %"_ZN4core3ptr68drop_in_place$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$17h3a05c143a3442654E.exit.i30", %45
   store i64 %27, ptr %4, align 8
-  store ptr %.sroa.02.sroa.2.i.sroa.0.0.copyload, ptr %.sroa.5.0..sroa_idx4, align 8
+  store ptr %.sroa.02.sroa.2.i.sroa.0.0.copyload, ptr %.sroa.6.0..sroa_idx14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.716.sroa.0, i64 80, i1 false)
   store ptr %.val29, ptr %11, align 8
   store i64 %.sroa.03.0.copyload.i, ptr %.sroa.716.sroa.7.0..sroa.716.0..sroa_idx17.sroa_idx, align 8
@@ -7734,13 +7732,10 @@ common.resume:                                    ; preds = %.body31, %.body, %2
 .body:                                            ; preds = %41, %64
   %eh.lpad-body = phi { ptr, i32 } [ %65, %64 ], [ %42, %41 ]
   store i64 -9223372036854775808, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.5.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.5, i64 104, i1 false)
   br label %common.resume
 
 .thread:                                          ; preds = %"_ZN4core3ptr68drop_in_place$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$17h3a05c143a3442654E.exit.i"
   store i64 -9223372036854775808, ptr %4, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.5.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.5, i64 104, i1 false)
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %.sroa.5)
   br label %.loopexit
 }
 

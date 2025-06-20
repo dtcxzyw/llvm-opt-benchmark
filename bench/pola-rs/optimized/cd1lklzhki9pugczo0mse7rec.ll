@@ -34085,7 +34085,7 @@ define internal fastcc void @"_ZN17polars_mem_engine9executors16projection_utils
           to label %17 unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.body82, %58, %156, %71
-  %.pn73 = phi { ptr, i32 } [ %.pn106, %156 ], [ %72, %71 ], [ %59, %58 ], [ %133, %.body82 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.pn73 = phi { ptr, i32 } [ %.pn105, %156 ], [ %72, %71 ], [ %59, %58 ], [ %133, %.body82 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$polars_expr..state..execution_state..ExecutionState$GT$17hd3a33c291cd3a9d8E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %15) #28
           to label %157 unwind label %143
 
@@ -34227,9 +34227,9 @@ define internal fastcc void @"_ZN17polars_mem_engine9executors16projection_utils
 71:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hc8051546f5006439E.exit", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hc8051546f5006439E.exit.thread", %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$$LP$u32$C$polars_core..frame..column..Column$RP$$GT$$GT$17hea968d41d954e9e2E.exit", %106, %109, %107
   %72 = landingpad { ptr, i32 }
           cleanup
-  %.phi.trans.insert102 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.pre103 = load i8, ptr %.phi.trans.insert102, align 16, !range !2650
-  %73 = icmp eq i8 %.pre103, 30
+  %.phi.trans.insert101 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.pre102 = load i8, ptr %.phi.trans.insert101, align 16, !range !2650
+  %73 = icmp eq i8 %.pre102, 30
   br i1 %73, label %.body, label %156
 
 74:                                               ; preds = %._crit_edge, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$$LP$u32$C$polars_core..frame..column..Column$RP$$GT$$GT$17hea968d41d954e9e2E.exit"
@@ -34341,10 +34341,10 @@ define internal fastcc void @"_ZN17polars_mem_engine9executors16projection_utils
   %108 = getelementptr inbounds nuw { i32, [1 x i32], { { { ptr, ptr } }, {}, {} } }, ptr %2, i64 %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !5433
   store ptr %101, ptr %5, align 8, !alias.scope !5440, !noalias !5444
-  %.sroa.494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %108, ptr %.sroa.494.0..sroa_idx, align 8, !alias.scope !5440, !noalias !5444
-  %.sroa.595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %12, ptr %.sroa.595.0..sroa_idx, align 8, !alias.scope !5440, !noalias !5444
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %108, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !5440, !noalias !5444
+  %.sroa.594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %12, ptr %.sroa.594.0..sroa_idx, align 8, !alias.scope !5440, !noalias !5444
   invoke void @_ZN4core4iter8adapters11try_process17h2e4f58ce7c63dff1E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
           to label %113 unwind label %71
 
@@ -34507,7 +34507,7 @@ define internal fastcc void @"_ZN17polars_mem_engine9executors16projection_utils
           to label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$$LP$u32$C$polars_core..frame..column..Column$RP$$GT$$GT$17hea968d41d954e9e2E.exit91" unwind label %.loopexit.split-lp
 
 156:                                              ; preds = %.thread, %71
-  %.pn106 = phi { ptr, i32 } [ %99, %.thread ], [ %72, %71 ]
+  %.pn105 = phi { ptr, i32 } [ %99, %.thread ], [ %72, %71 ]
   invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$$LP$u32$C$polars_core..frame..column..Column$RP$$GT$17h0679e7bc76d3ac7dE"(ptr noalias noundef align 16 dereferenceable(176) %14) #28
           to label %.body unwind label %143
 

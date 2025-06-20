@@ -1975,8 +1975,8 @@ _RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
   store i64 1, ptr %0, align 8, !alias.scope !454, !noalias !459
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !454, !noalias !459
-  %.sroa.511.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %.sroa.511.0..sroa_idx.i, align 8, !alias.scope !454, !noalias !459
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !454, !noalias !459
   ret void
 }
 
@@ -2127,8 +2127,8 @@ _RNvXsa_NtCsaPKTPzkFU9s_3nom5errorINtB5_12VerboseErrorINtCs4DJqE8qduBp_4pori8Sta
   store i64 1, ptr %0, align 8, !alias.scope !497, !noalias !502
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !497, !noalias !502
-  %.sroa.511.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %.sroa.511.0..sroa_idx.i, align 8, !alias.scope !497, !noalias !502
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 1, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !497, !noalias !502
   ret void
 }
 

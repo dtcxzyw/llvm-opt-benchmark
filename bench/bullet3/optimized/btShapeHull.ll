@@ -338,7 +338,7 @@ define dso_local noundef zeroext i1 @_ZN11btShapeHull9buildHullEfi(ptr noundef n
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load i32, ptr %78, align 8, !tbaa !21
   %80 = icmp slt i32 %79, %73
-  br i1 %80, label %81, label %.loopexit63.loopexit
+  br i1 %80, label %81, label %.loopexit63
 
 81:                                               ; preds = %77
   %.not.i.i.i = icmp eq i32 %73, 0
@@ -393,14 +393,11 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %98, %_Z
   store i8 1, ptr %95, align 8, !tbaa !18
   store ptr %.0.i.i.i, ptr %93, align 8, !tbaa !19
   store i32 %73, ptr %78, align 8, !tbaa !21
-  br label %.loopexit63.loopexit
-
-.loopexit63.loopexit:                             ; preds = %77, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i
-  %.pre = load i32, ptr %64, align 4, !tbaa !58
+  %.pre.pre = load i32, ptr %64, align 4, !tbaa !58
   br label %.loopexit63
 
-.loopexit63:                                      ; preds = %.loopexit63.loopexit, %72
-  %99 = phi i32 [ %.pre, %.loopexit63.loopexit ], [ %73, %72 ]
+.loopexit63:                                      ; preds = %77, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i, %72
+  %99 = phi i32 [ %73, %72 ], [ %.pre.pre, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i ], [ %73, %77 ]
   store i32 %73, ptr %74, align 4, !tbaa !20
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %.lr.ph71, label %._crit_edge

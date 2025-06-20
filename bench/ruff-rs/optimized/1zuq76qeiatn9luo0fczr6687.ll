@@ -96,9 +96,9 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !10
   store ptr %7, ptr %5, align 8, !noalias !10
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !10
   br label %10
 
 10:                                               ; preds = %23, %2
@@ -1104,21 +1104,21 @@ define hidden noundef nonnull ptr @"_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u
 
 .noexc55.i:                                       ; preds = %38
   %45 = icmp ugt i64 %44, 1
-  br i1 %45, label %46, label %.invoke62.i, !prof !55
+  br i1 %45, label %46, label %.invoke61.i, !prof !55
 
 46:                                               ; preds = %.noexc55.i
   %47 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %44)
   %48 = icmp eq i64 %47, 1
-  br i1 %48, label %"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h509e787fa79d9054E.exit.i.i", label %.invoke62.i, !prof !55
+  br i1 %48, label %"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h509e787fa79d9054E.exit.i.i", label %.invoke61.i, !prof !55
 
-.invoke62.i:                                      ; preds = %46, %.noexc55.i
+.invoke61.i:                                      ; preds = %46, %.noexc55.i
   %49 = phi ptr [ @anon.e8badd4028ae8a3cd4272323d987f116.82, %.noexc55.i ], [ @anon.e8badd4028ae8a3cd4272323d987f116.86, %46 ]
   %50 = phi i64 [ 34, %.noexc55.i ], [ 48, %46 ]
   %51 = phi ptr [ @anon.e8badd4028ae8a3cd4272323d987f116.84, %.noexc55.i ], [ @anon.e8badd4028ae8a3cd4272323d987f116.87, %46 ]
   invoke void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 %49, i64 noundef %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %51) #18
-          to label %.cont63.i unwind label %54, !noalias !60
+          to label %.cont62.i unwind label %54, !noalias !60
 
-.cont63.i:                                        ; preds = %.invoke62.i
+.cont62.i:                                        ; preds = %.invoke61.i
   unreachable
 
 "_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h509e787fa79d9054E.exit.i.i": ; preds = %46
@@ -1137,7 +1137,7 @@ define hidden noundef nonnull ptr @"_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u
   %53 = invoke { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17heec89957f5ef5675E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1)
           to label %60 unwind label %54, !noalias !60
 
-54:                                               ; preds = %.noexc58.i, %"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h509e787fa79d9054E.exit.i.i", %.invoke62.i, %38
+54:                                               ; preds = %.noexc58.i, %"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h509e787fa79d9054E.exit.i.i", %.invoke61.i, %38
   %55 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr179drop_in_place$LT$dashmap..DashMap$LT$ruff_db..system..path..SystemVirtualPathBuf$C$ruff_db..files..VirtualFile$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hf2f55fc5f05da1d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #16

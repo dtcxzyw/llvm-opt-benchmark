@@ -4974,7 +4974,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
 
 .split.us.i:                                      ; preds = %5
   %.not20.i = icmp eq i64 %.promoted.i, 0
-  br i1 %.not20.i, label %.loopexit14, label %.split19.us.i
+  br i1 %.not20.i, label %.loopexit13, label %.split19.us.i
 
 .split19.us.i:                                    ; preds = %.split.us.i
   %14 = add i64 %.promoted.i, -1
@@ -4999,7 +4999,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   %19 = phi ptr [ %23, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1e24ee7e239cfce0E.exit.i" ], [ %4, %.split.preheader.i ]
   %20 = phi i64 [ %22, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1e24ee7e239cfce0E.exit.i" ], [ %.promoted.i, %.split.preheader.i ]
   %.not.not.i = icmp ugt i64 %7, %20
-  br i1 %.not.not.i, label %.loopexit14, label %21
+  br i1 %.not.not.i, label %.loopexit13, label %21
 
 21:                                               ; preds = %.split.i
   %22 = add i64 %20, -1
@@ -5043,12 +5043,12 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hfefdf694572e89d3E.exit, label %.split.i
 
-42:                                               ; preds = %.loopexit14, %2
+42:                                               ; preds = %.loopexit13, %2
   %43 = load i64, ptr %0, align 8, !range !434, !noundef !6
   %44 = trunc nuw i64 %43 to i1
   br i1 %44, label %45, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hfefdf694572e89d3E.exit
 
-.loopexit14:                                      ; preds = %.split.i, %.split.us.i
+.loopexit13:                                      ; preds = %.split.i, %.split.us.i
   store ptr null, ptr %3, align 8
   br label %42
 
@@ -5064,8 +5064,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hfefdf694572e89d3E.exit: ; pred
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.411.0.copyload = load ptr, ptr %.sroa.411.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -5127,7 +5127,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hfefdf694572e89d3E.exit: ; pred
   %59 = load i8, ptr %55, align 1, !alias.scope !461, !noalias !462, !noundef !6
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %61 = load i8, ptr %60, align 1, !alias.scope !461, !noalias !462, !noundef !6
-  %62 = load i64, ptr %.sroa.411.0.copyload, align 8, !noalias !454, !noundef !6
+  %62 = load i64, ptr %.sroa.4.0.copyload, align 8, !noalias !454, !noundef !6
   tail call void @llvm.assume(i1 %49)
   %63 = icmp ult i64 %54, 8
   br i1 %63, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h3acc368b4855dd8fE.exit.i", label %64

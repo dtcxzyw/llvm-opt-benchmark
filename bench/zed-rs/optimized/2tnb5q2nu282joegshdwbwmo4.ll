@@ -13594,7 +13594,7 @@ define void @"_ZN8worktree17worktree_settings1_103_$LT$impl$u20$schemars..JsonSc
   %6 = alloca [72 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [72 x i8], align 8
-  %.sroa.830 = alloca [64 x i8], align 8
+  %.sroa.833 = alloca [64 x i8], align 8
   %9 = alloca [240 x i8], align 8
   %10 = alloca [240 x i8], align 8
   %11 = alloca [240 x i8], align 8
@@ -13640,8 +13640,8 @@ define void @"_ZN8worktree17worktree_settings1_103_$LT$impl$u20$schemars..JsonSc
   store i64 -9223372036854775808, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 216
   store ptr null, ptr %28, align 8
-  %.sroa.3123.216..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 232
-  store i64 0, ptr %.sroa.3123.216..sroa_idx, align 8
+  %.sroa.2726.216..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 232
+  store i64 0, ptr %.sroa.2726.216..sroa_idx, align 8
   %29 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h5adaef6fb6e7c63fE(ptr noalias noundef nonnull align 8 dereferenceable(240) %14)
           to label %30 unwind label %19
 
@@ -13675,15 +13675,15 @@ define void @"_ZN8worktree17worktree_settings1_103_$LT$impl$u20$schemars..JsonSc
           to label %50 unwind label %58
 
 36:                                               ; preds = %.noexc
-  %.sroa.830.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.830, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.830.0..sroa_idx, i64 64, i1 false), !noalias !3014
+  %.sroa.833.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.833, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.833.0..sroa_idx, i64 64, i1 false), !noalias !3014
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !3009
   call void @llvm.experimental.noalias.scope.decl(metadata !3015)
   call void @llvm.experimental.noalias.scope.decl(metadata !3018)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !3020
   store i64 %33, ptr %6, align 8, !alias.scope !3022, !noalias !3029
-  %.sroa.830.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.830.0..sroa_idx31, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.830, i64 64, i1 false), !alias.scope !3022, !noalias !3029
+  %.sroa.833.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.833.0..sroa_idx34, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.833, i64 64, i1 false), !alias.scope !3022, !noalias !3029
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5), !noalias !3020
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4), !noalias !3020
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %4, ptr noundef nonnull readonly align 8 dereferenceable(240) %12, i64 240, i1 false), !noalias !3030
@@ -13694,8 +13694,8 @@ define void @"_ZN8worktree17worktree_settings1_103_$LT$impl$u20$schemars..JsonSc
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %4), !noalias !3020
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3), !noalias !3020
   store i64 %33, ptr %3, align 8, !noalias !3029
-  %.sroa.830.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.830.0..sroa_idx32, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.830, i64 64, i1 false), !noalias !3029
+  %.sroa.833.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.833.0..sroa_idx35, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.833, i64 64, i1 false), !noalias !3029
   %38 = invoke noundef align 8 dereferenceable(176) ptr @_ZN8schemars6schema12SchemaObject8metadata17h18b524d429a716cdE(ptr noalias noundef nonnull align 8 dereferenceable(240) %5)
           to label %41 unwind label %46, !noalias !3020
 
@@ -13703,8 +13703,8 @@ define void @"_ZN8worktree17worktree_settings1_103_$LT$impl$u20$schemars..JsonSc
   %40 = landingpad { ptr, i32 }
           cleanup
   store i64 %33, ptr %42, align 8, !noalias !3029
-  %.sroa.830.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %38, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.830.0..sroa_idx33, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.830, i64 64, i1 false), !noalias !3029
+  %.sroa.833.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %38, i64 104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.833.0..sroa_idx36, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.833, i64 64, i1 false), !noalias !3029
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h53f4c882397a3759E.exit15.i"
 
 41:                                               ; preds = %37
@@ -13719,8 +13719,8 @@ define void @"_ZN8worktree17worktree_settings1_103_$LT$impl$u20$schemars..JsonSc
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h53f4c882397a3759E.exit13.i": ; preds = %45, %41
   store i64 %33, ptr %42, align 8, !noalias !3029
-  %.sroa.830.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %38, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.830.0..sroa_idx34, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.830, i64 64, i1 false), !noalias !3029
+  %.sroa.833.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %38, i64 104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.833.0..sroa_idx37, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.833, i64 64, i1 false), !noalias !3029
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !3020
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %13, ptr noundef nonnull align 8 dereferenceable(240) %5, i64 240, i1 false), !noalias !3034
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %5), !noalias !3020

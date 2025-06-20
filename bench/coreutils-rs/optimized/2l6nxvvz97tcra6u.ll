@@ -984,7 +984,7 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit: ; preds = %.no
   store ptr %60, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @anon.54054c7a0d151572bd23340dc50ae6ad.14.llvm.4753778496570216458, ptr %68, align 8
-  br label %191
+  br label %190
 
 69:                                               ; preds = %55
   %70 = icmp eq ptr %.sroa.0.0.ph, %17
@@ -1111,12 +1111,12 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit60: ; preds = %.
   store ptr %112, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @anon.54054c7a0d151572bd23340dc50ae6ad.14.llvm.4753778496570216458, ptr %120, align 8
-  br label %191
+  br label %190
 
 121:                                              ; preds = %69
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %122, align 8
-  br label %191
+  br label %190
 
 123:                                              ; preds = %55, %106
   %.039 = phi i8 [ 1, %106 ], [ 0, %55 ]
@@ -1247,7 +1247,7 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit74: ; preds = %.
   store ptr %168, ptr %175, align 8
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @anon.54054c7a0d151572bd23340dc50ae6ad.14.llvm.4753778496570216458, ptr %176, align 8
-  br label %191
+  br label %190
 
 177:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
@@ -1260,28 +1260,29 @@ _ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit74: ; preds = %.
   %183 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %184 = load i64, ptr %183, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  br i1 %182, label %185, label %187
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %182, label %186, label %187
 
-185:                                              ; preds = %177
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %186, align 8
+186:                                              ; preds = %177
+  store i8 1, ptr %185, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %.039, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.611.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %184, ptr %.sroa.611.0..sroa_idx, align 8
-  br label %191
+  br label %188
 
 187:                                              ; preds = %177
-  %188 = inttoptr i64 %184 to ptr
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %181, ptr %189, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %188, ptr %190, align 8
-  br label %191
+  store ptr %181, ptr %185, align 8
+  br label %188
 
-191:                                              ; preds = %121, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit60, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit, %187, %185, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit74
-  %.sink = phi i64 [ 0, %121 ], [ 1, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit60 ], [ 1, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit ], [ 1, %187 ], [ 0, %185 ], [ 1, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit74 ]
-  store i64 %.sink, ptr %0, align 8
+188:                                              ; preds = %187, %186
+  %storemerge = phi i64 [ 1, %187 ], [ 0, %186 ]
+  %.sink = inttoptr i64 %184 to ptr
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sink, ptr %189, align 8
+  br label %190
+
+190:                                              ; preds = %188, %121, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit60, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit74
+  %storemerge.sink = phi i64 [ %storemerge, %188 ], [ 0, %121 ], [ 1, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit60 ], [ 1, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit ], [ 1, %_ZN6uucore4mods5error12USimpleError3new17h2a1a5d43fb2dc5cbE.exit74 ]
+  store i64 %storemerge.sink, ptr %0, align 8
   ret void
 }
 

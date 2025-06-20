@@ -897,8 +897,6 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_8CastExprEE10_checkStmtIN1
   %23 = alloca %"class.llvm::APInt", align 8
   %24 = alloca %"class.clang::ento::EnvironmentEntry", align 8
   %25 = alloca %"class.llvm::SmallVector", align 8
-  %.sroa.4.i = alloca [7 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4.i)
   %26 = load i32, ptr %1, align 8
   %27 = and i32 %26, 66584576
   %cond.i = icmp eq i32 %27, 14155776
@@ -1196,8 +1194,6 @@ _ZN9__gnu_cxx5__ops11__pred_iterIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEN
   %156 = zext i32 %146 to i64
   %157 = getelementptr inbounds nuw %"class.llvm::APSInt", ptr %.val1251.i, i64 %156
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.i, i64 7, i1 false)
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i
 
 158:                                              ; preds = %149
@@ -1217,8 +1213,6 @@ _ZN9__gnu_cxx5__ops11__pred_iterIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEEN
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %152) #17, !noalias !273
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %152) #17, !noalias !273
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
-  %.sroa.0.i.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.i.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.i, i64 7, i1 false)
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %152) #17
   br label %_ZN9__gnu_cxx5__ops10_Iter_predIN12_GLOBAL__N_126ConstraintBasedEQEvaluatorEEC2ERKS4_.exit.i.i.i.i.i.i
 
@@ -1967,7 +1961,6 @@ _ZN4llvm11SmallVectorINS_6APSIntELj6EED2Ev.exit.i: ; preds = %431, %_ZN4llvm23Sm
   br label %_ZNK12_GLOBAL__N_125EnumCastOutOfRangeChecker12checkPreStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit
 
 _ZNK12_GLOBAL__N_125EnumCastOutOfRangeChecker12checkPreStmtEPKN5clang8CastExprERNS1_4ento14CheckerContextE.exit: ; preds = %3, %28, %43, %_ZN4llvm11SmallVectorINS_6APSIntELj6EED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4.i)
   ret void
 }
 

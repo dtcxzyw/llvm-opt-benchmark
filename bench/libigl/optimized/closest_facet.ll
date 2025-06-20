@@ -126160,7 +126160,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
   %13 = extractelement <2 x double> %12, i64 0
   %14 = fneg double %13
   %15 = fcmp oeq double %11, %14
-  br i1 %15, label %16, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %15, label %16, label %56
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
@@ -126170,7 +126170,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
   %21 = extractelement <2 x double> %20, i64 0
   %22 = fneg double %21
   %23 = fcmp oeq double %19, %22
-  br i1 %23, label %24, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %23, label %24, label %56
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 32
@@ -126180,7 +126180,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
   %29 = extractelement <2 x double> %28, i64 0
   %30 = fneg double %29
   %31 = fcmp oeq double %27, %30
-  br i1 %31, label %32, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %31, label %32, label %56
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
@@ -126190,7 +126190,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
   %37 = extractelement <2 x double> %36, i64 0
   %38 = fneg double %37
   %39 = fcmp oeq double %35, %38
-  br i1 %39, label %40, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %39, label %40, label %56
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 64
@@ -126200,7 +126200,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
   %45 = extractelement <2 x double> %44, i64 0
   %46 = fneg double %45
   %47 = fcmp oeq double %43, %46
-  br i1 %47, label %48, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %47, label %48, label %56
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 80
@@ -126210,13 +126210,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
   %53 = extractelement <2 x double> %52, i64 0
   %54 = fneg double %53
   %55 = fcmp oeq double %51, %54
-  br i1 %55, label %57, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %55, label %58, label %56
 
-_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i: ; preds = %32, %40, %48, %3, %16, %24
-  %56 = tail call noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateINS_20CommonKernelFunctors14Do_intersect_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_15Exact_converterINS_5EpeckESH_EENS_16Approx_converterISO_SL_EELb1EEclIJNS_9Segment_3ISO_EENS_10Triangle_3ISO_EEEEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %137
+56:                                               ; preds = %24, %16, %3, %48, %40, %32
+  %57 = tail call noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateINS_20CommonKernelFunctors14Do_intersect_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_15Exact_converterINS_5EpeckESH_EENS_16Approx_converterISO_SL_EELb1EEclIJNS_9Segment_3ISO_EENS_10Triangle_3ISO_EEEEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  br label %139
 
-57:                                               ; preds = %48
+58:                                               ; preds = %48
   store double %14, ptr %5, align 8, !alias.scope !3182
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %22, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !3182
@@ -126228,138 +126228,138 @@ _ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKN
   store double %46, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 8, !alias.scope !3182
   %.sroa.0.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double %54, ptr %.sroa.0.sroa.8.0..sroa_idx.i, align 8, !alias.scope !3182
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i8 1, ptr %58, align 8, !tbaa !3191, !alias.scope !3196
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i8 1, ptr %59, align 8, !tbaa !3191, !alias.scope !3182
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #23
-  %59 = load ptr, ptr %2, align 8, !tbaa !47
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 160
-  %61 = load atomic i64, ptr %60 acquire, align 8
-  %.0.i.i.i.i.i8 = inttoptr i64 %61 to ptr
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3199)
-  %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 8
-  %63 = load double, ptr %62, align 8, !noalias !3202
-  %64 = load <2 x double>, ptr %.0.i.i.i.i.i8, align 16, !tbaa !53, !noalias !3202
-  %65 = extractelement <2 x double> %64, i64 0
-  %66 = fneg double %65
-  %67 = fcmp oeq double %63, %66
-  br i1 %67, label %68, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9
+  %60 = load ptr, ptr %2, align 8, !tbaa !47
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 160
+  %62 = load atomic i64, ptr %61 acquire, align 8
+  %.0.i.i.i.i.i8 = inttoptr i64 %62 to ptr
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !3196)
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 8
+  %64 = load double, ptr %63, align 8, !noalias !3199
+  %65 = load <2 x double>, ptr %.0.i.i.i.i.i8, align 16, !tbaa !53, !noalias !3199
+  %66 = extractelement <2 x double> %65, i64 0
+  %67 = fneg double %66
+  %68 = fcmp oeq double %64, %67
+  br i1 %68, label %69, label %133
 
-68:                                               ; preds = %57
-  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 24
-  %71 = load double, ptr %70, align 8, !noalias !3202
-  %72 = load <2 x double>, ptr %69, align 16, !tbaa !53, !noalias !3202
-  %73 = extractelement <2 x double> %72, i64 0
-  %74 = fneg double %73
-  %75 = fcmp oeq double %71, %74
-  br i1 %75, label %76, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9
+69:                                               ; preds = %58
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 24
+  %72 = load double, ptr %71, align 8, !noalias !3199
+  %73 = load <2 x double>, ptr %70, align 16, !tbaa !53, !noalias !3199
+  %74 = extractelement <2 x double> %73, i64 0
+  %75 = fneg double %74
+  %76 = fcmp oeq double %72, %75
+  br i1 %76, label %77, label %133
 
-76:                                               ; preds = %68
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 32
-  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 40
-  %79 = load double, ptr %78, align 8, !noalias !3202
-  %80 = load <2 x double>, ptr %77, align 16, !tbaa !53, !noalias !3202
-  %81 = extractelement <2 x double> %80, i64 0
-  %82 = fneg double %81
-  %83 = fcmp oeq double %79, %82
-  br i1 %83, label %84, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9
+77:                                               ; preds = %69
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 40
+  %80 = load double, ptr %79, align 8, !noalias !3199
+  %81 = load <2 x double>, ptr %78, align 16, !tbaa !53, !noalias !3199
+  %82 = extractelement <2 x double> %81, i64 0
+  %83 = fneg double %82
+  %84 = fcmp oeq double %80, %83
+  br i1 %84, label %85, label %133
 
-84:                                               ; preds = %76
-  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 48
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 56
-  %87 = load double, ptr %86, align 8, !noalias !3205
-  %88 = load <2 x double>, ptr %85, align 16, !tbaa !53, !noalias !3205
-  %89 = extractelement <2 x double> %88, i64 0
-  %90 = fneg double %89
-  %91 = fcmp oeq double %87, %90
-  br i1 %91, label %92, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9
+85:                                               ; preds = %77
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 56
+  %88 = load double, ptr %87, align 8, !noalias !3202
+  %89 = load <2 x double>, ptr %86, align 16, !tbaa !53, !noalias !3202
+  %90 = extractelement <2 x double> %89, i64 0
+  %91 = fneg double %90
+  %92 = fcmp oeq double %88, %91
+  br i1 %92, label %93, label %133
 
-92:                                               ; preds = %84
-  %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 64
-  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 72
-  %95 = load double, ptr %94, align 8, !noalias !3205
-  %96 = load <2 x double>, ptr %93, align 16, !tbaa !53, !noalias !3205
-  %97 = extractelement <2 x double> %96, i64 0
-  %98 = fneg double %97
-  %99 = fcmp oeq double %95, %98
-  br i1 %99, label %100, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9
+93:                                               ; preds = %85
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 72
+  %96 = load double, ptr %95, align 8, !noalias !3202
+  %97 = load <2 x double>, ptr %94, align 16, !tbaa !53, !noalias !3202
+  %98 = extractelement <2 x double> %97, i64 0
+  %99 = fneg double %98
+  %100 = fcmp oeq double %96, %99
+  br i1 %100, label %101, label %133
 
-100:                                              ; preds = %92
-  %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 80
-  %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 88
-  %103 = load double, ptr %102, align 8, !noalias !3205
-  %104 = load <2 x double>, ptr %101, align 16, !tbaa !53, !noalias !3205
-  %105 = extractelement <2 x double> %104, i64 0
-  %106 = fneg double %105
-  %107 = fcmp oeq double %103, %106
-  br i1 %107, label %108, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9
+101:                                              ; preds = %93
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 80
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 88
+  %104 = load double, ptr %103, align 8, !noalias !3202
+  %105 = load <2 x double>, ptr %102, align 16, !tbaa !53, !noalias !3202
+  %106 = extractelement <2 x double> %105, i64 0
+  %107 = fneg double %106
+  %108 = fcmp oeq double %104, %107
+  br i1 %108, label %109, label %133
 
-108:                                              ; preds = %100
-  %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 96
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 104
-  %111 = load double, ptr %110, align 8, !noalias !3208
-  %112 = load <2 x double>, ptr %109, align 16, !tbaa !53, !noalias !3208
-  %113 = extractelement <2 x double> %112, i64 0
-  %114 = fneg double %113
-  %115 = fcmp oeq double %111, %114
-  br i1 %115, label %116, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9
+109:                                              ; preds = %101
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 96
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 104
+  %112 = load double, ptr %111, align 8, !noalias !3205
+  %113 = load <2 x double>, ptr %110, align 16, !tbaa !53, !noalias !3205
+  %114 = extractelement <2 x double> %113, i64 0
+  %115 = fneg double %114
+  %116 = fcmp oeq double %112, %115
+  br i1 %116, label %117, label %133
 
-116:                                              ; preds = %108
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 112
-  %118 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 120
-  %119 = load double, ptr %118, align 8, !noalias !3208
-  %120 = load <2 x double>, ptr %117, align 16, !tbaa !53, !noalias !3208
-  %121 = extractelement <2 x double> %120, i64 0
-  %122 = fneg double %121
-  %123 = fcmp oeq double %119, %122
-  br i1 %123, label %124, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9
+117:                                              ; preds = %109
+  %118 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 112
+  %119 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 120
+  %120 = load double, ptr %119, align 8, !noalias !3205
+  %121 = load <2 x double>, ptr %118, align 16, !tbaa !53, !noalias !3205
+  %122 = extractelement <2 x double> %121, i64 0
+  %123 = fneg double %122
+  %124 = fcmp oeq double %120, %123
+  br i1 %124, label %125, label %133
 
-124:                                              ; preds = %116
-  %125 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 128
-  %126 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 136
-  %127 = load double, ptr %126, align 8, !noalias !3208
-  %128 = load <2 x double>, ptr %125, align 16, !tbaa !53, !noalias !3208
-  %129 = extractelement <2 x double> %128, i64 0
-  %130 = fneg double %129
-  %131 = fcmp oeq double %127, %130
-  br i1 %131, label %133, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9
+125:                                              ; preds = %117
+  %126 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 128
+  %127 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i8, i64 136
+  %128 = load double, ptr %127, align 8, !noalias !3205
+  %129 = load <2 x double>, ptr %126, align 16, !tbaa !53, !noalias !3205
+  %130 = extractelement <2 x double> %129, i64 0
+  %131 = fneg double %130
+  %132 = fcmp oeq double %128, %131
+  br i1 %132, label %135, label %133
 
-_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9: ; preds = %108, %116, %124, %84, %92, %100, %57, %68, %76
-  %132 = tail call noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateINS_20CommonKernelFunctors14Do_intersect_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_15Exact_converterINS_5EpeckESH_EENS_16Approx_converterISO_SL_EELb1EEclIJNS_9Segment_3ISO_EENS_10Triangle_3ISO_EEEEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %136
+133:                                              ; preds = %77, %69, %58, %101, %93, %85, %125, %117, %109
+  %134 = tail call noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateINS_20CommonKernelFunctors14Do_intersect_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_15Exact_converterINS_5EpeckESH_EENS_16Approx_converterISO_SL_EELb1EEclIJNS_9Segment_3ISO_EENS_10Triangle_3ISO_EEEEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  br label %138
 
-133:                                              ; preds = %124
-  store double %66, ptr %6, align 8, !alias.scope !3199
+135:                                              ; preds = %125
+  store double %67, ptr %6, align 8, !alias.scope !3196
   %.sroa.0.sroa.4.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store double %74, ptr %.sroa.0.sroa.4.0..sroa_idx.i10, align 8, !alias.scope !3199
+  store double %75, ptr %.sroa.0.sroa.4.0..sroa_idx.i10, align 8, !alias.scope !3196
   %.sroa.0.sroa.5.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store double %82, ptr %.sroa.0.sroa.5.0..sroa_idx.i11, align 8, !alias.scope !3199
+  store double %83, ptr %.sroa.0.sroa.5.0..sroa_idx.i11, align 8, !alias.scope !3196
   %.sroa.0.sroa.6.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store double %90, ptr %.sroa.0.sroa.6.0..sroa_idx.i12, align 8, !alias.scope !3199
+  store double %91, ptr %.sroa.0.sroa.6.0..sroa_idx.i12, align 8, !alias.scope !3196
   %.sroa.0.sroa.7.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store double %98, ptr %.sroa.0.sroa.7.0..sroa_idx.i13, align 8, !alias.scope !3199
+  store double %99, ptr %.sroa.0.sroa.7.0..sroa_idx.i13, align 8, !alias.scope !3196
   %.sroa.0.sroa.8.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store double %106, ptr %.sroa.0.sroa.8.0..sroa_idx.i14, align 8, !alias.scope !3199
+  store double %107, ptr %.sroa.0.sroa.8.0..sroa_idx.i14, align 8, !alias.scope !3196
   %.sroa.0.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store double %114, ptr %.sroa.0.sroa.9.0..sroa_idx.i, align 8, !alias.scope !3199
+  store double %115, ptr %.sroa.0.sroa.9.0..sroa_idx.i, align 8, !alias.scope !3196
   %.sroa.0.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store double %122, ptr %.sroa.0.sroa.10.0..sroa_idx.i, align 8, !alias.scope !3199
+  store double %123, ptr %.sroa.0.sroa.10.0..sroa_idx.i, align 8, !alias.scope !3196
   %.sroa.0.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store double %130, ptr %.sroa.0.sroa.11.0..sroa_idx.i, align 8, !alias.scope !3199
-  %134 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i8 1, ptr %134, align 8, !tbaa !3211, !alias.scope !3216
+  store double %131, ptr %.sroa.0.sroa.11.0..sroa_idx.i, align 8, !alias.scope !3196
+  %136 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store i8 1, ptr %136, align 8, !tbaa !3208, !alias.scope !3196
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #23
-  %135 = call noundef zeroext i1 @_ZN4CGAL13Intersections8internal12do_intersectINS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES8_EEEEEEEENT_7BooleanERKNSD_10Triangle_3ERKNSD_9Segment_3ERKSD_(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %137 = call noundef zeroext i1 @_ZN4CGAL13Intersections8internal12do_intersectINS_8internal14Static_filtersINS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES8_EEEEEEEENT_7BooleanERKNSD_10Triangle_3ERKNSD_9Segment_3ERKSD_(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #23
-  br label %136
+  br label %138
 
-136:                                              ; preds = %133, %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9
-  %.1 = phi i1 [ %135, %133 ], [ %132, %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i9 ]
+138:                                              ; preds = %135, %133
+  %.1 = phi i1 [ %137, %135 ], [ %134, %133 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #23
-  br label %137
+  br label %139
 
-137:                                              ; preds = %136, %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
-  %.0 = phi i1 [ %.1, %136 ], [ %56, %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i ]
+139:                                              ; preds = %138, %56
+  %.0 = phi i1 [ %.1, %138 ], [ %57, %56 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #23
   ret i1 %.0
 }
@@ -126449,7 +126449,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateI
   %45 = load ptr, ptr %1, align 8, !tbaa !47
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
-  store ptr %45, ptr %10, align 8, !tbaa !3219
+  store ptr %45, ptr %10, align 8, !tbaa !3213
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
   store ptr %10, ptr %9, align 8, !tbaa !40
   %47 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
@@ -130653,21 +130653,21 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13Intersections8intern
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %143) #23
-  store ptr %1, ptr %143, align 8, !tbaa !819, !alias.scope !3222
+  store ptr %1, ptr %143, align 8, !tbaa !819, !alias.scope !3216
   %152 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  store ptr %0, ptr %152, align 8, !tbaa !819, !alias.scope !3222
+  store ptr %0, ptr %152, align 8, !tbaa !819, !alias.scope !3216
   %153 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  store ptr %150, ptr %153, align 8, !tbaa !819, !alias.scope !3222
+  store ptr %150, ptr %153, align 8, !tbaa !819, !alias.scope !3216
   %154 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  store ptr %146, ptr %154, align 8, !tbaa !819, !alias.scope !3222
+  store ptr %146, ptr %154, align 8, !tbaa !819, !alias.scope !3216
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %144) #23
-  store ptr %2, ptr %144, align 8, !tbaa !819, !alias.scope !3225
+  store ptr %2, ptr %144, align 8, !tbaa !819, !alias.scope !3219
   %155 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  store ptr %0, ptr %155, align 8, !tbaa !819, !alias.scope !3225
+  store ptr %0, ptr %155, align 8, !tbaa !819, !alias.scope !3219
   %156 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  store ptr %148, ptr %156, align 8, !tbaa !819, !alias.scope !3225
+  store ptr %148, ptr %156, align 8, !tbaa !819, !alias.scope !3219
   %157 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  store ptr %146, ptr %157, align 8, !tbaa !819, !alias.scope !3225
+  store ptr %146, ptr %157, align 8, !tbaa !819, !alias.scope !3219
   %158 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(32) %144)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %144) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %143) #23
@@ -130676,21 +130676,21 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13Intersections8intern
 
 159:                                              ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %141) #23
-  store ptr %148, ptr %141, align 8, !tbaa !819, !alias.scope !3228
+  store ptr %148, ptr %141, align 8, !tbaa !819, !alias.scope !3222
   %160 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  store ptr %146, ptr %160, align 8, !tbaa !819, !alias.scope !3228
+  store ptr %146, ptr %160, align 8, !tbaa !819, !alias.scope !3222
   %161 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  store ptr %151, ptr %161, align 8, !tbaa !819, !alias.scope !3228
+  store ptr %151, ptr %161, align 8, !tbaa !819, !alias.scope !3222
   %162 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  store ptr %147, ptr %162, align 8, !tbaa !819, !alias.scope !3228
+  store ptr %147, ptr %162, align 8, !tbaa !819, !alias.scope !3222
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %142) #23
-  store ptr %150, ptr %142, align 8, !tbaa !819, !alias.scope !3231
+  store ptr %150, ptr %142, align 8, !tbaa !819, !alias.scope !3225
   %163 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store ptr %146, ptr %163, align 8, !tbaa !819, !alias.scope !3231
+  store ptr %146, ptr %163, align 8, !tbaa !819, !alias.scope !3225
   %164 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  store ptr %149, ptr %164, align 8, !tbaa !819, !alias.scope !3231
+  store ptr %149, ptr %164, align 8, !tbaa !819, !alias.scope !3225
   %165 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  store ptr %147, ptr %165, align 8, !tbaa !819, !alias.scope !3231
+  store ptr %147, ptr %165, align 8, !tbaa !819, !alias.scope !3225
   %166 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %141, ptr noundef nonnull align 8 dereferenceable(32) %142)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %142) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %141) #23
@@ -130699,21 +130699,21 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL13Intersections8intern
 
 167:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %139) #23
-  store ptr %1, ptr %139, align 8, !tbaa !819, !alias.scope !3234
+  store ptr %1, ptr %139, align 8, !tbaa !819, !alias.scope !3228
   %168 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  store ptr %0, ptr %168, align 8, !tbaa !819, !alias.scope !3234
+  store ptr %0, ptr %168, align 8, !tbaa !819, !alias.scope !3228
   %169 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  store ptr %151, ptr %169, align 8, !tbaa !819, !alias.scope !3234
+  store ptr %151, ptr %169, align 8, !tbaa !819, !alias.scope !3228
   %170 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  store ptr %147, ptr %170, align 8, !tbaa !819, !alias.scope !3234
+  store ptr %147, ptr %170, align 8, !tbaa !819, !alias.scope !3228
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %140) #23
-  store ptr %2, ptr %140, align 8, !tbaa !819, !alias.scope !3237
+  store ptr %2, ptr %140, align 8, !tbaa !819, !alias.scope !3231
   %171 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  store ptr %0, ptr %171, align 8, !tbaa !819, !alias.scope !3237
+  store ptr %0, ptr %171, align 8, !tbaa !819, !alias.scope !3231
   %172 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  store ptr %149, ptr %172, align 8, !tbaa !819, !alias.scope !3237
+  store ptr %149, ptr %172, align 8, !tbaa !819, !alias.scope !3231
   %173 = getelementptr inbounds nuw i8, ptr %140, i64 24
-  store ptr %147, ptr %173, align 8, !tbaa !819, !alias.scope !3237
+  store ptr %147, ptr %173, align 8, !tbaa !819, !alias.scope !3231
   %174 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(32) %140)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %140) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %139) #23
@@ -130729,21 +130729,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
   %177 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %178 = getelementptr inbounds nuw i8, ptr %4, i64 128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %137) #23
-  store ptr %4, ptr %137, align 8, !tbaa !819, !alias.scope !3240
+  store ptr %4, ptr %137, align 8, !tbaa !819, !alias.scope !3234
   %179 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store ptr %3, ptr %179, align 8, !tbaa !819, !alias.scope !3240
+  store ptr %3, ptr %179, align 8, !tbaa !819, !alias.scope !3234
   %180 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  store ptr %146, ptr %180, align 8, !tbaa !819, !alias.scope !3240
+  store ptr %146, ptr %180, align 8, !tbaa !819, !alias.scope !3234
   %181 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  store ptr %175, ptr %181, align 8, !tbaa !819, !alias.scope !3240
+  store ptr %175, ptr %181, align 8, !tbaa !819, !alias.scope !3234
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %138) #23
-  store ptr %0, ptr %138, align 8, !tbaa !819, !alias.scope !3243
+  store ptr %0, ptr %138, align 8, !tbaa !819, !alias.scope !3237
   %182 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  store ptr %3, ptr %182, align 8, !tbaa !819, !alias.scope !3243
+  store ptr %3, ptr %182, align 8, !tbaa !819, !alias.scope !3237
   %183 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  store ptr %177, ptr %183, align 8, !tbaa !819, !alias.scope !3243
+  store ptr %177, ptr %183, align 8, !tbaa !819, !alias.scope !3237
   %184 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  store ptr %175, ptr %184, align 8, !tbaa !819, !alias.scope !3243
+  store ptr %175, ptr %184, align 8, !tbaa !819, !alias.scope !3237
   %185 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %137, ptr noundef nonnull align 8 dereferenceable(32) %138)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %138) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %137) #23
@@ -130752,21 +130752,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 186:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISG_EESL_SL_.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %135) #23
-  store ptr %177, ptr %135, align 8, !tbaa !819, !alias.scope !3246
+  store ptr %177, ptr %135, align 8, !tbaa !819, !alias.scope !3240
   %187 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store ptr %175, ptr %187, align 8, !tbaa !819, !alias.scope !3246
+  store ptr %175, ptr %187, align 8, !tbaa !819, !alias.scope !3240
   %188 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  store ptr %147, ptr %188, align 8, !tbaa !819, !alias.scope !3246
+  store ptr %147, ptr %188, align 8, !tbaa !819, !alias.scope !3240
   %189 = getelementptr inbounds nuw i8, ptr %135, i64 24
-  store ptr %176, ptr %189, align 8, !tbaa !819, !alias.scope !3246
+  store ptr %176, ptr %189, align 8, !tbaa !819, !alias.scope !3240
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %136) #23
-  store ptr %146, ptr %136, align 8, !tbaa !819, !alias.scope !3249
+  store ptr %146, ptr %136, align 8, !tbaa !819, !alias.scope !3243
   %190 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store ptr %175, ptr %190, align 8, !tbaa !819, !alias.scope !3249
+  store ptr %175, ptr %190, align 8, !tbaa !819, !alias.scope !3243
   %191 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  store ptr %178, ptr %191, align 8, !tbaa !819, !alias.scope !3249
+  store ptr %178, ptr %191, align 8, !tbaa !819, !alias.scope !3243
   %192 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  store ptr %176, ptr %192, align 8, !tbaa !819, !alias.scope !3249
+  store ptr %176, ptr %192, align 8, !tbaa !819, !alias.scope !3243
   %193 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %136)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %136) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %135) #23
@@ -130775,21 +130775,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 194:                                              ; preds = %186
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %133) #23
-  store ptr %4, ptr %133, align 8, !tbaa !819, !alias.scope !3252
+  store ptr %4, ptr %133, align 8, !tbaa !819, !alias.scope !3246
   %195 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  store ptr %3, ptr %195, align 8, !tbaa !819, !alias.scope !3252
+  store ptr %3, ptr %195, align 8, !tbaa !819, !alias.scope !3246
   %196 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  store ptr %147, ptr %196, align 8, !tbaa !819, !alias.scope !3252
+  store ptr %147, ptr %196, align 8, !tbaa !819, !alias.scope !3246
   %197 = getelementptr inbounds nuw i8, ptr %133, i64 24
-  store ptr %176, ptr %197, align 8, !tbaa !819, !alias.scope !3252
+  store ptr %176, ptr %197, align 8, !tbaa !819, !alias.scope !3246
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134) #23
-  store ptr %0, ptr %134, align 8, !tbaa !819, !alias.scope !3255
+  store ptr %0, ptr %134, align 8, !tbaa !819, !alias.scope !3249
   %198 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  store ptr %3, ptr %198, align 8, !tbaa !819, !alias.scope !3255
+  store ptr %3, ptr %198, align 8, !tbaa !819, !alias.scope !3249
   %199 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  store ptr %178, ptr %199, align 8, !tbaa !819, !alias.scope !3255
+  store ptr %178, ptr %199, align 8, !tbaa !819, !alias.scope !3249
   %200 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  store ptr %176, ptr %200, align 8, !tbaa !819, !alias.scope !3255
+  store ptr %176, ptr %200, align 8, !tbaa !819, !alias.scope !3249
   %201 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %134)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %134) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %133) #23
@@ -130800,21 +130800,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
   %202 = getelementptr inbounds nuw i8, ptr %spec.select145, i64 64
   %203 = getelementptr inbounds nuw i8, ptr %spec.select145, i64 128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %131) #23
-  store ptr %4, ptr %131, align 8, !tbaa !819, !alias.scope !3258
+  store ptr %4, ptr %131, align 8, !tbaa !819, !alias.scope !3252
   %204 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  store ptr %3, ptr %204, align 8, !tbaa !819, !alias.scope !3258
+  store ptr %3, ptr %204, align 8, !tbaa !819, !alias.scope !3252
   %205 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  store ptr %202, ptr %205, align 8, !tbaa !819, !alias.scope !3258
+  store ptr %202, ptr %205, align 8, !tbaa !819, !alias.scope !3252
   %206 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  store ptr %175, ptr %206, align 8, !tbaa !819, !alias.scope !3258
+  store ptr %175, ptr %206, align 8, !tbaa !819, !alias.scope !3252
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %132) #23
-  store ptr %spec.select145, ptr %132, align 8, !tbaa !819, !alias.scope !3261
+  store ptr %spec.select145, ptr %132, align 8, !tbaa !819, !alias.scope !3255
   %207 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store ptr %3, ptr %207, align 8, !tbaa !819, !alias.scope !3261
+  store ptr %3, ptr %207, align 8, !tbaa !819, !alias.scope !3255
   %208 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  store ptr %177, ptr %208, align 8, !tbaa !819, !alias.scope !3261
+  store ptr %177, ptr %208, align 8, !tbaa !819, !alias.scope !3255
   %209 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  store ptr %175, ptr %209, align 8, !tbaa !819, !alias.scope !3261
+  store ptr %175, ptr %209, align 8, !tbaa !819, !alias.scope !3255
   %210 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef nonnull align 8 dereferenceable(32) %132)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %132) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %131) #23
@@ -130823,21 +130823,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 211:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISG_EESL_SL_.exit149
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %129) #23
-  store ptr %177, ptr %129, align 8, !tbaa !819, !alias.scope !3264
+  store ptr %177, ptr %129, align 8, !tbaa !819, !alias.scope !3258
   %212 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  store ptr %175, ptr %212, align 8, !tbaa !819, !alias.scope !3264
+  store ptr %175, ptr %212, align 8, !tbaa !819, !alias.scope !3258
   %213 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  store ptr %203, ptr %213, align 8, !tbaa !819, !alias.scope !3264
+  store ptr %203, ptr %213, align 8, !tbaa !819, !alias.scope !3258
   %214 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  store ptr %176, ptr %214, align 8, !tbaa !819, !alias.scope !3264
+  store ptr %176, ptr %214, align 8, !tbaa !819, !alias.scope !3258
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %130) #23
-  store ptr %202, ptr %130, align 8, !tbaa !819, !alias.scope !3267
+  store ptr %202, ptr %130, align 8, !tbaa !819, !alias.scope !3261
   %215 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store ptr %175, ptr %215, align 8, !tbaa !819, !alias.scope !3267
+  store ptr %175, ptr %215, align 8, !tbaa !819, !alias.scope !3261
   %216 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store ptr %178, ptr %216, align 8, !tbaa !819, !alias.scope !3267
+  store ptr %178, ptr %216, align 8, !tbaa !819, !alias.scope !3261
   %217 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  store ptr %176, ptr %217, align 8, !tbaa !819, !alias.scope !3267
+  store ptr %176, ptr %217, align 8, !tbaa !819, !alias.scope !3261
   %218 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %130)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %130) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %129) #23
@@ -130846,21 +130846,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 219:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %127) #23
-  store ptr %4, ptr %127, align 8, !tbaa !819, !alias.scope !3270
+  store ptr %4, ptr %127, align 8, !tbaa !819, !alias.scope !3264
   %220 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  store ptr %3, ptr %220, align 8, !tbaa !819, !alias.scope !3270
+  store ptr %3, ptr %220, align 8, !tbaa !819, !alias.scope !3264
   %221 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  store ptr %203, ptr %221, align 8, !tbaa !819, !alias.scope !3270
+  store ptr %203, ptr %221, align 8, !tbaa !819, !alias.scope !3264
   %222 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  store ptr %176, ptr %222, align 8, !tbaa !819, !alias.scope !3270
+  store ptr %176, ptr %222, align 8, !tbaa !819, !alias.scope !3264
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128) #23
-  store ptr %spec.select145, ptr %128, align 8, !tbaa !819, !alias.scope !3273
+  store ptr %spec.select145, ptr %128, align 8, !tbaa !819, !alias.scope !3267
   %223 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  store ptr %3, ptr %223, align 8, !tbaa !819, !alias.scope !3273
+  store ptr %3, ptr %223, align 8, !tbaa !819, !alias.scope !3267
   %224 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  store ptr %178, ptr %224, align 8, !tbaa !819, !alias.scope !3273
+  store ptr %178, ptr %224, align 8, !tbaa !819, !alias.scope !3267
   %225 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  store ptr %176, ptr %225, align 8, !tbaa !819, !alias.scope !3273
+  store ptr %176, ptr %225, align 8, !tbaa !819, !alias.scope !3267
   %226 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(32) %128)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %128) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %127) #23
@@ -130871,21 +130871,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
   %227 = getelementptr inbounds nuw i8, ptr %spec.select, i64 64
   %228 = getelementptr inbounds nuw i8, ptr %spec.select, i64 128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %125) #23
-  store ptr %4, ptr %125, align 8, !tbaa !819, !alias.scope !3276
+  store ptr %4, ptr %125, align 8, !tbaa !819, !alias.scope !3270
   %229 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  store ptr %3, ptr %229, align 8, !tbaa !819, !alias.scope !3276
+  store ptr %3, ptr %229, align 8, !tbaa !819, !alias.scope !3270
   %230 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  store ptr %227, ptr %230, align 8, !tbaa !819, !alias.scope !3276
+  store ptr %227, ptr %230, align 8, !tbaa !819, !alias.scope !3270
   %231 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  store ptr %175, ptr %231, align 8, !tbaa !819, !alias.scope !3276
+  store ptr %175, ptr %231, align 8, !tbaa !819, !alias.scope !3270
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %126) #23
-  store ptr %spec.select, ptr %126, align 8, !tbaa !819, !alias.scope !3279
+  store ptr %spec.select, ptr %126, align 8, !tbaa !819, !alias.scope !3273
   %232 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store ptr %3, ptr %232, align 8, !tbaa !819, !alias.scope !3279
+  store ptr %3, ptr %232, align 8, !tbaa !819, !alias.scope !3273
   %233 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  store ptr %177, ptr %233, align 8, !tbaa !819, !alias.scope !3279
+  store ptr %177, ptr %233, align 8, !tbaa !819, !alias.scope !3273
   %234 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  store ptr %175, ptr %234, align 8, !tbaa !819, !alias.scope !3279
+  store ptr %175, ptr %234, align 8, !tbaa !819, !alias.scope !3273
   %235 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %126)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %126) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %125) #23
@@ -130894,21 +130894,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 236:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISG_EESL_SL_.exit153
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %123) #23
-  store ptr %177, ptr %123, align 8, !tbaa !819, !alias.scope !3282
+  store ptr %177, ptr %123, align 8, !tbaa !819, !alias.scope !3276
   %237 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  store ptr %175, ptr %237, align 8, !tbaa !819, !alias.scope !3282
+  store ptr %175, ptr %237, align 8, !tbaa !819, !alias.scope !3276
   %238 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  store ptr %228, ptr %238, align 8, !tbaa !819, !alias.scope !3282
+  store ptr %228, ptr %238, align 8, !tbaa !819, !alias.scope !3276
   %239 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  store ptr %176, ptr %239, align 8, !tbaa !819, !alias.scope !3282
+  store ptr %176, ptr %239, align 8, !tbaa !819, !alias.scope !3276
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %124) #23
-  store ptr %227, ptr %124, align 8, !tbaa !819, !alias.scope !3285
+  store ptr %227, ptr %124, align 8, !tbaa !819, !alias.scope !3279
   %240 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  store ptr %175, ptr %240, align 8, !tbaa !819, !alias.scope !3285
+  store ptr %175, ptr %240, align 8, !tbaa !819, !alias.scope !3279
   %241 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  store ptr %178, ptr %241, align 8, !tbaa !819, !alias.scope !3285
+  store ptr %178, ptr %241, align 8, !tbaa !819, !alias.scope !3279
   %242 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  store ptr %176, ptr %242, align 8, !tbaa !819, !alias.scope !3285
+  store ptr %176, ptr %242, align 8, !tbaa !819, !alias.scope !3279
   %243 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %124)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %124) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %123) #23
@@ -130917,21 +130917,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 244:                                              ; preds = %236
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %121) #23
-  store ptr %4, ptr %121, align 8, !tbaa !819, !alias.scope !3288
+  store ptr %4, ptr %121, align 8, !tbaa !819, !alias.scope !3282
   %245 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  store ptr %3, ptr %245, align 8, !tbaa !819, !alias.scope !3288
+  store ptr %3, ptr %245, align 8, !tbaa !819, !alias.scope !3282
   %246 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  store ptr %228, ptr %246, align 8, !tbaa !819, !alias.scope !3288
+  store ptr %228, ptr %246, align 8, !tbaa !819, !alias.scope !3282
   %247 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  store ptr %176, ptr %247, align 8, !tbaa !819, !alias.scope !3288
+  store ptr %176, ptr %247, align 8, !tbaa !819, !alias.scope !3282
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %122) #23
-  store ptr %spec.select, ptr %122, align 8, !tbaa !819, !alias.scope !3291
+  store ptr %spec.select, ptr %122, align 8, !tbaa !819, !alias.scope !3285
   %248 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  store ptr %3, ptr %248, align 8, !tbaa !819, !alias.scope !3291
+  store ptr %3, ptr %248, align 8, !tbaa !819, !alias.scope !3285
   %249 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  store ptr %178, ptr %249, align 8, !tbaa !819, !alias.scope !3291
+  store ptr %178, ptr %249, align 8, !tbaa !819, !alias.scope !3285
   %250 = getelementptr inbounds nuw i8, ptr %122, i64 24
-  store ptr %176, ptr %250, align 8, !tbaa !819, !alias.scope !3291
+  store ptr %176, ptr %250, align 8, !tbaa !819, !alias.scope !3285
   %251 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %122)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %122) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %121) #23
@@ -130958,21 +130958,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 255:                                              ; preds = %253
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119) #23
-  store ptr %spec.select, ptr %119, align 8, !tbaa !819, !alias.scope !3294
+  store ptr %spec.select, ptr %119, align 8, !tbaa !819, !alias.scope !3288
   %256 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store ptr %spec.select145, ptr %256, align 8, !tbaa !819, !alias.scope !3294
+  store ptr %spec.select145, ptr %256, align 8, !tbaa !819, !alias.scope !3288
   %257 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store ptr %177, ptr %257, align 8, !tbaa !819, !alias.scope !3294
+  store ptr %177, ptr %257, align 8, !tbaa !819, !alias.scope !3288
   %258 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  store ptr %202, ptr %258, align 8, !tbaa !819, !alias.scope !3294
+  store ptr %202, ptr %258, align 8, !tbaa !819, !alias.scope !3288
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %120) #23
-  store ptr %4, ptr %120, align 8, !tbaa !819, !alias.scope !3297
+  store ptr %4, ptr %120, align 8, !tbaa !819, !alias.scope !3291
   %259 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store ptr %spec.select145, ptr %259, align 8, !tbaa !819, !alias.scope !3297
+  store ptr %spec.select145, ptr %259, align 8, !tbaa !819, !alias.scope !3291
   %260 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  store ptr %227, ptr %260, align 8, !tbaa !819, !alias.scope !3297
+  store ptr %227, ptr %260, align 8, !tbaa !819, !alias.scope !3291
   %261 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  store ptr %202, ptr %261, align 8, !tbaa !819, !alias.scope !3297
+  store ptr %202, ptr %261, align 8, !tbaa !819, !alias.scope !3291
   %262 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull align 8 dereferenceable(32) %120)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %120) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %119) #23
@@ -130981,21 +130981,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 263:                                              ; preds = %255
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %117) #23
-  store ptr %227, ptr %117, align 8, !tbaa !819, !alias.scope !3300
+  store ptr %227, ptr %117, align 8, !tbaa !819, !alias.scope !3294
   %264 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store ptr %202, ptr %264, align 8, !tbaa !819, !alias.scope !3300
+  store ptr %202, ptr %264, align 8, !tbaa !819, !alias.scope !3294
   %265 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  store ptr %178, ptr %265, align 8, !tbaa !819, !alias.scope !3300
+  store ptr %178, ptr %265, align 8, !tbaa !819, !alias.scope !3294
   %266 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  store ptr %203, ptr %266, align 8, !tbaa !819, !alias.scope !3300
+  store ptr %203, ptr %266, align 8, !tbaa !819, !alias.scope !3294
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %118) #23
-  store ptr %177, ptr %118, align 8, !tbaa !819, !alias.scope !3303
+  store ptr %177, ptr %118, align 8, !tbaa !819, !alias.scope !3297
   %267 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  store ptr %202, ptr %267, align 8, !tbaa !819, !alias.scope !3303
+  store ptr %202, ptr %267, align 8, !tbaa !819, !alias.scope !3297
   %268 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  store ptr %228, ptr %268, align 8, !tbaa !819, !alias.scope !3303
+  store ptr %228, ptr %268, align 8, !tbaa !819, !alias.scope !3297
   %269 = getelementptr inbounds nuw i8, ptr %118, i64 24
-  store ptr %203, ptr %269, align 8, !tbaa !819, !alias.scope !3303
+  store ptr %203, ptr %269, align 8, !tbaa !819, !alias.scope !3297
   %270 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %118)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %118) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %117) #23
@@ -131004,21 +131004,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 271:                                              ; preds = %263
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %115) #23
-  store ptr %spec.select, ptr %115, align 8, !tbaa !819, !alias.scope !3306
+  store ptr %spec.select, ptr %115, align 8, !tbaa !819, !alias.scope !3300
   %272 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store ptr %spec.select145, ptr %272, align 8, !tbaa !819, !alias.scope !3306
+  store ptr %spec.select145, ptr %272, align 8, !tbaa !819, !alias.scope !3300
   %273 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  store ptr %178, ptr %273, align 8, !tbaa !819, !alias.scope !3306
+  store ptr %178, ptr %273, align 8, !tbaa !819, !alias.scope !3300
   %274 = getelementptr inbounds nuw i8, ptr %115, i64 24
-  store ptr %203, ptr %274, align 8, !tbaa !819, !alias.scope !3306
+  store ptr %203, ptr %274, align 8, !tbaa !819, !alias.scope !3300
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %116) #23
-  store ptr %4, ptr %116, align 8, !tbaa !819, !alias.scope !3309
+  store ptr %4, ptr %116, align 8, !tbaa !819, !alias.scope !3303
   %275 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store ptr %spec.select145, ptr %275, align 8, !tbaa !819, !alias.scope !3309
+  store ptr %spec.select145, ptr %275, align 8, !tbaa !819, !alias.scope !3303
   %276 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store ptr %228, ptr %276, align 8, !tbaa !819, !alias.scope !3309
+  store ptr %228, ptr %276, align 8, !tbaa !819, !alias.scope !3303
   %277 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store ptr %203, ptr %277, align 8, !tbaa !819, !alias.scope !3309
+  store ptr %203, ptr %277, align 8, !tbaa !819, !alias.scope !3303
   %278 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %115, ptr noundef nonnull align 8 dereferenceable(32) %116)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %116) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %115) #23
@@ -131040,21 +131040,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 284:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113) #23
-  store ptr %spec.select145, ptr %113, align 8, !tbaa !819, !alias.scope !3312
+  store ptr %spec.select145, ptr %113, align 8, !tbaa !819, !alias.scope !3306
   %285 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  store ptr %0, ptr %285, align 8, !tbaa !819, !alias.scope !3312
+  store ptr %0, ptr %285, align 8, !tbaa !819, !alias.scope !3306
   %286 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  store ptr %177, ptr %286, align 8, !tbaa !819, !alias.scope !3312
+  store ptr %177, ptr %286, align 8, !tbaa !819, !alias.scope !3306
   %287 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  store ptr %146, ptr %287, align 8, !tbaa !819, !alias.scope !3312
+  store ptr %146, ptr %287, align 8, !tbaa !819, !alias.scope !3306
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %114) #23
-  store ptr %4, ptr %114, align 8, !tbaa !819, !alias.scope !3315
+  store ptr %4, ptr %114, align 8, !tbaa !819, !alias.scope !3309
   %288 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  store ptr %0, ptr %288, align 8, !tbaa !819, !alias.scope !3315
+  store ptr %0, ptr %288, align 8, !tbaa !819, !alias.scope !3309
   %289 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  store ptr %202, ptr %289, align 8, !tbaa !819, !alias.scope !3315
+  store ptr %202, ptr %289, align 8, !tbaa !819, !alias.scope !3309
   %290 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  store ptr %146, ptr %290, align 8, !tbaa !819, !alias.scope !3315
+  store ptr %146, ptr %290, align 8, !tbaa !819, !alias.scope !3309
   %291 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %114)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %114) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %113) #23
@@ -131063,21 +131063,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 292:                                              ; preds = %284
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %111) #23
-  store ptr %202, ptr %111, align 8, !tbaa !819, !alias.scope !3318
+  store ptr %202, ptr %111, align 8, !tbaa !819, !alias.scope !3312
   %293 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store ptr %146, ptr %293, align 8, !tbaa !819, !alias.scope !3318
+  store ptr %146, ptr %293, align 8, !tbaa !819, !alias.scope !3312
   %294 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  store ptr %178, ptr %294, align 8, !tbaa !819, !alias.scope !3318
+  store ptr %178, ptr %294, align 8, !tbaa !819, !alias.scope !3312
   %295 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  store ptr %147, ptr %295, align 8, !tbaa !819, !alias.scope !3318
+  store ptr %147, ptr %295, align 8, !tbaa !819, !alias.scope !3312
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %112) #23
-  store ptr %177, ptr %112, align 8, !tbaa !819, !alias.scope !3321
+  store ptr %177, ptr %112, align 8, !tbaa !819, !alias.scope !3315
   %296 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  store ptr %146, ptr %296, align 8, !tbaa !819, !alias.scope !3321
+  store ptr %146, ptr %296, align 8, !tbaa !819, !alias.scope !3315
   %297 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  store ptr %203, ptr %297, align 8, !tbaa !819, !alias.scope !3321
+  store ptr %203, ptr %297, align 8, !tbaa !819, !alias.scope !3315
   %298 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  store ptr %147, ptr %298, align 8, !tbaa !819, !alias.scope !3321
+  store ptr %147, ptr %298, align 8, !tbaa !819, !alias.scope !3315
   %299 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %111, ptr noundef nonnull align 8 dereferenceable(32) %112)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %112) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %111) #23
@@ -131086,21 +131086,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 300:                                              ; preds = %292
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %109) #23
-  store ptr %spec.select145, ptr %109, align 8, !tbaa !819, !alias.scope !3324
+  store ptr %spec.select145, ptr %109, align 8, !tbaa !819, !alias.scope !3318
   %301 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store ptr %0, ptr %301, align 8, !tbaa !819, !alias.scope !3324
+  store ptr %0, ptr %301, align 8, !tbaa !819, !alias.scope !3318
   %302 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  store ptr %178, ptr %302, align 8, !tbaa !819, !alias.scope !3324
+  store ptr %178, ptr %302, align 8, !tbaa !819, !alias.scope !3318
   %303 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  store ptr %147, ptr %303, align 8, !tbaa !819, !alias.scope !3324
+  store ptr %147, ptr %303, align 8, !tbaa !819, !alias.scope !3318
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %110) #23
-  store ptr %4, ptr %110, align 8, !tbaa !819, !alias.scope !3327
+  store ptr %4, ptr %110, align 8, !tbaa !819, !alias.scope !3321
   %304 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store ptr %0, ptr %304, align 8, !tbaa !819, !alias.scope !3327
+  store ptr %0, ptr %304, align 8, !tbaa !819, !alias.scope !3321
   %305 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  store ptr %203, ptr %305, align 8, !tbaa !819, !alias.scope !3327
+  store ptr %203, ptr %305, align 8, !tbaa !819, !alias.scope !3321
   %306 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  store ptr %147, ptr %306, align 8, !tbaa !819, !alias.scope !3327
+  store ptr %147, ptr %306, align 8, !tbaa !819, !alias.scope !3321
   %307 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %109, ptr noundef nonnull align 8 dereferenceable(32) %110)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %110) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %109) #23
@@ -131118,21 +131118,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 311:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %107) #23
-  store ptr %spec.select145, ptr %107, align 8, !tbaa !819, !alias.scope !3330
+  store ptr %spec.select145, ptr %107, align 8, !tbaa !819, !alias.scope !3324
   %312 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store ptr %0, ptr %312, align 8, !tbaa !819, !alias.scope !3330
+  store ptr %0, ptr %312, align 8, !tbaa !819, !alias.scope !3324
   %313 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  store ptr %177, ptr %313, align 8, !tbaa !819, !alias.scope !3330
+  store ptr %177, ptr %313, align 8, !tbaa !819, !alias.scope !3324
   %314 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  store ptr %146, ptr %314, align 8, !tbaa !819, !alias.scope !3330
+  store ptr %146, ptr %314, align 8, !tbaa !819, !alias.scope !3324
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %108) #23
-  store ptr %4, ptr %108, align 8, !tbaa !819, !alias.scope !3333
+  store ptr %4, ptr %108, align 8, !tbaa !819, !alias.scope !3327
   %315 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  store ptr %0, ptr %315, align 8, !tbaa !819, !alias.scope !3333
+  store ptr %0, ptr %315, align 8, !tbaa !819, !alias.scope !3327
   %316 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  store ptr %202, ptr %316, align 8, !tbaa !819, !alias.scope !3333
+  store ptr %202, ptr %316, align 8, !tbaa !819, !alias.scope !3327
   %317 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  store ptr %146, ptr %317, align 8, !tbaa !819, !alias.scope !3333
+  store ptr %146, ptr %317, align 8, !tbaa !819, !alias.scope !3327
   %318 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %107, ptr noundef nonnull align 8 dereferenceable(32) %108)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %108) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %107) #23
@@ -131141,21 +131141,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 319:                                              ; preds = %311
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105) #23
-  store ptr %202, ptr %105, align 8, !tbaa !819, !alias.scope !3336
+  store ptr %202, ptr %105, align 8, !tbaa !819, !alias.scope !3330
   %320 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store ptr %146, ptr %320, align 8, !tbaa !819, !alias.scope !3336
+  store ptr %146, ptr %320, align 8, !tbaa !819, !alias.scope !3330
   %321 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  store ptr %178, ptr %321, align 8, !tbaa !819, !alias.scope !3336
+  store ptr %178, ptr %321, align 8, !tbaa !819, !alias.scope !3330
   %322 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  store ptr %147, ptr %322, align 8, !tbaa !819, !alias.scope !3336
+  store ptr %147, ptr %322, align 8, !tbaa !819, !alias.scope !3330
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %106) #23
-  store ptr %177, ptr %106, align 8, !tbaa !819, !alias.scope !3339
+  store ptr %177, ptr %106, align 8, !tbaa !819, !alias.scope !3333
   %323 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  store ptr %146, ptr %323, align 8, !tbaa !819, !alias.scope !3339
+  store ptr %146, ptr %323, align 8, !tbaa !819, !alias.scope !3333
   %324 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  store ptr %203, ptr %324, align 8, !tbaa !819, !alias.scope !3339
+  store ptr %203, ptr %324, align 8, !tbaa !819, !alias.scope !3333
   %325 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  store ptr %147, ptr %325, align 8, !tbaa !819, !alias.scope !3339
+  store ptr %147, ptr %325, align 8, !tbaa !819, !alias.scope !3333
   %326 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %105, ptr noundef nonnull align 8 dereferenceable(32) %106)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %106) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %105) #23
@@ -131164,21 +131164,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 327:                                              ; preds = %319
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %103) #23
-  store ptr %spec.select145, ptr %103, align 8, !tbaa !819, !alias.scope !3342
+  store ptr %spec.select145, ptr %103, align 8, !tbaa !819, !alias.scope !3336
   %328 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  store ptr %0, ptr %328, align 8, !tbaa !819, !alias.scope !3342
+  store ptr %0, ptr %328, align 8, !tbaa !819, !alias.scope !3336
   %329 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  store ptr %178, ptr %329, align 8, !tbaa !819, !alias.scope !3342
+  store ptr %178, ptr %329, align 8, !tbaa !819, !alias.scope !3336
   %330 = getelementptr inbounds nuw i8, ptr %103, i64 24
-  store ptr %147, ptr %330, align 8, !tbaa !819, !alias.scope !3342
+  store ptr %147, ptr %330, align 8, !tbaa !819, !alias.scope !3336
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %104) #23
-  store ptr %4, ptr %104, align 8, !tbaa !819, !alias.scope !3345
+  store ptr %4, ptr %104, align 8, !tbaa !819, !alias.scope !3339
   %331 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store ptr %0, ptr %331, align 8, !tbaa !819, !alias.scope !3345
+  store ptr %0, ptr %331, align 8, !tbaa !819, !alias.scope !3339
   %332 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  store ptr %203, ptr %332, align 8, !tbaa !819, !alias.scope !3345
+  store ptr %203, ptr %332, align 8, !tbaa !819, !alias.scope !3339
   %333 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  store ptr %147, ptr %333, align 8, !tbaa !819, !alias.scope !3345
+  store ptr %147, ptr %333, align 8, !tbaa !819, !alias.scope !3339
   %334 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %104)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %104) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %103) #23
@@ -131200,21 +131200,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 340:                                              ; preds = %338
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %101) #23
-  store ptr %spec.select145, ptr %101, align 8, !tbaa !819, !alias.scope !3348
+  store ptr %spec.select145, ptr %101, align 8, !tbaa !819, !alias.scope !3342
   %341 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store ptr %0, ptr %341, align 8, !tbaa !819, !alias.scope !3348
+  store ptr %0, ptr %341, align 8, !tbaa !819, !alias.scope !3342
   %342 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store ptr %177, ptr %342, align 8, !tbaa !819, !alias.scope !3348
+  store ptr %177, ptr %342, align 8, !tbaa !819, !alias.scope !3342
   %343 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store ptr %146, ptr %343, align 8, !tbaa !819, !alias.scope !3348
+  store ptr %146, ptr %343, align 8, !tbaa !819, !alias.scope !3342
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %102) #23
-  store ptr %4, ptr %102, align 8, !tbaa !819, !alias.scope !3351
+  store ptr %4, ptr %102, align 8, !tbaa !819, !alias.scope !3345
   %344 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store ptr %0, ptr %344, align 8, !tbaa !819, !alias.scope !3351
+  store ptr %0, ptr %344, align 8, !tbaa !819, !alias.scope !3345
   %345 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  store ptr %202, ptr %345, align 8, !tbaa !819, !alias.scope !3351
+  store ptr %202, ptr %345, align 8, !tbaa !819, !alias.scope !3345
   %346 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  store ptr %146, ptr %346, align 8, !tbaa !819, !alias.scope !3351
+  store ptr %146, ptr %346, align 8, !tbaa !819, !alias.scope !3345
   %347 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %102)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %102) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %101) #23
@@ -131223,21 +131223,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 348:                                              ; preds = %340
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %99) #23
-  store ptr %202, ptr %99, align 8, !tbaa !819, !alias.scope !3354
+  store ptr %202, ptr %99, align 8, !tbaa !819, !alias.scope !3348
   %349 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store ptr %146, ptr %349, align 8, !tbaa !819, !alias.scope !3354
+  store ptr %146, ptr %349, align 8, !tbaa !819, !alias.scope !3348
   %350 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  store ptr %178, ptr %350, align 8, !tbaa !819, !alias.scope !3354
+  store ptr %178, ptr %350, align 8, !tbaa !819, !alias.scope !3348
   %351 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  store ptr %147, ptr %351, align 8, !tbaa !819, !alias.scope !3354
+  store ptr %147, ptr %351, align 8, !tbaa !819, !alias.scope !3348
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %100) #23
-  store ptr %177, ptr %100, align 8, !tbaa !819, !alias.scope !3357
+  store ptr %177, ptr %100, align 8, !tbaa !819, !alias.scope !3351
   %352 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store ptr %146, ptr %352, align 8, !tbaa !819, !alias.scope !3357
+  store ptr %146, ptr %352, align 8, !tbaa !819, !alias.scope !3351
   %353 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store ptr %203, ptr %353, align 8, !tbaa !819, !alias.scope !3357
+  store ptr %203, ptr %353, align 8, !tbaa !819, !alias.scope !3351
   %354 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  store ptr %147, ptr %354, align 8, !tbaa !819, !alias.scope !3357
+  store ptr %147, ptr %354, align 8, !tbaa !819, !alias.scope !3351
   %355 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %100)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %100) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %99) #23
@@ -131246,21 +131246,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 356:                                              ; preds = %348
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %97) #23
-  store ptr %spec.select145, ptr %97, align 8, !tbaa !819, !alias.scope !3360
+  store ptr %spec.select145, ptr %97, align 8, !tbaa !819, !alias.scope !3354
   %357 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store ptr %0, ptr %357, align 8, !tbaa !819, !alias.scope !3360
+  store ptr %0, ptr %357, align 8, !tbaa !819, !alias.scope !3354
   %358 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store ptr %178, ptr %358, align 8, !tbaa !819, !alias.scope !3360
+  store ptr %178, ptr %358, align 8, !tbaa !819, !alias.scope !3354
   %359 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store ptr %147, ptr %359, align 8, !tbaa !819, !alias.scope !3360
+  store ptr %147, ptr %359, align 8, !tbaa !819, !alias.scope !3354
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %98) #23
-  store ptr %4, ptr %98, align 8, !tbaa !819, !alias.scope !3363
+  store ptr %4, ptr %98, align 8, !tbaa !819, !alias.scope !3357
   %360 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store ptr %0, ptr %360, align 8, !tbaa !819, !alias.scope !3363
+  store ptr %0, ptr %360, align 8, !tbaa !819, !alias.scope !3357
   %361 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  store ptr %203, ptr %361, align 8, !tbaa !819, !alias.scope !3363
+  store ptr %203, ptr %361, align 8, !tbaa !819, !alias.scope !3357
   %362 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  store ptr %147, ptr %362, align 8, !tbaa !819, !alias.scope !3363
+  store ptr %147, ptr %362, align 8, !tbaa !819, !alias.scope !3357
   %363 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %98)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %98) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %97) #23
@@ -131278,21 +131278,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 367:                                              ; preds = %338
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %95) #23
-  store ptr %spec.select145, ptr %95, align 8, !tbaa !819, !alias.scope !3366
+  store ptr %spec.select145, ptr %95, align 8, !tbaa !819, !alias.scope !3360
   %368 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr %0, ptr %368, align 8, !tbaa !819, !alias.scope !3366
+  store ptr %0, ptr %368, align 8, !tbaa !819, !alias.scope !3360
   %369 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store ptr %177, ptr %369, align 8, !tbaa !819, !alias.scope !3366
+  store ptr %177, ptr %369, align 8, !tbaa !819, !alias.scope !3360
   %370 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  store ptr %146, ptr %370, align 8, !tbaa !819, !alias.scope !3366
+  store ptr %146, ptr %370, align 8, !tbaa !819, !alias.scope !3360
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %96) #23
-  store ptr %4, ptr %96, align 8, !tbaa !819, !alias.scope !3369
+  store ptr %4, ptr %96, align 8, !tbaa !819, !alias.scope !3363
   %371 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store ptr %0, ptr %371, align 8, !tbaa !819, !alias.scope !3369
+  store ptr %0, ptr %371, align 8, !tbaa !819, !alias.scope !3363
   %372 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store ptr %202, ptr %372, align 8, !tbaa !819, !alias.scope !3369
+  store ptr %202, ptr %372, align 8, !tbaa !819, !alias.scope !3363
   %373 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  store ptr %146, ptr %373, align 8, !tbaa !819, !alias.scope !3369
+  store ptr %146, ptr %373, align 8, !tbaa !819, !alias.scope !3363
   %374 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %96)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %96) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %95) #23
@@ -131301,21 +131301,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 375:                                              ; preds = %367
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %93) #23
-  store ptr %202, ptr %93, align 8, !tbaa !819, !alias.scope !3372
+  store ptr %202, ptr %93, align 8, !tbaa !819, !alias.scope !3366
   %376 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store ptr %146, ptr %376, align 8, !tbaa !819, !alias.scope !3372
+  store ptr %146, ptr %376, align 8, !tbaa !819, !alias.scope !3366
   %377 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store ptr %178, ptr %377, align 8, !tbaa !819, !alias.scope !3372
+  store ptr %178, ptr %377, align 8, !tbaa !819, !alias.scope !3366
   %378 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  store ptr %147, ptr %378, align 8, !tbaa !819, !alias.scope !3372
+  store ptr %147, ptr %378, align 8, !tbaa !819, !alias.scope !3366
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %94) #23
-  store ptr %177, ptr %94, align 8, !tbaa !819, !alias.scope !3375
+  store ptr %177, ptr %94, align 8, !tbaa !819, !alias.scope !3369
   %379 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store ptr %146, ptr %379, align 8, !tbaa !819, !alias.scope !3375
+  store ptr %146, ptr %379, align 8, !tbaa !819, !alias.scope !3369
   %380 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  store ptr %203, ptr %380, align 8, !tbaa !819, !alias.scope !3375
+  store ptr %203, ptr %380, align 8, !tbaa !819, !alias.scope !3369
   %381 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  store ptr %147, ptr %381, align 8, !tbaa !819, !alias.scope !3375
+  store ptr %147, ptr %381, align 8, !tbaa !819, !alias.scope !3369
   %382 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %94)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %94) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %93) #23
@@ -131324,21 +131324,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 383:                                              ; preds = %375
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %91) #23
-  store ptr %spec.select145, ptr %91, align 8, !tbaa !819, !alias.scope !3378
+  store ptr %spec.select145, ptr %91, align 8, !tbaa !819, !alias.scope !3372
   %384 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store ptr %0, ptr %384, align 8, !tbaa !819, !alias.scope !3378
+  store ptr %0, ptr %384, align 8, !tbaa !819, !alias.scope !3372
   %385 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store ptr %178, ptr %385, align 8, !tbaa !819, !alias.scope !3378
+  store ptr %178, ptr %385, align 8, !tbaa !819, !alias.scope !3372
   %386 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  store ptr %147, ptr %386, align 8, !tbaa !819, !alias.scope !3378
+  store ptr %147, ptr %386, align 8, !tbaa !819, !alias.scope !3372
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %92) #23
-  store ptr %4, ptr %92, align 8, !tbaa !819, !alias.scope !3381
+  store ptr %4, ptr %92, align 8, !tbaa !819, !alias.scope !3375
   %387 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store ptr %0, ptr %387, align 8, !tbaa !819, !alias.scope !3381
+  store ptr %0, ptr %387, align 8, !tbaa !819, !alias.scope !3375
   %388 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store ptr %203, ptr %388, align 8, !tbaa !819, !alias.scope !3381
+  store ptr %203, ptr %388, align 8, !tbaa !819, !alias.scope !3375
   %389 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  store ptr %147, ptr %389, align 8, !tbaa !819, !alias.scope !3381
+  store ptr %147, ptr %389, align 8, !tbaa !819, !alias.scope !3375
   %390 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull align 8 dereferenceable(32) %92)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %92) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %91) #23
@@ -131367,21 +131367,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 397:                                              ; preds = %395
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89) #23
-  store ptr %spec.select145, ptr %89, align 8, !tbaa !819, !alias.scope !3384
+  store ptr %spec.select145, ptr %89, align 8, !tbaa !819, !alias.scope !3378
   %398 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store ptr %0, ptr %398, align 8, !tbaa !819, !alias.scope !3384
+  store ptr %0, ptr %398, align 8, !tbaa !819, !alias.scope !3378
   %399 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store ptr %175, ptr %399, align 8, !tbaa !819, !alias.scope !3384
+  store ptr %175, ptr %399, align 8, !tbaa !819, !alias.scope !3378
   %400 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  store ptr %146, ptr %400, align 8, !tbaa !819, !alias.scope !3384
+  store ptr %146, ptr %400, align 8, !tbaa !819, !alias.scope !3378
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %90) #23
-  store ptr %3, ptr %90, align 8, !tbaa !819, !alias.scope !3387
+  store ptr %3, ptr %90, align 8, !tbaa !819, !alias.scope !3381
   %401 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store ptr %0, ptr %401, align 8, !tbaa !819, !alias.scope !3387
+  store ptr %0, ptr %401, align 8, !tbaa !819, !alias.scope !3381
   %402 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  store ptr %202, ptr %402, align 8, !tbaa !819, !alias.scope !3387
+  store ptr %202, ptr %402, align 8, !tbaa !819, !alias.scope !3381
   %403 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  store ptr %146, ptr %403, align 8, !tbaa !819, !alias.scope !3387
+  store ptr %146, ptr %403, align 8, !tbaa !819, !alias.scope !3381
   %404 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %90)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %90) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %89) #23
@@ -131390,21 +131390,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 405:                                              ; preds = %397
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87) #23
-  store ptr %202, ptr %87, align 8, !tbaa !819, !alias.scope !3390
+  store ptr %202, ptr %87, align 8, !tbaa !819, !alias.scope !3384
   %406 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store ptr %146, ptr %406, align 8, !tbaa !819, !alias.scope !3390
+  store ptr %146, ptr %406, align 8, !tbaa !819, !alias.scope !3384
   %407 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  store ptr %176, ptr %407, align 8, !tbaa !819, !alias.scope !3390
+  store ptr %176, ptr %407, align 8, !tbaa !819, !alias.scope !3384
   %408 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store ptr %147, ptr %408, align 8, !tbaa !819, !alias.scope !3390
+  store ptr %147, ptr %408, align 8, !tbaa !819, !alias.scope !3384
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %88) #23
-  store ptr %175, ptr %88, align 8, !tbaa !819, !alias.scope !3393
+  store ptr %175, ptr %88, align 8, !tbaa !819, !alias.scope !3387
   %409 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %146, ptr %409, align 8, !tbaa !819, !alias.scope !3393
+  store ptr %146, ptr %409, align 8, !tbaa !819, !alias.scope !3387
   %410 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  store ptr %203, ptr %410, align 8, !tbaa !819, !alias.scope !3393
+  store ptr %203, ptr %410, align 8, !tbaa !819, !alias.scope !3387
   %411 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  store ptr %147, ptr %411, align 8, !tbaa !819, !alias.scope !3393
+  store ptr %147, ptr %411, align 8, !tbaa !819, !alias.scope !3387
   %412 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %88)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %88) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %87) #23
@@ -131413,21 +131413,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 413:                                              ; preds = %405
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %85) #23
-  store ptr %spec.select145, ptr %85, align 8, !tbaa !819, !alias.scope !3396
+  store ptr %spec.select145, ptr %85, align 8, !tbaa !819, !alias.scope !3390
   %414 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr %0, ptr %414, align 8, !tbaa !819, !alias.scope !3396
+  store ptr %0, ptr %414, align 8, !tbaa !819, !alias.scope !3390
   %415 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store ptr %176, ptr %415, align 8, !tbaa !819, !alias.scope !3396
+  store ptr %176, ptr %415, align 8, !tbaa !819, !alias.scope !3390
   %416 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  store ptr %147, ptr %416, align 8, !tbaa !819, !alias.scope !3396
+  store ptr %147, ptr %416, align 8, !tbaa !819, !alias.scope !3390
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %86) #23
-  store ptr %3, ptr %86, align 8, !tbaa !819, !alias.scope !3399
+  store ptr %3, ptr %86, align 8, !tbaa !819, !alias.scope !3393
   %417 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store ptr %0, ptr %417, align 8, !tbaa !819, !alias.scope !3399
+  store ptr %0, ptr %417, align 8, !tbaa !819, !alias.scope !3393
   %418 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  store ptr %203, ptr %418, align 8, !tbaa !819, !alias.scope !3399
+  store ptr %203, ptr %418, align 8, !tbaa !819, !alias.scope !3393
   %419 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  store ptr %147, ptr %419, align 8, !tbaa !819, !alias.scope !3399
+  store ptr %147, ptr %419, align 8, !tbaa !819, !alias.scope !3393
   %420 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %86)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %86) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %85) #23
@@ -131445,21 +131445,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 424:                                              ; preds = %395
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %83) #23
-  store ptr %spec.select145, ptr %83, align 8, !tbaa !819, !alias.scope !3402
+  store ptr %spec.select145, ptr %83, align 8, !tbaa !819, !alias.scope !3396
   %425 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store ptr %0, ptr %425, align 8, !tbaa !819, !alias.scope !3402
+  store ptr %0, ptr %425, align 8, !tbaa !819, !alias.scope !3396
   %426 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store ptr %175, ptr %426, align 8, !tbaa !819, !alias.scope !3402
+  store ptr %175, ptr %426, align 8, !tbaa !819, !alias.scope !3396
   %427 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  store ptr %146, ptr %427, align 8, !tbaa !819, !alias.scope !3402
+  store ptr %146, ptr %427, align 8, !tbaa !819, !alias.scope !3396
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84) #23
-  store ptr %3, ptr %84, align 8, !tbaa !819, !alias.scope !3405
+  store ptr %3, ptr %84, align 8, !tbaa !819, !alias.scope !3399
   %428 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store ptr %0, ptr %428, align 8, !tbaa !819, !alias.scope !3405
+  store ptr %0, ptr %428, align 8, !tbaa !819, !alias.scope !3399
   %429 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store ptr %202, ptr %429, align 8, !tbaa !819, !alias.scope !3405
+  store ptr %202, ptr %429, align 8, !tbaa !819, !alias.scope !3399
   %430 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  store ptr %146, ptr %430, align 8, !tbaa !819, !alias.scope !3405
+  store ptr %146, ptr %430, align 8, !tbaa !819, !alias.scope !3399
   %431 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull align 8 dereferenceable(32) %84)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %84) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %83) #23
@@ -131468,21 +131468,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 432:                                              ; preds = %424
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81) #23
-  store ptr %202, ptr %81, align 8, !tbaa !819, !alias.scope !3408
+  store ptr %202, ptr %81, align 8, !tbaa !819, !alias.scope !3402
   %433 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store ptr %146, ptr %433, align 8, !tbaa !819, !alias.scope !3408
+  store ptr %146, ptr %433, align 8, !tbaa !819, !alias.scope !3402
   %434 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store ptr %176, ptr %434, align 8, !tbaa !819, !alias.scope !3408
+  store ptr %176, ptr %434, align 8, !tbaa !819, !alias.scope !3402
   %435 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store ptr %147, ptr %435, align 8, !tbaa !819, !alias.scope !3408
+  store ptr %147, ptr %435, align 8, !tbaa !819, !alias.scope !3402
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %82) #23
-  store ptr %175, ptr %82, align 8, !tbaa !819, !alias.scope !3411
+  store ptr %175, ptr %82, align 8, !tbaa !819, !alias.scope !3405
   %436 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store ptr %146, ptr %436, align 8, !tbaa !819, !alias.scope !3411
+  store ptr %146, ptr %436, align 8, !tbaa !819, !alias.scope !3405
   %437 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  store ptr %203, ptr %437, align 8, !tbaa !819, !alias.scope !3411
+  store ptr %203, ptr %437, align 8, !tbaa !819, !alias.scope !3405
   %438 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  store ptr %147, ptr %438, align 8, !tbaa !819, !alias.scope !3411
+  store ptr %147, ptr %438, align 8, !tbaa !819, !alias.scope !3405
   %439 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %82)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %82) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %81) #23
@@ -131491,21 +131491,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 440:                                              ; preds = %432
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %79) #23
-  store ptr %spec.select145, ptr %79, align 8, !tbaa !819, !alias.scope !3414
+  store ptr %spec.select145, ptr %79, align 8, !tbaa !819, !alias.scope !3408
   %441 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store ptr %0, ptr %441, align 8, !tbaa !819, !alias.scope !3414
+  store ptr %0, ptr %441, align 8, !tbaa !819, !alias.scope !3408
   %442 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store ptr %176, ptr %442, align 8, !tbaa !819, !alias.scope !3414
+  store ptr %176, ptr %442, align 8, !tbaa !819, !alias.scope !3408
   %443 = getelementptr inbounds nuw i8, ptr %79, i64 24
-  store ptr %147, ptr %443, align 8, !tbaa !819, !alias.scope !3414
+  store ptr %147, ptr %443, align 8, !tbaa !819, !alias.scope !3408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %80) #23
-  store ptr %3, ptr %80, align 8, !tbaa !819, !alias.scope !3417
+  store ptr %3, ptr %80, align 8, !tbaa !819, !alias.scope !3411
   %444 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr %0, ptr %444, align 8, !tbaa !819, !alias.scope !3417
+  store ptr %0, ptr %444, align 8, !tbaa !819, !alias.scope !3411
   %445 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store ptr %203, ptr %445, align 8, !tbaa !819, !alias.scope !3417
+  store ptr %203, ptr %445, align 8, !tbaa !819, !alias.scope !3411
   %446 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store ptr %147, ptr %446, align 8, !tbaa !819, !alias.scope !3417
+  store ptr %147, ptr %446, align 8, !tbaa !819, !alias.scope !3411
   %447 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %80)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %80) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %79) #23
@@ -131527,21 +131527,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 453:                                              ; preds = %451
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77) #23
-  store ptr %spec.select, ptr %77, align 8, !tbaa !819, !alias.scope !3420
+  store ptr %spec.select, ptr %77, align 8, !tbaa !819, !alias.scope !3414
   %454 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store ptr %spec.select145, ptr %454, align 8, !tbaa !819, !alias.scope !3420
+  store ptr %spec.select145, ptr %454, align 8, !tbaa !819, !alias.scope !3414
   %455 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store ptr %175, ptr %455, align 8, !tbaa !819, !alias.scope !3420
+  store ptr %175, ptr %455, align 8, !tbaa !819, !alias.scope !3414
   %456 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  store ptr %202, ptr %456, align 8, !tbaa !819, !alias.scope !3420
+  store ptr %202, ptr %456, align 8, !tbaa !819, !alias.scope !3414
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %78) #23
-  store ptr %3, ptr %78, align 8, !tbaa !819, !alias.scope !3423
+  store ptr %3, ptr %78, align 8, !tbaa !819, !alias.scope !3417
   %457 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store ptr %spec.select145, ptr %457, align 8, !tbaa !819, !alias.scope !3423
+  store ptr %spec.select145, ptr %457, align 8, !tbaa !819, !alias.scope !3417
   %458 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  store ptr %227, ptr %458, align 8, !tbaa !819, !alias.scope !3423
+  store ptr %227, ptr %458, align 8, !tbaa !819, !alias.scope !3417
   %459 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  store ptr %202, ptr %459, align 8, !tbaa !819, !alias.scope !3423
+  store ptr %202, ptr %459, align 8, !tbaa !819, !alias.scope !3417
   %460 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %78)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %78) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %77) #23
@@ -131550,21 +131550,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 461:                                              ; preds = %453
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %75) #23
-  store ptr %227, ptr %75, align 8, !tbaa !819, !alias.scope !3426
+  store ptr %227, ptr %75, align 8, !tbaa !819, !alias.scope !3420
   %462 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store ptr %202, ptr %462, align 8, !tbaa !819, !alias.scope !3426
+  store ptr %202, ptr %462, align 8, !tbaa !819, !alias.scope !3420
   %463 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store ptr %176, ptr %463, align 8, !tbaa !819, !alias.scope !3426
+  store ptr %176, ptr %463, align 8, !tbaa !819, !alias.scope !3420
   %464 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  store ptr %203, ptr %464, align 8, !tbaa !819, !alias.scope !3426
+  store ptr %203, ptr %464, align 8, !tbaa !819, !alias.scope !3420
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76) #23
-  store ptr %175, ptr %76, align 8, !tbaa !819, !alias.scope !3429
+  store ptr %175, ptr %76, align 8, !tbaa !819, !alias.scope !3423
   %465 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store ptr %202, ptr %465, align 8, !tbaa !819, !alias.scope !3429
+  store ptr %202, ptr %465, align 8, !tbaa !819, !alias.scope !3423
   %466 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store ptr %228, ptr %466, align 8, !tbaa !819, !alias.scope !3429
+  store ptr %228, ptr %466, align 8, !tbaa !819, !alias.scope !3423
   %467 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  store ptr %203, ptr %467, align 8, !tbaa !819, !alias.scope !3429
+  store ptr %203, ptr %467, align 8, !tbaa !819, !alias.scope !3423
   %468 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %76)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %76) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %75) #23
@@ -131573,21 +131573,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 469:                                              ; preds = %461
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73) #23
-  store ptr %spec.select, ptr %73, align 8, !tbaa !819, !alias.scope !3432
+  store ptr %spec.select, ptr %73, align 8, !tbaa !819, !alias.scope !3426
   %470 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store ptr %spec.select145, ptr %470, align 8, !tbaa !819, !alias.scope !3432
+  store ptr %spec.select145, ptr %470, align 8, !tbaa !819, !alias.scope !3426
   %471 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store ptr %176, ptr %471, align 8, !tbaa !819, !alias.scope !3432
+  store ptr %176, ptr %471, align 8, !tbaa !819, !alias.scope !3426
   %472 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store ptr %203, ptr %472, align 8, !tbaa !819, !alias.scope !3432
+  store ptr %203, ptr %472, align 8, !tbaa !819, !alias.scope !3426
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %74) #23
-  store ptr %3, ptr %74, align 8, !tbaa !819, !alias.scope !3435
+  store ptr %3, ptr %74, align 8, !tbaa !819, !alias.scope !3429
   %473 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr %spec.select145, ptr %473, align 8, !tbaa !819, !alias.scope !3435
+  store ptr %spec.select145, ptr %473, align 8, !tbaa !819, !alias.scope !3429
   %474 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store ptr %228, ptr %474, align 8, !tbaa !819, !alias.scope !3435
+  store ptr %228, ptr %474, align 8, !tbaa !819, !alias.scope !3429
   %475 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  store ptr %203, ptr %475, align 8, !tbaa !819, !alias.scope !3435
+  store ptr %203, ptr %475, align 8, !tbaa !819, !alias.scope !3429
   %476 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %74)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %74) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %73) #23
@@ -131600,21 +131600,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 477:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISG_EESL_SL_.exit189
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71) #23
-  store ptr %0, ptr %71, align 8, !tbaa !819, !alias.scope !3438
+  store ptr %0, ptr %71, align 8, !tbaa !819, !alias.scope !3432
   %478 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr %spec.select, ptr %478, align 8, !tbaa !819, !alias.scope !3438
+  store ptr %spec.select, ptr %478, align 8, !tbaa !819, !alias.scope !3432
   %479 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store ptr %177, ptr %479, align 8, !tbaa !819, !alias.scope !3438
+  store ptr %177, ptr %479, align 8, !tbaa !819, !alias.scope !3432
   %480 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store ptr %227, ptr %480, align 8, !tbaa !819, !alias.scope !3438
+  store ptr %227, ptr %480, align 8, !tbaa !819, !alias.scope !3432
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72) #23
-  store ptr %4, ptr %72, align 8, !tbaa !819, !alias.scope !3441
+  store ptr %4, ptr %72, align 8, !tbaa !819, !alias.scope !3435
   %481 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr %spec.select, ptr %481, align 8, !tbaa !819, !alias.scope !3441
+  store ptr %spec.select, ptr %481, align 8, !tbaa !819, !alias.scope !3435
   %482 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store ptr %146, ptr %482, align 8, !tbaa !819, !alias.scope !3441
+  store ptr %146, ptr %482, align 8, !tbaa !819, !alias.scope !3435
   %483 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store ptr %227, ptr %483, align 8, !tbaa !819, !alias.scope !3441
+  store ptr %227, ptr %483, align 8, !tbaa !819, !alias.scope !3435
   %484 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %72)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %72) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %71) #23
@@ -131623,21 +131623,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 485:                                              ; preds = %477
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69) #23
-  store ptr %146, ptr %69, align 8, !tbaa !819, !alias.scope !3444
+  store ptr %146, ptr %69, align 8, !tbaa !819, !alias.scope !3438
   %486 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store ptr %227, ptr %486, align 8, !tbaa !819, !alias.scope !3444
+  store ptr %227, ptr %486, align 8, !tbaa !819, !alias.scope !3438
   %487 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store ptr %178, ptr %487, align 8, !tbaa !819, !alias.scope !3444
+  store ptr %178, ptr %487, align 8, !tbaa !819, !alias.scope !3438
   %488 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store ptr %228, ptr %488, align 8, !tbaa !819, !alias.scope !3444
+  store ptr %228, ptr %488, align 8, !tbaa !819, !alias.scope !3438
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70) #23
-  store ptr %177, ptr %70, align 8, !tbaa !819, !alias.scope !3447
+  store ptr %177, ptr %70, align 8, !tbaa !819, !alias.scope !3441
   %489 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store ptr %227, ptr %489, align 8, !tbaa !819, !alias.scope !3447
+  store ptr %227, ptr %489, align 8, !tbaa !819, !alias.scope !3441
   %490 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store ptr %147, ptr %490, align 8, !tbaa !819, !alias.scope !3447
+  store ptr %147, ptr %490, align 8, !tbaa !819, !alias.scope !3441
   %491 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store ptr %228, ptr %491, align 8, !tbaa !819, !alias.scope !3447
+  store ptr %228, ptr %491, align 8, !tbaa !819, !alias.scope !3441
   %492 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %70)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69) #23
@@ -131646,21 +131646,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 493:                                              ; preds = %485
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67) #23
-  store ptr %0, ptr %67, align 8, !tbaa !819, !alias.scope !3450
+  store ptr %0, ptr %67, align 8, !tbaa !819, !alias.scope !3444
   %494 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store ptr %spec.select, ptr %494, align 8, !tbaa !819, !alias.scope !3450
+  store ptr %spec.select, ptr %494, align 8, !tbaa !819, !alias.scope !3444
   %495 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store ptr %178, ptr %495, align 8, !tbaa !819, !alias.scope !3450
+  store ptr %178, ptr %495, align 8, !tbaa !819, !alias.scope !3444
   %496 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr %228, ptr %496, align 8, !tbaa !819, !alias.scope !3450
+  store ptr %228, ptr %496, align 8, !tbaa !819, !alias.scope !3444
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %68) #23
-  store ptr %4, ptr %68, align 8, !tbaa !819, !alias.scope !3453
+  store ptr %4, ptr %68, align 8, !tbaa !819, !alias.scope !3447
   %497 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store ptr %spec.select, ptr %497, align 8, !tbaa !819, !alias.scope !3453
+  store ptr %spec.select, ptr %497, align 8, !tbaa !819, !alias.scope !3447
   %498 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store ptr %147, ptr %498, align 8, !tbaa !819, !alias.scope !3453
+  store ptr %147, ptr %498, align 8, !tbaa !819, !alias.scope !3447
   %499 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store ptr %228, ptr %499, align 8, !tbaa !819, !alias.scope !3453
+  store ptr %228, ptr %499, align 8, !tbaa !819, !alias.scope !3447
   %500 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %68)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %68) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %67) #23
@@ -131677,21 +131677,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 504:                                              ; preds = %502
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65) #23
-  store ptr %spec.select145, ptr %65, align 8, !tbaa !819, !alias.scope !3456
+  store ptr %spec.select145, ptr %65, align 8, !tbaa !819, !alias.scope !3450
   %505 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %0, ptr %505, align 8, !tbaa !819, !alias.scope !3456
+  store ptr %0, ptr %505, align 8, !tbaa !819, !alias.scope !3450
   %506 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store ptr %175, ptr %506, align 8, !tbaa !819, !alias.scope !3456
+  store ptr %175, ptr %506, align 8, !tbaa !819, !alias.scope !3450
   %507 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr %146, ptr %507, align 8, !tbaa !819, !alias.scope !3456
+  store ptr %146, ptr %507, align 8, !tbaa !819, !alias.scope !3450
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66) #23
-  store ptr %3, ptr %66, align 8, !tbaa !819, !alias.scope !3459
+  store ptr %3, ptr %66, align 8, !tbaa !819, !alias.scope !3453
   %508 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store ptr %0, ptr %508, align 8, !tbaa !819, !alias.scope !3459
+  store ptr %0, ptr %508, align 8, !tbaa !819, !alias.scope !3453
   %509 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store ptr %202, ptr %509, align 8, !tbaa !819, !alias.scope !3459
+  store ptr %202, ptr %509, align 8, !tbaa !819, !alias.scope !3453
   %510 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store ptr %146, ptr %510, align 8, !tbaa !819, !alias.scope !3459
+  store ptr %146, ptr %510, align 8, !tbaa !819, !alias.scope !3453
   %511 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %66)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65) #23
@@ -131700,21 +131700,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 512:                                              ; preds = %504
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63) #23
-  store ptr %202, ptr %63, align 8, !tbaa !819, !alias.scope !3462
+  store ptr %202, ptr %63, align 8, !tbaa !819, !alias.scope !3456
   %513 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %146, ptr %513, align 8, !tbaa !819, !alias.scope !3462
+  store ptr %146, ptr %513, align 8, !tbaa !819, !alias.scope !3456
   %514 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store ptr %176, ptr %514, align 8, !tbaa !819, !alias.scope !3462
+  store ptr %176, ptr %514, align 8, !tbaa !819, !alias.scope !3456
   %515 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store ptr %147, ptr %515, align 8, !tbaa !819, !alias.scope !3462
+  store ptr %147, ptr %515, align 8, !tbaa !819, !alias.scope !3456
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64) #23
-  store ptr %175, ptr %64, align 8, !tbaa !819, !alias.scope !3465
+  store ptr %175, ptr %64, align 8, !tbaa !819, !alias.scope !3459
   %516 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr %146, ptr %516, align 8, !tbaa !819, !alias.scope !3465
+  store ptr %146, ptr %516, align 8, !tbaa !819, !alias.scope !3459
   %517 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store ptr %203, ptr %517, align 8, !tbaa !819, !alias.scope !3465
+  store ptr %203, ptr %517, align 8, !tbaa !819, !alias.scope !3459
   %518 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  store ptr %147, ptr %518, align 8, !tbaa !819, !alias.scope !3465
+  store ptr %147, ptr %518, align 8, !tbaa !819, !alias.scope !3459
   %519 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %64)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %64) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %63) #23
@@ -131723,21 +131723,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 520:                                              ; preds = %512
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61) #23
-  store ptr %spec.select145, ptr %61, align 8, !tbaa !819, !alias.scope !3468
+  store ptr %spec.select145, ptr %61, align 8, !tbaa !819, !alias.scope !3462
   %521 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %0, ptr %521, align 8, !tbaa !819, !alias.scope !3468
+  store ptr %0, ptr %521, align 8, !tbaa !819, !alias.scope !3462
   %522 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store ptr %176, ptr %522, align 8, !tbaa !819, !alias.scope !3468
+  store ptr %176, ptr %522, align 8, !tbaa !819, !alias.scope !3462
   %523 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  store ptr %147, ptr %523, align 8, !tbaa !819, !alias.scope !3468
+  store ptr %147, ptr %523, align 8, !tbaa !819, !alias.scope !3462
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %62) #23
-  store ptr %3, ptr %62, align 8, !tbaa !819, !alias.scope !3471
+  store ptr %3, ptr %62, align 8, !tbaa !819, !alias.scope !3465
   %524 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %0, ptr %524, align 8, !tbaa !819, !alias.scope !3471
+  store ptr %0, ptr %524, align 8, !tbaa !819, !alias.scope !3465
   %525 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store ptr %203, ptr %525, align 8, !tbaa !819, !alias.scope !3471
+  store ptr %203, ptr %525, align 8, !tbaa !819, !alias.scope !3465
   %526 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store ptr %147, ptr %526, align 8, !tbaa !819, !alias.scope !3471
+  store ptr %147, ptr %526, align 8, !tbaa !819, !alias.scope !3465
   %527 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %62)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %62) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %61) #23
@@ -131755,21 +131755,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 531:                                              ; preds = %502
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59) #23
-  store ptr %spec.select145, ptr %59, align 8, !tbaa !819, !alias.scope !3474
+  store ptr %spec.select145, ptr %59, align 8, !tbaa !819, !alias.scope !3468
   %532 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store ptr %0, ptr %532, align 8, !tbaa !819, !alias.scope !3474
+  store ptr %0, ptr %532, align 8, !tbaa !819, !alias.scope !3468
   %533 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store ptr %175, ptr %533, align 8, !tbaa !819, !alias.scope !3474
+  store ptr %175, ptr %533, align 8, !tbaa !819, !alias.scope !3468
   %534 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store ptr %146, ptr %534, align 8, !tbaa !819, !alias.scope !3474
+  store ptr %146, ptr %534, align 8, !tbaa !819, !alias.scope !3468
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60) #23
-  store ptr %3, ptr %60, align 8, !tbaa !819, !alias.scope !3477
+  store ptr %3, ptr %60, align 8, !tbaa !819, !alias.scope !3471
   %535 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %0, ptr %535, align 8, !tbaa !819, !alias.scope !3477
+  store ptr %0, ptr %535, align 8, !tbaa !819, !alias.scope !3471
   %536 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store ptr %202, ptr %536, align 8, !tbaa !819, !alias.scope !3477
+  store ptr %202, ptr %536, align 8, !tbaa !819, !alias.scope !3471
   %537 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store ptr %146, ptr %537, align 8, !tbaa !819, !alias.scope !3477
+  store ptr %146, ptr %537, align 8, !tbaa !819, !alias.scope !3471
   %538 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %60)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %60) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %59) #23
@@ -131778,21 +131778,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 539:                                              ; preds = %531
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57) #23
-  store ptr %202, ptr %57, align 8, !tbaa !819, !alias.scope !3480
+  store ptr %202, ptr %57, align 8, !tbaa !819, !alias.scope !3474
   %540 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %146, ptr %540, align 8, !tbaa !819, !alias.scope !3480
+  store ptr %146, ptr %540, align 8, !tbaa !819, !alias.scope !3474
   %541 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store ptr %176, ptr %541, align 8, !tbaa !819, !alias.scope !3480
+  store ptr %176, ptr %541, align 8, !tbaa !819, !alias.scope !3474
   %542 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr %147, ptr %542, align 8, !tbaa !819, !alias.scope !3480
+  store ptr %147, ptr %542, align 8, !tbaa !819, !alias.scope !3474
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58) #23
-  store ptr %175, ptr %58, align 8, !tbaa !819, !alias.scope !3483
+  store ptr %175, ptr %58, align 8, !tbaa !819, !alias.scope !3477
   %543 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store ptr %146, ptr %543, align 8, !tbaa !819, !alias.scope !3483
+  store ptr %146, ptr %543, align 8, !tbaa !819, !alias.scope !3477
   %544 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store ptr %203, ptr %544, align 8, !tbaa !819, !alias.scope !3483
+  store ptr %203, ptr %544, align 8, !tbaa !819, !alias.scope !3477
   %545 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store ptr %147, ptr %545, align 8, !tbaa !819, !alias.scope !3483
+  store ptr %147, ptr %545, align 8, !tbaa !819, !alias.scope !3477
   %546 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %58)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %58) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %57) #23
@@ -131801,21 +131801,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 547:                                              ; preds = %539
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55) #23
-  store ptr %spec.select145, ptr %55, align 8, !tbaa !819, !alias.scope !3486
+  store ptr %spec.select145, ptr %55, align 8, !tbaa !819, !alias.scope !3480
   %548 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %0, ptr %548, align 8, !tbaa !819, !alias.scope !3486
+  store ptr %0, ptr %548, align 8, !tbaa !819, !alias.scope !3480
   %549 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store ptr %176, ptr %549, align 8, !tbaa !819, !alias.scope !3486
+  store ptr %176, ptr %549, align 8, !tbaa !819, !alias.scope !3480
   %550 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store ptr %147, ptr %550, align 8, !tbaa !819, !alias.scope !3486
+  store ptr %147, ptr %550, align 8, !tbaa !819, !alias.scope !3480
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56) #23
-  store ptr %3, ptr %56, align 8, !tbaa !819, !alias.scope !3489
+  store ptr %3, ptr %56, align 8, !tbaa !819, !alias.scope !3483
   %551 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %0, ptr %551, align 8, !tbaa !819, !alias.scope !3489
+  store ptr %0, ptr %551, align 8, !tbaa !819, !alias.scope !3483
   %552 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store ptr %203, ptr %552, align 8, !tbaa !819, !alias.scope !3489
+  store ptr %203, ptr %552, align 8, !tbaa !819, !alias.scope !3483
   %553 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store ptr %147, ptr %553, align 8, !tbaa !819, !alias.scope !3489
+  store ptr %147, ptr %553, align 8, !tbaa !819, !alias.scope !3483
   %554 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %56)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55) #23
@@ -131828,21 +131828,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 555:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISG_EESL_SL_.exit201
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53) #23
-  store ptr %0, ptr %53, align 8, !tbaa !819, !alias.scope !3492
+  store ptr %0, ptr %53, align 8, !tbaa !819, !alias.scope !3486
   %556 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr %spec.select, ptr %556, align 8, !tbaa !819, !alias.scope !3492
+  store ptr %spec.select, ptr %556, align 8, !tbaa !819, !alias.scope !3486
   %557 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store ptr %177, ptr %557, align 8, !tbaa !819, !alias.scope !3492
+  store ptr %177, ptr %557, align 8, !tbaa !819, !alias.scope !3486
   %558 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  store ptr %227, ptr %558, align 8, !tbaa !819, !alias.scope !3492
+  store ptr %227, ptr %558, align 8, !tbaa !819, !alias.scope !3486
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54) #23
-  store ptr %4, ptr %54, align 8, !tbaa !819, !alias.scope !3495
+  store ptr %4, ptr %54, align 8, !tbaa !819, !alias.scope !3489
   %559 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store ptr %spec.select, ptr %559, align 8, !tbaa !819, !alias.scope !3495
+  store ptr %spec.select, ptr %559, align 8, !tbaa !819, !alias.scope !3489
   %560 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store ptr %146, ptr %560, align 8, !tbaa !819, !alias.scope !3495
+  store ptr %146, ptr %560, align 8, !tbaa !819, !alias.scope !3489
   %561 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr %227, ptr %561, align 8, !tbaa !819, !alias.scope !3495
+  store ptr %227, ptr %561, align 8, !tbaa !819, !alias.scope !3489
   %562 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %54)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53) #23
@@ -131851,21 +131851,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 563:                                              ; preds = %555
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51) #23
-  store ptr %146, ptr %51, align 8, !tbaa !819, !alias.scope !3498
+  store ptr %146, ptr %51, align 8, !tbaa !819, !alias.scope !3492
   %564 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr %227, ptr %564, align 8, !tbaa !819, !alias.scope !3498
+  store ptr %227, ptr %564, align 8, !tbaa !819, !alias.scope !3492
   %565 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store ptr %178, ptr %565, align 8, !tbaa !819, !alias.scope !3498
+  store ptr %178, ptr %565, align 8, !tbaa !819, !alias.scope !3492
   %566 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store ptr %228, ptr %566, align 8, !tbaa !819, !alias.scope !3498
+  store ptr %228, ptr %566, align 8, !tbaa !819, !alias.scope !3492
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52) #23
-  store ptr %177, ptr %52, align 8, !tbaa !819, !alias.scope !3501
+  store ptr %177, ptr %52, align 8, !tbaa !819, !alias.scope !3495
   %567 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %227, ptr %567, align 8, !tbaa !819, !alias.scope !3501
+  store ptr %227, ptr %567, align 8, !tbaa !819, !alias.scope !3495
   %568 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store ptr %147, ptr %568, align 8, !tbaa !819, !alias.scope !3501
+  store ptr %147, ptr %568, align 8, !tbaa !819, !alias.scope !3495
   %569 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store ptr %228, ptr %569, align 8, !tbaa !819, !alias.scope !3501
+  store ptr %228, ptr %569, align 8, !tbaa !819, !alias.scope !3495
   %570 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %52)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51) #23
@@ -131874,21 +131874,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 571:                                              ; preds = %563
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #23
-  store ptr %0, ptr %49, align 8, !tbaa !819, !alias.scope !3504
+  store ptr %0, ptr %49, align 8, !tbaa !819, !alias.scope !3498
   %572 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %spec.select, ptr %572, align 8, !tbaa !819, !alias.scope !3504
+  store ptr %spec.select, ptr %572, align 8, !tbaa !819, !alias.scope !3498
   %573 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %178, ptr %573, align 8, !tbaa !819, !alias.scope !3504
+  store ptr %178, ptr %573, align 8, !tbaa !819, !alias.scope !3498
   %574 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store ptr %228, ptr %574, align 8, !tbaa !819, !alias.scope !3504
+  store ptr %228, ptr %574, align 8, !tbaa !819, !alias.scope !3498
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50) #23
-  store ptr %4, ptr %50, align 8, !tbaa !819, !alias.scope !3507
+  store ptr %4, ptr %50, align 8, !tbaa !819, !alias.scope !3501
   %575 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %spec.select, ptr %575, align 8, !tbaa !819, !alias.scope !3507
+  store ptr %spec.select, ptr %575, align 8, !tbaa !819, !alias.scope !3501
   %576 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store ptr %147, ptr %576, align 8, !tbaa !819, !alias.scope !3507
+  store ptr %147, ptr %576, align 8, !tbaa !819, !alias.scope !3501
   %577 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store ptr %228, ptr %577, align 8, !tbaa !819, !alias.scope !3507
+  store ptr %228, ptr %577, align 8, !tbaa !819, !alias.scope !3501
   %578 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %50)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %50) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #23
@@ -131912,21 +131912,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 583:                                              ; preds = %581
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #23
-  store ptr %spec.select145, ptr %47, align 8, !tbaa !819, !alias.scope !3510
+  store ptr %spec.select145, ptr %47, align 8, !tbaa !819, !alias.scope !3504
   %584 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store ptr %0, ptr %584, align 8, !tbaa !819, !alias.scope !3510
+  store ptr %0, ptr %584, align 8, !tbaa !819, !alias.scope !3504
   %585 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store ptr %175, ptr %585, align 8, !tbaa !819, !alias.scope !3510
+  store ptr %175, ptr %585, align 8, !tbaa !819, !alias.scope !3504
   %586 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr %146, ptr %586, align 8, !tbaa !819, !alias.scope !3510
+  store ptr %146, ptr %586, align 8, !tbaa !819, !alias.scope !3504
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48) #23
-  store ptr %3, ptr %48, align 8, !tbaa !819, !alias.scope !3513
+  store ptr %3, ptr %48, align 8, !tbaa !819, !alias.scope !3507
   %587 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %0, ptr %587, align 8, !tbaa !819, !alias.scope !3513
+  store ptr %0, ptr %587, align 8, !tbaa !819, !alias.scope !3507
   %588 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %202, ptr %588, align 8, !tbaa !819, !alias.scope !3513
+  store ptr %202, ptr %588, align 8, !tbaa !819, !alias.scope !3507
   %589 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store ptr %146, ptr %589, align 8, !tbaa !819, !alias.scope !3513
+  store ptr %146, ptr %589, align 8, !tbaa !819, !alias.scope !3507
   %590 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %48)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #23
@@ -131935,21 +131935,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 591:                                              ; preds = %583
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45) #23
-  store ptr %202, ptr %45, align 8, !tbaa !819, !alias.scope !3516
+  store ptr %202, ptr %45, align 8, !tbaa !819, !alias.scope !3510
   %592 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr %146, ptr %592, align 8, !tbaa !819, !alias.scope !3516
+  store ptr %146, ptr %592, align 8, !tbaa !819, !alias.scope !3510
   %593 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store ptr %176, ptr %593, align 8, !tbaa !819, !alias.scope !3516
+  store ptr %176, ptr %593, align 8, !tbaa !819, !alias.scope !3510
   %594 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr %147, ptr %594, align 8, !tbaa !819, !alias.scope !3516
+  store ptr %147, ptr %594, align 8, !tbaa !819, !alias.scope !3510
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46) #23
-  store ptr %175, ptr %46, align 8, !tbaa !819, !alias.scope !3519
+  store ptr %175, ptr %46, align 8, !tbaa !819, !alias.scope !3513
   %595 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %146, ptr %595, align 8, !tbaa !819, !alias.scope !3519
+  store ptr %146, ptr %595, align 8, !tbaa !819, !alias.scope !3513
   %596 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store ptr %203, ptr %596, align 8, !tbaa !819, !alias.scope !3519
+  store ptr %203, ptr %596, align 8, !tbaa !819, !alias.scope !3513
   %597 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store ptr %147, ptr %597, align 8, !tbaa !819, !alias.scope !3519
+  store ptr %147, ptr %597, align 8, !tbaa !819, !alias.scope !3513
   %598 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %46)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45) #23
@@ -131958,21 +131958,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 599:                                              ; preds = %591
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43) #23
-  store ptr %spec.select145, ptr %43, align 8, !tbaa !819, !alias.scope !3522
+  store ptr %spec.select145, ptr %43, align 8, !tbaa !819, !alias.scope !3516
   %600 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %0, ptr %600, align 8, !tbaa !819, !alias.scope !3522
+  store ptr %0, ptr %600, align 8, !tbaa !819, !alias.scope !3516
   %601 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store ptr %176, ptr %601, align 8, !tbaa !819, !alias.scope !3522
+  store ptr %176, ptr %601, align 8, !tbaa !819, !alias.scope !3516
   %602 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store ptr %147, ptr %602, align 8, !tbaa !819, !alias.scope !3522
+  store ptr %147, ptr %602, align 8, !tbaa !819, !alias.scope !3516
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44) #23
-  store ptr %3, ptr %44, align 8, !tbaa !819, !alias.scope !3525
+  store ptr %3, ptr %44, align 8, !tbaa !819, !alias.scope !3519
   %603 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %0, ptr %603, align 8, !tbaa !819, !alias.scope !3525
+  store ptr %0, ptr %603, align 8, !tbaa !819, !alias.scope !3519
   %604 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store ptr %203, ptr %604, align 8, !tbaa !819, !alias.scope !3525
+  store ptr %203, ptr %604, align 8, !tbaa !819, !alias.scope !3519
   %605 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr %147, ptr %605, align 8, !tbaa !819, !alias.scope !3525
+  store ptr %147, ptr %605, align 8, !tbaa !819, !alias.scope !3519
   %606 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %44)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43) #23
@@ -131990,21 +131990,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 610:                                              ; preds = %581
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41) #23
-  store ptr %spec.select145, ptr %41, align 8, !tbaa !819, !alias.scope !3528
+  store ptr %spec.select145, ptr %41, align 8, !tbaa !819, !alias.scope !3522
   %611 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %0, ptr %611, align 8, !tbaa !819, !alias.scope !3528
+  store ptr %0, ptr %611, align 8, !tbaa !819, !alias.scope !3522
   %612 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store ptr %175, ptr %612, align 8, !tbaa !819, !alias.scope !3528
+  store ptr %175, ptr %612, align 8, !tbaa !819, !alias.scope !3522
   %613 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr %146, ptr %613, align 8, !tbaa !819, !alias.scope !3528
+  store ptr %146, ptr %613, align 8, !tbaa !819, !alias.scope !3522
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42) #23
-  store ptr %3, ptr %42, align 8, !tbaa !819, !alias.scope !3531
+  store ptr %3, ptr %42, align 8, !tbaa !819, !alias.scope !3525
   %614 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %0, ptr %614, align 8, !tbaa !819, !alias.scope !3531
+  store ptr %0, ptr %614, align 8, !tbaa !819, !alias.scope !3525
   %615 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store ptr %202, ptr %615, align 8, !tbaa !819, !alias.scope !3531
+  store ptr %202, ptr %615, align 8, !tbaa !819, !alias.scope !3525
   %616 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store ptr %146, ptr %616, align 8, !tbaa !819, !alias.scope !3531
+  store ptr %146, ptr %616, align 8, !tbaa !819, !alias.scope !3525
   %617 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %42)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41) #23
@@ -132013,21 +132013,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 618:                                              ; preds = %610
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39) #23
-  store ptr %202, ptr %39, align 8, !tbaa !819, !alias.scope !3534
+  store ptr %202, ptr %39, align 8, !tbaa !819, !alias.scope !3528
   %619 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %146, ptr %619, align 8, !tbaa !819, !alias.scope !3534
+  store ptr %146, ptr %619, align 8, !tbaa !819, !alias.scope !3528
   %620 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %176, ptr %620, align 8, !tbaa !819, !alias.scope !3534
+  store ptr %176, ptr %620, align 8, !tbaa !819, !alias.scope !3528
   %621 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store ptr %147, ptr %621, align 8, !tbaa !819, !alias.scope !3534
+  store ptr %147, ptr %621, align 8, !tbaa !819, !alias.scope !3528
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #23
-  store ptr %175, ptr %40, align 8, !tbaa !819, !alias.scope !3537
+  store ptr %175, ptr %40, align 8, !tbaa !819, !alias.scope !3531
   %622 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %146, ptr %622, align 8, !tbaa !819, !alias.scope !3537
+  store ptr %146, ptr %622, align 8, !tbaa !819, !alias.scope !3531
   %623 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store ptr %203, ptr %623, align 8, !tbaa !819, !alias.scope !3537
+  store ptr %203, ptr %623, align 8, !tbaa !819, !alias.scope !3531
   %624 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr %147, ptr %624, align 8, !tbaa !819, !alias.scope !3537
+  store ptr %147, ptr %624, align 8, !tbaa !819, !alias.scope !3531
   %625 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %40)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39) #23
@@ -132036,21 +132036,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 626:                                              ; preds = %618
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #23
-  store ptr %spec.select145, ptr %37, align 8, !tbaa !819, !alias.scope !3540
+  store ptr %spec.select145, ptr %37, align 8, !tbaa !819, !alias.scope !3534
   %627 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %0, ptr %627, align 8, !tbaa !819, !alias.scope !3540
+  store ptr %0, ptr %627, align 8, !tbaa !819, !alias.scope !3534
   %628 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store ptr %176, ptr %628, align 8, !tbaa !819, !alias.scope !3540
+  store ptr %176, ptr %628, align 8, !tbaa !819, !alias.scope !3534
   %629 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr %147, ptr %629, align 8, !tbaa !819, !alias.scope !3540
+  store ptr %147, ptr %629, align 8, !tbaa !819, !alias.scope !3534
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38) #23
-  store ptr %3, ptr %38, align 8, !tbaa !819, !alias.scope !3543
+  store ptr %3, ptr %38, align 8, !tbaa !819, !alias.scope !3537
   %630 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %0, ptr %630, align 8, !tbaa !819, !alias.scope !3543
+  store ptr %0, ptr %630, align 8, !tbaa !819, !alias.scope !3537
   %631 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store ptr %203, ptr %631, align 8, !tbaa !819, !alias.scope !3543
+  store ptr %203, ptr %631, align 8, !tbaa !819, !alias.scope !3537
   %632 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr %147, ptr %632, align 8, !tbaa !819, !alias.scope !3543
+  store ptr %147, ptr %632, align 8, !tbaa !819, !alias.scope !3537
   %633 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %38)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37) #23
@@ -132072,21 +132072,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 639:                                              ; preds = %637
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #23
-  store ptr %spec.select145, ptr %35, align 8, !tbaa !819, !alias.scope !3546
+  store ptr %spec.select145, ptr %35, align 8, !tbaa !819, !alias.scope !3540
   %640 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %0, ptr %640, align 8, !tbaa !819, !alias.scope !3546
+  store ptr %0, ptr %640, align 8, !tbaa !819, !alias.scope !3540
   %641 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %177, ptr %641, align 8, !tbaa !819, !alias.scope !3546
+  store ptr %177, ptr %641, align 8, !tbaa !819, !alias.scope !3540
   %642 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr %146, ptr %642, align 8, !tbaa !819, !alias.scope !3546
+  store ptr %146, ptr %642, align 8, !tbaa !819, !alias.scope !3540
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #23
-  store ptr %4, ptr %36, align 8, !tbaa !819, !alias.scope !3549
+  store ptr %4, ptr %36, align 8, !tbaa !819, !alias.scope !3543
   %643 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %0, ptr %643, align 8, !tbaa !819, !alias.scope !3549
+  store ptr %0, ptr %643, align 8, !tbaa !819, !alias.scope !3543
   %644 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr %202, ptr %644, align 8, !tbaa !819, !alias.scope !3549
+  store ptr %202, ptr %644, align 8, !tbaa !819, !alias.scope !3543
   %645 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr %146, ptr %645, align 8, !tbaa !819, !alias.scope !3549
+  store ptr %146, ptr %645, align 8, !tbaa !819, !alias.scope !3543
   %646 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %36)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #23
@@ -132095,21 +132095,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 647:                                              ; preds = %639
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #23
-  store ptr %202, ptr %33, align 8, !tbaa !819, !alias.scope !3552
+  store ptr %202, ptr %33, align 8, !tbaa !819, !alias.scope !3546
   %648 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %146, ptr %648, align 8, !tbaa !819, !alias.scope !3552
+  store ptr %146, ptr %648, align 8, !tbaa !819, !alias.scope !3546
   %649 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %178, ptr %649, align 8, !tbaa !819, !alias.scope !3552
+  store ptr %178, ptr %649, align 8, !tbaa !819, !alias.scope !3546
   %650 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr %147, ptr %650, align 8, !tbaa !819, !alias.scope !3552
+  store ptr %147, ptr %650, align 8, !tbaa !819, !alias.scope !3546
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #23
-  store ptr %177, ptr %34, align 8, !tbaa !819, !alias.scope !3555
+  store ptr %177, ptr %34, align 8, !tbaa !819, !alias.scope !3549
   %651 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %146, ptr %651, align 8, !tbaa !819, !alias.scope !3555
+  store ptr %146, ptr %651, align 8, !tbaa !819, !alias.scope !3549
   %652 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %203, ptr %652, align 8, !tbaa !819, !alias.scope !3555
+  store ptr %203, ptr %652, align 8, !tbaa !819, !alias.scope !3549
   %653 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store ptr %147, ptr %653, align 8, !tbaa !819, !alias.scope !3555
+  store ptr %147, ptr %653, align 8, !tbaa !819, !alias.scope !3549
   %654 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %34)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #23
@@ -132118,21 +132118,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 655:                                              ; preds = %647
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #23
-  store ptr %spec.select145, ptr %31, align 8, !tbaa !819, !alias.scope !3558
+  store ptr %spec.select145, ptr %31, align 8, !tbaa !819, !alias.scope !3552
   %656 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %0, ptr %656, align 8, !tbaa !819, !alias.scope !3558
+  store ptr %0, ptr %656, align 8, !tbaa !819, !alias.scope !3552
   %657 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store ptr %178, ptr %657, align 8, !tbaa !819, !alias.scope !3558
+  store ptr %178, ptr %657, align 8, !tbaa !819, !alias.scope !3552
   %658 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr %147, ptr %658, align 8, !tbaa !819, !alias.scope !3558
+  store ptr %147, ptr %658, align 8, !tbaa !819, !alias.scope !3552
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #23
-  store ptr %4, ptr %32, align 8, !tbaa !819, !alias.scope !3561
+  store ptr %4, ptr %32, align 8, !tbaa !819, !alias.scope !3555
   %659 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %0, ptr %659, align 8, !tbaa !819, !alias.scope !3561
+  store ptr %0, ptr %659, align 8, !tbaa !819, !alias.scope !3555
   %660 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %203, ptr %660, align 8, !tbaa !819, !alias.scope !3561
+  store ptr %203, ptr %660, align 8, !tbaa !819, !alias.scope !3555
   %661 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr %147, ptr %661, align 8, !tbaa !819, !alias.scope !3561
+  store ptr %147, ptr %661, align 8, !tbaa !819, !alias.scope !3555
   %662 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31) #23
@@ -132150,21 +132150,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 666:                                              ; preds = %637
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #23
-  store ptr %spec.select145, ptr %29, align 8, !tbaa !819, !alias.scope !3564
+  store ptr %spec.select145, ptr %29, align 8, !tbaa !819, !alias.scope !3558
   %667 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %0, ptr %667, align 8, !tbaa !819, !alias.scope !3564
+  store ptr %0, ptr %667, align 8, !tbaa !819, !alias.scope !3558
   %668 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %177, ptr %668, align 8, !tbaa !819, !alias.scope !3564
+  store ptr %177, ptr %668, align 8, !tbaa !819, !alias.scope !3558
   %669 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr %146, ptr %669, align 8, !tbaa !819, !alias.scope !3564
+  store ptr %146, ptr %669, align 8, !tbaa !819, !alias.scope !3558
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #23
-  store ptr %4, ptr %30, align 8, !tbaa !819, !alias.scope !3567
+  store ptr %4, ptr %30, align 8, !tbaa !819, !alias.scope !3561
   %670 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %0, ptr %670, align 8, !tbaa !819, !alias.scope !3567
+  store ptr %0, ptr %670, align 8, !tbaa !819, !alias.scope !3561
   %671 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %202, ptr %671, align 8, !tbaa !819, !alias.scope !3567
+  store ptr %202, ptr %671, align 8, !tbaa !819, !alias.scope !3561
   %672 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store ptr %146, ptr %672, align 8, !tbaa !819, !alias.scope !3567
+  store ptr %146, ptr %672, align 8, !tbaa !819, !alias.scope !3561
   %673 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %30)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #23
@@ -132173,21 +132173,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 674:                                              ; preds = %666
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #23
-  store ptr %202, ptr %27, align 8, !tbaa !819, !alias.scope !3570
+  store ptr %202, ptr %27, align 8, !tbaa !819, !alias.scope !3564
   %675 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %146, ptr %675, align 8, !tbaa !819, !alias.scope !3570
+  store ptr %146, ptr %675, align 8, !tbaa !819, !alias.scope !3564
   %676 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %178, ptr %676, align 8, !tbaa !819, !alias.scope !3570
+  store ptr %178, ptr %676, align 8, !tbaa !819, !alias.scope !3564
   %677 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr %147, ptr %677, align 8, !tbaa !819, !alias.scope !3570
+  store ptr %147, ptr %677, align 8, !tbaa !819, !alias.scope !3564
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #23
-  store ptr %177, ptr %28, align 8, !tbaa !819, !alias.scope !3573
+  store ptr %177, ptr %28, align 8, !tbaa !819, !alias.scope !3567
   %678 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %146, ptr %678, align 8, !tbaa !819, !alias.scope !3573
+  store ptr %146, ptr %678, align 8, !tbaa !819, !alias.scope !3567
   %679 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr %203, ptr %679, align 8, !tbaa !819, !alias.scope !3573
+  store ptr %203, ptr %679, align 8, !tbaa !819, !alias.scope !3567
   %680 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store ptr %147, ptr %680, align 8, !tbaa !819, !alias.scope !3573
+  store ptr %147, ptr %680, align 8, !tbaa !819, !alias.scope !3567
   %681 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %28)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #23
@@ -132196,21 +132196,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 682:                                              ; preds = %674
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #23
-  store ptr %spec.select145, ptr %25, align 8, !tbaa !819, !alias.scope !3576
+  store ptr %spec.select145, ptr %25, align 8, !tbaa !819, !alias.scope !3570
   %683 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %0, ptr %683, align 8, !tbaa !819, !alias.scope !3576
+  store ptr %0, ptr %683, align 8, !tbaa !819, !alias.scope !3570
   %684 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr %178, ptr %684, align 8, !tbaa !819, !alias.scope !3576
+  store ptr %178, ptr %684, align 8, !tbaa !819, !alias.scope !3570
   %685 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store ptr %147, ptr %685, align 8, !tbaa !819, !alias.scope !3576
+  store ptr %147, ptr %685, align 8, !tbaa !819, !alias.scope !3570
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #23
-  store ptr %4, ptr %26, align 8, !tbaa !819, !alias.scope !3579
+  store ptr %4, ptr %26, align 8, !tbaa !819, !alias.scope !3573
   %686 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %0, ptr %686, align 8, !tbaa !819, !alias.scope !3579
+  store ptr %0, ptr %686, align 8, !tbaa !819, !alias.scope !3573
   %687 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %203, ptr %687, align 8, !tbaa !819, !alias.scope !3579
+  store ptr %203, ptr %687, align 8, !tbaa !819, !alias.scope !3573
   %688 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr %147, ptr %688, align 8, !tbaa !819, !alias.scope !3579
+  store ptr %147, ptr %688, align 8, !tbaa !819, !alias.scope !3573
   %689 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #23
@@ -132223,21 +132223,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 690:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_3ISG_EESL_SL_.exit221
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #23
-  store ptr %spec.select, ptr %23, align 8, !tbaa !819, !alias.scope !3582
+  store ptr %spec.select, ptr %23, align 8, !tbaa !819, !alias.scope !3576
   %691 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %spec.select145, ptr %691, align 8, !tbaa !819, !alias.scope !3582
+  store ptr %spec.select145, ptr %691, align 8, !tbaa !819, !alias.scope !3576
   %692 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %175, ptr %692, align 8, !tbaa !819, !alias.scope !3582
+  store ptr %175, ptr %692, align 8, !tbaa !819, !alias.scope !3576
   %693 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr %202, ptr %693, align 8, !tbaa !819, !alias.scope !3582
+  store ptr %202, ptr %693, align 8, !tbaa !819, !alias.scope !3576
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #23
-  store ptr %3, ptr %24, align 8, !tbaa !819, !alias.scope !3585
+  store ptr %3, ptr %24, align 8, !tbaa !819, !alias.scope !3579
   %694 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %spec.select145, ptr %694, align 8, !tbaa !819, !alias.scope !3585
+  store ptr %spec.select145, ptr %694, align 8, !tbaa !819, !alias.scope !3579
   %695 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %227, ptr %695, align 8, !tbaa !819, !alias.scope !3585
+  store ptr %227, ptr %695, align 8, !tbaa !819, !alias.scope !3579
   %696 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr %202, ptr %696, align 8, !tbaa !819, !alias.scope !3585
+  store ptr %202, ptr %696, align 8, !tbaa !819, !alias.scope !3579
   %697 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #23
@@ -132246,21 +132246,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 698:                                              ; preds = %690
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #23
-  store ptr %227, ptr %21, align 8, !tbaa !819, !alias.scope !3588
+  store ptr %227, ptr %21, align 8, !tbaa !819, !alias.scope !3582
   %699 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %202, ptr %699, align 8, !tbaa !819, !alias.scope !3588
+  store ptr %202, ptr %699, align 8, !tbaa !819, !alias.scope !3582
   %700 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %176, ptr %700, align 8, !tbaa !819, !alias.scope !3588
+  store ptr %176, ptr %700, align 8, !tbaa !819, !alias.scope !3582
   %701 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr %203, ptr %701, align 8, !tbaa !819, !alias.scope !3588
+  store ptr %203, ptr %701, align 8, !tbaa !819, !alias.scope !3582
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #23
-  store ptr %175, ptr %22, align 8, !tbaa !819, !alias.scope !3591
+  store ptr %175, ptr %22, align 8, !tbaa !819, !alias.scope !3585
   %702 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %202, ptr %702, align 8, !tbaa !819, !alias.scope !3591
+  store ptr %202, ptr %702, align 8, !tbaa !819, !alias.scope !3585
   %703 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %228, ptr %703, align 8, !tbaa !819, !alias.scope !3591
+  store ptr %228, ptr %703, align 8, !tbaa !819, !alias.scope !3585
   %704 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr %203, ptr %704, align 8, !tbaa !819, !alias.scope !3591
+  store ptr %203, ptr %704, align 8, !tbaa !819, !alias.scope !3585
   %705 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #23
@@ -132269,21 +132269,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 706:                                              ; preds = %698
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #23
-  store ptr %spec.select, ptr %19, align 8, !tbaa !819, !alias.scope !3594
+  store ptr %spec.select, ptr %19, align 8, !tbaa !819, !alias.scope !3588
   %707 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %spec.select145, ptr %707, align 8, !tbaa !819, !alias.scope !3594
+  store ptr %spec.select145, ptr %707, align 8, !tbaa !819, !alias.scope !3588
   %708 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %176, ptr %708, align 8, !tbaa !819, !alias.scope !3594
+  store ptr %176, ptr %708, align 8, !tbaa !819, !alias.scope !3588
   %709 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr %203, ptr %709, align 8, !tbaa !819, !alias.scope !3594
+  store ptr %203, ptr %709, align 8, !tbaa !819, !alias.scope !3588
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #23
-  store ptr %3, ptr %20, align 8, !tbaa !819, !alias.scope !3597
+  store ptr %3, ptr %20, align 8, !tbaa !819, !alias.scope !3591
   %710 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %spec.select145, ptr %710, align 8, !tbaa !819, !alias.scope !3597
+  store ptr %spec.select145, ptr %710, align 8, !tbaa !819, !alias.scope !3591
   %711 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %228, ptr %711, align 8, !tbaa !819, !alias.scope !3597
+  store ptr %228, ptr %711, align 8, !tbaa !819, !alias.scope !3591
   %712 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr %203, ptr %712, align 8, !tbaa !819, !alias.scope !3597
+  store ptr %203, ptr %712, align 8, !tbaa !819, !alias.scope !3591
   %713 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #23
@@ -132300,21 +132300,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 717:                                              ; preds = %715
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #23
-  store ptr %spec.select, ptr %17, align 8, !tbaa !819, !alias.scope !3600
+  store ptr %spec.select, ptr %17, align 8, !tbaa !819, !alias.scope !3594
   %718 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %spec.select145, ptr %718, align 8, !tbaa !819, !alias.scope !3600
+  store ptr %spec.select145, ptr %718, align 8, !tbaa !819, !alias.scope !3594
   %719 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %175, ptr %719, align 8, !tbaa !819, !alias.scope !3600
+  store ptr %175, ptr %719, align 8, !tbaa !819, !alias.scope !3594
   %720 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr %202, ptr %720, align 8, !tbaa !819, !alias.scope !3600
+  store ptr %202, ptr %720, align 8, !tbaa !819, !alias.scope !3594
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #23
-  store ptr %3, ptr %18, align 8, !tbaa !819, !alias.scope !3603
+  store ptr %3, ptr %18, align 8, !tbaa !819, !alias.scope !3597
   %721 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %spec.select145, ptr %721, align 8, !tbaa !819, !alias.scope !3603
+  store ptr %spec.select145, ptr %721, align 8, !tbaa !819, !alias.scope !3597
   %722 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %227, ptr %722, align 8, !tbaa !819, !alias.scope !3603
+  store ptr %227, ptr %722, align 8, !tbaa !819, !alias.scope !3597
   %723 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %202, ptr %723, align 8, !tbaa !819, !alias.scope !3603
+  store ptr %202, ptr %723, align 8, !tbaa !819, !alias.scope !3597
   %724 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #23
@@ -132323,21 +132323,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 725:                                              ; preds = %717
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #23
-  store ptr %227, ptr %15, align 8, !tbaa !819, !alias.scope !3606
+  store ptr %227, ptr %15, align 8, !tbaa !819, !alias.scope !3600
   %726 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %202, ptr %726, align 8, !tbaa !819, !alias.scope !3606
+  store ptr %202, ptr %726, align 8, !tbaa !819, !alias.scope !3600
   %727 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %176, ptr %727, align 8, !tbaa !819, !alias.scope !3606
+  store ptr %176, ptr %727, align 8, !tbaa !819, !alias.scope !3600
   %728 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr %203, ptr %728, align 8, !tbaa !819, !alias.scope !3606
+  store ptr %203, ptr %728, align 8, !tbaa !819, !alias.scope !3600
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #23
-  store ptr %175, ptr %16, align 8, !tbaa !819, !alias.scope !3609
+  store ptr %175, ptr %16, align 8, !tbaa !819, !alias.scope !3603
   %729 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %202, ptr %729, align 8, !tbaa !819, !alias.scope !3609
+  store ptr %202, ptr %729, align 8, !tbaa !819, !alias.scope !3603
   %730 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %228, ptr %730, align 8, !tbaa !819, !alias.scope !3609
+  store ptr %228, ptr %730, align 8, !tbaa !819, !alias.scope !3603
   %731 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %203, ptr %731, align 8, !tbaa !819, !alias.scope !3609
+  store ptr %203, ptr %731, align 8, !tbaa !819, !alias.scope !3603
   %732 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #23
@@ -132346,21 +132346,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 733:                                              ; preds = %725
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #23
-  store ptr %spec.select, ptr %13, align 8, !tbaa !819, !alias.scope !3612
+  store ptr %spec.select, ptr %13, align 8, !tbaa !819, !alias.scope !3606
   %734 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %spec.select145, ptr %734, align 8, !tbaa !819, !alias.scope !3612
+  store ptr %spec.select145, ptr %734, align 8, !tbaa !819, !alias.scope !3606
   %735 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %176, ptr %735, align 8, !tbaa !819, !alias.scope !3612
+  store ptr %176, ptr %735, align 8, !tbaa !819, !alias.scope !3606
   %736 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr %203, ptr %736, align 8, !tbaa !819, !alias.scope !3612
+  store ptr %203, ptr %736, align 8, !tbaa !819, !alias.scope !3606
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #23
-  store ptr %3, ptr %14, align 8, !tbaa !819, !alias.scope !3615
+  store ptr %3, ptr %14, align 8, !tbaa !819, !alias.scope !3609
   %737 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %spec.select145, ptr %737, align 8, !tbaa !819, !alias.scope !3615
+  store ptr %spec.select145, ptr %737, align 8, !tbaa !819, !alias.scope !3609
   %738 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %228, ptr %738, align 8, !tbaa !819, !alias.scope !3615
+  store ptr %228, ptr %738, align 8, !tbaa !819, !alias.scope !3609
   %739 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %203, ptr %739, align 8, !tbaa !819, !alias.scope !3615
+  store ptr %203, ptr %739, align 8, !tbaa !819, !alias.scope !3609
   %740 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23
@@ -132378,21 +132378,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 744:                                              ; preds = %715
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23
-  store ptr %spec.select, ptr %11, align 8, !tbaa !819, !alias.scope !3618
+  store ptr %spec.select, ptr %11, align 8, !tbaa !819, !alias.scope !3612
   %745 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %spec.select145, ptr %745, align 8, !tbaa !819, !alias.scope !3618
+  store ptr %spec.select145, ptr %745, align 8, !tbaa !819, !alias.scope !3612
   %746 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %177, ptr %746, align 8, !tbaa !819, !alias.scope !3618
+  store ptr %177, ptr %746, align 8, !tbaa !819, !alias.scope !3612
   %747 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %202, ptr %747, align 8, !tbaa !819, !alias.scope !3618
+  store ptr %202, ptr %747, align 8, !tbaa !819, !alias.scope !3612
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23
-  store ptr %4, ptr %12, align 8, !tbaa !819, !alias.scope !3621
+  store ptr %4, ptr %12, align 8, !tbaa !819, !alias.scope !3615
   %748 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %spec.select145, ptr %748, align 8, !tbaa !819, !alias.scope !3621
+  store ptr %spec.select145, ptr %748, align 8, !tbaa !819, !alias.scope !3615
   %749 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %227, ptr %749, align 8, !tbaa !819, !alias.scope !3621
+  store ptr %227, ptr %749, align 8, !tbaa !819, !alias.scope !3615
   %750 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %202, ptr %750, align 8, !tbaa !819, !alias.scope !3621
+  store ptr %202, ptr %750, align 8, !tbaa !819, !alias.scope !3615
   %751 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23
@@ -132401,21 +132401,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 752:                                              ; preds = %744
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
-  store ptr %227, ptr %9, align 8, !tbaa !819, !alias.scope !3624
+  store ptr %227, ptr %9, align 8, !tbaa !819, !alias.scope !3618
   %753 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %202, ptr %753, align 8, !tbaa !819, !alias.scope !3624
+  store ptr %202, ptr %753, align 8, !tbaa !819, !alias.scope !3618
   %754 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %178, ptr %754, align 8, !tbaa !819, !alias.scope !3624
+  store ptr %178, ptr %754, align 8, !tbaa !819, !alias.scope !3618
   %755 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %203, ptr %755, align 8, !tbaa !819, !alias.scope !3624
+  store ptr %203, ptr %755, align 8, !tbaa !819, !alias.scope !3618
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23
-  store ptr %177, ptr %10, align 8, !tbaa !819, !alias.scope !3627
+  store ptr %177, ptr %10, align 8, !tbaa !819, !alias.scope !3621
   %756 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %202, ptr %756, align 8, !tbaa !819, !alias.scope !3627
+  store ptr %202, ptr %756, align 8, !tbaa !819, !alias.scope !3621
   %757 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %228, ptr %757, align 8, !tbaa !819, !alias.scope !3627
+  store ptr %228, ptr %757, align 8, !tbaa !819, !alias.scope !3621
   %758 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %203, ptr %758, align 8, !tbaa !819, !alias.scope !3627
+  store ptr %203, ptr %758, align 8, !tbaa !819, !alias.scope !3621
   %759 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
@@ -132424,21 +132424,21 @@ _ZNK4CGAL23CartesianKernelFunctors22Coplanar_orientation_3INS_16Simple_cartesian
 
 760:                                              ; preds = %752
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23
-  store ptr %spec.select, ptr %7, align 8, !tbaa !819, !alias.scope !3630
+  store ptr %spec.select, ptr %7, align 8, !tbaa !819, !alias.scope !3624
   %761 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %spec.select145, ptr %761, align 8, !tbaa !819, !alias.scope !3630
+  store ptr %spec.select145, ptr %761, align 8, !tbaa !819, !alias.scope !3624
   %762 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %178, ptr %762, align 8, !tbaa !819, !alias.scope !3630
+  store ptr %178, ptr %762, align 8, !tbaa !819, !alias.scope !3624
   %763 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %203, ptr %763, align 8, !tbaa !819, !alias.scope !3630
+  store ptr %203, ptr %763, align 8, !tbaa !819, !alias.scope !3624
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
-  store ptr %4, ptr %8, align 8, !tbaa !819, !alias.scope !3633
+  store ptr %4, ptr %8, align 8, !tbaa !819, !alias.scope !3627
   %764 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %spec.select145, ptr %764, align 8, !tbaa !819, !alias.scope !3633
+  store ptr %spec.select145, ptr %764, align 8, !tbaa !819, !alias.scope !3627
   %765 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %228, ptr %765, align 8, !tbaa !819, !alias.scope !3633
+  store ptr %228, ptr %765, align 8, !tbaa !819, !alias.scope !3627
   %766 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %203, ptr %766, align 8, !tbaa !819, !alias.scope !3633
+  store ptr %203, ptr %766, align 8, !tbaa !819, !alias.scope !3627
   %767 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
@@ -132475,21 +132475,21 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL23CartesianKernelFunctors22C
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
-  store ptr %2, ptr %9, align 8, !tbaa !819, !alias.scope !3636
+  store ptr %2, ptr %9, align 8, !tbaa !819, !alias.scope !3630
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %1, ptr %17, align 8, !tbaa !819, !alias.scope !3636
+  store ptr %1, ptr %17, align 8, !tbaa !819, !alias.scope !3630
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %15, ptr %18, align 8, !tbaa !819, !alias.scope !3636
+  store ptr %15, ptr %18, align 8, !tbaa !819, !alias.scope !3630
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %11, ptr %19, align 8, !tbaa !819, !alias.scope !3636
+  store ptr %11, ptr %19, align 8, !tbaa !819, !alias.scope !3630
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23
-  store ptr %3, ptr %10, align 8, !tbaa !819, !alias.scope !3639
+  store ptr %3, ptr %10, align 8, !tbaa !819, !alias.scope !3633
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %1, ptr %20, align 8, !tbaa !819, !alias.scope !3639
+  store ptr %1, ptr %20, align 8, !tbaa !819, !alias.scope !3633
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %13, ptr %21, align 8, !tbaa !819, !alias.scope !3639
+  store ptr %13, ptr %21, align 8, !tbaa !819, !alias.scope !3633
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %11, ptr %22, align 8, !tbaa !819, !alias.scope !3639
+  store ptr %11, ptr %22, align 8, !tbaa !819, !alias.scope !3633
   %23 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
@@ -132498,21 +132498,21 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL23CartesianKernelFunctors22C
 
 24:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23
-  store ptr %13, ptr %7, align 8, !tbaa !819, !alias.scope !3642
+  store ptr %13, ptr %7, align 8, !tbaa !819, !alias.scope !3636
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %11, ptr %25, align 8, !tbaa !819, !alias.scope !3642
+  store ptr %11, ptr %25, align 8, !tbaa !819, !alias.scope !3636
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %16, ptr %26, align 8, !tbaa !819, !alias.scope !3642
+  store ptr %16, ptr %26, align 8, !tbaa !819, !alias.scope !3636
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %12, ptr %27, align 8, !tbaa !819, !alias.scope !3642
+  store ptr %12, ptr %27, align 8, !tbaa !819, !alias.scope !3636
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
-  store ptr %15, ptr %8, align 8, !tbaa !819, !alias.scope !3645
+  store ptr %15, ptr %8, align 8, !tbaa !819, !alias.scope !3639
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %11, ptr %28, align 8, !tbaa !819, !alias.scope !3645
+  store ptr %11, ptr %28, align 8, !tbaa !819, !alias.scope !3639
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %14, ptr %29, align 8, !tbaa !819, !alias.scope !3645
+  store ptr %14, ptr %29, align 8, !tbaa !819, !alias.scope !3639
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %12, ptr %30, align 8, !tbaa !819, !alias.scope !3645
+  store ptr %12, ptr %30, align 8, !tbaa !819, !alias.scope !3639
   %31 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
@@ -132521,21 +132521,21 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL23CartesianKernelFunctors22C
 
 32:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
-  store ptr %2, ptr %5, align 8, !tbaa !819, !alias.scope !3648
+  store ptr %2, ptr %5, align 8, !tbaa !819, !alias.scope !3642
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %33, align 8, !tbaa !819, !alias.scope !3648
+  store ptr %1, ptr %33, align 8, !tbaa !819, !alias.scope !3642
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %16, ptr %34, align 8, !tbaa !819, !alias.scope !3648
+  store ptr %16, ptr %34, align 8, !tbaa !819, !alias.scope !3642
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %12, ptr %35, align 8, !tbaa !819, !alias.scope !3648
+  store ptr %12, ptr %35, align 8, !tbaa !819, !alias.scope !3642
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
-  store ptr %3, ptr %6, align 8, !tbaa !819, !alias.scope !3651
+  store ptr %3, ptr %6, align 8, !tbaa !819, !alias.scope !3645
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %36, align 8, !tbaa !819, !alias.scope !3651
+  store ptr %1, ptr %36, align 8, !tbaa !819, !alias.scope !3645
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %14, ptr %37, align 8, !tbaa !819, !alias.scope !3651
+  store ptr %14, ptr %37, align 8, !tbaa !819, !alias.scope !3645
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %12, ptr %38, align 8, !tbaa !819, !alias.scope !3651
+  store ptr %12, ptr %38, align 8, !tbaa !819, !alias.scope !3645
   %39 = call noundef i32 @_ZN4CGAL7compareIN5boost14multiprecision6detail10expressionINS3_10multipliesENS4_INS3_19subtract_immediatesENS2_6numberINS2_8backends16rational_adaptorINS8_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEESH_vvEESI_vvEESJ_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKSM_RKSN_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
@@ -132698,16 +132698,16 @@ _ZNK5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_
   %6 = alloca %"struct.boost::multiprecision::detail::subtract_immediates", align 1
   %7 = alloca %"struct.boost::multiprecision::detail::expression.306", align 8
   %8 = alloca %"struct.boost::multiprecision::detail::subtract_immediates", align 1
-  %9 = load ptr, ptr %1, align 8, !tbaa !1943, !noalias !3654
+  %9 = load ptr, ptr %1, align 8, !tbaa !1943, !noalias !3648
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !1948, !noalias !3654
+  %11 = load ptr, ptr %10, align 8, !tbaa !1948, !noalias !3648
   %12 = icmp eq ptr %9, %0
   %13 = icmp eq ptr %11, %0
   %spec.select = select i1 %12, i1 true, i1 %13
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !1943, !noalias !3657
+  %15 = load ptr, ptr %14, align 8, !tbaa !1943, !noalias !3651
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !1948, !noalias !3657
+  %17 = load ptr, ptr %16, align 8, !tbaa !1948, !noalias !3651
   %18 = icmp eq ptr %15, %0
   %19 = icmp eq ptr %17, %0
   %20 = select i1 %18, i1 true, i1 %19
@@ -132825,12 +132825,12 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 .critedge3:                                       ; preds = %.critedge
   tail call void @_ZN5boost14multiprecision8backends21eval_add_subtract_impINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_b(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %9, ptr noundef nonnull align 16 dereferenceable(64) %11, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3660)
-  %73 = load ptr, ptr %14, align 8, !tbaa !1943, !noalias !3660
-  store ptr %73, ptr %5, align 8, !tbaa !819, !alias.scope !3660
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !3654)
+  %73 = load ptr, ptr %14, align 8, !tbaa !1943, !noalias !3654
+  store ptr %73, ptr %5, align 8, !tbaa !819, !alias.scope !3654
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %75 = load ptr, ptr %16, align 8, !tbaa !1948, !noalias !3660
-  store ptr %75, ptr %74, align 8, !tbaa !819, !alias.scope !3660
+  %75 = load ptr, ptr %16, align 8, !tbaa !1948, !noalias !3654
+  store ptr %75, ptr %74, align 8, !tbaa !819, !alias.scope !3654
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #23
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE13do_multipliesINS0_6detail10expressionINSD_19subtract_immediatesESB_SB_vvEESF_EEvRKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #23
@@ -132840,12 +132840,12 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 76:                                               ; preds = %.critedge
   tail call void @_ZN5boost14multiprecision8backends21eval_add_subtract_impINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_b(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %15, ptr noundef nonnull align 16 dereferenceable(64) %17, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #23
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3663)
-  %77 = load ptr, ptr %1, align 8, !tbaa !1943, !noalias !3663
-  store ptr %77, ptr %7, align 8, !tbaa !819, !alias.scope !3663
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !3657)
+  %77 = load ptr, ptr %1, align 8, !tbaa !1943, !noalias !3657
+  store ptr %77, ptr %7, align 8, !tbaa !819, !alias.scope !3657
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %79 = load ptr, ptr %10, align 8, !tbaa !1948, !noalias !3663
-  store ptr %79, ptr %78, align 8, !tbaa !819, !alias.scope !3663
+  %79 = load ptr, ptr %10, align 8, !tbaa !1948, !noalias !3657
+  store ptr %79, ptr %78, align 8, !tbaa !819, !alias.scope !3657
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #23
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EE13do_multipliesINS0_6detail10expressionINSD_19subtract_immediatesESB_SB_vvEESF_EEvRKT_RKT0_(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #23
@@ -132861,9 +132861,9 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision6numberINS0_8backen
   %4 = alloca %"class.boost::multiprecision::number", align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #23
   call void @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(64) %4)
-  %5 = load ptr, ptr %1, align 8, !tbaa !1943, !noalias !3666
+  %5 = load ptr, ptr %1, align 8, !tbaa !1943, !noalias !3660
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !1948, !noalias !3669
+  %7 = load ptr, ptr %6, align 8, !tbaa !1948, !noalias !3663
   invoke void @_ZN5boost14multiprecision8backends21eval_add_subtract_impINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_b(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) %5, ptr noundef nonnull align 16 dereferenceable(64) %7, i1 noundef zeroext false)
           to label %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19subtract_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE.exit unwind label %8
 
@@ -132934,8 +132934,8 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 define linkonce_odr dso_local void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK4CGAL8Lazy_repINS3_9Segment_3INS3_16Simple_cartesianINS3_11Interval_ntILb0EEEEEEENS5_INS6_IN5boost14multiprecision6numberINSC_8backends16rational_adaptorINSE_15cpp_int_backendILm0ELm0ELNSC_16cpp_integer_typeE1ELNSC_18cpp_int_check_typeE0ESaIyEEEEELNSC_26expression_template_optionE1EEEEEEENS3_19Cartesian_converterISO_S9_NS3_12NT_converterISN_S8_EEEELi0EE5exactEvEUlvE_JEEvRS_OT_DpOT0_EUlvE_EERSX_ENUlvE_8__invokeEv() #8 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !40
-  %3 = load ptr, ptr %2, align 8, !tbaa !3672
-  %4 = load ptr, ptr %3, align 8, !tbaa !3219
+  %3 = load ptr, ptr %2, align 8, !tbaa !3666
+  %4 = load ptr, ptr %3, align 8, !tbaa !3213
   %5 = load ptr, ptr %4, align 16, !tbaa !54
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -133349,68 +133349,68 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !3674)
-  %20 = load double, ptr %1, align 8, !tbaa !606, !noalias !3674
+  call void @llvm.experimental.noalias.scope.decl(metadata !3668)
+  %20 = load double, ptr %1, align 8, !tbaa !606, !noalias !3668
   %21 = fneg double %20
   %22 = insertelement <2 x double> poison, double %21, i64 0
   %23 = insertelement <2 x double> %22, double %20, i64 1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load double, ptr %24, align 8, !tbaa !606, !noalias !3674
+  %25 = load double, ptr %24, align 8, !tbaa !606, !noalias !3668
   %26 = fneg double %25
   %27 = insertelement <2 x double> poison, double %26, i64 0
   %28 = insertelement <2 x double> %27, double %25, i64 1
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load double, ptr %29, align 8, !tbaa !606, !noalias !3674
+  %30 = load double, ptr %29, align 8, !tbaa !606, !noalias !3668
   %31 = fneg double %30
   %32 = insertelement <2 x double> poison, double %31, i64 0
   %33 = insertelement <2 x double> %32, double %30, i64 1
-  store <2 x double> %23, ptr %12, align 16, !alias.scope !3674
+  store <2 x double> %23, ptr %12, align 16, !alias.scope !3668
   %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store <2 x double> %28, ptr %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i, align 16, !alias.scope !3674
+  store <2 x double> %28, ptr %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i, align 16, !alias.scope !3668
   %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store <2 x double> %33, ptr %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i, align 16, !alias.scope !3674
+  store <2 x double> %33, ptr %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i, align 16, !alias.scope !3668
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !3677)
-  %34 = load double, ptr %2, align 8, !tbaa !606, !noalias !3677
+  call void @llvm.experimental.noalias.scope.decl(metadata !3671)
+  %34 = load double, ptr %2, align 8, !tbaa !606, !noalias !3671
   %35 = fneg double %34
   %36 = insertelement <2 x double> poison, double %35, i64 0
   %37 = insertelement <2 x double> %36, double %34, i64 1
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load double, ptr %38, align 8, !tbaa !606, !noalias !3677
+  %39 = load double, ptr %38, align 8, !tbaa !606, !noalias !3671
   %40 = fneg double %39
   %41 = insertelement <2 x double> poison, double %40, i64 0
   %42 = insertelement <2 x double> %41, double %39, i64 1
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %44 = load double, ptr %43, align 8, !tbaa !606, !noalias !3677
+  %44 = load double, ptr %43, align 8, !tbaa !606, !noalias !3671
   %45 = fneg double %44
   %46 = insertelement <2 x double> poison, double %45, i64 0
   %47 = insertelement <2 x double> %46, double %44, i64 1
-  store <2 x double> %37, ptr %13, align 16, !alias.scope !3677
+  store <2 x double> %37, ptr %13, align 16, !alias.scope !3671
   %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store <2 x double> %42, ptr %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i30, align 16, !alias.scope !3677
+  store <2 x double> %42, ptr %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i30, align 16, !alias.scope !3671
   %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store <2 x double> %47, ptr %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i31, align 16, !alias.scope !3677
+  store <2 x double> %47, ptr %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i31, align 16, !alias.scope !3671
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !3680)
-  %48 = load double, ptr %3, align 8, !tbaa !606, !noalias !3680
+  call void @llvm.experimental.noalias.scope.decl(metadata !3674)
+  %48 = load double, ptr %3, align 8, !tbaa !606, !noalias !3674
   %49 = fneg double %48
   %50 = insertelement <2 x double> poison, double %49, i64 0
   %51 = insertelement <2 x double> %50, double %48, i64 1
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %53 = load double, ptr %52, align 8, !tbaa !606, !noalias !3680
+  %53 = load double, ptr %52, align 8, !tbaa !606, !noalias !3674
   %54 = fneg double %53
   %55 = insertelement <2 x double> poison, double %54, i64 0
   %56 = insertelement <2 x double> %55, double %53, i64 1
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %58 = load double, ptr %57, align 8, !tbaa !606, !noalias !3680
+  %58 = load double, ptr %57, align 8, !tbaa !606, !noalias !3674
   %59 = fneg double %58
   %60 = insertelement <2 x double> poison, double %59, i64 0
   %61 = insertelement <2 x double> %60, double %58, i64 1
-  store <2 x double> %51, ptr %14, align 16, !alias.scope !3680
+  store <2 x double> %51, ptr %14, align 16, !alias.scope !3674
   %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store <2 x double> %56, ptr %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i32, align 16, !alias.scope !3680
+  store <2 x double> %56, ptr %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i32, align 16, !alias.scope !3674
   %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store <2 x double> %61, ptr %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i33, align 16, !alias.scope !3680
+  store <2 x double> %61, ptr %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i33, align 16, !alias.scope !3674
   %62 = invoke i64 @_ZN4CGAL22coplanar_orientationC3INS_11Interval_ntILb0EEEEENS_19Same_uncertainty_ntINS_4SignET_E4typeERKS5_S9_S9_S9_S9_S9_S9_S9_S9_(ptr noundef nonnull align 16 dereferenceable(48) %12, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 16 dereferenceable(48) %13, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i30, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i31, ptr noundef nonnull align 16 dereferenceable(48) %14, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.04.i.i.i.i.sroa.4.0..sroa_idx.i32, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.04.i.i.i.i.sroa.5.0..sroa_idx.i33)
           to label %63 unwind label %65
 
@@ -133874,157 +133874,146 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL25Static_filtered_pre
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %20 = load atomic i64, ptr %19 acquire, align 8
   %.0.i.i.i.i.i = inttoptr i64 %20 to ptr
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3683)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !3677)
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
-  %22 = load double, ptr %21, align 8, !noalias !3686
-  %23 = load <2 x double>, ptr %.0.i.i.i.i.i, align 16, !tbaa !53, !noalias !3686
+  %22 = load double, ptr %21, align 8, !noalias !3680
+  %23 = load <2 x double>, ptr %.0.i.i.i.i.i, align 16, !tbaa !53, !noalias !3680
   %24 = extractelement <2 x double> %23, i64 0
   %25 = fneg double %24
   %26 = fcmp oeq double %22, %25
-  br i1 %26, label %27, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %26, label %27, label %67
 
 27:                                               ; preds = %3
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
-  %30 = load double, ptr %29, align 8, !noalias !3686
-  %31 = load <2 x double>, ptr %28, align 16, !tbaa !53, !noalias !3686
+  %30 = load double, ptr %29, align 8, !noalias !3680
+  %31 = load <2 x double>, ptr %28, align 16, !tbaa !53, !noalias !3680
   %32 = extractelement <2 x double> %31, i64 0
   %33 = fneg double %32
   %34 = fcmp oeq double %30, %33
-  br i1 %34, label %35, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %34, label %35, label %67
 
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
-  %38 = load double, ptr %37, align 8, !noalias !3686
-  %39 = load <2 x double>, ptr %36, align 16, !tbaa !53, !noalias !3686
+  %38 = load double, ptr %37, align 8, !noalias !3680
+  %39 = load <2 x double>, ptr %36, align 16, !tbaa !53, !noalias !3680
   %40 = extractelement <2 x double> %39, i64 0
   %41 = fneg double %40
   %42 = fcmp oeq double %38, %41
-  br i1 %42, label %43, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %42, label %43, label %67
 
 43:                                               ; preds = %35
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 48
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 56
-  %46 = load double, ptr %45, align 8, !noalias !3689
-  %47 = load <2 x double>, ptr %44, align 16, !tbaa !53, !noalias !3689
+  %46 = load double, ptr %45, align 8, !noalias !3683
+  %47 = load <2 x double>, ptr %44, align 16, !tbaa !53, !noalias !3683
   %48 = extractelement <2 x double> %47, i64 0
   %49 = fneg double %48
   %50 = fcmp oeq double %46, %49
-  br i1 %50, label %51, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %50, label %51, label %67
 
 51:                                               ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 64
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 72
-  %54 = load double, ptr %53, align 8, !noalias !3689
-  %55 = load <2 x double>, ptr %52, align 16, !tbaa !53, !noalias !3689
+  %54 = load double, ptr %53, align 8, !noalias !3683
+  %55 = load <2 x double>, ptr %52, align 16, !tbaa !53, !noalias !3683
   %56 = extractelement <2 x double> %55, i64 0
   %57 = fneg double %56
   %58 = fcmp oeq double %54, %57
-  br i1 %58, label %59, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %58, label %59, label %67
 
 59:                                               ; preds = %51
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 80
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 88
-  %62 = load double, ptr %61, align 8, !noalias !3689
-  %63 = load <2 x double>, ptr %60, align 16, !tbaa !53, !noalias !3689
+  %62 = load double, ptr %61, align 8, !noalias !3683
+  %63 = load <2 x double>, ptr %60, align 16, !tbaa !53, !noalias !3683
   %64 = extractelement <2 x double> %63, i64 0
   %65 = fneg double %64
   %66 = fcmp oeq double %62, %65
-  br i1 %66, label %68, label %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
+  br i1 %66, label %69, label %67
 
-_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i: ; preds = %43, %51, %59, %3, %27, %35
-  %67 = tail call noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateINS_20CommonKernelFunctors14Do_intersect_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_15Exact_converterINS_5EpeckESH_EENS_16Approx_converterISO_SL_EELb1EEclIJNS_9Segment_3ISO_EENS_6Bbox_3EEEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
-  br label %100
+67:                                               ; preds = %35, %27, %3, %59, %51, %43
+  %68 = tail call noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateINS_20CommonKernelFunctors14Do_intersect_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_15Exact_converterINS_5EpeckESH_EENS_16Approx_converterISO_SL_EELb1EEclIJNS_9Segment_3ISO_EENS_6Bbox_3EEEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  br label %90
 
-68:                                               ; preds = %59
-  store double %25, ptr %16, align 8, !alias.scope !3683
+69:                                               ; preds = %59
+  store double %25, ptr %16, align 8, !alias.scope !3677
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store double %33, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !3683
+  store double %33, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !3677
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store double %41, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !3683
+  store double %41, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !3677
   %.sroa.0.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store double %49, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 8, !alias.scope !3683
+  store double %49, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 8, !alias.scope !3677
   %.sroa.0.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store double %57, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 8, !alias.scope !3683
+  store double %57, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 8, !alias.scope !3677
   %.sroa.0.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store double %65, ptr %.sroa.0.sroa.8.0..sroa_idx.i, align 8, !alias.scope !3683
-  %69 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store i8 1, ptr %69, align 8, !tbaa !3191, !alias.scope !3692
+  store double %65, ptr %.sroa.0.sroa.8.0..sroa_idx.i, align 8, !alias.scope !3677
+  %70 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store i8 1, ptr %70, align 8, !tbaa !3191, !alias.scope !3677
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store i8 1, ptr %70, align 8, !tbaa !2190, !alias.scope !3695
-  %71 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  store i8 1, ptr %71, align 8, !tbaa !2190, !alias.scope !3686
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #23
-  %72 = load double, ptr %16, align 8, !tbaa !606
-  store double %72, ptr %10, align 8, !tbaa !606
-  %73 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %74 = load double, ptr %73, align 8, !tbaa !606
-  store double %74, ptr %11, align 8, !tbaa !606
-  %75 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %76 = load double, ptr %75, align 8, !tbaa !606
-  store double %76, ptr %12, align 8, !tbaa !606
-  %77 = load double, ptr %71, align 8, !tbaa !606
-  store double %77, ptr %13, align 8, !tbaa !606
-  %78 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %79 = load double, ptr %78, align 8, !tbaa !606
-  store double %79, ptr %14, align 8, !tbaa !606
-  %80 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %81 = load double, ptr %80, align 8, !tbaa !606
-  store double %81, ptr %15, align 8, !tbaa !606
+  store double %25, ptr %10, align 8, !tbaa !606
+  store double %33, ptr %11, align 8, !tbaa !606
+  store double %41, ptr %12, align 8, !tbaa !606
+  store double %49, ptr %13, align 8, !tbaa !606
+  store double %57, ptr %14, align 8, !tbaa !606
+  store double %65, ptr %15, align 8, !tbaa !606
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
-  %82 = load double, ptr %17, align 8, !tbaa !606
-  store double %82, ptr %4, align 8, !tbaa !606
+  %72 = load double, ptr %17, align 8, !tbaa !606
+  store double %72, ptr %4, align 8, !tbaa !606
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
-  %83 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %84 = load double, ptr %83, align 8, !tbaa !606
-  store double %84, ptr %5, align 8, !tbaa !606
+  %73 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %74 = load double, ptr %73, align 8, !tbaa !606
+  store double %74, ptr %5, align 8, !tbaa !606
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23
-  %85 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %86 = load double, ptr %85, align 8, !tbaa !606
-  store double %86, ptr %6, align 8, !tbaa !606
+  %75 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %76 = load double, ptr %75, align 8, !tbaa !606
+  store double %76, ptr %6, align 8, !tbaa !606
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
-  %87 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %88 = load double, ptr %87, align 8, !tbaa !606
-  store double %88, ptr %7, align 8, !tbaa !606
+  %77 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %78 = load double, ptr %77, align 8, !tbaa !606
+  store double %78, ptr %7, align 8, !tbaa !606
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
-  %89 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %90 = load double, ptr %89, align 8, !tbaa !606
-  store double %90, ptr %8, align 8, !tbaa !606
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %80 = load double, ptr %79, align 8, !tbaa !606
+  store double %80, ptr %8, align 8, !tbaa !606
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23
-  %91 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %92 = load double, ptr %91, align 8, !tbaa !606
-  store double %92, ptr %9, align 8, !tbaa !606
-  %93 = call i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_segment_auxIddLb1ELb1ELb1EEENS1_40Do_intersect_bbox_segment_aux_is_greaterIT_XT1_EXT3_EE11result_typeERKS4_S8_S8_S8_S8_S8_RKT0_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %81 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %82 = load double, ptr %81, align 8, !tbaa !606
+  store double %82, ptr %9, align 8, !tbaa !606
+  %83 = call i16 @_ZN4CGAL13Intersections8internal29do_intersect_bbox_segment_auxIddLb1ELb1ELb1EEENS1_40Do_intersect_bbox_segment_aux_is_greaterIT_XT1_EXT3_EE11result_typeERKS4_S8_S8_S8_S8_S8_RKT0_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
-  %.sroa.3.0.extract.shift.i = lshr i16 %93, 8
+  %.sroa.3.0.extract.shift.i = lshr i16 %83, 8
   %.sroa.3.0.extract.trunc.i = trunc nuw i16 %.sroa.3.0.extract.shift.i to i8
-  %.sroa.0.0.extract.trunc.i.i = trunc i16 %93 to i8
+  %.sroa.0.0.extract.trunc.i.i = trunc i16 %83 to i8
   %.not.i = icmp eq i8 %.sroa.0.0.extract.trunc.i.i, %.sroa.3.0.extract.trunc.i
-  br i1 %.not.i, label %94, label %96
+  br i1 %.not.i, label %84, label %86
 
-94:                                               ; preds = %68
-  %95 = trunc i16 %.sroa.3.0.extract.shift.i to i1
-  br label %99
+84:                                               ; preds = %69
+  %85 = trunc i16 %.sroa.3.0.extract.shift.i to i1
+  br label %89
 
-96:                                               ; preds = %68
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %98 = call noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_20CommonKernelFunctors14Do_intersect_3INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_9Segment_3IST_EENS_6Bbox_3EEEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %97, ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %17)
-  br label %99
+86:                                               ; preds = %69
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %88 = call noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_20CommonKernelFunctors14Do_intersect_3INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_9Segment_3IST_EENS_6Bbox_3EEEEbDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %87, ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %17)
+  br label %89
 
-99:                                               ; preds = %96, %94
-  %.1.i = phi i1 [ %98, %96 ], [ %95, %94 ]
+89:                                               ; preds = %86, %84
+  %.1.i = phi i1 [ %88, %86 ], [ %85, %84 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #23
@@ -134032,10 +134021,10 @@ _ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #23
-  br label %100
+  br label %90
 
-100:                                              ; preds = %99, %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i
-  %.0 = phi i1 [ %.1.i, %99 ], [ %67, %_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE.exit.i ]
+90:                                               ; preds = %89, %67
+  %.0 = phi i1 [ %.1.i, %89 ], [ %68, %67 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16) #23
   ret i1 %.0
 }
@@ -134156,7 +134145,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL18Filtered_predicateI
   %64 = load ptr, ptr %1, align 8, !tbaa !47
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #23
-  store ptr %64, ptr %13, align 8, !tbaa !3219
+  store ptr %64, ptr %13, align 8, !tbaa !3213
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #23
   store ptr %13, ptr %12, align 8, !tbaa !40
   %66 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
@@ -136386,7 +136375,7 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
           to label %.noexc376 unwind label %227
 
 .noexc376:                                        ; preds = %142
-  %143 = load double, ptr %9, align 8, !tbaa !606, !noalias !3700
+  %143 = load double, ptr %9, align 8, !tbaa !606, !noalias !3691
   %144 = fpext double %143 to x86_fp80
   %145 = invoke noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSIeEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueERS8_E4typeESB_(ptr noundef nonnull align 16 dereferenceable(64) %33, x86_fp80 noundef %144)
           to label %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit unwind label %146
@@ -136398,28 +136387,28 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
   br label %.body377
 
 _ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit: ; preds = %.noexc376
-  call void @llvm.experimental.noalias.scope.decl(metadata !3703)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3694)
   invoke void @_ZN5boost14multiprecision8backends21eval_add_subtract_impINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_b(ptr noundef nonnull align 16 dereferenceable(64) %33, ptr noundef nonnull align 16 dereferenceable(64) %33, ptr noundef nonnull align 16 dereferenceable(64) %0, i1 noundef zeroext false)
           to label %.noexc379 unwind label %229
 
 .noexc379:                                        ; preds = %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit
-  store i64 0, ptr %.sroa.01115, align 16, !tbaa !53, !alias.scope !3703
+  store i64 0, ptr %.sroa.01115, align 16, !tbaa !53, !alias.scope !3694
   %148 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %149 = load i64, ptr %148, align 16, !tbaa !608, !noalias !3703
+  %149 = load i64, ptr %148, align 16, !tbaa !608, !noalias !3694
   %.sroa.01115.16..sroa_idx1740 = getelementptr inbounds nuw i8, ptr %.sroa.01115, i64 16
-  store i64 %149, ptr %.sroa.01115.16..sroa_idx1740, align 16, !tbaa !608, !alias.scope !3703
+  store i64 %149, ptr %.sroa.01115.16..sroa_idx1740, align 16, !tbaa !608, !alias.scope !3694
   %150 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %151 = load i8, ptr %150, align 8, !tbaa !617, !range !10, !noalias !3703, !noundef !11
+  %151 = load i8, ptr %150, align 8, !tbaa !617, !range !10, !noalias !3694, !noundef !11
   %.sroa.01115.24..sroa_idx1743 = getelementptr inbounds nuw i8, ptr %.sroa.01115, i64 24
-  store i8 %151, ptr %.sroa.01115.24..sroa_idx1743, align 8, !tbaa !617, !alias.scope !3703
+  store i8 %151, ptr %.sroa.01115.24..sroa_idx1743, align 8, !tbaa !617, !alias.scope !3694
   %152 = getelementptr inbounds nuw i8, ptr %33, i64 25
-  %153 = load i8, ptr %152, align 1, !tbaa !4, !range !10, !noalias !3703, !noundef !11
+  %153 = load i8, ptr %152, align 1, !tbaa !4, !range !10, !noalias !3694, !noundef !11
   %.sroa.01115.25..sroa_idx1745 = getelementptr inbounds nuw i8, ptr %.sroa.01115, i64 25
-  store i8 %153, ptr %.sroa.01115.25..sroa_idx1745, align 1, !tbaa !4, !alias.scope !3703
+  store i8 %153, ptr %.sroa.01115.25..sroa_idx1745, align 1, !tbaa !4, !alias.scope !3694
   %154 = getelementptr inbounds nuw i8, ptr %33, i64 26
-  %155 = load i8, ptr %154, align 2, !tbaa !648, !range !10, !noalias !3703, !noundef !11
+  %155 = load i8, ptr %154, align 2, !tbaa !648, !range !10, !noalias !3694, !noundef !11
   %.sroa.01115.26..sroa_idx1748 = getelementptr inbounds nuw i8, ptr %.sroa.01115, i64 26
-  store i8 %155, ptr %.sroa.01115.26..sroa_idx1748, align 2, !tbaa !648, !alias.scope !3703
+  store i8 %155, ptr %.sroa.01115.26..sroa_idx1748, align 2, !tbaa !648, !alias.scope !3694
   %156 = trunc nuw i8 %153 to i1
   br i1 %156, label %157, label %159
 
@@ -136430,31 +136419,31 @@ _ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rationa
 
 159:                                              ; preds = %.noexc379
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.01115, ptr noundef nonnull align 16 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %148, align 16, !tbaa !608, !noalias !3703
-  store i8 1, ptr %152, align 1, !tbaa !4, !noalias !3703
+  store i64 0, ptr %148, align 16, !tbaa !608, !noalias !3694
+  store i8 1, ptr %152, align 1, !tbaa !4, !noalias !3694
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i: ; preds = %159, %157
   %160 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %.sroa.01115.32..sroa_idx1156 = getelementptr inbounds nuw i8, ptr %.sroa.01115, i64 32
   %.sroa.01115.32..sroa_idx1751 = getelementptr inbounds nuw i8, ptr %.sroa.01115, i64 32
-  store i64 0, ptr %.sroa.01115.32..sroa_idx1751, align 16, !tbaa !53, !alias.scope !3703
+  store i64 0, ptr %.sroa.01115.32..sroa_idx1751, align 16, !tbaa !53, !alias.scope !3694
   %161 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %162 = load i64, ptr %161, align 16, !tbaa !608, !noalias !3703
+  %162 = load i64, ptr %161, align 16, !tbaa !608, !noalias !3694
   %.sroa.01115.48..sroa_idx1752 = getelementptr inbounds nuw i8, ptr %.sroa.01115, i64 48
-  store i64 %162, ptr %.sroa.01115.48..sroa_idx1752, align 16, !tbaa !608, !alias.scope !3703
+  store i64 %162, ptr %.sroa.01115.48..sroa_idx1752, align 16, !tbaa !608, !alias.scope !3694
   %163 = getelementptr inbounds nuw i8, ptr %33, i64 56
-  %164 = load i8, ptr %163, align 8, !tbaa !617, !range !10, !noalias !3703, !noundef !11
+  %164 = load i8, ptr %163, align 8, !tbaa !617, !range !10, !noalias !3694, !noundef !11
   %.sroa.01115.56..sroa_idx1754 = getelementptr inbounds nuw i8, ptr %.sroa.01115, i64 56
-  store i8 %164, ptr %.sroa.01115.56..sroa_idx1754, align 8, !tbaa !617, !alias.scope !3703
+  store i8 %164, ptr %.sroa.01115.56..sroa_idx1754, align 8, !tbaa !617, !alias.scope !3694
   %165 = getelementptr inbounds nuw i8, ptr %33, i64 57
-  %166 = load i8, ptr %165, align 1, !tbaa !4, !range !10, !noalias !3703, !noundef !11
+  %166 = load i8, ptr %165, align 1, !tbaa !4, !range !10, !noalias !3694, !noundef !11
   %.sroa.01115.57..sroa_idx1756 = getelementptr inbounds nuw i8, ptr %.sroa.01115, i64 57
-  store i8 %166, ptr %.sroa.01115.57..sroa_idx1756, align 1, !tbaa !4, !alias.scope !3703
+  store i8 %166, ptr %.sroa.01115.57..sroa_idx1756, align 1, !tbaa !4, !alias.scope !3694
   %167 = getelementptr inbounds nuw i8, ptr %33, i64 58
-  %168 = load i8, ptr %167, align 2, !tbaa !648, !range !10, !noalias !3703, !noundef !11
+  %168 = load i8, ptr %167, align 2, !tbaa !648, !range !10, !noalias !3694, !noundef !11
   %.sroa.01115.58..sroa_idx1758 = getelementptr inbounds nuw i8, ptr %.sroa.01115, i64 58
-  store i8 %168, ptr %.sroa.01115.58..sroa_idx1758, align 2, !tbaa !648, !alias.scope !3703
+  store i8 %168, ptr %.sroa.01115.58..sroa_idx1758, align 2, !tbaa !648, !alias.scope !3694
   %169 = trunc nuw i8 %166 to i1
   br i1 %169, label %170, label %172
 
@@ -136466,8 +136455,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 172:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.01115.32..sroa_idx1156, ptr noundef nonnull align 16 dereferenceable(16) %160, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %161, align 16, !tbaa !608, !noalias !3703
-  store i8 1, ptr %165, align 1, !tbaa !4, !noalias !3703
+  store i64 0, ptr %161, align 16, !tbaa !608, !noalias !3694
+  store i8 1, ptr %165, align 1, !tbaa !4, !noalias !3694
   br label %_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_.exit
 
 _ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_.exit: ; preds = %172, %170
@@ -136645,28 +136634,28 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
   br label %.body316
 
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2IdEERKT_PNSt9enable_ifIXaaaaoooosr5boost14multiprecision6detail25is_convertible_arithmeticISD_S9_EE5valuesr3std7is_sameINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EE5valuesr3std14is_convertibleISD_PKcEE5valuentsr3std14is_convertibleINS0_6detail9canonicalISD_S9_E4typeES9_EE5valuentsr6detail24is_restricted_conversionISS_S9_EE5valueEvE4typeE.exit318: ; preds = %.noexc315
-  call void @llvm.experimental.noalias.scope.decl(metadata !3706)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3697)
   invoke void @_ZN5boost14multiprecision8backends21eval_add_subtract_impINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_b(ptr noundef nonnull align 16 dereferenceable(64) %34, ptr noundef nonnull align 16 dereferenceable(64) %34, ptr noundef nonnull align 16 dereferenceable(64) %0, i1 noundef zeroext false)
           to label %.noexc386 unwind label %319
 
 .noexc386:                                        ; preds = %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2IdEERKT_PNSt9enable_ifIXaaaaoooosr5boost14multiprecision6detail25is_convertible_arithmeticISD_S9_EE5valuesr3std7is_sameINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EE5valuesr3std14is_convertibleISD_PKcEE5valuentsr3std14is_convertibleINS0_6detail9canonicalISD_S9_E4typeES9_EE5valuentsr6detail24is_restricted_conversionISS_S9_EE5valueEvE4typeE.exit318
-  store i64 0, ptr %.sroa.01057, align 16, !tbaa !53, !alias.scope !3706
+  store i64 0, ptr %.sroa.01057, align 16, !tbaa !53, !alias.scope !3697
   %238 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %239 = load i64, ptr %238, align 16, !tbaa !608, !noalias !3706
+  %239 = load i64, ptr %238, align 16, !tbaa !608, !noalias !3697
   %.sroa.01057.16..sroa_idx1720 = getelementptr inbounds nuw i8, ptr %.sroa.01057, i64 16
-  store i64 %239, ptr %.sroa.01057.16..sroa_idx1720, align 16, !tbaa !608, !alias.scope !3706
+  store i64 %239, ptr %.sroa.01057.16..sroa_idx1720, align 16, !tbaa !608, !alias.scope !3697
   %240 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %241 = load i8, ptr %240, align 8, !tbaa !617, !range !10, !noalias !3706, !noundef !11
+  %241 = load i8, ptr %240, align 8, !tbaa !617, !range !10, !noalias !3697, !noundef !11
   %.sroa.01057.24..sroa_idx1723 = getelementptr inbounds nuw i8, ptr %.sroa.01057, i64 24
-  store i8 %241, ptr %.sroa.01057.24..sroa_idx1723, align 8, !tbaa !617, !alias.scope !3706
+  store i8 %241, ptr %.sroa.01057.24..sroa_idx1723, align 8, !tbaa !617, !alias.scope !3697
   %242 = getelementptr inbounds nuw i8, ptr %34, i64 25
-  %243 = load i8, ptr %242, align 1, !tbaa !4, !range !10, !noalias !3706, !noundef !11
+  %243 = load i8, ptr %242, align 1, !tbaa !4, !range !10, !noalias !3697, !noundef !11
   %.sroa.01057.25..sroa_idx1725 = getelementptr inbounds nuw i8, ptr %.sroa.01057, i64 25
-  store i8 %243, ptr %.sroa.01057.25..sroa_idx1725, align 1, !tbaa !4, !alias.scope !3706
+  store i8 %243, ptr %.sroa.01057.25..sroa_idx1725, align 1, !tbaa !4, !alias.scope !3697
   %244 = getelementptr inbounds nuw i8, ptr %34, i64 26
-  %245 = load i8, ptr %244, align 2, !tbaa !648, !range !10, !noalias !3706, !noundef !11
+  %245 = load i8, ptr %244, align 2, !tbaa !648, !range !10, !noalias !3697, !noundef !11
   %.sroa.01057.26..sroa_idx1728 = getelementptr inbounds nuw i8, ptr %.sroa.01057, i64 26
-  store i8 %245, ptr %.sroa.01057.26..sroa_idx1728, align 2, !tbaa !648, !alias.scope !3706
+  store i8 %245, ptr %.sroa.01057.26..sroa_idx1728, align 2, !tbaa !648, !alias.scope !3697
   %246 = trunc nuw i8 %243 to i1
   br i1 %246, label %247, label %249
 
@@ -136677,31 +136666,31 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 
 249:                                              ; preds = %.noexc386
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.01057, ptr noundef nonnull align 16 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %238, align 16, !tbaa !608, !noalias !3706
-  store i8 1, ptr %242, align 1, !tbaa !4, !noalias !3706
+  store i64 0, ptr %238, align 16, !tbaa !608, !noalias !3697
+  store i8 1, ptr %242, align 1, !tbaa !4, !noalias !3697
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i385
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i385: ; preds = %249, %247
   %250 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %.sroa.01057.32..sroa_idx1098 = getelementptr inbounds nuw i8, ptr %.sroa.01057, i64 32
   %.sroa.01057.32..sroa_idx1731 = getelementptr inbounds nuw i8, ptr %.sroa.01057, i64 32
-  store i64 0, ptr %.sroa.01057.32..sroa_idx1731, align 16, !tbaa !53, !alias.scope !3706
+  store i64 0, ptr %.sroa.01057.32..sroa_idx1731, align 16, !tbaa !53, !alias.scope !3697
   %251 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %252 = load i64, ptr %251, align 16, !tbaa !608, !noalias !3706
+  %252 = load i64, ptr %251, align 16, !tbaa !608, !noalias !3697
   %.sroa.01057.48..sroa_idx1732 = getelementptr inbounds nuw i8, ptr %.sroa.01057, i64 48
-  store i64 %252, ptr %.sroa.01057.48..sroa_idx1732, align 16, !tbaa !608, !alias.scope !3706
+  store i64 %252, ptr %.sroa.01057.48..sroa_idx1732, align 16, !tbaa !608, !alias.scope !3697
   %253 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  %254 = load i8, ptr %253, align 8, !tbaa !617, !range !10, !noalias !3706, !noundef !11
+  %254 = load i8, ptr %253, align 8, !tbaa !617, !range !10, !noalias !3697, !noundef !11
   %.sroa.01057.56..sroa_idx1734 = getelementptr inbounds nuw i8, ptr %.sroa.01057, i64 56
-  store i8 %254, ptr %.sroa.01057.56..sroa_idx1734, align 8, !tbaa !617, !alias.scope !3706
+  store i8 %254, ptr %.sroa.01057.56..sroa_idx1734, align 8, !tbaa !617, !alias.scope !3697
   %255 = getelementptr inbounds nuw i8, ptr %34, i64 57
-  %256 = load i8, ptr %255, align 1, !tbaa !4, !range !10, !noalias !3706, !noundef !11
+  %256 = load i8, ptr %255, align 1, !tbaa !4, !range !10, !noalias !3697, !noundef !11
   %.sroa.01057.57..sroa_idx1736 = getelementptr inbounds nuw i8, ptr %.sroa.01057, i64 57
-  store i8 %256, ptr %.sroa.01057.57..sroa_idx1736, align 1, !tbaa !4, !alias.scope !3706
+  store i8 %256, ptr %.sroa.01057.57..sroa_idx1736, align 1, !tbaa !4, !alias.scope !3697
   %257 = getelementptr inbounds nuw i8, ptr %34, i64 58
-  %258 = load i8, ptr %257, align 2, !tbaa !648, !range !10, !noalias !3706, !noundef !11
+  %258 = load i8, ptr %257, align 2, !tbaa !648, !range !10, !noalias !3697, !noundef !11
   %.sroa.01057.58..sroa_idx1738 = getelementptr inbounds nuw i8, ptr %.sroa.01057, i64 58
-  store i8 %258, ptr %.sroa.01057.58..sroa_idx1738, align 2, !tbaa !648, !alias.scope !3706
+  store i8 %258, ptr %.sroa.01057.58..sroa_idx1738, align 2, !tbaa !648, !alias.scope !3697
   %259 = trunc nuw i8 %256 to i1
   br i1 %259, label %260, label %262
 
@@ -136713,8 +136702,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 262:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i385
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.01057.32..sroa_idx1098, ptr noundef nonnull align 16 dereferenceable(16) %250, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %251, align 16, !tbaa !608, !noalias !3706
-  store i8 1, ptr %255, align 1, !tbaa !4, !noalias !3706
+  store i64 0, ptr %251, align 16, !tbaa !608, !noalias !3697
+  store i8 1, ptr %255, align 1, !tbaa !4, !noalias !3697
   br label %_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_.exit387
 
 _ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_.exit387: ; preds = %262, %260
@@ -136931,7 +136920,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
           to label %.noexc402 unwind label %443
 
 .noexc402:                                        ; preds = %344
-  %345 = load double, ptr %6, align 8, !tbaa !606, !noalias !3709
+  %345 = load double, ptr %6, align 8, !tbaa !606, !noalias !3700
   %346 = fpext double %345 to x86_fp80
   %347 = invoke noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSIeEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueERS8_E4typeESB_(ptr noundef nonnull align 16 dereferenceable(64) %35, x86_fp80 noundef %346)
           to label %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit405 unwind label %348
@@ -136943,98 +136932,98 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %.body403
 
 _ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit405: ; preds = %.noexc402
-  call void @llvm.experimental.noalias.scope.decl(metadata !3712)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3703)
   invoke void @_ZN5boost14multiprecision8backends21eval_add_subtract_impINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_b(ptr noundef nonnull align 16 dereferenceable(64) %35, ptr noundef nonnull align 16 dereferenceable(64) %35, ptr noundef nonnull align 16 dereferenceable(64) %0, i1 noundef zeroext false)
           to label %.noexc407 unwind label %445
 
 .noexc407:                                        ; preds = %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit405
   %350 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %351 = load i8, ptr %350, align 8, !tbaa !617, !range !10, !noalias !3712, !noundef !11
+  %351 = load i8, ptr %350, align 8, !tbaa !617, !range !10, !noalias !3703, !noundef !11
   %352 = trunc nuw i8 %351 to i1
   %353 = xor i8 %351, 1
-  store i8 %353, ptr %350, align 8, !tbaa !617, !noalias !3712
+  store i8 %353, ptr %350, align 8, !tbaa !617, !noalias !3703
   %354 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %355 = load i64, ptr %354, align 16, !noalias !3712
+  %355 = load i64, ptr %354, align 16, !noalias !3703
   %356 = icmp ne i64 %355, 1
   %or.cond.i.not.i.i = select i1 %352, i1 true, i1 %356
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %35, i64 25
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !4, !range !10, !noalias !3712
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !4, !range !10, !noalias !3703
   %.pre1399 = trunc nuw i8 %.pre.i to i1
   br i1 %or.cond.i.not.i.i, label %.noexc407._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i_crit_edge, label %359
 
 .noexc407._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i_crit_edge: ; preds = %.noexc407
-  store i64 0, ptr %.sroa.0997, align 16, !tbaa !53, !alias.scope !3712
+  store i64 0, ptr %.sroa.0997, align 16, !tbaa !53, !alias.scope !3703
   %.sroa.0997.16..sroa_idx1674 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 16
   %.sroa.0997.16..sroa_idx1675 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 16
   %.sroa.0997.16..sroa_idx1679 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 16
-  store i64 %355, ptr %.sroa.0997.16..sroa_idx1679, align 16, !tbaa !608, !alias.scope !3712
+  store i64 %355, ptr %.sroa.0997.16..sroa_idx1679, align 16, !tbaa !608, !alias.scope !3703
   %.sroa.0997.24..sroa_idx1683 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 24
   %.sroa.0997.24..sroa_idx1684 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 24
   %.sroa.0997.24..sroa_idx1688 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 24
-  store i8 %353, ptr %.sroa.0997.24..sroa_idx1688, align 8, !tbaa !617, !alias.scope !3712
+  store i8 %353, ptr %.sroa.0997.24..sroa_idx1688, align 8, !tbaa !617, !alias.scope !3703
   %.sroa.0997.25..sroa_idx1692 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 25
   %.sroa.0997.25..sroa_idx1693 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 25
   %.sroa.0997.25..sroa_idx1697 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 25
-  store i8 %.pre.i, ptr %.sroa.0997.25..sroa_idx1697, align 1, !tbaa !4, !alias.scope !3712
+  store i8 %.pre.i, ptr %.sroa.0997.25..sroa_idx1697, align 1, !tbaa !4, !alias.scope !3703
   %357 = getelementptr inbounds nuw i8, ptr %35, i64 26
-  %358 = load i8, ptr %357, align 2, !tbaa !648, !range !10, !noalias !3712, !noundef !11
+  %358 = load i8, ptr %357, align 2, !tbaa !648, !range !10, !noalias !3703, !noundef !11
   %.sroa.0997.26..sroa_idx1701 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 26
   %.sroa.0997.26..sroa_idx1702 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 26
   %.sroa.0997.26..sroa_idx1706 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 26
-  store i8 %358, ptr %.sroa.0997.26..sroa_idx1706, align 2, !tbaa !648, !alias.scope !3712
+  store i8 %358, ptr %.sroa.0997.26..sroa_idx1706, align 2, !tbaa !648, !alias.scope !3703
   br i1 %.pre1399, label %370, label %373
 
 359:                                              ; preds = %.noexc407
   %360 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %361 = load ptr, ptr %360, align 8, !noalias !3712
+  %361 = load ptr, ptr %360, align 8, !noalias !3703
   %362 = select i1 %.pre1399, ptr %35, ptr %361
-  %363 = load i64, ptr %362, align 8, !tbaa !609, !noalias !3712
+  %363 = load i64, ptr %362, align 8, !tbaa !609, !noalias !3703
   %364 = icmp eq i64 %363, 0
   br i1 %364, label %365, label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i
 
 365:                                              ; preds = %359
-  store i8 0, ptr %350, align 8, !tbaa !617, !noalias !3712
-  store i64 0, ptr %.sroa.0997, align 16, !tbaa !53, !alias.scope !3712
+  store i8 0, ptr %350, align 8, !tbaa !617, !noalias !3703
+  store i64 0, ptr %.sroa.0997, align 16, !tbaa !53, !alias.scope !3703
   %.sroa.0997.16..sroa_idx1676 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 16
   %.sroa.0997.16..sroa_idx1677 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 16
   %.sroa.0997.16..sroa_idx1680 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 16
-  store i64 %355, ptr %.sroa.0997.16..sroa_idx1680, align 16, !tbaa !608, !alias.scope !3712
+  store i64 %355, ptr %.sroa.0997.16..sroa_idx1680, align 16, !tbaa !608, !alias.scope !3703
   %.sroa.0997.24..sroa_idx1685 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 24
   %.sroa.0997.24..sroa_idx1686 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 24
   %.sroa.0997.24..sroa_idx1689 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 24
-  store i8 0, ptr %.sroa.0997.24..sroa_idx1689, align 8, !tbaa !617, !alias.scope !3712
+  store i8 0, ptr %.sroa.0997.24..sroa_idx1689, align 8, !tbaa !617, !alias.scope !3703
   %.sroa.0997.25..sroa_idx1694 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 25
   %.sroa.0997.25..sroa_idx1695 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 25
   %.sroa.0997.25..sroa_idx1698 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 25
-  store i8 %.pre.i, ptr %.sroa.0997.25..sroa_idx1698, align 1, !tbaa !4, !alias.scope !3712
+  store i8 %.pre.i, ptr %.sroa.0997.25..sroa_idx1698, align 1, !tbaa !4, !alias.scope !3703
   %366 = getelementptr inbounds nuw i8, ptr %35, i64 26
-  %367 = load i8, ptr %366, align 2, !tbaa !648, !range !10, !noalias !3712, !noundef !11
+  %367 = load i8, ptr %366, align 2, !tbaa !648, !range !10, !noalias !3703, !noundef !11
   %.sroa.0997.26..sroa_idx1703 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 26
   %.sroa.0997.26..sroa_idx1704 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 26
   %.sroa.0997.26..sroa_idx1707 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 26
-  store i8 %367, ptr %.sroa.0997.26..sroa_idx1707, align 2, !tbaa !648, !alias.scope !3712
+  store i8 %367, ptr %.sroa.0997.26..sroa_idx1707, align 2, !tbaa !648, !alias.scope !3703
   br i1 %.pre1399, label %370, label %373
 
 _ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i: ; preds = %359
-  store i64 0, ptr %.sroa.0997, align 16, !tbaa !53, !alias.scope !3712
+  store i64 0, ptr %.sroa.0997, align 16, !tbaa !53, !alias.scope !3703
   %.sroa.0997.16..sroa_idx1672 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 16
   %.sroa.0997.16..sroa_idx1673 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 16
   %.sroa.0997.16..sroa_idx1678 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 16
-  store i64 %355, ptr %.sroa.0997.16..sroa_idx1678, align 16, !tbaa !608, !alias.scope !3712
+  store i64 %355, ptr %.sroa.0997.16..sroa_idx1678, align 16, !tbaa !608, !alias.scope !3703
   %.sroa.0997.24..sroa_idx1681 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 24
   %.sroa.0997.24..sroa_idx1682 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 24
   %.sroa.0997.24..sroa_idx1687 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 24
-  store i8 1, ptr %.sroa.0997.24..sroa_idx1687, align 8, !tbaa !617, !alias.scope !3712
+  store i8 1, ptr %.sroa.0997.24..sroa_idx1687, align 8, !tbaa !617, !alias.scope !3703
   %.sroa.0997.25..sroa_idx1690 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 25
   %.sroa.0997.25..sroa_idx1691 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 25
   %.sroa.0997.25..sroa_idx1696 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 25
-  store i8 %.pre.i, ptr %.sroa.0997.25..sroa_idx1696, align 1, !tbaa !4, !alias.scope !3712
+  store i8 %.pre.i, ptr %.sroa.0997.25..sroa_idx1696, align 1, !tbaa !4, !alias.scope !3703
   %368 = getelementptr inbounds nuw i8, ptr %35, i64 26
-  %369 = load i8, ptr %368, align 2, !tbaa !648, !range !10, !noalias !3712, !noundef !11
+  %369 = load i8, ptr %368, align 2, !tbaa !648, !range !10, !noalias !3703, !noundef !11
   %.sroa.0997.26..sroa_idx1699 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 26
   %.sroa.0997.26..sroa_idx1700 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 26
   %.sroa.0997.26..sroa_idx1705 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 26
-  store i8 %369, ptr %.sroa.0997.26..sroa_idx1705, align 2, !tbaa !648, !alias.scope !3712
+  store i8 %369, ptr %.sroa.0997.26..sroa_idx1705, align 2, !tbaa !648, !alias.scope !3703
   br i1 %.pre1399, label %370, label %373
 
 370:                                              ; preds = %365, %.noexc407._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i_crit_edge, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i
@@ -137054,8 +137043,8 @@ _ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0EL
   %.sroa.0997.24..sroa_idx1409 = phi ptr [ %.sroa.0997.24..sroa_idx1684, %.noexc407._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i_crit_edge ], [ %.sroa.0997.24..sroa_idx1682, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i ], [ %.sroa.0997.24..sroa_idx1686, %365 ]
   %.sroa.0997.16..sroa_idx1406 = phi ptr [ %.sroa.0997.16..sroa_idx1675, %.noexc407._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i_crit_edge ], [ %.sroa.0997.16..sroa_idx1673, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i ], [ %.sroa.0997.16..sroa_idx1677, %365 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0997, ptr noundef nonnull align 16 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %354, align 16, !tbaa !608, !noalias !3712
-  store i8 1, ptr %.phi.trans.insert.i, align 1, !tbaa !4, !noalias !3712
+  store i64 0, ptr %354, align 16, !tbaa !608, !noalias !3703
+  store i8 1, ptr %.phi.trans.insert.i, align 1, !tbaa !4, !noalias !3703
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i406
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i406: ; preds = %373, %370
@@ -137067,23 +137056,23 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %376 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %.sroa.0997.32..sroa_idx1038 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 32
   %.sroa.0997.32..sroa_idx1709 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 32
-  store i64 0, ptr %.sroa.0997.32..sroa_idx1709, align 16, !tbaa !53, !alias.scope !3712
+  store i64 0, ptr %.sroa.0997.32..sroa_idx1709, align 16, !tbaa !53, !alias.scope !3703
   %377 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %378 = load i64, ptr %377, align 16, !tbaa !608, !noalias !3712
+  %378 = load i64, ptr %377, align 16, !tbaa !608, !noalias !3703
   %.sroa.0997.48..sroa_idx1710 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 48
-  store i64 %378, ptr %.sroa.0997.48..sroa_idx1710, align 16, !tbaa !608, !alias.scope !3712
+  store i64 %378, ptr %.sroa.0997.48..sroa_idx1710, align 16, !tbaa !608, !alias.scope !3703
   %379 = getelementptr inbounds nuw i8, ptr %35, i64 56
-  %380 = load i8, ptr %379, align 8, !tbaa !617, !range !10, !noalias !3712, !noundef !11
+  %380 = load i8, ptr %379, align 8, !tbaa !617, !range !10, !noalias !3703, !noundef !11
   %.sroa.0997.56..sroa_idx1713 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 56
-  store i8 %380, ptr %.sroa.0997.56..sroa_idx1713, align 8, !tbaa !617, !alias.scope !3712
+  store i8 %380, ptr %.sroa.0997.56..sroa_idx1713, align 8, !tbaa !617, !alias.scope !3703
   %381 = getelementptr inbounds nuw i8, ptr %35, i64 57
-  %382 = load i8, ptr %381, align 1, !tbaa !4, !range !10, !noalias !3712, !noundef !11
+  %382 = load i8, ptr %381, align 1, !tbaa !4, !range !10, !noalias !3703, !noundef !11
   %.sroa.0997.57..sroa_idx1715 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 57
-  store i8 %382, ptr %.sroa.0997.57..sroa_idx1715, align 1, !tbaa !4, !alias.scope !3712
+  store i8 %382, ptr %.sroa.0997.57..sroa_idx1715, align 1, !tbaa !4, !alias.scope !3703
   %383 = getelementptr inbounds nuw i8, ptr %35, i64 58
-  %384 = load i8, ptr %383, align 2, !tbaa !648, !range !10, !noalias !3712, !noundef !11
+  %384 = load i8, ptr %383, align 2, !tbaa !648, !range !10, !noalias !3703, !noundef !11
   %.sroa.0997.58..sroa_idx1718 = getelementptr inbounds nuw i8, ptr %.sroa.0997, i64 58
-  store i8 %384, ptr %.sroa.0997.58..sroa_idx1718, align 2, !tbaa !648, !alias.scope !3712
+  store i8 %384, ptr %.sroa.0997.58..sroa_idx1718, align 2, !tbaa !648, !alias.scope !3703
   %385 = trunc nuw i8 %382 to i1
   br i1 %385, label %386, label %388
 
@@ -137095,8 +137084,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 388:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i406
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0997.32..sroa_idx1038, ptr noundef nonnull align 16 dereferenceable(16) %376, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %377, align 16, !tbaa !608, !noalias !3712
-  store i8 1, ptr %381, align 1, !tbaa !4, !noalias !3712
+  store i64 0, ptr %377, align 16, !tbaa !608, !noalias !3703
+  store i8 1, ptr %381, align 1, !tbaa !4, !noalias !3703
   br label %_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_.exit
 
 _ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_.exit: ; preds = %388, %386
@@ -137260,7 +137249,7 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
           to label %.noexc422 unwind label %547
 
 .noexc422:                                        ; preds = %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEaSINS0_6detail19subtract_immediatesESB_SB_vvEENSt9enable_ifIXsr3std14is_convertibleINSD_10expressionIT_T0_T1_T2_T3_E11result_typeESB_EE5valueERSB_E4typeERKSM_.exit421
-  %449 = load double, ptr %9, align 8, !tbaa !606, !noalias !3715
+  %449 = load double, ptr %9, align 8, !tbaa !606, !noalias !3706
   %450 = fpext double %449 to x86_fp80
   %451 = invoke noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSIeEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueERS8_E4typeESB_(ptr noundef nonnull align 16 dereferenceable(64) %36, x86_fp80 noundef %450)
           to label %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit425 unwind label %452
@@ -137272,98 +137261,98 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
   br label %.body423
 
 _ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit425: ; preds = %.noexc422
-  call void @llvm.experimental.noalias.scope.decl(metadata !3718)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3709)
   invoke void @_ZN5boost14multiprecision8backends21eval_add_subtract_impINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_b(ptr noundef nonnull align 16 dereferenceable(64) %36, ptr noundef nonnull align 16 dereferenceable(64) %36, ptr noundef nonnull align 16 dereferenceable(64) %0, i1 noundef zeroext false)
           to label %.noexc431 unwind label %549
 
 .noexc431:                                        ; preds = %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit425
   %454 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %455 = load i8, ptr %454, align 8, !tbaa !617, !range !10, !noalias !3718, !noundef !11
+  %455 = load i8, ptr %454, align 8, !tbaa !617, !range !10, !noalias !3709, !noundef !11
   %456 = trunc nuw i8 %455 to i1
   %457 = xor i8 %455, 1
-  store i8 %457, ptr %454, align 8, !tbaa !617, !noalias !3718
+  store i8 %457, ptr %454, align 8, !tbaa !617, !noalias !3709
   %458 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %459 = load i64, ptr %458, align 16, !noalias !3718
+  %459 = load i64, ptr %458, align 16, !noalias !3709
   %460 = icmp ne i64 %459, 1
   %or.cond.i.not.i.i426 = select i1 %456, i1 true, i1 %460
   %.phi.trans.insert.i427 = getelementptr inbounds nuw i8, ptr %36, i64 25
-  %.pre.i428 = load i8, ptr %.phi.trans.insert.i427, align 1, !tbaa !4, !range !10, !noalias !3718
+  %.pre.i428 = load i8, ptr %.phi.trans.insert.i427, align 1, !tbaa !4, !range !10, !noalias !3709
   %.pre1397 = trunc nuw i8 %.pre.i428 to i1
   br i1 %or.cond.i.not.i.i426, label %.noexc431._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i429_crit_edge, label %463
 
 .noexc431._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i429_crit_edge: ; preds = %.noexc431
-  store i64 0, ptr %.sroa.0939, align 16, !tbaa !53, !alias.scope !3718
+  store i64 0, ptr %.sroa.0939, align 16, !tbaa !53, !alias.scope !3709
   %.sroa.0939.16..sroa_idx1626 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 16
   %.sroa.0939.16..sroa_idx1627 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 16
   %.sroa.0939.16..sroa_idx1631 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 16
-  store i64 %459, ptr %.sroa.0939.16..sroa_idx1631, align 16, !tbaa !608, !alias.scope !3718
+  store i64 %459, ptr %.sroa.0939.16..sroa_idx1631, align 16, !tbaa !608, !alias.scope !3709
   %.sroa.0939.24..sroa_idx1635 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 24
   %.sroa.0939.24..sroa_idx1636 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 24
   %.sroa.0939.24..sroa_idx1640 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 24
-  store i8 %457, ptr %.sroa.0939.24..sroa_idx1640, align 8, !tbaa !617, !alias.scope !3718
+  store i8 %457, ptr %.sroa.0939.24..sroa_idx1640, align 8, !tbaa !617, !alias.scope !3709
   %.sroa.0939.25..sroa_idx1644 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 25
   %.sroa.0939.25..sroa_idx1645 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 25
   %.sroa.0939.25..sroa_idx1649 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 25
-  store i8 %.pre.i428, ptr %.sroa.0939.25..sroa_idx1649, align 1, !tbaa !4, !alias.scope !3718
+  store i8 %.pre.i428, ptr %.sroa.0939.25..sroa_idx1649, align 1, !tbaa !4, !alias.scope !3709
   %461 = getelementptr inbounds nuw i8, ptr %36, i64 26
-  %462 = load i8, ptr %461, align 2, !tbaa !648, !range !10, !noalias !3718, !noundef !11
+  %462 = load i8, ptr %461, align 2, !tbaa !648, !range !10, !noalias !3709, !noundef !11
   %.sroa.0939.26..sroa_idx1653 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 26
   %.sroa.0939.26..sroa_idx1654 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 26
   %.sroa.0939.26..sroa_idx1658 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 26
-  store i8 %462, ptr %.sroa.0939.26..sroa_idx1658, align 2, !tbaa !648, !alias.scope !3718
+  store i8 %462, ptr %.sroa.0939.26..sroa_idx1658, align 2, !tbaa !648, !alias.scope !3709
   br i1 %.pre1397, label %474, label %477
 
 463:                                              ; preds = %.noexc431
   %464 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %465 = load ptr, ptr %464, align 8, !noalias !3718
+  %465 = load ptr, ptr %464, align 8, !noalias !3709
   %466 = select i1 %.pre1397, ptr %36, ptr %465
-  %467 = load i64, ptr %466, align 8, !tbaa !609, !noalias !3718
+  %467 = load i64, ptr %466, align 8, !tbaa !609, !noalias !3709
   %468 = icmp eq i64 %467, 0
   br i1 %468, label %469, label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i429
 
 469:                                              ; preds = %463
-  store i8 0, ptr %454, align 8, !tbaa !617, !noalias !3718
-  store i64 0, ptr %.sroa.0939, align 16, !tbaa !53, !alias.scope !3718
+  store i8 0, ptr %454, align 8, !tbaa !617, !noalias !3709
+  store i64 0, ptr %.sroa.0939, align 16, !tbaa !53, !alias.scope !3709
   %.sroa.0939.16..sroa_idx1628 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 16
   %.sroa.0939.16..sroa_idx1629 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 16
   %.sroa.0939.16..sroa_idx1632 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 16
-  store i64 %459, ptr %.sroa.0939.16..sroa_idx1632, align 16, !tbaa !608, !alias.scope !3718
+  store i64 %459, ptr %.sroa.0939.16..sroa_idx1632, align 16, !tbaa !608, !alias.scope !3709
   %.sroa.0939.24..sroa_idx1637 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 24
   %.sroa.0939.24..sroa_idx1638 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 24
   %.sroa.0939.24..sroa_idx1641 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 24
-  store i8 0, ptr %.sroa.0939.24..sroa_idx1641, align 8, !tbaa !617, !alias.scope !3718
+  store i8 0, ptr %.sroa.0939.24..sroa_idx1641, align 8, !tbaa !617, !alias.scope !3709
   %.sroa.0939.25..sroa_idx1646 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 25
   %.sroa.0939.25..sroa_idx1647 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 25
   %.sroa.0939.25..sroa_idx1650 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 25
-  store i8 %.pre.i428, ptr %.sroa.0939.25..sroa_idx1650, align 1, !tbaa !4, !alias.scope !3718
+  store i8 %.pre.i428, ptr %.sroa.0939.25..sroa_idx1650, align 1, !tbaa !4, !alias.scope !3709
   %470 = getelementptr inbounds nuw i8, ptr %36, i64 26
-  %471 = load i8, ptr %470, align 2, !tbaa !648, !range !10, !noalias !3718, !noundef !11
+  %471 = load i8, ptr %470, align 2, !tbaa !648, !range !10, !noalias !3709, !noundef !11
   %.sroa.0939.26..sroa_idx1655 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 26
   %.sroa.0939.26..sroa_idx1656 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 26
   %.sroa.0939.26..sroa_idx1659 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 26
-  store i8 %471, ptr %.sroa.0939.26..sroa_idx1659, align 2, !tbaa !648, !alias.scope !3718
+  store i8 %471, ptr %.sroa.0939.26..sroa_idx1659, align 2, !tbaa !648, !alias.scope !3709
   br i1 %.pre1397, label %474, label %477
 
 _ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i429: ; preds = %463
-  store i64 0, ptr %.sroa.0939, align 16, !tbaa !53, !alias.scope !3718
+  store i64 0, ptr %.sroa.0939, align 16, !tbaa !53, !alias.scope !3709
   %.sroa.0939.16..sroa_idx1624 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 16
   %.sroa.0939.16..sroa_idx1625 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 16
   %.sroa.0939.16..sroa_idx1630 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 16
-  store i64 %459, ptr %.sroa.0939.16..sroa_idx1630, align 16, !tbaa !608, !alias.scope !3718
+  store i64 %459, ptr %.sroa.0939.16..sroa_idx1630, align 16, !tbaa !608, !alias.scope !3709
   %.sroa.0939.24..sroa_idx1633 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 24
   %.sroa.0939.24..sroa_idx1634 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 24
   %.sroa.0939.24..sroa_idx1639 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 24
-  store i8 1, ptr %.sroa.0939.24..sroa_idx1639, align 8, !tbaa !617, !alias.scope !3718
+  store i8 1, ptr %.sroa.0939.24..sroa_idx1639, align 8, !tbaa !617, !alias.scope !3709
   %.sroa.0939.25..sroa_idx1642 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 25
   %.sroa.0939.25..sroa_idx1643 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 25
   %.sroa.0939.25..sroa_idx1648 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 25
-  store i8 %.pre.i428, ptr %.sroa.0939.25..sroa_idx1648, align 1, !tbaa !4, !alias.scope !3718
+  store i8 %.pre.i428, ptr %.sroa.0939.25..sroa_idx1648, align 1, !tbaa !4, !alias.scope !3709
   %472 = getelementptr inbounds nuw i8, ptr %36, i64 26
-  %473 = load i8, ptr %472, align 2, !tbaa !648, !range !10, !noalias !3718, !noundef !11
+  %473 = load i8, ptr %472, align 2, !tbaa !648, !range !10, !noalias !3709, !noundef !11
   %.sroa.0939.26..sroa_idx1651 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 26
   %.sroa.0939.26..sroa_idx1652 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 26
   %.sroa.0939.26..sroa_idx1657 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 26
-  store i8 %473, ptr %.sroa.0939.26..sroa_idx1657, align 2, !tbaa !648, !alias.scope !3718
+  store i8 %473, ptr %.sroa.0939.26..sroa_idx1657, align 2, !tbaa !648, !alias.scope !3709
   br i1 %.pre1397, label %474, label %477
 
 474:                                              ; preds = %469, %.noexc431._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i429_crit_edge, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i429
@@ -137383,8 +137372,8 @@ _ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0EL
   %.sroa.0939.24..sroa_idx1429 = phi ptr [ %.sroa.0939.24..sroa_idx1636, %.noexc431._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i429_crit_edge ], [ %.sroa.0939.24..sroa_idx1634, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i429 ], [ %.sroa.0939.24..sroa_idx1638, %469 ]
   %.sroa.0939.16..sroa_idx1426 = phi ptr [ %.sroa.0939.16..sroa_idx1627, %.noexc431._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i429_crit_edge ], [ %.sroa.0939.16..sroa_idx1625, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i429 ], [ %.sroa.0939.16..sroa_idx1629, %469 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0939, ptr noundef nonnull align 16 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %458, align 16, !tbaa !608, !noalias !3718
-  store i8 1, ptr %.phi.trans.insert.i427, align 1, !tbaa !4, !noalias !3718
+  store i64 0, ptr %458, align 16, !tbaa !608, !noalias !3709
+  store i8 1, ptr %.phi.trans.insert.i427, align 1, !tbaa !4, !noalias !3709
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i430
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i430: ; preds = %477, %474
@@ -137396,23 +137385,23 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %480 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %.sroa.0939.32..sroa_idx980 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 32
   %.sroa.0939.32..sroa_idx1661 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 32
-  store i64 0, ptr %.sroa.0939.32..sroa_idx1661, align 16, !tbaa !53, !alias.scope !3718
+  store i64 0, ptr %.sroa.0939.32..sroa_idx1661, align 16, !tbaa !53, !alias.scope !3709
   %481 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %482 = load i64, ptr %481, align 16, !tbaa !608, !noalias !3718
+  %482 = load i64, ptr %481, align 16, !tbaa !608, !noalias !3709
   %.sroa.0939.48..sroa_idx1662 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 48
-  store i64 %482, ptr %.sroa.0939.48..sroa_idx1662, align 16, !tbaa !608, !alias.scope !3718
+  store i64 %482, ptr %.sroa.0939.48..sroa_idx1662, align 16, !tbaa !608, !alias.scope !3709
   %483 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %484 = load i8, ptr %483, align 8, !tbaa !617, !range !10, !noalias !3718, !noundef !11
+  %484 = load i8, ptr %483, align 8, !tbaa !617, !range !10, !noalias !3709, !noundef !11
   %.sroa.0939.56..sroa_idx1665 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 56
-  store i8 %484, ptr %.sroa.0939.56..sroa_idx1665, align 8, !tbaa !617, !alias.scope !3718
+  store i8 %484, ptr %.sroa.0939.56..sroa_idx1665, align 8, !tbaa !617, !alias.scope !3709
   %485 = getelementptr inbounds nuw i8, ptr %36, i64 57
-  %486 = load i8, ptr %485, align 1, !tbaa !4, !range !10, !noalias !3718, !noundef !11
+  %486 = load i8, ptr %485, align 1, !tbaa !4, !range !10, !noalias !3709, !noundef !11
   %.sroa.0939.57..sroa_idx1667 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 57
-  store i8 %486, ptr %.sroa.0939.57..sroa_idx1667, align 1, !tbaa !4, !alias.scope !3718
+  store i8 %486, ptr %.sroa.0939.57..sroa_idx1667, align 1, !tbaa !4, !alias.scope !3709
   %487 = getelementptr inbounds nuw i8, ptr %36, i64 58
-  %488 = load i8, ptr %487, align 2, !tbaa !648, !range !10, !noalias !3718, !noundef !11
+  %488 = load i8, ptr %487, align 2, !tbaa !648, !range !10, !noalias !3709, !noundef !11
   %.sroa.0939.58..sroa_idx1670 = getelementptr inbounds nuw i8, ptr %.sroa.0939, i64 58
-  store i8 %488, ptr %.sroa.0939.58..sroa_idx1670, align 2, !tbaa !648, !alias.scope !3718
+  store i8 %488, ptr %.sroa.0939.58..sroa_idx1670, align 2, !tbaa !648, !alias.scope !3709
   %489 = trunc nuw i8 %486 to i1
   br i1 %489, label %490, label %492
 
@@ -137424,8 +137413,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 492:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i430
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0939.32..sroa_idx980, ptr noundef nonnull align 16 dereferenceable(16) %480, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %481, align 16, !tbaa !608, !noalias !3718
-  store i8 1, ptr %485, align 1, !tbaa !4, !noalias !3718
+  store i64 0, ptr %481, align 16, !tbaa !608, !noalias !3709
+  store i8 1, ptr %485, align 1, !tbaa !4, !noalias !3709
   br label %_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_.exit432
 
 _ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_.exit432: ; preds = %492, %490
@@ -137880,7 +137869,7 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
           to label %.noexc463 unwind label %764
 
 .noexc463:                                        ; preds = %679
-  %680 = load double, ptr %10, align 8, !tbaa !606, !noalias !3721
+  %680 = load double, ptr %10, align 8, !tbaa !606, !noalias !3712
   %681 = fpext double %680 to x86_fp80
   %682 = invoke noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSIeEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueERS8_E4typeESB_(ptr noundef nonnull align 16 dereferenceable(64) %43, x86_fp80 noundef %681)
           to label %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit466 unwind label %683
@@ -137892,28 +137881,28 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
   br label %.body464
 
 _ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit466: ; preds = %.noexc463
-  call void @llvm.experimental.noalias.scope.decl(metadata !3724)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3715)
   invoke void @_ZN5boost14multiprecision8backends21eval_add_subtract_impINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_b(ptr noundef nonnull align 16 dereferenceable(64) %43, ptr noundef nonnull align 16 dereferenceable(64) %43, ptr noundef nonnull align 16 dereferenceable(64) %1, i1 noundef zeroext false)
           to label %.noexc468 unwind label %766
 
 .noexc468:                                        ; preds = %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit466
-  store i64 0, ptr %.sroa.0878, align 16, !tbaa !53, !alias.scope !3724
+  store i64 0, ptr %.sroa.0878, align 16, !tbaa !53, !alias.scope !3715
   %685 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %686 = load i64, ptr %685, align 16, !tbaa !608, !noalias !3724
+  %686 = load i64, ptr %685, align 16, !tbaa !608, !noalias !3715
   %.sroa.0878.16..sroa_idx1604 = getelementptr inbounds nuw i8, ptr %.sroa.0878, i64 16
-  store i64 %686, ptr %.sroa.0878.16..sroa_idx1604, align 16, !tbaa !608, !alias.scope !3724
+  store i64 %686, ptr %.sroa.0878.16..sroa_idx1604, align 16, !tbaa !608, !alias.scope !3715
   %687 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %688 = load i8, ptr %687, align 8, !tbaa !617, !range !10, !noalias !3724, !noundef !11
+  %688 = load i8, ptr %687, align 8, !tbaa !617, !range !10, !noalias !3715, !noundef !11
   %.sroa.0878.24..sroa_idx1607 = getelementptr inbounds nuw i8, ptr %.sroa.0878, i64 24
-  store i8 %688, ptr %.sroa.0878.24..sroa_idx1607, align 8, !tbaa !617, !alias.scope !3724
+  store i8 %688, ptr %.sroa.0878.24..sroa_idx1607, align 8, !tbaa !617, !alias.scope !3715
   %689 = getelementptr inbounds nuw i8, ptr %43, i64 25
-  %690 = load i8, ptr %689, align 1, !tbaa !4, !range !10, !noalias !3724, !noundef !11
+  %690 = load i8, ptr %689, align 1, !tbaa !4, !range !10, !noalias !3715, !noundef !11
   %.sroa.0878.25..sroa_idx1609 = getelementptr inbounds nuw i8, ptr %.sroa.0878, i64 25
-  store i8 %690, ptr %.sroa.0878.25..sroa_idx1609, align 1, !tbaa !4, !alias.scope !3724
+  store i8 %690, ptr %.sroa.0878.25..sroa_idx1609, align 1, !tbaa !4, !alias.scope !3715
   %691 = getelementptr inbounds nuw i8, ptr %43, i64 26
-  %692 = load i8, ptr %691, align 2, !tbaa !648, !range !10, !noalias !3724, !noundef !11
+  %692 = load i8, ptr %691, align 2, !tbaa !648, !range !10, !noalias !3715, !noundef !11
   %.sroa.0878.26..sroa_idx1612 = getelementptr inbounds nuw i8, ptr %.sroa.0878, i64 26
-  store i8 %692, ptr %.sroa.0878.26..sroa_idx1612, align 2, !tbaa !648, !alias.scope !3724
+  store i8 %692, ptr %.sroa.0878.26..sroa_idx1612, align 2, !tbaa !648, !alias.scope !3715
   %693 = trunc nuw i8 %690 to i1
   br i1 %693, label %694, label %696
 
@@ -137924,31 +137913,31 @@ _ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rationa
 
 696:                                              ; preds = %.noexc468
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0878, ptr noundef nonnull align 16 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %685, align 16, !tbaa !608, !noalias !3724
-  store i8 1, ptr %689, align 1, !tbaa !4, !noalias !3724
+  store i64 0, ptr %685, align 16, !tbaa !608, !noalias !3715
+  store i8 1, ptr %689, align 1, !tbaa !4, !noalias !3715
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i467
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i467: ; preds = %696, %694
   %697 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %.sroa.0878.32..sroa_idx919 = getelementptr inbounds nuw i8, ptr %.sroa.0878, i64 32
   %.sroa.0878.32..sroa_idx1615 = getelementptr inbounds nuw i8, ptr %.sroa.0878, i64 32
-  store i64 0, ptr %.sroa.0878.32..sroa_idx1615, align 16, !tbaa !53, !alias.scope !3724
+  store i64 0, ptr %.sroa.0878.32..sroa_idx1615, align 16, !tbaa !53, !alias.scope !3715
   %698 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  %699 = load i64, ptr %698, align 16, !tbaa !608, !noalias !3724
+  %699 = load i64, ptr %698, align 16, !tbaa !608, !noalias !3715
   %.sroa.0878.48..sroa_idx1616 = getelementptr inbounds nuw i8, ptr %.sroa.0878, i64 48
-  store i64 %699, ptr %.sroa.0878.48..sroa_idx1616, align 16, !tbaa !608, !alias.scope !3724
+  store i64 %699, ptr %.sroa.0878.48..sroa_idx1616, align 16, !tbaa !608, !alias.scope !3715
   %700 = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %701 = load i8, ptr %700, align 8, !tbaa !617, !range !10, !noalias !3724, !noundef !11
+  %701 = load i8, ptr %700, align 8, !tbaa !617, !range !10, !noalias !3715, !noundef !11
   %.sroa.0878.56..sroa_idx1618 = getelementptr inbounds nuw i8, ptr %.sroa.0878, i64 56
-  store i8 %701, ptr %.sroa.0878.56..sroa_idx1618, align 8, !tbaa !617, !alias.scope !3724
+  store i8 %701, ptr %.sroa.0878.56..sroa_idx1618, align 8, !tbaa !617, !alias.scope !3715
   %702 = getelementptr inbounds nuw i8, ptr %43, i64 57
-  %703 = load i8, ptr %702, align 1, !tbaa !4, !range !10, !noalias !3724, !noundef !11
+  %703 = load i8, ptr %702, align 1, !tbaa !4, !range !10, !noalias !3715, !noundef !11
   %.sroa.0878.57..sroa_idx1620 = getelementptr inbounds nuw i8, ptr %.sroa.0878, i64 57
-  store i8 %703, ptr %.sroa.0878.57..sroa_idx1620, align 1, !tbaa !4, !alias.scope !3724
+  store i8 %703, ptr %.sroa.0878.57..sroa_idx1620, align 1, !tbaa !4, !alias.scope !3715
   %704 = getelementptr inbounds nuw i8, ptr %43, i64 58
-  %705 = load i8, ptr %704, align 2, !tbaa !648, !range !10, !noalias !3724, !noundef !11
+  %705 = load i8, ptr %704, align 2, !tbaa !648, !range !10, !noalias !3715, !noundef !11
   %.sroa.0878.58..sroa_idx1622 = getelementptr inbounds nuw i8, ptr %.sroa.0878, i64 58
-  store i8 %705, ptr %.sroa.0878.58..sroa_idx1622, align 2, !tbaa !648, !alias.scope !3724
+  store i8 %705, ptr %.sroa.0878.58..sroa_idx1622, align 2, !tbaa !648, !alias.scope !3715
   %706 = trunc nuw i8 %703 to i1
   br i1 %706, label %707, label %709
 
@@ -137960,8 +137949,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 709:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i467
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0878.32..sroa_idx919, ptr noundef nonnull align 16 dereferenceable(16) %697, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %698, align 16, !tbaa !608, !noalias !3724
-  store i8 1, ptr %702, align 1, !tbaa !4, !noalias !3724
+  store i64 0, ptr %698, align 16, !tbaa !608, !noalias !3715
+  store i8 1, ptr %702, align 1, !tbaa !4, !noalias !3715
   br label %_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_.exit469
 
 _ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_.exit469: ; preds = %709, %707
@@ -138127,7 +138116,7 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
           to label %.noexc484 unwind label %854
 
 .noexc484:                                        ; preds = %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEaSINS0_6detail19subtract_immediatesESB_SB_vvEENSt9enable_ifIXsr3std14is_convertibleINSD_10expressionIT_T0_T1_T2_T3_E11result_typeESB_EE5valueERSB_E4typeERKSM_.exit483
-  %770 = load double, ptr %7, align 8, !tbaa !606, !noalias !3727
+  %770 = load double, ptr %7, align 8, !tbaa !606, !noalias !3718
   %771 = fpext double %770 to x86_fp80
   %772 = invoke noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSIeEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueERS8_E4typeESB_(ptr noundef nonnull align 16 dereferenceable(64) %44, x86_fp80 noundef %771)
           to label %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit487 unwind label %773
@@ -138139,28 +138128,28 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
   br label %.body485
 
 _ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit487: ; preds = %.noexc484
-  call void @llvm.experimental.noalias.scope.decl(metadata !3730)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3721)
   invoke void @_ZN5boost14multiprecision8backends21eval_add_subtract_impINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_b(ptr noundef nonnull align 16 dereferenceable(64) %44, ptr noundef nonnull align 16 dereferenceable(64) %44, ptr noundef nonnull align 16 dereferenceable(64) %1, i1 noundef zeroext false)
           to label %.noexc489 unwind label %856
 
 .noexc489:                                        ; preds = %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit487
-  store i64 0, ptr %.sroa.0820, align 16, !tbaa !53, !alias.scope !3730
+  store i64 0, ptr %.sroa.0820, align 16, !tbaa !53, !alias.scope !3721
   %775 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %776 = load i64, ptr %775, align 16, !tbaa !608, !noalias !3730
+  %776 = load i64, ptr %775, align 16, !tbaa !608, !noalias !3721
   %.sroa.0820.16..sroa_idx1584 = getelementptr inbounds nuw i8, ptr %.sroa.0820, i64 16
-  store i64 %776, ptr %.sroa.0820.16..sroa_idx1584, align 16, !tbaa !608, !alias.scope !3730
+  store i64 %776, ptr %.sroa.0820.16..sroa_idx1584, align 16, !tbaa !608, !alias.scope !3721
   %777 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %778 = load i8, ptr %777, align 8, !tbaa !617, !range !10, !noalias !3730, !noundef !11
+  %778 = load i8, ptr %777, align 8, !tbaa !617, !range !10, !noalias !3721, !noundef !11
   %.sroa.0820.24..sroa_idx1587 = getelementptr inbounds nuw i8, ptr %.sroa.0820, i64 24
-  store i8 %778, ptr %.sroa.0820.24..sroa_idx1587, align 8, !tbaa !617, !alias.scope !3730
+  store i8 %778, ptr %.sroa.0820.24..sroa_idx1587, align 8, !tbaa !617, !alias.scope !3721
   %779 = getelementptr inbounds nuw i8, ptr %44, i64 25
-  %780 = load i8, ptr %779, align 1, !tbaa !4, !range !10, !noalias !3730, !noundef !11
+  %780 = load i8, ptr %779, align 1, !tbaa !4, !range !10, !noalias !3721, !noundef !11
   %.sroa.0820.25..sroa_idx1589 = getelementptr inbounds nuw i8, ptr %.sroa.0820, i64 25
-  store i8 %780, ptr %.sroa.0820.25..sroa_idx1589, align 1, !tbaa !4, !alias.scope !3730
+  store i8 %780, ptr %.sroa.0820.25..sroa_idx1589, align 1, !tbaa !4, !alias.scope !3721
   %781 = getelementptr inbounds nuw i8, ptr %44, i64 26
-  %782 = load i8, ptr %781, align 2, !tbaa !648, !range !10, !noalias !3730, !noundef !11
+  %782 = load i8, ptr %781, align 2, !tbaa !648, !range !10, !noalias !3721, !noundef !11
   %.sroa.0820.26..sroa_idx1592 = getelementptr inbounds nuw i8, ptr %.sroa.0820, i64 26
-  store i8 %782, ptr %.sroa.0820.26..sroa_idx1592, align 2, !tbaa !648, !alias.scope !3730
+  store i8 %782, ptr %.sroa.0820.26..sroa_idx1592, align 2, !tbaa !648, !alias.scope !3721
   %783 = trunc nuw i8 %780 to i1
   br i1 %783, label %784, label %786
 
@@ -138171,31 +138160,31 @@ _ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rationa
 
 786:                                              ; preds = %.noexc489
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0820, ptr noundef nonnull align 16 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %775, align 16, !tbaa !608, !noalias !3730
-  store i8 1, ptr %779, align 1, !tbaa !4, !noalias !3730
+  store i64 0, ptr %775, align 16, !tbaa !608, !noalias !3721
+  store i8 1, ptr %779, align 1, !tbaa !4, !noalias !3721
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i488
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i488: ; preds = %786, %784
   %787 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %.sroa.0820.32..sroa_idx861 = getelementptr inbounds nuw i8, ptr %.sroa.0820, i64 32
   %.sroa.0820.32..sroa_idx1595 = getelementptr inbounds nuw i8, ptr %.sroa.0820, i64 32
-  store i64 0, ptr %.sroa.0820.32..sroa_idx1595, align 16, !tbaa !53, !alias.scope !3730
+  store i64 0, ptr %.sroa.0820.32..sroa_idx1595, align 16, !tbaa !53, !alias.scope !3721
   %788 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %789 = load i64, ptr %788, align 16, !tbaa !608, !noalias !3730
+  %789 = load i64, ptr %788, align 16, !tbaa !608, !noalias !3721
   %.sroa.0820.48..sroa_idx1596 = getelementptr inbounds nuw i8, ptr %.sroa.0820, i64 48
-  store i64 %789, ptr %.sroa.0820.48..sroa_idx1596, align 16, !tbaa !608, !alias.scope !3730
+  store i64 %789, ptr %.sroa.0820.48..sroa_idx1596, align 16, !tbaa !608, !alias.scope !3721
   %790 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %791 = load i8, ptr %790, align 8, !tbaa !617, !range !10, !noalias !3730, !noundef !11
+  %791 = load i8, ptr %790, align 8, !tbaa !617, !range !10, !noalias !3721, !noundef !11
   %.sroa.0820.56..sroa_idx1598 = getelementptr inbounds nuw i8, ptr %.sroa.0820, i64 56
-  store i8 %791, ptr %.sroa.0820.56..sroa_idx1598, align 8, !tbaa !617, !alias.scope !3730
+  store i8 %791, ptr %.sroa.0820.56..sroa_idx1598, align 8, !tbaa !617, !alias.scope !3721
   %792 = getelementptr inbounds nuw i8, ptr %44, i64 57
-  %793 = load i8, ptr %792, align 1, !tbaa !4, !range !10, !noalias !3730, !noundef !11
+  %793 = load i8, ptr %792, align 1, !tbaa !4, !range !10, !noalias !3721, !noundef !11
   %.sroa.0820.57..sroa_idx1600 = getelementptr inbounds nuw i8, ptr %.sroa.0820, i64 57
-  store i8 %793, ptr %.sroa.0820.57..sroa_idx1600, align 1, !tbaa !4, !alias.scope !3730
+  store i8 %793, ptr %.sroa.0820.57..sroa_idx1600, align 1, !tbaa !4, !alias.scope !3721
   %794 = getelementptr inbounds nuw i8, ptr %44, i64 58
-  %795 = load i8, ptr %794, align 2, !tbaa !648, !range !10, !noalias !3730, !noundef !11
+  %795 = load i8, ptr %794, align 2, !tbaa !648, !range !10, !noalias !3721, !noundef !11
   %.sroa.0820.58..sroa_idx1602 = getelementptr inbounds nuw i8, ptr %.sroa.0820, i64 58
-  store i8 %795, ptr %.sroa.0820.58..sroa_idx1602, align 2, !tbaa !648, !alias.scope !3730
+  store i8 %795, ptr %.sroa.0820.58..sroa_idx1602, align 2, !tbaa !648, !alias.scope !3721
   %796 = trunc nuw i8 %793 to i1
   br i1 %796, label %797, label %799
 
@@ -138207,8 +138196,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 799:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0820.32..sroa_idx861, ptr noundef nonnull align 16 dereferenceable(16) %787, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %788, align 16, !tbaa !608, !noalias !3730
-  store i8 1, ptr %792, align 1, !tbaa !4, !noalias !3730
+  store i64 0, ptr %788, align 16, !tbaa !608, !noalias !3721
+  store i8 1, ptr %792, align 1, !tbaa !4, !noalias !3721
   br label %_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_.exit490
 
 _ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_.exit490: ; preds = %799, %797
@@ -138425,7 +138414,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
           to label %.noexc505 unwind label %980
 
 .noexc505:                                        ; preds = %881
-  %882 = load double, ptr %7, align 8, !tbaa !606, !noalias !3733
+  %882 = load double, ptr %7, align 8, !tbaa !606, !noalias !3724
   %883 = fpext double %882 to x86_fp80
   %884 = invoke noundef nonnull align 16 dereferenceable(64) ptr @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEaSIeEENSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueERS8_E4typeESB_(ptr noundef nonnull align 16 dereferenceable(64) %45, x86_fp80 noundef %883)
           to label %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit508 unwind label %885
@@ -138437,98 +138426,98 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %.body506
 
 _ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit508: ; preds = %.noexc505
-  call void @llvm.experimental.noalias.scope.decl(metadata !3736)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3727)
   invoke void @_ZN5boost14multiprecision8backends21eval_add_subtract_impINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_b(ptr noundef nonnull align 16 dereferenceable(64) %45, ptr noundef nonnull align 16 dereferenceable(64) %45, ptr noundef nonnull align 16 dereferenceable(64) %1, i1 noundef zeroext false)
           to label %.noexc514 unwind label %982
 
 .noexc514:                                        ; preds = %_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_.exit508
   %887 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %888 = load i8, ptr %887, align 8, !tbaa !617, !range !10, !noalias !3736, !noundef !11
+  %888 = load i8, ptr %887, align 8, !tbaa !617, !range !10, !noalias !3727, !noundef !11
   %889 = trunc nuw i8 %888 to i1
   %890 = xor i8 %888, 1
-  store i8 %890, ptr %887, align 8, !tbaa !617, !noalias !3736
+  store i8 %890, ptr %887, align 8, !tbaa !617, !noalias !3727
   %891 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %892 = load i64, ptr %891, align 16, !noalias !3736
+  %892 = load i64, ptr %891, align 16, !noalias !3727
   %893 = icmp ne i64 %892, 1
   %or.cond.i.not.i.i509 = select i1 %889, i1 true, i1 %893
   %.phi.trans.insert.i510 = getelementptr inbounds nuw i8, ptr %45, i64 25
-  %.pre.i511 = load i8, ptr %.phi.trans.insert.i510, align 1, !tbaa !4, !range !10, !noalias !3736
+  %.pre.i511 = load i8, ptr %.phi.trans.insert.i510, align 1, !tbaa !4, !range !10, !noalias !3727
   %.pre1395 = trunc nuw i8 %.pre.i511 to i1
   br i1 %or.cond.i.not.i.i509, label %.noexc514._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i512_crit_edge, label %896
 
 .noexc514._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i512_crit_edge: ; preds = %.noexc514
-  store i64 0, ptr %.sroa.0760, align 16, !tbaa !53, !alias.scope !3736
+  store i64 0, ptr %.sroa.0760, align 16, !tbaa !53, !alias.scope !3727
   %.sroa.0760.16..sroa_idx1538 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 16
   %.sroa.0760.16..sroa_idx1539 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 16
   %.sroa.0760.16..sroa_idx1543 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 16
-  store i64 %892, ptr %.sroa.0760.16..sroa_idx1543, align 16, !tbaa !608, !alias.scope !3736
+  store i64 %892, ptr %.sroa.0760.16..sroa_idx1543, align 16, !tbaa !608, !alias.scope !3727
   %.sroa.0760.24..sroa_idx1547 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 24
   %.sroa.0760.24..sroa_idx1548 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 24
   %.sroa.0760.24..sroa_idx1552 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 24
-  store i8 %890, ptr %.sroa.0760.24..sroa_idx1552, align 8, !tbaa !617, !alias.scope !3736
+  store i8 %890, ptr %.sroa.0760.24..sroa_idx1552, align 8, !tbaa !617, !alias.scope !3727
   %.sroa.0760.25..sroa_idx1556 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 25
   %.sroa.0760.25..sroa_idx1557 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 25
   %.sroa.0760.25..sroa_idx1561 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 25
-  store i8 %.pre.i511, ptr %.sroa.0760.25..sroa_idx1561, align 1, !tbaa !4, !alias.scope !3736
+  store i8 %.pre.i511, ptr %.sroa.0760.25..sroa_idx1561, align 1, !tbaa !4, !alias.scope !3727
   %894 = getelementptr inbounds nuw i8, ptr %45, i64 26
-  %895 = load i8, ptr %894, align 2, !tbaa !648, !range !10, !noalias !3736, !noundef !11
+  %895 = load i8, ptr %894, align 2, !tbaa !648, !range !10, !noalias !3727, !noundef !11
   %.sroa.0760.26..sroa_idx1565 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 26
   %.sroa.0760.26..sroa_idx1566 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 26
   %.sroa.0760.26..sroa_idx1570 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 26
-  store i8 %895, ptr %.sroa.0760.26..sroa_idx1570, align 2, !tbaa !648, !alias.scope !3736
+  store i8 %895, ptr %.sroa.0760.26..sroa_idx1570, align 2, !tbaa !648, !alias.scope !3727
   br i1 %.pre1395, label %907, label %910
 
 896:                                              ; preds = %.noexc514
   %897 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %898 = load ptr, ptr %897, align 8, !noalias !3736
+  %898 = load ptr, ptr %897, align 8, !noalias !3727
   %899 = select i1 %.pre1395, ptr %45, ptr %898
-  %900 = load i64, ptr %899, align 8, !tbaa !609, !noalias !3736
+  %900 = load i64, ptr %899, align 8, !tbaa !609, !noalias !3727
   %901 = icmp eq i64 %900, 0
   br i1 %901, label %902, label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i512
 
 902:                                              ; preds = %896
-  store i8 0, ptr %887, align 8, !tbaa !617, !noalias !3736
-  store i64 0, ptr %.sroa.0760, align 16, !tbaa !53, !alias.scope !3736
+  store i8 0, ptr %887, align 8, !tbaa !617, !noalias !3727
+  store i64 0, ptr %.sroa.0760, align 16, !tbaa !53, !alias.scope !3727
   %.sroa.0760.16..sroa_idx1540 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 16
   %.sroa.0760.16..sroa_idx1541 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 16
   %.sroa.0760.16..sroa_idx1544 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 16
-  store i64 %892, ptr %.sroa.0760.16..sroa_idx1544, align 16, !tbaa !608, !alias.scope !3736
+  store i64 %892, ptr %.sroa.0760.16..sroa_idx1544, align 16, !tbaa !608, !alias.scope !3727
   %.sroa.0760.24..sroa_idx1549 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 24
   %.sroa.0760.24..sroa_idx1550 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 24
   %.sroa.0760.24..sroa_idx1553 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 24
-  store i8 0, ptr %.sroa.0760.24..sroa_idx1553, align 8, !tbaa !617, !alias.scope !3736
+  store i8 0, ptr %.sroa.0760.24..sroa_idx1553, align 8, !tbaa !617, !alias.scope !3727
   %.sroa.0760.25..sroa_idx1558 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 25
   %.sroa.0760.25..sroa_idx1559 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 25
   %.sroa.0760.25..sroa_idx1562 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 25
-  store i8 %.pre.i511, ptr %.sroa.0760.25..sroa_idx1562, align 1, !tbaa !4, !alias.scope !3736
+  store i8 %.pre.i511, ptr %.sroa.0760.25..sroa_idx1562, align 1, !tbaa !4, !alias.scope !3727
   %903 = getelementptr inbounds nuw i8, ptr %45, i64 26
-  %904 = load i8, ptr %903, align 2, !tbaa !648, !range !10, !noalias !3736, !noundef !11
+  %904 = load i8, ptr %903, align 2, !tbaa !648, !range !10, !noalias !3727, !noundef !11
   %.sroa.0760.26..sroa_idx1567 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 26
   %.sroa.0760.26..sroa_idx1568 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 26
   %.sroa.0760.26..sroa_idx1571 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 26
-  store i8 %904, ptr %.sroa.0760.26..sroa_idx1571, align 2, !tbaa !648, !alias.scope !3736
+  store i8 %904, ptr %.sroa.0760.26..sroa_idx1571, align 2, !tbaa !648, !alias.scope !3727
   br i1 %.pre1395, label %907, label %910
 
 _ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i512: ; preds = %896
-  store i64 0, ptr %.sroa.0760, align 16, !tbaa !53, !alias.scope !3736
+  store i64 0, ptr %.sroa.0760, align 16, !tbaa !53, !alias.scope !3727
   %.sroa.0760.16..sroa_idx1536 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 16
   %.sroa.0760.16..sroa_idx1537 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 16
   %.sroa.0760.16..sroa_idx1542 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 16
-  store i64 %892, ptr %.sroa.0760.16..sroa_idx1542, align 16, !tbaa !608, !alias.scope !3736
+  store i64 %892, ptr %.sroa.0760.16..sroa_idx1542, align 16, !tbaa !608, !alias.scope !3727
   %.sroa.0760.24..sroa_idx1545 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 24
   %.sroa.0760.24..sroa_idx1546 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 24
   %.sroa.0760.24..sroa_idx1551 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 24
-  store i8 1, ptr %.sroa.0760.24..sroa_idx1551, align 8, !tbaa !617, !alias.scope !3736
+  store i8 1, ptr %.sroa.0760.24..sroa_idx1551, align 8, !tbaa !617, !alias.scope !3727
   %.sroa.0760.25..sroa_idx1554 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 25
   %.sroa.0760.25..sroa_idx1555 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 25
   %.sroa.0760.25..sroa_idx1560 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 25
-  store i8 %.pre.i511, ptr %.sroa.0760.25..sroa_idx1560, align 1, !tbaa !4, !alias.scope !3736
+  store i8 %.pre.i511, ptr %.sroa.0760.25..sroa_idx1560, align 1, !tbaa !4, !alias.scope !3727
   %905 = getelementptr inbounds nuw i8, ptr %45, i64 26
-  %906 = load i8, ptr %905, align 2, !tbaa !648, !range !10, !noalias !3736, !noundef !11
+  %906 = load i8, ptr %905, align 2, !tbaa !648, !range !10, !noalias !3727, !noundef !11
   %.sroa.0760.26..sroa_idx1563 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 26
   %.sroa.0760.26..sroa_idx1564 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 26
   %.sroa.0760.26..sroa_idx1569 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 26
-  store i8 %906, ptr %.sroa.0760.26..sroa_idx1569, align 2, !tbaa !648, !alias.scope !3736
+  store i8 %906, ptr %.sroa.0760.26..sroa_idx1569, align 2, !tbaa !648, !alias.scope !3727
   br i1 %.pre1395, label %907, label %910
 
 907:                                              ; preds = %902, %.noexc514._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i512_crit_edge, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i512
@@ -138548,8 +138537,8 @@ _ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0EL
   %.sroa.0760.24..sroa_idx1449 = phi ptr [ %.sroa.0760.24..sroa_idx1548, %.noexc514._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i512_crit_edge ], [ %.sroa.0760.24..sroa_idx1546, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i512 ], [ %.sroa.0760.24..sroa_idx1550, %902 ]
   %.sroa.0760.16..sroa_idx1446 = phi ptr [ %.sroa.0760.16..sroa_idx1539, %.noexc514._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i512_crit_edge ], [ %.sroa.0760.16..sroa_idx1537, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i512 ], [ %.sroa.0760.16..sroa_idx1541, %902 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0760, ptr noundef nonnull align 16 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %891, align 16, !tbaa !608, !noalias !3736
-  store i8 1, ptr %.phi.trans.insert.i510, align 1, !tbaa !4, !noalias !3736
+  store i64 0, ptr %891, align 16, !tbaa !608, !noalias !3727
+  store i8 1, ptr %.phi.trans.insert.i510, align 1, !tbaa !4, !noalias !3727
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i513
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i513: ; preds = %910, %907
@@ -138561,23 +138550,23 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %913 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %.sroa.0760.32..sroa_idx801 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 32
   %.sroa.0760.32..sroa_idx1573 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 32
-  store i64 0, ptr %.sroa.0760.32..sroa_idx1573, align 16, !tbaa !53, !alias.scope !3736
+  store i64 0, ptr %.sroa.0760.32..sroa_idx1573, align 16, !tbaa !53, !alias.scope !3727
   %914 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %915 = load i64, ptr %914, align 16, !tbaa !608, !noalias !3736
+  %915 = load i64, ptr %914, align 16, !tbaa !608, !noalias !3727
   %.sroa.0760.48..sroa_idx1574 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 48
-  store i64 %915, ptr %.sroa.0760.48..sroa_idx1574, align 16, !tbaa !608, !alias.scope !3736
+  store i64 %915, ptr %.sroa.0760.48..sroa_idx1574, align 16, !tbaa !608, !alias.scope !3727
   %916 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  %917 = load i8, ptr %916, align 8, !tbaa !617, !range !10, !noalias !3736, !noundef !11
+  %917 = load i8, ptr %916, align 8, !tbaa !617, !range !10, !noalias !3727, !noundef !11
   %.sroa.0760.56..sroa_idx1577 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 56
-  store i8 %917, ptr %.sroa.0760.56..sroa_idx1577, align 8, !tbaa !617, !alias.scope !3736
+  store i8 %917, ptr %.sroa.0760.56..sroa_idx1577, align 8, !tbaa !617, !alias.scope !3727
   %918 = getelementptr inbounds nuw i8, ptr %45, i64 57
-  %919 = load i8, ptr %918, align 1, !tbaa !4, !range !10, !noalias !3736, !noundef !11
+  %919 = load i8, ptr %918, align 1, !tbaa !4, !range !10, !noalias !3727, !noundef !11
   %.sroa.0760.57..sroa_idx1579 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 57
-  store i8 %919, ptr %.sroa.0760.57..sroa_idx1579, align 1, !tbaa !4, !alias.scope !3736
+  store i8 %919, ptr %.sroa.0760.57..sroa_idx1579, align 1, !tbaa !4, !alias.scope !3727
   %920 = getelementptr inbounds nuw i8, ptr %45, i64 58
-  %921 = load i8, ptr %920, align 2, !tbaa !648, !range !10, !noalias !3736, !noundef !11
+  %921 = load i8, ptr %920, align 2, !tbaa !648, !range !10, !noalias !3727, !noundef !11
   %.sroa.0760.58..sroa_idx1582 = getelementptr inbounds nuw i8, ptr %.sroa.0760, i64 58
-  store i8 %921, ptr %.sroa.0760.58..sroa_idx1582, align 2, !tbaa !648, !alias.scope !3736
+  store i8 %921, ptr %.sroa.0760.58..sroa_idx1582, align 2, !tbaa !648, !alias.scope !3727
   %922 = trunc nuw i8 %919 to i1
   br i1 %922, label %923, label %925
 
@@ -138589,8 +138578,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 925:                                              ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i513
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0760.32..sroa_idx801, ptr noundef nonnull align 16 dereferenceable(16) %913, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %914, align 16, !tbaa !608, !noalias !3736
-  store i8 1, ptr %918, align 1, !tbaa !4, !noalias !3736
+  store i64 0, ptr %914, align 16, !tbaa !608, !noalias !3727
+  store i8 1, ptr %918, align 1, !tbaa !4, !noalias !3727
   br label %_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_.exit515
 
 _ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_.exit515: ; preds = %925, %923
@@ -138766,98 +138755,98 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
   br label %.body
 
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2IdEERKT_PNSt9enable_ifIXaaaaoooosr5boost14multiprecision6detail25is_convertible_arithmeticISD_S9_EE5valuesr3std7is_sameINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EE5valuesr3std14is_convertibleISD_PKcEE5valuentsr3std14is_convertibleINS0_6detail9canonicalISD_S9_E4typeES9_EE5valuentsr6detail24is_restricted_conversionISS_S9_EE5valueEvE4typeE.exit: ; preds = %.noexc
-  call void @llvm.experimental.noalias.scope.decl(metadata !3739)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3730)
   invoke void @_ZN5boost14multiprecision8backends21eval_add_subtract_impINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_b(ptr noundef nonnull align 16 dereferenceable(64) %46, ptr noundef nonnull align 16 dereferenceable(64) %46, ptr noundef nonnull align 16 dereferenceable(64) %1, i1 noundef zeroext false)
           to label %.noexc535 unwind label %1086
 
 .noexc535:                                        ; preds = %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2IdEERKT_PNSt9enable_ifIXaaaaoooosr5boost14multiprecision6detail25is_convertible_arithmeticISD_S9_EE5valuesr3std7is_sameINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EE5valuesr3std14is_convertibleISD_PKcEE5valuentsr3std14is_convertibleINS0_6detail9canonicalISD_S9_E4typeES9_EE5valuentsr6detail24is_restricted_conversionISS_S9_EE5valueEvE4typeE.exit
   %991 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %992 = load i8, ptr %991, align 8, !tbaa !617, !range !10, !noalias !3739, !noundef !11
+  %992 = load i8, ptr %991, align 8, !tbaa !617, !range !10, !noalias !3730, !noundef !11
   %993 = trunc nuw i8 %992 to i1
   %994 = xor i8 %992, 1
-  store i8 %994, ptr %991, align 8, !tbaa !617, !noalias !3739
+  store i8 %994, ptr %991, align 8, !tbaa !617, !noalias !3730
   %995 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %996 = load i64, ptr %995, align 16, !noalias !3739
+  %996 = load i64, ptr %995, align 16, !noalias !3730
   %997 = icmp ne i64 %996, 1
   %or.cond.i.not.i.i530 = select i1 %993, i1 true, i1 %997
   %.phi.trans.insert.i531 = getelementptr inbounds nuw i8, ptr %46, i64 25
-  %.pre.i532 = load i8, ptr %.phi.trans.insert.i531, align 1, !tbaa !4, !range !10, !noalias !3739
+  %.pre.i532 = load i8, ptr %.phi.trans.insert.i531, align 1, !tbaa !4, !range !10, !noalias !3730
   %.pre1394 = trunc nuw i8 %.pre.i532 to i1
   br i1 %or.cond.i.not.i.i530, label %.noexc535._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i533_crit_edge, label %1000
 
 .noexc535._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i533_crit_edge: ; preds = %.noexc535
-  store i64 0, ptr %.sroa.0702, align 16, !tbaa !53, !alias.scope !3739
+  store i64 0, ptr %.sroa.0702, align 16, !tbaa !53, !alias.scope !3730
   %.sroa.0702.16..sroa_idx1490 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 16
   %.sroa.0702.16..sroa_idx1491 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 16
   %.sroa.0702.16..sroa_idx1495 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 16
-  store i64 %996, ptr %.sroa.0702.16..sroa_idx1495, align 16, !tbaa !608, !alias.scope !3739
+  store i64 %996, ptr %.sroa.0702.16..sroa_idx1495, align 16, !tbaa !608, !alias.scope !3730
   %.sroa.0702.24..sroa_idx1499 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 24
   %.sroa.0702.24..sroa_idx1500 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 24
   %.sroa.0702.24..sroa_idx1504 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 24
-  store i8 %994, ptr %.sroa.0702.24..sroa_idx1504, align 8, !tbaa !617, !alias.scope !3739
+  store i8 %994, ptr %.sroa.0702.24..sroa_idx1504, align 8, !tbaa !617, !alias.scope !3730
   %.sroa.0702.25..sroa_idx1508 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 25
   %.sroa.0702.25..sroa_idx1509 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 25
   %.sroa.0702.25..sroa_idx1513 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 25
-  store i8 %.pre.i532, ptr %.sroa.0702.25..sroa_idx1513, align 1, !tbaa !4, !alias.scope !3739
+  store i8 %.pre.i532, ptr %.sroa.0702.25..sroa_idx1513, align 1, !tbaa !4, !alias.scope !3730
   %998 = getelementptr inbounds nuw i8, ptr %46, i64 26
-  %999 = load i8, ptr %998, align 2, !tbaa !648, !range !10, !noalias !3739, !noundef !11
+  %999 = load i8, ptr %998, align 2, !tbaa !648, !range !10, !noalias !3730, !noundef !11
   %.sroa.0702.26..sroa_idx1517 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 26
   %.sroa.0702.26..sroa_idx1518 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 26
   %.sroa.0702.26..sroa_idx1522 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 26
-  store i8 %999, ptr %.sroa.0702.26..sroa_idx1522, align 2, !tbaa !648, !alias.scope !3739
+  store i8 %999, ptr %.sroa.0702.26..sroa_idx1522, align 2, !tbaa !648, !alias.scope !3730
   br i1 %.pre1394, label %1011, label %1014
 
 1000:                                             ; preds = %.noexc535
   %1001 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %1002 = load ptr, ptr %1001, align 8, !noalias !3739
+  %1002 = load ptr, ptr %1001, align 8, !noalias !3730
   %1003 = select i1 %.pre1394, ptr %46, ptr %1002
-  %1004 = load i64, ptr %1003, align 8, !tbaa !609, !noalias !3739
+  %1004 = load i64, ptr %1003, align 8, !tbaa !609, !noalias !3730
   %1005 = icmp eq i64 %1004, 0
   br i1 %1005, label %1006, label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i533
 
 1006:                                             ; preds = %1000
-  store i8 0, ptr %991, align 8, !tbaa !617, !noalias !3739
-  store i64 0, ptr %.sroa.0702, align 16, !tbaa !53, !alias.scope !3739
+  store i8 0, ptr %991, align 8, !tbaa !617, !noalias !3730
+  store i64 0, ptr %.sroa.0702, align 16, !tbaa !53, !alias.scope !3730
   %.sroa.0702.16..sroa_idx1492 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 16
   %.sroa.0702.16..sroa_idx1493 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 16
   %.sroa.0702.16..sroa_idx1496 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 16
-  store i64 %996, ptr %.sroa.0702.16..sroa_idx1496, align 16, !tbaa !608, !alias.scope !3739
+  store i64 %996, ptr %.sroa.0702.16..sroa_idx1496, align 16, !tbaa !608, !alias.scope !3730
   %.sroa.0702.24..sroa_idx1501 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 24
   %.sroa.0702.24..sroa_idx1502 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 24
   %.sroa.0702.24..sroa_idx1505 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 24
-  store i8 0, ptr %.sroa.0702.24..sroa_idx1505, align 8, !tbaa !617, !alias.scope !3739
+  store i8 0, ptr %.sroa.0702.24..sroa_idx1505, align 8, !tbaa !617, !alias.scope !3730
   %.sroa.0702.25..sroa_idx1510 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 25
   %.sroa.0702.25..sroa_idx1511 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 25
   %.sroa.0702.25..sroa_idx1514 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 25
-  store i8 %.pre.i532, ptr %.sroa.0702.25..sroa_idx1514, align 1, !tbaa !4, !alias.scope !3739
+  store i8 %.pre.i532, ptr %.sroa.0702.25..sroa_idx1514, align 1, !tbaa !4, !alias.scope !3730
   %1007 = getelementptr inbounds nuw i8, ptr %46, i64 26
-  %1008 = load i8, ptr %1007, align 2, !tbaa !648, !range !10, !noalias !3739, !noundef !11
+  %1008 = load i8, ptr %1007, align 2, !tbaa !648, !range !10, !noalias !3730, !noundef !11
   %.sroa.0702.26..sroa_idx1519 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 26
   %.sroa.0702.26..sroa_idx1520 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 26
   %.sroa.0702.26..sroa_idx1523 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 26
-  store i8 %1008, ptr %.sroa.0702.26..sroa_idx1523, align 2, !tbaa !648, !alias.scope !3739
+  store i8 %1008, ptr %.sroa.0702.26..sroa_idx1523, align 2, !tbaa !648, !alias.scope !3730
   br i1 %.pre1394, label %1011, label %1014
 
 _ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i533: ; preds = %1000
-  store i64 0, ptr %.sroa.0702, align 16, !tbaa !53, !alias.scope !3739
+  store i64 0, ptr %.sroa.0702, align 16, !tbaa !53, !alias.scope !3730
   %.sroa.0702.16..sroa_idx1488 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 16
   %.sroa.0702.16..sroa_idx1489 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 16
   %.sroa.0702.16..sroa_idx1494 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 16
-  store i64 %996, ptr %.sroa.0702.16..sroa_idx1494, align 16, !tbaa !608, !alias.scope !3739
+  store i64 %996, ptr %.sroa.0702.16..sroa_idx1494, align 16, !tbaa !608, !alias.scope !3730
   %.sroa.0702.24..sroa_idx1497 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 24
   %.sroa.0702.24..sroa_idx1498 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 24
   %.sroa.0702.24..sroa_idx1503 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 24
-  store i8 1, ptr %.sroa.0702.24..sroa_idx1503, align 8, !tbaa !617, !alias.scope !3739
+  store i8 1, ptr %.sroa.0702.24..sroa_idx1503, align 8, !tbaa !617, !alias.scope !3730
   %.sroa.0702.25..sroa_idx1506 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 25
   %.sroa.0702.25..sroa_idx1507 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 25
   %.sroa.0702.25..sroa_idx1512 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 25
-  store i8 %.pre.i532, ptr %.sroa.0702.25..sroa_idx1512, align 1, !tbaa !4, !alias.scope !3739
+  store i8 %.pre.i532, ptr %.sroa.0702.25..sroa_idx1512, align 1, !tbaa !4, !alias.scope !3730
   %1009 = getelementptr inbounds nuw i8, ptr %46, i64 26
-  %1010 = load i8, ptr %1009, align 2, !tbaa !648, !range !10, !noalias !3739, !noundef !11
+  %1010 = load i8, ptr %1009, align 2, !tbaa !648, !range !10, !noalias !3730, !noundef !11
   %.sroa.0702.26..sroa_idx1515 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 26
   %.sroa.0702.26..sroa_idx1516 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 26
   %.sroa.0702.26..sroa_idx1521 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 26
-  store i8 %1010, ptr %.sroa.0702.26..sroa_idx1521, align 2, !tbaa !648, !alias.scope !3739
+  store i8 %1010, ptr %.sroa.0702.26..sroa_idx1521, align 2, !tbaa !648, !alias.scope !3730
   br i1 %.pre1394, label %1011, label %1014
 
 1011:                                             ; preds = %1006, %.noexc535._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i533_crit_edge, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i533
@@ -138877,8 +138866,8 @@ _ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0EL
   %.sroa.0702.24..sroa_idx1469 = phi ptr [ %.sroa.0702.24..sroa_idx1500, %.noexc535._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i533_crit_edge ], [ %.sroa.0702.24..sroa_idx1498, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i533 ], [ %.sroa.0702.24..sroa_idx1502, %1006 ]
   %.sroa.0702.16..sroa_idx1466 = phi ptr [ %.sroa.0702.16..sroa_idx1491, %.noexc535._ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i533_crit_edge ], [ %.sroa.0702.16..sroa_idx1489, %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE6negateEv.exit.i533 ], [ %.sroa.0702.16..sroa_idx1493, %1006 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0702, ptr noundef nonnull align 16 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %995, align 16, !tbaa !608, !noalias !3739
-  store i8 1, ptr %.phi.trans.insert.i531, align 1, !tbaa !4, !noalias !3739
+  store i64 0, ptr %995, align 16, !tbaa !608, !noalias !3730
+  store i8 1, ptr %.phi.trans.insert.i531, align 1, !tbaa !4, !noalias !3730
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i534
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i534: ; preds = %1014, %1011
@@ -138890,23 +138879,23 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   %1017 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %.sroa.0702.32..sroa_idx743 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 32
   %.sroa.0702.32..sroa_idx1525 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 32
-  store i64 0, ptr %.sroa.0702.32..sroa_idx1525, align 16, !tbaa !53, !alias.scope !3739
+  store i64 0, ptr %.sroa.0702.32..sroa_idx1525, align 16, !tbaa !53, !alias.scope !3730
   %1018 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %1019 = load i64, ptr %1018, align 16, !tbaa !608, !noalias !3739
+  %1019 = load i64, ptr %1018, align 16, !tbaa !608, !noalias !3730
   %.sroa.0702.48..sroa_idx1526 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 48
-  store i64 %1019, ptr %.sroa.0702.48..sroa_idx1526, align 16, !tbaa !608, !alias.scope !3739
+  store i64 %1019, ptr %.sroa.0702.48..sroa_idx1526, align 16, !tbaa !608, !alias.scope !3730
   %1020 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %1021 = load i8, ptr %1020, align 8, !tbaa !617, !range !10, !noalias !3739, !noundef !11
+  %1021 = load i8, ptr %1020, align 8, !tbaa !617, !range !10, !noalias !3730, !noundef !11
   %.sroa.0702.56..sroa_idx1529 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 56
-  store i8 %1021, ptr %.sroa.0702.56..sroa_idx1529, align 8, !tbaa !617, !alias.scope !3739
+  store i8 %1021, ptr %.sroa.0702.56..sroa_idx1529, align 8, !tbaa !617, !alias.scope !3730
   %1022 = getelementptr inbounds nuw i8, ptr %46, i64 57
-  %1023 = load i8, ptr %1022, align 1, !tbaa !4, !range !10, !noalias !3739, !noundef !11
+  %1023 = load i8, ptr %1022, align 1, !tbaa !4, !range !10, !noalias !3730, !noundef !11
   %.sroa.0702.57..sroa_idx1531 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 57
-  store i8 %1023, ptr %.sroa.0702.57..sroa_idx1531, align 1, !tbaa !4, !alias.scope !3739
+  store i8 %1023, ptr %.sroa.0702.57..sroa_idx1531, align 1, !tbaa !4, !alias.scope !3730
   %1024 = getelementptr inbounds nuw i8, ptr %46, i64 58
-  %1025 = load i8, ptr %1024, align 2, !tbaa !648, !range !10, !noalias !3739, !noundef !11
+  %1025 = load i8, ptr %1024, align 2, !tbaa !648, !range !10, !noalias !3730, !noundef !11
   %.sroa.0702.58..sroa_idx1534 = getelementptr inbounds nuw i8, ptr %.sroa.0702, i64 58
-  store i8 %1025, ptr %.sroa.0702.58..sroa_idx1534, align 2, !tbaa !648, !alias.scope !3739
+  store i8 %1025, ptr %.sroa.0702.58..sroa_idx1534, align 2, !tbaa !648, !alias.scope !3730
   %1026 = trunc nuw i8 %1023 to i1
   br i1 %1026, label %1027, label %1029
 
@@ -138918,8 +138907,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 1029:                                             ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EEC2EOS6_.exit.i.i534
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0702.32..sroa_idx743, ptr noundef nonnull align 16 dereferenceable(16) %1017, i64 16, i1 false), !tbaa.struct !649
-  store i64 0, ptr %1018, align 16, !tbaa !608, !noalias !3739
-  store i8 1, ptr %1022, align 1, !tbaa !4, !noalias !3739
+  store i64 0, ptr %1018, align 16, !tbaa !608, !noalias !3730
+  store i8 1, ptr %1022, align 1, !tbaa !4, !noalias !3730
   br label %_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_.exit536
 
 _ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_.exit536: ; preds = %1029, %1027
@@ -139780,18 +139769,18 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 1374:                                             ; preds = %1372
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %63) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64) #23
-  store ptr %42, ptr %64, align 8, !tbaa !819, !alias.scope !3742
+  store ptr %42, ptr %64, align 8, !tbaa !819, !alias.scope !3733
   %1375 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr %30, ptr %1375, align 8, !tbaa !819, !alias.scope !3742
+  store ptr %30, ptr %1375, align 8, !tbaa !819, !alias.scope !3733
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %63, ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef null)
           to label %1376 unwind label %1382
 
 1376:                                             ; preds = %1374
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %65) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66) #23
-  store ptr %29, ptr %66, align 8, !tbaa !819, !alias.scope !3745
+  store ptr %29, ptr %66, align 8, !tbaa !819, !alias.scope !3736
   %1377 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store ptr %41, ptr %1377, align 8, !tbaa !819, !alias.scope !3745
+  store ptr %41, ptr %1377, align 8, !tbaa !819, !alias.scope !3736
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %65, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef null)
           to label %1378 unwind label %1384
 
@@ -139841,18 +139830,18 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 1390:                                             ; preds = %1380
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %67) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68) #23
-  store ptr %32, ptr %68, align 8, !tbaa !819, !alias.scope !3748
+  store ptr %32, ptr %68, align 8, !tbaa !819, !alias.scope !3739
   %1391 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store ptr %40, ptr %1391, align 8, !tbaa !819, !alias.scope !3748
+  store ptr %40, ptr %1391, align 8, !tbaa !819, !alias.scope !3739
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %67, ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef null)
           to label %1392 unwind label %1396
 
 1392:                                             ; preds = %1390
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %69) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70) #23
-  store ptr %39, ptr %70, align 8, !tbaa !819, !alias.scope !3751
+  store ptr %39, ptr %70, align 8, !tbaa !819, !alias.scope !3742
   %1393 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store ptr %31, ptr %1393, align 8, !tbaa !819, !alias.scope !3751
+  store ptr %31, ptr %1393, align 8, !tbaa !819, !alias.scope !3742
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef null)
           to label %1394 unwind label %1398
 
@@ -139919,17 +139908,17 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 
 1411:                                             ; preds = %1409
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %71) #23
-  store ptr %29, ptr %72, align 8, !tbaa !819, !alias.scope !3754
+  store ptr %29, ptr %72, align 8, !tbaa !819, !alias.scope !3745
   %1412 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr %40, ptr %1412, align 8, !tbaa !819, !alias.scope !3754
+  store ptr %40, ptr %1412, align 8, !tbaa !819, !alias.scope !3745
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %71, ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef null)
           to label %1413 unwind label %1424
 
 1413:                                             ; preds = %1411
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %73) #23
-  store ptr %39, ptr %74, align 8, !tbaa !819, !alias.scope !3757
+  store ptr %39, ptr %74, align 8, !tbaa !819, !alias.scope !3748
   %1414 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr %30, ptr %1414, align 8, !tbaa !819, !alias.scope !3757
+  store ptr %30, ptr %1414, align 8, !tbaa !819, !alias.scope !3748
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %73, ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef null)
           to label %1415 unwind label %1426
 
@@ -140014,17 +140003,17 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 
 1437:                                             ; preds = %1435
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %75) #23
-  store ptr %42, ptr %76, align 8, !tbaa !819, !alias.scope !3760
+  store ptr %42, ptr %76, align 8, !tbaa !819, !alias.scope !3751
   %1438 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store ptr %31, ptr %1438, align 8, !tbaa !819, !alias.scope !3760
+  store ptr %31, ptr %1438, align 8, !tbaa !819, !alias.scope !3751
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %75, ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef null)
           to label %1439 unwind label %1448
 
 1439:                                             ; preds = %1437
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %77) #23
-  store ptr %32, ptr %78, align 8, !tbaa !819, !alias.scope !3763
+  store ptr %32, ptr %78, align 8, !tbaa !819, !alias.scope !3754
   %1440 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store ptr %41, ptr %1440, align 8, !tbaa !819, !alias.scope !3763
+  store ptr %41, ptr %1440, align 8, !tbaa !819, !alias.scope !3754
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %77, ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef null)
           to label %1441 unwind label %1450
 
@@ -140099,18 +140088,18 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 1462:                                             ; preds = %1460
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %79) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80) #23
-  store ptr %52, ptr %80, align 8, !tbaa !819, !alias.scope !3766
+  store ptr %52, ptr %80, align 8, !tbaa !819, !alias.scope !3757
   %1463 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr %30, ptr %1463, align 8, !tbaa !819, !alias.scope !3766
+  store ptr %30, ptr %1463, align 8, !tbaa !819, !alias.scope !3757
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %79, ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef null)
           to label %1464 unwind label %1470
 
 1464:                                             ; preds = %1462
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %81) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82) #23
-  store ptr %29, ptr %82, align 8, !tbaa !819, !alias.scope !3769
+  store ptr %29, ptr %82, align 8, !tbaa !819, !alias.scope !3760
   %1465 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store ptr %51, ptr %1465, align 8, !tbaa !819, !alias.scope !3769
+  store ptr %51, ptr %1465, align 8, !tbaa !819, !alias.scope !3760
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef null)
           to label %1466 unwind label %1472
 
@@ -140160,18 +140149,18 @@ _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_b
 1478:                                             ; preds = %1468
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %83) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %84) #23
-  store ptr %32, ptr %84, align 8, !tbaa !819, !alias.scope !3772
+  store ptr %32, ptr %84, align 8, !tbaa !819, !alias.scope !3763
   %1479 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store ptr %50, ptr %1479, align 8, !tbaa !819, !alias.scope !3772
+  store ptr %50, ptr %1479, align 8, !tbaa !819, !alias.scope !3763
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %83, ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef null)
           to label %1480 unwind label %1484
 
 1480:                                             ; preds = %1478
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %85) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %86) #23
-  store ptr %49, ptr %86, align 8, !tbaa !819, !alias.scope !3775
+  store ptr %49, ptr %86, align 8, !tbaa !819, !alias.scope !3766
   %1481 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store ptr %31, ptr %1481, align 8, !tbaa !819, !alias.scope !3775
+  store ptr %31, ptr %1481, align 8, !tbaa !819, !alias.scope !3766
   invoke void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEC2INS0_6detail19multiply_immediatesESB_SB_vvEERKNSD_10expressionIT_T0_T1_T2_T3_EEPNSt9enable_ifIXsr3std14is_convertibleINSL_11result_typeESB_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %85, ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef null)
           to label %1482 unwind label %1486
 
@@ -141401,47 +141390,47 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL24Filtered_predicate_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !3778)
-  %23 = load double, ptr %1, align 8, !tbaa !606, !noalias !3781
+  call void @llvm.experimental.noalias.scope.decl(metadata !3769)
+  %23 = load double, ptr %1, align 8, !tbaa !606, !noalias !3772
   %24 = fneg double %23
   %25 = insertelement <2 x double> poison, double %24, i64 0
   %26 = insertelement <2 x double> %25, double %23, i64 1
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load double, ptr %27, align 8, !tbaa !606, !noalias !3781
+  %28 = load double, ptr %27, align 8, !tbaa !606, !noalias !3772
   %29 = fneg double %28
   %30 = insertelement <2 x double> poison, double %29, i64 0
   %31 = insertelement <2 x double> %30, double %28, i64 1
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load double, ptr %32, align 8, !tbaa !606, !noalias !3781
+  %33 = load double, ptr %32, align 8, !tbaa !606, !noalias !3772
   %34 = fneg double %33
   %35 = insertelement <2 x double> poison, double %34, i64 0
   %36 = insertelement <2 x double> %35, double %33, i64 1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %38 = load double, ptr %37, align 8, !tbaa !606, !noalias !3784
+  %38 = load double, ptr %37, align 8, !tbaa !606, !noalias !3775
   %39 = fneg double %38
   %40 = insertelement <2 x double> poison, double %39, i64 0
   %41 = insertelement <2 x double> %40, double %38, i64 1
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %43 = load double, ptr %42, align 8, !tbaa !606, !noalias !3784
+  %43 = load double, ptr %42, align 8, !tbaa !606, !noalias !3775
   %44 = fneg double %43
   %45 = insertelement <2 x double> poison, double %44, i64 0
   %46 = insertelement <2 x double> %45, double %43, i64 1
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %48 = load double, ptr %47, align 8, !tbaa !606, !noalias !3784
+  %48 = load double, ptr %47, align 8, !tbaa !606, !noalias !3775
   %49 = fneg double %48
   %50 = insertelement <2 x double> poison, double %49, i64 0
   %51 = insertelement <2 x double> %50, double %48, i64 1
-  store <2 x double> %26, ptr %17, align 16, !alias.scope !3778
+  store <2 x double> %26, ptr %17, align 16, !alias.scope !3769
   %.sroa.03.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store <2 x double> %31, ptr %.sroa.03.i.sroa.4.0..sroa_idx.i, align 16, !alias.scope !3778
+  store <2 x double> %31, ptr %.sroa.03.i.sroa.4.0..sroa_idx.i, align 16, !alias.scope !3769
   %.sroa.03.i.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store <2 x double> %36, ptr %.sroa.03.i.sroa.5.0..sroa_idx.i, align 16, !alias.scope !3778
+  store <2 x double> %36, ptr %.sroa.03.i.sroa.5.0..sroa_idx.i, align 16, !alias.scope !3769
   %.sroa.03.i.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store <2 x double> %41, ptr %.sroa.03.i.sroa.6.0..sroa_idx.i, align 16, !alias.scope !3778
+  store <2 x double> %41, ptr %.sroa.03.i.sroa.6.0..sroa_idx.i, align 16, !alias.scope !3769
   %.sroa.03.i.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 64
-  store <2 x double> %46, ptr %.sroa.03.i.sroa.7.0..sroa_idx.i, align 16, !alias.scope !3778
+  store <2 x double> %46, ptr %.sroa.03.i.sroa.7.0..sroa_idx.i, align 16, !alias.scope !3769
   %.sroa.03.i.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store <2 x double> %51, ptr %.sroa.03.i.sroa.8.0..sroa_idx.i, align 16, !tbaa !53, !alias.scope !3778
+  store <2 x double> %51, ptr %.sroa.03.i.sroa.8.0..sroa_idx.i, align 16, !tbaa !53, !alias.scope !3769
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23
   %52 = load double, ptr %2, align 8, !tbaa !606
   store double %52, ptr %8, align 8, !tbaa !606
@@ -144068,17 +144057,17 @@ _ZN4CGAL9cpp_floatD2Ev.exit623:                   ; preds = %875, %869
 880:                                              ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit615
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %31) #23
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %32) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !3787)
-  %881 = load double, ptr %9, align 8, !tbaa !606, !noalias !3787
-  store i64 0, ptr %32, align 16, !tbaa !53, !alias.scope !3787
+  call void @llvm.experimental.noalias.scope.decl(metadata !3778)
+  %881 = load double, ptr %9, align 8, !tbaa !606, !noalias !3778
+  store i64 0, ptr %32, align 16, !tbaa !53, !alias.scope !3778
   %882 = getelementptr inbounds nuw i8, ptr %32, i64 64
-  store i64 1, ptr %882, align 16, !tbaa !762, !alias.scope !3787
+  store i64 1, ptr %882, align 16, !tbaa !762, !alias.scope !3778
   %883 = getelementptr inbounds nuw i8, ptr %32, i64 72
-  store i8 0, ptr %883, align 8, !tbaa !764, !alias.scope !3787
+  store i8 0, ptr %883, align 8, !tbaa !764, !alias.scope !3778
   %884 = getelementptr inbounds nuw i8, ptr %32, i64 73
-  store i8 1, ptr %884, align 1, !tbaa !765, !alias.scope !3787
+  store i8 1, ptr %884, align 1, !tbaa !765, !alias.scope !3778
   %885 = getelementptr inbounds nuw i8, ptr %32, i64 74
-  store i8 0, ptr %885, align 2, !tbaa !766, !alias.scope !3787
+  store i8 0, ptr %885, align 2, !tbaa !766, !alias.scope !3778
   %886 = bitcast double %881 to i64
   %887 = lshr i64 %886, 52
   %888 = and i64 %887, 2047
@@ -144091,7 +144080,7 @@ _ZN4CGAL9cpp_floatD2Ev.exit623:                   ; preds = %875, %869
 
 892:                                              ; preds = %890
   %893 = getelementptr inbounds nuw i8, ptr %32, i64 80
-  store i32 0, ptr %893, align 16, !tbaa !767, !alias.scope !3787
+  store i32 0, ptr %893, align 16, !tbaa !767, !alias.scope !3778
   br label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit
 
 894:                                              ; preds = %890
@@ -144115,15 +144104,15 @@ _ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_1
   %905 = xor i32 %904, 63
   %906 = sub nsw i32 %.0.i.i, %905
   %907 = getelementptr inbounds nuw i8, ptr %32, i64 80
-  store i32 %906, ptr %907, align 16, !tbaa !767, !alias.scope !3787
-  store i64 %902, ptr %32, align 16, !tbaa !609, !alias.scope !3787
+  store i32 %906, ptr %907, align 16, !tbaa !767, !alias.scope !3778
+  store i64 %902, ptr %32, align 16, !tbaa !609, !alias.scope !3778
   %.not.i.i = icmp sgt i64 %886, -1
   br i1 %.not.i.i, label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit, label %908
 
 908:                                              ; preds = %_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEaSImEENSt9enable_ifIXsr3std14is_convertibleIT_S9_EE5valueERS9_E4typeERKSC_.exit.i.i
   %909 = icmp ne i64 %storemerge.i.i, 0
   %spec.store.select.i.i = zext i1 %909 to i8
-  store i8 %spec.store.select.i.i, ptr %883, align 8, !alias.scope !3787
+  store i8 %spec.store.select.i.i, ptr %883, align 8, !alias.scope !3778
   br label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit
 
 _ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit: ; preds = %908, %_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEaSImEENSt9enable_ifIXsr3std14is_convertibleIT_S9_EE5valueERS9_E4typeERKSC_.exit.i.i, %892
@@ -144560,17 +144549,17 @@ _ZN4CGAL9cpp_floatD2Ev.exit661:                   ; preds = %_ZN4CGAL9cpp_floatD
 1109:                                             ; preds = %1090
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %37) #23
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %38) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !3790)
-  %1110 = load double, ptr %6, align 8, !tbaa !606, !noalias !3790
-  store i64 0, ptr %38, align 16, !tbaa !53, !alias.scope !3790
+  call void @llvm.experimental.noalias.scope.decl(metadata !3781)
+  %1110 = load double, ptr %6, align 8, !tbaa !606, !noalias !3781
+  store i64 0, ptr %38, align 16, !tbaa !53, !alias.scope !3781
   %1111 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  store i64 1, ptr %1111, align 16, !tbaa !762, !alias.scope !3790
+  store i64 1, ptr %1111, align 16, !tbaa !762, !alias.scope !3781
   %1112 = getelementptr inbounds nuw i8, ptr %38, i64 72
-  store i8 0, ptr %1112, align 8, !tbaa !764, !alias.scope !3790
+  store i8 0, ptr %1112, align 8, !tbaa !764, !alias.scope !3781
   %1113 = getelementptr inbounds nuw i8, ptr %38, i64 73
-  store i8 1, ptr %1113, align 1, !tbaa !765, !alias.scope !3790
+  store i8 1, ptr %1113, align 1, !tbaa !765, !alias.scope !3781
   %1114 = getelementptr inbounds nuw i8, ptr %38, i64 74
-  store i8 0, ptr %1114, align 2, !tbaa !766, !alias.scope !3790
+  store i8 0, ptr %1114, align 2, !tbaa !766, !alias.scope !3781
   %1115 = bitcast double %1110 to i64
   %1116 = lshr i64 %1115, 52
   %1117 = and i64 %1116, 2047
@@ -144583,7 +144572,7 @@ _ZN4CGAL9cpp_floatD2Ev.exit661:                   ; preds = %_ZN4CGAL9cpp_floatD
 
 1121:                                             ; preds = %1119
   %1122 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  store i32 0, ptr %1122, align 16, !tbaa !767, !alias.scope !3790
+  store i32 0, ptr %1122, align 16, !tbaa !767, !alias.scope !3781
   br label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit667
 
 1123:                                             ; preds = %1119
@@ -144607,15 +144596,15 @@ _ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_1
   %1134 = xor i32 %1133, 63
   %1135 = sub nsw i32 %.0.i.i664, %1134
   %1136 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  store i32 %1135, ptr %1136, align 16, !tbaa !767, !alias.scope !3790
-  store i64 %1131, ptr %38, align 16, !tbaa !609, !alias.scope !3790
+  store i32 %1135, ptr %1136, align 16, !tbaa !767, !alias.scope !3781
+  store i64 %1131, ptr %38, align 16, !tbaa !609, !alias.scope !3781
   %.not.i.i665 = icmp sgt i64 %1115, -1
   br i1 %.not.i.i665, label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit667, label %1137
 
 1137:                                             ; preds = %_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEaSImEENSt9enable_ifIXsr3std14is_convertibleIT_S9_EE5valueERS9_E4typeERKSC_.exit.i.i662
   %1138 = icmp ne i64 %storemerge.i.i663, 0
   %spec.store.select.i.i666 = zext i1 %1138 to i8
-  store i8 %spec.store.select.i.i666, ptr %1112, align 8, !alias.scope !3790
+  store i8 %spec.store.select.i.i666, ptr %1112, align 8, !alias.scope !3781
   br label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit667
 
 _ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit667: ; preds = %1137, %_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEaSImEENSt9enable_ifIXsr3std14is_convertibleIT_S9_EE5valueERS9_E4typeERKSC_.exit.i.i662, %1121
@@ -144771,17 +144760,17 @@ _ZN4CGAL9cpp_floatD2Ev.exit679:                   ; preds = %1202, %1196
 1209:                                             ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit677, %_ZN4CGAL9cpp_floatD2Ev.exit661
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %40) #23
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %41) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !3793)
-  %1210 = load double, ptr %9, align 8, !tbaa !606, !noalias !3793
-  store i64 0, ptr %41, align 16, !tbaa !53, !alias.scope !3793
+  call void @llvm.experimental.noalias.scope.decl(metadata !3784)
+  %1210 = load double, ptr %9, align 8, !tbaa !606, !noalias !3784
+  store i64 0, ptr %41, align 16, !tbaa !53, !alias.scope !3784
   %1211 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  store i64 1, ptr %1211, align 16, !tbaa !762, !alias.scope !3793
+  store i64 1, ptr %1211, align 16, !tbaa !762, !alias.scope !3784
   %1212 = getelementptr inbounds nuw i8, ptr %41, i64 72
-  store i8 0, ptr %1212, align 8, !tbaa !764, !alias.scope !3793
+  store i8 0, ptr %1212, align 8, !tbaa !764, !alias.scope !3784
   %1213 = getelementptr inbounds nuw i8, ptr %41, i64 73
-  store i8 1, ptr %1213, align 1, !tbaa !765, !alias.scope !3793
+  store i8 1, ptr %1213, align 1, !tbaa !765, !alias.scope !3784
   %1214 = getelementptr inbounds nuw i8, ptr %41, i64 74
-  store i8 0, ptr %1214, align 2, !tbaa !766, !alias.scope !3793
+  store i8 0, ptr %1214, align 2, !tbaa !766, !alias.scope !3784
   %1215 = bitcast double %1210 to i64
   %1216 = lshr i64 %1215, 52
   %1217 = and i64 %1216, 2047
@@ -144794,7 +144783,7 @@ _ZN4CGAL9cpp_floatD2Ev.exit679:                   ; preds = %1202, %1196
 
 1221:                                             ; preds = %1219
   %1222 = getelementptr inbounds nuw i8, ptr %41, i64 80
-  store i32 0, ptr %1222, align 16, !tbaa !767, !alias.scope !3793
+  store i32 0, ptr %1222, align 16, !tbaa !767, !alias.scope !3784
   br label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit685
 
 1223:                                             ; preds = %1219
@@ -144818,15 +144807,15 @@ _ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_1
   %1234 = xor i32 %1233, 63
   %1235 = sub nsw i32 %.0.i.i682, %1234
   %1236 = getelementptr inbounds nuw i8, ptr %41, i64 80
-  store i32 %1235, ptr %1236, align 16, !tbaa !767, !alias.scope !3793
-  store i64 %1231, ptr %41, align 16, !tbaa !609, !alias.scope !3793
+  store i32 %1235, ptr %1236, align 16, !tbaa !767, !alias.scope !3784
+  store i64 %1231, ptr %41, align 16, !tbaa !609, !alias.scope !3784
   %.not.i.i683 = icmp sgt i64 %1215, -1
   br i1 %.not.i.i683, label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit685, label %1237
 
 1237:                                             ; preds = %_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEaSImEENSt9enable_ifIXsr3std14is_convertibleIT_S9_EE5valueERS9_E4typeERKSC_.exit.i.i680
   %1238 = icmp ne i64 %storemerge.i.i681, 0
   %spec.store.select.i.i684 = zext i1 %1238 to i8
-  store i8 %spec.store.select.i.i684, ptr %1212, align 8, !alias.scope !3793
+  store i8 %spec.store.select.i.i684, ptr %1212, align 8, !alias.scope !3784
   br label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit685
 
 _ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit685: ; preds = %1237, %_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEaSImEENSt9enable_ifIXsr3std14is_convertibleIT_S9_EE5valueERS9_E4typeERKSC_.exit.i.i680, %1221
@@ -144993,14 +144982,14 @@ _ZN4CGAL9cpp_floatD2Ev.exit697:                   ; preds = %1302, %1296
   store i8 0, ptr %1313, align 2, !tbaa !766
   %1314 = getelementptr inbounds nuw i8, ptr %44, i64 80
   store i32 0, ptr %1314, align 16, !tbaa !767
-  call void @llvm.experimental.noalias.scope.decl(metadata !3796)
-  call void @llvm.experimental.noalias.scope.decl(metadata !3799)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3787)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3790)
   %1315 = invoke noundef zeroext i1 @_ZN4CGALltERKNS_9cpp_floatES2_(ptr noundef nonnull align 16 dereferenceable(84) %44, ptr noundef nonnull align 16 dereferenceable(84) %27)
           to label %.noexc unwind label %1384
 
 .noexc:                                           ; preds = %1309
   %..i.i.i = select i1 %1315, ptr %27, ptr %44
-  store i64 0, ptr %43, align 16, !tbaa !53, !alias.scope !3802
+  store i64 0, ptr %43, align 16, !tbaa !53, !alias.scope !3793
   %1316 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %.val = load i8, ptr %788, align 2, !range !10
   %.val1627 = load i8, ptr %1313, align 2, !range !10
@@ -145010,17 +144999,17 @@ _ZN4CGAL9cpp_floatD2Ev.exit697:                   ; preds = %1302, %1296
   %.val1629 = load i64, ptr %1310, align 16
   %1319 = select i1 %1315, i64 %.val1628, i64 %.val1629
   %1320 = select i1 %1318, i64 %1319, i64 0
-  store i64 %1320, ptr %1316, align 16, !tbaa !762, !alias.scope !3802
+  store i64 %1320, ptr %1316, align 16, !tbaa !762, !alias.scope !3793
   %1321 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %.val1630 = load i8, ptr %786, align 8, !range !10
   %.val1631 = load i8, ptr %1311, align 8, !range !10
   %1322 = select i1 %1315, i8 %.val1630, i8 %.val1631
-  store i8 %1322, ptr %1321, align 8, !tbaa !764, !alias.scope !3802
+  store i8 %1322, ptr %1321, align 8, !tbaa !764, !alias.scope !3793
   %1323 = getelementptr inbounds nuw i8, ptr %43, i64 73
   %not..i.i.i.i.i = xor i8 %1317, 1
-  store i8 %not..i.i.i.i.i, ptr %1323, align 1, !tbaa !765, !alias.scope !3802
+  store i8 %not..i.i.i.i.i, ptr %1323, align 1, !tbaa !765, !alias.scope !3793
   %1324 = getelementptr inbounds nuw i8, ptr %43, i64 74
-  store i8 %1317, ptr %1324, align 2, !tbaa !766, !alias.scope !3802
+  store i8 %1317, ptr %1324, align 2, !tbaa !766, !alias.scope !3793
   br i1 %1318, label %1325, label %1326
 
 1325:                                             ; preds = %.noexc
@@ -145041,21 +145030,21 @@ _ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i.i.i: ; preds = %1326
 
 .noexc698:                                        ; preds = %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i.i.i
   %1330 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i8 0, ptr %1323, align 1, !tbaa !765, !alias.scope !3802
-  store i64 %.sroa.speculated18.i.i.i.i, ptr %43, align 16, !tbaa !53, !alias.scope !3802
-  store ptr %1329, ptr %1330, align 8, !tbaa !53, !alias.scope !3802
+  store i8 0, ptr %1323, align 1, !tbaa !765, !alias.scope !3793
+  store i64 %.sroa.speculated18.i.i.i.i, ptr %43, align 16, !tbaa !53, !alias.scope !3793
+  store ptr %1329, ptr %1330, align 8, !tbaa !53, !alias.scope !3793
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm512ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i.i.i
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm512ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i.i.i: ; preds = %.noexc698, %1326
   %1331 = phi ptr [ %1329, %.noexc698 ], [ %43, %1326 ]
-  store i64 %spec.select.i.i.i.i, ptr %1316, align 16, !tbaa !762, !alias.scope !3802
+  store i64 %spec.select.i.i.i.i, ptr %1316, align 16, !tbaa !762, !alias.scope !3793
   %.val1632 = load i8, ptr %787, align 1, !range !10
   %.val1633 = load i8, ptr %1312, align 1, !range !10
   %1332 = select i1 %1315, i8 %.val1632, i8 %.val1633
   %1333 = trunc nuw i8 %1332 to i1
   %..i.i.i.sroa.sel1205.v.sroa.sel.v.sroa.sel.v = select i1 %1315, ptr %27, ptr %44
   %..i.i.i.sroa.sel1205.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..i.i.i.sroa.sel1205.v.sroa.sel.v.sroa.sel.v, i64 8
-  %1334 = load ptr, ptr %..i.i.i.sroa.sel1205.v.sroa.sel.v.sroa.sel, align 8, !noalias !3802
+  %1334 = load ptr, ptr %..i.i.i.sroa.sel1205.v.sroa.sel.v.sroa.sel, align 8, !noalias !3793
   %1335 = select i1 %1333, ptr %..i.i.i, ptr %1334
   %1336 = shl i64 %1319, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1331, ptr align 8 %1335, i64 %1336, i1 false)
@@ -145067,7 +145056,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm512ELm18446744073709551615ELN
   %.val1634 = load i32, ptr %789, align 16
   %.val1635 = load i32, ptr %1314, align 16
   %1340 = select i1 %1315, i32 %.val1634, i32 %.val1635
-  store i32 %1340, ptr %1339, align 16, !tbaa !767, !alias.scope !3802
+  store i32 %1340, ptr %1339, align 16, !tbaa !767, !alias.scope !3793
   %1341 = trunc nuw i8 %1338 to i1
   %1342 = trunc nuw i8 %.val to i1
   %or.cond.i.i699 = select i1 %1341, i1 true, i1 %1342
@@ -145439,17 +145428,17 @@ _ZN4CGAL9cpp_floatD2Ev.exit728:                   ; preds = %1496, %1488, %1486
 1503:                                             ; preds = %_ZN4CGAL9cpp_floatD2Ev.exit726, %_ZN4CGAL9cpp_floatD2Ev.exit716
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %52) #23
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %53) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !3803)
-  %1504 = load double, ptr %7, align 8, !tbaa !606, !noalias !3803
-  store i64 0, ptr %53, align 16, !tbaa !53, !alias.scope !3803
+  call void @llvm.experimental.noalias.scope.decl(metadata !3794)
+  %1504 = load double, ptr %7, align 8, !tbaa !606, !noalias !3794
+  store i64 0, ptr %53, align 16, !tbaa !53, !alias.scope !3794
   %1505 = getelementptr inbounds nuw i8, ptr %53, i64 64
-  store i64 1, ptr %1505, align 16, !tbaa !762, !alias.scope !3803
+  store i64 1, ptr %1505, align 16, !tbaa !762, !alias.scope !3794
   %1506 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  store i8 0, ptr %1506, align 8, !tbaa !764, !alias.scope !3803
+  store i8 0, ptr %1506, align 8, !tbaa !764, !alias.scope !3794
   %1507 = getelementptr inbounds nuw i8, ptr %53, i64 73
-  store i8 1, ptr %1507, align 1, !tbaa !765, !alias.scope !3803
+  store i8 1, ptr %1507, align 1, !tbaa !765, !alias.scope !3794
   %1508 = getelementptr inbounds nuw i8, ptr %53, i64 74
-  store i8 0, ptr %1508, align 2, !tbaa !766, !alias.scope !3803
+  store i8 0, ptr %1508, align 2, !tbaa !766, !alias.scope !3794
   %1509 = bitcast double %1504 to i64
   %1510 = lshr i64 %1509, 52
   %1511 = and i64 %1510, 2047
@@ -145462,7 +145451,7 @@ _ZN4CGAL9cpp_floatD2Ev.exit728:                   ; preds = %1496, %1488, %1486
 
 1515:                                             ; preds = %1513
   %1516 = getelementptr inbounds nuw i8, ptr %53, i64 80
-  store i32 0, ptr %1516, align 16, !tbaa !767, !alias.scope !3803
+  store i32 0, ptr %1516, align 16, !tbaa !767, !alias.scope !3794
   br label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit734
 
 1517:                                             ; preds = %1513
@@ -145486,15 +145475,15 @@ _ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_1
   %1528 = xor i32 %1527, 63
   %1529 = sub nsw i32 %.0.i.i731, %1528
   %1530 = getelementptr inbounds nuw i8, ptr %53, i64 80
-  store i32 %1529, ptr %1530, align 16, !tbaa !767, !alias.scope !3803
-  store i64 %1525, ptr %53, align 16, !tbaa !609, !alias.scope !3803
+  store i32 %1529, ptr %1530, align 16, !tbaa !767, !alias.scope !3794
+  store i64 %1525, ptr %53, align 16, !tbaa !609, !alias.scope !3794
   %.not.i.i732 = icmp sgt i64 %1509, -1
   br i1 %.not.i.i732, label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit734, label %1531
 
 1531:                                             ; preds = %_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEaSImEENSt9enable_ifIXsr3std14is_convertibleIT_S9_EE5valueERS9_E4typeERKSC_.exit.i.i729
   %1532 = icmp ne i64 %storemerge.i.i730, 0
   %spec.store.select.i.i733 = zext i1 %1532 to i8
-  store i8 %spec.store.select.i.i733, ptr %1506, align 8, !alias.scope !3803
+  store i8 %spec.store.select.i.i733, ptr %1506, align 8, !alias.scope !3794
   br label %_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit734
 
 _ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd.exit734: ; preds = %1531, %_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm512ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EEaSImEENSt9enable_ifIXsr3std14is_convertibleIT_S9_EE5valueERS9_E4typeERKSC_.exit.i.i729, %1515
@@ -146108,14 +146097,14 @@ _ZN4CGAL9cpp_floatD2Ev.exit784:                   ; preds = %1801, %1795
   store i8 0, ptr %1812, align 2, !tbaa !766
   %1813 = getelementptr inbounds nuw i8, ptr %62, i64 80
   store i32 0, ptr %1813, align 16, !tbaa !767
-  call void @llvm.experimental.noalias.scope.decl(metadata !3806)
-  call void @llvm.experimental.noalias.scope.decl(metadata !3809)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3797)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3800)
   %1814 = invoke noundef zeroext i1 @_ZN4CGALltERKNS_9cpp_floatES2_(ptr noundef nonnull align 16 dereferenceable(84) %62, ptr noundef nonnull align 16 dereferenceable(84) %46)
           to label %.noexc792 unwind label %1883
 
 .noexc792:                                        ; preds = %1808
   %..i.i.i785 = select i1 %1814, ptr %46, ptr %62
-  store i64 0, ptr %61, align 16, !tbaa !53, !alias.scope !3812
+  store i64 0, ptr %61, align 16, !tbaa !53, !alias.scope !3803
   %1815 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %.val1636 = load i8, ptr %1371, align 2, !range !10
   %.val1637 = load i8, ptr %1812, align 2, !range !10
@@ -146125,17 +146114,17 @@ _ZN4CGAL9cpp_floatD2Ev.exit784:                   ; preds = %1801, %1795
   %.val1639 = load i64, ptr %1809, align 16
   %1818 = select i1 %1814, i64 %.val1638, i64 %.val1639
   %1819 = select i1 %1817, i64 %1818, i64 0
-  store i64 %1819, ptr %1815, align 16, !tbaa !762, !alias.scope !3812
+  store i64 %1819, ptr %1815, align 16, !tbaa !762, !alias.scope !3803
   %1820 = getelementptr inbounds nuw i8, ptr %61, i64 72
   %.val1640 = load i8, ptr %1369, align 8, !range !10
   %.val1641 = load i8, ptr %1810, align 8, !range !10
   %1821 = select i1 %1814, i8 %.val1640, i8 %.val1641
-  store i8 %1821, ptr %1820, align 8, !tbaa !764, !alias.scope !3812
+  store i8 %1821, ptr %1820, align 8, !tbaa !764, !alias.scope !3803
   %1822 = getelementptr inbounds nuw i8, ptr %61, i64 73
   %not..i.i.i.i.i786 = xor i8 %1816, 1
-  store i8 %not..i.i.i.i.i786, ptr %1822, align 1, !tbaa !765, !alias.scope !3812
+  store i8 %not..i.i.i.i.i786, ptr %1822, align 1, !tbaa !765, !alias.scope !3803
   %1823 = getelementptr inbounds nuw i8, ptr %61, i64 74
-  store i8 %1816, ptr %1823, align 2, !tbaa !766, !alias.scope !3812
+  store i8 %1816, ptr %1823, align 2, !tbaa !766, !alias.scope !3803
   br i1 %1817, label %1824, label %1825
 
 1824:                                             ; preds = %.noexc792
@@ -146156,21 +146145,21 @@ _ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i.i.i788: ; preds = %1825
 
 .noexc793:                                        ; preds = %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i.i.i788
   %1829 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i8 0, ptr %1822, align 1, !tbaa !765, !alias.scope !3812
-  store i64 %.sroa.speculated18.i.i.i.i789, ptr %61, align 16, !tbaa !53, !alias.scope !3812
-  store ptr %1828, ptr %1829, align 8, !tbaa !53, !alias.scope !3812
+  store i8 0, ptr %1822, align 1, !tbaa !765, !alias.scope !3803
+  store i64 %.sroa.speculated18.i.i.i.i789, ptr %61, align 16, !tbaa !53, !alias.scope !3803
+  store ptr %1828, ptr %1829, align 8, !tbaa !53, !alias.scope !3803
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm512ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i.i.i791
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm512ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i.i.i791: ; preds = %.noexc793, %1825
   %1830 = phi ptr [ %1828, %.noexc793 ], [ %61, %1825 ]
-  store i64 %spec.select.i.i.i.i787, ptr %1815, align 16, !tbaa !762, !alias.scope !3812
+  store i64 %spec.select.i.i.i.i787, ptr %1815, align 16, !tbaa !762, !alias.scope !3803
   %.val1642 = load i8, ptr %1370, align 1, !range !10
   %.val1643 = load i8, ptr %1811, align 1, !range !10
   %1831 = select i1 %1814, i8 %.val1642, i8 %.val1643
   %1832 = trunc nuw i8 %1831 to i1
   %..i.i.i785.sroa.sel1092.v.sroa.sel.v.sroa.sel.v = select i1 %1814, ptr %46, ptr %62
   %..i.i.i785.sroa.sel1092.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..i.i.i785.sroa.sel1092.v.sroa.sel.v.sroa.sel.v, i64 8
-  %1833 = load ptr, ptr %..i.i.i785.sroa.sel1092.v.sroa.sel.v.sroa.sel, align 8, !noalias !3812
+  %1833 = load ptr, ptr %..i.i.i785.sroa.sel1092.v.sroa.sel.v.sroa.sel, align 8, !noalias !3803
   %1834 = select i1 %1832, ptr %..i.i.i785, ptr %1833
   %1835 = shl i64 %1818, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1830, ptr align 8 %1834, i64 %1835, i1 false)
@@ -146182,7 +146171,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm512ELm18446744073709551615ELN
   %.val1644 = load i32, ptr %1372, align 16
   %.val1645 = load i32, ptr %1813, align 16
   %1839 = select i1 %1814, i32 %.val1644, i32 %.val1645
-  store i32 %1839, ptr %1838, align 16, !tbaa !767, !alias.scope !3812
+  store i32 %1839, ptr %1838, align 16, !tbaa !767, !alias.scope !3803
   %1840 = trunc nuw i8 %1837 to i1
   %1841 = trunc nuw i8 %.val1636 to i1
   %or.cond.i.i795 = select i1 %1840, i1 true, i1 %1841
@@ -148545,27 +148534,27 @@ _ZN4CGAL9cpp_floatD2Ev.exit5:                     ; preds = %45, %51
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4CGAL3maxINS_9cpp_floatEEET_RKS2_S4_(ptr dead_on_unwind noalias writable sret(%"class.CGAL::cpp_float") align 16 %0, ptr noundef nonnull align 16 dereferenceable(84) %1, ptr noundef nonnull align 16 dereferenceable(84) %2) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3813)
-  %4 = tail call noundef zeroext i1 @_ZN4CGALltERKNS_9cpp_floatES2_(ptr noundef nonnull align 16 dereferenceable(84) %1, ptr noundef nonnull align 16 dereferenceable(84) %2), !noalias !3813
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !3804)
+  %4 = tail call noundef zeroext i1 @_ZN4CGALltERKNS_9cpp_floatES2_(ptr noundef nonnull align 16 dereferenceable(84) %1, ptr noundef nonnull align 16 dereferenceable(84) %2), !noalias !3804
   %..i.i = select i1 %4, ptr %2, ptr %1
-  store i64 0, ptr %0, align 16, !tbaa !53, !alias.scope !3813
+  store i64 0, ptr %0, align 16, !tbaa !53, !alias.scope !3804
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = getelementptr inbounds nuw i8, ptr %..i.i, i64 74
-  %7 = load i8, ptr %6, align 2, !tbaa !766, !range !10, !noalias !3813, !noundef !11
+  %7 = load i8, ptr %6, align 2, !tbaa !766, !range !10, !noalias !3804, !noundef !11
   %8 = trunc nuw i8 %7 to i1
   %9 = getelementptr inbounds nuw i8, ptr %..i.i, i64 64
-  %10 = load i64, ptr %9, align 16, !noalias !3813
+  %10 = load i64, ptr %9, align 16, !noalias !3804
   %11 = select i1 %8, i64 %10, i64 0
-  store i64 %11, ptr %5, align 16, !tbaa !762, !alias.scope !3813
+  store i64 %11, ptr %5, align 16, !tbaa !762, !alias.scope !3804
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = getelementptr inbounds nuw i8, ptr %..i.i, i64 72
-  %14 = load i8, ptr %13, align 8, !tbaa !764, !range !10, !noalias !3813, !noundef !11
-  store i8 %14, ptr %12, align 8, !tbaa !764, !alias.scope !3813
+  %14 = load i8, ptr %13, align 8, !tbaa !764, !range !10, !noalias !3804, !noundef !11
+  store i8 %14, ptr %12, align 8, !tbaa !764, !alias.scope !3804
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %not..i.i.i.i = xor i8 %7, 1
-  store i8 %not..i.i.i.i, ptr %15, align 1, !tbaa !765, !alias.scope !3813
+  store i8 %not..i.i.i.i, ptr %15, align 1, !tbaa !765, !alias.scope !3804
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  store i8 %7, ptr %16, align 2, !tbaa !766, !alias.scope !3813
+  store i8 %7, ptr %16, align 2, !tbaa !766, !alias.scope !3804
   br i1 %8, label %17, label %18
 
 17:                                               ; preds = %3
@@ -148580,23 +148569,23 @@ define linkonce_odr dso_local void @_ZN4CGAL3maxINS_9cpp_floatEEET_RKS2_S4_(ptr 
 _ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i.i: ; preds = %18
   %.sroa.speculated18.i.i.i = tail call i64 @llvm.umax.i64(i64 %spec.select.i.i.i, i64 32)
   %20 = shl nuw nsw i64 %.sroa.speculated18.i.i.i, 3
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #40, !noalias !3813
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #40, !noalias !3804
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %15, align 1, !tbaa !765, !alias.scope !3813
-  store i64 %.sroa.speculated18.i.i.i, ptr %0, align 16, !tbaa !53, !alias.scope !3813
-  store ptr %21, ptr %22, align 8, !tbaa !53, !alias.scope !3813
-  %.pre.i = load i64, ptr %9, align 16, !tbaa !762, !noalias !3813
+  store i8 0, ptr %15, align 1, !tbaa !765, !alias.scope !3804
+  store i64 %.sroa.speculated18.i.i.i, ptr %0, align 16, !tbaa !53, !alias.scope !3804
+  store ptr %21, ptr %22, align 8, !tbaa !53, !alias.scope !3804
+  %.pre.i = load i64, ptr %9, align 16, !tbaa !762, !noalias !3804
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm512ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i.i
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm512ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i.i: ; preds = %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i.i, %18
   %23 = phi i64 [ %.pre.i, %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i.i ], [ %10, %18 ]
   %24 = phi ptr [ %21, %_ZNSt15__new_allocatorIyE8allocateEmPKv.exit.i.i.i ], [ %0, %18 ]
-  store i64 %spec.select.i.i.i, ptr %5, align 16, !tbaa !762, !alias.scope !3813
+  store i64 %spec.select.i.i.i, ptr %5, align 16, !tbaa !762, !alias.scope !3804
   %25 = getelementptr inbounds nuw i8, ptr %..i.i, i64 73
-  %26 = load i8, ptr %25, align 1, !tbaa !765, !range !10, !noalias !3813, !noundef !11
+  %26 = load i8, ptr %25, align 1, !tbaa !765, !range !10, !noalias !3804, !noundef !11
   %27 = trunc nuw i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %..i.i, i64 8
-  %29 = load ptr, ptr %28, align 8, !noalias !3813
+  %29 = load ptr, ptr %28, align 8, !noalias !3804
   %30 = select i1 %27, ptr %..i.i, ptr %29
   %31 = shl i64 %23, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %30, i64 %31, i1 false)
@@ -148605,8 +148594,8 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm512ELm18446744073709551615ELN
 _ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_.exit: ; preds = %17, %_ZN5boost14multiprecision8backends12cpp_int_baseILm512ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EE6resizeEmm.exit.i.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = getelementptr inbounds nuw i8, ptr %..i.i, i64 80
-  %34 = load i32, ptr %33, align 16, !tbaa !767, !noalias !3813
-  store i32 %34, ptr %32, align 16, !tbaa !767, !alias.scope !3813
+  %34 = load i32, ptr %33, align 16, !tbaa !767, !noalias !3804
+  store i32 %34, ptr %32, align 16, !tbaa !767, !alias.scope !3804
   ret void
 }
 
@@ -148839,38 +148828,38 @@ define internal void @_GLOBAL__sub_I_closest_facet.cpp() #34 section ".text.star
   %5 = fadd double %4, 1.000000e+00
   store double %5, ptr @_ZN4COREL6relEpsE, align 8, !tbaa !606
   %6 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4COREL6relEpsE)
-  store i64 0, ptr @_ZN4COREL12EXTLONG_ZEROE, align 8, !tbaa !3816
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_ZEROE, i64 8), align 8, !tbaa !3818
+  store i64 0, ptr @_ZN4COREL12EXTLONG_ZEROE, align 8, !tbaa !3807
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_ZEROE, i64 8), align 8, !tbaa !3809
   %7 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL12EXTLONG_ZEROE)
-  store i64 1, ptr @_ZN4COREL11EXTLONG_ONEE, align 8, !tbaa !3816
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_ONEE, i64 8), align 8, !tbaa !3818
+  store i64 1, ptr @_ZN4COREL11EXTLONG_ONEE, align 8, !tbaa !3807
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_ONEE, i64 8), align 8, !tbaa !3809
   %8 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_ONEE)
-  store i64 2, ptr @_ZN4COREL11EXTLONG_TWOE, align 8, !tbaa !3816
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_TWOE, i64 8), align 8, !tbaa !3818
+  store i64 2, ptr @_ZN4COREL11EXTLONG_TWOE, align 8, !tbaa !3807
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_TWOE, i64 8), align 8, !tbaa !3809
   %9 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_TWOE)
-  store i64 3, ptr @_ZN4COREL13EXTLONG_THREEE, align 8, !tbaa !3816
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_THREEE, i64 8), align 8, !tbaa !3818
+  store i64 3, ptr @_ZN4COREL13EXTLONG_THREEE, align 8, !tbaa !3807
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_THREEE, i64 8), align 8, !tbaa !3809
   %10 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_THREEE)
-  store i64 4, ptr @_ZN4COREL12EXTLONG_FOURE, align 8, !tbaa !3816
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FOURE, i64 8), align 8, !tbaa !3818
+  store i64 4, ptr @_ZN4COREL12EXTLONG_FOURE, align 8, !tbaa !3807
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FOURE, i64 8), align 8, !tbaa !3809
   %11 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL12EXTLONG_FOURE)
-  store i64 5, ptr @_ZN4COREL12EXTLONG_FIVEE, align 8, !tbaa !3816
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FIVEE, i64 8), align 8, !tbaa !3818
+  store i64 5, ptr @_ZN4COREL12EXTLONG_FIVEE, align 8, !tbaa !3807
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL12EXTLONG_FIVEE, i64 8), align 8, !tbaa !3809
   %12 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL12EXTLONG_FIVEE)
-  store i64 6, ptr @_ZN4COREL11EXTLONG_SIXE, align 8, !tbaa !3816
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_SIXE, i64 8), align 8, !tbaa !3818
+  store i64 6, ptr @_ZN4COREL11EXTLONG_SIXE, align 8, !tbaa !3807
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_SIXE, i64 8), align 8, !tbaa !3809
   %13 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_SIXE)
-  store i64 7, ptr @_ZN4COREL13EXTLONG_SEVENE, align 8, !tbaa !3816
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SEVENE, i64 8), align 8, !tbaa !3818
+  store i64 7, ptr @_ZN4COREL13EXTLONG_SEVENE, align 8, !tbaa !3807
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SEVENE, i64 8), align 8, !tbaa !3809
   %14 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_SEVENE)
-  store i64 8, ptr @_ZN4COREL13EXTLONG_EIGHTE, align 8, !tbaa !3816
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_EIGHTE, i64 8), align 8, !tbaa !3818
+  store i64 8, ptr @_ZN4COREL13EXTLONG_EIGHTE, align 8, !tbaa !3807
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_EIGHTE, i64 8), align 8, !tbaa !3809
   %15 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_EIGHTE)
-  store i64 1073741824, ptr @_ZN4COREL11EXTLONG_BIGE, align 8, !tbaa !3816
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_BIGE, i64 8), align 8, !tbaa !3818
+  store i64 1073741824, ptr @_ZN4COREL11EXTLONG_BIGE, align 8, !tbaa !3807
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL11EXTLONG_BIGE, i64 8), align 8, !tbaa !3809
   %16 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL11EXTLONG_BIGE)
-  store i64 -1073741824, ptr @_ZN4COREL13EXTLONG_SMALLE, align 8, !tbaa !3816
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SMALLE, i64 8), align 8, !tbaa !3818
+  store i64 -1073741824, ptr @_ZN4COREL13EXTLONG_SMALLE, align 8, !tbaa !3807
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4COREL13EXTLONG_SMALLE, i64 8), align 8, !tbaa !3809
   %17 = tail call ptr @llvm.invariant.start.p0(i64 16, ptr nonnull @_ZN4COREL13EXTLONG_SMALLE)
   store double 0x4002934F0979A371, ptr @_ZN4COREL5log_5E, align 8, !tbaa !606
   %18 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4COREL5log_5E)
@@ -152158,32 +152147,32 @@ attributes #45 = { allocsize(0) }
 !3193 = !{!"_ZTSN4CGAL9Segment_3INS_5EpickEEE", !3194, i64 0}
 !3194 = !{!"_ZTSN4CGAL9SegmentC3INS_5EpickEEE", !3195, i64 0}
 !3195 = !{!"_ZTSSt5arrayIN4CGAL7Point_3INS0_5EpickEEELm2EE", !6, i64 0}
-!3196 = !{!3197, !3183}
-!3197 = distinct !{!3197, !3198, !"_ZSt9make_pairIN4CGAL9Segment_3INS0_5EpickEEEbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: argument 0"}
-!3198 = distinct !{!3198, !"_ZSt9make_pairIN4CGAL9Segment_3INS0_5EpickEEEbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
-!3199 = !{!3200}
-!3200 = distinct !{!3200, !3201, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_10Triangle_3IS4_EE: argument 0"}
-!3201 = distinct !{!3201, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_10Triangle_3IS4_EE"}
-!3202 = !{!3203, !3200}
+!3196 = !{!3197}
+!3197 = distinct !{!3197, !3198, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_10Triangle_3IS4_EE: argument 0"}
+!3198 = distinct !{!3198, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_10Triangle_3IS4_EE"}
+!3199 = !{!3200, !3197}
+!3200 = distinct !{!3200, !3201, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE: argument 0"}
+!3201 = distinct !{!3201, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE"}
+!3202 = !{!3203, !3197}
 !3203 = distinct !{!3203, !3204, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE: argument 0"}
 !3204 = distinct !{!3204, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE"}
-!3205 = !{!3206, !3200}
+!3205 = !{!3206, !3197}
 !3206 = distinct !{!3206, !3207, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE: argument 0"}
 !3207 = distinct !{!3207, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE"}
-!3208 = !{!3209, !3200}
-!3209 = distinct !{!3209, !3210, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE: argument 0"}
-!3210 = distinct !{!3210, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE"}
-!3211 = !{!3212, !9, i64 72}
-!3212 = !{!"_ZTSSt4pairIN4CGAL10Triangle_3INS0_5EpickEEEbE", !3213, i64 0, !9, i64 72}
-!3213 = !{!"_ZTSN4CGAL10Triangle_3INS_5EpickEEE", !3214, i64 0}
-!3214 = !{!"_ZTSN4CGAL10TriangleC3INS_5EpickEEE", !3215, i64 0}
-!3215 = !{!"_ZTSSt5arrayIN4CGAL7Point_3INS0_5EpickEEELm3EE", !6, i64 0}
-!3216 = !{!3217, !3200}
-!3217 = distinct !{!3217, !3218, !"_ZSt9make_pairIN4CGAL10Triangle_3INS0_5EpickEEEbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: argument 0"}
-!3218 = distinct !{!3218, !"_ZSt9make_pairIN4CGAL10Triangle_3INS0_5EpickEEEbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
-!3219 = !{!3220, !3221, i64 0}
-!3220 = !{!"_ZTSZNK4CGAL8Lazy_repINS_9Segment_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELi0EE5exactEvEUlvE_", !3221, i64 0}
-!3221 = !{!"p1 _ZTSN4CGAL8Lazy_repINS_9Segment_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELi0EEE", !15, i64 0}
+!3208 = !{!3209, !9, i64 72}
+!3209 = !{!"_ZTSSt4pairIN4CGAL10Triangle_3INS0_5EpickEEEbE", !3210, i64 0, !9, i64 72}
+!3210 = !{!"_ZTSN4CGAL10Triangle_3INS_5EpickEEE", !3211, i64 0}
+!3211 = !{!"_ZTSN4CGAL10TriangleC3INS_5EpickEEE", !3212, i64 0}
+!3212 = !{!"_ZTSSt5arrayIN4CGAL7Point_3INS0_5EpickEEELm3EE", !6, i64 0}
+!3213 = !{!3214, !3215, i64 0}
+!3214 = !{!"_ZTSZNK4CGAL8Lazy_repINS_9Segment_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELi0EE5exactEvEUlvE_", !3215, i64 0}
+!3215 = !{!"p1 _ZTSN4CGAL8Lazy_repINS_9Segment_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISK_S5_NS_12NT_converterISJ_S4_EEEELi0EEE", !15, i64 0}
+!3216 = !{!3217}
+!3217 = distinct !{!3217, !3218, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
+!3218 = distinct !{!3218, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
+!3219 = !{!3220}
+!3220 = distinct !{!3220, !3221, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
+!3221 = distinct !{!3221, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
 !3222 = !{!3223}
 !3223 = distinct !{!3223, !3224, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
 !3224 = distinct !{!3224, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
@@ -152611,99 +152600,99 @@ attributes #45 = { allocsize(0) }
 !3646 = distinct !{!3646, !3647, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
 !3647 = distinct !{!3647, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
 !3648 = !{!3649}
-!3649 = distinct !{!3649, !3650, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
-!3650 = distinct !{!3650, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
+!3649 = distinct !{!3649, !3650, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
+!3650 = distinct !{!3650, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
 !3651 = !{!3652}
-!3652 = distinct !{!3652, !3653, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_: argument 0"}
-!3653 = distinct !{!3653, !"_ZN5boost14multiprecisionmlINS0_6detail19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvS3_SE_SE_vvEENS2_10expressionINS2_10multipliesENSF_IT_T0_T1_T2_T3_EENSF_IT4_T5_T6_T7_T8_EEvvEERKSM_RKSS_"}
+!3652 = distinct !{!3652, !3653, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
+!3653 = distinct !{!3653, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
 !3654 = !{!3655}
-!3655 = distinct !{!3655, !3656, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
-!3656 = distinct !{!3656, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
+!3655 = distinct !{!3655, !3656, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
+!3656 = distinct !{!3656, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
 !3657 = !{!3658}
-!3658 = distinct !{!3658, !3659, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
-!3659 = distinct !{!3659, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
+!3658 = distinct !{!3658, !3659, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
+!3659 = distinct !{!3659, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
 !3660 = !{!3661}
-!3661 = distinct !{!3661, !3662, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv: argument 0"}
-!3662 = distinct !{!3662, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE5rightEv"}
+!3661 = distinct !{!3661, !3662, !"_ZNK5boost14multiprecision6detail10expressionINS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv: argument 0"}
+!3662 = distinct !{!3662, !"_ZNK5boost14multiprecision6detail10expressionINS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv"}
 !3663 = !{!3664}
-!3664 = distinct !{!3664, !3665, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv: argument 0"}
-!3665 = distinct !{!3665, !"_ZNK5boost14multiprecision6detail10expressionINS1_10multipliesENS2_INS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESF_vvEESG_vvE4leftEv"}
-!3666 = !{!3667}
-!3667 = distinct !{!3667, !3668, !"_ZNK5boost14multiprecision6detail10expressionINS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv: argument 0"}
-!3668 = distinct !{!3668, !"_ZNK5boost14multiprecision6detail10expressionINS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE4leftEv"}
-!3669 = !{!3670}
-!3670 = distinct !{!3670, !3671, !"_ZNK5boost14multiprecision6detail10expressionINS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv: argument 0"}
-!3671 = distinct !{!3671, !"_ZNK5boost14multiprecision6detail10expressionINS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv"}
-!3672 = !{!3673, !15, i64 0}
-!3673 = !{!"_ZTSZSt9call_onceIZNK4CGAL8Lazy_repINS0_9Segment_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEENS2_INS3_IN5boost14multiprecision6numberINS9_8backends16rational_adaptorINSB_15cpp_int_backendILm0ELm0ELNS9_16cpp_integer_typeE1ELNS9_18cpp_int_check_typeE0ESaIyEEEEELNS9_26expression_template_optionE1EEEEEEENS0_19Cartesian_converterISL_S6_NS0_12NT_converterISK_S5_EEEELi0EE5exactEvEUlvE_JEEvRSt9once_flagOT_DpOT0_EUlvE_", !15, i64 0}
+!3664 = distinct !{!3664, !3665, !"_ZNK5boost14multiprecision6detail10expressionINS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv: argument 0"}
+!3665 = distinct !{!3665, !"_ZNK5boost14multiprecision6detail10expressionINS1_19subtract_immediatesENS0_6numberINS0_8backends16rational_adaptorINS5_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EEESE_vvE5rightEv"}
+!3666 = !{!3667, !15, i64 0}
+!3667 = !{!"_ZTSZSt9call_onceIZNK4CGAL8Lazy_repINS0_9Segment_3INS0_16Simple_cartesianINS0_11Interval_ntILb0EEEEEEENS2_INS3_IN5boost14multiprecision6numberINS9_8backends16rational_adaptorINSB_15cpp_int_backendILm0ELm0ELNS9_16cpp_integer_typeE1ELNS9_18cpp_int_check_typeE0ESaIyEEEEELNS9_26expression_template_optionE1EEEEEEENS0_19Cartesian_converterISL_S6_NS0_12NT_converterISK_S5_EEEELi0EE5exactEvEUlvE_JEEvRSt9once_flagOT_DpOT0_EUlvE_", !15, i64 0}
+!3668 = !{!3669}
+!3669 = distinct !{!3669, !3670, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
+!3670 = distinct !{!3670, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
+!3671 = !{!3672}
+!3672 = distinct !{!3672, !3673, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
+!3673 = distinct !{!3673, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
 !3674 = !{!3675}
 !3675 = distinct !{!3675, !3676, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
 !3676 = distinct !{!3676, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
 !3677 = !{!3678}
-!3678 = distinct !{!3678, !3679, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
-!3679 = distinct !{!3679, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
-!3680 = !{!3681}
-!3681 = distinct !{!3681, !3682, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
-!3682 = distinct !{!3682, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
-!3683 = !{!3684}
-!3684 = distinct !{!3684, !3685, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_9Segment_3IS4_EE: argument 0"}
-!3685 = distinct !{!3685, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_9Segment_3IS4_EE"}
-!3686 = !{!3687, !3684}
-!3687 = distinct !{!3687, !3688, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE: argument 0"}
-!3688 = distinct !{!3688, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE"}
-!3689 = !{!3690, !3684}
-!3690 = distinct !{!3690, !3691, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE: argument 0"}
-!3691 = distinct !{!3691, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE"}
-!3692 = !{!3693, !3684}
-!3693 = distinct !{!3693, !3694, !"_ZSt9make_pairIN4CGAL9Segment_3INS0_5EpickEEEbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: argument 0"}
-!3694 = distinct !{!3694, !"_ZSt9make_pairIN4CGAL9Segment_3INS0_5EpickEEEbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
-!3695 = !{!3696, !3698}
-!3696 = distinct !{!3696, !3697, !"_ZSt9make_pairIRKN4CGAL6Bbox_3EbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: argument 0"}
-!3697 = distinct !{!3697, !"_ZSt9make_pairIRKN4CGAL6Bbox_3EbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
-!3698 = distinct !{!3698, !3699, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_6Bbox_3E: argument 0"}
-!3699 = distinct !{!3699, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_6Bbox_3E"}
+!3678 = distinct !{!3678, !3679, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_9Segment_3IS4_EE: argument 0"}
+!3679 = distinct !{!3679, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_9Segment_3IS4_EE"}
+!3680 = !{!3681, !3678}
+!3681 = distinct !{!3681, !3682, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE: argument 0"}
+!3682 = distinct !{!3682, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE"}
+!3683 = !{!3684, !3678}
+!3684 = distinct !{!3684, !3685, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE: argument 0"}
+!3685 = distinct !{!3685, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_7Point_3IS4_EE"}
+!3686 = !{!3687, !3689}
+!3687 = distinct !{!3687, !3688, !"_ZSt9make_pairIRKN4CGAL6Bbox_3EbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_: argument 0"}
+!3688 = distinct !{!3688, !"_ZSt9make_pairIRKN4CGAL6Bbox_3EbESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS5_INS6_IT0_E4typeEE6__typeEEOS7_OSC_"}
+!3689 = distinct !{!3689, !3690, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_6Bbox_3E: argument 0"}
+!3690 = distinct !{!3690, !"_ZNK4CGAL14Epic_converterINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclENS_6Bbox_3E"}
+!3691 = !{!3692}
+!3692 = distinct !{!3692, !3693, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_: argument 0"}
+!3693 = distinct !{!3693, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_"}
+!3694 = !{!3695}
+!3695 = distinct !{!3695, !3696, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_: argument 0"}
+!3696 = distinct !{!3696, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_"}
+!3697 = !{!3698}
+!3698 = distinct !{!3698, !3699, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_: argument 0"}
+!3699 = distinct !{!3699, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_"}
 !3700 = !{!3701}
 !3701 = distinct !{!3701, !3702, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_: argument 0"}
 !3702 = distinct !{!3702, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_"}
 !3703 = !{!3704}
-!3704 = distinct !{!3704, !3705, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_: argument 0"}
-!3705 = distinct !{!3705, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_"}
+!3704 = distinct !{!3704, !3705, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_: argument 0"}
+!3705 = distinct !{!3705, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_"}
 !3706 = !{!3707}
-!3707 = distinct !{!3707, !3708, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_: argument 0"}
-!3708 = distinct !{!3708, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_"}
+!3707 = distinct !{!3707, !3708, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_: argument 0"}
+!3708 = distinct !{!3708, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_"}
 !3709 = !{!3710}
-!3710 = distinct !{!3710, !3711, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_: argument 0"}
-!3711 = distinct !{!3711, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_"}
+!3710 = distinct !{!3710, !3711, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_: argument 0"}
+!3711 = distinct !{!3711, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_"}
 !3712 = !{!3713}
-!3713 = distinct !{!3713, !3714, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_: argument 0"}
-!3714 = distinct !{!3714, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_"}
+!3713 = distinct !{!3713, !3714, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_: argument 0"}
+!3714 = distinct !{!3714, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_"}
 !3715 = !{!3716}
-!3716 = distinct !{!3716, !3717, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_: argument 0"}
-!3717 = distinct !{!3717, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_"}
+!3716 = distinct !{!3716, !3717, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_: argument 0"}
+!3717 = distinct !{!3717, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_"}
 !3718 = !{!3719}
-!3719 = distinct !{!3719, !3720, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_: argument 0"}
-!3720 = distinct !{!3720, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_"}
+!3719 = distinct !{!3719, !3720, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_: argument 0"}
+!3720 = distinct !{!3720, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_"}
 !3721 = !{!3722}
-!3722 = distinct !{!3722, !3723, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_: argument 0"}
-!3723 = distinct !{!3723, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_"}
+!3722 = distinct !{!3722, !3723, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_: argument 0"}
+!3723 = distinct !{!3723, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_"}
 !3724 = !{!3725}
-!3725 = distinct !{!3725, !3726, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_: argument 0"}
-!3726 = distinct !{!3726, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_"}
+!3725 = distinct !{!3725, !3726, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_: argument 0"}
+!3726 = distinct !{!3726, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_"}
 !3727 = !{!3728}
-!3728 = distinct !{!3728, !3729, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_: argument 0"}
-!3729 = distinct !{!3729, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_"}
+!3728 = distinct !{!3728, !3729, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_: argument 0"}
+!3729 = distinct !{!3729, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_"}
 !3730 = !{!3731}
-!3731 = distinct !{!3731, !3732, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_: argument 0"}
-!3732 = distinct !{!3732, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEEOSD_RKSD_"}
+!3731 = distinct !{!3731, !3732, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_: argument 0"}
+!3732 = distinct !{!3732, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_"}
 !3733 = !{!3734}
-!3734 = distinct !{!3734, !3735, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_: argument 0"}
-!3735 = distinct !{!3735, !"_ZNK4CGAL15Coercion_traitsIN5boost14multiprecision6numberINS2_8backends16rational_adaptorINS4_15cpp_int_backendILm0ELm0ELNS2_16cpp_integer_typeE1ELNS2_18cpp_int_check_typeE0ESaIyEEEEELNS2_26expression_template_optionE1EEEdE4CastclIdEESD_RKT_"}
+!3734 = distinct !{!3734, !3735, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_: argument 0"}
+!3735 = distinct !{!3735, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_"}
 !3736 = !{!3737}
-!3737 = distinct !{!3737, !3738, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_: argument 0"}
-!3738 = distinct !{!3738, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_"}
+!3737 = distinct !{!3737, !3738, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_: argument 0"}
+!3738 = distinct !{!3738, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_"}
 !3739 = !{!3740}
-!3740 = distinct !{!3740, !3741, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_: argument 0"}
-!3741 = distinct !{!3741, !"_ZN5boost14multiprecisionmiINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6numberIT_LNS0_26expression_template_optionE1EEERKSD_OSD_"}
+!3740 = distinct !{!3740, !3741, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_: argument 0"}
+!3741 = distinct !{!3741, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_"}
 !3742 = !{!3743}
 !3743 = distinct !{!3743, !3744, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_: argument 0"}
 !3744 = distinct !{!3744, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_"}
@@ -152732,52 +152721,43 @@ attributes #45 = { allocsize(0) }
 !3767 = distinct !{!3767, !3768, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_: argument 0"}
 !3768 = distinct !{!3768, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_"}
 !3769 = !{!3770}
-!3770 = distinct !{!3770, !3771, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_: argument 0"}
-!3771 = distinct !{!3771, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_"}
-!3772 = !{!3773}
-!3773 = distinct !{!3773, !3774, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_: argument 0"}
-!3774 = distinct !{!3774, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_"}
-!3775 = !{!3776}
-!3776 = distinct !{!3776, !3777, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_: argument 0"}
-!3777 = distinct !{!3777, !"_ZN5boost14multiprecisionmlINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEEENS0_6detail10expressionINSA_19multiply_immediatesENS0_6numberIT_LNS0_26expression_template_optionE1EEESG_vvEERKSG_SJ_"}
+!3770 = distinct !{!3770, !3771, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_9Segment_3IS3_EE: argument 0"}
+!3771 = distinct !{!3771, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_9Segment_3IS3_EE"}
+!3772 = !{!3773, !3770}
+!3773 = distinct !{!3773, !3774, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
+!3774 = distinct !{!3774, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
+!3775 = !{!3776, !3770}
+!3776 = distinct !{!3776, !3777, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
+!3777 = distinct !{!3777, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
 !3778 = !{!3779}
-!3779 = distinct !{!3779, !3780, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_9Segment_3IS3_EE: argument 0"}
-!3780 = distinct !{!3780, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_9Segment_3IS3_EE"}
-!3781 = !{!3782, !3779}
-!3782 = distinct !{!3782, !3783, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
-!3783 = distinct !{!3783, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
-!3784 = !{!3785, !3779}
-!3785 = distinct !{!3785, !3786, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE: argument 0"}
-!3786 = distinct !{!3786, !"_ZNK4CGAL19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES3_EENS_16Simple_cartesianINS_11Interval_ntILb0EEEEENS_12NT_converterIdS8_EEEclERKNS_7Point_3IS3_EE"}
+!3779 = distinct !{!3779, !3780, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd: argument 0"}
+!3780 = distinct !{!3780, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd"}
+!3781 = !{!3782}
+!3782 = distinct !{!3782, !3783, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd: argument 0"}
+!3783 = distinct !{!3783, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd"}
+!3784 = !{!3785}
+!3785 = distinct !{!3785, !3786, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd: argument 0"}
+!3786 = distinct !{!3786, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd"}
 !3787 = !{!3788}
-!3788 = distinct !{!3788, !3789, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd: argument 0"}
-!3789 = distinct !{!3789, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd"}
+!3788 = distinct !{!3788, !3789, !"_ZN4CGAL3maxINS_9cpp_floatEEET_RKS2_S4_: argument 0"}
+!3789 = distinct !{!3789, !"_ZN4CGAL3maxINS_9cpp_floatEEET_RKS2_S4_"}
 !3790 = !{!3791}
-!3791 = distinct !{!3791, !3792, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd: argument 0"}
-!3792 = distinct !{!3792, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd"}
-!3793 = !{!3794}
-!3794 = distinct !{!3794, !3795, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd: argument 0"}
-!3795 = distinct !{!3795, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd"}
-!3796 = !{!3797}
-!3797 = distinct !{!3797, !3798, !"_ZN4CGAL3maxINS_9cpp_floatEEET_RKS2_S4_: argument 0"}
-!3798 = distinct !{!3798, !"_ZN4CGAL3maxINS_9cpp_floatEEET_RKS2_S4_"}
-!3799 = !{!3800}
-!3800 = distinct !{!3800, !3801, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_: argument 0"}
-!3801 = distinct !{!3801, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_"}
-!3802 = !{!3800, !3797}
-!3803 = !{!3804}
-!3804 = distinct !{!3804, !3805, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd: argument 0"}
-!3805 = distinct !{!3805, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd"}
-!3806 = !{!3807}
-!3807 = distinct !{!3807, !3808, !"_ZN4CGAL3maxINS_9cpp_floatEEET_RKS2_S4_: argument 0"}
-!3808 = distinct !{!3808, !"_ZN4CGAL3maxINS_9cpp_floatEEET_RKS2_S4_"}
-!3809 = !{!3810}
-!3810 = distinct !{!3810, !3811, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_: argument 0"}
-!3811 = distinct !{!3811, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_"}
-!3812 = !{!3810, !3807}
-!3813 = !{!3814}
-!3814 = distinct !{!3814, !3815, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_: argument 0"}
-!3815 = distinct !{!3815, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_"}
-!3816 = !{!3817, !8, i64 0}
-!3817 = !{!"_ZTSN4CORE7extLongE", !8, i64 0, !68, i64 8}
-!3818 = !{!3817, !68, i64 8}
+!3791 = distinct !{!3791, !3792, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_: argument 0"}
+!3792 = distinct !{!3792, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_"}
+!3793 = !{!3791, !3788}
+!3794 = !{!3795}
+!3795 = distinct !{!3795, !3796, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd: argument 0"}
+!3796 = distinct !{!3796, !"_ZNK4CGAL15Coercion_traitsINS_9cpp_floatEdE4CastclERKd"}
+!3797 = !{!3798}
+!3798 = distinct !{!3798, !3799, !"_ZN4CGAL3maxINS_9cpp_floatEEET_RKS2_S4_: argument 0"}
+!3799 = distinct !{!3799, !"_ZN4CGAL3maxINS_9cpp_floatEEET_RKS2_S4_"}
+!3800 = !{!3801}
+!3801 = distinct !{!3801, !3802, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_: argument 0"}
+!3802 = distinct !{!3802, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_"}
+!3803 = !{!3801, !3798}
+!3804 = !{!3805}
+!3805 = distinct !{!3805, !3806, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_: argument 0"}
+!3806 = distinct !{!3806, !"_ZNK4CGAL3MaxINS_9cpp_floatESt4lessIS1_EEclERKS1_S6_"}
+!3807 = !{!3808, !8, i64 0}
+!3808 = !{!"_ZTSN4CORE7extLongE", !8, i64 0, !68, i64 8}
+!3809 = !{!3808, !68, i64 8}

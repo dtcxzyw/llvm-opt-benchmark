@@ -70279,8 +70279,8 @@ define internal fastcc void @"_ZN7similar10algorithms7replace16Replace$LT$D$GT$1
   br i1 %5, label %13, label %19
 
 11:                                               ; preds = %1
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.46.0.copyload = load i64, ptr %.sroa.42.0..sroa_idx, align 8
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.46.0.copyload = load i64, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.57.0.copyload = load i64, ptr %.sroa.57.0..sroa_idx, align 8
   %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -80091,20 +80091,20 @@ define void @_ZN11ruff_linter8settings16fix_safety_table14FixSafetyTable19from_r
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9), !noalias !9253
   store ptr null, ptr %9, align 8, !noalias !9257
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr null, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !9257
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store ptr %1, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !9257
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store i64 %2, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !9257
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store ptr %5, ptr %.sroa.9.0..sroa_idx, align 8, !noalias !9257
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 88
-  store ptr %3, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !9257
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store i64 %4, ptr %.sroa.11.0..sroa_idx, align 8, !noalias !9257
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr null, ptr %.sroa.432.0..sroa_idx, align 8, !noalias !9257
+  %.sroa.533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 64
+  store ptr %1, ptr %.sroa.533.0..sroa_idx, align 8, !noalias !9257
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !9257
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store ptr %5, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !9257
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 88
+  store ptr %3, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !9257
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store i64 %4, ptr %.sroa.9.0..sroa_idx, align 8, !noalias !9257
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$K$C$V$RP$$GT$$GT$9from_iter17h489fd1f8820177ecE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %9), !noalias !9258
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9), !noalias !9253
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %13)

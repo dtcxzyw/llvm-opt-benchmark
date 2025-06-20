@@ -1658,7 +1658,6 @@ define noundef i64 @_ZN7rocksdb18CompactionIterator44ComputeBlobGarbageCollectio
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb18CompactionIterator25CreateBlobFetcherIfNeededEPKNS0_15CompactionProxyE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.25") align 8 captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0 = alloca [44 x i8], align 8
-  %.sroa.7 = alloca [7 x i8], align 1
   %.sroa.12 = alloca [75 x i8], align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %4
@@ -1681,7 +1680,6 @@ define void @_ZN7rocksdb18CompactionIterator25CreateBlobFetcherIfNeededEPKNS0_15
 
 _ZN7rocksdb11ReadOptionsD2Ev.exit:                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 75, ptr nonnull %.sroa.12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %.sroa.0, i8 0, i64 44, i1 false)
   %.sroa.12.3..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.12, i64 3
@@ -1696,8 +1694,6 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit:                ; preds = %4
   store i64 -1, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 72
   store i8 0, ptr %.sroa.614.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 73
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, i64 7, i1 false)
   %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i8 1, ptr %.sroa.715.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 81
@@ -1724,7 +1720,6 @@ _ZN7rocksdb11ReadOptionsD2Ev.exit:                ; preds = %4
   store i64 0, ptr %.sroa.1816.152..sroa_idx, align 8
   store ptr %10, ptr %0, align 8, !tbaa !224
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(i64 75, ptr nonnull %.sroa.12)
   br label %14
 

@@ -8631,7 +8631,6 @@ define dso_local i64 @_ZN5clang6Parser17ParseForStatementEPNS_14SourceLocationE(
   %9 = alloca i16, align 2
   %10 = alloca %"class.clang::DiagnosticBuilder", align 8
   %11 = alloca %"class.clang::BalancedDelimiterTracker", align 8
-  %.sroa.21 = alloca [5 x i8], align 1
   %12 = alloca %"struct.clang::Parser::ForRangeInfo", align 8
   %13 = alloca %"class.clang::ParsedAttributes", align 8
   %14 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -8934,7 +8933,6 @@ _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %_ZN5clang24Balanced
   br label %_ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit
 
 _ZN5clang24BalancedDelimiterTracker11consumeOpenEv.exit: ; preds = %.thread, %_ZN5clang6Parser12ConsumeParenEv.exit, %165
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.21)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %12) #16
   store i32 0, ptr %12, align 8, !tbaa !93
   %167 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -10643,8 +10641,6 @@ _ZN5clang6Parser10ParseScope4ExitEv.exit198:      ; preds = %903, %904
   store i8 %.sroa.16.1, ptr %.sroa.16.0..sroa_idx, align 1
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 18
   store i8 %.sroa.18.1, ptr %.sroa.18.0..sroa_idx, align 2
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.21.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.21, i64 5, i1 false)
   %.sroa.0.0.copyload.i200 = load i32, ptr %148, align 4, !tbaa !337
   %926 = and i64 %898, -2
   %927 = inttoptr i64 %926 to ptr
@@ -10697,7 +10693,6 @@ _ZN5clang16ParsedAttributesD2Ev.exit202:          ; preds = %_ZN5clang13Attribut
 
 _ZN5clang6Parser12ForRangeInitD2Ev.exit:          ; preds = %937, %940
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.21)
   %941 = load i8, ptr %142, align 8, !tbaa !1144, !range !318, !noundef !319
   %942 = load ptr, ptr %11, align 8, !tbaa !1152
   store i8 %941, ptr %942, align 1, !tbaa !1053

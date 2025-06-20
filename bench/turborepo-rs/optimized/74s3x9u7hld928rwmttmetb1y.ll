@@ -2595,7 +2595,7 @@ define hidden void @_RINvXNtNtCs68wO5nsWeTG_5alloc5slice4hackNtNtCseG2FYMysgNb_3
   %.sroa.9.sroa.9.sroa.0.0 = phi i48 [ undef, %.lr.ph ], [ %.sroa.9.sroa.9.sroa.0.1, %119 ]
   %.sroa.9.sroa.8.0 = phi i8 [ undef, %.lr.ph ], [ %.sroa.9.sroa.8.1, %119 ]
   %.sroa.9.sroa.0.0 = phi i8 [ undef, %.lr.ph ], [ %.sroa.9.sroa.0.1, %119 ]
-  %.sroa.24.0 = phi i64 [ undef, %.lr.ph ], [ %.sroa.24.1, %119 ]
+  %.sroa.2265.0 = phi i64 [ undef, %.lr.ph ], [ %.sroa.2265.1, %119 ]
   %.sroa.20.0 = phi i8 [ undef, %.lr.ph ], [ %.sroa.20.1, %119 ]
   %.sroa.18.0 = phi i64 [ undef, %.lr.ph ], [ %.sroa.18.1, %119 ]
   %.sroa.15.0 = phi ptr [ undef, %.lr.ph ], [ %.sroa.15.1, %119 ]
@@ -2613,12 +2613,12 @@ define hidden void @_RINvXNtNtCs68wO5nsWeTG_5alloc5slice4hackNtNtCseG2FYMysgNb_3
   ret void
 
 .loopexit.loopexit:                               ; preds = %101, %93, %70, %43
-  %lpad.loopexit95 = landingpad { ptr, i32 }
+  %lpad.loopexit96 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.body
 
 .loopexit.loopexit.split-lp:                      ; preds = %54
-  %lpad.loopexit.split-lp96 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp97 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.body
 
@@ -2628,7 +2628,7 @@ define hidden void @_RINvXNtNtCs68wO5nsWeTG_5alloc5slice4hackNtNtCseG2FYMysgNb_3
   br label %.loopexit.body
 
 .loopexit.body:                                   ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %69, %.loopexit.split-lp
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.i, %69 ], [ %lpad.loopexit95, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp96, %.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.i, %69 ], [ %lpad.loopexit96, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp97, %.loopexit.loopexit.split-lp ]
   store i64 %.sroa.7.052, ptr %19, align 8
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtCseG2FYMysgNb_3wax5token5TokenEEB1h_(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #20
           to label %126 unwind label %124
@@ -2651,7 +2651,7 @@ define hidden void @_RINvXNtNtCs68wO5nsWeTG_5alloc5slice4hackNtNtCseG2FYMysgNb_3
     i64 5, label %110
   ]
 
-default.unreachable128:                           ; preds = %110
+default.unreachable129:                           ; preds = %110
   unreachable
 
 42:                                               ; preds = %35
@@ -2671,9 +2671,9 @@ default.unreachable128:                           ; preds = %110
 
 .noexc:                                           ; preds = %43
   %48 = load i64, ptr %4, align 8, !range !204, !noalias !622, !noundef !4
-  %trunc.i89 = trunc nuw i64 %48 to i1
+  %trunc.i90 = trunc nuw i64 %48 to i1
   %49 = load i64, ptr %26, align 8, !range !173, !noalias !622, !noundef !4
-  br i1 %trunc.i89, label %54, label %50
+  br i1 %trunc.i90, label %54, label %50
 
 50:                                               ; preds = %.noexc
   %51 = load ptr, ptr %27, align 8, !noalias !622, !nonnull !4, !noundef !4
@@ -2687,9 +2687,9 @@ default.unreachable128:                           ; preds = %110
 54:                                               ; preds = %.noexc
   %55 = load i64, ptr %27, align 8, !noalias !622
   invoke void @_ZN5alloc7raw_vec12handle_error17had94eb94ada9491aE(i64 noundef %49, i64 %55) #22
-          to label %.noexc90 unwind label %.loopexit.loopexit.split-lp
+          to label %.noexc91 unwind label %.loopexit.loopexit.split-lp
 
-.noexc90:                                         ; preds = %54
+.noexc91:                                         ; preds = %54
   unreachable
 
 .lr.ph.i:                                         ; preds = %50, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i
@@ -2732,11 +2732,11 @@ _RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenEN
 .noexc11:                                         ; preds = %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token5TokenENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i, %.lr.ph.i, %50
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !622
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %.sroa.9.sroa.0.0.extract.trunc67 = trunc i64 %49 to i8
-  %.sroa.9.sroa.8.0.extract.shift72 = lshr i64 %49, 8
-  %.sroa.9.sroa.8.0.extract.trunc73 = trunc i64 %.sroa.9.sroa.8.0.extract.shift72 to i8
-  %.sroa.9.sroa.9.0.extract.shift78 = lshr i64 %49, 16
-  %.sroa.9.sroa.9.0.extract.trunc79 = trunc nuw i64 %.sroa.9.sroa.9.0.extract.shift78 to i48
+  %.sroa.9.sroa.0.0.extract.trunc68 = trunc i64 %49 to i8
+  %.sroa.9.sroa.8.0.extract.shift73 = lshr i64 %49, 8
+  %.sroa.9.sroa.8.0.extract.trunc74 = trunc i64 %.sroa.9.sroa.8.0.extract.shift73 to i8
+  %.sroa.9.sroa.9.0.extract.shift79 = lshr i64 %49, 16
+  %.sroa.9.sroa.9.0.extract.trunc80 = trunc nuw i64 %.sroa.9.sroa.9.0.extract.shift79 to i48
   br label %119
 
 70:                                               ; preds = %35
@@ -2775,11 +2775,11 @@ _RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9Archety
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !636
   %84 = shl i64 %76, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %83, ptr nonnull readonly align 4 %75, i64 %84, i1 false), !noalias !640
-  %.sroa.9.sroa.0.0.extract.trunc66 = trunc i64 %78 to i8
-  %.sroa.9.sroa.8.0.extract.shift70 = lshr i64 %78, 8
-  %.sroa.9.sroa.8.0.extract.trunc71 = trunc i64 %.sroa.9.sroa.8.0.extract.shift70 to i8
-  %.sroa.9.sroa.9.0.extract.shift76 = lshr i64 %78, 16
-  %.sroa.9.sroa.9.0.extract.trunc77 = trunc nuw i64 %.sroa.9.sroa.9.0.extract.shift76 to i48
+  %.sroa.9.sroa.0.0.extract.trunc67 = trunc i64 %78 to i8
+  %.sroa.9.sroa.8.0.extract.shift71 = lshr i64 %78, 8
+  %.sroa.9.sroa.8.0.extract.trunc72 = trunc i64 %.sroa.9.sroa.8.0.extract.shift71 to i8
+  %.sroa.9.sroa.9.0.extract.shift77 = lshr i64 %78, 16
+  %.sroa.9.sroa.9.0.extract.trunc78 = trunc nuw i64 %.sroa.9.sroa.9.0.extract.shift77 to i48
   br label %119
 
 85:                                               ; preds = %35
@@ -2819,11 +2819,11 @@ _RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5C
   %.sroa.531.0 = phi ptr [ %98, %"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h0d9dddc0c13ceee8E.llvm.16596560796952818888.exit.i.i" ], [ %90, %85 ]
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.017.054, i64 32
   %100 = load i8, ptr %99, align 8, !range !629, !alias.scope !608, !noalias !612, !noundef !4
-  %.sroa.9.sroa.0.0.extract.trunc65 = trunc i64 %.sroa.030.0 to i8
-  %.sroa.9.sroa.8.0.extract.shift68 = lshr i64 %.sroa.030.0, 8
-  %.sroa.9.sroa.8.0.extract.trunc69 = trunc i64 %.sroa.9.sroa.8.0.extract.shift68 to i8
-  %.sroa.9.sroa.9.0.extract.shift74 = lshr i64 %.sroa.030.0, 16
-  %.sroa.9.sroa.9.0.extract.trunc75 = trunc nuw i64 %.sroa.9.sroa.9.0.extract.shift74 to i48
+  %.sroa.9.sroa.0.0.extract.trunc66 = trunc i64 %.sroa.030.0 to i8
+  %.sroa.9.sroa.8.0.extract.shift69 = lshr i64 %.sroa.030.0, 8
+  %.sroa.9.sroa.8.0.extract.trunc70 = trunc i64 %.sroa.9.sroa.8.0.extract.shift69 to i8
+  %.sroa.9.sroa.9.0.extract.shift75 = lshr i64 %.sroa.030.0, 16
+  %.sroa.9.sroa.9.0.extract.trunc76 = trunc nuw i64 %.sroa.9.sroa.9.0.extract.shift75 to i48
   br label %119
 
 101:                                              ; preds = %35
@@ -2857,7 +2857,7 @@ _RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5C
 110:                                              ; preds = %35
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.017.054, i64 8
   %112 = load i8, ptr %111, align 8, !range !661, !alias.scope !608, !noalias !612, !noundef !4
-  switch i8 %112, label %default.unreachable128 [
+  switch i8 %112, label %default.unreachable129 [
     i8 0, label %119
     i8 1, label %113
     i8 2, label %116
@@ -2874,10 +2874,10 @@ _RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5C
   br label %119
 
 119:                                              ; preds = %110, %113, %116, %35, %.noexc16, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i, %.noexc11
-  %.sroa.9.sroa.9.sroa.0.1 = phi i48 [ %.sroa.9.sroa.9.0.extract.trunc79, %.noexc11 ], [ %.sroa.9.sroa.9.0.extract.trunc77, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i ], [ %.sroa.9.sroa.9.0.extract.trunc75, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i ], [ %.sroa.9.sroa.9.0.extract.trunc, %.noexc16 ], [ %.sroa.9.sroa.9.sroa.0.0, %35 ], [ %.sroa.9.sroa.9.sroa.0.0, %116 ], [ %.sroa.9.sroa.9.sroa.0.0, %113 ], [ %.sroa.9.sroa.9.sroa.0.0, %110 ]
-  %.sroa.9.sroa.8.1 = phi i8 [ %.sroa.9.sroa.8.0.extract.trunc73, %.noexc11 ], [ %.sroa.9.sroa.8.0.extract.trunc71, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i ], [ %.sroa.9.sroa.8.0.extract.trunc69, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i ], [ %.sroa.9.sroa.8.0.extract.trunc, %.noexc16 ], [ %.sroa.9.sroa.8.0, %35 ], [ %118, %116 ], [ %115, %113 ], [ undef, %110 ]
-  %.sroa.9.sroa.0.1 = phi i8 [ %.sroa.9.sroa.0.0.extract.trunc67, %.noexc11 ], [ %.sroa.9.sroa.0.0.extract.trunc66, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i ], [ %.sroa.9.sroa.0.0.extract.trunc65, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i ], [ %.sroa.9.sroa.0.0.extract.trunc, %.noexc16 ], [ %.sroa.9.sroa.0.0, %35 ], [ 2, %116 ], [ 1, %113 ], [ %112, %110 ]
-  %.sroa.24.1 = phi i64 [ %.sroa.24.0, %.noexc11 ], [ %.sroa.24.0, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i ], [ %.sroa.24.0, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i ], [ %107, %.noexc16 ], [ %.sroa.24.0, %35 ], [ %.sroa.24.0, %116 ], [ %.sroa.24.0, %113 ], [ %.sroa.24.0, %110 ]
+  %.sroa.9.sroa.9.sroa.0.1 = phi i48 [ %.sroa.9.sroa.9.0.extract.trunc80, %.noexc11 ], [ %.sroa.9.sroa.9.0.extract.trunc78, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i ], [ %.sroa.9.sroa.9.0.extract.trunc76, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i ], [ %.sroa.9.sroa.9.0.extract.trunc, %.noexc16 ], [ %.sroa.9.sroa.9.sroa.0.0, %35 ], [ %.sroa.9.sroa.9.sroa.0.0, %116 ], [ %.sroa.9.sroa.9.sroa.0.0, %113 ], [ %.sroa.9.sroa.9.sroa.0.0, %110 ]
+  %.sroa.9.sroa.8.1 = phi i8 [ %.sroa.9.sroa.8.0.extract.trunc74, %.noexc11 ], [ %.sroa.9.sroa.8.0.extract.trunc72, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i ], [ %.sroa.9.sroa.8.0.extract.trunc70, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i ], [ %.sroa.9.sroa.8.0.extract.trunc, %.noexc16 ], [ %.sroa.9.sroa.8.0, %35 ], [ %118, %116 ], [ %115, %113 ], [ undef, %110 ]
+  %.sroa.9.sroa.0.1 = phi i8 [ %.sroa.9.sroa.0.0.extract.trunc68, %.noexc11 ], [ %.sroa.9.sroa.0.0.extract.trunc67, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i ], [ %.sroa.9.sroa.0.0.extract.trunc66, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i ], [ %.sroa.9.sroa.0.0.extract.trunc, %.noexc16 ], [ %.sroa.9.sroa.0.0, %35 ], [ 2, %116 ], [ 1, %113 ], [ %112, %110 ]
+  %.sroa.2265.1 = phi i64 [ %.sroa.2265.0, %.noexc11 ], [ %.sroa.2265.0, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i ], [ %.sroa.2265.0, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i ], [ %107, %.noexc16 ], [ %.sroa.2265.0, %35 ], [ %.sroa.2265.0, %116 ], [ %.sroa.2265.0, %113 ], [ %.sroa.2265.0, %110 ]
   %.sroa.20.1 = phi i8 [ %.sroa.20.0, %.noexc11 ], [ %72, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i ], [ %100, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i ], [ %.sroa.56.i.sroa.5.0.copyload, %.noexc16 ], [ %.sroa.20.0, %35 ], [ %.sroa.20.0, %116 ], [ %.sroa.20.0, %113 ], [ %.sroa.20.0, %110 ]
   %.sroa.18.1 = phi i64 [ %47, %.noexc11 ], [ %76, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i ], [ %92, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i ], [ %.sroa.56.i.sroa.4.0.copyload, %.noexc16 ], [ %.sroa.18.0, %35 ], [ %.sroa.18.0, %116 ], [ %.sroa.18.0, %113 ], [ %.sroa.18.0, %110 ]
   %.sroa.15.1 = phi ptr [ %51, %.noexc11 ], [ %83, %_RNvXs9_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCseG2FYMysgNb_3wax5token9ArchetypeENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneBJ_.exit.i ], [ %.sroa.531.0, %_RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5Clone5cloneCseG2FYMysgNb_3wax.exit.i ], [ %.sroa.56.i.sroa.0.0.copyload, %.noexc16 ], [ %.sroa.15.0, %35 ], [ %.sroa.15.0, %116 ], [ %.sroa.15.0, %113 ], [ %.sroa.15.0, %110 ]
@@ -2909,7 +2909,7 @@ _RNvXs0_NtCs68wO5nsWeTG_5alloc6borrowINtB5_3CoweENtNtCs1LoaDTb72WA_4core5clone5C
   %.sroa.024.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.024.sroa.8.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.024.sroa.8, i64 7, i1 false)
   %.sroa.024.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 40
-  store i64 %.sroa.24.1, ptr %.sroa.024.sroa.9.0..sroa_idx, align 8
+  store i64 %.sroa.2265.1, ptr %.sroa.024.sroa.9.0..sroa_idx, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 48
   store i64 %.val.i, ptr %.sroa.425.0..sroa_idx, align 8
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 56

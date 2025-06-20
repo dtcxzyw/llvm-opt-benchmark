@@ -33237,7 +33237,6 @@ common.resume:                                    ; preds = %6, %11
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3vim3Vim10deactivate17heaa793380d63e0b6E(ptr noalias noundef align 8 dereferenceable(5472) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
-  %.sroa.519 = alloca [28 x i8], align 4
   %4 = alloca [32 x i8], align 8
   %.sroa.5 = alloca [28 x i8], align 4
   tail call void @_ZN6editor6Editor16set_cursor_shape17h38b661d6bcb6848bE(ptr noalias noundef nonnull align 8 dereferenceable(5472) %0, i8 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
@@ -33298,7 +33297,6 @@ _ZN3vim5state10VimGlobals11focused_vim17h6efa128fc825ba4dE.exit: ; preds = %11
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.519)
   %29 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
           to label %39 unwind label %46
 
@@ -33333,8 +33331,6 @@ common.resume:                                    ; preds = %"_ZN4core3ptr85drop
   %38 = landingpad { ptr, i32 }
           cleanup
   store i32 0, ptr %41, align 8
-  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.519.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.519, i64 28, i1 false)
   br label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$gpui..view..WeakView$LT$vim..Vim$GT$$GT$$GT$17h7449e937765e6165E.exit6"
 
 39:                                               ; preds = %28
@@ -33354,9 +33350,6 @@ common.resume:                                    ; preds = %"_ZN4core3ptr85drop
 
 "_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$gpui..view..WeakView$LT$vim..Vim$GT$$GT$$GT$17h7449e937765e6165E.exit": ; preds = %"_ZN3vim5state26_$LT$impl$u20$vim..Vim$GT$7globals17h49f3aa2907875a57E.exit", %44
   store i32 0, ptr %41, align 8
-  %.sroa.519.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %40, i64 196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.519.0..sroa_idx20, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.519, i64 28, i1 false)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.519)
   br label %30
 
 "_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$gpui..view..WeakView$LT$vim..Vim$GT$$GT$$GT$17h7449e937765e6165E.exit6": ; preds = %46, %37
@@ -46116,10 +46109,10 @@ define void @"_ZN3vim1_74_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$vim..Use
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 3, ptr %41, align 8
-  %.sroa.440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store ptr %13, ptr %.sroa.440.0..sroa_idx, align 8
-  %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store i64 3, ptr %.sroa.541.0..sroa_idx, align 8
+  %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 56
+  store ptr %13, ptr %.sroa.439.0..sroa_idx, align 8
+  %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 64
+  store i64 3, ptr %.sroa.540.0..sroa_idx, align 8
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 32, i1 false)
   %43 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !8147
@@ -46353,8 +46346,8 @@ define void @"_ZN3vim1_74_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$vim..Vim
   store i64 -9223372036854775808, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 216
   store ptr null, ptr %31, align 8
-  %.sroa.3240.216..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 232
-  store i64 0, ptr %.sroa.3240.216..sroa_idx, align 8
+  %.sroa.2744.216..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 232
+  store i64 0, ptr %.sroa.2744.216..sroa_idx, align 8
   %32 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h5adaef6fb6e7c63fE(ptr noalias noundef nonnull align 8 dereferenceable(240) %17)
           to label %33 unwind label %22
 

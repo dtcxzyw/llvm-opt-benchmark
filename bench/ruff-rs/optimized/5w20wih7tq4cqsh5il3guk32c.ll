@@ -6091,7 +6091,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i21.i.i.i.i.i.i
           to label %.body.i unwind label %69, !noalias !946
 
 85:                                               ; preds = %82, %67
-  %.sroa.14.sroa.0.sroa.5.0.i.i.i.i.i.i.i = phi i64 [ -9223372036854775808, %67 ], [ 0, %82 ]
+  %.sroa.14.sroa.0.sroa.4.0.i.i.i.i.i.i.i = phi i64 [ -9223372036854775808, %67 ], [ 0, %82 ]
   %.sroa.12.0.i.i.i.i.i.i.i = phi i64 [ -9223372036854775808, %67 ], [ %74, %82 ]
   %.sroa.10.0.i.i.i.i.i.i.i = phi i64 [ %59, %67 ], [ %83, %82 ]
   %.sroa.8.0.i.i.i.i.i.i.i = phi i64 [ %68, %67 ], [ %74, %82 ]
@@ -6112,7 +6112,7 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i21.i.i.i.i.i.i
   %.sroa.9.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %86, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.sroa.0.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !989
   %.sroa.9.sroa.0.sroa.4.0..sroa.9.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %86, i64 64
-  store i64 %.sroa.14.sroa.0.sroa.5.0.i.i.i.i.i.i.i, ptr %.sroa.9.sroa.0.sroa.4.0..sroa.9.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i, align 8, !noalias !984
+  store i64 %.sroa.14.sroa.0.sroa.4.0.i.i.i.i.i.i.i, ptr %.sroa.9.sroa.0.sroa.4.0..sroa.9.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i, align 8, !noalias !984
   %.sroa.9.sroa.4.0..sroa.9.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %86, i64 72
   store i64 -9223372036854775808, ptr %.sroa.9.sroa.4.0..sroa.9.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i, align 8, !noalias !984
   %.sroa.9.sroa.5.0..sroa.9.0..sroa_idx.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %86, i64 80

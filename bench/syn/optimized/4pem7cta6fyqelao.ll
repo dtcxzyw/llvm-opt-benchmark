@@ -861,10 +861,8 @@ _ZN3syn5parse11ParseBuffer4step17hcfb449fed2d8c124E.exit: ; preds = %15, %17
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN3syn5token9peek_impl17hb7ec87291deb88d1E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
 .noexc.i:
-  %.sroa.6 = alloca [3 x i32], align 4
   %3 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   %4 = tail call noundef i32 @_ZN11proc_macro24Span9call_site17hfaf4d6ff79d6a554E()
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.6)
   %5 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.11864023271123110445(ptr noalias noundef nonnull readonly align 1 @anon.cb776e29a3edfb21b922828375758a83.4.llvm.11864023271123110445, i64 noundef 8, i64 noundef 32, i1 noundef zeroext false), !noalias !114
   %.fca.0.extract.i.i = extractvalue { ptr, i64 } %5, 0
   %6 = icmp eq ptr %.fca.0.extract.i.i, null
@@ -884,9 +882,6 @@ common.resume:                                    ; preds = %11, %14, %18
   store i64 1, ptr %.sroa.4.0..fca.0.extract.i.i.sroa_idx, align 8, !noalias !114
   %.sroa.5.0..fca.0.extract.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 16
   store i32 0, ptr %.sroa.5.0..fca.0.extract.i.i.sroa_idx, align 8, !noalias !114
-  %.sroa.6.0..fca.0.extract.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..fca.0.extract.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6, i64 12, i1 false), !noalias !114
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %4, ptr %7, align 8, !alias.scope !117

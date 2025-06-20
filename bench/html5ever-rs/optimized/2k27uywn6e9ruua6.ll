@@ -731,8 +731,8 @@ define void @_ZN11markup5ever4util12buffer_queue11BufferQueue15pop_except_from17
   %4 = alloca { ptr, ptr }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8, !alias.scope !91, !noundef !15
-  %.not130 = icmp eq i64 %6, 0
-  br i1 %.not130, label %.thread110, label %7
+  %.not129 = icmp eq i64 %6, 0
+  br i1 %.not129, label %.thread109, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -926,13 +926,13 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
 
 97:                                               ; preds = %94
   %98 = icmp ult i64 %95, 9
-  br i1 %98, label %.thread110, label %99
+  br i1 %98, label %.thread109, label %99
 
 99:                                               ; preds = %97
   %100 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %101 = load i32, ptr %100, align 4, !noundef !15
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %.thread, label %.thread110
+  br i1 %102, label %.thread, label %.thread109
 
 103:                                              ; preds = %160, %161
   %104 = landingpad { ptr, i32 }
@@ -940,17 +940,17 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #10
   unreachable
 
-.thread113:                                       ; preds = %158, %160, %161
+.thread112:                                       ; preds = %158, %160, %161
   %.pn18 = phi { ptr, i32 } [ %162, %161 ], [ %159, %160 ], [ %159, %158 ]
   resume { ptr, i32 } %.pn18
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$17unsafe_subtendril17h61aa787dcca1b780E.exit": ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i", %"_ZN75_$LT$tendril..tendril..NonAtomic$u20$as$u20$tendril..tendril..Atomicity$GT$9increment17hd9677b8a71d1b543E.exit.i"
   %105 = phi i64 [ %53, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i" ], [ %72, %"_ZN75_$LT$tendril..tendril..NonAtomic$u20$as$u20$tendril..tendril..Atomicity$GT$9increment17hd9677b8a71d1b543E.exit.i" ]
-  %.sroa.573.0 = phi i64 [ %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i" ], [ %.sroa.06.0.insert.insert.i, %"_ZN75_$LT$tendril..tendril..NonAtomic$u20$as$u20$tendril..tendril..Atomicity$GT$9increment17hd9677b8a71d1b543E.exit.i" ]
-  %.sroa.072.0 = phi i64 [ %92, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i" ], [ %75, %"_ZN75_$LT$tendril..tendril..NonAtomic$u20$as$u20$tendril..tendril..Atomicity$GT$9increment17hd9677b8a71d1b543E.exit.i" ]
-  %.sroa.573.8.extract.trunc = trunc i64 %.sroa.573.0 to i32
-  %.sroa.573.12.extract.shift = lshr i64 %.sroa.573.0, 32
-  %.sroa.573.12.extract.trunc = trunc nuw i64 %.sroa.573.12.extract.shift to i32
+  %.sroa.572.0 = phi i64 [ %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i" ], [ %.sroa.06.0.insert.insert.i, %"_ZN75_$LT$tendril..tendril..NonAtomic$u20$as$u20$tendril..tendril..Atomicity$GT$9increment17hd9677b8a71d1b543E.exit.i" ]
+  %.sroa.071.0 = phi i64 [ %92, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i" ], [ %75, %"_ZN75_$LT$tendril..tendril..NonAtomic$u20$as$u20$tendril..tendril..Atomicity$GT$9increment17hd9677b8a71d1b543E.exit.i" ]
+  %.sroa.572.8.extract.trunc = trunc i64 %.sroa.572.0 to i32
+  %.sroa.572.12.extract.shift = lshr i64 %.sroa.572.0, 32
+  %.sroa.572.12.extract.trunc = trunc nuw i64 %.sroa.572.12.extract.shift to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %106 = icmp eq i64 %105, 15
   br i1 %106, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.thread.i", label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i30"
@@ -1055,14 +1055,14 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   %151 = zext i32 %147 to i64
   %spec.select = select i1 %150, i64 %148, i64 %151
   %152 = icmp eq i64 %spec.select, 0
-  br i1 %152, label %.thread, label %.thread110
+  br i1 %152, label %.thread, label %.thread109
 
-.thread110:                                       ; preds = %.thread, %3, %97, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40", %99
-  %.sroa.1061.0 = phi i32 [ undef, %99 ], [ %.sroa.573.12.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %97 ], [ undef, %3 ], [ %.sroa.49.sroa.12.0106, %.thread ]
-  %.sroa.10.0 = phi i32 [ undef, %99 ], [ %.sroa.573.8.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %97 ], [ undef, %3 ], [ %.sroa.49.sroa.8.0105, %.thread ]
-  %.sroa.9.0 = phi i64 [ undef, %99 ], [ %.sroa.072.0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %97 ], [ undef, %3 ], [ %.sroa.49.sroa.4.0104, %.thread ]
-  %.sroa.7.0 = phi i32 [ %49, %99 ], [ undef, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ %49, %97 ], [ undef, %3 ], [ %.sroa.49.sroa.0.0103, %.thread ]
-  %.sroa.0.0 = phi i32 [ 0, %99 ], [ 1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ 0, %97 ], [ 2, %3 ], [ %.sroa.06.0107, %.thread ]
+.thread109:                                       ; preds = %.thread, %3, %97, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40", %99
+  %.sroa.1061.0 = phi i32 [ undef, %99 ], [ %.sroa.572.12.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %97 ], [ undef, %3 ], [ %.sroa.49.sroa.12.0105, %.thread ]
+  %.sroa.10.0 = phi i32 [ undef, %99 ], [ %.sroa.572.8.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %97 ], [ undef, %3 ], [ %.sroa.49.sroa.8.0104, %.thread ]
+  %.sroa.9.0 = phi i64 [ undef, %99 ], [ %.sroa.071.0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %97 ], [ undef, %3 ], [ %.sroa.49.sroa.4.0103, %.thread ]
+  %.sroa.7.0 = phi i32 [ %49, %99 ], [ undef, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ %49, %97 ], [ undef, %3 ], [ %.sroa.49.sroa.0.0102, %.thread ]
+  %.sroa.0.0 = phi i32 [ 0, %99 ], [ 1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ 0, %97 ], [ 2, %3 ], [ %.sroa.06.0106, %.thread ]
   store i32 %.sroa.0.0, ptr %0, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4
@@ -1076,11 +1076,11 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
 
 .thread:                                          ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit", %94, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40", %99
   %153 = phi i1 [ false, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ true, %99 ], [ true, %94 ], [ false, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit" ]
-  %.sroa.06.0107 = phi i32 [ 1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ 0, %99 ], [ 0, %94 ], [ 1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit" ]
-  %.sroa.49.sroa.12.0106 = phi i32 [ %.sroa.573.12.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %99 ], [ undef, %94 ], [ %.sroa.573.12.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit" ]
-  %.sroa.49.sroa.8.0105 = phi i32 [ %.sroa.573.8.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %99 ], [ undef, %94 ], [ %.sroa.573.8.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit" ]
-  %.sroa.49.sroa.4.0104 = phi i64 [ %.sroa.072.0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %99 ], [ undef, %94 ], [ %.sroa.072.0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit" ]
-  %.sroa.49.sroa.0.0103 = phi i32 [ undef, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ %49, %99 ], [ %49, %94 ], [ undef, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit" ]
+  %.sroa.06.0106 = phi i32 [ 1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ 0, %99 ], [ 0, %94 ], [ 1, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit" ]
+  %.sroa.49.sroa.12.0105 = phi i32 [ %.sroa.572.12.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %99 ], [ undef, %94 ], [ %.sroa.572.12.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit" ]
+  %.sroa.49.sroa.8.0104 = phi i32 [ %.sroa.572.8.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %99 ], [ undef, %94 ], [ %.sroa.572.8.extract.trunc, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit" ]
+  %.sroa.49.sroa.4.0103 = phi i64 [ %.sroa.071.0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ undef, %99 ], [ undef, %94 ], [ %.sroa.071.0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit" ]
+  %.sroa.49.sroa.0.0102 = phi i32 [ undef, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217he6d69f7754b9abccE.exit.i40" ], [ %49, %99 ], [ %49, %94 ], [ undef, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$16unsafe_pop_front17hb841c6d25f7083c9E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %154 = add i64 %9, 1
   %.not.i.i49 = icmp ult i64 %154, %10
@@ -1090,20 +1090,20 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   %156 = add i64 %6, -1
   store i64 %156, ptr %5, align 8, !alias.scope !128, !noalias !131
   %157 = getelementptr inbounds { i64, { { [2 x i32] } }, {}, {} }, ptr %13, i64 %9
-  %.sroa.491.8.copyload = load i64, ptr %157, align 8, !noalias !128
-  %.sroa.693.8..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 12
-  %.sroa.693.8.copyload = load i32, ptr %.sroa.693.8..sroa_idx, align 4, !noalias !128
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.491.8.copyload, i32 %.sroa.693.8.copyload)
-          to label %.thread110 unwind label %158
+  %.sroa.490.8.copyload = load i64, ptr %157, align 8, !noalias !128
+  %.sroa.692.8..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 12
+  %.sroa.692.8.copyload = load i32, ptr %.sroa.692.8..sroa_idx, align 4, !noalias !128
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.490.8.copyload, i32 %.sroa.692.8.copyload)
+          to label %.thread109 unwind label %158
 
 158:                                              ; preds = %.thread
   %159 = landingpad { ptr, i32 }
           cleanup
-  br i1 %153, label %.thread113, label %160
+  br i1 %153, label %.thread112, label %160
 
 160:                                              ; preds = %158
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.49.sroa.4.0104, i32 %.sroa.49.sroa.12.0106)
-          to label %.thread113 unwind label %103
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.49.sroa.4.0103, i32 %.sroa.49.sroa.12.0105)
+          to label %.thread112 unwind label %103
 
 161:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i36"
   %162 = landingpad { ptr, i32 }
@@ -1111,8 +1111,8 @@ _ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember_prefix_len17h4b9fbe
   store i64 %..i.i, ptr %14, align 8, !alias.scope !120
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %.sroa.4.i.i29.0..sroa.4.i.i29.0..sroa.4.i.i29.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i38, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !120
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.072.0, i32 %.sroa.573.12.extract.trunc) #9
-          to label %.thread113 unwind label %103
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hd46a4dd6e71d726cE"(i64 %.sroa.071.0, i32 %.sroa.572.12.extract.trunc) #9
+          to label %.thread112 unwind label %103
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

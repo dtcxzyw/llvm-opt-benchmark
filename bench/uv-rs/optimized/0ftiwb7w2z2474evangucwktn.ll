@@ -1024,7 +1024,7 @@ define void @_ZN8uv_types4hash12HashStrategy15from_resolution17heb91cd1f793990c1
   %67 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !154
   %68 = call noalias noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #19, !noalias !154
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %78
+  br i1 %69, label %70, label %79
 
 70:                                               ; preds = %64
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he572ac0a571405f2E(i64 noundef 8, i64 noundef 48) #18
@@ -1049,24 +1049,24 @@ define void @_ZN8uv_types4hash12HashStrategy15from_resolution17heb91cd1f793990c1
 76:                                               ; preds = %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 3, ptr %77, align 8
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %56, ptr %.sroa.48.0..sroa_idx, align 8
+  br label %77
+
+77:                                               ; preds = %79, %76
+  %.sink154 = phi i8 [ 2, %79 ], [ 3, %76 ]
+  %.sink = phi ptr [ %68, %79 ], [ %56, %76 ]
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.sink154, ptr %78, align 8
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sink, ptr %.sroa.45.0..sroa_idx, align 8
   store i8 4, ptr %0, align 8
   br label %80
 
-78:                                               ; preds = %64
+79:                                               ; preds = %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 2, ptr %79, align 8
-  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %68, ptr %.sroa.45.0..sroa_idx, align 8
-  store i8 4, ptr %0, align 8
-  br label %80
+  br label %77
 
-80:                                               ; preds = %76, %78, %97
+80:                                               ; preds = %97, %77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   ret void
 

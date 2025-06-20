@@ -3460,12 +3460,12 @@ default.unreachable:                              ; preds = %53
 
 58:                                               ; preds = %53
   %switch = icmp ult ptr %55, inttoptr (i64 4294967296 to ptr)
-  br i1 %switch, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread72, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread
+  br i1 %switch, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread
 
 59:                                               ; preds = %53
   %.mask = and i64 %56, -4294967296
   %cond = icmp eq i64 %.mask, 8589934592
-  br i1 %cond, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread72, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread
+  br i1 %cond, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread
 
 60:                                               ; preds = %53
   %61 = getelementptr i8, ptr %55, i64 -1
@@ -3747,8 +3747,8 @@ default.unreachable:                              ; preds = %53
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit47": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit"
   %131 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.val = load ptr, ptr %131, align 8, !nonnull !5, !noundef !5
-  %lhsc74 = load i8, ptr %.val, align 1
-  %132 = icmp eq i8 %lhsc74, 57
+  %lhsc73 = load i8, ptr %.val, align 1
+  %132 = icmp eq i8 %lhsc73, 57
   br i1 %132, label %133, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit.thread"
 
 133:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3daec0736d7dbe92E.exit47"
@@ -3973,9 +3973,9 @@ _ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit: ; preds = %53, %60
   %216 = getelementptr i8, ptr %55, i64 %.sink
   %.sroa.0.0.i = load i8, ptr %216, align 8, !range !4, !noundef !5
   %217 = icmp eq i8 %.sroa.0.0.i, 0
-  br i1 %217, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread72, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread
+  br i1 %217, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71, label %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread
 
-_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread72: ; preds = %58, %59, %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit
+_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71: ; preds = %58, %59, %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %19)
   %218 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store i64 -9223372036854775808, ptr %218, align 8
@@ -3986,7 +3986,7 @@ _ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread: ; preds = %58, %59,
   %220 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb48934b76b8d5fc7E"(ptr noundef nonnull %55)
   br label %225
 
-221:                                              ; preds = %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread72
+221:                                              ; preds = %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !656
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h3160755debb8c315E.llvm.7557364402226394005(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %55), !noalias !656
@@ -4008,7 +4008,7 @@ _ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread: ; preds = %58, %59,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   br label %185
 
-226:                                              ; preds = %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread72
+226:                                              ; preds = %_ZN3std2io5error5Error4kind17h08ee70207207b4eeE.exit.thread71
   %227 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h04053bb5a978084fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20) #29

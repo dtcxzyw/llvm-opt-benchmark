@@ -3981,9 +3981,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit17: ; preds = %_
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit17, %65
-  %.sink = phi i8 [ 3, %65 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit17 ]
+  %storemerge = phi i8 [ 3, %65 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit17 ]
   store i8 3, ptr %37, align 8, !tbaa !64
-  store i8 %.sink, ptr %38, align 1, !tbaa !64
+  store i8 %storemerge, ptr %38, align 1, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #21
   store i8 4, ptr %39, align 8, !tbaa !3
   store i8 1, ptr %40, align 1, !tbaa !8
@@ -4003,9 +4003,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZNSt7__cxx1112basi
   br label %_ZN4llvmplERKNS_5TwineES2_.exit37
 
 _ZN4llvmplERKNS_5TwineES2_.exit37:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %67
-  %.sink61 = phi i8 [ 3, %67 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %storemerge61 = phi i8 [ 3, %67 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   store i8 3, ptr %43, align 8, !tbaa !64
-  store i8 %.sink61, ptr %44, align 1, !tbaa !64
+  store i8 %storemerge61, ptr %44, align 1, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #21
   store i8 4, ptr %45, align 8, !tbaa !3
   store i8 1, ptr %46, align 1, !tbaa !8

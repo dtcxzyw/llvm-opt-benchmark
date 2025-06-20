@@ -328,11 +328,11 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %51, label %common.resume.sink.split.i.i.i.i.i.i.i.i.i, label %137
 
 common.resume.sink.split.i.i.i.i.i.i.i.i.i:       ; preds = %128, %.body.i1.i.i.i.i.i.i.i.i.i, %48
-  %.sink20.i.i.i.i.i.i.i.i.i = phi ptr [ %10, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %4, %128 ], [ %8, %48 ]
-  %.sink19.i.i.i.i.i.i.i.i.i = phi i64 [ %123, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %130, %128 ], [ %50, %48 ]
+  %.sink19.i.i.i.i.i.i.i.i.i = phi ptr [ %10, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %4, %128 ], [ %8, %48 ]
+  %.sink18.i.i.i.i.i.i.i.i.i = phi i64 [ %123, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %130, %128 ], [ %50, %48 ]
   %common.resume.op.ph.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i.i.i.i.i.i, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %129, %128 ], [ %49, %48 ]
-  %52 = load ptr, ptr %.sink20.i.i.i.i.i.i.i.i.i, align 8, !noalias !61, !nonnull !9, !noundef !9
-  %53 = shl nuw i64 %.sink19.i.i.i.i.i.i.i.i.i, 3
+  %52 = load ptr, ptr %.sink19.i.i.i.i.i.i.i.i.i, align 8, !noalias !61, !nonnull !9, !noundef !9
+  %53 = shl nuw i64 %.sink18.i.i.i.i.i.i.i.i.i, 3
   call void @__rust_dealloc(ptr noundef nonnull %52, i64 noundef %53, i64 noundef 8) #30, !noalias !62
   br label %137
 
@@ -564,12 +564,12 @@ _ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE.exit.i.i.i.i
   br label %132
 
 132:                                              ; preds = %"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$9from_iter17h383ed66635ade2f0E.exit.i.i.i.i.i.i.i.i.i", %_ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE.exit.i.i.i.i.i.i.i.i.i
-  %.sroa.53.0.i.i.i.i.i.i.i = phi i8 [ 1, %_ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE.exit.i.i.i.i.i.i.i.i.i ], [ 2, %"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$9from_iter17h383ed66635ade2f0E.exit.i.i.i.i.i.i.i.i.i" ]
+  %.sink.i.i.i.i.i.i.i.i = phi i8 [ 1, %_ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE.exit.i.i.i.i.i.i.i.i.i ], [ 2, %"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$9from_iter17h383ed66635ade2f0E.exit.i.i.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !30
   %133 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i8, [7 x i8] }, ptr %28, i64 %.val20.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %133, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.02.i.i.i.i.i.i.i, i64 40, i1 false), !noalias !108
   %.sroa.43.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %133, i64 40
-  store i8 %.sroa.53.0.i.i.i.i.i.i.i, ptr %.sroa.43.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !109
+  store i8 %.sink.i.i.i.i.i.i.i.i, ptr %.sroa.43.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !109
   %134 = add i64 %.val20.i.i.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.02.i.i.i.i.i.i.i)
   %135 = add nuw i64 %.sroa.06.0.i.i.i.i.i.i, 1
@@ -1366,9 +1366,9 @@ define hidden void @_ZN3rsa3key13RsaPrivateKey3new17haacf8dc009c6daf7E(ptr dead_
   %10 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   store i64 65537, ptr %9, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.55.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 1, ptr %.sroa.55.0..sroa_idx.i, align 8
+  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i64 1, ptr %.sroa.5.0..sroa_idx.i, align 8
   br label %11
 
 11:                                               ; preds = %24, %3
@@ -1384,7 +1384,7 @@ define hidden void @_ZN3rsa3key13RsaPrivateKey3new17haacf8dc009c6daf7E(ptr dead_
   br i1 %18, label %19, label %"_ZN83_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..convert..From$LT$u64$GT$$GT$4from17hfaca642ec6a65af5E.llvm.12878139696234281404.exit"
 
 19:                                               ; preds = %11
-  %.sink9.i.i.i.i = select i1 %14, ptr %.sroa.4.0..sroa_idx.i, ptr %.sroa.55.0..sroa_idx.i
+  %.sink9.i.i.i.i = select i1 %14, ptr %.sroa.43.0..sroa_idx.i, ptr %.sroa.5.0..sroa_idx.i
   %20 = load i64, ptr %.sink9.i.i.i.i, align 8, !noundef !9
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %24, label %22
@@ -1392,8 +1392,8 @@ define hidden void @_ZN3rsa3key13RsaPrivateKey3new17haacf8dc009c6daf7E(ptr dead_
 22:                                               ; preds = %19
   %23 = add i64 %20, -1
   store i64 %23, ptr %.sink9.i.i.i.i, align 8
-  %.pre.i.i.i = load i64, ptr %.sroa.55.0..sroa_idx.i, align 8
-  %.pre8.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %.pre.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8
+  %.pre8.i.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8
   br label %24
 
 24:                                               ; preds = %22, %19
@@ -3299,12 +3299,12 @@ define hidden void @"_ZN83_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core.
   %2 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   store i64 %1, ptr %2, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i64 1, ptr %.sroa.55.0..sroa_idx, align 8
+  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !640)
   %3 = inttoptr i64 %1 to ptr
-  %4 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !643, !noalias !649
+  %4 = load i64, ptr %.sroa.43.0..sroa_idx, align 8, !alias.scope !643, !noalias !649
   br label %5
 
 5:                                                ; preds = %18, %.lr.ph.i.i
@@ -3320,7 +3320,7 @@ define hidden void @"_ZN83_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core.
   br i1 %12, label %13, label %_ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.llvm.12878139696234281404.exit
 
 13:                                               ; preds = %5
-  %.sink9.i.i.i = select i1 %8, ptr %.sroa.4.0..sroa_idx, ptr %.sroa.55.0..sroa_idx
+  %.sink9.i.i.i = select i1 %8, ptr %.sroa.43.0..sroa_idx, ptr %.sroa.5.0..sroa_idx
   %14 = load i64, ptr %.sink9.i.i.i, align 8, !alias.scope !651, !noalias !640, !noundef !9
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %18, label %16
@@ -3328,8 +3328,8 @@ define hidden void @"_ZN83_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core.
 16:                                               ; preds = %13
   %17 = add i64 %14, -1
   store i64 %17, ptr %.sink9.i.i.i, align 8, !alias.scope !651, !noalias !640
-  %.pre.i.i = load i64, ptr %.sroa.55.0..sroa_idx, align 8, !alias.scope !643, !noalias !649
-  %.pre8.i.i = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !643, !noalias !649
+  %.pre.i.i = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !643, !noalias !649
+  %.pre8.i.i = load i64, ptr %.sroa.43.0..sroa_idx, align 8, !alias.scope !643, !noalias !649
   br label %18
 
 18:                                               ; preds = %16, %13

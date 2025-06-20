@@ -489,7 +489,7 @@ define hidden void @"_ZN235_$LT$ty_python_semantic..python_platform.._..$LT$impl
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = load i32, ptr %8, align 4, !noundef !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %19
+  br label %.sink.split
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -498,22 +498,22 @@ define hidden void @"_ZN235_$LT$ty_python_semantic..python_platform.._..$LT$impl
   %13 = tail call { i32, i32 } @"_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h3a62d27d1cf6617aE"(ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %12)
   %14 = extractvalue { i32, i32 } %13, 0
   %15 = trunc i32 %14 to i1
-  br i1 %15, label %16, label %18
+  br i1 %15, label %16, label %19
 
 16:                                               ; preds = %10
   %17 = extractvalue { i32, i32 } %13, 1
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %16, %7
+  %.sink = phi i32 [ %9, %7 ], [ %17, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sink, ptr %18, align 8
   br label %19
 
-18:                                               ; preds = %10, %19
-  %storemerge = phi i64 [ -9223372036854775807, %19 ], [ -9223372036854775808, %10 ]
+19:                                               ; preds = %.sink.split, %10
+  %storemerge = phi i64 [ -9223372036854775808, %10 ], [ -9223372036854775807, %.sink.split ]
   store i64 %storemerge, ptr %0, align 8
   ret void
-
-19:                                               ; preds = %16, %7
-  %.sink = phi i32 [ %17, %16 ], [ %9, %7 ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink, ptr %20, align 8
-  br label %18
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -47,13 +47,13 @@ define dso_local void @_ZNK4llvm10AsmPrinter16emitEncodingByteEjPKc(ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %8 = load i8, ptr %7, align 8, !tbaa !3, !range !123, !noundef !124
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %69
+  br i1 %9, label %10, label %71
 
 10:                                               ; preds = %3
   %.not = icmp eq ptr %2, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8, !tbaa !125
-  br i1 %.not, label %44, label %13
+  br i1 %.not, label %45, label %13
 
 13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
@@ -67,9 +67,9 @@ define dso_local void @_ZNK4llvm10AsmPrinter16emitEncodingByteEjPKc(ptr noundef 
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 16:                                               ; preds = %13
-  %.sroa.760.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %5, align 8, !alias.scope !127
-  store ptr @.str, ptr %.sroa.760.0..sroa_idx, align 8, !alias.scope !127
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @.str, ptr %17, align 8, !alias.scope !127
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %15, %16
@@ -79,30 +79,27 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %15, %16
   store i8 3, ptr %.sroa.761.0..sroa_idx, align 8, !tbaa !132
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 %.sink, ptr %.sroa.11.0..sroa_idx, align 1, !tbaa !132
-  switch i32 %1, label %35 [
+  switch i32 %1, label %36 [
     i32 0, label %_ZL19DecodeDWARFEncodingj.exit
-    i32 255, label %17
-    i32 16, label %18
-    i32 1, label %19
-    i32 9, label %20
-    i32 3, label %21
-    i32 4, label %22
-    i32 11, label %23
-    i32 12, label %24
-    i32 19, label %25
-    i32 27, label %26
-    i32 20, label %27
-    i32 28, label %28
-    i32 147, label %29
-    i32 155, label %30
-    i32 148, label %31
-    i32 156, label %32
-    i32 187, label %33
-    i32 188, label %34
+    i32 255, label %18
+    i32 16, label %19
+    i32 1, label %20
+    i32 9, label %21
+    i32 3, label %22
+    i32 4, label %23
+    i32 11, label %24
+    i32 12, label %25
+    i32 19, label %26
+    i32 27, label %27
+    i32 20, label %28
+    i32 28, label %29
+    i32 147, label %30
+    i32 155, label %31
+    i32 148, label %32
+    i32 156, label %33
+    i32 187, label %34
+    i32 188, label %35
   ]
-
-17:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
-  br label %_ZL19DecodeDWARFEncodingj.exit
 
 18:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
   br label %_ZL19DecodeDWARFEncodingj.exit
@@ -158,150 +155,153 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %15, %16
 35:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
   br label %_ZL19DecodeDWARFEncodingj.exit
 
-_ZL19DecodeDWARFEncodingj.exit:                   ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35
-  %.0.i = phi ptr [ @.str.27, %35 ], [ @.str.9, %17 ], [ @.str.10, %18 ], [ @.str.11, %19 ], [ @.str.12, %20 ], [ @.str.13, %21 ], [ @.str.14, %22 ], [ @.str.15, %23 ], [ @.str.16, %24 ], [ @.str.17, %25 ], [ @.str.18, %26 ], [ @.str.19, %27 ], [ @.str.20, %28 ], [ @.str.21, %29 ], [ @.str.22, %30 ], [ @.str.23, %31 ], [ @.str.24, %32 ], [ @.str.25, %33 ], [ @.str.26, %34 ], [ @.str.8, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %36 = load i8, ptr %.0.i, align 1, !tbaa !126
-  %.not.i6 = icmp eq i8 %36, 0
-  br i1 %.not.i6, label %37, label %_ZN4llvm5TwineC2EPKc.exit8
+36:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit
+  br label %_ZL19DecodeDWARFEncodingj.exit
 
-37:                                               ; preds = %_ZL19DecodeDWARFEncodingj.exit
+_ZL19DecodeDWARFEncodingj.exit:                   ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36
+  %.0.i = phi ptr [ @.str.27, %36 ], [ @.str.9, %18 ], [ @.str.10, %19 ], [ @.str.11, %20 ], [ @.str.12, %21 ], [ @.str.13, %22 ], [ @.str.14, %23 ], [ @.str.15, %24 ], [ @.str.16, %25 ], [ @.str.17, %26 ], [ @.str.18, %27 ], [ @.str.19, %28 ], [ @.str.20, %29 ], [ @.str.21, %30 ], [ @.str.22, %31 ], [ @.str.23, %32 ], [ @.str.24, %33 ], [ @.str.25, %34 ], [ @.str.26, %35 ], [ @.str.8, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %37 = load i8, ptr %.0.i, align 1, !tbaa !126
+  %.not.i6 = icmp eq i8 %37, 0
+  br i1 %.not.i6, label %38, label %_ZN4llvm5TwineC2EPKc.exit8
+
+38:                                               ; preds = %_ZL19DecodeDWARFEncodingj.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !134
   br label %_ZN4llvmplERKNS_5TwineES2_.exit23
 
 _ZN4llvm5TwineC2EPKc.exit8:                       ; preds = %_ZL19DecodeDWARFEncodingj.exit
   %.014.i.i12 = select i1 %.not.i, i8 3, i8 2
   store ptr %.sroa.05.0.i.i13, ptr %4, align 8, !alias.scope !135
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.0.i, ptr %38, align 8, !alias.scope !135
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 %.014.i.i12, ptr %39, align 8, !tbaa !140, !alias.scope !135
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 3, ptr %40, align 1, !tbaa !142, !alias.scope !135
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %.0.i, ptr %39, align 8, !alias.scope !135
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 %.014.i.i12, ptr %40, align 8, !tbaa !140, !alias.scope !135
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 3, ptr %41, align 1, !tbaa !142, !alias.scope !135
   br label %_ZN4llvmplERKNS_5TwineES2_.exit23
 
-_ZN4llvmplERKNS_5TwineES2_.exit23:                ; preds = %37, %_ZN4llvm5TwineC2EPKc.exit8
-  %41 = load ptr, ptr %12, align 8, !tbaa !143
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 120
-  %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(296) %12, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true) #6
+_ZN4llvmplERKNS_5TwineES2_.exit23:                ; preds = %38, %_ZN4llvm5TwineC2EPKc.exit8
+  %42 = load ptr, ptr %12, align 8, !tbaa !143
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 120
+  %44 = load ptr, ptr %43, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(296) %12, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
-  br label %69
+  br label %71
 
-44:                                               ; preds = %10
+45:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
-  switch i32 %1, label %63 [
+  switch i32 %1, label %64 [
     i32 0, label %_ZL19DecodeDWARFEncodingj.exit26
-    i32 255, label %45
-    i32 16, label %46
-    i32 1, label %47
-    i32 9, label %48
-    i32 3, label %49
-    i32 4, label %50
-    i32 11, label %51
-    i32 12, label %52
-    i32 19, label %53
-    i32 27, label %54
-    i32 20, label %55
-    i32 28, label %56
-    i32 147, label %57
-    i32 155, label %58
-    i32 148, label %59
-    i32 156, label %60
-    i32 187, label %61
-    i32 188, label %62
+    i32 255, label %46
+    i32 16, label %47
+    i32 1, label %48
+    i32 9, label %49
+    i32 3, label %50
+    i32 4, label %51
+    i32 11, label %52
+    i32 12, label %53
+    i32 19, label %54
+    i32 27, label %55
+    i32 20, label %56
+    i32 28, label %57
+    i32 147, label %58
+    i32 155, label %59
+    i32 148, label %60
+    i32 156, label %61
+    i32 187, label %62
+    i32 188, label %63
   ]
 
-45:                                               ; preds = %44
+46:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-46:                                               ; preds = %44
+47:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-47:                                               ; preds = %44
+48:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-48:                                               ; preds = %44
+49:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-49:                                               ; preds = %44
+50:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-50:                                               ; preds = %44
+51:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-51:                                               ; preds = %44
+52:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-52:                                               ; preds = %44
+53:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-53:                                               ; preds = %44
+54:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-54:                                               ; preds = %44
+55:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-55:                                               ; preds = %44
+56:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-56:                                               ; preds = %44
+57:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-57:                                               ; preds = %44
+58:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-58:                                               ; preds = %44
+59:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-59:                                               ; preds = %44
+60:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-60:                                               ; preds = %44
+61:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-61:                                               ; preds = %44
+62:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-62:                                               ; preds = %44
+63:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-63:                                               ; preds = %44
+64:                                               ; preds = %45
   br label %_ZL19DecodeDWARFEncodingj.exit26
 
-_ZL19DecodeDWARFEncodingj.exit26:                 ; preds = %44, %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63
-  %.0.i25 = phi ptr [ @.str.27, %63 ], [ @.str.9, %45 ], [ @.str.10, %46 ], [ @.str.11, %47 ], [ @.str.12, %48 ], [ @.str.13, %49 ], [ @.str.14, %50 ], [ @.str.15, %51 ], [ @.str.16, %52 ], [ @.str.17, %53 ], [ @.str.18, %54 ], [ @.str.19, %55 ], [ @.str.20, %56 ], [ @.str.21, %57 ], [ @.str.22, %58 ], [ @.str.23, %59 ], [ @.str.24, %60 ], [ @.str.25, %61 ], [ @.str.26, %62 ], [ @.str.8, %44 ]
-  %64 = load i8, ptr %.0.i25, align 1, !tbaa !126
-  %.not.i27 = icmp eq i8 %64, 0
+_ZL19DecodeDWARFEncodingj.exit26:                 ; preds = %45, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64
+  %.0.i25 = phi ptr [ @.str.27, %64 ], [ @.str.9, %46 ], [ @.str.10, %47 ], [ @.str.11, %48 ], [ @.str.12, %49 ], [ @.str.13, %50 ], [ @.str.14, %51 ], [ @.str.15, %52 ], [ @.str.16, %53 ], [ @.str.17, %54 ], [ @.str.18, %55 ], [ @.str.19, %56 ], [ @.str.20, %57 ], [ @.str.21, %58 ], [ @.str.22, %59 ], [ @.str.23, %60 ], [ @.str.24, %61 ], [ @.str.25, %62 ], [ @.str.26, %63 ], [ @.str.8, %45 ]
+  %65 = load i8, ptr %.0.i25, align 1, !tbaa !126
+  %.not.i27 = icmp eq i8 %65, 0
   store ptr @.str.1, ptr %6, align 8
-  br i1 %.not.i27, label %_ZN4llvmplERKNS_5TwineES2_.exit44, label %65
+  br i1 %.not.i27, label %_ZN4llvmplERKNS_5TwineES2_.exit44, label %66
 
-65:                                               ; preds = %_ZL19DecodeDWARFEncodingj.exit26
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %.0.i25, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !145
+66:                                               ; preds = %_ZL19DecodeDWARFEncodingj.exit26
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %.0.i25, ptr %67, align 8, !alias.scope !145
   br label %_ZN4llvmplERKNS_5TwineES2_.exit44
 
-_ZN4llvmplERKNS_5TwineES2_.exit44:                ; preds = %_ZL19DecodeDWARFEncodingj.exit26, %65
-  %.sink70 = phi i8 [ 3, %65 ], [ 1, %_ZL19DecodeDWARFEncodingj.exit26 ]
+_ZN4llvmplERKNS_5TwineES2_.exit44:                ; preds = %_ZL19DecodeDWARFEncodingj.exit26, %66
+  %.sink70 = phi i8 [ 3, %66 ], [ 1, %_ZL19DecodeDWARFEncodingj.exit26 ]
   %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 3, ptr %.sroa.551.0..sroa_idx, align 8, !tbaa !132
   %.sroa.752.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 33
   store i8 %.sink70, ptr %.sroa.752.0..sroa_idx, align 1, !tbaa !132
-  %66 = load ptr, ptr %12, align 8, !tbaa !143
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 120
-  %68 = load ptr, ptr %67, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(296) %12, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext true) #6
+  %68 = load ptr, ptr %12, align 8, !tbaa !143
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 120
+  %70 = load ptr, ptr %69, align 8
+  call void %70(ptr noundef nonnull align 8 dereferenceable(296) %12, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext true) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
-  br label %69
+  br label %71
 
-69:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit23, %_ZN4llvmplERKNS_5TwineES2_.exit44, %3
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %71 = load ptr, ptr %70, align 8, !tbaa !125
-  %72 = zext i32 %1 to i64
-  %73 = load ptr, ptr %71, align 8, !tbaa !143
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 544
-  %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(296) %71, i64 noundef %72, i32 noundef 1) #6
+71:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit23, %_ZN4llvmplERKNS_5TwineES2_.exit44, %3
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %73 = load ptr, ptr %72, align 8, !tbaa !125
+  %74 = zext i32 %1 to i64
+  %75 = load ptr, ptr %73, align 8, !tbaa !143
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 544
+  %77 = load ptr, ptr %76, align 8
+  call void %77(ptr noundef nonnull align 8 dereferenceable(296) %73, i64 noundef %74, i32 noundef 1) #6
   ret void
 }
 

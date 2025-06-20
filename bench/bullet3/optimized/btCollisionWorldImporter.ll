@@ -3102,21 +3102,20 @@ _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit183: ; preds = %2, %2
   %139 = zext nneg i32 %125 to i64
   %140 = shl nuw nsw i64 %139, 4
   %141 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %140, i32 noundef 16)
-          to label %.lr.ph.i202 unwind label %156
+          to label %.lr.ph337 unwind label %156
 
-.lr.ph.i202:                                      ; preds = %138
+.lr.ph337:                                        ; preds = %138
   store i8 1, ptr %126, align 8, !tbaa !254
   store ptr %141, ptr %127, align 8, !tbaa !258
   store i32 %125, ptr %129, align 8, !tbaa !260
-  %.pre.pre = load ptr, ptr %131, align 8, !tbaa !265
   store i32 %125, ptr %128, align 4, !tbaa !259
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %143 = load ptr, ptr %142, align 8, !tbaa !268
   %wide.trip.count357 = zext nneg i32 %125 to i64
   br label %144
 
-144:                                              ; preds = %.lr.ph.i202, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit221
-  %indvars.iv354 = phi i64 [ 0, %.lr.ph.i202 ], [ %indvars.iv.next355, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit221 ]
+144:                                              ; preds = %.lr.ph337, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit221
+  %indvars.iv354 = phi i64 [ 0, %.lr.ph337 ], [ %indvars.iv.next355, %_ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit221 ]
   %145 = getelementptr inbounds nuw %class.btVector3, ptr %141, i64 %indvars.iv354
   %146 = getelementptr inbounds nuw %struct.btPositionAndRadius, ptr %143, i64 %indvars.iv354
   br label %147
@@ -3134,7 +3133,7 @@ _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit183: ; preds = %2, %2
 _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit221: ; preds = %147
   %151 = getelementptr inbounds nuw %struct.btPositionAndRadius, ptr %143, i64 %indvars.iv354, i32 1
   %152 = load float, ptr %151, align 4, !tbaa !269
-  %153 = getelementptr inbounds nuw float, ptr %.pre.pre, i64 %indvars.iv354
+  %153 = getelementptr inbounds nuw float, ptr %137, i64 %indvars.iv354
   store float %152, ptr %153, align 4, !tbaa !198
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next355, %wide.trip.count357
@@ -3159,7 +3158,7 @@ _ZN9btVector316deSerializeFloatERK18btVector3FloatData.exit221: ; preds = %147
   %160 = load ptr, ptr %0, align 8, !tbaa !4
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 184
   %162 = load ptr, ptr %161, align 8
-  %163 = invoke noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(1336) %0, ptr noundef nonnull %141, ptr noundef nonnull %.pre.pre, i32 noundef %125)
+  %163 = invoke noundef ptr %162(ptr noundef nonnull align 8 dereferenceable(1336) %0, ptr noundef nonnull %141, ptr noundef nonnull %137, i32 noundef %125)
           to label %164 unwind label %158
 
 164:                                              ; preds = %._crit_edge338
@@ -3232,9 +3231,13 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjec
   %189 = zext nneg i32 %182 to i64
   %190 = shl nuw nsw i64 %189, 4
   %191 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %190, i32 noundef 16)
-          to label %.lr.ph.i226 unwind label %204
+          to label %.lr.ph330 unwind label %204
 
-.lr.ph.i226:                                      ; preds = %188
+.loopexit323:                                     ; preds = %180
+  store i32 %182, ptr %185, align 4, !tbaa !259
+  br label %._crit_edge331
+
+.lr.ph330:                                        ; preds = %188
   store i8 1, ptr %183, align 8, !tbaa !254
   store ptr %191, ptr %184, align 8, !tbaa !258
   store i32 %182, ptr %186, align 8, !tbaa !260
@@ -3248,12 +3251,8 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %_ZN20btAlignedObjec
   %wide.trip.count = zext nneg i32 %182 to i64
   br label %196
 
-.loopexit323:                                     ; preds = %180
-  store i32 %182, ptr %185, align 4, !tbaa !259
-  br label %._crit_edge331
-
-196:                                              ; preds = %.lr.ph.i226, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit
-  %indvars.iv345 = phi i64 [ 0, %.lr.ph.i226 ], [ %indvars.iv.next346, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit ]
+196:                                              ; preds = %.lr.ph330, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit
+  %indvars.iv345 = phi i64 [ 0, %.lr.ph330 ], [ %indvars.iv.next346, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit ]
   br i1 %.not161, label %_ZN9btVector311deSerializeERK18btVector3FloatData.exit, label %197
 
 197:                                              ; preds = %196

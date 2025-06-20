@@ -1599,12 +1599,12 @@ define void @_ZN11quinn_proto9range_set15btree_range_set8RangeSet8peek_min17h3f0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %.sroa.4.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
-  store ptr null, ptr %.sroa.4.0..sroa_idx21, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1665,12 +1665,12 @@ define void @_ZN11quinn_proto9range_set15btree_range_set8RangeSet7pop_min17hbbd0
   br i1 %.not.i, label %11, label %6
 
 6:                                                ; preds = %2
-  %.sroa.4.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !123, !noalias !128, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !123, !noalias !128, !noundef !3
-  store ptr null, ptr %.sroa.4.0..sroa_idx21.i, align 8, !noalias !126
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !126
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !126
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1683,7 +1683,7 @@ define void @_ZN11quinn_proto9range_set15btree_range_set8RangeSet7pop_min17hbbd0
   store i64 %8, ptr %.sroa.69.sroa.5.0..sroa.69.0..sroa_idx.sroa_idx.i, align 8, !noalias !126
   br label %11
 
-11:                                               ; preds = %2, %6
+11:                                               ; preds = %6, %2
   %.sink26.i = phi i64 [ 1, %6 ], [ 0, %2 ]
   %.sink.i = phi i64 [ %10, %6 ], [ 0, %2 ]
   store i64 %.sink26.i, ptr %3, align 8, !noalias !126
@@ -1915,7 +1915,7 @@ define void @"_ZN107_$LT$quinn_proto..range_set..btree_range_set..Replace$u20$as
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %27, label %19
 
-18:                                               ; preds = %2, %34, %31, %27
+18:                                               ; preds = %2, %35, %31, %27
   ret void
 
 19:                                               ; preds = %8
@@ -1943,7 +1943,7 @@ define void @"_ZN107_$LT$quinn_proto..range_set..btree_range_set..Replace$u20$as
   %.sroa.0.0.sroa.speculated.i9 = call noundef i64 @llvm.umax.i64(i64 %23, i64 %25)
   store i64 %.sroa.0.0.sroa.speculated.i9, ptr %24, align 8
   %30 = icmp eq i64 %22, %.sroa.0.0.sroa.speculated.i
-  br i1 %30, label %34, label %32
+  br i1 %30, label %35, label %32
 
 31:                                               ; preds = %19
   store i64 0, ptr %0, align 8
@@ -1951,15 +1951,15 @@ define void @"_ZN107_$LT$quinn_proto..range_set..btree_range_set..Replace$u20$as
   br label %18
 
 32:                                               ; preds = %28
-  %.sroa.5.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %22, ptr %.sroa.5.0..sroa_idx7, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.sroa.speculated.i, ptr %33, align 8
-  br label %34
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %22, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.0.0.sroa.speculated.i, ptr %34, align 8
+  br label %35
 
-34:                                               ; preds = %28, %32
-  %.sink = phi i64 [ 1, %32 ], [ 0, %28 ]
-  store i64 %.sink, ptr %0, align 8
+35:                                               ; preds = %28, %32
+  %storemerge = phi i64 [ 1, %32 ], [ 0, %28 ]
+  store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %18
 }
@@ -2760,8 +2760,8 @@ define hidden void @_ZN11quinn_proto10connection5paths8PathData13from_previous17
   store i16 %59, ptr %.sroa.7.0..sroa_idx32, align 8
   %.sroa.8.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %0, i64 74
   store i16 %61, ptr %.sroa.8.0..sroa_idx33, align 2
-  %.sroa.935.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %33, ptr %.sroa.935.0..sroa_idx, align 8
+  %.sroa.934.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %33, ptr %.sroa.934.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i16 %31, ptr %.sroa.11.0..sroa_idx, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 328

@@ -2585,45 +2585,49 @@ define hidden void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clon
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$10extract_if17hc632871c7b8bfbf6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef align 8 dereferenceable(16) %2) unnamed_addr #11 personality ptr @rust_eh_personality {
-  %.sroa.8 = alloca [16 x i8], align 8
+  %4 = alloca [40 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
-  %4 = load ptr, ptr %1, align 8, !alias.scope !275, !noalias !278, !noundef !7
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$16extract_if_inner17h60153be7ff3c0927E.llvm.7242839918964869051.exit", label %6
+  %5 = load ptr, ptr %1, align 8, !alias.scope !275, !noalias !278, !noundef !7
+  %6 = icmp eq ptr %5, null
+  %.sink21.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink21.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br i1 %6, label %7, label %9
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !275, !noalias !278, !noundef !7
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %._crit_edge.i, label %.lr.ph.i
-
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %6
-  %.sroa.018.0.lcssa.i = phi ptr [ %4, %6 ], [ %11, %.lr.ph.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i8 0, i64 16, i1 false)
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %8, ptr %4, align 8
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$16extract_if_inner17h60153be7ff3c0927E.llvm.7242839918964869051.exit"
 
-.lr.ph.i:                                         ; preds = %6, %.lr.ph.i
-  %.sroa.018.020.i = phi ptr [ %11, %.lr.ph.i ], [ %4, %6 ]
-  %.sroa.017.019.i = phi i64 [ %12, %.lr.ph.i ], [ %8, %6 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.018.020.i, i64 1600
-  %11 = load ptr, ptr %10, align 8, !noalias !280, !nonnull !7, !noundef !7
-  %12 = add i64 %.sroa.017.019.i, -1
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %._crit_edge.i, label %.lr.ph.i
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load i64, ptr %10, align 8, !alias.scope !275, !noalias !278, !noundef !7
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %._crit_edge.i, label %.lr.ph.i
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$16extract_if_inner17h60153be7ff3c0927E.llvm.7242839918964869051.exit": ; preds = %3, %._crit_edge.i
-  %.sroa.5.0 = phi ptr [ %1, %._crit_edge.i ], [ null, %3 ]
-  %.sroa.7.0 = phi ptr [ %.sroa.018.0.lcssa.i, %._crit_edge.i ], [ null, %3 ]
-  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %1, i64 16
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %9
+  %.sroa.018.0.lcssa.i = phi ptr [ %5, %9 ], [ %15, %.lr.ph.i ]
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %13, ptr %4, align 8
+  store ptr %1, ptr %.sink21.i.sroa.gep1, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %.sroa.018.0.lcssa.i, ptr %.sroa.5.0..sroa_idx.i, align 8
+  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$16extract_if_inner17h60153be7ff3c0927E.llvm.7242839918964869051.exit"
+
+.lr.ph.i:                                         ; preds = %9, %.lr.ph.i
+  %.sroa.018.020.i = phi ptr [ %15, %.lr.ph.i ], [ %5, %9 ]
+  %.sroa.017.019.i = phi i64 [ %16, %.lr.ph.i ], [ %11, %9 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.018.020.i, i64 1600
+  %15 = load ptr, ptr %14, align 8, !noalias !280, !nonnull !7, !noundef !7
+  %16 = add i64 %.sroa.017.019.i, -1
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %._crit_edge.i, label %.lr.ph.i
+
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$16extract_if_inner17h60153be7ff3c0927E.llvm.7242839918964869051.exit": ; preds = %7, %._crit_edge.i
+  %.sink21.i.sroa.phi = phi ptr [ %.sink21.i.sroa.gep, %._crit_edge.i ], [ %.sink21.i.sroa.gep1, %7 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink21.i.sroa.phi, i8 0, i64 16, i1 false)
   store ptr %2, ptr %0, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.0, ptr %14, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.5.0, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.7.0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i64 16, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   ret void
 }
 
@@ -2823,8 +2827,8 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 11:                                               ; preds = %._crit_edge, %5
-  %.sink = phi i64 [ 24, %._crit_edge ], [ 8, %5 ]
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %.sink21 = phi i64 [ 24, %._crit_edge ], [ 8, %5 ]
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   ret void
 

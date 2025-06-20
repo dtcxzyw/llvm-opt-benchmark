@@ -46923,7 +46923,6 @@ define internal void @"_ZN3tbb6detail2d119task_arena_functionIZN32pxrInternal_v0
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN32pxrInternal_v0_24__pxrReserved__24WorkWithScopedDispatcherIZ4mainE3$_0EEDaOT_bEUlvE_vEclEv"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
-  %.sroa.0.i.sroa.5.i.i = alloca [7 x i8], align 1
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::WorkDispatcher", align 8
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %3)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcherC1Ev(ptr noundef nonnull align 8 dereferenceable(345) %3)
@@ -46946,7 +46945,6 @@ define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN3
 
 15:                                               ; preds = %.noexc3.i, %.lr.ph.i.i
   %.01.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %27, %.noexc3.i ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.0.i.sroa.5.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %16 = atomicrmw add ptr %9, i64 1 seq_cst, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i64 %16, -1
@@ -46969,8 +46967,6 @@ define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN3
   store i64 %4, ptr %20, align 64
   %.sroa.0.i.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 72
   store i8 %6, ptr %.sroa.0.i.sroa.4.0..sroa_idx.i.i, align 8
-  %.sroa.0.i.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 73
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.i.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.0.i.sroa.5.i.i, i64 7, i1 false)
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 80
   store ptr %11, ptr %.sroa.2.0..sroa_idx.i.i.i, align 16
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 88
@@ -46987,7 +46983,6 @@ define internal noundef zeroext i1 @"_ZNK3tbb6detail2d119task_arena_functionIZN3
           to label %.noexc3.i unwind label %30
 
 .noexc3.i:                                        ; preds = %.noexc2.i
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.0.i.sroa.5.i.i)
   %27 = add nuw i64 %.01.i.i, 1
   %28 = load i64, ptr @_ZL10numThreads, align 8
   %29 = icmp ult i64 %27, %28

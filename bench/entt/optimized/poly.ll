@@ -60269,8 +60269,6 @@ define linkonce_odr hidden void @_ZN22Poly_SboAlignment_TestI7DeducedED0Ev(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN22Poly_SboAlignment_TestI7DeducedE8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::array", align 64
-  %.sroa.5163 = alloca [60 x i8], align 4
-  %.sroa.5 = alloca [60 x i8], align 4
   %3 = alloca ptr, align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
   %5 = alloca %"class.testing::Message", align 8
@@ -60293,7 +60291,6 @@ define linkonce_odr hidden void @_ZN22Poly_SboAlignment_TestI7DeducedE8TestBodyE
   %22 = alloca %"class.testing::Message", align 8
   %23 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.5163)
   store ptr null, ptr %2, align 64, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(17) %24, i8 0, i64 17, i1 false)
@@ -60319,8 +60316,6 @@ _ZN4entt9basic_anyILm64ELm64EEC2I12over_alignedJS3_EEESt15in_place_type_tIT_EDpO
   store ptr @_ZN4entt9basic_anyILm64ELm64EE12basic_vtableI12over_alignedEEPKvNS_8internal11any_requestERKS1_S5_, ptr %32, align 8, !tbaa !791
   store i8 2, ptr %31, align 16, !tbaa !792
   store i32 0, ptr %2, align 64
-  %.sroa.5163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5163.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5163, i64 60, i1 false)
   %33 = load atomic i8, ptr @_ZGVZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable acquire, align 8
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %35, label %_ZN4entt10basic_polyI7DeducedLm64ELm64EEC2I12over_alignedvEEOT_.exit, !prof !226
@@ -60345,7 +60340,6 @@ _ZN4entt10basic_polyI7DeducedLm64ELm64EEC2I12over_alignedvEEOT_.exit: ; preds = 
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, ptr %39, align 64, !tbaa !796
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.5)
   store ptr null, ptr %40, align 64, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(17) %41, i8 0, i64 17, i1 false)
@@ -60371,8 +60365,6 @@ _ZN4entt9basic_anyILm64ELm64EEC2I12over_alignedJS3_EEESt15in_place_type_tIT_EDpO
   store ptr @_ZN4entt9basic_anyILm64ELm64EE12basic_vtableI12over_alignedEEPKvNS_8internal11any_requestERKS1_S5_, ptr %49, align 8, !tbaa !791
   store i8 2, ptr %48, align 16, !tbaa !792
   store i32 0, ptr %40, align 64
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5, i64 60, i1 false)
   %50 = load atomic i8, ptr @_ZGVZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable acquire, align 8
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %52, label %_ZN4entt10basic_polyI7DeducedLm64ELm64EEC2I12over_alignedvEEOT_.exit57, !prof !226
@@ -60396,8 +60388,6 @@ _ZN4entt9basic_anyILm64ELm64EEC2I12over_alignedJS3_EEESt15in_place_type_tIT_EDpO
 _ZN4entt10basic_polyI7DeducedLm64ELm64EEC2I12over_alignedvEEOT_.exit57: ; preds = %54, %52, %_ZN4entt9basic_anyILm64ELm64EEC2I12over_alignedJS3_EEESt15in_place_type_tIT_EDpOT0_.exit.i155
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 320
   store ptr @_ZZN4entt11poly_vtableI7DeducedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFdSE_dESG_EEvE6vtable, ptr %56, align 64, !tbaa !796
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.5163)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
   %57 = load i8, ptr %31, align 16, !tbaa !792
   switch i8 %57, label %61 [
@@ -62747,8 +62737,6 @@ define linkonce_odr hidden void @_ZN22Poly_SboAlignment_TestI7DefinedED0Ev(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN22Poly_SboAlignment_TestI7DefinedE8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::array.210", align 64
-  %.sroa.5163 = alloca [60 x i8], align 4
-  %.sroa.5 = alloca [60 x i8], align 4
   %3 = alloca ptr, align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
   %5 = alloca %"class.testing::Message", align 8
@@ -62771,7 +62759,6 @@ define linkonce_odr hidden void @_ZN22Poly_SboAlignment_TestI7DefinedE8TestBodyE
   %22 = alloca %"class.testing::Message", align 8
   %23 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2) #26
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.5163)
   store ptr null, ptr %2, align 64, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(17) %24, i8 0, i64 17, i1 false)
@@ -62797,8 +62784,6 @@ _ZN4entt9basic_anyILm64ELm64EEC2I12over_alignedJS3_EEESt15in_place_type_tIT_EDpO
   store ptr @_ZN4entt9basic_anyILm64ELm64EE12basic_vtableI12over_alignedEEPKvNS_8internal11any_requestERKS1_S5_, ptr %32, align 8, !tbaa !791
   store i8 2, ptr %31, align 16, !tbaa !792
   store i32 0, ptr %2, align 64
-  %.sroa.5163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5163.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5163, i64 60, i1 false)
   %33 = load atomic i8, ptr @_ZGVZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable acquire, align 8
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %35, label %_ZN4entt10basic_polyI7DefinedLm64ELm64EEC2I12over_alignedvEEOT_.exit, !prof !226
@@ -62823,7 +62808,6 @@ _ZN4entt10basic_polyI7DefinedLm64ELm64EEC2I12over_alignedvEEOT_.exit: ; preds = 
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, ptr %39, align 64, !tbaa !808
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.5)
   store ptr null, ptr %40, align 64, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(17) %41, i8 0, i64 17, i1 false)
@@ -62849,8 +62833,6 @@ _ZN4entt9basic_anyILm64ELm64EEC2I12over_alignedJS3_EEESt15in_place_type_tIT_EDpO
   store ptr @_ZN4entt9basic_anyILm64ELm64EE12basic_vtableI12over_alignedEEPKvNS_8internal11any_requestERKS1_S5_, ptr %49, align 8, !tbaa !791
   store i8 2, ptr %48, align 16, !tbaa !792
   store i32 0, ptr %40, align 64
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %.sroa.5, i64 60, i1 false)
   %50 = load atomic i8, ptr @_ZGVZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable acquire, align 8
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %52, label %_ZN4entt10basic_polyI7DefinedLm64ELm64EEC2I12over_alignedvEEOT_.exit57, !prof !226
@@ -62874,8 +62856,6 @@ _ZN4entt9basic_anyILm64ELm64EEC2I12over_alignedJS3_EEESt15in_place_type_tIT_EDpO
 _ZN4entt10basic_polyI7DefinedLm64ELm64EEC2I12over_alignedvEEOT_.exit57: ; preds = %54, %52, %_ZN4entt9basic_anyILm64ELm64EEC2I12over_alignedJS3_EEESt15in_place_type_tIT_EDpOT0_.exit.i155
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 320
   store ptr @_ZZN4entt11poly_vtableI7DefinedLm64ELm64EE8instanceI12over_alignedEEPKSt5tupleIJPFvRNS_9basic_anyILm64ELm64EEEEPFvS8_iEPFiRKS7_ESA_PFiSE_iESG_EEvE6vtable, ptr %56, align 64, !tbaa !808
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %.sroa.5163)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
   %57 = load i8, ptr %31, align 16, !tbaa !792
   switch i8 %57, label %61 [

@@ -11289,8 +11289,8 @@ define hidden void @"_ZN2h25share19SendStream$LT$B$GT$13poll_capacity17h2aa9c5eb
 
 9:                                                ; preds = %5
   store i8 3, ptr %0, align 8, !alias.scope !1040, !noalias !1043
-  %.sroa.413.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.45.0.extract.trunc.i, ptr %.sroa.413.0..sroa_idx.i, align 1, !alias.scope !1040, !noalias !1043
+  %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.45.0.extract.trunc.i, ptr %.sroa.411.0..sroa_idx.i, align 1, !alias.scope !1040, !noalias !1043
   br label %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd74437813456ca0dE.llvm.1472373081438710728.exit"
 
 "_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17hd74437813456ca0dE.llvm.1472373081438710728.exit": ; preds = %6, %7, %8, %9
@@ -12061,8 +12061,8 @@ define hidden void @"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..r
   br label %8
 
 7:                                                ; preds = %5
-  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %0, align 8
+  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.45.0.extract.trunc, ptr %.sroa.417.0..sroa_idx, align 1
   br label %8
 
@@ -12102,8 +12102,8 @@ define hidden void @"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..r
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1, !range !720, !noundef !4
   store i8 3, ptr %0, align 8
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %12, ptr %.sroa.413.0..sroa_idx, align 1
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %12, ptr %.sroa.411.0..sroa_idx, align 1
   br label %13
 
 13:                                               ; preds = %4, %5, %7, %10

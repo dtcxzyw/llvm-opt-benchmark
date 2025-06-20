@@ -3176,10 +3176,10 @@ define void @_ZN10ockam_core3api5Error3new17ha0b4105aacba3ea6E(ptr noalias nound
   tail call void @llvm.assume(i1 %8)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !513
   store ptr %6, ptr %0, align 8
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %.sroa.44.0..sroa_idx, align 8
-  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %.sroa.55.0..sroa_idx, align 8
+  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %7, ptr %.sroa.43.0..sroa_idx, align 8
+  %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %2, ptr %.sroa.54.0..sroa_idx, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 5, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3218,10 +3218,10 @@ define void @_ZN10ockam_core3api5Error19from_failed_request17h916489c329e86af5E(
   tail call void @llvm.assume(i1 %14)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %8, i64 %10, i1 false), !noalias !525
   store ptr %12, ptr %6, align 8, !alias.scope !517, !noalias !526
-  %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %13, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !517, !noalias !526
-  %.sroa.55.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %10, ptr %.sroa.55.0..sroa_idx.i, align 8, !alias.scope !517, !noalias !526
+  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %13, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !517, !noalias !526
+  %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %10, ptr %.sroa.54.0..sroa_idx.i, align 8, !alias.scope !517, !noalias !526
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i8 5, ptr %15, align 8, !alias.scope !517, !noalias !526
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -4464,10 +4464,10 @@ define void @_ZN10ockam_core3api8Response5error17hd14e075b1501fa5fE(ptr noalias 
   tail call void @llvm.assume(i1 %16)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %10, i64 %12, i1 false), !noalias !744
   store ptr %14, ptr %7, align 8, !alias.scope !736, !noalias !745
-  %.sroa.44.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %15, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !alias.scope !736, !noalias !745
-  %.sroa.55.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %12, ptr %.sroa.55.0..sroa_idx.i.i, align 8, !alias.scope !736, !noalias !745
+  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %15, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !alias.scope !736, !noalias !745
+  %.sroa.54.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 %12, ptr %.sroa.54.0..sroa_idx.i.i, align 8, !alias.scope !736, !noalias !745
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i8 5, ptr %17, align 8, !alias.scope !736, !noalias !745
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -4904,10 +4904,10 @@ define void @_ZN10ockam_core3api8Response9forbidden17h7b735353f2fc95b8E(ptr noal
   tail call void @llvm.assume(i1 %14)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %8, i64 %10, i1 false), !noalias !810
   store ptr %12, ptr %6, align 8, !alias.scope !802, !noalias !811
-  %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %13, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !811
-  %.sroa.55.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %10, ptr %.sroa.55.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !811
+  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %13, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !811
+  %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %10, ptr %.sroa.54.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !811
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i8 5, ptr %15, align 8, !alias.scope !802, !noalias !811
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -5085,10 +5085,10 @@ define void @_ZN10ockam_core3api8Response14internal_error17h63c2651d6bc0400bE(pt
   tail call void @llvm.assume(i1 %14)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull readonly align 1 %8, i64 %10, i1 false), !noalias !842
   store ptr %12, ptr %6, align 8, !alias.scope !834, !noalias !843
-  %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %13, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !834, !noalias !843
-  %.sroa.55.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %10, ptr %.sroa.55.0..sroa_idx.i, align 8, !alias.scope !834, !noalias !843
+  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %13, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !834, !noalias !843
+  %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %10, ptr %.sroa.54.0..sroa_idx.i, align 8, !alias.scope !834, !noalias !843
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i8 5, ptr %15, align 8, !alias.scope !834, !noalias !843
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -5213,10 +5213,10 @@ define void @_ZN10ockam_core3api8Response14invalid_method17h97f835a360fde08fE(pt
   tail call void @llvm.assume(i1 %20)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull readonly align 1 %14, i64 %16, i1 false), !noalias !869
   store ptr %18, ptr %5, align 8, !alias.scope !861, !noalias !870
-  %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %19, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !861, !noalias !870
-  %.sroa.55.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %16, ptr %.sroa.55.0..sroa_idx.i, align 8, !alias.scope !861, !noalias !870
+  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %19, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !861, !noalias !870
+  %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %16, ptr %.sroa.54.0..sroa_idx.i, align 8, !alias.scope !861, !noalias !870
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i8 5, ptr %21, align 8, !alias.scope !861, !noalias !870
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 24

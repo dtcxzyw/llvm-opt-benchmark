@@ -3305,7 +3305,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_ba
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #21
   br label %133
 
-.thread:                                          ; preds = %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit27, %..thread_crit_edge
+.thread:                                          ; preds = %..thread_crit_edge, %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit27
   %.sroa.0.0.copyload.i28 = phi i8 [ %.sroa.0.0.copyload.i28.pre, %..thread_crit_edge ], [ %.sroa.0.0.copyload.i, %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit27 ]
   %81 = icmp eq i64 %.pre, 0
   br i1 %81, label %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit32, label %82
@@ -3367,7 +3367,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4Sema18FunctionEffectDiffELb1EE9push_ba
   %106 = add i64 %.sroa.787.0, 1
   br label %35
 
-.thread98:                                        ; preds = %58, %..thread98_crit_edge
+.thread98:                                        ; preds = %..thread98_crit_edge, %58
   %.sroa.0.0.copyload.i42 = phi i8 [ %.sroa.0.0.copyload.i42.pre, %..thread98_crit_edge ], [ %.sroa.0.0.copyload.i23, %58 ]
   %107 = phi i64 [ %.pre112, %..thread98_crit_edge ], [ %48, %58 ]
   %108 = icmp eq i64 %107, 0

@@ -3202,8 +3202,6 @@ define internal fastcc noundef zeroext i1 @_ZL17insertParsePointsRN4llvm8Functio
   %26 = alloca %"class.llvm::Attribute", align 8
   %27 = alloca %"class.llvm::IRBuilder", align 8
   %28 = alloca %"class.llvm::SmallVector.490", align 8
-  %.sroa.978.i.i = alloca [7 x i8], align 1
-  %.sroa.9.i.i = alloca [7 x i8], align 1
   %29 = alloca %"struct.llvm::StatepointDirectives", align 8
   %30 = alloca %"class.llvm::SmallVector.516", align 8
   %31 = alloca %class.anon.521, align 8
@@ -8752,10 +8750,8 @@ _ZL29rematerializeLiveValuesAtUsesRN4llvm9MapVectorIPNS_5ValueEN12_GLOBAL__N_132
   %2712 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.558.0..sroa_idx59.i.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.661.0..sroa_idx62.i.i = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %.sroa.9.0..sroa_idx64.i.i = getelementptr inbounds nuw i8, ptr %40, i64 17
   %.sroa.572.0..sroa_idx73.i.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.675.0..sroa_idx76.i.i = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %.sroa.978.0..sroa_idx79.i.i = getelementptr inbounds nuw i8, ptr %41, i64 17
   %.sroa.584.0..sroa_idx85.i.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   %2713 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %2714 = getelementptr inbounds nuw i8, ptr %43, i64 33
@@ -8765,10 +8761,8 @@ _ZL29rematerializeLiveValuesAtUsesRN4llvm9MapVectorIPNS_5ValueEN12_GLOBAL__N_132
   %2717 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.558.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.661.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 17
   %.sroa.572.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.675.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %.sroa.978.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %35, i64 17
   %.sroa.584.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   %2718 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %2719 = getelementptr inbounds nuw i8, ptr %37, i64 33
@@ -10624,7 +10618,6 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj8EEC2IPNS_3UseEEERKNS_14iterator_rangeIT_EE.e
   %3595 = trunc i64 %3586 to i32
   %3596 = add i32 %3589, %3595
   store i32 %3596, ptr %2698, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.978.i.i)
   %3597 = load i32, ptr %3576, align 4, !noalias !500
   %3598 = icmp slt i32 %3597, 0
   br i1 %3598, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i.i
@@ -10698,7 +10691,6 @@ _ZNK4llvm8CallBase16getOperandBundleEj.exit.thread.i.i: ; preds = %3613, %_ZNSt8
   %.sroa.070.0.i.i = phi ptr [ %3634, %_ZNSt8optionalIN4llvm8ArrayRefINS0_3UseEEEEaSIRS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIS6_SC_EEERS4_E4typeEOSC_.exit.i.i ], [ undef, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i.i ], [ undef, %3613 ]
   %.sroa.572.0.i.i = phi i64 [ %3628, %_ZNSt8optionalIN4llvm8ArrayRefINS0_3UseEEEEaSIRS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIS6_SC_EEERS4_E4typeEOSC_.exit.i.i ], [ undef, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i.i ], [ undef, %3613 ]
   %.sroa.675.1.i.i = phi i8 [ 1, %_ZNSt8optionalIN4llvm8ArrayRefINS0_3UseEEEEaSIRS3_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIS6_SC_EEERS4_E4typeEOSC_.exit.i.i ], [ 0, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i.i ], [ 0, %3613 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9.i.i)
   %3635 = load i32, ptr %3576, align 4, !noalias !509
   %3636 = icmp slt i32 %3635, 0
   br i1 %3636, label %_ZNK4llvm8CallBase20bundle_op_info_beginEv.exit.i.i171.i.i, label %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i159.i.i
@@ -11196,11 +11188,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit195.i.i: ; p
   store ptr %.sroa.056.0.i.i, ptr %34, align 8
   store i64 %.sroa.558.0.i.i, ptr %.sroa.558.0..sroa_idx.i.i, align 8
   store i8 %.sroa.661.1.i.i, ptr %.sroa.661.0..sroa_idx.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.i.i, i64 7, i1 false)
   store ptr %.sroa.070.0.i.i, ptr %35, align 8
   store i64 %.sroa.572.0.i.i, ptr %.sroa.572.0..sroa_idx.i.i, align 8
   store i8 %.sroa.675.1.i.i, ptr %.sroa.675.0..sroa_idx.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.978.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.978.i.i, i64 7, i1 false)
   store ptr %3573, ptr %36, align 8, !tbaa !445
   store i64 %3575, ptr %.sroa.584.0..sroa_idx.i.i, align 8, !tbaa !124
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37) #22
@@ -11301,11 +11291,9 @@ _ZN4llvm8DebugLocC2ERKS0_.exit.i.i:               ; preds = %3903, %_ZN4llvm13IR
   store ptr %.sroa.056.0.i.i, ptr %40, align 8
   store i64 %.sroa.558.0.i.i, ptr %.sroa.558.0..sroa_idx59.i.i, align 8
   store i8 %.sroa.661.1.i.i, ptr %.sroa.661.0..sroa_idx62.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx64.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.i.i, i64 7, i1 false)
   store ptr %.sroa.070.0.i.i, ptr %41, align 8
   store i64 %.sroa.572.0.i.i, ptr %.sroa.572.0..sroa_idx73.i.i, align 8
   store i8 %.sroa.675.1.i.i, ptr %.sroa.675.0..sroa_idx76.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.978.0..sroa_idx79.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.978.i.i, i64 7, i1 false)
   store ptr %3573, ptr %42, align 8, !tbaa !445
   store i64 %3575, ptr %.sroa.584.0..sroa_idx85.i.i, align 8, !tbaa !124
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %43) #22
@@ -11707,8 +11695,6 @@ _ZNSt6vectorIN12_GLOBAL__N_119DeferredReplacementESaIS1_EE9push_backEOS1_.exit.i
   %4062 = load ptr, ptr %48, align 8, !tbaa !25
   call fastcc void @_ZL17CreateGCRelocatesN4llvm8ArrayRefIPNS_5ValueEEES3_PNS_11InstructionERNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_10GCStrategyE(ptr %4059, i64 %4061, ptr %4062, ptr noundef nonnull %.0152.i.i, ptr noundef nonnull align 8 dereferenceable(144) %27)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #22
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9.i.i)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.978.i.i)
   %4063 = load ptr, ptr %28, align 8, !tbaa !25
   %4064 = icmp eq ptr %4063, %2697
   br i1 %4064, label %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit.i.i, label %4065

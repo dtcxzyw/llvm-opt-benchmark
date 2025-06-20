@@ -27139,7 +27139,6 @@ eh.resume:                                        ; preds = %ehcleanup97, %lpad8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE16create_startmapsEPNS0_14re_syntax_baseE(ptr noundef nonnull align 8 dereferenceable(156) %this, ptr noundef %state) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.sroa.3 = alloca [7 x i8], align 1
   %message = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator.50", align 1
   %e = alloca %"class.boost::regex_error", align 8
@@ -27206,8 +27205,6 @@ sw.bb6:                                           ; preds = %while.body, %while.
 
 if.then.i.i:                                      ; preds = %sw.bb6
   store i8 %frombool.i, ptr %v.sroa.6.0.ph132, align 8
-  %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %v.sroa.6.0.ph132, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp.sroa.3.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp.sroa.3, i64 7, i1 false)
   %ref.tmp.sroa.382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %v.sroa.6.0.ph132, i64 8
   store ptr %state.addr.0126, ptr %ref.tmp.sroa.382.0..sroa_idx, align 8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %v.sroa.6.0.ph132, i64 16
@@ -27243,8 +27240,6 @@ _ZNKSt6vectorISt4pairIbPN5boost16re_detail_10740014re_syntax_baseEESaIS5_EE12_M_
 call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorISt4pairIbPN5boost16re_detail_10740014re_syntax_baseEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i6, i64 %sub.ptr.sub.i.i.i.i.i
   store i8 %frombool.i, ptr %add.ptr.i.i.i, align 8
-  %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp.sroa.3, i64 7, i1 false)
   %ref.tmp.sroa.382.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store ptr %state.addr.0126, ptr %ref.tmp.sroa.382.0.add.ptr.i.i.i.sroa_idx, align 8
   %cmp.not5.i.i.i.i.i.i = icmp eq ptr %v.sroa.0.0.ph133, %v.sroa.6.0.ph132

@@ -1295,17 +1295,17 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !29
-  %.not28.i.i = icmp eq ptr %5, %7
-  br i1 %.not28.i.i, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit, label %.lr.ph.i.i
+  %.not27.i.i = icmp eq ptr %5, %7
+  br i1 %.not27.i.i, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %20, %.lr.ph.i.i
-  %.030.us.i.i = phi ptr [ %21, %20 ], [ %5, %.lr.ph.i.i ]
-  %.02729.us.i.i = phi ptr [ %.1.us.i.i, %20 ], [ null, %.lr.ph.i.i ]
-  %9 = load ptr, ptr %.030.us.i.i, align 8, !tbaa !27
+  %.029.us.i.i = phi ptr [ %21, %20 ], [ %5, %.lr.ph.i.i ]
+  %.02628.us.i.i = phi ptr [ %.1.us.i.i, %20 ], [ null, %.lr.ph.i.i ]
+  %9 = load ptr, ptr %.029.us.i.i, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load ptr, ptr %10, align 8, !tbaa !46
@@ -1327,19 +1327,19 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   br i1 %.not19.us.i.i, label %20, label %19
 
 19:                                               ; preds = %18
-  %.not20.us.i.i = icmp eq ptr %.02729.us.i.i, null
+  %.not20.us.i.i = icmp eq ptr %.02628.us.i.i, null
   br i1 %.not20.us.i.i, label %20, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit
 
 20:                                               ; preds = %19, %18
-  %.1.us.i.i = phi ptr [ %.02729.us.i.i, %18 ], [ %.fca.0.extract.us.i.i, %19 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.030.us.i.i, i64 8
+  %.1.us.i.i = phi ptr [ %.02628.us.i.i, %18 ], [ %.fca.0.extract.us.i.i, %19 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.029.us.i.i, i64 8
   %.not.us.i.i = icmp eq ptr %21, %7
   br i1 %.not.us.i.i, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit, label %.lr.ph.split.us.i.i
 
 _ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit: ; preds = %.lr.ph.split.us.i.i, %19, %20, %1
-  %.sroa.026.0.i.i = phi ptr [ null, %1 ], [ null, %19 ], [ %.fca.0.extract.us.i.i, %.lr.ph.split.us.i.i ], [ %.1.us.i.i, %20 ]
+  %.sroa.025.1.i.i = phi ptr [ null, %1 ], [ %.1.us.i.i, %20 ], [ %.fca.0.extract.us.i.i, %.lr.ph.split.us.i.i ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret ptr %.sroa.026.0.i.i
+  ret ptr %.sroa.025.1.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2059,17 +2059,17 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !29
-  %.not28.i.i = icmp eq ptr %5, %7
-  br i1 %.not28.i.i, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit, label %.lr.ph.i.i
+  %.not27.i.i = icmp eq ptr %5, %7
+  br i1 %.not27.i.i, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %21, %.lr.ph.i.i
-  %.030.i.i = phi ptr [ %22, %21 ], [ %5, %.lr.ph.i.i ]
-  %.02729.i.i = phi ptr [ %.1.i.i, %21 ], [ null, %.lr.ph.i.i ]
-  %9 = load ptr, ptr %.030.i.i, align 8, !tbaa !27
+  %.029.i.i = phi ptr [ %22, %21 ], [ %5, %.lr.ph.i.i ]
+  %.02628.i.i = phi ptr [ %.1.i.i, %21 ], [ null, %.lr.ph.i.i ]
+  %9 = load ptr, ptr %.029.i.i, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load ptr, ptr %10, align 8, !tbaa !46
@@ -2091,23 +2091,23 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   br i1 %.not19.i.i, label %21, label %19
 
 19:                                               ; preds = %18
-  %.not20.i.i = icmp eq ptr %.02729.i.i, null
+  %.not20.i.i = icmp eq ptr %.02628.i.i, null
   br i1 %.not20.i.i, label %21, label %20
 
 20:                                               ; preds = %19
-  %.not21.i.i = icmp eq ptr %.fca.0.extract.i.i, %.02729.i.i
+  %.not21.i.i = icmp eq ptr %.fca.0.extract.i.i, %.02628.i.i
   br i1 %.not21.i.i, label %21, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit
 
 21:                                               ; preds = %20, %19, %18
-  %.1.i.i = phi ptr [ %.02729.i.i, %18 ], [ %.02729.i.i, %20 ], [ %.fca.0.extract.i.i, %19 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 8
+  %.1.i.i = phi ptr [ %.02628.i.i, %18 ], [ %.02628.i.i, %20 ], [ %.fca.0.extract.i.i, %19 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 8
   %.not.i.i = icmp eq ptr %22, %7
   br i1 %.not.i.i, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit, label %.lr.ph.split.i.i
 
 _ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit: ; preds = %.lr.ph.split.i.i, %20, %21, %1
-  %.sroa.026.0.i.i = phi ptr [ null, %1 ], [ null, %20 ], [ %.fca.0.extract.i.i, %.lr.ph.split.i.i ], [ %.1.i.i, %21 ]
+  %.sroa.025.1.i.i = phi ptr [ null, %1 ], [ %.1.i.i, %21 ], [ %.fca.0.extract.i.i, %.lr.ph.split.i.i ], [ null, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret ptr %.sroa.026.0.i.i
+  ret ptr %.sroa.025.1.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2354,17 +2354,17 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !29
-  %.not28.i.i = icmp eq ptr %5, %7
-  br i1 %.not28.i.i, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit, label %.lr.ph.i.i
+  %.not27.i.i = icmp eq ptr %5, %7
+  br i1 %.not27.i.i, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %20, %.lr.ph.i.i
-  %.030.us.i.i = phi ptr [ %21, %20 ], [ %5, %.lr.ph.i.i ]
-  %.02729.us.i.i = phi ptr [ %.1.us.i.i, %20 ], [ null, %.lr.ph.i.i ]
-  %9 = load ptr, ptr %.030.us.i.i, align 8, !tbaa !27
+  %.029.us.i.i = phi ptr [ %21, %20 ], [ %5, %.lr.ph.i.i ]
+  %.02628.us.i.i = phi ptr [ %.1.us.i.i, %20 ], [ null, %.lr.ph.i.i ]
+  %9 = load ptr, ptr %.029.us.i.i, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load ptr, ptr %10, align 8, !tbaa !46
@@ -2386,28 +2386,28 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS
   br i1 %.not19.us.i.i, label %20, label %19
 
 19:                                               ; preds = %18
-  %.not20.us.i.i = icmp eq ptr %.02729.us.i.i, null
+  %.not20.us.i.i = icmp eq ptr %.02628.us.i.i, null
   br i1 %.not20.us.i.i, label %20, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit.loopexit
 
 20:                                               ; preds = %19, %18
-  %.1.us.i.i = phi ptr [ %.02729.us.i.i, %18 ], [ %.fca.0.extract.us.i.i, %19 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.030.us.i.i, i64 8
+  %.1.us.i.i = phi ptr [ %.02628.us.i.i, %18 ], [ %.fca.0.extract.us.i.i, %19 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.029.us.i.i, i64 8
   %.not.us.i.i = icmp eq ptr %21, %7
   br i1 %.not.us.i.i, label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit.loopexit, label %.lr.ph.split.us.i.i
 
 _ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit.loopexit: ; preds = %20, %19, %.lr.ph.split.us.i.i
-  %.sroa.026.0.i.i.ph = phi ptr [ %.1.us.i.i, %20 ], [ %.fca.0.extract.us.i.i, %.lr.ph.split.us.i.i ], [ null, %19 ]
-  %.sroa.4.0.i.i.ph = phi i8 [ 0, %20 ], [ %.fca.1.extract.us.i.i, %.lr.ph.split.us.i.i ], [ 1, %19 ]
-  %22 = trunc i8 %.sroa.4.0.i.i.ph to i1
-  %23 = icmp eq ptr %.sroa.026.0.i.i.ph, null
+  %.sroa.025.1.i.i.ph = phi ptr [ null, %19 ], [ %.fca.0.extract.us.i.i, %.lr.ph.split.us.i.i ], [ %.1.us.i.i, %20 ]
+  %.sroa.4.1.i.i.ph = phi i8 [ 1, %19 ], [ %.fca.1.extract.us.i.i, %.lr.ph.split.us.i.i ], [ 0, %20 ]
+  %22 = trunc i8 %.sroa.4.1.i.i.ph to i1
+  %23 = icmp eq ptr %.sroa.025.1.i.i.ph, null
   %24 = xor i1 %22, true
   %25 = select i1 %24, i1 %23, i1 false
   br label %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit
 
 _ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit: ; preds = %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit.loopexit, %1
-  %.sroa.4.0.i.i = phi i1 [ true, %1 ], [ %25, %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit.loopexit ]
+  %.sroa.4.1.i.i = phi i1 [ true, %1 ], [ %25, %_ZN4llvm18getExitBlockHelperINS_17MachineBasicBlockENS_11MachineLoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEb.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret i1 %.sroa.4.0.i.i
+  ret i1 %.sroa.4.1.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9592,8 +9592,8 @@ define linkonce_odr { ptr, i8 } @_ZN4llvm21find_singleton_nestedINS_17MachineBas
   %4 = load ptr, ptr %0, align 8, !tbaa !532
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !534
-  %.not32 = icmp eq ptr %4, %6
-  br i1 %.not32, label %.critedge23, label %.lr.ph
+  %.not31 = icmp eq ptr %4, %6
+  br i1 %.not31, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = load ptr, ptr %1, align 8, !tbaa !57
@@ -9616,57 +9616,57 @@ define linkonce_odr { ptr, i8 } @_ZN4llvm21find_singleton_nestedINS_17MachineBas
   br i1 %2, label %.lr.ph.split.us.split.us.split, label %.lr.ph.split.us.split.us.split.us
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.thread.us.us.us
-  %.035.us.us.us = phi ptr [ %19, %.thread.us.us.us ], [ %4, %.lr.ph.split.us.split.us ]
-  %.02733.us.us.us = phi ptr [ %.1.us.us.us, %.thread.us.us.us ], [ null, %.lr.ph.split.us.split.us ]
-  %17 = load ptr, ptr %.035.us.us.us, align 8, !tbaa !27
+  %.034.us.us.us = phi ptr [ %19, %.thread.us.us.us ], [ %4, %.lr.ph.split.us.split.us ]
+  %.02632.us.us.us = phi ptr [ %.1.us.us.us, %.thread.us.us.us ], [ null, %.lr.ph.split.us.split.us ]
+  %17 = load ptr, ptr %.034.us.us.us, align 8, !tbaa !27
   %.not19.old.us.us.us = icmp eq ptr %17, null
   br i1 %.not19.old.us.us.us, label %.thread.us.us.us, label %18
 
 18:                                               ; preds = %.lr.ph.split.us.split.us.split.us
-  %.not20.us.us.us = icmp eq ptr %.02733.us.us.us, null
-  br i1 %.not20.us.us.us, label %.thread.us.us.us, label %.critedge23
+  %.not20.us.us.us = icmp eq ptr %.02632.us.us.us, null
+  br i1 %.not20.us.us.us, label %.thread.us.us.us, label %.critedge
 
 .thread.us.us.us:                                 ; preds = %18, %.lr.ph.split.us.split.us.split.us
-  %.1.us.us.us = phi ptr [ %.02733.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %17, %18 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.035.us.us.us, i64 8
+  %.1.us.us.us = phi ptr [ %.02632.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %17, %18 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.034.us.us.us, i64 8
   %.not.us.us.us = icmp eq ptr %19, %6
-  br i1 %.not.us.us.us, label %.critedge23, label %.lr.ph.split.us.split.us.split.us
+  br i1 %.not.us.us.us, label %.critedge, label %.lr.ph.split.us.split.us.split.us
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.thread.us.us
-  %.035.us.us = phi ptr [ %23, %.thread.us.us ], [ %4, %.lr.ph.split.us.split.us ]
-  %.02733.us.us = phi ptr [ %.1.us.us, %.thread.us.us ], [ null, %.lr.ph.split.us.split.us ]
-  %20 = load ptr, ptr %.035.us.us, align 8, !tbaa !27
+  %.034.us.us = phi ptr [ %23, %.thread.us.us ], [ %4, %.lr.ph.split.us.split.us ]
+  %.02632.us.us = phi ptr [ %.1.us.us, %.thread.us.us ], [ null, %.lr.ph.split.us.split.us ]
+  %20 = load ptr, ptr %.034.us.us, align 8, !tbaa !27
   %.not19.old.us.us = icmp eq ptr %20, null
   br i1 %.not19.old.us.us, label %.thread.us.us, label %21
 
 21:                                               ; preds = %.lr.ph.split.us.split.us.split
-  %.not20.us.us = icmp eq ptr %.02733.us.us, null
+  %.not20.us.us = icmp eq ptr %.02632.us.us, null
   br i1 %.not20.us.us, label %.thread.us.us, label %22
 
 22:                                               ; preds = %21
-  %.not21.us.us = icmp eq ptr %20, %.02733.us.us
-  br i1 %.not21.us.us, label %.thread.us.us, label %.critedge23
+  %.not21.us.us = icmp eq ptr %20, %.02632.us.us
+  br i1 %.not21.us.us, label %.thread.us.us, label %.critedge
 
 .thread.us.us:                                    ; preds = %22, %21, %.lr.ph.split.us.split.us.split
-  %.1.us.us = phi ptr [ %.02733.us.us, %.lr.ph.split.us.split.us.split ], [ %.02733.us.us, %22 ], [ %20, %21 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.035.us.us, i64 8
+  %.1.us.us = phi ptr [ %.02632.us.us, %.lr.ph.split.us.split.us.split ], [ %.02632.us.us, %22 ], [ %20, %21 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.034.us.us, i64 8
   %.not.us.us = icmp eq ptr %23, %6
-  br i1 %.not.us.us, label %.critedge23, label %.lr.ph.split.us.split.us.split
+  br i1 %.not.us.us, label %.critedge, label %.lr.ph.split.us.split.us.split
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
   br i1 %2, label %.lr.ph.i.i.i.i.preheader.us, label %.lr.ph.i.i.i.i.preheader.us.us
 
-.lr.ph.i.i.i.i.preheader.us.us:                   ; preds = %.lr.ph.split.us.split, %.thread.us.us52
-  %.035.us.us47 = phi ptr [ %30, %.thread.us.us52 ], [ %4, %.lr.ph.split.us.split ]
-  %.02733.us.us48 = phi ptr [ %.1.us.us53, %.thread.us.us52 ], [ null, %.lr.ph.split.us.split ]
-  %24 = load ptr, ptr %.035.us.us47, align 8, !tbaa !27
+.lr.ph.i.i.i.i.preheader.us.us:                   ; preds = %.lr.ph.split.us.split, %.thread.us.us51
+  %.034.us.us46 = phi ptr [ %30, %.thread.us.us51 ], [ %4, %.lr.ph.split.us.split ]
+  %.02632.us.us47 = phi ptr [ %.1.us.us52, %.thread.us.us51 ], [ null, %.lr.ph.split.us.split ]
+  %24 = load ptr, ptr %.034.us.us46, align 8, !tbaa !27
   br label %.lr.ph.i.i.i.i.us.us
 
 .lr.ph.i.i.i.i.us.us:                             ; preds = %27, %.lr.ph.i.i.i.i.preheader.us.us
   %.0810.i.i.i.i.us.us = phi ptr [ %28, %27 ], [ %12, %.lr.ph.i.i.i.i.preheader.us.us ]
   %25 = load ptr, ptr %.0810.i.i.i.i.us.us, align 8, !tbaa !37
   %26 = icmp eq ptr %25, %24
-  br i1 %26, label %.thread.us.us52, label %27
+  br i1 %26, label %.thread.us.us51, label %27
 
 27:                                               ; preds = %.lr.ph.i.i.i.i.us.us
   %28 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us.us, i64 8
@@ -9674,23 +9674,23 @@ define linkonce_odr { ptr, i8 } @_ZN4llvm21find_singleton_nestedINS_17MachineBas
   br i1 %.not.not.i.i.i.i.us.us, label %.loopexit.us.us, label %.lr.ph.i.i.i.i.us.us, !llvm.loop !38
 
 29:                                               ; preds = %.loopexit.us.us
-  %.not20.us.us49 = icmp eq ptr %.02733.us.us48, null
-  br i1 %.not20.us.us49, label %.thread.us.us52, label %.critedge23
+  %.not20.us.us48 = icmp eq ptr %.02632.us.us47, null
+  br i1 %.not20.us.us48, label %.thread.us.us51, label %.critedge
 
-.thread.us.us52:                                  ; preds = %.lr.ph.i.i.i.i.us.us, %.loopexit.us.us, %29
-  %.1.us.us53 = phi ptr [ %.02733.us.us48, %.loopexit.us.us ], [ %24, %29 ], [ %.02733.us.us48, %.lr.ph.i.i.i.i.us.us ]
-  %30 = getelementptr inbounds nuw i8, ptr %.035.us.us47, i64 8
-  %.not.us.us54 = icmp eq ptr %30, %6
-  br i1 %.not.us.us54, label %.critedge23, label %.lr.ph.i.i.i.i.preheader.us.us
+.thread.us.us51:                                  ; preds = %.lr.ph.i.i.i.i.us.us, %.loopexit.us.us, %29
+  %.1.us.us52 = phi ptr [ %.02632.us.us47, %.loopexit.us.us ], [ %24, %29 ], [ %.02632.us.us47, %.lr.ph.i.i.i.i.us.us ]
+  %30 = getelementptr inbounds nuw i8, ptr %.034.us.us46, i64 8
+  %.not.us.us53 = icmp eq ptr %30, %6
+  br i1 %.not.us.us53, label %.critedge, label %.lr.ph.i.i.i.i.preheader.us.us
 
 .loopexit.us.us:                                  ; preds = %27
-  %.not19.old.us.us55 = icmp eq ptr %24, null
-  br i1 %.not19.old.us.us55, label %.thread.us.us52, label %29
+  %.not19.old.us.us54 = icmp eq ptr %24, null
+  br i1 %.not19.old.us.us54, label %.thread.us.us51, label %29
 
 .lr.ph.i.i.i.i.preheader.us:                      ; preds = %.lr.ph.split.us.split, %.thread.us
-  %.035.us = phi ptr [ %38, %.thread.us ], [ %4, %.lr.ph.split.us.split ]
-  %.02733.us = phi ptr [ %.1.us, %.thread.us ], [ null, %.lr.ph.split.us.split ]
-  %31 = load ptr, ptr %.035.us, align 8, !tbaa !27
+  %.034.us = phi ptr [ %38, %.thread.us ], [ %4, %.lr.ph.split.us.split ]
+  %.02632.us = phi ptr [ %.1.us, %.thread.us ], [ null, %.lr.ph.split.us.split ]
+  %31 = load ptr, ptr %.034.us, align 8, !tbaa !27
   br label %.lr.ph.i.i.i.i.us
 
 .lr.ph.i.i.i.i.us:                                ; preds = %.lr.ph.i.i.i.i.preheader.us, %34
@@ -9705,27 +9705,27 @@ define linkonce_odr { ptr, i8 } @_ZN4llvm21find_singleton_nestedINS_17MachineBas
   br i1 %.not.not.i.i.i.i.us, label %.loopexit.us, label %.lr.ph.i.i.i.i.us, !llvm.loop !38
 
 36:                                               ; preds = %.loopexit.us
-  %.not20.us = icmp eq ptr %.02733.us, null
+  %.not20.us = icmp eq ptr %.02632.us, null
   br i1 %.not20.us, label %.thread.us, label %37
 
 37:                                               ; preds = %36
-  %.not21.us = icmp eq ptr %31, %.02733.us
-  br i1 %.not21.us, label %.thread.us, label %.critedge23
+  %.not21.us = icmp eq ptr %31, %.02632.us
+  br i1 %.not21.us, label %.thread.us, label %.critedge
 
 .thread.us:                                       ; preds = %.lr.ph.i.i.i.i.us, %37, %36, %.loopexit.us
-  %.1.us = phi ptr [ %.02733.us, %.loopexit.us ], [ %.02733.us, %37 ], [ %31, %36 ], [ %.02733.us, %.lr.ph.i.i.i.i.us ]
-  %38 = getelementptr inbounds nuw i8, ptr %.035.us, i64 8
+  %.1.us = phi ptr [ %.02632.us, %.loopexit.us ], [ %.02632.us, %37 ], [ %31, %36 ], [ %.02632.us, %.lr.ph.i.i.i.i.us ]
+  %38 = getelementptr inbounds nuw i8, ptr %.034.us, i64 8
   %.not.us = icmp eq ptr %38, %6
-  br i1 %.not.us, label %.critedge23, label %.lr.ph.i.i.i.i.preheader.us
+  br i1 %.not.us, label %.critedge, label %.lr.ph.i.i.i.i.preheader.us
 
 .loopexit.us:                                     ; preds = %34
   %.not19.old.us = icmp eq ptr %31, null
   br i1 %.not19.old.us, label %.thread.us, label %36
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %.035 = phi ptr [ %58, %.thread ], [ %4, %.lr.ph ]
-  %.02733 = phi ptr [ %.1, %.thread ], [ null, %.lr.ph ]
-  %39 = load ptr, ptr %.035, align 8, !tbaa !27
+  %.034 = phi ptr [ %58, %.thread ], [ %4, %.lr.ph ]
+  %.02632 = phi ptr [ %.1, %.thread ], [ null, %.lr.ph ]
+  %39 = load ptr, ptr %.034, align 8, !tbaa !27
   %40 = load ptr, ptr %1, align 8, !tbaa !57
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 76
@@ -9757,33 +9757,33 @@ _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit
   %55 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %41, ptr noundef %39) #17
   %.not.i = icmp ne ptr %55, null
   %.not19 = icmp eq ptr %39, null
-  %or.cond31 = select i1 %.not.i, i1 true, i1 %.not19
-  br i1 %or.cond31, label %.thread, label %56
+  %or.cond30 = select i1 %.not.i, i1 true, i1 %.not19
+  br i1 %or.cond30, label %.thread, label %56
 
 .loopexit:                                        ; preds = %51, %45
   %.not19.old = icmp eq ptr %39, null
   br i1 %.not19.old, label %.thread, label %56
 
 56:                                               ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %.loopexit
-  %.not20 = icmp eq ptr %.02733, null
+  %.not20 = icmp eq ptr %.02632, null
   br i1 %.not20, label %.thread, label %57
 
 57:                                               ; preds = %56
-  %.not21 = icmp eq ptr %39, %.02733
+  %.not21 = icmp eq ptr %39, %.02632
   %or.cond = select i1 %2, i1 %.not21, i1 false
-  br i1 %or.cond, label %.thread, label %.critedge23
+  br i1 %or.cond, label %.thread, label %.critedge
 
-.thread:                                          ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %56, %.loopexit, %57
-  %.1 = phi ptr [ %.02733, %.loopexit ], [ %.02733, %57 ], [ %39, %56 ], [ %.02733, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ %.02733, %.lr.ph.i.i.i.i ]
-  %58 = getelementptr inbounds nuw i8, ptr %.035, i64 8
+.thread:                                          ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %56, %57, %.loopexit
+  %.1 = phi ptr [ %.02632, %.loopexit ], [ %.02632, %57 ], [ %39, %56 ], [ %.02632, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ %.02632, %.lr.ph.i.i.i.i ]
+  %58 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %.not = icmp eq ptr %58, %6
-  br i1 %.not, label %.critedge23, label %.lr.ph.split, !llvm.loop !535
+  br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !535
 
-.critedge23:                                      ; preds = %.thread, %57, %.thread.us.us52, %29, %.thread.us, %37, %.thread.us.us.us, %18, %.thread.us.us, %22, %3
-  %.sroa.026.0 = phi ptr [ null, %3 ], [ null, %22 ], [ %.1.us.us, %.thread.us.us ], [ null, %18 ], [ %.1.us.us.us, %.thread.us.us.us ], [ null, %37 ], [ %.1.us, %.thread.us ], [ null, %29 ], [ %.1.us.us53, %.thread.us.us52 ], [ null, %57 ], [ %.1, %.thread ]
-  %.sroa.4.0 = phi i8 [ 0, %3 ], [ 1, %22 ], [ 0, %.thread.us.us ], [ 1, %18 ], [ 0, %.thread.us.us.us ], [ 1, %37 ], [ 0, %.thread.us ], [ 1, %29 ], [ 0, %.thread.us.us52 ], [ 1, %57 ], [ 0, %.thread ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.026.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.0, 1
+.critedge:                                        ; preds = %57, %.thread, %29, %.thread.us.us51, %37, %.thread.us, %18, %.thread.us.us.us, %22, %.thread.us.us, %3
+  %.sroa.025.1 = phi ptr [ null, %3 ], [ %.1.us.us, %.thread.us.us ], [ null, %22 ], [ %.1.us.us.us, %.thread.us.us.us ], [ null, %18 ], [ %.1.us, %.thread.us ], [ null, %37 ], [ %.1.us.us52, %.thread.us.us51 ], [ null, %29 ], [ %.1, %.thread ], [ null, %57 ]
+  %.sroa.4.1 = phi i8 [ 0, %3 ], [ 0, %.thread.us.us ], [ 1, %22 ], [ 0, %.thread.us.us.us ], [ 1, %18 ], [ 0, %.thread.us ], [ 1, %37 ], [ 0, %.thread.us.us51 ], [ 1, %29 ], [ 0, %.thread ], [ 1, %57 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.025.1, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.4.1, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 

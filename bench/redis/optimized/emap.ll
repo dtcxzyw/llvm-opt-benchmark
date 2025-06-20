@@ -1729,13 +1729,13 @@ tsdn_rtree_ctx.exit.i6:                           ; preds = %67, %66
   %78 = lshr exact i64 %65, 12
   %79 = and i64 %78, 262143
   %80 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %77, i64 %79
-  br label %rtree_leaf_elm_lookup.exit.i17
+  br label %rtree_leaf_elm_lookup.exit.i16
 
 81:                                               ; preds = %tsdn_rtree_ctx.exit.i6
   %82 = getelementptr inbounds nuw i8, ptr %.0.i.i7, i64 256
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = icmp eq i64 %83, %71
-  br i1 %84, label %85, label %.preheader.i13, !prof !15
+  br i1 %84, label %85, label %.preheader.i12, !prof !15
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %.0.i.i7, i64 264
@@ -1749,24 +1749,24 @@ tsdn_rtree_ctx.exit.i6:                           ; preds = %67, %66
   %90 = lshr exact i64 %65, 12
   %91 = and i64 %90, 262143
   %92 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %87, i64 %91
-  br label %rtree_leaf_elm_lookup.exit.i17
+  br label %rtree_leaf_elm_lookup.exit.i16
 
-.preheader.i13:                                   ; preds = %81, %96
-  %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i15, %96 ], [ 1, %81 ]
-  %93 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %82, i64 0, i64 %indvars.iv.i14
+.preheader.i12:                                   ; preds = %81, %96
+  %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %96 ], [ 1, %81 ]
+  %93 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %82, i64 0, i64 %indvars.iv.i13
   %94 = load i64, ptr %93, align 8, !tbaa !12
   %95 = icmp eq i64 %94, %71
   br i1 %95, label %97, label %96, !prof !15
 
-96:                                               ; preds = %.preheader.i13
-  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
-  %exitcond.i16 = icmp eq i64 %indvars.iv.next.i15, 8
-  br i1 %exitcond.i16, label %111, label %.preheader.i13, !llvm.loop !17
+96:                                               ; preds = %.preheader.i12
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
+  %exitcond.i15 = icmp eq i64 %indvars.iv.next.i14, 8
+  br i1 %exitcond.i15, label %111, label %.preheader.i12, !llvm.loop !17
 
-97:                                               ; preds = %.preheader.i13
+97:                                               ; preds = %.preheader.i12
   %98 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !16
-  %100 = add nuw i64 %indvars.iv.i14, 4294967295
+  %100 = add nuw i64 %indvars.iv.i13, 4294967295
   %101 = and i64 %100, 4294967295
   %102 = getelementptr inbounds nuw [8 x %struct.rtree_ctx_cache_elm_s], ptr %82, i64 0, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !12
@@ -1783,22 +1783,22 @@ tsdn_rtree_ctx.exit.i6:                           ; preds = %67, %66
   %108 = lshr exact i64 %65, 12
   %109 = and i64 %108, 262143
   %110 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %99, i64 %109
-  br label %rtree_leaf_elm_lookup.exit.i17
+  br label %rtree_leaf_elm_lookup.exit.i16
 
 111:                                              ; preds = %96
   %112 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i.i7, i64 noundef %65, i1 noundef zeroext false, i1 noundef zeroext false) #6
-  br label %rtree_leaf_elm_lookup.exit.i17
+  br label %rtree_leaf_elm_lookup.exit.i16
 
-rtree_leaf_elm_lookup.exit.i17:                   ; preds = %111, %97, %85, %75
-  %.0.i.i18 = phi ptr [ %80, %75 ], [ %92, %85 ], [ %112, %111 ], [ %110, %97 ]
-  %113 = icmp eq ptr %.0.i.i18, null
+rtree_leaf_elm_lookup.exit.i16:                   ; preds = %111, %97, %85, %75
+  %.0.i.i17 = phi ptr [ %80, %75 ], [ %92, %85 ], [ %112, %111 ], [ %110, %97 ]
+  %113 = icmp eq ptr %.0.i.i17, null
   br i1 %113, label %emap_full_alloc_ctx_try_lookup.exit8, label %114
 
-114:                                              ; preds = %rtree_leaf_elm_lookup.exit.i17
-  %115 = load atomic i64, ptr %.0.i.i18 acquire, align 8, !noalias !44
+114:                                              ; preds = %rtree_leaf_elm_lookup.exit.i16
+  %115 = load atomic i64, ptr %.0.i.i17 acquire, align 8, !noalias !44
   br label %emap_full_alloc_ctx_try_lookup.exit8
 
-emap_full_alloc_ctx_try_lookup.exit8:             ; preds = %rtree_leaf_elm_lookup.exit.i17, %114
+emap_full_alloc_ctx_try_lookup.exit8:             ; preds = %rtree_leaf_elm_lookup.exit.i16, %114
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #6
   ret void
 }

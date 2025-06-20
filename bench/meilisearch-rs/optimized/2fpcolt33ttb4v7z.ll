@@ -2318,7 +2318,7 @@ switch.lookup:                                    ; preds = %_ZN4core3ops8functi
   %.sroa.962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   %.sroa.962.0.copyload = load i64, ptr %.sroa.962.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
-  switch i64 %.sroa.056.0.copyload, label %default.unreachable264.i [
+  switch i64 %.sroa.056.0.copyload, label %default.unreachable270.i [
     i64 0, label %_ZN4core3ops8function6FnOnce9call_once17h091cc9ee79710e8bE.exit
     i64 1, label %67
     i64 2, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hf9ae7dfe3a0d09b5E.exit.i"
@@ -2331,7 +2331,7 @@ switch.lookup:                                    ; preds = %_ZN4core3ops8functi
     i64 9, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$meilisearch_types..tasks..IndexSwap$GT$$GT$$GT$17h230e96c066feba31E.exit.i"
   ]
 
-default.unreachable264.i:                         ; preds = %66
+default.unreachable270.i:                         ; preds = %66
   unreachable
 
 67:                                               ; preds = %66
@@ -2658,7 +2658,7 @@ _ZN4core3ops8function6FnOnce9call_once17h091cc9ee79710e8bE.exit: ; preds = %67, 
 define void @"_ZN122_$LT$meilisearch_types..task_view..DetailsView$u20$as$u20$core..convert..From$LT$meilisearch_types..tasks..Details$GT$$GT$4from17h644fc4baa3e31485E"(ptr dead_on_unwind noalias noundef writable writeonly sret([216 x i8]) align 8 captures(none) dereferenceable(216) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !326, !noundef !14
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i64 %3, label %default.unreachable264 [
+  switch i64 %3, label %default.unreachable270 [
     i64 0, label %5
     i64 1, label %24
     i64 2, label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hf9ae7dfe3a0d09b5E.exit"
@@ -2671,7 +2671,7 @@ define void @"_ZN122_$LT$meilisearch_types..task_view..DetailsView$u20$as$u20$co
     i64 9, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$meilisearch_types..tasks..IndexSwap$GT$$GT$$GT$17h230e96c066feba31E.exit"
   ]
 
-default.unreachable264:                           ; preds = %2
+default.unreachable270:                           ; preds = %2
   unreachable
 
 5:                                                ; preds = %2

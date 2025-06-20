@@ -9463,16 +9463,16 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001.e
 
 "_ZN5typst11foundations8selector8Selector11before_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17he35e9b31f20e0645E.exit": ; preds = %26
   store i8 32, ptr %38, align 8, !noalias !1718
-  %.sroa.410.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr @"_ZN87_$LT$typst..foundations..label..Label$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h74d5d87267ef01f8E.llvm.12777920187102919001", ptr %.sroa.410.0..sroa_idx.i.i, align 8, !noalias !1718
+  %.sroa.48.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr @"_ZN87_$LT$typst..foundations..label..Label$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h74d5d87267ef01f8E.llvm.12777920187102919001", ptr %.sroa.48.0..sroa_idx.i.i, align 8, !noalias !1718
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store i8 32, ptr %46, align 8, !noalias !1718
-  %.sroa.414.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 56
-  store ptr @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", ptr %.sroa.414.0..sroa_idx.i.i, align 8, !noalias !1718
+  %.sroa.412.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 56
+  store ptr @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", ptr %.sroa.412.0..sroa_idx.i.i, align 8, !noalias !1718
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 96
   store i8 32, ptr %47, align 8, !noalias !1718
-  %.sroa.418.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 104
-  store ptr @"_ZN95_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17ha5fbe8899c41546bE.llvm.12850028421071809815", ptr %.sroa.418.0..sroa_idx.i.i, align 8, !noalias !1718
+  %.sroa.416.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 104
+  store ptr @"_ZN95_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17ha5fbe8899c41546bE.llvm.12850028421071809815", ptr %.sroa.416.0..sroa_idx.i.i, align 8, !noalias !1718
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 144
   store i8 32, ptr %48, align 8, !noalias !1718
   %.sroa.41.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 152
@@ -9480,32 +9480,32 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %13, i64 96, i1 false), !noalias !1695
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.1070, ptr %49, align 8, !noalias !1695
-  %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 104
-  store i64 3, ptr %.sroa.411.0..sroa_idx.i, align 8, !noalias !1695
+  %.sroa.4.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %15, i64 104
+  store i64 3, ptr %.sroa.4.0..sroa_idx11.i, align 8, !noalias !1695
   %.sroa.5.0..sroa_idx12.i = getelementptr inbounds nuw i8, ptr %15, i64 112
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.1072, ptr %.sroa.5.0..sroa_idx12.i, align 8, !noalias !1695
   %.sroa.6.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %15, i64 120
   store i64 60, ptr %.sroa.6.0..sroa_idx13.i, align 8, !noalias !1695
   %.sroa.7.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %15, i64 128
   store i8 33, ptr %.sroa.7.0..sroa_idx14.i, align 8, !noalias !1695
-  %.sroa.9.0..sroa_idx16.i = getelementptr inbounds nuw i8, ptr %15, i64 136
-  store i64 4, ptr %.sroa.9.0..sroa_idx16.i, align 8, !noalias !1695
-  %.sroa.10.0..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %15, i64 144
-  store ptr %38, ptr %.sroa.10.0..sroa_idx17.i, align 8, !noalias !1695
-  %.sroa.11.0..sroa_idx18.i = getelementptr inbounds nuw i8, ptr %15, i64 152
-  store i64 4, ptr %.sroa.11.0..sroa_idx18.i, align 8, !noalias !1695
-  %.sroa.13.0..sroa_idx20.i = getelementptr inbounds nuw i8, ptr %15, i64 176
-  store ptr null, ptr %.sroa.13.0..sroa_idx20.i, align 8, !noalias !1695
-  %.sroa.1421.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 184
-  store i8 1, ptr %.sroa.1421.0..sroa_idx.i, align 8, !noalias !1695
-  %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 185
-  store i8 0, ptr %.sroa.15.0..sroa_idx.i, align 1, !noalias !1695
-  %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 186
-  store i8 0, ptr %.sroa.16.0..sroa_idx.i, align 2, !noalias !1695
-  %.sroa.17.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 187
-  store i8 1, ptr %.sroa.17.0..sroa_idx.i, align 1, !noalias !1695
-  %.sroa.18.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 188
-  store i8 0, ptr %.sroa.18.0..sroa_idx.i, align 4, !noalias !1695
+  %.sroa.816.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 136
+  store i64 4, ptr %.sroa.816.0..sroa_idx.i, align 8, !noalias !1695
+  %.sroa.9.0..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %15, i64 144
+  store ptr %38, ptr %.sroa.9.0..sroa_idx17.i, align 8, !noalias !1695
+  %.sroa.10.0..sroa_idx18.i = getelementptr inbounds nuw i8, ptr %15, i64 152
+  store i64 4, ptr %.sroa.10.0..sroa_idx18.i, align 8, !noalias !1695
+  %.sroa.1120.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 176
+  store ptr null, ptr %.sroa.1120.0..sroa_idx.i, align 8, !noalias !1695
+  %.sroa.12.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %15, i64 184
+  store i8 1, ptr %.sroa.12.0..sroa_idx21.i, align 8, !noalias !1695
+  %.sroa.13.0..sroa_idx22.i = getelementptr inbounds nuw i8, ptr %15, i64 185
+  store i8 0, ptr %.sroa.13.0..sroa_idx22.i, align 1, !noalias !1695
+  %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 186
+  store i8 0, ptr %.sroa.14.0..sroa_idx.i, align 2, !noalias !1695
+  %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 187
+  store i8 1, ptr %.sroa.15.0..sroa_idx.i, align 1, !noalias !1695
+  %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 188
+  store i8 0, ptr %.sroa.16.0..sroa_idx.i, align 4, !noalias !1695
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 192
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.1071, ptr %50, align 8, !noalias !1695
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 200
@@ -10030,52 +10030,52 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h552a863e31647997E
 
 "_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17ha841b5bebaf1939aE.exit": ; preds = %1
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.513, ptr %3, align 8, !noalias !1839
-  %.sroa.413.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 5, ptr %.sroa.413.0..sroa_idx.i, align 8, !noalias !1839
-  %.sroa.514.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.519, ptr %.sroa.514.0..sroa_idx.i, align 8, !noalias !1839
+  %.sroa.4.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 5, ptr %.sroa.4.0..sroa_idx13.i, align 8, !noalias !1839
+  %.sroa.5.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.519, ptr %.sroa.5.0..sroa_idx14.i, align 8, !noalias !1839
   %.sroa.6.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 22, ptr %.sroa.6.0..sroa_idx15.i, align 8, !noalias !1839
   %.sroa.7.0..sroa_idx16.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 32, ptr %.sroa.7.0..sroa_idx16.i, align 8, !noalias !1839
-  %.sroa.9.0..sroa_idx18.i = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr @"_ZN5typst11foundations3int68_$LT$impl$u20$typst..foundations..ty..NativeType$u20$for$u20$i64$GT$4data4DATA17hb82cc13d5ff5a541E.llvm.12850028421071809815", ptr %.sroa.9.0..sroa_idx18.i, align 8, !noalias !1839
-  %.sroa.11.0..sroa_idx20.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17hf8ad9ad3dd48928dE, ptr %.sroa.11.0..sroa_idx20.i, align 8, !noalias !1839
-  %.sroa.12.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store i8 1, ptr %.sroa.12.0..sroa_idx21.i, align 8, !noalias !1839
-  %.sroa.13.0..sroa_idx22.i = getelementptr inbounds nuw i8, ptr %3, i64 89
-  store i8 0, ptr %.sroa.13.0..sroa_idx22.i, align 1, !noalias !1839
-  %.sroa.1423.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 90
-  store i8 0, ptr %.sroa.1423.0..sroa_idx.i, align 2, !noalias !1839
-  %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 91
-  store i8 0, ptr %.sroa.15.0..sroa_idx.i, align 1, !noalias !1839
-  %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 92
-  store i8 1, ptr %.sroa.16.0..sroa_idx.i, align 4, !noalias !1839
+  %.sroa.818.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @"_ZN5typst11foundations3int68_$LT$impl$u20$typst..foundations..ty..NativeType$u20$for$u20$i64$GT$4data4DATA17hb82cc13d5ff5a541E.llvm.12850028421071809815", ptr %.sroa.818.0..sroa_idx.i, align 8, !noalias !1839
+  %.sroa.920.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17hf8ad9ad3dd48928dE, ptr %.sroa.920.0..sroa_idx.i, align 8, !noalias !1839
+  %.sroa.10.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %3, i64 88
+  store i8 1, ptr %.sroa.10.0..sroa_idx21.i, align 8, !noalias !1839
+  %.sroa.11.0..sroa_idx22.i = getelementptr inbounds nuw i8, ptr %3, i64 89
+  store i8 0, ptr %.sroa.11.0..sroa_idx22.i, align 1, !noalias !1839
+  %.sroa.12.0..sroa_idx23.i = getelementptr inbounds nuw i8, ptr %3, i64 90
+  store i8 0, ptr %.sroa.12.0..sroa_idx23.i, align 2, !noalias !1839
+  %.sroa.13.0..sroa_idx24.i = getelementptr inbounds nuw i8, ptr %3, i64 91
+  store i8 0, ptr %.sroa.13.0..sroa_idx24.i, align 1, !noalias !1839
+  %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 92
+  store i8 1, ptr %.sroa.14.0..sroa_idx.i, align 4, !noalias !1839
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.514, ptr %6, align 8, !noalias !1839
-  %.sroa.425.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store i64 6, ptr %.sroa.425.0..sroa_idx.i, align 8, !noalias !1839
-  %.sroa.526.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.520, ptr %.sroa.526.0..sroa_idx.i, align 8, !noalias !1839
-  %.sroa.627.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store i64 49, ptr %.sroa.627.0..sroa_idx.i, align 8, !noalias !1839
-  %.sroa.728.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store i8 32, ptr %.sroa.728.0..sroa_idx.i, align 8, !noalias !1839
-  %.sroa.930.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.930.0..sroa_idx.i, align 8, !noalias !1839
-  %.sroa.1132.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 176
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17h28dd70037b1edfbcE, ptr %.sroa.1132.0..sroa_idx.i, align 8, !noalias !1839
-  %.sroa.1233.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 184
-  store i8 0, ptr %.sroa.1233.0..sroa_idx.i, align 8, !noalias !1839
-  %.sroa.1334.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 185
-  store i8 1, ptr %.sroa.1334.0..sroa_idx.i, align 1, !noalias !1839
-  %.sroa.1435.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 186
-  store i8 0, ptr %.sroa.1435.0..sroa_idx.i, align 2, !noalias !1839
-  %.sroa.1536.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 187
-  store i8 0, ptr %.sroa.1536.0..sroa_idx.i, align 1, !noalias !1839
-  %.sroa.1637.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 188
-  store i8 1, ptr %.sroa.1637.0..sroa_idx.i, align 4, !noalias !1839
+  %.sroa.426.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 104
+  store i64 6, ptr %.sroa.426.0..sroa_idx.i, align 8, !noalias !1839
+  %.sroa.527.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 112
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.520, ptr %.sroa.527.0..sroa_idx.i, align 8, !noalias !1839
+  %.sroa.628.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 120
+  store i64 49, ptr %.sroa.628.0..sroa_idx.i, align 8, !noalias !1839
+  %.sroa.729.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 128
+  store i8 32, ptr %.sroa.729.0..sroa_idx.i, align 8, !noalias !1839
+  %.sroa.831.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 136
+  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.831.0..sroa_idx.i, align 8, !noalias !1839
+  %.sroa.933.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 176
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17h28dd70037b1edfbcE, ptr %.sroa.933.0..sroa_idx.i, align 8, !noalias !1839
+  %.sroa.1034.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 184
+  store i8 0, ptr %.sroa.1034.0..sroa_idx.i, align 8, !noalias !1839
+  %.sroa.1135.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 185
+  store i8 1, ptr %.sroa.1135.0..sroa_idx.i, align 1, !noalias !1839
+  %.sroa.1236.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 186
+  store i8 0, ptr %.sroa.1236.0..sroa_idx.i, align 2, !noalias !1839
+  %.sroa.1337.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 187
+  store i8 0, ptr %.sroa.1337.0..sroa_idx.i, align 1, !noalias !1839
+  %.sroa.1438.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 188
+  store i8 1, ptr %.sroa.1438.0..sroa_idx.i, align 4, !noalias !1839
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.515, ptr %7, align 8, !noalias !1839
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 200
@@ -11269,10 +11269,10 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !2140
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2140
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.889, ptr %6, align 8, !noalias !2140
-  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 6, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !2140
-  %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.893, ptr %.sroa.54.0..sroa_idx.i, align 8, !noalias !2140
+  %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 6, ptr %.sroa.4.0..sroa_idx3.i, align 8, !noalias !2140
+  %.sroa.5.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.893, ptr %.sroa.5.0..sroa_idx4.i, align 8, !noalias !2140
   %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 18, ptr %.sroa.6.0..sroa_idx5.i, align 8, !noalias !2140
   %.sroa.7.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -12159,10 +12159,10 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !2345
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !2345
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.819, ptr %6, align 8, !noalias !2345
-  %.sroa.421.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 9, ptr %.sroa.421.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.522.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.827, ptr %.sroa.522.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.4.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 9, ptr %.sroa.4.0..sroa_idx21.i, align 8, !noalias !2345
+  %.sroa.5.0..sroa_idx22.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.827, ptr %.sroa.5.0..sroa_idx22.i, align 8, !noalias !2345
   %.sroa.6.0..sroa_idx23.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 351, ptr %.sroa.6.0..sroa_idx23.i, align 8, !noalias !2345
   %.sroa.7.0..sroa_idx24.i = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -12181,100 +12181,100 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001.e
   store i8 1, ptr %.sroa.13.0..sroa_idx30.i, align 4, !noalias !2345
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.820, ptr %13, align 8, !noalias !2345
-  %.sroa.433.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store i64 5, ptr %.sroa.433.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.534.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 112
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.828, ptr %.sroa.534.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.635.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store i64 381, ptr %.sroa.635.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.736.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 128
-  store i8 32, ptr %.sroa.736.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.938.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store ptr @"_ZN5typst11foundations4bool69_$LT$impl$u20$typst..foundations..ty..NativeType$u20$for$u20$bool$GT$4data4DATA17h13682eb25f2d8f83E.llvm.4930786928582598558", ptr %.sroa.938.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1140.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 176
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17h66c96d6a661762d1E, ptr %.sroa.1140.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1241.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 184
-  store i8 0, ptr %.sroa.1241.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1342.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 185
-  store i8 1, ptr %.sroa.1342.0..sroa_idx.i, align 1, !noalias !2345
-  %.sroa.1443.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 186
-  store i8 0, ptr %.sroa.1443.0..sroa_idx.i, align 2, !noalias !2345
-  %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 187
-  store i8 0, ptr %.sroa.15.0..sroa_idx.i, align 1, !noalias !2345
-  %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 188
-  store i8 1, ptr %.sroa.16.0..sroa_idx.i, align 4, !noalias !2345
+  %.sroa.432.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 104
+  store i64 5, ptr %.sroa.432.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.533.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 112
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.828, ptr %.sroa.533.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.634.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 120
+  store i64 381, ptr %.sroa.634.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.735.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 128
+  store i8 32, ptr %.sroa.735.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.837.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 136
+  store ptr @"_ZN5typst11foundations4bool69_$LT$impl$u20$typst..foundations..ty..NativeType$u20$for$u20$bool$GT$4data4DATA17h13682eb25f2d8f83E.llvm.4930786928582598558", ptr %.sroa.837.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.939.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 176
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17h66c96d6a661762d1E, ptr %.sroa.939.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.1040.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 184
+  store i8 0, ptr %.sroa.1040.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.1141.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 185
+  store i8 1, ptr %.sroa.1141.0..sroa_idx.i, align 1, !noalias !2345
+  %.sroa.1242.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 186
+  store i8 0, ptr %.sroa.1242.0..sroa_idx.i, align 2, !noalias !2345
+  %.sroa.1343.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 187
+  store i8 0, ptr %.sroa.1343.0..sroa_idx.i, align 1, !noalias !2345
+  %.sroa.1444.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 188
+  store i8 1, ptr %.sroa.1444.0..sroa_idx.i, align 4, !noalias !2345
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.821, ptr %14, align 8, !noalias !2345
-  %.sroa.445.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 200
-  store i64 9, ptr %.sroa.445.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.546.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 208
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.829, ptr %.sroa.546.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.647.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 216
-  store i64 68, ptr %.sroa.647.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.748.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 224
-  store i8 32, ptr %.sroa.748.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.950.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 232
-  store ptr @"_ZN84_$LT$typst..layout..length..Length$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17he9dfa3c14e77009eE.llvm.11057974413330164255", ptr %.sroa.950.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1152.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 272
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17h636afcd9122db482E, ptr %.sroa.1152.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1253.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 280
-  store i8 0, ptr %.sroa.1253.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1354.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 281
-  store i8 1, ptr %.sroa.1354.0..sroa_idx.i, align 1, !noalias !2345
-  %.sroa.1455.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 282
-  store i8 0, ptr %.sroa.1455.0..sroa_idx.i, align 2, !noalias !2345
-  %.sroa.1556.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 283
-  store i8 0, ptr %.sroa.1556.0..sroa_idx.i, align 1, !noalias !2345
-  %.sroa.1657.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 284
-  store i8 1, ptr %.sroa.1657.0..sroa_idx.i, align 4, !noalias !2345
+  %.sroa.446.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 200
+  store i64 9, ptr %.sroa.446.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.547.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 208
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.829, ptr %.sroa.547.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.648.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 216
+  store i64 68, ptr %.sroa.648.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.749.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 224
+  store i8 32, ptr %.sroa.749.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.851.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 232
+  store ptr @"_ZN84_$LT$typst..layout..length..Length$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17he9dfa3c14e77009eE.llvm.11057974413330164255", ptr %.sroa.851.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.953.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 272
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17h636afcd9122db482E, ptr %.sroa.953.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.1054.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 280
+  store i8 0, ptr %.sroa.1054.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.1155.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 281
+  store i8 1, ptr %.sroa.1155.0..sroa_idx.i, align 1, !noalias !2345
+  %.sroa.1256.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 282
+  store i8 0, ptr %.sroa.1256.0..sroa_idx.i, align 2, !noalias !2345
+  %.sroa.1357.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 283
+  store i8 0, ptr %.sroa.1357.0..sroa_idx.i, align 1, !noalias !2345
+  %.sroa.1458.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 284
+  store i8 1, ptr %.sroa.1458.0..sroa_idx.i, align 4, !noalias !2345
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.822, ptr %15, align 8, !noalias !2345
-  %.sroa.460.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 296
-  store i64 2, ptr %.sroa.460.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.561.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 304
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.830, ptr %.sroa.561.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.662.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 312
-  store i64 188, ptr %.sroa.662.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.763.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 320
-  store i8 32, ptr %.sroa.763.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.965.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 328
-  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.965.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1167.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 368
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17h61d1b03d59903087E, ptr %.sroa.1167.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1268.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 376
-  store i8 0, ptr %.sroa.1268.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1369.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 377
-  store i8 1, ptr %.sroa.1369.0..sroa_idx.i, align 1, !noalias !2345
-  %.sroa.1470.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 378
-  store i8 0, ptr %.sroa.1470.0..sroa_idx.i, align 2, !noalias !2345
-  %.sroa.1571.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 379
-  store i8 0, ptr %.sroa.1571.0..sroa_idx.i, align 1, !noalias !2345
-  %.sroa.1672.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 380
-  store i8 1, ptr %.sroa.1672.0..sroa_idx.i, align 4, !noalias !2345
+  %.sroa.461.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 296
+  store i64 2, ptr %.sroa.461.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.562.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 304
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.830, ptr %.sroa.562.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.663.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 312
+  store i64 188, ptr %.sroa.663.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.764.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 320
+  store i8 32, ptr %.sroa.764.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.866.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 328
+  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.866.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.968.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 368
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17h61d1b03d59903087E, ptr %.sroa.968.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.1069.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 376
+  store i8 0, ptr %.sroa.1069.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.1170.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 377
+  store i8 1, ptr %.sroa.1170.0..sroa_idx.i, align 1, !noalias !2345
+  %.sroa.1271.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 378
+  store i8 0, ptr %.sroa.1271.0..sroa_idx.i, align 2, !noalias !2345
+  %.sroa.1372.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 379
+  store i8 0, ptr %.sroa.1372.0..sroa_idx.i, align 1, !noalias !2345
+  %.sroa.1473.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 380
+  store i8 1, ptr %.sroa.1473.0..sroa_idx.i, align 4, !noalias !2345
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 384
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.823, ptr %16, align 8, !noalias !2345
-  %.sroa.475.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 392
-  store i64 2, ptr %.sroa.475.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.576.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 400
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.831, ptr %.sroa.576.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.677.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 408
-  store i64 48, ptr %.sroa.677.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.778.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 416
-  store i8 32, ptr %.sroa.778.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.980.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 424
-  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.980.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1182.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 464
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17h09989ccaa0ef8386E, ptr %.sroa.1182.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1283.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 472
-  store i8 0, ptr %.sroa.1283.0..sroa_idx.i, align 8, !noalias !2345
-  %.sroa.1384.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 473
-  store i8 1, ptr %.sroa.1384.0..sroa_idx.i, align 1, !noalias !2345
-  %.sroa.1485.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 474
-  store i8 0, ptr %.sroa.1485.0..sroa_idx.i, align 2, !noalias !2345
-  %.sroa.1586.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 475
-  store i8 0, ptr %.sroa.1586.0..sroa_idx.i, align 1, !noalias !2345
-  %.sroa.1687.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 476
-  store i8 1, ptr %.sroa.1687.0..sroa_idx.i, align 4, !noalias !2345
+  %.sroa.476.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 392
+  store i64 2, ptr %.sroa.476.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.577.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 400
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.831, ptr %.sroa.577.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.678.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 408
+  store i64 48, ptr %.sroa.678.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.779.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 416
+  store i8 32, ptr %.sroa.779.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.881.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 424
+  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.881.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.983.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 464
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17h09989ccaa0ef8386E, ptr %.sroa.983.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.1084.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 472
+  store i8 0, ptr %.sroa.1084.0..sroa_idx.i, align 8, !noalias !2345
+  %.sroa.1185.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 473
+  store i8 1, ptr %.sroa.1185.0..sroa_idx.i, align 1, !noalias !2345
+  %.sroa.1286.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 474
+  store i8 0, ptr %.sroa.1286.0..sroa_idx.i, align 2, !noalias !2345
+  %.sroa.1387.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 475
+  store i8 0, ptr %.sroa.1387.0..sroa_idx.i, align 1, !noalias !2345
+  %.sroa.1488.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 476
+  store i8 1, ptr %.sroa.1488.0..sroa_idx.i, align 4, !noalias !2345
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 480
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.515, ptr %17, align 8, !noalias !2345
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 488
@@ -12758,16 +12758,16 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001.e
 
 "_ZN5typst11foundations8selector8Selector10after_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h776fca6a071efb59E.exit": ; preds = %26
   store i8 32, ptr %38, align 8, !noalias !2459
-  %.sroa.410.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr @"_ZN87_$LT$typst..foundations..label..Label$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h74d5d87267ef01f8E.llvm.12777920187102919001", ptr %.sroa.410.0..sroa_idx.i.i, align 8, !noalias !2459
+  %.sroa.48.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr @"_ZN87_$LT$typst..foundations..label..Label$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h74d5d87267ef01f8E.llvm.12777920187102919001", ptr %.sroa.48.0..sroa_idx.i.i, align 8, !noalias !2459
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store i8 32, ptr %46, align 8, !noalias !2459
-  %.sroa.414.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 56
-  store ptr @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", ptr %.sroa.414.0..sroa_idx.i.i, align 8, !noalias !2459
+  %.sroa.412.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 56
+  store ptr @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", ptr %.sroa.412.0..sroa_idx.i.i, align 8, !noalias !2459
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 96
   store i8 32, ptr %47, align 8, !noalias !2459
-  %.sroa.418.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 104
-  store ptr @"_ZN95_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17ha5fbe8899c41546bE.llvm.12850028421071809815", ptr %.sroa.418.0..sroa_idx.i.i, align 8, !noalias !2459
+  %.sroa.416.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 104
+  store ptr @"_ZN95_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17ha5fbe8899c41546bE.llvm.12850028421071809815", ptr %.sroa.416.0..sroa_idx.i.i, align 8, !noalias !2459
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 144
   store i8 32, ptr %48, align 8, !noalias !2459
   %.sroa.41.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 152
@@ -12775,32 +12775,32 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %13, i64 96, i1 false), !noalias !2436
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.865, ptr %49, align 8, !noalias !2436
-  %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 104
-  store i64 5, ptr %.sroa.411.0..sroa_idx.i, align 8, !noalias !2436
+  %.sroa.4.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %15, i64 104
+  store i64 5, ptr %.sroa.4.0..sroa_idx11.i, align 8, !noalias !2436
   %.sroa.5.0..sroa_idx12.i = getelementptr inbounds nuw i8, ptr %15, i64 112
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.1076, ptr %.sroa.5.0..sroa_idx12.i, align 8, !noalias !2436
   %.sroa.6.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %15, i64 120
   store i64 64, ptr %.sroa.6.0..sroa_idx13.i, align 8, !noalias !2436
   %.sroa.7.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %15, i64 128
   store i8 33, ptr %.sroa.7.0..sroa_idx14.i, align 8, !noalias !2436
-  %.sroa.9.0..sroa_idx16.i = getelementptr inbounds nuw i8, ptr %15, i64 136
-  store i64 4, ptr %.sroa.9.0..sroa_idx16.i, align 8, !noalias !2436
-  %.sroa.10.0..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %15, i64 144
-  store ptr %38, ptr %.sroa.10.0..sroa_idx17.i, align 8, !noalias !2436
-  %.sroa.11.0..sroa_idx18.i = getelementptr inbounds nuw i8, ptr %15, i64 152
-  store i64 4, ptr %.sroa.11.0..sroa_idx18.i, align 8, !noalias !2436
-  %.sroa.13.0..sroa_idx20.i = getelementptr inbounds nuw i8, ptr %15, i64 176
-  store ptr null, ptr %.sroa.13.0..sroa_idx20.i, align 8, !noalias !2436
-  %.sroa.1421.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 184
-  store i8 1, ptr %.sroa.1421.0..sroa_idx.i, align 8, !noalias !2436
-  %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 185
-  store i8 0, ptr %.sroa.15.0..sroa_idx.i, align 1, !noalias !2436
-  %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 186
-  store i8 0, ptr %.sroa.16.0..sroa_idx.i, align 2, !noalias !2436
-  %.sroa.17.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 187
-  store i8 1, ptr %.sroa.17.0..sroa_idx.i, align 1, !noalias !2436
-  %.sroa.18.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 188
-  store i8 0, ptr %.sroa.18.0..sroa_idx.i, align 4, !noalias !2436
+  %.sroa.816.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 136
+  store i64 4, ptr %.sroa.816.0..sroa_idx.i, align 8, !noalias !2436
+  %.sroa.9.0..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %15, i64 144
+  store ptr %38, ptr %.sroa.9.0..sroa_idx17.i, align 8, !noalias !2436
+  %.sroa.10.0..sroa_idx18.i = getelementptr inbounds nuw i8, ptr %15, i64 152
+  store i64 4, ptr %.sroa.10.0..sroa_idx18.i, align 8, !noalias !2436
+  %.sroa.1120.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 176
+  store ptr null, ptr %.sroa.1120.0..sroa_idx.i, align 8, !noalias !2436
+  %.sroa.12.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %15, i64 184
+  store i8 1, ptr %.sroa.12.0..sroa_idx21.i, align 8, !noalias !2436
+  %.sroa.13.0..sroa_idx22.i = getelementptr inbounds nuw i8, ptr %15, i64 185
+  store i8 0, ptr %.sroa.13.0..sroa_idx22.i, align 1, !noalias !2436
+  %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 186
+  store i8 0, ptr %.sroa.14.0..sroa_idx.i, align 2, !noalias !2436
+  %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 187
+  store i8 1, ptr %.sroa.15.0..sroa_idx.i, align 1, !noalias !2436
+  %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 188
+  store i8 0, ptr %.sroa.16.0..sroa_idx.i, align 4, !noalias !2436
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 192
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.1071, ptr %50, align 8, !noalias !2436
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 200
@@ -13412,26 +13412,26 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha94dbf3d57cab301E
 
 "_ZN5typst7loading5json_4json11encode_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h0fc899edd7ef9ebcE.exit": ; preds = %1
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.1021, ptr %3, align 8, !noalias !2581
-  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 5, ptr %.sroa.46.0..sroa_idx.i, align 8, !noalias !2581
-  %.sroa.57.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.1022, ptr %.sroa.57.0..sroa_idx.i, align 8, !noalias !2581
+  %.sroa.4.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 5, ptr %.sroa.4.0..sroa_idx6.i, align 8, !noalias !2581
+  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.1022, ptr %.sroa.5.0..sroa_idx7.i, align 8, !noalias !2581
   %.sroa.6.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 20, ptr %.sroa.6.0..sroa_idx8.i, align 8, !noalias !2581
   %.sroa.7.0..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 30, ptr %.sroa.7.0..sroa_idx9.i, align 8, !noalias !2581
-  %.sroa.9.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr null, ptr %.sroa.9.0..sroa_idx11.i, align 8, !noalias !2581
-  %.sroa.10.0..sroa_idx12.i = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store i8 1, ptr %.sroa.10.0..sroa_idx12.i, align 8, !noalias !2581
-  %.sroa.11.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %3, i64 89
-  store i8 0, ptr %.sroa.11.0..sroa_idx13.i, align 1, !noalias !2581
-  %.sroa.12.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %3, i64 90
-  store i8 0, ptr %.sroa.12.0..sroa_idx14.i, align 2, !noalias !2581
-  %.sroa.13.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %3, i64 91
-  store i8 1, ptr %.sroa.13.0..sroa_idx15.i, align 1, !noalias !2581
-  %.sroa.1416.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 92
-  store i8 0, ptr %.sroa.1416.0..sroa_idx.i, align 4, !noalias !2581
+  %.sroa.811.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store ptr null, ptr %.sroa.811.0..sroa_idx.i, align 8, !noalias !2581
+  %.sroa.9.0..sroa_idx12.i = getelementptr inbounds nuw i8, ptr %3, i64 88
+  store i8 1, ptr %.sroa.9.0..sroa_idx12.i, align 8, !noalias !2581
+  %.sroa.10.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %3, i64 89
+  store i8 0, ptr %.sroa.10.0..sroa_idx13.i, align 1, !noalias !2581
+  %.sroa.11.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %3, i64 90
+  store i8 0, ptr %.sroa.11.0..sroa_idx14.i, align 2, !noalias !2581
+  %.sroa.12.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %3, i64 91
+  store i8 1, ptr %.sroa.12.0..sroa_idx15.i, align 1, !noalias !2581
+  %.sroa.13.0..sroa_idx16.i = getelementptr inbounds nuw i8, ptr %3, i64 92
+  store i8 0, ptr %.sroa.13.0..sroa_idx16.i, align 4, !noalias !2581
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.1038, ptr %6, align 8, !noalias !2581
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -13536,172 +13536,172 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hac755b0972b33554E
 
 "_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h754d8f4065522fb6E.exit": ; preds = %1
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.537, ptr %3, align 8, !noalias !2618
-  %.sroa.433.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 4, ptr %.sroa.433.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.534.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.544, ptr %.sroa.534.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.4.0..sroa_idx33.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 4, ptr %.sroa.4.0..sroa_idx33.i, align 8, !noalias !2618
+  %.sroa.5.0..sroa_idx34.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.544, ptr %.sroa.5.0..sroa_idx34.i, align 8, !noalias !2618
   %.sroa.6.0..sroa_idx35.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 29, ptr %.sroa.6.0..sroa_idx35.i, align 8, !noalias !2618
   %.sroa.7.0..sroa_idx36.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 32, ptr %.sroa.7.0..sroa_idx36.i, align 8, !noalias !2618
-  %.sroa.9.0..sroa_idx38.i = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.9.0..sroa_idx38.i, align 8, !noalias !2618
-  %.sroa.11.0..sroa_idx40.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17hdfa3d57792d4ceabE, ptr %.sroa.11.0..sroa_idx40.i, align 8, !noalias !2618
-  %.sroa.12.0..sroa_idx41.i = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store i8 0, ptr %.sroa.12.0..sroa_idx41.i, align 8, !noalias !2618
-  %.sroa.13.0..sroa_idx42.i = getelementptr inbounds nuw i8, ptr %3, i64 89
-  store i8 1, ptr %.sroa.13.0..sroa_idx42.i, align 1, !noalias !2618
-  %.sroa.1443.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 90
-  store i8 0, ptr %.sroa.1443.0..sroa_idx.i, align 2, !noalias !2618
-  %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 91
-  store i8 0, ptr %.sroa.15.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 92
-  store i8 1, ptr %.sroa.16.0..sroa_idx.i, align 4, !noalias !2618
+  %.sroa.838.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.838.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.940.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17hdfa3d57792d4ceabE, ptr %.sroa.940.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.10.0..sroa_idx41.i = getelementptr inbounds nuw i8, ptr %3, i64 88
+  store i8 0, ptr %.sroa.10.0..sroa_idx41.i, align 8, !noalias !2618
+  %.sroa.11.0..sroa_idx42.i = getelementptr inbounds nuw i8, ptr %3, i64 89
+  store i8 1, ptr %.sroa.11.0..sroa_idx42.i, align 1, !noalias !2618
+  %.sroa.12.0..sroa_idx43.i = getelementptr inbounds nuw i8, ptr %3, i64 90
+  store i8 0, ptr %.sroa.12.0..sroa_idx43.i, align 2, !noalias !2618
+  %.sroa.13.0..sroa_idx44.i = getelementptr inbounds nuw i8, ptr %3, i64 91
+  store i8 0, ptr %.sroa.13.0..sroa_idx44.i, align 1, !noalias !2618
+  %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 92
+  store i8 1, ptr %.sroa.14.0..sroa_idx.i, align 4, !noalias !2618
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.538, ptr %6, align 8, !noalias !2618
-  %.sroa.445.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store i64 3, ptr %.sroa.445.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.546.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.545, ptr %.sroa.546.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.647.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store i64 28, ptr %.sroa.647.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.748.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store i8 32, ptr %.sroa.748.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.950.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 136
-  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.950.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1152.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 176
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17h05ed9ffddb379fa0E, ptr %.sroa.1152.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1253.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 184
-  store i8 0, ptr %.sroa.1253.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1354.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 185
-  store i8 1, ptr %.sroa.1354.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.1455.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 186
-  store i8 0, ptr %.sroa.1455.0..sroa_idx.i, align 2, !noalias !2618
-  %.sroa.1556.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 187
-  store i8 0, ptr %.sroa.1556.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.1657.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 188
-  store i8 1, ptr %.sroa.1657.0..sroa_idx.i, align 4, !noalias !2618
+  %.sroa.446.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 104
+  store i64 3, ptr %.sroa.446.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.547.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 112
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.545, ptr %.sroa.547.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.648.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 120
+  store i64 28, ptr %.sroa.648.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.749.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 128
+  store i8 32, ptr %.sroa.749.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.851.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 136
+  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.851.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.953.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 176
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17h05ed9ffddb379fa0E, ptr %.sroa.953.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.1054.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 184
+  store i8 0, ptr %.sroa.1054.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.1155.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 185
+  store i8 1, ptr %.sroa.1155.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.1256.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 186
+  store i8 0, ptr %.sroa.1256.0..sroa_idx.i, align 2, !noalias !2618
+  %.sroa.1357.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 187
+  store i8 0, ptr %.sroa.1357.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.1458.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 188
+  store i8 1, ptr %.sroa.1458.0..sroa_idx.i, align 4, !noalias !2618
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.539, ptr %7, align 8, !noalias !2618
-  %.sroa.460.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 200
-  store i64 5, ptr %.sroa.460.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.561.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 208
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.546, ptr %.sroa.561.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.662.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 216
-  store i64 30, ptr %.sroa.662.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.763.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 224
-  store i8 32, ptr %.sroa.763.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.965.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 232
-  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.965.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1167.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 272
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17h699a30fdcee88b93E, ptr %.sroa.1167.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1268.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 280
-  store i8 0, ptr %.sroa.1268.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1369.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 281
-  store i8 1, ptr %.sroa.1369.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.1470.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 282
-  store i8 0, ptr %.sroa.1470.0..sroa_idx.i, align 2, !noalias !2618
-  %.sroa.1571.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 283
-  store i8 0, ptr %.sroa.1571.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.1672.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 284
-  store i8 1, ptr %.sroa.1672.0..sroa_idx.i, align 4, !noalias !2618
+  %.sroa.461.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 200
+  store i64 5, ptr %.sroa.461.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.562.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 208
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.546, ptr %.sroa.562.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.663.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 216
+  store i64 30, ptr %.sroa.663.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.764.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 224
+  store i8 32, ptr %.sroa.764.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.866.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 232
+  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.866.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.968.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 272
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17h699a30fdcee88b93E, ptr %.sroa.968.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.1069.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 280
+  store i8 0, ptr %.sroa.1069.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.1170.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 281
+  store i8 1, ptr %.sroa.1170.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.1271.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 282
+  store i8 0, ptr %.sroa.1271.0..sroa_idx.i, align 2, !noalias !2618
+  %.sroa.1372.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 283
+  store i8 0, ptr %.sroa.1372.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.1473.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 284
+  store i8 1, ptr %.sroa.1473.0..sroa_idx.i, align 4, !noalias !2618
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 288
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.540, ptr %8, align 8, !noalias !2618
-  %.sroa.475.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 296
-  store i64 6, ptr %.sroa.475.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.576.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 304
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.547, ptr %.sroa.576.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.677.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 312
-  store i64 31, ptr %.sroa.677.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.778.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 320
-  store i8 32, ptr %.sroa.778.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.980.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 328
-  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.980.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1182.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 368
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17ha49d23c1d4d38bc9E, ptr %.sroa.1182.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1283.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 376
-  store i8 0, ptr %.sroa.1283.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1384.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 377
-  store i8 1, ptr %.sroa.1384.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.1485.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 378
-  store i8 0, ptr %.sroa.1485.0..sroa_idx.i, align 2, !noalias !2618
-  %.sroa.1586.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 379
-  store i8 0, ptr %.sroa.1586.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.1687.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 380
-  store i8 1, ptr %.sroa.1687.0..sroa_idx.i, align 4, !noalias !2618
+  %.sroa.476.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 296
+  store i64 6, ptr %.sroa.476.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.577.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 304
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.547, ptr %.sroa.577.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.678.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 312
+  store i64 31, ptr %.sroa.678.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.779.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 320
+  store i8 32, ptr %.sroa.779.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.881.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 328
+  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.881.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.983.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 368
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17ha49d23c1d4d38bc9E, ptr %.sroa.983.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.1084.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 376
+  store i8 0, ptr %.sroa.1084.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.1185.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 377
+  store i8 1, ptr %.sroa.1185.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.1286.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 378
+  store i8 0, ptr %.sroa.1286.0..sroa_idx.i, align 2, !noalias !2618
+  %.sroa.1387.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 379
+  store i8 0, ptr %.sroa.1387.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.1488.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 380
+  store i8 1, ptr %.sroa.1488.0..sroa_idx.i, align 4, !noalias !2618
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 384
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.548, ptr %9, align 8, !noalias !2618
-  %.sroa.490.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 392
-  store i64 1, ptr %.sroa.490.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.591.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 400
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.549, ptr %.sroa.591.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.692.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 408
-  store i64 74, ptr %.sroa.692.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.793.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 416
-  store i8 32, ptr %.sroa.793.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.995.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 424
-  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.995.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1197.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 464
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17h2fe0ad4cee4e9529E, ptr %.sroa.1197.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1298.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 472
-  store i8 0, ptr %.sroa.1298.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.1399.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 473
-  store i8 1, ptr %.sroa.1399.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.14100.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 474
-  store i8 0, ptr %.sroa.14100.0..sroa_idx.i, align 2, !noalias !2618
-  %.sroa.15101.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 475
-  store i8 0, ptr %.sroa.15101.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.16102.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 476
-  store i8 1, ptr %.sroa.16102.0..sroa_idx.i, align 4, !noalias !2618
+  %.sroa.491.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 392
+  store i64 1, ptr %.sroa.491.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.592.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 400
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.549, ptr %.sroa.592.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.693.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 408
+  store i64 74, ptr %.sroa.693.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.794.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 416
+  store i8 32, ptr %.sroa.794.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.896.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 424
+  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.896.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.998.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 464
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17h2fe0ad4cee4e9529E, ptr %.sroa.998.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.1099.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 472
+  store i8 0, ptr %.sroa.1099.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.11100.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 473
+  store i8 1, ptr %.sroa.11100.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.12101.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 474
+  store i8 0, ptr %.sroa.12101.0..sroa_idx.i, align 2, !noalias !2618
+  %.sroa.13102.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 475
+  store i8 0, ptr %.sroa.13102.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.14103.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 476
+  store i8 1, ptr %.sroa.14103.0..sroa_idx.i, align 4, !noalias !2618
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.550, ptr %10, align 8, !noalias !2618
-  %.sroa.4105.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 488
-  store i64 1, ptr %.sroa.4105.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.5106.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 496
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.551, ptr %.sroa.5106.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.6107.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 504
-  store i64 72, ptr %.sroa.6107.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.7108.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 512
-  store i8 32, ptr %.sroa.7108.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.9110.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 520
-  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.9110.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.11112.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 560
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17h981e366d29f4ccfeE, ptr %.sroa.11112.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.12113.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 568
-  store i8 0, ptr %.sroa.12113.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.13114.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 569
-  store i8 1, ptr %.sroa.13114.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.14115.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 570
-  store i8 0, ptr %.sroa.14115.0..sroa_idx.i, align 2, !noalias !2618
-  %.sroa.15116.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 571
-  store i8 0, ptr %.sroa.15116.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.16117.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 572
-  store i8 1, ptr %.sroa.16117.0..sroa_idx.i, align 4, !noalias !2618
+  %.sroa.4106.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 488
+  store i64 1, ptr %.sroa.4106.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.5107.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 496
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.551, ptr %.sroa.5107.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.6108.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 504
+  store i64 72, ptr %.sroa.6108.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.7109.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 512
+  store i8 32, ptr %.sroa.7109.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.8111.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 520
+  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.8111.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.9113.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 560
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17h981e366d29f4ccfeE, ptr %.sroa.9113.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.10114.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 568
+  store i8 0, ptr %.sroa.10114.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.11115.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 569
+  store i8 1, ptr %.sroa.11115.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.12116.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 570
+  store i8 0, ptr %.sroa.12116.0..sroa_idx.i, align 2, !noalias !2618
+  %.sroa.13117.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 571
+  store i8 0, ptr %.sroa.13117.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.14118.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 572
+  store i8 1, ptr %.sroa.14118.0..sroa_idx.i, align 4, !noalias !2618
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 576
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.552, ptr %11, align 8, !noalias !2618
-  %.sroa.4120.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 584
-  store i64 4, ptr %.sroa.4120.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.5121.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 592
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.553, ptr %.sroa.5121.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.6122.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 600
-  store i64 74, ptr %.sroa.6122.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.7123.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 608
-  store i8 32, ptr %.sroa.7123.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.9125.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 616
-  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.9125.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.11127.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 656
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17hbed397c9d3fda7d6E, ptr %.sroa.11127.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.12128.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 664
-  store i8 0, ptr %.sroa.12128.0..sroa_idx.i, align 8, !noalias !2618
-  %.sroa.13129.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 665
-  store i8 1, ptr %.sroa.13129.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.14130.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 666
-  store i8 0, ptr %.sroa.14130.0..sroa_idx.i, align 2, !noalias !2618
-  %.sroa.15131.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 667
-  store i8 0, ptr %.sroa.15131.0..sroa_idx.i, align 1, !noalias !2618
-  %.sroa.16132.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 668
-  store i8 1, ptr %.sroa.16132.0..sroa_idx.i, align 4, !noalias !2618
+  %.sroa.4121.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 584
+  store i64 4, ptr %.sroa.4121.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.5122.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 592
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.553, ptr %.sroa.5122.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.6123.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 600
+  store i64 74, ptr %.sroa.6123.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.7124.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 608
+  store i8 32, ptr %.sroa.7124.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.8126.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 616
+  store ptr @"_ZN78_$LT$typst..layout..rel..Rel$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h9f1bcc6f9ebeef18E.llvm.9217674556973953327", ptr %.sroa.8126.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.9128.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 656
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17hbed397c9d3fda7d6E, ptr %.sroa.9128.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.10129.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 664
+  store i8 0, ptr %.sroa.10129.0..sroa_idx.i, align 8, !noalias !2618
+  %.sroa.11130.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 665
+  store i8 1, ptr %.sroa.11130.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.12131.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 666
+  store i8 0, ptr %.sroa.12131.0..sroa_idx.i, align 2, !noalias !2618
+  %.sroa.13132.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 667
+  store i8 0, ptr %.sroa.13132.0..sroa_idx.i, align 1, !noalias !2618
+  %.sroa.14133.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 668
+  store i8 1, ptr %.sroa.14133.0..sroa_idx.i, align 4, !noalias !2618
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.515, ptr %12, align 8, !noalias !2618
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 680
@@ -16150,10 +16150,10 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %282, ptr noundef nonnull align 8 dereferenceable(96) %32, i64 96, i1 false), !noalias !3058
   %283 = getelementptr inbounds nuw i8, ptr %57, i64 1440
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.570, ptr %283, align 8, !noalias !3058
-  %.sroa.425.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 1448
-  store i64 10, ptr %.sroa.425.0..sroa_idx.i, align 8, !noalias !3058
-  %.sroa.526.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 1456
-  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.591, ptr %.sroa.526.0..sroa_idx.i, align 8, !noalias !3058
+  %.sroa.4.0..sroa_idx25.i = getelementptr inbounds nuw i8, ptr %57, i64 1448
+  store i64 10, ptr %.sroa.4.0..sroa_idx25.i, align 8, !noalias !3058
+  %.sroa.5.0..sroa_idx26.i = getelementptr inbounds nuw i8, ptr %57, i64 1456
+  store ptr @anon.9efbc0c128adab6190fabe7f7e045142.591, ptr %.sroa.5.0..sroa_idx26.i, align 8, !noalias !3058
   %.sroa.6.0..sroa_idx27.i = getelementptr inbounds nuw i8, ptr %57, i64 1464
   store i64 228, ptr %.sroa.6.0..sroa_idx27.i, align 8, !noalias !3058
   %.sroa.7.0..sroa_idx28.i = getelementptr inbounds nuw i8, ptr %57, i64 1472
@@ -24313,10 +24313,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %14, label %27, label %23
 
 15:                                               ; preds = %5
-  %.sroa.432.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.432.0.copyload.i = load i64, ptr %.sroa.432.0..sroa_idx.i, align 8, !alias.scope !4536, !noalias !4539
-  %.sroa.5.0..sroa_idx33.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx33.i, align 8, !alias.scope !4536, !noalias !4539
+  %.sroa.431.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.431.0.copyload.i = load i64, ptr %.sroa.431.0..sroa_idx.i, align 8, !alias.scope !4536, !noalias !4539
+  %.sroa.5.0..sroa_idx32.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx32.i, align 8, !alias.scope !4536, !noalias !4539
   %16 = zext nneg i16 %9 to i64
   %17 = add i64 %.sroa.5.0.copyload.i, 1
   %.not.i.i = icmp ugt i64 %17, %16
@@ -24792,7 +24792,7 @@ _ZN5alloc11collections5btree3mem7replace17haefb5c4d4783a8fcE.exit.i: ; preds = %
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %_ZN5alloc11collections5btree4node12slice_insert17hb547968f49614b83E.exit.i.i, %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h8eeceffc98500ce3E.exit", %60
   %.sroa.06.0.i.sink = phi ptr [ %.sroa.06.0.i, %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h8eeceffc98500ce3E.exit" ], [ %7, %60 ], [ %.sroa.06.0.i, %_ZN5alloc11collections5btree4node12slice_insert17hb547968f49614b83E.exit.i.i ], [ %.sroa.06.0.i, %.lr.ph.i.i.i ]
-  %.sroa.57.0.i.sink = phi i64 [ %.sroa.57.0.i, %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h8eeceffc98500ce3E.exit" ], [ %.sroa.432.0.copyload.i, %60 ], [ %.sroa.57.0.i, %_ZN5alloc11collections5btree4node12slice_insert17hb547968f49614b83E.exit.i.i ], [ %.sroa.57.0.i, %.lr.ph.i.i.i ]
+  %.sroa.57.0.i.sink = phi i64 [ %.sroa.57.0.i, %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h8eeceffc98500ce3E.exit" ], [ %.sroa.431.0.copyload.i, %60 ], [ %.sroa.57.0.i, %_ZN5alloc11collections5btree4node12slice_insert17hb547968f49614b83E.exit.i.i ], [ %.sroa.57.0.i, %.lr.ph.i.i.i ]
   %.sroa.724.0.i.sink = phi i64 [ %.sroa.724.0.i, %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h8eeceffc98500ce3E.exit" ], [ %.sroa.5.0.copyload.i, %60 ], [ %.sroa.724.0.i, %_ZN5alloc11collections5btree4node12slice_insert17hb547968f49614b83E.exit.i.i ], [ %.sroa.724.0.i, %.lr.ph.i.i.i ]
   store ptr %.sroa.06.0.i.sink, ptr %0, align 8
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24844,10 +24844,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %28, label %45, label %41
 
 29:                                               ; preds = %5
-  %.sroa.440.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.440.0.copyload.i = load i64, ptr %.sroa.440.0..sroa_idx.i, align 8, !alias.scope !4652, !noalias !4655
-  %.sroa.5.0..sroa_idx41.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx41.i, align 8, !alias.scope !4652, !noalias !4655
+  %.sroa.439.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.439.0.copyload.i = load i64, ptr %.sroa.439.0..sroa_idx.i, align 8, !alias.scope !4652, !noalias !4655
+  %.sroa.5.0..sroa_idx40.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx40.i, align 8, !alias.scope !4652, !noalias !4655
   %30 = zext nneg i16 %23 to i64
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %32 = add i64 %.sroa.5.0.copyload.i, 1
@@ -25052,14 +25052,14 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %.thread, %100
-  %.sroa.15.086 = phi ptr [ %21, %.thread ], [ %.sroa.06.0.i, %100 ]
-  %.sroa.19.085 = phi i64 [ %.sroa.440.0.copyload.i, %.thread ], [ %.sroa.57.0.i, %100 ]
-  %.sroa.23.084 = phi i64 [ %.sroa.5.0.copyload.i, %.thread ], [ %.sroa.726.0.i, %100 ]
-  store ptr %.sroa.15.086, ptr %0, align 8
+  %.sroa.726.0.sink.i86 = phi i64 [ %.sroa.5.0.copyload.i, %.thread ], [ %.sroa.726.0.i, %100 ]
+  %.sroa.57.0.sink.i85 = phi i64 [ %.sroa.439.0.copyload.i, %.thread ], [ %.sroa.57.0.i, %100 ]
+  %.sroa.06.0.sink.i84 = phi ptr [ %21, %.thread ], [ %.sroa.06.0.i, %100 ]
+  store ptr %.sroa.06.0.sink.i84, ptr %0, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.19.085, ptr %106, align 8
+  store i64 %.sroa.57.0.sink.i85, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.23.084, ptr %107, align 8
+  store i64 %.sroa.726.0.sink.i86, ptr %107, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.7)
   br label %317
 
@@ -25642,10 +25642,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %24, label %43, label %39
 
 25:                                               ; preds = %6
-  %.sroa.436.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.436.0.copyload.i = load i64, ptr %.sroa.436.0..sroa_idx.i, align 8, !alias.scope !4813, !noalias !4816
-  %.sroa.5.0..sroa_idx37.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx37.i, align 8, !alias.scope !4813, !noalias !4816
+  %.sroa.435.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.435.0.copyload.i = load i64, ptr %.sroa.435.0..sroa_idx.i, align 8, !alias.scope !4813, !noalias !4816
+  %.sroa.5.0..sroa_idx36.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx36.i, align 8, !alias.scope !4813, !noalias !4816
   %26 = zext nneg i16 %19 to i64
   %27 = add i64 %.sroa.5.0.copyload.i, 1
   %.not.i.i = icmp ugt i64 %27, %26
@@ -25830,7 +25830,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   store ptr %17, ptr %0, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.436.0.copyload.i, ptr %102, align 8
+  store i64 %.sroa.435.0.copyload.i, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.5.0.copyload.i, ptr %103, align 8
   br label %324
@@ -26409,10 +26409,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %28, label %45, label %41
 
 29:                                               ; preds = %5
-  %.sroa.439.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.439.0.copyload.i = load i64, ptr %.sroa.439.0..sroa_idx.i, align 8, !alias.scope !4955, !noalias !4958
-  %.sroa.5.0..sroa_idx40.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx40.i, align 8, !alias.scope !4955, !noalias !4958
+  %.sroa.438.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.438.0.copyload.i = load i64, ptr %.sroa.438.0..sroa_idx.i, align 8, !alias.scope !4955, !noalias !4958
+  %.sroa.5.0..sroa_idx39.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx39.i, align 8, !alias.scope !4955, !noalias !4958
   %30 = zext nneg i16 %23 to i64
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 360
   %32 = add i64 %.sroa.5.0.copyload.i, 1
@@ -26617,14 +26617,14 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %.thread, %99
-  %.sroa.15.086 = phi ptr [ %21, %.thread ], [ %.sroa.06.0.i, %99 ]
-  %.sroa.19.085 = phi i64 [ %.sroa.439.0.copyload.i, %.thread ], [ %.sroa.57.0.i, %99 ]
-  %.sroa.23.084 = phi i64 [ %.sroa.5.0.copyload.i, %.thread ], [ %.sroa.726.0.i, %99 ]
-  store ptr %.sroa.15.086, ptr %0, align 8
+  %.sroa.726.0.sink.i86 = phi i64 [ %.sroa.5.0.copyload.i, %.thread ], [ %.sroa.726.0.i, %99 ]
+  %.sroa.57.0.sink.i85 = phi i64 [ %.sroa.438.0.copyload.i, %.thread ], [ %.sroa.57.0.i, %99 ]
+  %.sroa.06.0.sink.i84 = phi ptr [ %21, %.thread ], [ %.sroa.06.0.i, %99 ]
+  store ptr %.sroa.06.0.sink.i84, ptr %0, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.19.085, ptr %104, align 8
+  store i64 %.sroa.57.0.sink.i85, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.23.084, ptr %105, align 8
+  store i64 %.sroa.726.0.sink.i86, ptr %105, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.7)
   br label %319
 
@@ -33922,8 +33922,8 @@ define internal fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_matc
   store i64 0, ptr %.sroa.7.0..sroa_idx3, align 8
   %.sroa.9.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %1, ptr %.sroa.9.0..sroa_idx4, align 8
-  %.sroa.115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i8 1, ptr %.sroa.115.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i8 1, ptr %.sroa.11.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %10 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %10)
@@ -36825,7 +36825,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   %12 = load i64, ptr %11, align 8, !alias.scope !6434, !noalias !6437, !noundef !16
   %.promoted.i = load i64, ptr %10, align 8, !alias.scope !6431, !noalias !6440
   %13 = icmp ult i64 %.promoted.i, %12
-  br i1 %13, label %.lr.ph.i, label %.loopexit45
+  br i1 %13, label %.lr.ph.i, label %.loopexit44
 
 .lr.ph.i:                                         ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -36837,12 +36837,12 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6441)
   %18 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1, !noalias !6442, !noundef !16
-  switch i8 %19, label %.loopexit44 [
+  switch i8 %19, label %.loopexit43 [
     i8 32, label %20
     i8 10, label %20
     i8 9, label %20
     i8 13, label %20
-    i8 125, label %.loopexit77
+    i8 125, label %.loopexit66
     i8 44, label %24
   ]
 
@@ -36850,16 +36850,16 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   %21 = add i64 %17, 1
   store i64 %21, ptr %10, align 8, !alias.scope !6443, !noalias !6440
   %exitcond.not.i = icmp eq i64 %21, %12
-  br i1 %exitcond.not.i, label %.loopexit45, label %16
+  br i1 %exitcond.not.i, label %.loopexit44, label %16
 
-.loopexit45:                                      ; preds = %20, %2
+.loopexit44:                                      ; preds = %20, %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store i64 3, ptr %7, align 8
   %22 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hd5f1b96199175498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %.sink.split
 
-.loopexit44:                                      ; preds = %16
+.loopexit43:                                      ; preds = %16
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !612
   %23 = trunc nuw i8 %.pre to i1
@@ -36876,7 +36876,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   store i64 %29, ptr %10, align 8, !alias.scope !6446
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6449)
   %30 = icmp ult i64 %29, %12
-  br i1 %30, label %.lr.ph.i15, label %.loopexit43
+  br i1 %30, label %.lr.ph.i15, label %.loopexit42
 
 .lr.ph.i15:                                       ; preds = %28, %34
   %31 = phi i64 [ %35, %34 ], [ %29, %28 ]
@@ -36893,21 +36893,21 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   %35 = add i64 %31, 1
   store i64 %35, ptr %10, align 8, !alias.scope !6457, !noalias !6460
   %exitcond.not.i16 = icmp eq i64 %35, %12
-  br i1 %exitcond.not.i16, label %.loopexit43, label %.lr.ph.i15
+  br i1 %exitcond.not.i16, label %.loopexit42, label %.lr.ph.i15
 
-36:                                               ; preds = %.loopexit44
+36:                                               ; preds = %.loopexit43
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i64 8, ptr %8, align 8
   %37 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hd5f1b96199175498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %.sink.split
 
-.thread:                                          ; preds = %24, %.loopexit44
+.thread:                                          ; preds = %24, %.loopexit43
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 0, ptr %38, align 8
   br label %.loopexit
 
-.loopexit43:                                      ; preds = %34, %28
+.loopexit42:                                      ; preds = %34, %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store i64 5, ptr %4, align 8
   %39 = call noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$10peek_error17hd5f1b96199175498E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
@@ -36915,8 +36915,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   br label %.sink.split
 
 .loopexit:                                        ; preds = %.lr.ph.i15, %.thread
-  %.sroa.3.034 = phi i8 [ %19, %.thread ], [ %33, %.lr.ph.i15 ]
-  switch i8 %.sroa.3.034, label %40 [
+  %.sroa.3.033 = phi i8 [ %19, %.thread ], [ %33, %.lr.ph.i15 ]
+  switch i8 %.sroa.3.033, label %40 [
     i8 34, label %42
     i8 125, label %48
   ]
@@ -36957,14 +36957,14 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %47, %46, %40, %48, %.loopexit43, %36, %.loopexit45
-  %.sink74 = phi ptr [ %22, %.loopexit45 ], [ %37, %36 ], [ %39, %.loopexit43 ], [ %49, %48 ], [ %41, %40 ], [ %45, %46 ], [ %45, %47 ]
-  %.sink.ph = phi i64 [ 2, %.loopexit45 ], [ 2, %36 ], [ 2, %.loopexit43 ], [ 2, %48 ], [ 2, %40 ], [ 1, %46 ], [ 2, %47 ]
+.sink.split:                                      ; preds = %47, %46, %40, %48, %.loopexit42, %36, %.loopexit44
+  %.sink64 = phi ptr [ %22, %.loopexit44 ], [ %37, %36 ], [ %39, %.loopexit42 ], [ %49, %48 ], [ %41, %40 ], [ %45, %46 ], [ %45, %47 ]
+  %.sink.ph = phi i64 [ 2, %.loopexit44 ], [ 2, %36 ], [ 2, %.loopexit42 ], [ 2, %48 ], [ 2, %40 ], [ 1, %46 ], [ 2, %47 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink74, ptr %50, align 8
-  br label %.loopexit77
+  store ptr %.sink64, ptr %50, align 8
+  br label %.loopexit66
 
-.loopexit77:                                      ; preds = %16, %.sink.split
+.loopexit66:                                      ; preds = %16, %.sink.split
   %.sink = phi i64 [ %.sink.ph, %.sink.split ], [ 0, %16 ]
   store i64 %.sink, ptr %0, align 8
   ret void
@@ -41812,11 +41812,11 @@ define hidden void @_ZN5typst4eval3ops3neg17h4c8f6346c5add56bE(ptr noalias nound
   switch i8 %15, label %16 [
     i8 3, label %18
     i8 4, label %22
-    i8 5, label %40
-    i8 6, label %48
-    i8 7, label %53
-    i8 8, label %58
-    i8 9, label %65
+    i8 5, label %39
+    i8 6, label %47
+    i8 7, label %52
+    i8 8, label %57
+    i8 9, label %64
     i8 18, label %27
     i8 19, label %29
   ]
@@ -41833,7 +41833,7 @@ define hidden void @_ZN5typst4eval3ops3neg17h4c8f6346c5add56bE(ptr noalias nound
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %17 = invoke noundef nonnull align 8 ptr @_ZN5typst11foundations5value5Value2ty17h133b499f7a6e93f5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10)
-          to label %95 unwind label %90
+          to label %94 unwind label %89
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -41859,7 +41859,7 @@ define hidden void @_ZN5typst4eval3ops3neg17h4c8f6346c5add56bE(ptr noalias nound
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %28 = invoke noundef nonnull align 8 ptr @_ZN5typst11foundations5value5Value2ty17h133b499f7a6e93f5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-          to label %75 unwind label %70
+          to label %74 unwind label %69
 
 29:                                               ; preds = %2
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -41867,7 +41867,7 @@ define hidden void @_ZN5typst4eval3ops3neg17h4c8f6346c5add56bE(ptr noalias nound
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !7207
   invoke void @"_ZN66_$LT$time..duration..Duration$u20$as$u20$core..ops..arith..Neg$GT$3neg17hd0f5cc976e4d1df5E"(ptr noalias noundef nonnull sret({ i64, i32, i32 }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %4)
-          to label %88 unwind label %.thread70
+          to label %87 unwind label %.thread70
 
 .thread70:                                        ; preds = %29, %31
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -41878,10 +41878,10 @@ define hidden void @_ZN5typst4eval3ops3neg17h4c8f6346c5add56bE(ptr noalias nound
   %32 = invoke { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 @anon.9efbc0c128adab6190fabe7f7e045142.373, i64 noundef 18)
           to label %34 unwind label %.thread70
 
-33:                                               ; preds = %18, %88, %65, %58, %53, %48, %40, %22
-  %.sroa.21.0 = phi i64 [ undef, %22 ], [ undef, %40 ], [ undef, %48 ], [ undef, %53 ], [ %64, %58 ], [ undef, %65 ], [ undef, %88 ], [ undef, %18 ]
-  %.sroa.20.0 = phi double [ undef, %22 ], [ %.0.i.i.i2.i, %40 ], [ undef, %48 ], [ undef, %53 ], [ %.0.i.i.i2.i.i, %58 ], [ undef, %65 ], [ %.sroa.459.0.copyload, %88 ], [ undef, %18 ]
-  %.sroa.121.0 = phi i64 [ %26, %22 ], [ %47, %40 ], [ %52, %48 ], [ %57, %53 ], [ %63, %58 ], [ %69, %65 ], [ %.sroa.058.0.copyload, %88 ], [ %21, %18 ]
+33:                                               ; preds = %18, %87, %64, %57, %52, %47, %39, %22
+  %.sroa.21.0 = phi i64 [ undef, %22 ], [ undef, %39 ], [ undef, %47 ], [ undef, %52 ], [ %63, %57 ], [ undef, %64 ], [ undef, %87 ], [ undef, %18 ]
+  %.sroa.20.0 = phi double [ undef, %22 ], [ %.0.i.i.i2.i, %39 ], [ undef, %47 ], [ undef, %52 ], [ %.0.i.i.i2.i.i, %57 ], [ undef, %64 ], [ %.sroa.459.0.copyload, %87 ], [ undef, %18 ]
+  %.sroa.121.0 = phi i64 [ %26, %22 ], [ %46, %39 ], [ %51, %47 ], [ %56, %52 ], [ %62, %57 ], [ %68, %64 ], [ %.sroa.058.0.copyload, %87 ], [ %21, %18 ]
   store i8 %15, ptr %0, align 8
   %.sroa.121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.121.0, ptr %.sroa.121.0..sroa_idx, align 8
@@ -41890,7 +41890,7 @@ define hidden void @_ZN5typst4eval3ops3neg17h4c8f6346c5add56bE(ptr noalias nound
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.21.0, ptr %.sroa.21.0..sroa_idx, align 8
   tail call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br label %89
+  br label %88
 
 34:                                               ; preds = %31
   %35 = extractvalue { ptr, i64 } %32, 0
@@ -41902,132 +41902,128 @@ define hidden void @_ZN5typst4eval3ops3neg17h4c8f6346c5add56bE(ptr noalias nound
   %.sroa.028.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %36, ptr %.sroa.028.sroa.4.0..sroa_idx, align 8
   store i8 30, ptr %0, align 8
-  br label %39
+  br label %104
 
-39:                                               ; preds = %84, %34
-  call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br label %89
-
-40:                                               ; preds = %2
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load double, ptr %41, align 8, !noundef !16
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %44 = load double, ptr %43, align 8, !noundef !16
-  %45 = fneg double %42
-  %.0.i.inv.i.i.i.i = fcmp ord double %42, 0.000000e+00
-  %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %45, double 0.000000e+00
-  %46 = fneg double %44
-  %.0.i.inv.i.i.i1.i = fcmp ord double %44, 0.000000e+00
-  %.0.i.i.i2.i = select i1 %.0.i.inv.i.i.i1.i, double %46, double 0.000000e+00
-  %47 = bitcast double %.0.i.i.i.i to i64
+39:                                               ; preds = %2
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %41 = load double, ptr %40, align 8, !noundef !16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %43 = load double, ptr %42, align 8, !noundef !16
+  %44 = fneg double %41
+  %.0.i.inv.i.i.i.i = fcmp ord double %41, 0.000000e+00
+  %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %44, double 0.000000e+00
+  %45 = fneg double %43
+  %.0.i.inv.i.i.i1.i = fcmp ord double %43, 0.000000e+00
+  %.0.i.i.i2.i = select i1 %.0.i.inv.i.i.i1.i, double %45, double 0.000000e+00
+  %46 = bitcast double %.0.i.i.i.i to i64
   br label %33
 
-48:                                               ; preds = %2
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = load double, ptr %49, align 8, !noundef !16
-  %51 = fneg double %50
-  %.0.i.inv.i.i.i = fcmp ord double %50, 0.000000e+00
-  %.0.i.i.i = select i1 %.0.i.inv.i.i.i, double %51, double 0.000000e+00
-  %52 = bitcast double %.0.i.i.i to i64
+47:                                               ; preds = %2
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %49 = load double, ptr %48, align 8, !noundef !16
+  %50 = fneg double %49
+  %.0.i.inv.i.i.i = fcmp ord double %49, 0.000000e+00
+  %.0.i.i.i = select i1 %.0.i.inv.i.i.i, double %50, double 0.000000e+00
+  %51 = bitcast double %.0.i.i.i to i64
   br label %33
 
-53:                                               ; preds = %2
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load double, ptr %54, align 8, !noundef !16
-  %56 = fneg double %55
-  %.0.i.inv.i.i.i45 = fcmp ord double %55, 0.000000e+00
-  %.0.i.i.i46 = select i1 %.0.i.inv.i.i.i45, double %56, double 0.000000e+00
-  %57 = bitcast double %.0.i.i.i46 to i64
+52:                                               ; preds = %2
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %54 = load double, ptr %53, align 8, !noundef !16
+  %55 = fneg double %54
+  %.0.i.inv.i.i.i45 = fcmp ord double %54, 0.000000e+00
+  %.0.i.i.i46 = select i1 %.0.i.inv.i.i.i45, double %55, double 0.000000e+00
+  %56 = bitcast double %.0.i.i.i46 to i64
   br label %33
 
-58:                                               ; preds = %2
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload = load double, ptr %59, align 8
+57:                                               ; preds = %2
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload = load double, ptr %58, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
-  %60 = fneg double %.sroa.3.0.copyload
+  %59 = fneg double %.sroa.3.0.copyload
   %.0.i.inv.i.i.i.i47 = fcmp ord double %.sroa.3.0.copyload, 0.000000e+00
-  %.0.i.i.i.i48 = select i1 %.0.i.inv.i.i.i.i47, double %60, double 0.000000e+00
-  %61 = fneg double %.sroa.0.0.copyload
+  %.0.i.i.i.i48 = select i1 %.0.i.inv.i.i.i.i47, double %59, double 0.000000e+00
+  %60 = fneg double %.sroa.0.0.copyload
   %.0.i.inv.i.i.i.i.i = fcmp ord double %.sroa.0.0.copyload, 0.000000e+00
-  %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %61, double 0.000000e+00
-  %62 = fneg double %.sroa.2.0.copyload
+  %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %60, double 0.000000e+00
+  %61 = fneg double %.sroa.2.0.copyload
   %.0.i.inv.i.i.i1.i.i = fcmp ord double %.sroa.2.0.copyload, 0.000000e+00
-  %.0.i.i.i2.i.i = select i1 %.0.i.inv.i.i.i1.i.i, double %62, double 0.000000e+00
-  %63 = bitcast double %.0.i.i.i.i.i to i64
-  %64 = bitcast double %.0.i.i.i.i48 to i64
+  %.0.i.i.i2.i.i = select i1 %.0.i.inv.i.i.i1.i.i, double %61, double 0.000000e+00
+  %62 = bitcast double %.0.i.i.i.i.i to i64
+  %63 = bitcast double %.0.i.i.i.i48 to i64
   br label %33
 
-65:                                               ; preds = %2
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %67 = load double, ptr %66, align 8, !noundef !16
-  %68 = fneg double %67
-  %.0.i.inv.i.i.i49 = fcmp ord double %67, 0.000000e+00
-  %.0.i.i.i50 = select i1 %.0.i.inv.i.i.i49, double %68, double 0.000000e+00
-  %69 = bitcast double %.0.i.i.i50 to i64
+64:                                               ; preds = %2
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %66 = load double, ptr %65, align 8, !noundef !16
+  %67 = fneg double %66
+  %.0.i.inv.i.i.i49 = fcmp ord double %66, 0.000000e+00
+  %.0.i.i.i50 = select i1 %.0.i.inv.i.i.i49, double %67, double 0.000000e+00
+  %68 = bitcast double %.0.i.i.i50 to i64
   br label %33
 
-70:                                               ; preds = %83, %75, %27
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %82, %74, %27
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %72 = load i8, ptr %.sroa.029.sroa.4.0..sroa_idx, align 1, !alias.scope !7211, !noundef !16
-  %73 = icmp sgt i8 %72, -1
-  br i1 %73, label %74, label %.thread
+  %71 = load i8, ptr %.sroa.029.sroa.4.0..sroa_idx, align 1, !alias.scope !7211, !noundef !16
+  %72 = icmp sgt i8 %71, -1
+  br i1 %72, label %73, label %.thread
 
-74:                                               ; preds = %70
+73:                                               ; preds = %69
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
-          to label %.thread unwind label %86
+          to label %.thread unwind label %85
 
-75:                                               ; preds = %27
+74:                                               ; preds = %27
   store ptr %28, ptr %11, align 8
   store ptr %11, ptr %12, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @"_ZN67_$LT$typst..foundations..ty..Type$u20$as$u20$core..fmt..Display$GT$3fmt17h0286cea049aa2c2dE", ptr %76, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr @"_ZN67_$LT$typst..foundations..ty..Type$u20$as$u20$core..fmt..Display$GT$3fmt17h0286cea049aa2c2dE", ptr %75, align 8
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.323, ptr %13, align 8, !alias.scope !7218, !noalias !7221
-  %77 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 1, ptr %77, align 8, !alias.scope !7218, !noalias !7221
-  %78 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr null, ptr %78, align 8, !alias.scope !7218, !noalias !7221
-  %79 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %12, ptr %79, align 8, !alias.scope !7218, !noalias !7221
-  %80 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 1, ptr %80, align 8, !alias.scope !7218, !noalias !7221
-  %81 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 1 %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9efbc0c128adab6190fabe7f7e045142.299.llvm.12777920187102919001, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
-          to label %82 unwind label %70
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 1, ptr %76, align 8, !alias.scope !7218, !noalias !7221
+  %77 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store ptr null, ptr %77, align 8, !alias.scope !7218, !noalias !7221
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %12, ptr %78, align 8, !alias.scope !7218, !noalias !7221
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store i64 1, ptr %79, align 8, !alias.scope !7218, !noalias !7221
+  %80 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 1 %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9efbc0c128adab6190fabe7f7e045142.299.llvm.12777920187102919001, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
+          to label %81 unwind label %69
 
-82:                                               ; preds = %75
+81:                                               ; preds = %74
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %81, label %83, label %84
+  br i1 %80, label %82, label %83
 
-83:                                               ; preds = %82
+82:                                               ; preds = %81
   invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.9efbc0c128adab6190fabe7f7e045142.114.llvm.12777920187102919001, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9efbc0c128adab6190fabe7f7e045142.115.llvm.12777920187102919001, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9efbc0c128adab6190fabe7f7e045142.324) #77
-          to label %.noexc43 unwind label %70
+          to label %.noexc43 unwind label %69
 
-.noexc43:                                         ; preds = %83
+.noexc43:                                         ; preds = %82
   unreachable
 
-84:                                               ; preds = %82
+83:                                               ; preds = %81
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.013, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.013, i64 16, i1 false)
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.013, i64 16, i1 false)
   store i8 30, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.013)
-  br label %39
+  br label %104
 
-86:                                               ; preds = %94, %74, %.thread, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit55"
-  %87 = landingpad { ptr, i32 }
+85:                                               ; preds = %93, %73, %.thread, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit55"
+  %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #76
   unreachable
 
-88:                                               ; preds = %29
+87:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !7207
   %.sroa.058.0.copyload = load i64, ptr %5, align 8, !noalias !7224
   %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -42035,75 +42031,79 @@ define hidden void @_ZN5typst4eval3ops3neg17h4c8f6346c5add56bE(ptr noalias nound
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !7207
   br label %33
 
-89:                                               ; preds = %.critedge, %39, %33
+88:                                               ; preds = %.critedge, %104, %33
   ret void
 
-90:                                               ; preds = %103, %95, %16
-  %91 = landingpad { ptr, i32 }
+89:                                               ; preds = %102, %94, %16
+  %90 = landingpad { ptr, i32 }
           cleanup
-  %92 = load i8, ptr %.sroa.019.sroa.4.0..sroa_idx, align 1, !alias.scope !7225, !noundef !16
-  %93 = icmp sgt i8 %92, -1
-  br i1 %93, label %94, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit55"
+  %91 = load i8, ptr %.sroa.019.sroa.4.0..sroa_idx, align 1, !alias.scope !7225, !noundef !16
+  %92 = icmp sgt i8 %91, -1
+  br i1 %92, label %93, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit55"
 
-94:                                               ; preds = %90
+93:                                               ; preds = %89
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
-          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit55" unwind label %86
+          to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit55" unwind label %85
 
-95:                                               ; preds = %16
+94:                                               ; preds = %16
   store ptr %17, ptr %6, align 8
   store ptr %6, ptr %7, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @"_ZN67_$LT$typst..foundations..ty..Type$u20$as$u20$core..fmt..Display$GT$3fmt17h0286cea049aa2c2dE", ptr %96, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr @"_ZN67_$LT$typst..foundations..ty..Type$u20$as$u20$core..fmt..Display$GT$3fmt17h0286cea049aa2c2dE", ptr %95, align 8
   store ptr @anon.9efbc0c128adab6190fabe7f7e045142.326, ptr %8, align 8, !alias.scope !7232, !noalias !7235
-  %97 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 1, ptr %97, align 8, !alias.scope !7232, !noalias !7235
-  %98 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %98, align 8, !alias.scope !7232, !noalias !7235
-  %99 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %7, ptr %99, align 8, !alias.scope !7232, !noalias !7235
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 1, ptr %100, align 8, !alias.scope !7232, !noalias !7235
-  %101 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9efbc0c128adab6190fabe7f7e045142.299.llvm.12777920187102919001, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
-          to label %102 unwind label %90
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 1, ptr %96, align 8, !alias.scope !7232, !noalias !7235
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr null, ptr %97, align 8, !alias.scope !7232, !noalias !7235
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %7, ptr %98, align 8, !alias.scope !7232, !noalias !7235
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 1, ptr %99, align 8, !alias.scope !7232, !noalias !7235
+  %100 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9efbc0c128adab6190fabe7f7e045142.299.llvm.12777920187102919001, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
+          to label %101 unwind label %89
 
-102:                                              ; preds = %95
+101:                                              ; preds = %94
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  br i1 %101, label %103, label %.critedge
+  br i1 %100, label %102, label %.critedge
 
-103:                                              ; preds = %102
+102:                                              ; preds = %101
   invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.9efbc0c128adab6190fabe7f7e045142.114.llvm.12777920187102919001, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9efbc0c128adab6190fabe7f7e045142.115.llvm.12777920187102919001, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9efbc0c128adab6190fabe7f7e045142.327) #77
-          to label %.noexc unwind label %90
+          to label %.noexc unwind label %89
 
-.noexc:                                           ; preds = %103
+.noexc:                                           ; preds = %102
   unreachable
 
-.critedge:                                        ; preds = %102
+.critedge:                                        ; preds = %101
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.015, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.015, i64 16, i1 false)
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.015, i64 16, i1 false)
   store i8 30, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.015)
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  br label %89
+  br label %88
 
-"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit55": ; preds = %90, %94
+104:                                              ; preds = %34, %83
+  call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  br label %88
+
+"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit55": ; preds = %89, %93
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #75
-          to label %.thread67 unwind label %86
+          to label %.thread67 unwind label %85
 
 .thread67:                                        ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit55", %.thread
-  %.pn65 = phi { ptr, i32 } [ %.pn66, %.thread ], [ %91, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit55" ]
+  %.pn65 = phi { ptr, i32 } [ %.pn66, %.thread ], [ %90, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit55" ]
   resume { ptr, i32 } %.pn65
 
-.thread:                                          ; preds = %74, %70, %.thread70
-  %.pn66 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread70 ], [ %71, %70 ], [ %71, %74 ]
+.thread:                                          ; preds = %73, %69, %.thread70
+  %.pn66 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread70 ], [ %70, %69 ], [ %70, %73 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #75
-          to label %.thread67 unwind label %86
+          to label %.thread67 unwind label %85
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -44853,8 +44853,6 @@ define hidden void @_ZN5typst4eval3ops3mul17h25e8cdd3d31659deE(ptr noalias nound
   %42 = alloca { i64, [2 x i64] }, align 8
   %43 = alloca { { { { [2 x i64] } } } }, align 8
   %44 = alloca { { i8, [31 x i8] }, { i8, [31 x i8] } }, align 8
-  %.sroa.47 = alloca [7 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.47)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %44)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -45067,8 +45065,8 @@ define hidden void @_ZN5typst4eval3ops3mul17h25e8cdd3d31659deE(ptr noalias nound
           cleanup
   br label %.thread
 
-.thread562:                                       ; preds = %202, %_ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit
-  %lpad.thr_comm560 = landingpad { ptr, i32 }
+.thread565:                                       ; preds = %202, %_ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit
+  %lpad.thr_comm563 = landingpad { ptr, i32 }
           cleanup
   br label %.thread512.thread
 
@@ -45076,7 +45074,7 @@ define hidden void @_ZN5typst4eval3ops3mul17h25e8cdd3d31659deE(ptr noalias nound
   %111 = invoke { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 @anon.9efbc0c128adab6190fabe7f7e045142.373, i64 noundef 18)
           to label %112 unwind label %.thread518
 
-.thread553:                                       ; preds = %_ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit
+.thread552:                                       ; preds = %_ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   store i8 20, ptr %0, align 8
   %.sroa.471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -45085,7 +45083,6 @@ define hidden void @_ZN5typst4eval3ops3mul17h25e8cdd3d31659deE(ptr noalias nound
   store i64 %.sroa.90.8.copyload16, ptr %.sroa.90.0..sroa_idx, align 8
   %.sroa.98.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.98.8.copyload42, ptr %.sroa.98.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.47)
   br label %549
 
 112:                                              ; preds = %.thread522
@@ -45098,7 +45095,7 @@ define hidden void @_ZN5typst4eval3ops3mul17h25e8cdd3d31659deE(ptr noalias nound
   %.sroa.0164.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %114, ptr %.sroa.0164.sroa.4.0..sroa_idx, align 8
   store i8 30, ptr %0, align 8
-  br label %582
+  br label %581
 
 117:                                              ; preds = %49
   %118 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -45258,9 +45255,9 @@ define hidden void @_ZN5typst4eval3ops3mul17h25e8cdd3d31659deE(ptr noalias nound
 
 "_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit303": ; preds = %187, %191
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
-  br label %582
+  br label %581
 
-192:                                              ; preds = %561, %524, %462, %204, %169, %597, %595, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit", %592, %577, %555, %498, %195
+192:                                              ; preds = %561, %524, %462, %204, %169, %596, %594, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit", %591, %577, %555, %498, %195
   %193 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #76
@@ -45302,7 +45299,7 @@ define hidden void @_ZN5typst4eval3ops3mul17h25e8cdd3d31659deE(ptr noalias nound
   store i8 30, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   invoke void @"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
-          to label %.thread565 unwind label %.thread562
+          to label %.thread554 unwind label %.thread565
 
 _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit: ; preds = %201
   %.sroa.471.8.copyload2 = load i64, ptr %22, align 8
@@ -45312,12 +45309,11 @@ _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit: ; preds 
   %.sroa.98.8.copyload42 = load i64, ptr %.sroa.98.8..sroa_idx41, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   invoke void @"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
-          to label %.thread553 unwind label %.thread562
+          to label %.thread552 unwind label %.thread565
 
-.thread565:                                       ; preds = %202
+.thread554:                                       ; preds = %202
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.47)
-  br label %587
+  br label %586
 
 204:                                              ; preds = %210, %102
   %205 = landingpad { ptr, i32 }
@@ -45382,7 +45378,7 @@ _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit: ; preds 
 
 "_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit309": ; preds = %223
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
-  br label %582
+  br label %581
 
 224:                                              ; preds = %51
   %225 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -45911,7 +45907,7 @@ _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit: ; preds 
 
 "_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit437": ; preds = %480, %484
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
-  br label %582
+  br label %581
 
 485:                                              ; preds = %66
   %486 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -46032,7 +46028,7 @@ _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit443: ; pre
 
 "_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit": ; preds = %505, %.noexc444
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
-  br label %582
+  br label %581
 
 515:                                              ; preds = %71
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
@@ -46121,15 +46117,12 @@ _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit443: ; pre
   %.sroa.471.0.ph = phi i64 [ %542, %"_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit452" ], [ %.sroa.471.8.copyload8, %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit448" ], [ %.sroa.0497.0.copyload, %495 ], [ %.sroa.0494.0.copyload, %494 ], [ %.sroa.0170.0.copyload, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit435" ], [ %451, %445 ], [ %444, %438 ], [ %437, %430 ], [ %427, %420 ], [ %417, %410 ], [ %407, %399 ], [ %398, %392 ], [ %389, %382 ], [ %381, %375 ], [ %374, %368 ], [ %366, %357 ], [ %356, %350 ], [ %349, %342 ], [ %341, %335 ], [ %334, %328 ], [ %327, %320 ], [ %318, %309 ], [ %307, %298 ], [ %296, %286 ], [ %.sroa.0491.0.copyload, %285 ], [ %284, %278 ], [ %275, %268 ], [ %267, %261 ], [ %260, %254 ], [ %252, %243 ], [ %238, %232 ], [ %231, %224 ], [ %222, %"_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit307" ], [ %.sroa.0488.0.copyload, %194 ], [ %.sroa.0182.0.copyload, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit301" ], [ %163, %156 ], [ %153, %145 ], [ %144, %137 ], [ %136, %129 ], [ %127, %117 ], [ %89, %82 ], [ %80, %74 ]
   %.sroa.0.0.ph = phi i8 [ 22, %"_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit452" ], [ 20, %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit448" ], [ 19, %495 ], [ 19, %494 ], [ 15, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit435" ], [ 9, %445 ], [ 9, %438 ], [ 9, %430 ], [ 8, %420 ], [ 8, %410 ], [ 8, %399 ], [ 9, %392 ], [ 8, %382 ], [ 7, %375 ], [ 6, %368 ], [ 5, %357 ], [ 7, %350 ], [ 7, %342 ], [ 6, %335 ], [ 6, %328 ], [ 6, %320 ], [ 5, %309 ], [ 5, %298 ], [ 5, %286 ], [ 19, %285 ], [ 9, %278 ], [ 8, %268 ], [ 7, %261 ], [ 6, %254 ], [ 5, %243 ], [ 4, %232 ], [ 4, %224 ], [ 22, %"_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit307" ], [ 19, %194 ], [ 15, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit301" ], [ 9, %156 ], [ 8, %145 ], [ 7, %137 ], [ 6, %129 ], [ 5, %117 ], [ 4, %82 ], [ 3, %74 ]
   store i8 %.sroa.0.0.ph, ptr %0, align 8
-  %.sroa.47.0..sroa_idx541 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.47.0..sroa_idx541, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.47, i64 7, i1 false)
-  %.sroa.471.0..sroa_idx542 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.471.0.ph, ptr %.sroa.471.0..sroa_idx542, align 8
-  %.sroa.90.0..sroa_idx543 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.90.0.ph, ptr %.sroa.90.0..sroa_idx543, align 8
-  %.sroa.98.0..sroa_idx544 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.98.0.ph, ptr %.sroa.98.0..sroa_idx544, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.47)
+  %.sroa.471.0..sroa_idx541 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.471.0.ph, ptr %.sroa.471.0..sroa_idx541, align 8
+  %.sroa.90.0..sroa_idx542 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.90.0.ph, ptr %.sroa.90.0..sroa_idx542, align 8
+  %.sroa.98.0..sroa_idx543 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.98.0.ph, ptr %.sroa.98.0..sroa_idx543, align 8
   %545 = load i8, ptr %44, align 8, !range !3607, !noundef !16
   switch i8 %545, label %546 [
     i8 15, label %543
@@ -46146,7 +46139,7 @@ _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit443: ; pre
           cleanup
   br i1 %.0221.ph, label %553, label %.thread512
 
-549:                                              ; preds = %.thread553, %543
+549:                                              ; preds = %.thread552, %543
   %550 = load i8, ptr %45, align 8, !range !3607, !noundef !16
   switch i8 %550, label %551 [
     i8 15, label %552
@@ -46158,12 +46151,12 @@ _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit443: ; pre
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %45)
   br label %552
 
-552:                                              ; preds = %543, %549, %549, %549, %551, %581, %587, %587, %587, %589, %580
+552:                                              ; preds = %543, %549, %549, %549, %551, %580, %586, %586, %586, %588, %.thread556
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %44)
   ret void
 
-.thread512:                                       ; preds = %577, %597, %.thread512.thread, %.thread512.thread, %.thread512.thread, %593, %592, %590, %590, %590, %585, %555, %553, %553, %553, %547
-  %.pn248 = phi { ptr, i32 } [ %586, %592 ], [ %586, %590 ], [ %586, %590 ], [ %586, %590 ], [ %586, %585 ], [ %.pn246507555, %597 ], [ %.pn246507555, %.thread512.thread ], [ %.pn246507555, %.thread512.thread ], [ %.pn246507555, %.thread512.thread ], [ %.pn246508, %593 ], [ %548, %555 ], [ %548, %553 ], [ %548, %553 ], [ %548, %553 ], [ %548, %547 ], [ %.pn, %577 ]
+.thread512:                                       ; preds = %577, %596, %.thread512.thread, %.thread512.thread, %.thread512.thread, %592, %591, %589, %589, %589, %584, %555, %553, %553, %553, %547
+  %.pn248 = phi { ptr, i32 } [ %585, %591 ], [ %585, %589 ], [ %585, %589 ], [ %585, %589 ], [ %585, %584 ], [ %.pn246507558, %596 ], [ %.pn246507558, %.thread512.thread ], [ %.pn246507558, %.thread512.thread ], [ %.pn246507558, %.thread512.thread ], [ %.pn246508, %592 ], [ %548, %555 ], [ %548, %553 ], [ %548, %553 ], [ %548, %553 ], [ %548, %547 ], [ %.pn, %577 ]
   resume { ptr, i32 } %.pn248
 
 553:                                              ; preds = %547
@@ -46184,7 +46177,7 @@ _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit443: ; pre
 
 "_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit454": ; preds = %556
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
-  br label %582
+  br label %581
 
 557:                                              ; preds = %574, %564, %562, %47
   %558 = landingpad { ptr, i32 }
@@ -46248,7 +46241,7 @@ _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit443: ; pre
   store i8 30, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0146)
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18)
-          to label %580 unwind label %578
+          to label %.thread556 unwind label %578
 
 577:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit", %578
   %.pn = phi { ptr, i32 } [ %579, %578 ], [ %558, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit" ]
@@ -46260,56 +46253,54 @@ _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit443: ; pre
           cleanup
   br label %577
 
-580:                                              ; preds = %575
+.thread556:                                       ; preds = %575
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.47)
   br label %552
 
-581:                                              ; preds = %584, %582, %582, %582
-  br i1 %.3224.ph, label %587, label %552
+580:                                              ; preds = %583, %581, %581, %581
+  br i1 %.3224.ph, label %586, label %552
 
-582:                                              ; preds = %112, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit303", %"_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit309", %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit437", %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit", %"_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit454"
+581:                                              ; preds = %112, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit303", %"_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit309", %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit437", %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit", %"_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit454"
   %.3224.ph = phi i1 [ true, %"_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit454" ], [ false, %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit" ], [ true, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit437" ], [ true, %"_ZN4core3ptr53drop_in_place$LT$typst..foundations..array..Array$GT$17h5e6cdb823261094aE.exit309" ], [ true, %"_ZN4core3ptr49drop_in_place$LT$typst..foundations..str..Str$GT$17h6961c5c9a620717aE.exit303" ], [ true, %112 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.47)
-  %583 = load i8, ptr %44, align 8, !range !3607, !noundef !16
-  switch i8 %583, label %584 [
-    i8 15, label %581
-    i8 20, label %581
-    i8 22, label %581
+  %582 = load i8, ptr %44, align 8, !range !3607, !noundef !16
+  switch i8 %582, label %583 [
+    i8 15, label %580
+    i8 20, label %580
+    i8 22, label %580
   ]
 
-584:                                              ; preds = %582
+583:                                              ; preds = %581
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %44)
-          to label %581 unwind label %585
+          to label %580 unwind label %584
 
-585:                                              ; preds = %584
-  %586 = landingpad { ptr, i32 }
+584:                                              ; preds = %583
+  %585 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.3224.ph, label %590, label %.thread512
+  br i1 %.3224.ph, label %589, label %.thread512
 
-587:                                              ; preds = %.thread565, %581
-  %588 = load i8, ptr %45, align 8, !range !3607, !noundef !16
-  switch i8 %588, label %589 [
+586:                                              ; preds = %.thread554, %580
+  %587 = load i8, ptr %45, align 8, !range !3607, !noundef !16
+  switch i8 %587, label %588 [
     i8 15, label %552
     i8 20, label %552
     i8 22, label %552
   ]
 
-589:                                              ; preds = %587
+588:                                              ; preds = %586
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %45)
   br label %552
 
-590:                                              ; preds = %585
-  %591 = load i8, ptr %45, align 8, !range !3607, !noundef !16
-  switch i8 %591, label %592 [
+589:                                              ; preds = %584
+  %590 = load i8, ptr %45, align 8, !range !3607, !noundef !16
+  switch i8 %590, label %591 [
     i8 15, label %.thread512
     i8 20, label %.thread512
     i8 22, label %.thread512
   ]
 
-592:                                              ; preds = %590
+591:                                              ; preds = %589
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %45) #75
           to label %.thread512 unwind label %192
 
@@ -46317,33 +46308,33 @@ _ZN5typst11foundations7content7Content6repeat17h974c0e24636f6adbE.exit443: ; pre
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18) #75
           to label %577 unwind label %192
 
-593:                                              ; preds = %595, %.thread, %.thread, %.thread
+592:                                              ; preds = %594, %.thread, %.thread, %.thread
   br i1 %.2223506, label %.thread512.thread, label %.thread512
 
 .thread:                                          ; preds = %524, %457, %462, %204, %164, %169, %498, %.thread518
   %.pn246508 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread518 ], [ %499, %498 ], [ %165, %169 ], [ %165, %164 ], [ %205, %204 ], [ %458, %462 ], [ %458, %457 ], [ %525, %524 ]
   %.2223506 = phi i1 [ %.1222.ph, %.thread518 ], [ false, %498 ], [ true, %169 ], [ true, %164 ], [ true, %204 ], [ true, %462 ], [ true, %457 ], [ true, %524 ]
-  %594 = load i8, ptr %44, align 8, !range !3607, !noundef !16
-  switch i8 %594, label %595 [
-    i8 15, label %593
-    i8 20, label %593
-    i8 22, label %593
+  %593 = load i8, ptr %44, align 8, !range !3607, !noundef !16
+  switch i8 %593, label %594 [
+    i8 15, label %592
+    i8 20, label %592
+    i8 22, label %592
   ]
 
-595:                                              ; preds = %.thread
+594:                                              ; preds = %.thread
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %44) #75
-          to label %593 unwind label %192
+          to label %592 unwind label %192
 
-.thread512.thread:                                ; preds = %195, %.thread562, %593
-  %.pn246507555 = phi { ptr, i32 } [ %.pn246508, %593 ], [ %lpad.thr_comm560, %.thread562 ], [ %196, %195 ]
-  %596 = load i8, ptr %45, align 8, !range !3607, !noundef !16
-  switch i8 %596, label %597 [
+.thread512.thread:                                ; preds = %195, %.thread565, %592
+  %.pn246507558 = phi { ptr, i32 } [ %.pn246508, %592 ], [ %lpad.thr_comm563, %.thread565 ], [ %196, %195 ]
+  %595 = load i8, ptr %45, align 8, !range !3607, !noundef !16
+  switch i8 %595, label %596 [
     i8 15, label %.thread512
     i8 20, label %.thread512
     i8 22, label %.thread512
   ]
 
-597:                                              ; preds = %.thread512.thread
+596:                                              ; preds = %.thread512.thread
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %45) #75
           to label %.thread512 unwind label %192
 }
@@ -46378,7 +46369,6 @@ define hidden void @_ZN5typst4eval3ops3div17hade367ef3e3e679aE(ptr noalias nound
   %28 = alloca { i64, [2 x i64] }, align 8
   %29 = alloca { i64, [2 x i64] }, align 8
   %30 = alloca { { i8, [31 x i8] }, { i8, [31 x i8] } }, align 8
-  %.sroa.30 = alloca [7 x i8], align 1
   %31 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %32 = alloca { { { [2 x i64] } } }, align 8
   %.sroa.0 = alloca [2 x i64], align 8
@@ -46584,7 +46574,6 @@ _ZN5typst4eval3ops7is_zero17hfc45bed0f757c266E.exit: ; preds = %73
   br i1 %86, label %89, label %_ZN5typst4eval3ops7is_zero17hfc45bed0f757c266E.exit.thread
 
 _ZN5typst4eval3ops7is_zero17hfc45bed0f757c266E.exit.thread: ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i1.i", %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit.i.i, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i.i", %3, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit1.i.i.i", %82, %_ZN5typst4util7Numeric7is_zero17h6e3dbc2f7cfedea0E.exit.i, %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit.i, %_ZN5typst4util7Numeric7is_zero17h03d76e2a4540103cE.exit.i, %38, %34, %_ZN5typst4eval3ops7is_zero17hfc45bed0f757c266E.exit
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.30)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -46727,15 +46716,12 @@ _ZN5typst4eval3ops7is_zero17hfc45bed0f757c266E.exit.thread: ; preds = %"_ZN68_$L
   %.sroa.302.0 = phi double [ %120, %113 ], [ %127, %121 ], [ %139, %133 ], [ %145, %140 ], [ %.0.i.i.i.i, %160 ], [ %.0.i.i.i.i133, %170 ], [ %.0.i.i.i.i.i151, %261 ], [ %.0.i.i.i.i.i157, %270 ], [ %.sroa.0186.0.copyload, %346 ], [ %.sroa.0189.0.copyload, %347 ], [ %182, %179 ], [ %195, %192 ], [ %.0.i.i.i, %196 ], [ %.0.i.i.i137, %203 ], [ %214, %209 ], [ %.0.i.i.i141, %215 ], [ %.0.i.i.i145, %222 ], [ %233, %228 ], [ %246, %241 ], [ %290, %287 ], [ %297, %292 ], [ %301, %298 ], [ %.0.i.i.i163, %302 ], [ %.0.i.i.i167, %309 ], [ %320, %315 ], [ %345, %330 ]
   %.sroa.01.0 = phi i8 [ 4, %113 ], [ 4, %121 ], [ 4, %133 ], [ 4, %140 ], [ 5, %160 ], [ 5, %170 ], [ 8, %261 ], [ 8, %270 ], [ 19, %346 ], [ 19, %347 ], [ 4, %179 ], [ 4, %192 ], [ 6, %196 ], [ 6, %203 ], [ 4, %209 ], [ 7, %215 ], [ 7, %222 ], [ 4, %228 ], [ 4, %241 ], [ 4, %287 ], [ 4, %292 ], [ 4, %298 ], [ 9, %302 ], [ 9, %309 ], [ 4, %315 ], [ 4, %330 ]
   store i8 %.sroa.01.0, ptr %0, align 8
-  %.sroa.30.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.30.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.30, i64 7, i1 false)
   %.sroa.302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.302.0, ptr %.sroa.302.0..sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sroa.56.0, ptr %.sroa.56.0..sroa_idx, align 8
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.58.0, ptr %.sroa.58.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.30)
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(64) %30)
           to label %"_ZN4core3ptr96drop_in_place$LT$$LP$typst..foundations..value..Value$C$typst..foundations..value..Value$RP$$GT$17hd87e8437bebddbdbE.exit" unwind label %129
 
@@ -47234,7 +47220,6 @@ _ZN5typst4eval3ops7is_zero17hfc45bed0f757c266E.exit.thread: ; preds = %"_ZN68_$L
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.30)
   br label %389
 
 373:                                              ; preds = %298, %287, %192, %179
@@ -47245,7 +47230,6 @@ _ZN5typst4eval3ops7is_zero17hfc45bed0f757c266E.exit.thread: ; preds = %"_ZN68_$L
   %.sroa.269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.065.sroa.4.0.copyload.sink, ptr %.sroa.269.0..sroa_idx, align 8
   store i8 30, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.30)
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %30)
           to label %377 unwind label %375
 
@@ -57484,7 +57468,7 @@ define void @_ZN5typst11foundations8selector8Selector4text17h44cf3fc83d6f0978E(p
   %.sroa.6.i = alloca [3 x i64], align 8
   %9 = alloca { { { [2 x i64] } } }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.520 = alloca [3 x i64], align 8
+  %.sroa.5 = alloca [3 x i64], align 8
   %.sroa.4.sroa.4 = alloca [3 x i64], align 8
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %12 = alloca { { { [2 x i64] } } }, align 8
@@ -57513,7 +57497,7 @@ define void @_ZN5typst11foundations8selector8Selector4text17h44cf3fc83d6f0978E(p
 
 20:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.520)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @_ZN5regex6escape17h7607b5ddba7f1fecE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -57599,11 +57583,11 @@ define void @_ZN5typst11foundations8selector8Selector4text17h44cf3fc83d6f0978E(p
 
 43:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !9178
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.520, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !noalias !9190
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !noalias !9190
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !9178
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !9191
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.520, i64 16, i1 false), !noalias !9195
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false), !noalias !9195
   invoke void @_ZN4core6result13unwrap_failed17hff299ec748d62aabE(ptr noalias noundef nonnull readonly align 1 @anon.9efbc0c128adab6190fabe7f7e045142.114.llvm.12777920187102919001, i64 noundef 43, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9efbc0c128adab6190fabe7f7e045142.119, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9efbc0c128adab6190fabe7f7e045142.420) #77
           to label %50 unwind label %44, !noalias !9191
 
@@ -57631,10 +57615,10 @@ define void @_ZN5typst11foundations8selector8Selector4text17h44cf3fc83d6f0978E(p
 53:                                               ; preds = %.noexc13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9203)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9204)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.520, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.i, i64 24, i1 false), !alias.scope !9205, !noalias !9206
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.i, i64 24, i1 false), !alias.scope !9205, !noalias !9206
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.520, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.520)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5)
   store i64 4, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %25, ptr %.sroa.4.0..sroa_idx, align 8
@@ -60172,26 +60156,26 @@ define void @"_ZN101_$LT$typst..foundations..selector..LocatableSelector$u20$as$
 
 6:                                                ; preds = %1
   store i8 32, ptr %3, align 8
-  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @"_ZN87_$LT$typst..foundations..label..Label$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h74d5d87267ef01f8E.llvm.12777920187102919001", ptr %.sroa.410.0..sroa_idx, align 8
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @"_ZN87_$LT$typst..foundations..label..Label$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h74d5d87267ef01f8E.llvm.12777920187102919001", ptr %.sroa.48.0..sroa_idx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 32, ptr %7, align 8
-  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", ptr %.sroa.414.0..sroa_idx, align 8
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store ptr @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", ptr %.sroa.412.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 32, ptr %8, align 8
-  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store ptr @"_ZN95_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17ha5fbe8899c41546bE.llvm.12850028421071809815", ptr %.sroa.418.0..sroa_idx, align 8
+  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 104
+  store ptr @"_ZN95_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17ha5fbe8899c41546bE.llvm.12850028421071809815", ptr %.sroa.416.0..sroa_idx, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i8 32, ptr %9, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @"_ZN93_$LT$typst..foundations..selector..Selector$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h4f295225466088bfE.llvm.12777920187102919001", ptr %.sroa.41.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4, ptr %10, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 4, ptr %.sroa.57.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %3, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 4, ptr %.sroa.5.0..sroa_idx, align 8
   store i8 33, ptr %0, align 8
   ret void
 }
@@ -60820,34 +60804,34 @@ define void @"_ZN100_$LT$typst..foundations..selector..ShowableSelector$u20$as$u
 
 6:                                                ; preds = %1
   store i8 32, ptr %3, align 8
-  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @"_ZN85_$LT$typst..symbols..symbol..Symbol$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17hb0bd3e5160708aeeE.llvm.12777920187102919001", ptr %.sroa.412.0..sroa_idx, align 8
+  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @"_ZN85_$LT$typst..symbols..symbol..Symbol$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17hb0bd3e5160708aeeE.llvm.12777920187102919001", ptr %.sroa.410.0..sroa_idx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 32, ptr %7, align 8
-  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr @"_ZN83_$LT$typst..foundations..str..Str$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h43399b3f6a8886faE.llvm.7889846851399105414", ptr %.sroa.416.0..sroa_idx, align 8
+  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store ptr @"_ZN83_$LT$typst..foundations..str..Str$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h43399b3f6a8886faE.llvm.7889846851399105414", ptr %.sroa.414.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 32, ptr %8, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store ptr @"_ZN87_$LT$typst..foundations..label..Label$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h74d5d87267ef01f8E.llvm.12777920187102919001", ptr %.sroa.420.0..sroa_idx, align 8
+  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 104
+  store ptr @"_ZN87_$LT$typst..foundations..label..Label$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h74d5d87267ef01f8E.llvm.12777920187102919001", ptr %.sroa.418.0..sroa_idx, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i8 32, ptr %9, align 8
-  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 152
-  store ptr @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", ptr %.sroa.424.0..sroa_idx, align 8
+  %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 152
+  store ptr @"_ZN85_$LT$typst..foundations..func..Func$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h2b8b3a93dbbb9f9bE.llvm.12850028421071809815", ptr %.sroa.422.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store i8 32, ptr %10, align 8
-  %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 200
-  store ptr @"_ZN85_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h144ab539cc08aa8dE.llvm.7889846851399105414", ptr %.sroa.428.0..sroa_idx, align 8
+  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 200
+  store ptr @"_ZN85_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h144ab539cc08aa8dE.llvm.7889846851399105414", ptr %.sroa.426.0..sroa_idx, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 240
   store i8 32, ptr %11, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 248
   store ptr @"_ZN93_$LT$typst..foundations..selector..Selector$u20$as$u20$typst..foundations..ty..NativeType$GT$4data4DATA17h4f295225466088bfE.llvm.12777920187102919001", ptr %.sroa.41.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 6, ptr %12, align 8
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %.sroa.48.0..sroa_idx, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 6, ptr %.sroa.59.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %3, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 6, ptr %.sroa.5.0..sroa_idx, align 8
   store i8 33, ptr %0, align 8
   ret void
 }
@@ -65098,9 +65082,9 @@ define void @_ZN5typst7symbols6symbol6Symbol9modifiers17ha8b8c73c260b8eb6E(ptr n
   br label %_ZN5typst7symbols6symbol6Symbol8variants17he40c0ba2f44ee0a6E.exit
 
 _ZN5typst7symbols6symbol6Symbol8variants17he40c0ba2f44ee0a6E.exit: ; preds = %.thread, %33, %30
-  %.sroa.0.041 = phi ptr [ @anon.9efbc0c128adab6190fabe7f7e045142.64.llvm.12777920187102919001, %30 ], [ @anon.9efbc0c128adab6190fabe7f7e045142.64.llvm.12777920187102919001, %33 ], [ %.sroa.0.0.i, %.thread ]
-  %.sroa.3.039 = phi i64 [ 0, %30 ], [ 0, %33 ], [ %.sroa.3.0.i, %.thread ]
-  %.sroa.727.0 = phi ptr [ undef, %30 ], [ %38, %33 ], [ %28, %.thread ]
+  %.sroa.0.040 = phi ptr [ @anon.9efbc0c128adab6190fabe7f7e045142.64.llvm.12777920187102919001, %30 ], [ @anon.9efbc0c128adab6190fabe7f7e045142.64.llvm.12777920187102919001, %33 ], [ %.sroa.0.0.i, %.thread ]
+  %.sroa.3.038 = phi i64 [ 0, %30 ], [ 0, %33 ], [ %.sroa.3.0.i, %.thread ]
+  %.sroa.7.0 = phi ptr [ undef, %30 ], [ %38, %33 ], [ %28, %.thread ]
   %.sroa.5.0 = phi ptr [ undef, %30 ], [ %35, %33 ], [ %25, %.thread ]
   %.sroa.4.0 = phi i32 [ %32, %30 ], [ undef, %33 ], [ undef, %.thread ]
   %storemerge.i.sink.i = phi i32 [ 0, %30 ], [ 1, %33 ], [ %storemerge.i.i, %.thread ]
@@ -65111,11 +65095,10 @@ _ZN5typst7symbols6symbol6Symbol8variants17he40c0ba2f44ee0a6E.exit: ; preds = %.t
   %.sroa.01.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.sroa.5.0, ptr %.sroa.01.sroa.0.sroa.3.0..sroa_idx, align 8
   %.sroa.01.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sroa.727.0, ptr %.sroa.01.sroa.0.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.7.0, ptr %.sroa.01.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.01.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 84
   store i32 1114112, ptr %.sroa.01.sroa.2.0..sroa_idx, align 4
-  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 96
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 156
   store i32 1114112, ptr %.sroa.01.sroa.5.0..sroa_idx, align 4
   %.sroa.427.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -65127,6 +65110,7 @@ _ZN5typst7symbols6symbol6Symbol8variants17he40c0ba2f44ee0a6E.exit: ; preds = %.t
   %.sroa.1033.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 80
   %.sroa.1235.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 88
   %.sroa.1336.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 89
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.0.sroa.5.sroa.4.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -65137,134 +65121,134 @@ _ZN5typst7symbols6symbol6Symbol8variants17he40c0ba2f44ee0a6E.exit: ; preds = %.t
   %.sroa.0.sroa.5.sroa.9.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 60
   %.sroa.0.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 64
   %.sroa.0.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 65
-  br label %39
+  br label %40
 
-39:                                               ; preds = %99, %_ZN5typst7symbols6symbol6Symbol8variants17he40c0ba2f44ee0a6E.exit
-  %.pre.i = phi i32 [ %.pre.i.pre, %99 ], [ 1114112, %_ZN5typst7symbols6symbol6Symbol8variants17he40c0ba2f44ee0a6E.exit ]
+40:                                               ; preds = %100, %_ZN5typst7symbols6symbol6Symbol8variants17he40c0ba2f44ee0a6E.exit
+  %.pre.i = phi i32 [ %.pre.i.pre, %100 ], [ 1114112, %_ZN5typst7symbols6symbol6Symbol8variants17he40c0ba2f44ee0a6E.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10411)
-  %40 = icmp eq i32 %.pre.i, 1114112
-  br i1 %40, label %45, label %41
+  %41 = icmp eq i32 %.pre.i, 1114112
+  br i1 %41, label %46, label %42
 
-41:                                               ; preds = %.noexc22, %39
-  %42 = invoke fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87b8e8aea0e39458E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %.sroa.01.sroa.0.sroa.5.0..sroa_idx)
+42:                                               ; preds = %.noexc22, %40
+  %43 = invoke fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87b8e8aea0e39458E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %.sroa.01.sroa.0.sroa.5.0..sroa_idx)
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %41
-  %43 = extractvalue { ptr, i64 } %42, 0
-  %.not.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i, label %44, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda22472c725c0742E.exit"
+.noexc:                                           ; preds = %42
+  %44 = extractvalue { ptr, i64 } %43, 0
+  %.not.i.i = icmp eq ptr %44, null
+  br i1 %.not.i.i, label %45, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda22472c725c0742E.exit"
 
-44:                                               ; preds = %.noexc
+45:                                               ; preds = %.noexc
   store i32 1114112, ptr %.sroa.01.sroa.2.0..sroa_idx, align 4, !alias.scope !10414
-  br label %45
+  br label %46
 
-45:                                               ; preds = %44, %39
+46:                                               ; preds = %45, %40
   call void @llvm.experimental.noalias.scope.decl(metadata !10417)
   call void @llvm.experimental.noalias.scope.decl(metadata !10420)
-  %46 = load i32, ptr %7, align 8, !range !1814, !alias.scope !10423, !noalias !10424, !noundef !16
-  %47 = icmp eq i32 %46, 3
-  br i1 %47, label %.loopexit.i, label %48
+  %47 = load i32, ptr %7, align 8, !range !1814, !alias.scope !10423, !noalias !10424, !noundef !16
+  %48 = icmp eq i32 %47, 3
+  br i1 %48, label %.loopexit.i, label %49
 
-48:                                               ; preds = %45
+49:                                               ; preds = %46
   call void @llvm.experimental.noalias.scope.decl(metadata !10427)
   call void @llvm.experimental.noalias.scope.decl(metadata !10430)
   call void @llvm.experimental.noalias.scope.decl(metadata !10433)
-  switch i32 %46, label %default.unreachable.i.i.i.i [
-    i32 0, label %49
-    i32 1, label %52
-    i32 2, label %56
+  switch i32 %47, label %default.unreachable.i.i.i.i [
+    i32 0, label %50
+    i32 1, label %53
+    i32 2, label %57
   ]
 
-default.unreachable.i.i.i.i:                      ; preds = %48
+default.unreachable.i.i.i.i:                      ; preds = %49
   unreachable
 
-49:                                               ; preds = %48
-  %50 = load i32, ptr %.sroa.01.sroa.0.sroa.2.0..sroa_idx, align 4, !range !10256, !alias.scope !10436, !noalias !10437, !noundef !16
+50:                                               ; preds = %49
+  %51 = load i32, ptr %.sroa.01.sroa.0.sroa.2.0..sroa_idx, align 4, !range !10256, !alias.scope !10436, !noalias !10437, !noundef !16
   store i32 1114112, ptr %.sroa.01.sroa.0.sroa.2.0..sroa_idx, align 4, !alias.scope !10436, !noalias !10437
-  %51 = icmp eq i32 %50, 1114112
-  br i1 %51, label %72, label %.critedge.i
+  %52 = icmp eq i32 %51, 1114112
+  br i1 %52, label %73, label %.critedge.i
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr %.sroa.01.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !10441, !noalias !10437, !nonnull !16, !noundef !16
-  %54 = load ptr, ptr %.sroa.01.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !10441, !noalias !10437, !nonnull !16, !noundef !16
-  %55 = icmp eq ptr %54, %53
-  br i1 %55, label %72, label %"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i"
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %.sroa.01.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !10441, !noalias !10437, !nonnull !16, !noundef !16
+  %55 = load ptr, ptr %.sroa.01.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !10441, !noalias !10437, !nonnull !16, !noundef !16
+  %56 = icmp eq ptr %55, %54
+  br i1 %56, label %73, label %"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i"
 
-56:                                               ; preds = %48
-  %57 = load ptr, ptr %.sroa.01.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !10444, !noalias !10437, !nonnull !16, !noundef !16
-  %58 = load ptr, ptr %.sroa.01.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !10444, !noalias !10437, !nonnull !16, !noundef !16
-  %59 = icmp eq ptr %58, %57
-  br i1 %59, label %72, label %60
+57:                                               ; preds = %49
+  %58 = load ptr, ptr %.sroa.01.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !10444, !noalias !10437, !nonnull !16, !noundef !16
+  %59 = load ptr, ptr %.sroa.01.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !10444, !noalias !10437, !nonnull !16, !noundef !16
+  %60 = icmp eq ptr %59, %58
+  br i1 %60, label %73, label %61
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  store ptr %61, ptr %.sroa.01.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !10444, !noalias !10437
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 15
-  %63 = load i8, ptr %62, align 1, !alias.scope !10447, !noalias !10450, !noundef !16
-  %64 = icmp slt i8 %63, 0
-  %65 = and i8 %63, 127
-  %66 = zext nneg i8 %65 to i64
-  %67 = load ptr, ptr %58, align 8, !alias.scope !10447, !noalias !10450, !nonnull !16
-  %68 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %69 = load i64, ptr %68, align 8, !alias.scope !10447, !noalias !10450
-  %.sroa.3.0.i.i.i.i.i.i.i = select i1 %64, i64 %66, i64 %69
-  %.sroa.0.0.i.i.i.i.i.i.i = select i1 %64, ptr %58, ptr %67
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  store ptr %62, ptr %.sroa.01.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !10444, !noalias !10437
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 15
+  %64 = load i8, ptr %63, align 1, !alias.scope !10447, !noalias !10450, !noundef !16
+  %65 = icmp slt i8 %64, 0
+  %66 = and i8 %64, 127
+  %67 = zext nneg i8 %66 to i64
+  %68 = load ptr, ptr %59, align 8, !alias.scope !10447, !noalias !10450, !nonnull !16
+  %69 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %70 = load i64, ptr %69, align 8, !alias.scope !10447, !noalias !10450
+  %.sroa.3.0.i.i.i.i.i.i.i = select i1 %65, i64 %67, i64 %70
+  %.sroa.0.0.i.i.i.i.i.i.i = select i1 %65, ptr %59, ptr %68
   br label %.critedge.i
 
-"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i": ; preds = %52
-  %70 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr %70, ptr %.sroa.01.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !10441, !noalias !10437
-  %.sroa.0.0.copyload1.i.i.i.i.i = load ptr, ptr %54, align 8, !noalias !10451
-  %.sroa.6.0..sroa_idx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 8
+"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i": ; preds = %53
+  %71 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  store ptr %71, ptr %.sroa.01.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !10441, !noalias !10437
+  %.sroa.0.0.copyload1.i.i.i.i.i = load ptr, ptr %55, align 8, !noalias !10451
+  %.sroa.6.0..sroa_idx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.6.0.copyload3.i.i.i.i.i = load i64, ptr %.sroa.6.0..sroa_idx2.i.i.i.i.i, align 8, !noalias !10451
-  %.sroa.8.0..sroa_idx4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %.sroa.8.0..sroa_idx4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 16
   %.sroa.8.0.copyload5.i.i.i.i.i = load i32, ptr %.sroa.8.0..sroa_idx4.i.i.i.i.i, align 8, !noalias !10451
-  %71 = icmp eq i32 %.sroa.8.0.copyload5.i.i.i.i.i, 1114112
-  br i1 %71, label %72, label %.critedge.i
+  %72 = icmp eq i32 %.sroa.8.0.copyload5.i.i.i.i.i, 1114112
+  br i1 %72, label %73, label %.critedge.i
 
-72:                                               ; preds = %"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i", %56, %52, %49
+73:                                               ; preds = %"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i", %57, %53, %50
   store i32 3, ptr %7, align 8, !alias.scope !10423, !noalias !10424
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %72, %45
-  %73 = load i32, ptr %.sroa.01.sroa.5.0..sroa_idx, align 4, !range !10256, !alias.scope !10452, !noundef !16
-  %74 = icmp eq i32 %73, 1114112
-  br i1 %74, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1785d61c8eb5b7f7E.exit6.i, label %75
+.loopexit.i:                                      ; preds = %73, %46
+  %74 = load i32, ptr %.sroa.01.sroa.5.0..sroa_idx, align 4, !range !10256, !alias.scope !10452, !noundef !16
+  %75 = icmp eq i32 %74, 1114112
+  br i1 %75, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1785d61c8eb5b7f7E.exit6.i, label %76
 
-75:                                               ; preds = %.loopexit.i
-  %76 = invoke fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87b8e8aea0e39458E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %.sroa.01.sroa.4.0..sroa_idx)
+76:                                               ; preds = %.loopexit.i
+  %77 = invoke fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87b8e8aea0e39458E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %39)
           to label %.noexc21 unwind label %.loopexit.split-lp
 
-.noexc21:                                         ; preds = %75
-  %77 = extractvalue { ptr, i64 } %76, 0
-  %78 = extractvalue { ptr, i64 } %76, 1
-  %.not.i3.i = icmp eq ptr %77, null
-  br i1 %.not.i3.i, label %79, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1785d61c8eb5b7f7E.exit6.i
+.noexc21:                                         ; preds = %76
+  %78 = extractvalue { ptr, i64 } %77, 0
+  %79 = extractvalue { ptr, i64 } %77, 1
+  %.not.i3.i = icmp eq ptr %78, null
+  br i1 %.not.i3.i, label %80, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1785d61c8eb5b7f7E.exit6.i
 
-79:                                               ; preds = %.noexc21
+80:                                               ; preds = %.noexc21
   store i32 1114112, ptr %.sroa.01.sroa.5.0..sroa_idx, align 4, !alias.scope !10452
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1785d61c8eb5b7f7E.exit6.i
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h1785d61c8eb5b7f7E.exit6.i: ; preds = %79, %.noexc21, %.loopexit.i
-  %.sroa.3.0.i4.i = phi i64 [ undef, %.loopexit.i ], [ %78, %.noexc21 ], [ %78, %79 ]
-  %.sroa.0.0.i5.i = phi ptr [ null, %.loopexit.i ], [ %77, %.noexc21 ], [ null, %79 ]
-  %80 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i5.i, 0
-  %81 = insertvalue { ptr, i64 } %80, i64 %.sroa.3.0.i4.i, 1
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h1785d61c8eb5b7f7E.exit6.i: ; preds = %80, %.noexc21, %.loopexit.i
+  %.sroa.3.0.i4.i = phi i64 [ undef, %.loopexit.i ], [ %79, %.noexc21 ], [ %79, %80 ]
+  %.sroa.0.0.i5.i = phi ptr [ null, %.loopexit.i ], [ %78, %.noexc21 ], [ null, %80 ]
+  %81 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i5.i, 0
+  %82 = insertvalue { ptr, i64 } %81, i64 %.sroa.3.0.i4.i, 1
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda22472c725c0742E.exit"
 
-.critedge.i:                                      ; preds = %"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i", %60, %49
-  %.sroa.0.129.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload1.i.i.i.i.i, %"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i" ], [ @anon.9efbc0c128adab6190fabe7f7e045142.64.llvm.12777920187102919001, %49 ], [ %.sroa.0.0.i.i.i.i.i.i.i, %60 ]
-  %.sroa.6.128.i.i.i.i.i = phi i64 [ %.sroa.6.0.copyload3.i.i.i.i.i, %"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i" ], [ 0, %49 ], [ %.sroa.3.0.i.i.i.i.i.i.i, %60 ]
-  %82 = icmp ne ptr %.sroa.0.129.i.i.i.i.i, null
-  call void @llvm.assume(i1 %82)
+.critedge.i:                                      ; preds = %"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i", %61, %50
+  %.sroa.0.129.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload1.i.i.i.i.i, %"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i" ], [ @anon.9efbc0c128adab6190fabe7f7e045142.64.llvm.12777920187102919001, %50 ], [ %.sroa.0.0.i.i.i.i.i.i.i, %61 ]
+  %.sroa.6.128.i.i.i.i.i = phi i64 [ %.sroa.6.0.copyload3.i.i.i.i.i, %"_ZN91_$LT$typst..symbols..symbol..Variants$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe3a50f3acce53bfE.exit.i.i.i.i.i" ], [ 0, %50 ], [ %.sroa.3.0.i.i.i.i.i.i.i, %61 ]
+  %83 = icmp ne ptr %.sroa.0.129.i.i.i.i.i, null
+  call void @llvm.assume(i1 %83)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !10455
   store i32 0, ptr %6, align 4, !noalias !10455
-  %83 = invoke { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.llvm.12850028421071809815(i32 noundef 46, ptr noalias noundef nonnull align 1 %6, i64 noundef 4)
+  %84 = invoke { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.llvm.12850028421071809815(i32 noundef 46, ptr noalias noundef nonnull align 1 %6, i64 noundef 4)
           to label %.noexc22 unwind label %.loopexit.split-lp
 
 .noexc22:                                         ; preds = %.critedge.i
-  %84 = extractvalue { ptr, i64 } %83, 1
-  %85 = load <4 x i8>, ptr %6, align 4, !noalias !10455
+  %85 = extractvalue { ptr, i64 } %84, 1
+  %86 = load <4 x i8>, ptr %6, align 4, !noalias !10455
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !10455
   store i64 0, ptr %.sroa.01.sroa.0.sroa.5.0..sroa_idx, align 8, !alias.scope !10411
   store i64 %.sroa.6.128.i.i.i.i.i, ptr %.sroa.427.0..sroa_idx.i, align 8, !alias.scope !10411
@@ -65272,146 +65256,146 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1785d61c8eb5b7f7E.exit6.i: ;
   store i64 %.sroa.6.128.i.i.i.i.i, ptr %.sroa.629.0..sroa_idx.i, align 8, !alias.scope !10411
   store i64 0, ptr %.sroa.730.0..sroa_idx.i, align 8, !alias.scope !10411
   store i64 %.sroa.6.128.i.i.i.i.i, ptr %.sroa.831.0..sroa_idx.i, align 8, !alias.scope !10411
-  store i64 %84, ptr %.sroa.932.0..sroa_idx.i, align 8, !alias.scope !10411
-  store <4 x i8> %85, ptr %.sroa.1033.0..sroa_idx.i, align 8, !alias.scope !10411
+  store i64 %85, ptr %.sroa.932.0..sroa_idx.i, align 8, !alias.scope !10411
+  store <4 x i8> %86, ptr %.sroa.1033.0..sroa_idx.i, align 8, !alias.scope !10411
   store i32 46, ptr %.sroa.01.sroa.2.0..sroa_idx, align 4, !alias.scope !10411
   store i8 1, ptr %.sroa.1235.0..sroa_idx.i, align 8, !alias.scope !10411
   store i8 0, ptr %.sroa.1336.0..sroa_idx.i, align 1, !alias.scope !10411
-  br label %41
+  br label %42
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda22472c725c0742E.exit": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1785d61c8eb5b7f7E.exit6.i, %.noexc
-  %.merged.i = phi { ptr, i64 } [ %81, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1785d61c8eb5b7f7E.exit6.i ], [ %42, %.noexc ]
-  %86 = extractvalue { ptr, i64 } %.merged.i, 0
-  %87 = extractvalue { ptr, i64 } %.merged.i, 1
-  %88 = icmp eq ptr %86, null
-  br i1 %88, label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h567fb0256ea0c865E.exit", label %89
+  %.merged.i = phi { ptr, i64 } [ %82, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h1785d61c8eb5b7f7E.exit6.i ], [ %43, %.noexc ]
+  %87 = extractvalue { ptr, i64 } %.merged.i, 0
+  %88 = extractvalue { ptr, i64 } %.merged.i, 1
+  %89 = icmp eq ptr %87, null
+  br i1 %89, label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h567fb0256ea0c865E.exit", label %90
 
 "_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h567fb0256ea0c865E.exit": ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda22472c725c0742E.exit"
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7)
-  %.sroa.036.0.copyload = load ptr, ptr %8, align 8
+  %.sroa.035.0.copyload = load ptr, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %.not.i = icmp ne ptr %.sroa.036.0.copyload, null
-  %.sroa.634.0 = select i1 %.not.i, i64 %.sroa.2.0.copyload, i64 undef
+  %.not.i = icmp ne ptr %.sroa.035.0.copyload, null
+  %.sroa.633.0 = select i1 %.not.i, i64 %.sroa.2.0.copyload, i64 undef
   %.sink26.i = zext i1 %.not.i to i64
   %.sroa.7.0.copyload.sink.i = select i1 %.not.i, i64 %.sroa.3.0.copyload, i64 0
   store i64 %.sink26.i, ptr %0, align 8
-  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %.sroa.432.0..sroa_idx, align 8
-  %.sroa.533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.036.0.copyload, ptr %.sroa.533.0..sroa_idx, align 8
-  %.sroa.634.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.634.0, ptr %.sroa.634.0..sroa_idx, align 8
-  %.sroa.735.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink26.i, ptr %.sroa.735.0..sroa_idx, align 8
+  %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %.sroa.431.0..sroa_idx, align 8
+  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.035.0.copyload, ptr %.sroa.532.0..sroa_idx, align 8
+  %.sroa.633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.633.0, ptr %.sroa.633.0..sroa_idx, align 8
+  %.sroa.734.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.sink26.i, ptr %.sroa.734.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sroa.036.0.copyload, ptr %.sroa.9.0..sroa_idx, align 8
+  store ptr %.sroa.035.0.copyload, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %.sroa.634.0, ptr %.sroa.10.0..sroa_idx, align 8
+  store i64 %.sroa.633.0, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sroa.7.0.copyload.sink.i, ptr %.sroa.11.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   ret void
 
-89:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda22472c725c0742E.exit"
-  %90 = icmp eq i64 %87, 0
-  br i1 %90, label %99, label %91
+90:                                               ; preds = %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda22472c725c0742E.exit"
+  %91 = icmp eq i64 %88, 0
+  br i1 %91, label %100, label %92
 
-91:                                               ; preds = %89
+92:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !10462
   store i64 0, ptr %5, align 8, !alias.scope !10466, !noalias !10469
-  store i64 %.sroa.3.039, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
-  store ptr %.sroa.0.041, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
-  store i64 %.sroa.3.039, ptr %.sroa.0.sroa.5.sroa.4.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
+  store i64 %.sroa.3.038, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
+  store ptr %.sroa.0.040, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
+  store i64 %.sroa.3.038, ptr %.sroa.0.sroa.5.sroa.4.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
   store i64 0, ptr %.sroa.0.sroa.5.sroa.5.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
-  store i64 %.sroa.3.039, ptr %.sroa.0.sroa.5.sroa.6.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
+  store i64 %.sroa.3.038, ptr %.sroa.0.sroa.5.sroa.6.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
   store i64 1, ptr %.sroa.0.sroa.5.sroa.7.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
   store <4 x i8> <i8 46, i8 0, i8 0, i8 0>, ptr %.sroa.0.sroa.5.sroa.8.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
   store i32 46, ptr %.sroa.0.sroa.5.sroa.9.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !10466, !noalias !10469
   store i8 1, ptr %.sroa.0.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !10466, !noalias !10469
   store i8 0, ptr %.sroa.0.sroa.7.0..sroa_idx.i.i, align 1, !alias.scope !10466, !noalias !10469
-  %92 = invoke fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87b8e8aea0e39458E"(ptr noalias noundef align 8 dereferenceable(72) %5)
+  %93 = invoke fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87b8e8aea0e39458E"(ptr noalias noundef align 8 dereferenceable(72) %5)
           to label %.noexc23 unwind label %.loopexit.split-lp
 
-.noexc23:                                         ; preds = %91
-  %93 = extractvalue { ptr, i64 } %92, 0
-  %.not7.not.i.i = icmp eq ptr %93, null
-  br i1 %.not7.not.i.i, label %.loopexit45, label %.lr.ph.i.i
+.noexc23:                                         ; preds = %92
+  %94 = extractvalue { ptr, i64 } %93, 0
+  %.not7.not.i.i = icmp eq ptr %94, null
+  br i1 %.not7.not.i.i, label %.loopexit44, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc23, %.noexc24
-  %94 = phi ptr [ %98, %.noexc24 ], [ %93, %.noexc23 ]
-  %95 = phi { ptr, i64 } [ %97, %.noexc24 ], [ %92, %.noexc23 ]
-  %96 = extractvalue { ptr, i64 } %95, 1
-  %.not.i.i.i.i.i.i = icmp eq i64 %96, %87
+  %95 = phi ptr [ %99, %.noexc24 ], [ %94, %.noexc23 ]
+  %96 = phi { ptr, i64 } [ %98, %.noexc24 ], [ %93, %.noexc23 ]
+  %97 = extractvalue { ptr, i64 } %96, 1
+  %.not.i.i.i.i.i.i = icmp eq i64 %97, %88
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd7aa8ff91bbc81ddE.exit.i.i", label %.critedge.backedge.i.i
 
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd7aa8ff91bbc81ddE.exit.i.i": ; preds = %.lr.ph.i.i
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %94, ptr nonnull readonly align 1 %86, i64 %87), !alias.scope !10471, !noalias !10475
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %95, ptr nonnull readonly align 1 %87, i64 %88), !alias.scope !10471, !noalias !10475
   %.not10.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  br i1 %.not10.i.i, label %100, label %.critedge.backedge.i.i
+  br i1 %.not10.i.i, label %101, label %.critedge.backedge.i.i
 
 .critedge.backedge.i.i:                           ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd7aa8ff91bbc81ddE.exit.i.i", %.lr.ph.i.i
-  %97 = invoke fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87b8e8aea0e39458E"(ptr noalias noundef align 8 dereferenceable(72) %5)
+  %98 = invoke fastcc { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h87b8e8aea0e39458E"(ptr noalias noundef align 8 dereferenceable(72) %5)
           to label %.noexc24 unwind label %.loopexit
 
 .noexc24:                                         ; preds = %.critedge.backedge.i.i
-  %98 = extractvalue { ptr, i64 } %97, 0
-  %.not.not.i.i = icmp eq ptr %98, null
-  br i1 %.not.not.i.i, label %.loopexit45, label %.lr.ph.i.i
+  %99 = extractvalue { ptr, i64 } %98, 0
+  %.not.not.i.i = icmp eq ptr %99, null
+  br i1 %.not.not.i.i, label %.loopexit44, label %.lr.ph.i.i
 
-99:                                               ; preds = %100, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hfe45e96660a2c247E.exit", %89
+100:                                              ; preds = %101, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hfe45e96660a2c247E.exit", %90
   %.pre.i.pre = load i32, ptr %.sroa.01.sroa.2.0..sroa_idx, align 4, !range !10256, !alias.scope !10414
-  br label %39
+  br label %40
 
-100:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd7aa8ff91bbc81ddE.exit.i.i"
+101:                                              ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd7aa8ff91bbc81ddE.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !10462
-  br label %99
+  br label %100
 
-.loopexit45:                                      ; preds = %.noexc24, %.noexc23
+.loopexit44:                                      ; preds = %.noexc24, %.noexc23
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !10462
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !10479
-  invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17hdb45a84fe4899d5dE.llvm.13383457361836014260"(ptr noalias noundef nonnull sret({ ptr, [5 x i64] }) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %86, i64 noundef %87)
+  invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17hdb45a84fe4899d5dE.llvm.13383457361836014260"(ptr noalias noundef nonnull sret({ ptr, [5 x i64] }) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %87, i64 noundef %88)
           to label %.noexc25 unwind label %.loopexit.split-lp
 
-.noexc25:                                         ; preds = %.loopexit45
-  %101 = load ptr, ptr %4, align 8, !noalias !10479, !noundef !16
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hfe45e96660a2c247E.exit", label %103
+.noexc25:                                         ; preds = %.loopexit44
+  %102 = load ptr, ptr %4, align 8, !noalias !10479, !noundef !16
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hfe45e96660a2c247E.exit", label %104
 
-103:                                              ; preds = %.noexc25
+104:                                              ; preds = %.noexc25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !10479
-  %104 = invoke noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h50eba0de41c2a183E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
+  %105 = invoke noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h50eba0de41c2a183E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hfe45e96660a2c247E.exit" unwind label %.loopexit.split-lp
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hfe45e96660a2c247E.exit": ; preds = %103, %.noexc25
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hfe45e96660a2c247E.exit": ; preds = %104, %.noexc25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !10479
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  br label %99
+  br label %100
 
-105:                                              ; preds = %106
+106:                                              ; preds = %107
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %.critedge.backedge.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %107
 
-.loopexit.split-lp:                               ; preds = %103, %.loopexit45, %91, %.critedge.i, %75, %41
+.loopexit.split-lp:                               ; preds = %104, %.loopexit44, %92, %.critedge.i, %76, %42
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %106
+  br label %107
 
-106:                                              ; preds = %.loopexit.split-lp, %.loopexit
+107:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$$RF$str$GT$$GT$17hce78d1aae98866a3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #75
-          to label %105 unwind label %107
+          to label %106 unwind label %108
 
-107:                                              ; preds = %106
-  %108 = landingpad { ptr, i32 }
+108:                                              ; preds = %107
+  %109 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #76
   unreachable
@@ -69500,10 +69484,10 @@ define noundef range(i64 1, 0) i64 @"_ZN5typst6layout7columns1_53_$LT$impl$u20$t
   store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11208, !noalias !11209
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11208, !noalias !11209
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11208, !noalias !11209
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11208, !noalias !11209
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11208, !noalias !11209
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11208, !noalias !11209
   %9 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hffc77523e1b60f50E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !11212
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i"
@@ -69519,7 +69503,7 @@ define noundef range(i64 1, 0) i64 @"_ZN5typst6layout7columns1_53_$LT$impl$u20$t
   br i1 %16, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.thread.i", label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !11220
+  %18 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !11220
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i": ; preds = %17, %2
@@ -69561,10 +69545,10 @@ define { double, double } @"_ZN5typst6layout7columns1_53_$LT$impl$u20$typst..lay
   store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11243, !noalias !11244
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11243, !noalias !11244
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11243, !noalias !11244
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11243, !noalias !11244
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11243, !noalias !11244
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11243, !noalias !11244
   %9 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !11247
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -69580,7 +69564,7 @@ define { double, double } @"_ZN5typst6layout7columns1_53_$LT$impl$u20$typst..lay
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17hde26c21f17d8d1a8E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !11255
+  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !11255
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -69631,10 +69615,10 @@ define noundef range(i64 1, 0) i64 @"_ZN5typst6layout7columns1_53_$LT$impl$u20$t
   store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11283, !noalias !11284
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11283, !noalias !11284
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11283, !noalias !11284
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11283, !noalias !11284
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11283, !noalias !11284
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11283, !noalias !11284
   %5 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hffc77523e1b60f50E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !11287
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i"
@@ -69650,7 +69634,7 @@ define noundef range(i64 1, 0) i64 @"_ZN5typst6layout7columns1_53_$LT$impl$u20$t
   br i1 %12, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.thread.i", label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !11295
+  %14 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !11295
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i": ; preds = %13, %1
@@ -69688,10 +69672,10 @@ define { double, double } @"_ZN5typst6layout7columns1_53_$LT$impl$u20$typst..lay
   store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11318, !noalias !11319
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11318, !noalias !11319
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11318, !noalias !11319
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11318, !noalias !11319
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11318, !noalias !11319
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11318, !noalias !11319
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !11322
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %16
@@ -69707,7 +69691,7 @@ define { double, double } @"_ZN5typst6layout7columns1_53_$LT$impl$u20$typst..lay
   br i1 %13, label %_ZN5typst11foundations6styles10StyleChain3get17h3393f69536525ca4E.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !11330
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !11330
   br label %16
 
 16:                                               ; preds = %14, %1
@@ -69936,10 +69920,10 @@ define void @"_ZN5typst6layout7columns1_101_$LT$impl$u20$typst..foundations..ele
   store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11369, !noalias !11370
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11369, !noalias !11370
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11369, !noalias !11370
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11369, !noalias !11370
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11369, !noalias !11370
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11369, !noalias !11370
   %14 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hffc77523e1b60f50E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !11373
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i"
@@ -69955,7 +69939,7 @@ define void @"_ZN5typst6layout7columns1_101_$LT$impl$u20$typst..foundations..ele
   br i1 %21, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.thread.i", label %22
 
 22:                                               ; preds = %19
-  %23 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20), !noalias !11381
+  %23 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20), !noalias !11381
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i": ; preds = %22, %8
@@ -69996,10 +69980,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h3ff3f5a35ba58310E.exit: ; preds 
   store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i16, align 8, !alias.scope !11404, !noalias !11405
   %.sroa.5.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i17, align 8, !alias.scope !11404, !noalias !11405
-  %.sroa.7.0..sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i18, align 8, !alias.scope !11404, !noalias !11405
-  %.sroa.8.0..sroa_idx.i.i19 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i19, align 8, !alias.scope !11404, !noalias !11405
+  %.sroa.610.0..sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i18, align 8, !alias.scope !11404, !noalias !11405
+  %.sroa.7.0..sroa_idx.i.i19 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i19, align 8, !alias.scope !11404, !noalias !11405
   %32 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !11408
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %42
@@ -70015,7 +69999,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h3ff3f5a35ba58310E.exit: ; preds 
   br i1 %39, label %_ZN5typst11foundations6styles10StyleChain3get17h7f211f1d6b228fe1E.exit, label %40
 
 40:                                               ; preds = %37
-  %41 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i18, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %38), !noalias !11416
+  %41 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i18, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %38), !noalias !11416
   br label %42
 
 42:                                               ; preds = %40, %27
@@ -70103,10 +70087,10 @@ define void @"_ZN5typst6layout7columns1_101_$LT$impl$u20$typst..foundations..ele
   store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11444, !noalias !11445
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11444, !noalias !11445
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11444, !noalias !11445
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11444, !noalias !11445
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11444, !noalias !11445
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11444, !noalias !11445
   %10 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hffc77523e1b60f50E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !11448
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i"
@@ -70122,7 +70106,7 @@ define void @"_ZN5typst6layout7columns1_101_$LT$impl$u20$typst..foundations..ele
   br i1 %17, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.thread.i", label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !11456
+  %19 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !11456
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i": ; preds = %18, %7
@@ -70159,10 +70143,10 @@ _ZN5typst11foundations6styles10StyleChain3get17ha87be843938f896bE.exit: ; preds 
   store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i11, align 8, !alias.scope !11479, !noalias !11480
   %.sroa.5.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i12, align 8, !alias.scope !11479, !noalias !11480
-  %.sroa.7.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i13, align 8, !alias.scope !11479, !noalias !11480
-  %.sroa.8.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i14, align 8, !alias.scope !11479, !noalias !11480
+  %.sroa.610.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i13, align 8, !alias.scope !11479, !noalias !11480
+  %.sroa.7.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i14, align 8, !alias.scope !11479, !noalias !11480
   %26 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !11483
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %36
@@ -70178,7 +70162,7 @@ _ZN5typst11foundations6styles10StyleChain3get17ha87be843938f896bE.exit: ; preds 
   br i1 %33, label %_ZN5typst11foundations6styles10StyleChain3get17hb3e9039352b33108E.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %32), !noalias !11491
+  %35 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %32), !noalias !11491
   br label %36
 
 36:                                               ; preds = %34, %23
@@ -70238,10 +70222,10 @@ define void @"_ZN5typst6layout7columns1_101_$LT$impl$u20$typst..foundations..ele
   store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11519, !noalias !11520
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11519, !noalias !11520
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11519, !noalias !11520
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11519, !noalias !11520
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11519, !noalias !11520
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11519, !noalias !11520
   %10 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hffc77523e1b60f50E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !11523
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i"
@@ -70257,7 +70241,7 @@ define void @"_ZN5typst6layout7columns1_101_$LT$impl$u20$typst..foundations..ele
   br i1 %17, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.thread.i", label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !11531
+  %19 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !11531
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h63c5820e8c812775E.exit.i": ; preds = %18, %7
@@ -70298,10 +70282,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h328e86f8c5887cddE.exit: ; preds 
   store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i6, align 8, !alias.scope !11554, !noalias !11555
   %.sroa.5.0..sroa_idx.i.i7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i7, align 8, !alias.scope !11554, !noalias !11555
-  %.sroa.7.0..sroa_idx.i.i8 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i8, align 8, !alias.scope !11554, !noalias !11555
-  %.sroa.8.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i9, align 8, !alias.scope !11554, !noalias !11555
+  %.sroa.610.0..sroa_idx.i.i8 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout7columns1_108_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColumnsElem$GT$4data4DATA17h0924c71cad3bb98dE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i8, align 8, !alias.scope !11554, !noalias !11555
+  %.sroa.7.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i9, align 8, !alias.scope !11554, !noalias !11555
   %29 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !11558
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %39
@@ -70317,7 +70301,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h328e86f8c5887cddE.exit: ; preds 
   br i1 %36, label %_ZN5typst11foundations6styles10StyleChain3get17hf6efdcd308f7f8e4E.exit, label %37
 
 37:                                               ; preds = %34
-  %38 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35), !noalias !11566
+  %38 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35), !noalias !11566
   br label %39
 
 39:                                               ; preds = %37, %25
@@ -71370,10 +71354,10 @@ define noundef zeroext i1 @"_ZN5typst6layout7columns1_54_$LT$impl$u20$typst..lay
   store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11780, !noalias !11781
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11780, !noalias !11781
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11780, !noalias !11781
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11780, !noalias !11781
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11780, !noalias !11781
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11780, !noalias !11781
   %8 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !11784
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %18
@@ -71389,7 +71373,7 @@ define noundef zeroext i1 @"_ZN5typst6layout7columns1_54_$LT$impl$u20$typst..lay
   br i1 %15, label %_ZN5typst11foundations6styles10StyleChain3get17h43c66e049f922abbE.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !11792
+  %17 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !11792
   br label %18
 
 18:                                               ; preds = %16, %2
@@ -71423,10 +71407,10 @@ define noundef zeroext i1 @"_ZN5typst6layout7columns1_54_$LT$impl$u20$typst..lay
   store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11814, !noalias !11815
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11814, !noalias !11815
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11814, !noalias !11815
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11814, !noalias !11815
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11814, !noalias !11815
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11814, !noalias !11815
   %5 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !11818
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -71442,7 +71426,7 @@ define noundef zeroext i1 @"_ZN5typst6layout7columns1_54_$LT$impl$u20$typst..lay
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17hbeaf1ee7c03c9149E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !11826
+  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !11826
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -71552,10 +71536,10 @@ define void @"_ZN5typst6layout7columns1_102_$LT$impl$u20$typst..foundations..ele
   store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11851, !noalias !11852
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11851, !noalias !11852
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11851, !noalias !11852
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11851, !noalias !11852
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11851, !noalias !11852
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11851, !noalias !11852
   %11 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !11855
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %21
@@ -71571,7 +71555,7 @@ define void @"_ZN5typst6layout7columns1_102_$LT$impl$u20$typst..foundations..ele
   br i1 %18, label %_ZN5typst11foundations6styles10StyleChain3get17h5c1b10e8beb02bfaE.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17), !noalias !11863
+  %20 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17), !noalias !11863
   br label %21
 
 21:                                               ; preds = %19, %6
@@ -71618,10 +71602,10 @@ define void @"_ZN5typst6layout7columns1_102_$LT$impl$u20$typst..foundations..ele
   store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11885, !noalias !11886
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11885, !noalias !11886
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11885, !noalias !11886
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11885, !noalias !11886
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11885, !noalias !11886
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11885, !noalias !11886
   %8 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !11889
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %18
@@ -71637,7 +71621,7 @@ define void @"_ZN5typst6layout7columns1_102_$LT$impl$u20$typst..foundations..ele
   br i1 %15, label %_ZN5typst11foundations6styles10StyleChain3get17h36046fa8e985e570E.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !11897
+  %17 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !11897
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -71685,10 +71669,10 @@ define void @"_ZN5typst6layout7columns1_102_$LT$impl$u20$typst..foundations..ele
   store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !11919, !noalias !11920
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !11919, !noalias !11920
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11919, !noalias !11920
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !11919, !noalias !11920
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout7columns1_109_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..columns..ColbreakElem$GT$4data4DATA17h7957cfda975b2fb6E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !11919, !noalias !11920
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !11919, !noalias !11920
   %8 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !11923
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %18
@@ -71704,7 +71688,7 @@ define void @"_ZN5typst6layout7columns1_102_$LT$impl$u20$typst..foundations..ele
   br i1 %15, label %_ZN5typst11foundations6styles10StyleChain3get17h5724fc1225712d1cE.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !11931
+  %17 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !11931
   br label %18
 
 18:                                               ; preds = %16, %5
@@ -72613,10 +72597,10 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12149, !noalias !12150
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12149, !noalias !12150
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12149, !noalias !12150
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !12149, !noalias !12150
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !12149, !noalias !12150
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12149, !noalias !12150
   %9 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !12153
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %20
@@ -72632,7 +72616,7 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !12161
+  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !12161
   br label %20
 
 19:                                               ; preds = %14, %11
@@ -72684,10 +72668,10 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12203, !noalias !12204
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12203, !noalias !12204
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12203, !noalias !12204
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !12203, !noalias !12204
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !12203, !noalias !12204
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12203, !noalias !12204
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !12207
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %21
@@ -72703,7 +72687,7 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !12215
+  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !12215
   br label %21
 
 20:                                               ; preds = %15, %12
@@ -72755,10 +72739,10 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12257, !noalias !12258
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12257, !noalias !12258
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12257, !noalias !12258
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !12257, !noalias !12258
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !12257, !noalias !12258
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12257, !noalias !12258
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !12261
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %21
@@ -72774,7 +72758,7 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !12269
+  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !12269
   br label %21
 
 20:                                               ; preds = %15, %12
@@ -72826,10 +72810,10 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12311, !noalias !12312
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12311, !noalias !12312
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12311, !noalias !12312
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !12311, !noalias !12312
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !12311, !noalias !12312
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12311, !noalias !12312
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !12315
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %21
@@ -72845,7 +72829,7 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !12323
+  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !12323
   br label %21
 
 20:                                               ; preds = %15, %12
@@ -72898,10 +72882,10 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12365, !noalias !12366
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12365, !noalias !12366
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12365, !noalias !12366
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !12365, !noalias !12366
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !12365, !noalias !12366
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12365, !noalias !12366
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !12369
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %17
@@ -72917,7 +72901,7 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !12377
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !12377
   br label %17
 
 16:                                               ; preds = %11, %8
@@ -72964,10 +72948,10 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12419, !noalias !12420
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12419, !noalias !12420
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12419, !noalias !12420
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !12419, !noalias !12420
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !12419, !noalias !12420
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12419, !noalias !12420
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !12423
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %17
@@ -72983,7 +72967,7 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !12431
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !12431
   br label %17
 
 16:                                               ; preds = %11, %8
@@ -73030,10 +73014,10 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12473, !noalias !12474
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12473, !noalias !12474
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12473, !noalias !12474
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !12473, !noalias !12474
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !12473, !noalias !12474
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12473, !noalias !12474
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !12477
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %17
@@ -73049,7 +73033,7 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !12485
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !12485
   br label %17
 
 16:                                               ; preds = %11, %8
@@ -73096,10 +73080,10 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12527, !noalias !12528
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12527, !noalias !12528
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12527, !noalias !12528
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !12527, !noalias !12528
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !12527, !noalias !12528
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12527, !noalias !12528
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !12531
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %17
@@ -73115,7 +73099,7 @@ define void @"_ZN5typst6layout3pad1_45_$LT$impl$u20$typst..layout..pad..PadElem$
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !12539
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !12539
   br label %17
 
 16:                                               ; preds = %11, %8
@@ -73479,10 +73463,10 @@ define void @"_ZN5typst6layout3pad1_93_$LT$impl$u20$typst..foundations..element.
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12612, !noalias !12613
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12612, !noalias !12613
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12612, !noalias !12613
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !12612, !noalias !12613
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !12612, !noalias !12613
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12612, !noalias !12613
   %15 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !12616
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %25
@@ -73498,7 +73482,7 @@ define void @"_ZN5typst6layout3pad1_93_$LT$impl$u20$typst..foundations..element.
   br i1 %22, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21), !noalias !12624
+  %24 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %21), !noalias !12624
   br label %25
 
 25:                                               ; preds = %23, %10
@@ -73546,10 +73530,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i28, align 8, !alias.scope !12653, !noalias !12654
   %.sroa.5.0..sroa_idx.i.i29 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i29, align 8, !alias.scope !12653, !noalias !12654
-  %.sroa.7.0..sroa_idx.i.i30 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i30, align 8, !alias.scope !12653, !noalias !12654
-  %.sroa.8.0..sroa_idx.i.i31 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i31, align 8, !alias.scope !12653, !noalias !12654
+  %.sroa.610.0..sroa_idx.i.i30 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i30, align 8, !alias.scope !12653, !noalias !12654
+  %.sroa.7.0..sroa_idx.i.i31 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i31, align 8, !alias.scope !12653, !noalias !12654
   %37 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !12657
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %47
@@ -73565,7 +73549,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   br i1 %44, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit35, label %45
 
 45:                                               ; preds = %42
-  %46 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i30, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43), !noalias !12665
+  %46 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i30, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43), !noalias !12665
   br label %47
 
 47:                                               ; preds = %45, %31
@@ -73613,10 +73597,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit35: ; pred
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i38, align 8, !alias.scope !12694, !noalias !12695
   %.sroa.5.0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i39, align 8, !alias.scope !12694, !noalias !12695
-  %.sroa.7.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i40, align 8, !alias.scope !12694, !noalias !12695
-  %.sroa.8.0..sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i41, align 8, !alias.scope !12694, !noalias !12695
+  %.sroa.610.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i40, align 8, !alias.scope !12694, !noalias !12695
+  %.sroa.7.0..sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i41, align 8, !alias.scope !12694, !noalias !12695
   %59 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !12698
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %69
@@ -73632,7 +73616,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit35: ; pred
   br i1 %66, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit45, label %67
 
 67:                                               ; preds = %64
-  %68 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i40, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %65), !noalias !12706
+  %68 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i40, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %65), !noalias !12706
   br label %69
 
 69:                                               ; preds = %67, %53
@@ -73680,10 +73664,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit45: ; pred
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i48, align 8, !alias.scope !12735, !noalias !12736
   %.sroa.5.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i49, align 8, !alias.scope !12735, !noalias !12736
-  %.sroa.7.0..sroa_idx.i.i50 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i50, align 8, !alias.scope !12735, !noalias !12736
-  %.sroa.8.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i51, align 8, !alias.scope !12735, !noalias !12736
+  %.sroa.610.0..sroa_idx.i.i50 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i50, align 8, !alias.scope !12735, !noalias !12736
+  %.sroa.7.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i51, align 8, !alias.scope !12735, !noalias !12736
   %81 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !12739
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %91
@@ -73699,7 +73683,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit45: ; pred
   br i1 %88, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit55, label %89
 
 89:                                               ; preds = %86
-  %90 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %87), !noalias !12747
+  %90 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %87), !noalias !12747
   br label %91
 
 91:                                               ; preds = %89, %75
@@ -73791,10 +73775,10 @@ define void @"_ZN5typst6layout3pad1_93_$LT$impl$u20$typst..foundations..element.
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12776, !noalias !12777
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12776, !noalias !12777
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12776, !noalias !12777
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !12776, !noalias !12777
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !12776, !noalias !12777
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12776, !noalias !12777
   %12 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !12780
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %22
@@ -73810,7 +73794,7 @@ define void @"_ZN5typst6layout3pad1_93_$LT$impl$u20$typst..foundations..element.
   br i1 %19, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !12788
+  %21 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !12788
   br label %22
 
 22:                                               ; preds = %20, %9
@@ -73853,10 +73837,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i11, align 8, !alias.scope !12817, !noalias !12818
   %.sroa.5.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i12, align 8, !alias.scope !12817, !noalias !12818
-  %.sroa.7.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i13, align 8, !alias.scope !12817, !noalias !12818
-  %.sroa.8.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i14, align 8, !alias.scope !12817, !noalias !12818
+  %.sroa.610.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i13, align 8, !alias.scope !12817, !noalias !12818
+  %.sroa.7.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i14, align 8, !alias.scope !12817, !noalias !12818
   %31 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !12821
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
@@ -73872,7 +73856,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   br i1 %38, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit18, label %39
 
 39:                                               ; preds = %36
-  %40 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37), !noalias !12829
+  %40 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37), !noalias !12829
   br label %41
 
 41:                                               ; preds = %39, %28
@@ -73915,10 +73899,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit18: ; pred
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i21, align 8, !alias.scope !12858, !noalias !12859
   %.sroa.5.0..sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i22, align 8, !alias.scope !12858, !noalias !12859
-  %.sroa.7.0..sroa_idx.i.i23 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i23, align 8, !alias.scope !12858, !noalias !12859
-  %.sroa.8.0..sroa_idx.i.i24 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i24, align 8, !alias.scope !12858, !noalias !12859
+  %.sroa.610.0..sroa_idx.i.i23 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i23, align 8, !alias.scope !12858, !noalias !12859
+  %.sroa.7.0..sroa_idx.i.i24 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i24, align 8, !alias.scope !12858, !noalias !12859
   %50 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !12862
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %60
@@ -73934,7 +73918,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit18: ; pred
   br i1 %57, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit28, label %58
 
 58:                                               ; preds = %55
-  %59 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i23, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %56), !noalias !12870
+  %59 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i23, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %56), !noalias !12870
   br label %60
 
 60:                                               ; preds = %58, %47
@@ -73977,10 +73961,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit28: ; pred
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i31, align 8, !alias.scope !12899, !noalias !12900
   %.sroa.5.0..sroa_idx.i.i32 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i32, align 8, !alias.scope !12899, !noalias !12900
-  %.sroa.7.0..sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i33, align 8, !alias.scope !12899, !noalias !12900
-  %.sroa.8.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i34, align 8, !alias.scope !12899, !noalias !12900
+  %.sroa.610.0..sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i33, align 8, !alias.scope !12899, !noalias !12900
+  %.sroa.7.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i34, align 8, !alias.scope !12899, !noalias !12900
   %69 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !12903
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %79
@@ -73996,7 +73980,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit28: ; pred
   br i1 %76, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit38, label %77
 
 77:                                               ; preds = %74
-  %78 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i33, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %75), !noalias !12911
+  %78 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i33, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %75), !noalias !12911
   br label %79
 
 79:                                               ; preds = %77, %66
@@ -74058,10 +74042,10 @@ define void @"_ZN5typst6layout3pad1_93_$LT$impl$u20$typst..foundations..element.
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !12940, !noalias !12941
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !12940, !noalias !12941
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12940, !noalias !12941
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !12940, !noalias !12941
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !12940, !noalias !12941
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !12940, !noalias !12941
   %12 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !12944
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %22
@@ -74077,7 +74061,7 @@ define void @"_ZN5typst6layout3pad1_93_$LT$impl$u20$typst..foundations..element.
   br i1 %19, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !12952
+  %21 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !12952
   br label %22
 
 22:                                               ; preds = %20, %8
@@ -74126,10 +74110,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i26, align 8, !alias.scope !12981, !noalias !12982
   %.sroa.5.0..sroa_idx.i.i27 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i27, align 8, !alias.scope !12981, !noalias !12982
-  %.sroa.7.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i28, align 8, !alias.scope !12981, !noalias !12982
-  %.sroa.8.0..sroa_idx.i.i29 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i29, align 8, !alias.scope !12981, !noalias !12982
+  %.sroa.610.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i28, align 8, !alias.scope !12981, !noalias !12982
+  %.sroa.7.0..sroa_idx.i.i29 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i29, align 8, !alias.scope !12981, !noalias !12982
   %35 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !12985
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %45
@@ -74145,7 +74129,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   br i1 %42, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit33, label %43
 
 43:                                               ; preds = %40
-  %44 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i28, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %41), !noalias !12993
+  %44 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i28, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %41), !noalias !12993
   br label %45
 
 45:                                               ; preds = %43, %31
@@ -74194,10 +74178,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit33: ; pred
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i36, align 8, !alias.scope !13022, !noalias !13023
   %.sroa.5.0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i37, align 8, !alias.scope !13022, !noalias !13023
-  %.sroa.7.0..sroa_idx.i.i38 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i38, align 8, !alias.scope !13022, !noalias !13023
-  %.sroa.8.0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i39, align 8, !alias.scope !13022, !noalias !13023
+  %.sroa.610.0..sroa_idx.i.i38 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i38, align 8, !alias.scope !13022, !noalias !13023
+  %.sroa.7.0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i39, align 8, !alias.scope !13022, !noalias !13023
   %58 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !13026
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %68
@@ -74213,7 +74197,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit33: ; pred
   br i1 %65, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit43, label %66
 
 66:                                               ; preds = %63
-  %67 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i38, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64), !noalias !13034
+  %67 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i38, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64), !noalias !13034
   br label %68
 
 68:                                               ; preds = %66, %54
@@ -74262,10 +74246,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit43: ; pred
   store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i46, align 8, !alias.scope !13063, !noalias !13064
   %.sroa.5.0..sroa_idx.i.i47 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i47, align 8, !alias.scope !13063, !noalias !13064
-  %.sroa.7.0..sroa_idx.i.i48 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i48, align 8, !alias.scope !13063, !noalias !13064
-  %.sroa.8.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i49, align 8, !alias.scope !13063, !noalias !13064
+  %.sroa.610.0..sroa_idx.i.i48 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout3pad1_100_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..pad..PadElem$GT$4data4DATA17hdcb072f85da4a7f9E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i48, align 8, !alias.scope !13063, !noalias !13064
+  %.sroa.7.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i49, align 8, !alias.scope !13063, !noalias !13064
   %81 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !13067
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %91
@@ -74281,7 +74265,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit43: ; pred
   br i1 %88, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit53, label %89
 
 89:                                               ; preds = %86
-  %90 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i48, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %87), !noalias !13075
+  %90 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i48, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %87), !noalias !13075
   br label %91
 
 91:                                               ; preds = %89, %77
@@ -77224,10 +77208,10 @@ define { i64, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..p
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !13716, !noalias !13717
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !13716, !noalias !13717
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13716, !noalias !13717
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !13716, !noalias !13717
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !13716, !noalias !13717
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13716, !noalias !13717
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h89c5f0cff1c8d858E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !13720
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %20
@@ -77243,7 +77227,7 @@ define { i64, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..p
   br i1 %17, label %27, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !13728
+  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !13728
   br label %20
 
 20:                                               ; preds = %18, %2
@@ -77305,10 +77289,10 @@ define { i64, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..p
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !13763, !noalias !13764
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !13763, !noalias !13764
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13763, !noalias !13764
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !13763, !noalias !13764
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !13763, !noalias !13764
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13763, !noalias !13764
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h89c5f0cff1c8d858E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !13767
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %20
@@ -77324,7 +77308,7 @@ define { i64, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..p
   br i1 %17, label %27, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !13775
+  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !13775
   br label %20
 
 20:                                               ; preds = %18, %2
@@ -77385,10 +77369,10 @@ define noundef zeroext i1 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !13809, !noalias !13810
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !13809, !noalias !13810
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13809, !noalias !13810
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !13809, !noalias !13810
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !13809, !noalias !13810
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13809, !noalias !13810
   %9 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !13813
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -77404,7 +77388,7 @@ define noundef zeroext i1 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17h4e0d60d9936b3406E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !13821
+  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !13821
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -77532,10 +77516,10 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst.
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !13882, !noalias !13883
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !13882, !noalias !13883
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13882, !noalias !13883
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !13882, !noalias !13883
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !13882, !noalias !13883
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13882, !noalias !13883
   %9 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hbbd5b848abe5f927E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !13886
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfd968804a3d154f6E.exit.i"
@@ -77551,7 +77535,7 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst.
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h44ccc5813c397f32E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !13894
+  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h44ccc5813c397f32E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !13894
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfd968804a3d154f6E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfd968804a3d154f6E.exit.i": ; preds = %17, %2
@@ -77588,10 +77572,10 @@ define noundef range(i64 1, 0) i64 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typs
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !13916, !noalias !13917
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !13916, !noalias !13917
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13916, !noalias !13917
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !13916, !noalias !13917
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !13916, !noalias !13917
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13916, !noalias !13917
   %9 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hffc77523e1b60f50E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !13920
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -77607,7 +77591,7 @@ define noundef range(i64 1, 0) i64 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typs
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17he6acbbf2b6a40137E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !13928
+  %18 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !13928
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -77645,10 +77629,10 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !13950, !noalias !13951
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !13950, !noalias !13951
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13950, !noalias !13951
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !13950, !noalias !13951
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !13950, !noalias !13951
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13950, !noalias !13951
   %9 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hc4b8738f37157bdeE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !13954
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN5typst11foundations6styles10StyleChain7get_ref17hbc4127d33542528fE.exit
@@ -77664,7 +77648,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h43a0bfa42a260761E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !13962
+  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h43a0bfa42a260761E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !13962
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17hbc4127d33542528fE.exit
 
 19:                                               ; preds = %14, %11
@@ -77701,10 +77685,10 @@ define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !13982, !noalias !13983
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 7, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !13982, !noalias !13983
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13982, !noalias !13983
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 7, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !13982, !noalias !13983
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !13982, !noalias !13983
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 7, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !13982, !noalias !13983
   %10 = call noundef align 8 dereferenceable_or_null(40) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h92b569d805774422E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !13986
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN5typst11foundations6styles10StyleChain7get_ref17h0285f9c816c8f417E.exit
@@ -77720,7 +77704,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN5typst6layout4page1_
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(40) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h57d94bfd98858591E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !13994
+  %19 = call noundef align 8 dereferenceable(40) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h57d94bfd98858591E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !13994
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17h0285f9c816c8f417E.exit
 
 20:                                               ; preds = %15, %12
@@ -77756,10 +77740,10 @@ define i16 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..page..PageEle
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14014, !noalias !14015
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 8, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14014, !noalias !14015
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14014, !noalias !14015
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 8, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14014, !noalias !14015
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14014, !noalias !14015
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 8, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14014, !noalias !14015
   %9 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hcd71fb7253e02f8eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !14018
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -77775,7 +77759,7 @@ define i16 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..page..PageEle
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17h043dcacdc5baed82E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8af52da78c8741b9E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !14026
+  %18 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8af52da78c8741b9E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !14026
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -77815,10 +77799,10 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14043, !noalias !14044
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 9, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14043, !noalias !14044
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14043, !noalias !14044
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 9, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14043, !noalias !14044
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14043, !noalias !14044
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 9, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14043, !noalias !14044
   %8 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !14047
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %_ZN5typst11foundations6styles10StyleChain7get_ref17hb50daac6318bf92bE.exit
@@ -77834,7 +77818,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !14055
+  %17 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !14055
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17hb50daac6318bf92bE.exit
 
 18:                                               ; preds = %13, %10
@@ -77872,10 +77856,10 @@ define { double, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14076, !noalias !14077
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 10, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14076, !noalias !14077
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14076, !noalias !14077
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 10, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14076, !noalias !14077
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14076, !noalias !14077
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 10, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14076, !noalias !14077
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !14080
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %20
@@ -77891,7 +77875,7 @@ define { double, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   br i1 %17, label %_ZN5typst11foundations6styles10StyleChain3get17h568ab4f1e2729043E.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !14088
+  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !14088
   br label %20
 
 20:                                               ; preds = %18, %2
@@ -77941,10 +77925,10 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14116, !noalias !14117
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 11, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14116, !noalias !14117
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14116, !noalias !14117
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 11, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14116, !noalias !14117
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14116, !noalias !14117
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 11, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14116, !noalias !14117
   %9 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !14120
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN5typst11foundations6styles10StyleChain7get_ref17h9634eac0d4076347E.exit
@@ -77960,7 +77944,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !14128
+  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !14128
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17h9634eac0d4076347E.exit
 
 19:                                               ; preds = %14, %11
@@ -77998,10 +77982,10 @@ define { double, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14149, !noalias !14150
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 12, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14149, !noalias !14150
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14149, !noalias !14150
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 12, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14149, !noalias !14150
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14149, !noalias !14150
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 12, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14149, !noalias !14150
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !14153
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %20
@@ -78017,7 +78001,7 @@ define { double, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   br i1 %17, label %_ZN5typst11foundations6styles10StyleChain3get17h690eea5bf1ebbd70E.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !14161
+  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !14161
   br label %20
 
 20:                                               ; preds = %18, %2
@@ -78067,10 +78051,10 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14189, !noalias !14190
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 13, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14189, !noalias !14190
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14189, !noalias !14190
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 13, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14189, !noalias !14190
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14189, !noalias !14190
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 13, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14189, !noalias !14190
   %9 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !14193
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN5typst11foundations6styles10StyleChain7get_ref17h059536ba0b97d686E.exit
@@ -78086,7 +78070,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !14201
+  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !14201
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17h059536ba0b97d686E.exit
 
 19:                                               ; preds = %14, %11
@@ -78123,10 +78107,10 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14221, !noalias !14222
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 14, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14221, !noalias !14222
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14221, !noalias !14222
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 14, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14221, !noalias !14222
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14221, !noalias !14222
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 14, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14221, !noalias !14222
   %9 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !14225
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %_ZN5typst11foundations6styles10StyleChain7get_ref17h73c4dc781859b01bE.exit
@@ -78142,7 +78126,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !14233
+  %18 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !14233
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17h73c4dc781859b01bE.exit
 
 19:                                               ; preds = %14, %11
@@ -78190,10 +78174,10 @@ define { i64, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..p
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14254, !noalias !14255
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14254, !noalias !14255
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14254, !noalias !14255
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14254, !noalias !14255
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14254, !noalias !14255
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14254, !noalias !14255
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h89c5f0cff1c8d858E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !14258
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %16
@@ -78209,7 +78193,7 @@ define { i64, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..p
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !14266
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !14266
   br label %16
 
 16:                                               ; preds = %14, %1
@@ -78267,10 +78251,10 @@ define { i64, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..p
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14301, !noalias !14302
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14301, !noalias !14302
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14301, !noalias !14302
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14301, !noalias !14302
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14301, !noalias !14302
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14301, !noalias !14302
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h89c5f0cff1c8d858E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !14305
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %16
@@ -78286,7 +78270,7 @@ define { i64, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..p
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !14313
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !14313
   br label %16
 
 16:                                               ; preds = %14, %1
@@ -78343,10 +78327,10 @@ define noundef zeroext i1 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14347, !noalias !14348
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14347, !noalias !14348
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14347, !noalias !14348
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14347, !noalias !14348
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14347, !noalias !14348
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14347, !noalias !14348
   %5 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14351
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -78362,7 +78346,7 @@ define noundef zeroext i1 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17hfe4ad91b682bb207E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14359
+  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14359
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -78482,10 +78466,10 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst.
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14420, !noalias !14421
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14420, !noalias !14421
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14420, !noalias !14421
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14420, !noalias !14421
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14420, !noalias !14421
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14420, !noalias !14421
   %5 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hbbd5b848abe5f927E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14424
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfd968804a3d154f6E.exit.i"
@@ -78501,7 +78485,7 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst.
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h44ccc5813c397f32E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14432
+  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h44ccc5813c397f32E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14432
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfd968804a3d154f6E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfd968804a3d154f6E.exit.i": ; preds = %13, %1
@@ -78534,10 +78518,10 @@ define noundef range(i64 1, 0) i64 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typs
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14454, !noalias !14455
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14454, !noalias !14455
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14454, !noalias !14455
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14454, !noalias !14455
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14454, !noalias !14455
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14454, !noalias !14455
   %5 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hffc77523e1b60f50E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14458
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -78553,7 +78537,7 @@ define noundef range(i64 1, 0) i64 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typs
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h1047a90e35e0d7f3E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14466
+  %14 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14466
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -78587,10 +78571,10 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14488, !noalias !14489
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14488, !noalias !14489
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14488, !noalias !14489
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14488, !noalias !14489
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14488, !noalias !14489
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14488, !noalias !14489
   %5 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hc4b8738f37157bdeE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14492
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %_ZN5typst11foundations6styles10StyleChain7get_ref17hbc5a2c6aa5eaba6dE.exit
@@ -78606,7 +78590,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h43a0bfa42a260761E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14500
+  %14 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h43a0bfa42a260761E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14500
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17hbc5a2c6aa5eaba6dE.exit
 
 15:                                               ; preds = %10, %7
@@ -78638,10 +78622,10 @@ define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14520, !noalias !14521
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 7, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14520, !noalias !14521
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14520, !noalias !14521
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 7, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14520, !noalias !14521
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14520, !noalias !14521
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 7, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14520, !noalias !14521
   %5 = call noundef align 8 dereferenceable_or_null(40) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h92b569d805774422E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14524
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %_ZN5typst11foundations6styles10StyleChain7get_ref17h817fa1e3cc3918d2E.exit
@@ -78657,7 +78641,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN5typst6layout4page1_
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(40) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h57d94bfd98858591E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14532
+  %14 = call noundef align 8 dereferenceable(40) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h57d94bfd98858591E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14532
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17h817fa1e3cc3918d2E.exit
 
 15:                                               ; preds = %10, %7
@@ -78689,10 +78673,10 @@ define i16 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..page..PageEle
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14552, !noalias !14553
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 8, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14552, !noalias !14553
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14552, !noalias !14553
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 8, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14552, !noalias !14553
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14552, !noalias !14553
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 8, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14552, !noalias !14553
   %5 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hcd71fb7253e02f8eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14556
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -78708,7 +78692,7 @@ define i16 @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout..page..PageEle
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h6be6ad70a5973bebE.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8af52da78c8741b9E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14564
+  %14 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8af52da78c8741b9E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14564
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -78744,10 +78728,10 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14581, !noalias !14582
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 9, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14581, !noalias !14582
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14581, !noalias !14582
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 9, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14581, !noalias !14582
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14581, !noalias !14582
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 9, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14581, !noalias !14582
   %5 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14585
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %_ZN5typst11foundations6styles10StyleChain7get_ref17hd02506dfe45d5105E.exit
@@ -78763,7 +78747,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14593
+  %14 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14593
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17hd02506dfe45d5105E.exit
 
 15:                                               ; preds = %10, %7
@@ -78796,10 +78780,10 @@ define { double, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14614, !noalias !14615
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 10, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14614, !noalias !14615
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14614, !noalias !14615
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 10, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14614, !noalias !14615
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14614, !noalias !14615
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 10, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14614, !noalias !14615
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14618
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %16
@@ -78815,7 +78799,7 @@ define { double, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   br i1 %13, label %_ZN5typst11foundations6styles10StyleChain3get17h76c73886c5676290E.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !14626
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !14626
   br label %16
 
 16:                                               ; preds = %14, %1
@@ -78860,10 +78844,10 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14654, !noalias !14655
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 11, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14654, !noalias !14655
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14654, !noalias !14655
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 11, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14654, !noalias !14655
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14654, !noalias !14655
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 11, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14654, !noalias !14655
   %5 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14658
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %_ZN5typst11foundations6styles10StyleChain7get_ref17h3dab6d81be968ea0E.exit
@@ -78879,7 +78863,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14666
+  %14 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14666
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17h3dab6d81be968ea0E.exit
 
 15:                                               ; preds = %10, %7
@@ -78912,10 +78896,10 @@ define { double, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14687, !noalias !14688
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 12, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14687, !noalias !14688
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14687, !noalias !14688
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 12, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14687, !noalias !14688
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14687, !noalias !14688
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 12, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14687, !noalias !14688
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14691
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %16
@@ -78931,7 +78915,7 @@ define { double, double } @"_ZN5typst6layout4page1_47_$LT$impl$u20$typst..layout
   br i1 %13, label %_ZN5typst11foundations6styles10StyleChain3get17h131eaaeb8d080c46E.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !14699
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !14699
   br label %16
 
 16:                                               ; preds = %14, %1
@@ -78976,10 +78960,10 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14727, !noalias !14728
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 13, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14727, !noalias !14728
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14727, !noalias !14728
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 13, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14727, !noalias !14728
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14727, !noalias !14728
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 13, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14727, !noalias !14728
   %5 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14731
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %_ZN5typst11foundations6styles10StyleChain7get_ref17he2088e4225f52860E.exit
@@ -78995,7 +78979,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14739
+  %14 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14739
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17he2088e4225f52860E.exit
 
 15:                                               ; preds = %10, %7
@@ -79027,10 +79011,10 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !14759, !noalias !14760
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 14, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !14759, !noalias !14760
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14759, !noalias !14760
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 14, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !14759, !noalias !14760
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !14759, !noalias !14760
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 14, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !14759, !noalias !14760
   %5 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !14763
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %_ZN5typst11foundations6styles10StyleChain7get_ref17hb4814653a441af65E.exit
@@ -79046,7 +79030,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout4page1_
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14771
+  %14 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !14771
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17hb4814653a441af65E.exit
 
 15:                                               ; preds = %10, %7
@@ -79734,16 +79718,8 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   %4 = alloca { { ptr, i64, {} }, { { { [2 x i64] } } }, i8, [7 x i8] }, align 8
   %5 = alloca { [32 x i8], i8, [7 x i8] }, align 8
   %6 = alloca { { { { i64, [3 x i64] }, { i64, [3 x i64] }, { i64, [3 x i64] }, { i64, [3 x i64] } }, i8, [7 x i8] } }, align 8
-  %.sroa.4305 = alloca [7 x i8], align 1
-  %.sroa.4292 = alloca [7 x i8], align 1
-  %.sroa.4274 = alloca [7 x i8], align 1
-  %.sroa.4256 = alloca [7 x i8], align 1
   %7 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.4231 = alloca [3 x i8], align 1
-  %.sroa.4220 = alloca [7 x i8], align 1
   %8 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.4207 = alloca [7 x i8], align 1
-  %.sroa.4 = alloca [7 x i8], align 1
   %.sroa.027 = alloca [32 x i8], align 8
   %.sroa.630 = alloca [7 x i8], align 1
   switch i8 %2, label %9 [
@@ -79812,12 +79788,8 @@ default.unreachable470:                           ; preds = %139, %131, %101, %1
   %27 = load i8, ptr %26, align 1, !range !2008, !noundef !16
   switch i8 %27, label %87 [
     i8 3, label %86
-    i8 2, label %.thread380
+    i8 2, label %_ZN4core3ops8function6FnOnce9call_once17hbd392c0490bdf126E.exit
   ]
-
-.thread380:                                       ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4220)
-  br label %_ZN4core3ops8function6FnOnce9call_once17hbd392c0490bdf126E.exit
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 464
@@ -79922,15 +79894,11 @@ _ZN4core3ops8function6FnOnce9call_once17h65bdd6423ebfdf6dE.exit: ; preds = %11, 
   %.sroa.6.sroa.0.0.ph356 = phi double [ %72, %70 ], [ undef, %11 ]
   %.sroa.6.sroa.4.0.ph354 = phi double [ %74, %70 ], [ undef, %11 ]
   %storemerge.i.i = phi i8 [ 5, %70 ], [ 1, %11 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4)
   store i8 %storemerge.i.i, ptr %0, align 8
-  %.sroa.4.0..sroa_idx200 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx200, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4, i64 7, i1 false)
   %.sroa.4201.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.sroa.0.0.ph356, ptr %.sroa.4201.0..sroa_idx, align 8
   %.sroa.5202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sroa.6.sroa.4.0.ph354, ptr %.sroa.5202.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4)
   br label %75
 
 75:                                               ; preds = %.thread414, %_ZN4core3ops8function6FnOnce9call_once17hdac4039044964cc7E.exit, %84, %85, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07b96ddc28efeb81E.exit189", %_ZN4core3ops8function6FnOnce9call_once17h3d8a805ffd23fa14E.exit194, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07b96ddc28efeb81E.exit179", %_ZN4core3ops8function6FnOnce9call_once17h3d8a805ffd23fa14E.exit184, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07b96ddc28efeb81E.exit169", %_ZN4core3ops8function6FnOnce9call_once17h3d8a805ffd23fa14E.exit174, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h07b96ddc28efeb81E.exit", %_ZN4core3ops8function6FnOnce9call_once17h3d8a805ffd23fa14E.exit, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h215f8031a8b822c8E.exit", %_ZN4core3ops8function6FnOnce9call_once17hdd962caf351522afE.exit, %185, %186, %164, %165, %.thread419, %_ZN4core3ops8function6FnOnce9call_once17hef073df7ebfd50cdE.exit, %96, %97, %86, %_ZN4core3ops8function6FnOnce9call_once17hbd392c0490bdf126E.exit, %82, %83, %76, %_ZN4core3ops8function6FnOnce9call_once17h65bdd6423ebfdf6dE.exit147, %69, %_ZN4core3ops8function6FnOnce9call_once17h65bdd6423ebfdf6dE.exit, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c32926eb311b31fE.exit", %10, %9
@@ -79951,15 +79919,11 @@ _ZN4core3ops8function6FnOnce9call_once17h65bdd6423ebfdf6dE.exit147: ; preds = %1
   %.sroa.611.sroa.0.0.ph372 = phi double [ %79, %77 ], [ undef, %14 ]
   %.sroa.611.sroa.4.0.ph370 = phi double [ %81, %77 ], [ undef, %14 ]
   %storemerge.i.i142 = phi i8 [ 5, %77 ], [ 1, %14 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4207)
   store i8 %storemerge.i.i142, ptr %0, align 8
-  %.sroa.4207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4207.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4207, i64 7, i1 false)
   %.sroa.4208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.611.sroa.0.0.ph372, ptr %.sroa.4208.0..sroa_idx, align 8
   %.sroa.5209.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sroa.611.sroa.4.0.ph370, ptr %.sroa.5209.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4207)
   br label %75
 
 82:                                               ; preds = %17
@@ -79994,7 +79958,6 @@ _ZN4core3ops8function6FnOnce9call_once17h65bdd6423ebfdf6dE.exit147: ; preds = %1
   br label %75
 
 87:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4220)
   %88 = trunc nuw i8 %27 to i1
   %89 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h996700ad2487d67cE.llvm.2456044669961016091(ptr noalias noundef nonnull readonly align 1 @anon.17bb7092bb43bb22a4c4760daf7f42f8.128.llvm.2456044669961016091, i64 noundef 8, i64 noundef 24, i1 noundef zeroext false), !noalias !14871
   %90 = extractvalue { ptr, i64 } %89, 0
@@ -80024,17 +79987,14 @@ _ZN4core3ops8function6FnOnce9call_once17h65bdd6423ebfdf6dE.exit147: ; preds = %1
   store i16 %.sink6.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i3.i.i.i, align 8, !noalias !14871
   br label %_ZN4core3ops8function6FnOnce9call_once17hbd392c0490bdf126E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17hbd392c0490bdf126E.exit: ; preds = %.thread380, %"_ZN84_$LT$typst..layout..page..Binding$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h5ba09c68678596d3E.exit.i.i"
-  %.sroa.4221.0 = phi ptr [ %90, %"_ZN84_$LT$typst..layout..page..Binding$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h5ba09c68678596d3E.exit.i.i" ], [ undef, %.thread380 ]
-  %storemerge.i.i148 = phi i8 [ 29, %"_ZN84_$LT$typst..layout..page..Binding$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h5ba09c68678596d3E.exit.i.i" ], [ 1, %.thread380 ]
+_ZN4core3ops8function6FnOnce9call_once17hbd392c0490bdf126E.exit: ; preds = %25, %"_ZN84_$LT$typst..layout..page..Binding$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h5ba09c68678596d3E.exit.i.i"
+  %.sroa.4221.0 = phi ptr [ %90, %"_ZN84_$LT$typst..layout..page..Binding$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h5ba09c68678596d3E.exit.i.i" ], [ undef, %25 ]
+  %storemerge.i.i148 = phi i8 [ 29, %"_ZN84_$LT$typst..layout..page..Binding$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h5ba09c68678596d3E.exit.i.i" ], [ 1, %25 ]
   store i8 %storemerge.i.i148, ptr %0, align 8
-  %.sroa.4220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4220.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4220, i64 7, i1 false)
   %.sroa.4221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4221.0, ptr %.sroa.4221.0..sroa_idx, align 8
   %.sroa.5222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @anon.17bb7092bb43bb22a4c4760daf7f42f8.1175.llvm.2456044669961016091, ptr %.sroa.5222.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4220)
   br label %75
 
 96:                                               ; preds = %28
@@ -80128,20 +80088,16 @@ default.unreachable3.i.i:                         ; preds = %100
 
 _ZN4core3ops8function6FnOnce9call_once17hdd962caf351522afE.exit: ; preds = %110, %108, %106, %98, %117, %119
   %.sroa.8234.0 = phi ptr [ %.sroa.9.4.copyload.i, %117 ], [ undef, %119 ], [ undef, %98 ], [ %.val1.i.i, %106 ], [ %.val1.i.i, %108 ], [ %.val1.i.i, %110 ]
-  %.sroa.5233.0 = phi i64 [ %.sroa.7.4.copyload.i, %117 ], [ %120, %119 ], [ undef, %98 ], [ %.val.i.i, %106 ], [ %.val.i.i, %108 ], [ %.val.i.i, %110 ]
+  %.sroa.5233.0 = phi i64 [ %.sroa.7.4.copyload.i, %117 ], [ %120, %119 ], [ undef, %98 ], [ 0, %106 ], [ 1, %108 ], [ 2, %110 ]
   %.sroa.4232.0 = phi i32 [ %.sroa.6.4.copyload.i, %117 ], [ undef, %119 ], [ undef, %98 ], [ undef, %106 ], [ undef, %108 ], [ undef, %110 ]
   %storemerge.i.i154 = phi i8 [ 10, %117 ], [ 12, %119 ], [ 0, %98 ], [ 11, %106 ], [ 11, %108 ], [ 11, %110 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4231)
   store i8 %storemerge.i.i154, ptr %0, align 8
-  %.sroa.4231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4231.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4231, i64 3, i1 false)
   %.sroa.4232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4232.0, ptr %.sroa.4232.0..sroa_idx, align 4
   %.sroa.5233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5233.0, ptr %.sroa.5233.0..sroa_idx, align 8
   %.sroa.8234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.8234.0, ptr %.sroa.8234.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4231)
   br label %75
 
 121:                                              ; preds = %36
@@ -80312,17 +80268,13 @@ _ZN4core3ops8function6FnOnce9call_once17h3d8a805ffd23fa14E.exit: ; preds = %151,
   %.sroa.5.sroa.5.0.ph433 = phi i64 [ %163, %160 ], [ undef, %151 ]
   %.sroa.5258.sroa.0.0 = phi ptr [ %.val1.i.i160, %160 ], [ undef, %151 ]
   %storemerge.i.i164 = phi i8 [ 20, %160 ], [ 0, %151 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4256)
   store i8 %storemerge.i.i164, ptr %0, align 8
-  %.sroa.4256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4256.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4256, i64 7, i1 false)
   %.sroa.4257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %153, ptr %.sroa.4257.0..sroa_idx, align 8
   %.sroa.5258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5258.sroa.0.0, ptr %.sroa.5258.0..sroa_idx, align 8
   %.sroa.5258.sroa.4.0..sroa.5258.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.5.sroa.5.0.ph433, ptr %.sroa.5258.sroa.4.0..sroa.5258.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4256)
   br label %75
 
 164:                                              ; preds = %45
@@ -80379,17 +80331,13 @@ _ZN4core3ops8function6FnOnce9call_once17h3d8a805ffd23fa14E.exit174: ; preds = %1
   %.sroa.541.sroa.5.0.ph445 = phi i64 [ %184, %181 ], [ undef, %172 ]
   %.sroa.5276.sroa.0.0 = phi ptr [ %.val1.i.i165, %181 ], [ undef, %172 ]
   %storemerge.i.i173 = phi i8 [ 20, %181 ], [ 0, %172 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4274)
   store i8 %storemerge.i.i173, ptr %0, align 8
-  %.sroa.4274.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4274.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4274, i64 7, i1 false)
   %.sroa.4275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %174, ptr %.sroa.4275.0..sroa_idx, align 8
   %.sroa.5276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5276.sroa.0.0, ptr %.sroa.5276.0..sroa_idx, align 8
   %.sroa.5276.sroa.4.0..sroa.5276.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.541.sroa.5.0.ph445, ptr %.sroa.5276.sroa.4.0..sroa.5276.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4274)
   br label %75
 
 185:                                              ; preds = %51
@@ -80446,17 +80394,13 @@ _ZN4core3ops8function6FnOnce9call_once17h3d8a805ffd23fa14E.exit184: ; preds = %1
   %.sroa.545.sroa.5.0.ph457 = phi i64 [ %205, %202 ], [ undef, %193 ]
   %.sroa.5294.sroa.0.0 = phi ptr [ %.val1.i.i175, %202 ], [ undef, %193 ]
   %storemerge.i.i183 = phi i8 [ 20, %202 ], [ 0, %193 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4292)
   store i8 %storemerge.i.i183, ptr %0, align 8
-  %.sroa.4292.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4292.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4292, i64 7, i1 false)
   %.sroa.4293.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %195, ptr %.sroa.4293.0..sroa_idx, align 8
   %.sroa.5294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5294.sroa.0.0, ptr %.sroa.5294.0..sroa_idx, align 8
   %.sroa.5294.sroa.4.0..sroa.5294.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.545.sroa.5.0.ph457, ptr %.sroa.5294.sroa.4.0..sroa.5294.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4292)
   br label %75
 
 206:                                              ; preds = %57
@@ -80493,17 +80437,13 @@ _ZN4core3ops8function6FnOnce9call_once17h3d8a805ffd23fa14E.exit194: ; preds = %2
   %.sroa.547.sroa.5.0.ph469 = phi i64 [ %218, %215 ], [ undef, %206 ]
   %.sroa.5307.sroa.0.0 = phi ptr [ %.val1.i.i185, %215 ], [ undef, %206 ]
   %storemerge.i.i193 = phi i8 [ 20, %215 ], [ 0, %206 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4305)
   store i8 %storemerge.i.i193, ptr %0, align 8
-  %.sroa.4305.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4305.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4305, i64 7, i1 false)
   %.sroa.4306.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %208, ptr %.sroa.4306.0..sroa_idx, align 8
   %.sroa.5307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5307.sroa.0.0, ptr %.sroa.5307.0..sroa_idx, align 8
   %.sroa.5307.sroa.4.0..sroa.5307.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.547.sroa.5.0.ph469, ptr %.sroa.5307.sroa.4.0..sroa.5307.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4305)
   br label %75
 }
 
@@ -80583,10 +80523,10 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !15005, !noalias !15006
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !15005, !noalias !15006
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !15005, !noalias !15006
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !15005, !noalias !15006
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !15005, !noalias !15006
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !15005, !noalias !15006
   %37 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h89c5f0cff1c8d858E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %24), !noalias !15009
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %47
@@ -80602,7 +80542,7 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   br i1 %44, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hb0debea6170a1c67E.exit", label %45
 
 45:                                               ; preds = %42
-  %46 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43), !noalias !15017
+  %46 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43), !noalias !15017
   br label %47
 
 47:                                               ; preds = %45, %31
@@ -80651,10 +80591,10 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i67, align 8, !alias.scope !15046, !noalias !15047
   %.sroa.5.0..sroa_idx.i.i68 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i68, align 8, !alias.scope !15046, !noalias !15047
-  %.sroa.7.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i69, align 8, !alias.scope !15046, !noalias !15047
-  %.sroa.8.0..sroa_idx.i.i70 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i70, align 8, !alias.scope !15046, !noalias !15047
+  %.sroa.610.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %23, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i69, align 8, !alias.scope !15046, !noalias !15047
+  %.sroa.7.0..sroa_idx.i.i70 = getelementptr inbounds nuw i8, ptr %23, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i70, align 8, !alias.scope !15046, !noalias !15047
   %60 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h89c5f0cff1c8d858E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %23), !noalias !15050
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %70
@@ -80670,7 +80610,7 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   br i1 %67, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hb0debea6170a1c67E.exit80", label %68
 
 68:                                               ; preds = %65
-  %69 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %66), !noalias !15058
+  %69 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i69, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %66), !noalias !15058
   br label %70
 
 70:                                               ; preds = %68, %54
@@ -80719,10 +80659,10 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i83, align 8, !alias.scope !15086, !noalias !15087
   %.sroa.5.0..sroa_idx.i.i84 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i84, align 8, !alias.scope !15086, !noalias !15087
-  %.sroa.7.0..sroa_idx.i.i85 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i85, align 8, !alias.scope !15086, !noalias !15087
-  %.sroa.8.0..sroa_idx.i.i86 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i86, align 8, !alias.scope !15086, !noalias !15087
+  %.sroa.610.0..sroa_idx.i.i85 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i85, align 8, !alias.scope !15086, !noalias !15087
+  %.sroa.7.0..sroa_idx.i.i86 = getelementptr inbounds nuw i8, ptr %22, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i86, align 8, !alias.scope !15086, !noalias !15087
   %83 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %22), !noalias !15090
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %93
@@ -80738,7 +80678,7 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   br i1 %90, label %_ZN5typst11foundations6styles10StyleChain3get17h17e063ac1f6e7b0cE.exit, label %91
 
 91:                                               ; preds = %88
-  %92 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i85, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %89), !noalias !15098
+  %92 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i85, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %89), !noalias !15098
   br label %93
 
 93:                                               ; preds = %91, %77
@@ -80863,10 +80803,10 @@ _ZN5typst11foundations6styles10StyleChain10get_folded17hca8a924f9e3967a4E.exit: 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i92, align 8, !alias.scope !15159, !noalias !15160
   %.sroa.5.0..sroa_idx.i.i93 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i93, align 8, !alias.scope !15159, !noalias !15160
-  %.sroa.7.0..sroa_idx.i.i94 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i94, align 8, !alias.scope !15159, !noalias !15160
-  %.sroa.8.0..sroa_idx.i.i95 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i95, align 8, !alias.scope !15159, !noalias !15160
+  %.sroa.610.0..sroa_idx.i.i94 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i94, align 8, !alias.scope !15159, !noalias !15160
+  %.sroa.7.0..sroa_idx.i.i95 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i95, align 8, !alias.scope !15159, !noalias !15160
   %112 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hbbd5b848abe5f927E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %17), !noalias !15163
   %113 = icmp eq ptr %112, null
   br i1 %113, label %114, label %_ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit
@@ -80882,7 +80822,7 @@ _ZN5typst11foundations6styles10StyleChain10get_folded17hca8a924f9e3967a4E.exit: 
   br i1 %119, label %_ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit.thread, label %120
 
 120:                                              ; preds = %117
-  %121 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h44ccc5813c397f32E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i94, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %118), !noalias !15171
+  %121 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h44ccc5813c397f32E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i94, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %118), !noalias !15171
   br label %_ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit
 
 _ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit.thread: ; preds = %114, %117
@@ -80957,10 +80897,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i100, align 8, !alias.scope !15208, !noalias !15209
   %.sroa.5.0..sroa_idx.i.i101 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i101, align 8, !alias.scope !15208, !noalias !15209
-  %.sroa.7.0..sroa_idx.i.i102 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i102, align 8, !alias.scope !15208, !noalias !15209
-  %.sroa.8.0..sroa_idx.i.i103 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i103, align 8, !alias.scope !15208, !noalias !15209
+  %.sroa.610.0..sroa_idx.i.i102 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i102, align 8, !alias.scope !15208, !noalias !15209
+  %.sroa.7.0..sroa_idx.i.i103 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i103, align 8, !alias.scope !15208, !noalias !15209
   %139 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hffc77523e1b60f50E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %16), !noalias !15212
   %140 = icmp eq ptr %139, null
   br i1 %140, label %141, label %149
@@ -80976,7 +80916,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit: ; preds 
   br i1 %146, label %_ZN5typst11foundations6styles10StyleChain3get17hd6e8c6fa04deb6f3E.exit, label %147
 
 147:                                              ; preds = %144
-  %148 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i102, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %145), !noalias !15220
+  %148 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i102, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %145), !noalias !15220
   br label %149
 
 149:                                              ; preds = %147, %133
@@ -81014,10 +80954,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hd6e8c6fa04deb6f3E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i108, align 8, !alias.scope !15243, !noalias !15244
   %.sroa.5.0..sroa_idx.i.i109 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i109, align 8, !alias.scope !15243, !noalias !15244
-  %.sroa.7.0..sroa_idx.i.i110 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i110, align 8, !alias.scope !15243, !noalias !15244
-  %.sroa.8.0..sroa_idx.i.i111 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i111, align 8, !alias.scope !15243, !noalias !15244
+  %.sroa.610.0..sroa_idx.i.i110 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i110, align 8, !alias.scope !15243, !noalias !15244
+  %.sroa.7.0..sroa_idx.i.i111 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i111, align 8, !alias.scope !15243, !noalias !15244
   %157 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hc4b8738f37157bdeE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %15), !noalias !15247
   %158 = icmp eq ptr %157, null
   br i1 %158, label %159, label %167
@@ -81033,7 +80973,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hd6e8c6fa04deb6f3E.exit: ; preds 
   br i1 %164, label %_ZN5typst11foundations6styles10StyleChain3get17h08e11b7d821999baE.exit.thread, label %165
 
 165:                                              ; preds = %162
-  %166 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h43a0bfa42a260761E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i110, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %163), !noalias !15255
+  %166 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h43a0bfa42a260761E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i110, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %163), !noalias !15255
   br label %167
 
 167:                                              ; preds = %165, %151
@@ -81170,10 +81110,10 @@ default.unreachable1.i.i:                         ; preds = %_ZN5typst11foundati
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i119, align 8, !alias.scope !15302, !noalias !15303
   %.sroa.5.0..sroa_idx.i.i120 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i8 8, ptr %.sroa.5.0..sroa_idx.i.i120, align 8, !alias.scope !15302, !noalias !15303
-  %.sroa.7.0..sroa_idx.i.i121 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i121, align 8, !alias.scope !15302, !noalias !15303
-  %.sroa.8.0..sroa_idx.i.i122 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store i8 8, ptr %.sroa.8.0..sroa_idx.i.i122, align 8, !alias.scope !15302, !noalias !15303
+  %.sroa.610.0..sroa_idx.i.i121 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i121, align 8, !alias.scope !15302, !noalias !15303
+  %.sroa.7.0..sroa_idx.i.i122 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  store i8 8, ptr %.sroa.7.0..sroa_idx.i.i122, align 8, !alias.scope !15302, !noalias !15303
   %193 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hcd71fb7253e02f8eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %12), !noalias !15306
   %194 = icmp eq ptr %193, null
   br i1 %194, label %195, label %203
@@ -81189,7 +81129,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN5typst11foundati
   br i1 %200, label %_ZN5typst11foundations6styles10StyleChain3get17hf9080f6d4e5df418E.exit, label %201
 
 201:                                              ; preds = %198
-  %202 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8af52da78c8741b9E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i121, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %199), !noalias !15314
+  %202 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8af52da78c8741b9E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i121, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %199), !noalias !15314
   br label %203
 
 203:                                              ; preds = %201, %187
@@ -81274,10 +81214,10 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i129, align 8, !alias.scope !15338, !noalias !15339
   %.sroa.5.0..sroa_idx.i.i130 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i8 9, ptr %.sroa.5.0..sroa_idx.i.i130, align 8, !alias.scope !15338, !noalias !15339
-  %.sroa.7.0..sroa_idx.i.i131 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i131, align 8, !alias.scope !15338, !noalias !15339
-  %.sroa.8.0..sroa_idx.i.i132 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store i8 9, ptr %.sroa.8.0..sroa_idx.i.i132, align 8, !alias.scope !15338, !noalias !15339
+  %.sroa.610.0..sroa_idx.i.i131 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i131, align 8, !alias.scope !15338, !noalias !15339
+  %.sroa.7.0..sroa_idx.i.i132 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  store i8 9, ptr %.sroa.7.0..sroa_idx.i.i132, align 8, !alias.scope !15338, !noalias !15339
   %222 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %11), !noalias !15342
   %223 = icmp eq ptr %222, null
   br i1 %223, label %224, label %232
@@ -81293,7 +81233,7 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   br i1 %229, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit.thread, label %230
 
 230:                                              ; preds = %227
-  %231 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i131, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %228), !noalias !15350
+  %231 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i131, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %228), !noalias !15350
   br label %232
 
 232:                                              ; preds = %230, %217
@@ -81355,10 +81295,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i139, align 8, !alias.scope !15381, !noalias !15382
   %.sroa.5.0..sroa_idx.i.i140 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i8 10, ptr %.sroa.5.0..sroa_idx.i.i140, align 8, !alias.scope !15381, !noalias !15382
-  %.sroa.7.0..sroa_idx.i.i141 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i141, align 8, !alias.scope !15381, !noalias !15382
-  %.sroa.8.0..sroa_idx.i.i142 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i8 10, ptr %.sroa.8.0..sroa_idx.i.i142, align 8, !alias.scope !15381, !noalias !15382
+  %.sroa.610.0..sroa_idx.i.i141 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i141, align 8, !alias.scope !15381, !noalias !15382
+  %.sroa.7.0..sroa_idx.i.i142 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  store i8 10, ptr %.sroa.7.0..sroa_idx.i.i142, align 8, !alias.scope !15381, !noalias !15382
   %248 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %10), !noalias !15385
   %249 = icmp eq ptr %248, null
   br i1 %249, label %250, label %258
@@ -81374,7 +81314,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit: ; preds 
   br i1 %255, label %_ZN5typst11foundations6styles10StyleChain3get17h42661191d355970bE.exit, label %256
 
 256:                                              ; preds = %253
-  %257 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i141, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %254), !noalias !15393
+  %257 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i141, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %254), !noalias !15393
   br label %258
 
 258:                                              ; preds = %256, %242
@@ -81422,10 +81362,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h42661191d355970bE.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i148, align 8, !alias.scope !15422, !noalias !15423
   %.sroa.5.0..sroa_idx.i.i149 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i8 11, ptr %.sroa.5.0..sroa_idx.i.i149, align 8, !alias.scope !15422, !noalias !15423
-  %.sroa.7.0..sroa_idx.i.i150 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i150, align 8, !alias.scope !15422, !noalias !15423
-  %.sroa.8.0..sroa_idx.i.i151 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i8 11, ptr %.sroa.8.0..sroa_idx.i.i151, align 8, !alias.scope !15422, !noalias !15423
+  %.sroa.610.0..sroa_idx.i.i150 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i150, align 8, !alias.scope !15422, !noalias !15423
+  %.sroa.7.0..sroa_idx.i.i151 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i8 11, ptr %.sroa.7.0..sroa_idx.i.i151, align 8, !alias.scope !15422, !noalias !15423
   %270 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !15426
   %271 = icmp eq ptr %270, null
   br i1 %271, label %272, label %280
@@ -81441,7 +81381,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h42661191d355970bE.exit: ; preds 
   br i1 %277, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit158.thread, label %278
 
 278:                                              ; preds = %275
-  %279 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i150, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %276), !noalias !15434
+  %279 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i150, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %276), !noalias !15434
   br label %280
 
 280:                                              ; preds = %278, %264
@@ -81503,10 +81443,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit158: ; pre
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i163, align 8, !alias.scope !15465, !noalias !15466
   %.sroa.5.0..sroa_idx.i.i164 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 12, ptr %.sroa.5.0..sroa_idx.i.i164, align 8, !alias.scope !15465, !noalias !15466
-  %.sroa.7.0..sroa_idx.i.i165 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i165, align 8, !alias.scope !15465, !noalias !15466
-  %.sroa.8.0..sroa_idx.i.i166 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 12, ptr %.sroa.8.0..sroa_idx.i.i166, align 8, !alias.scope !15465, !noalias !15466
+  %.sroa.610.0..sroa_idx.i.i165 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i165, align 8, !alias.scope !15465, !noalias !15466
+  %.sroa.7.0..sroa_idx.i.i166 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 12, ptr %.sroa.7.0..sroa_idx.i.i166, align 8, !alias.scope !15465, !noalias !15466
   %296 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !15469
   %297 = icmp eq ptr %296, null
   br i1 %297, label %298, label %306
@@ -81522,7 +81462,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit158: ; pre
   br i1 %303, label %_ZN5typst11foundations6styles10StyleChain3get17h2652d8fdec5f07e7E.exit, label %304
 
 304:                                              ; preds = %301
-  %305 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i165, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %302), !noalias !15477
+  %305 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i165, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %302), !noalias !15477
   br label %306
 
 306:                                              ; preds = %304, %290
@@ -81570,10 +81510,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h2652d8fdec5f07e7E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i172, align 8, !alias.scope !15506, !noalias !15507
   %.sroa.5.0..sroa_idx.i.i173 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 13, ptr %.sroa.5.0..sroa_idx.i.i173, align 8, !alias.scope !15506, !noalias !15507
-  %.sroa.7.0..sroa_idx.i.i174 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i174, align 8, !alias.scope !15506, !noalias !15507
-  %.sroa.8.0..sroa_idx.i.i175 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 13, ptr %.sroa.8.0..sroa_idx.i.i175, align 8, !alias.scope !15506, !noalias !15507
+  %.sroa.610.0..sroa_idx.i.i174 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i174, align 8, !alias.scope !15506, !noalias !15507
+  %.sroa.7.0..sroa_idx.i.i175 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 13, ptr %.sroa.7.0..sroa_idx.i.i175, align 8, !alias.scope !15506, !noalias !15507
   %318 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !15510
   %319 = icmp eq ptr %318, null
   br i1 %319, label %320, label %328
@@ -81589,7 +81529,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h2652d8fdec5f07e7E.exit: ; preds 
   br i1 %325, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit182.thread, label %326
 
 326:                                              ; preds = %323
-  %327 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i174, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %324), !noalias !15518
+  %327 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i174, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %324), !noalias !15518
   br label %328
 
 328:                                              ; preds = %326, %312
@@ -81651,10 +81591,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit182: ; pre
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i187, align 8, !alias.scope !15549, !noalias !15550
   %.sroa.5.0..sroa_idx.i.i188 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 14, ptr %.sroa.5.0..sroa_idx.i.i188, align 8, !alias.scope !15549, !noalias !15550
-  %.sroa.7.0..sroa_idx.i.i189 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i189, align 8, !alias.scope !15549, !noalias !15550
-  %.sroa.8.0..sroa_idx.i.i190 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 14, ptr %.sroa.8.0..sroa_idx.i.i190, align 8, !alias.scope !15549, !noalias !15550
+  %.sroa.610.0..sroa_idx.i.i189 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i189, align 8, !alias.scope !15549, !noalias !15550
+  %.sroa.7.0..sroa_idx.i.i190 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 14, ptr %.sroa.7.0..sroa_idx.i.i190, align 8, !alias.scope !15549, !noalias !15550
   %344 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !15553
   %345 = icmp eq ptr %344, null
   br i1 %345, label %346, label %354
@@ -81670,7 +81610,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit182: ; pre
   br i1 %351, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit197.thread, label %352
 
 352:                                              ; preds = %349
-  %353 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i189, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %350), !noalias !15561
+  %353 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i189, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %350), !noalias !15561
   br label %354
 
 354:                                              ; preds = %352, %338
@@ -81813,10 +81753,10 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !15592, !noalias !15593
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !15592, !noalias !15593
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !15592, !noalias !15593
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !15592, !noalias !15593
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !15592, !noalias !15593
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !15592, !noalias !15593
   %33 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h89c5f0cff1c8d858E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %23), !noalias !15596
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %43
@@ -81832,7 +81772,7 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   br i1 %40, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hb0debea6170a1c67E.exit", label %41
 
 41:                                               ; preds = %38
-  %42 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %39), !noalias !15604
+  %42 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %39), !noalias !15604
   br label %43
 
 43:                                               ; preds = %41, %30
@@ -81877,10 +81817,10 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i14, align 8, !alias.scope !15633, !noalias !15634
   %.sroa.5.0..sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i15, align 8, !alias.scope !15633, !noalias !15634
-  %.sroa.7.0..sroa_idx.i.i16 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i16, align 8, !alias.scope !15633, !noalias !15634
-  %.sroa.8.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i17, align 8, !alias.scope !15633, !noalias !15634
+  %.sroa.610.0..sroa_idx.i.i16 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i16, align 8, !alias.scope !15633, !noalias !15634
+  %.sroa.7.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %22, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i17, align 8, !alias.scope !15633, !noalias !15634
   %53 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h89c5f0cff1c8d858E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %22), !noalias !15637
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %63
@@ -81896,7 +81836,7 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   br i1 %60, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hb0debea6170a1c67E.exit27", label %61
 
 61:                                               ; preds = %58
-  %62 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %59), !noalias !15645
+  %62 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %59), !noalias !15645
   br label %63
 
 63:                                               ; preds = %61, %50
@@ -81941,10 +81881,10 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i30, align 8, !alias.scope !15673, !noalias !15674
   %.sroa.5.0..sroa_idx.i.i31 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i31, align 8, !alias.scope !15673, !noalias !15674
-  %.sroa.7.0..sroa_idx.i.i32 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i32, align 8, !alias.scope !15673, !noalias !15674
-  %.sroa.8.0..sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i33, align 8, !alias.scope !15673, !noalias !15674
+  %.sroa.610.0..sroa_idx.i.i32 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i32, align 8, !alias.scope !15673, !noalias !15674
+  %.sroa.7.0..sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i33, align 8, !alias.scope !15673, !noalias !15674
   %73 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %21), !noalias !15677
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %83
@@ -81960,7 +81900,7 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   br i1 %80, label %_ZN5typst11foundations6styles10StyleChain3get17hca71b73d186733e5E.exit, label %81
 
 81:                                               ; preds = %78
-  %82 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i32, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %79), !noalias !15685
+  %82 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i32, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %79), !noalias !15685
   br label %83
 
 83:                                               ; preds = %81, %70
@@ -82077,10 +82017,10 @@ _ZN5typst11foundations6styles10StyleChain10get_folded17hca8a924f9e3967a4E.exit: 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i39, align 8, !alias.scope !15746, !noalias !15747
   %.sroa.5.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i40, align 8, !alias.scope !15746, !noalias !15747
-  %.sroa.7.0..sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i41, align 8, !alias.scope !15746, !noalias !15747
-  %.sroa.8.0..sroa_idx.i.i42 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i42, align 8, !alias.scope !15746, !noalias !15747
+  %.sroa.610.0..sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i41, align 8, !alias.scope !15746, !noalias !15747
+  %.sroa.7.0..sroa_idx.i.i42 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i42, align 8, !alias.scope !15746, !noalias !15747
   %96 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hbbd5b848abe5f927E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %16), !noalias !15750
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %_ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit
@@ -82096,7 +82036,7 @@ _ZN5typst11foundations6styles10StyleChain10get_folded17hca8a924f9e3967a4E.exit: 
   br i1 %103, label %_ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit.thread, label %104
 
 104:                                              ; preds = %101
-  %105 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h44ccc5813c397f32E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i41, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %102), !noalias !15758
+  %105 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h44ccc5813c397f32E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i41, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %102), !noalias !15758
   br label %_ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit
 
 _ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit.thread: ; preds = %98, %101
@@ -82167,10 +82107,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i47, align 8, !alias.scope !15795, !noalias !15796
   %.sroa.5.0..sroa_idx.i.i48 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i48, align 8, !alias.scope !15795, !noalias !15796
-  %.sroa.7.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i49, align 8, !alias.scope !15795, !noalias !15796
-  %.sroa.8.0..sroa_idx.i.i50 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i50, align 8, !alias.scope !15795, !noalias !15796
+  %.sroa.610.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i49, align 8, !alias.scope !15795, !noalias !15796
+  %.sroa.7.0..sroa_idx.i.i50 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i50, align 8, !alias.scope !15795, !noalias !15796
   %120 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hffc77523e1b60f50E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %15), !noalias !15799
   %121 = icmp eq ptr %120, null
   br i1 %121, label %122, label %130
@@ -82186,7 +82126,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit: ; preds 
   br i1 %127, label %_ZN5typst11foundations6styles10StyleChain3get17h34c30b797605b3bbE.exit, label %128
 
 128:                                              ; preds = %125
-  %129 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i49, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %126), !noalias !15807
+  %129 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i49, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %126), !noalias !15807
   br label %130
 
 130:                                              ; preds = %128, %117
@@ -82220,10 +82160,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h34c30b797605b3bbE.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i55, align 8, !alias.scope !15830, !noalias !15831
   %.sroa.5.0..sroa_idx.i.i56 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i56, align 8, !alias.scope !15830, !noalias !15831
-  %.sroa.7.0..sroa_idx.i.i57 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i57, align 8, !alias.scope !15830, !noalias !15831
-  %.sroa.8.0..sroa_idx.i.i58 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i58, align 8, !alias.scope !15830, !noalias !15831
+  %.sroa.610.0..sroa_idx.i.i57 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i57, align 8, !alias.scope !15830, !noalias !15831
+  %.sroa.7.0..sroa_idx.i.i58 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i58, align 8, !alias.scope !15830, !noalias !15831
   %135 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hc4b8738f37157bdeE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %14), !noalias !15834
   %136 = icmp eq ptr %135, null
   br i1 %136, label %137, label %145
@@ -82239,7 +82179,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h34c30b797605b3bbE.exit: ; preds 
   br i1 %142, label %_ZN5typst11foundations6styles10StyleChain3get17h08e11b7d821999baE.exit.thread, label %143
 
 143:                                              ; preds = %140
-  %144 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h43a0bfa42a260761E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %141), !noalias !15842
+  %144 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h43a0bfa42a260761E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i57, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %141), !noalias !15842
   br label %145
 
 145:                                              ; preds = %143, %132
@@ -82367,10 +82307,10 @@ default.unreachable1.i.i:                         ; preds = %_ZN5typst11foundati
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i66, align 8, !alias.scope !15889, !noalias !15890
   %.sroa.5.0..sroa_idx.i.i67 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i8 8, ptr %.sroa.5.0..sroa_idx.i.i67, align 8, !alias.scope !15889, !noalias !15890
-  %.sroa.7.0..sroa_idx.i.i68 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i68, align 8, !alias.scope !15889, !noalias !15890
-  %.sroa.8.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store i8 8, ptr %.sroa.8.0..sroa_idx.i.i69, align 8, !alias.scope !15889, !noalias !15890
+  %.sroa.610.0..sroa_idx.i.i68 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i68, align 8, !alias.scope !15889, !noalias !15890
+  %.sroa.7.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  store i8 8, ptr %.sroa.7.0..sroa_idx.i.i69, align 8, !alias.scope !15889, !noalias !15890
   %164 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hcd71fb7253e02f8eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %11), !noalias !15893
   %165 = icmp eq ptr %164, null
   br i1 %165, label %166, label %174
@@ -82386,7 +82326,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN5typst11foundati
   br i1 %171, label %_ZN5typst11foundations6styles10StyleChain3get17hd89761810ff329a4E.exit, label %172
 
 172:                                              ; preds = %169
-  %173 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8af52da78c8741b9E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i68, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %170), !noalias !15901
+  %173 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8af52da78c8741b9E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i68, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %170), !noalias !15901
   br label %174
 
 174:                                              ; preds = %172, %161
@@ -82467,10 +82407,10 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i76, align 8, !alias.scope !15925, !noalias !15926
   %.sroa.5.0..sroa_idx.i.i77 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i8 9, ptr %.sroa.5.0..sroa_idx.i.i77, align 8, !alias.scope !15925, !noalias !15926
-  %.sroa.7.0..sroa_idx.i.i78 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i78, align 8, !alias.scope !15925, !noalias !15926
-  %.sroa.8.0..sroa_idx.i.i79 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i8 9, ptr %.sroa.8.0..sroa_idx.i.i79, align 8, !alias.scope !15925, !noalias !15926
+  %.sroa.610.0..sroa_idx.i.i78 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i78, align 8, !alias.scope !15925, !noalias !15926
+  %.sroa.7.0..sroa_idx.i.i79 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  store i8 9, ptr %.sroa.7.0..sroa_idx.i.i79, align 8, !alias.scope !15925, !noalias !15926
   %191 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %10), !noalias !15929
   %192 = icmp eq ptr %191, null
   br i1 %192, label %193, label %201
@@ -82486,7 +82426,7 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   br i1 %198, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit.thread, label %199
 
 199:                                              ; preds = %196
-  %200 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i78, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %197), !noalias !15937
+  %200 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i78, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %197), !noalias !15937
   br label %201
 
 201:                                              ; preds = %199, %188
@@ -82543,10 +82483,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i86, align 8, !alias.scope !15968, !noalias !15969
   %.sroa.5.0..sroa_idx.i.i87 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i8 10, ptr %.sroa.5.0..sroa_idx.i.i87, align 8, !alias.scope !15968, !noalias !15969
-  %.sroa.7.0..sroa_idx.i.i88 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i88, align 8, !alias.scope !15968, !noalias !15969
-  %.sroa.8.0..sroa_idx.i.i89 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i8 10, ptr %.sroa.8.0..sroa_idx.i.i89, align 8, !alias.scope !15968, !noalias !15969
+  %.sroa.610.0..sroa_idx.i.i88 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i88, align 8, !alias.scope !15968, !noalias !15969
+  %.sroa.7.0..sroa_idx.i.i89 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i8 10, ptr %.sroa.7.0..sroa_idx.i.i89, align 8, !alias.scope !15968, !noalias !15969
   %214 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !15972
   %215 = icmp eq ptr %214, null
   br i1 %215, label %216, label %224
@@ -82562,7 +82502,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit: ; preds 
   br i1 %221, label %_ZN5typst11foundations6styles10StyleChain3get17h11e923143d303a1dE.exit, label %222
 
 222:                                              ; preds = %219
-  %223 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i88, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %220), !noalias !15980
+  %223 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i88, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %220), !noalias !15980
   br label %224
 
 224:                                              ; preds = %222, %211
@@ -82605,10 +82545,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h11e923143d303a1dE.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i95, align 8, !alias.scope !16009, !noalias !16010
   %.sroa.5.0..sroa_idx.i.i96 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 11, ptr %.sroa.5.0..sroa_idx.i.i96, align 8, !alias.scope !16009, !noalias !16010
-  %.sroa.7.0..sroa_idx.i.i97 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i97, align 8, !alias.scope !16009, !noalias !16010
-  %.sroa.8.0..sroa_idx.i.i98 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 11, ptr %.sroa.8.0..sroa_idx.i.i98, align 8, !alias.scope !16009, !noalias !16010
+  %.sroa.610.0..sroa_idx.i.i97 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i97, align 8, !alias.scope !16009, !noalias !16010
+  %.sroa.7.0..sroa_idx.i.i98 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 11, ptr %.sroa.7.0..sroa_idx.i.i98, align 8, !alias.scope !16009, !noalias !16010
   %233 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !16013
   %234 = icmp eq ptr %233, null
   br i1 %234, label %235, label %243
@@ -82624,7 +82564,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h11e923143d303a1dE.exit: ; preds 
   br i1 %240, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit105.thread, label %241
 
 241:                                              ; preds = %238
-  %242 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i97, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %239), !noalias !16021
+  %242 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i97, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %239), !noalias !16021
   br label %243
 
 243:                                              ; preds = %241, %230
@@ -82681,10 +82621,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit105: ; pre
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i110, align 8, !alias.scope !16052, !noalias !16053
   %.sroa.5.0..sroa_idx.i.i111 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 12, ptr %.sroa.5.0..sroa_idx.i.i111, align 8, !alias.scope !16052, !noalias !16053
-  %.sroa.7.0..sroa_idx.i.i112 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i112, align 8, !alias.scope !16052, !noalias !16053
-  %.sroa.8.0..sroa_idx.i.i113 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 12, ptr %.sroa.8.0..sroa_idx.i.i113, align 8, !alias.scope !16052, !noalias !16053
+  %.sroa.610.0..sroa_idx.i.i112 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i112, align 8, !alias.scope !16052, !noalias !16053
+  %.sroa.7.0..sroa_idx.i.i113 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 12, ptr %.sroa.7.0..sroa_idx.i.i113, align 8, !alias.scope !16052, !noalias !16053
   %256 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !16056
   %257 = icmp eq ptr %256, null
   br i1 %257, label %258, label %266
@@ -82700,7 +82640,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit105: ; pre
   br i1 %263, label %_ZN5typst11foundations6styles10StyleChain3get17hbc7f4273f867121bE.exit, label %264
 
 264:                                              ; preds = %261
-  %265 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i112, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %262), !noalias !16064
+  %265 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i112, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %262), !noalias !16064
   br label %266
 
 266:                                              ; preds = %264, %253
@@ -82743,10 +82683,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hbc7f4273f867121bE.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i119, align 8, !alias.scope !16093, !noalias !16094
   %.sroa.5.0..sroa_idx.i.i120 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 13, ptr %.sroa.5.0..sroa_idx.i.i120, align 8, !alias.scope !16093, !noalias !16094
-  %.sroa.7.0..sroa_idx.i.i121 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i121, align 8, !alias.scope !16093, !noalias !16094
-  %.sroa.8.0..sroa_idx.i.i122 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 13, ptr %.sroa.8.0..sroa_idx.i.i122, align 8, !alias.scope !16093, !noalias !16094
+  %.sroa.610.0..sroa_idx.i.i121 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i121, align 8, !alias.scope !16093, !noalias !16094
+  %.sroa.7.0..sroa_idx.i.i122 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 13, ptr %.sroa.7.0..sroa_idx.i.i122, align 8, !alias.scope !16093, !noalias !16094
   %275 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !16097
   %276 = icmp eq ptr %275, null
   br i1 %276, label %277, label %285
@@ -82762,7 +82702,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hbc7f4273f867121bE.exit: ; preds 
   br i1 %282, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit129.thread, label %283
 
 283:                                              ; preds = %280
-  %284 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i121, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %281), !noalias !16105
+  %284 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i121, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %281), !noalias !16105
   br label %285
 
 285:                                              ; preds = %283, %272
@@ -82819,10 +82759,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit129: ; pre
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i134, align 8, !alias.scope !16136, !noalias !16137
   %.sroa.5.0..sroa_idx.i.i135 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 14, ptr %.sroa.5.0..sroa_idx.i.i135, align 8, !alias.scope !16136, !noalias !16137
-  %.sroa.7.0..sroa_idx.i.i136 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i136, align 8, !alias.scope !16136, !noalias !16137
-  %.sroa.8.0..sroa_idx.i.i137 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 14, ptr %.sroa.8.0..sroa_idx.i.i137, align 8, !alias.scope !16136, !noalias !16137
+  %.sroa.610.0..sroa_idx.i.i136 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i136, align 8, !alias.scope !16136, !noalias !16137
+  %.sroa.7.0..sroa_idx.i.i137 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 14, ptr %.sroa.7.0..sroa_idx.i.i137, align 8, !alias.scope !16136, !noalias !16137
   %298 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !16140
   %299 = icmp eq ptr %298, null
   br i1 %299, label %300, label %308
@@ -82838,7 +82778,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit129: ; pre
   br i1 %305, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit144.thread, label %306
 
 306:                                              ; preds = %303
-  %307 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i136, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %304), !noalias !16148
+  %307 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i136, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %304), !noalias !16148
   br label %308
 
 308:                                              ; preds = %306, %295
@@ -82949,10 +82889,10 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !16179, !noalias !16180
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !16179, !noalias !16180
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !16179, !noalias !16180
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !16179, !noalias !16180
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !16179, !noalias !16180
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !16179, !noalias !16180
   %29 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h89c5f0cff1c8d858E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %21), !noalias !16183
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %39
@@ -82968,7 +82908,7 @@ define void @"_ZN5typst6layout4page1_95_$LT$impl$u20$typst..foundations..element
   br i1 %36, label %_ZN5typst11foundations6styles10StyleChain3get17hf9e047bdffc270a3E.exit, label %37
 
 37:                                               ; preds = %34
-  %38 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35), !noalias !16191
+  %38 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35), !noalias !16191
   br label %39
 
 39:                                               ; preds = %37, %26
@@ -83019,10 +82959,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hf9e047bdffc270a3E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i90, align 8, !alias.scope !16220, !noalias !16221
   %.sroa.5.0..sroa_idx.i.i91 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i91, align 8, !alias.scope !16220, !noalias !16221
-  %.sroa.7.0..sroa_idx.i.i92 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i92, align 8, !alias.scope !16220, !noalias !16221
-  %.sroa.8.0..sroa_idx.i.i93 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i93, align 8, !alias.scope !16220, !noalias !16221
+  %.sroa.610.0..sroa_idx.i.i92 = getelementptr inbounds nuw i8, ptr %20, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i92, align 8, !alias.scope !16220, !noalias !16221
+  %.sroa.7.0..sroa_idx.i.i93 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i93, align 8, !alias.scope !16220, !noalias !16221
   %52 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h89c5f0cff1c8d858E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %20), !noalias !16224
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %62
@@ -83038,7 +82978,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hf9e047bdffc270a3E.exit: ; preds 
   br i1 %59, label %_ZN5typst11foundations6styles10StyleChain3get17hce0063969827c965E.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i92, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %58), !noalias !16232
+  %61 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h59a85431458a4711E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i92, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %58), !noalias !16232
   br label %62
 
 62:                                               ; preds = %60, %49
@@ -83089,10 +83029,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hce0063969827c965E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i103, align 8, !alias.scope !16260, !noalias !16261
   %.sroa.5.0..sroa_idx.i.i104 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i104, align 8, !alias.scope !16260, !noalias !16261
-  %.sroa.7.0..sroa_idx.i.i105 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i105, align 8, !alias.scope !16260, !noalias !16261
-  %.sroa.8.0..sroa_idx.i.i106 = getelementptr inbounds nuw i8, ptr %19, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i106, align 8, !alias.scope !16260, !noalias !16261
+  %.sroa.610.0..sroa_idx.i.i105 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i105, align 8, !alias.scope !16260, !noalias !16261
+  %.sroa.7.0..sroa_idx.i.i106 = getelementptr inbounds nuw i8, ptr %19, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i106, align 8, !alias.scope !16260, !noalias !16261
   %75 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %19), !noalias !16264
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %85
@@ -83108,7 +83048,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hce0063969827c965E.exit: ; preds 
   br i1 %82, label %_ZN5typst11foundations6styles10StyleChain3get17h28b72aeddcdf34daE.exit, label %83
 
 83:                                               ; preds = %80
-  %84 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i105, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %81), !noalias !16272
+  %84 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i105, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %81), !noalias !16272
   br label %85
 
 85:                                               ; preds = %83, %72
@@ -83285,10 +83225,10 @@ _ZN5typst11foundations6styles10StyleChain10get_folded17hca8a924f9e3967a4E.exit: 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i112, align 8, !alias.scope !16323, !noalias !16324
   %.sroa.5.0..sroa_idx.i.i113 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i113, align 8, !alias.scope !16323, !noalias !16324
-  %.sroa.7.0..sroa_idx.i.i114 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i114, align 8, !alias.scope !16323, !noalias !16324
-  %.sroa.8.0..sroa_idx.i.i115 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i115, align 8, !alias.scope !16323, !noalias !16324
+  %.sroa.610.0..sroa_idx.i.i114 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i114, align 8, !alias.scope !16323, !noalias !16324
+  %.sroa.7.0..sroa_idx.i.i115 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i115, align 8, !alias.scope !16323, !noalias !16324
   %102 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hbbd5b848abe5f927E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %14), !noalias !16327
   %103 = icmp eq ptr %102, null
   br i1 %103, label %104, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfd968804a3d154f6E.exit.i"
@@ -83304,7 +83244,7 @@ _ZN5typst11foundations6styles10StyleChain10get_folded17hca8a924f9e3967a4E.exit: 
   br i1 %109, label %_ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit, label %110
 
 110:                                              ; preds = %107
-  %111 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h44ccc5813c397f32E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i114, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %108), !noalias !16335
+  %111 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h44ccc5813c397f32E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i114, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %108), !noalias !16335
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfd968804a3d154f6E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfd968804a3d154f6E.exit.i": ; preds = %110, %99
@@ -83341,10 +83281,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i119, align 8, !alias.scope !16357, !noalias !16358
   %.sroa.5.0..sroa_idx.i.i120 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i120, align 8, !alias.scope !16357, !noalias !16358
-  %.sroa.7.0..sroa_idx.i.i121 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i121, align 8, !alias.scope !16357, !noalias !16358
-  %.sroa.8.0..sroa_idx.i.i122 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i122, align 8, !alias.scope !16357, !noalias !16358
+  %.sroa.610.0..sroa_idx.i.i121 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i121, align 8, !alias.scope !16357, !noalias !16358
+  %.sroa.7.0..sroa_idx.i.i122 = getelementptr inbounds nuw i8, ptr %13, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i122, align 8, !alias.scope !16357, !noalias !16358
   %120 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hffc77523e1b60f50E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %13), !noalias !16361
   %121 = icmp eq ptr %120, null
   br i1 %121, label %122, label %130
@@ -83360,7 +83300,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h3784a0b3d7cf33b8E.exit: ; preds 
   br i1 %127, label %_ZN5typst11foundations6styles10StyleChain3get17hd0b8caac6884f64dE.exit, label %128
 
 128:                                              ; preds = %125
-  %129 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i121, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %126), !noalias !16369
+  %129 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hf4d870c8bdfbc2e1E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i121, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %126), !noalias !16369
   br label %130
 
 130:                                              ; preds = %128, %117
@@ -83401,10 +83341,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hd0b8caac6884f64dE.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i127, align 8, !alias.scope !16392, !noalias !16393
   %.sroa.5.0..sroa_idx.i.i128 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i128, align 8, !alias.scope !16392, !noalias !16393
-  %.sroa.7.0..sroa_idx.i.i129 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i129, align 8, !alias.scope !16392, !noalias !16393
-  %.sroa.8.0..sroa_idx.i.i130 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i130, align 8, !alias.scope !16392, !noalias !16393
+  %.sroa.610.0..sroa_idx.i.i129 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i129, align 8, !alias.scope !16392, !noalias !16393
+  %.sroa.7.0..sroa_idx.i.i130 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i130, align 8, !alias.scope !16392, !noalias !16393
   %138 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hc4b8738f37157bdeE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %12), !noalias !16396
   %139 = icmp eq ptr %138, null
   br i1 %139, label %140, label %148
@@ -83420,7 +83360,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hd0b8caac6884f64dE.exit: ; preds 
   br i1 %145, label %_ZN5typst11foundations6styles10StyleChain3get17h08e11b7d821999baE.exit, label %146
 
 146:                                              ; preds = %143
-  %147 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h43a0bfa42a260761E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i129, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %144), !noalias !16404
+  %147 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h43a0bfa42a260761E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i129, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %144), !noalias !16404
   br label %148
 
 148:                                              ; preds = %146, %135
@@ -83532,10 +83472,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h08e11b7d821999baE.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i138, align 8, !alias.scope !16445, !noalias !16446
   %.sroa.5.0..sroa_idx.i.i139 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i8 8, ptr %.sroa.5.0..sroa_idx.i.i139, align 8, !alias.scope !16445, !noalias !16446
-  %.sroa.7.0..sroa_idx.i.i140 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i140, align 8, !alias.scope !16445, !noalias !16446
-  %.sroa.8.0..sroa_idx.i.i141 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i8 8, ptr %.sroa.8.0..sroa_idx.i.i141, align 8, !alias.scope !16445, !noalias !16446
+  %.sroa.610.0..sroa_idx.i.i140 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i140, align 8, !alias.scope !16445, !noalias !16446
+  %.sroa.7.0..sroa_idx.i.i141 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  store i8 8, ptr %.sroa.7.0..sroa_idx.i.i141, align 8, !alias.scope !16445, !noalias !16446
   %171 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hcd71fb7253e02f8eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %10), !noalias !16449
   %172 = icmp eq ptr %171, null
   br i1 %172, label %173, label %181
@@ -83551,7 +83491,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h08e11b7d821999baE.exit: ; preds 
   br i1 %178, label %_ZN5typst11foundations6styles10StyleChain3get17h2a2348a27fb500d8E.exit, label %179
 
 179:                                              ; preds = %176
-  %180 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8af52da78c8741b9E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i140, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %177), !noalias !16457
+  %180 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h8af52da78c8741b9E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i140, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %177), !noalias !16457
   br label %181
 
 181:                                              ; preds = %179, %168
@@ -83591,10 +83531,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h2a2348a27fb500d8E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i146, align 8, !alias.scope !16475, !noalias !16476
   %.sroa.5.0..sroa_idx.i.i147 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i8 9, ptr %.sroa.5.0..sroa_idx.i.i147, align 8, !alias.scope !16475, !noalias !16476
-  %.sroa.7.0..sroa_idx.i.i148 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i148, align 8, !alias.scope !16475, !noalias !16476
-  %.sroa.8.0..sroa_idx.i.i149 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i8 9, ptr %.sroa.8.0..sroa_idx.i.i149, align 8, !alias.scope !16475, !noalias !16476
+  %.sroa.610.0..sroa_idx.i.i148 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i148, align 8, !alias.scope !16475, !noalias !16476
+  %.sroa.7.0..sroa_idx.i.i149 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i8 9, ptr %.sroa.7.0..sroa_idx.i.i149, align 8, !alias.scope !16475, !noalias !16476
   %191 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !16479
   %192 = icmp eq ptr %191, null
   br i1 %192, label %193, label %201
@@ -83610,7 +83550,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h2a2348a27fb500d8E.exit: ; preds 
   br i1 %198, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit, label %199
 
 199:                                              ; preds = %196
-  %200 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i148, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %197), !noalias !16487
+  %200 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i148, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %197), !noalias !16487
   br label %201
 
 201:                                              ; preds = %199, %187
@@ -83700,10 +83640,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i157, align 8, !alias.scope !16532, !noalias !16533
   %.sroa.5.0..sroa_idx.i.i158 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 10, ptr %.sroa.5.0..sroa_idx.i.i158, align 8, !alias.scope !16532, !noalias !16533
-  %.sroa.7.0..sroa_idx.i.i159 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i159, align 8, !alias.scope !16532, !noalias !16533
-  %.sroa.8.0..sroa_idx.i.i160 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 10, ptr %.sroa.8.0..sroa_idx.i.i160, align 8, !alias.scope !16532, !noalias !16533
+  %.sroa.610.0..sroa_idx.i.i159 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i159, align 8, !alias.scope !16532, !noalias !16533
+  %.sroa.7.0..sroa_idx.i.i160 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 10, ptr %.sroa.7.0..sroa_idx.i.i160, align 8, !alias.scope !16532, !noalias !16533
   %228 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !16536
   %229 = icmp eq ptr %228, null
   br i1 %229, label %230, label %238
@@ -83719,7 +83659,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit: ; preds 
   br i1 %235, label %_ZN5typst11foundations6styles10StyleChain3get17hcdad762910a29792E.exit, label %236
 
 236:                                              ; preds = %233
-  %237 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i159, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %234), !noalias !16544
+  %237 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i159, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %234), !noalias !16544
   br label %238
 
 238:                                              ; preds = %236, %224
@@ -83768,10 +83708,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hcdad762910a29792E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i166, align 8, !alias.scope !16573, !noalias !16574
   %.sroa.5.0..sroa_idx.i.i167 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 11, ptr %.sroa.5.0..sroa_idx.i.i167, align 8, !alias.scope !16573, !noalias !16574
-  %.sroa.7.0..sroa_idx.i.i168 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i168, align 8, !alias.scope !16573, !noalias !16574
-  %.sroa.8.0..sroa_idx.i.i169 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 11, ptr %.sroa.8.0..sroa_idx.i.i169, align 8, !alias.scope !16573, !noalias !16574
+  %.sroa.610.0..sroa_idx.i.i168 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i168, align 8, !alias.scope !16573, !noalias !16574
+  %.sroa.7.0..sroa_idx.i.i169 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 11, ptr %.sroa.7.0..sroa_idx.i.i169, align 8, !alias.scope !16573, !noalias !16574
   %251 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !16577
   %252 = icmp eq ptr %251, null
   br i1 %252, label %253, label %261
@@ -83787,7 +83727,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hcdad762910a29792E.exit: ; preds 
   br i1 %258, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit176, label %259
 
 259:                                              ; preds = %256
-  %260 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i168, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %257), !noalias !16585
+  %260 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i168, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %257), !noalias !16585
   br label %261
 
 261:                                              ; preds = %259, %247
@@ -83877,10 +83817,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit176: ; pre
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i182, align 8, !alias.scope !16630, !noalias !16631
   %.sroa.5.0..sroa_idx.i.i183 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 12, ptr %.sroa.5.0..sroa_idx.i.i183, align 8, !alias.scope !16630, !noalias !16631
-  %.sroa.7.0..sroa_idx.i.i184 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i184, align 8, !alias.scope !16630, !noalias !16631
-  %.sroa.8.0..sroa_idx.i.i185 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 12, ptr %.sroa.8.0..sroa_idx.i.i185, align 8, !alias.scope !16630, !noalias !16631
+  %.sroa.610.0..sroa_idx.i.i184 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i184, align 8, !alias.scope !16630, !noalias !16631
+  %.sroa.7.0..sroa_idx.i.i185 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 12, ptr %.sroa.7.0..sroa_idx.i.i185, align 8, !alias.scope !16630, !noalias !16631
   %288 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !16634
   %289 = icmp eq ptr %288, null
   br i1 %289, label %290, label %298
@@ -83896,7 +83836,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit176: ; pre
   br i1 %295, label %_ZN5typst11foundations6styles10StyleChain3get17hab3e104de6504503E.exit, label %296
 
 296:                                              ; preds = %293
-  %297 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i184, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %294), !noalias !16642
+  %297 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i184, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %294), !noalias !16642
   br label %298
 
 298:                                              ; preds = %296, %284
@@ -83945,10 +83885,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hab3e104de6504503E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i191, align 8, !alias.scope !16671, !noalias !16672
   %.sroa.5.0..sroa_idx.i.i192 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 13, ptr %.sroa.5.0..sroa_idx.i.i192, align 8, !alias.scope !16671, !noalias !16672
-  %.sroa.7.0..sroa_idx.i.i193 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i193, align 8, !alias.scope !16671, !noalias !16672
-  %.sroa.8.0..sroa_idx.i.i194 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 13, ptr %.sroa.8.0..sroa_idx.i.i194, align 8, !alias.scope !16671, !noalias !16672
+  %.sroa.610.0..sroa_idx.i.i193 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i193, align 8, !alias.scope !16671, !noalias !16672
+  %.sroa.7.0..sroa_idx.i.i194 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 13, ptr %.sroa.7.0..sroa_idx.i.i194, align 8, !alias.scope !16671, !noalias !16672
   %311 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !16675
   %312 = icmp eq ptr %311, null
   br i1 %312, label %313, label %321
@@ -83964,7 +83904,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hab3e104de6504503E.exit: ; preds 
   br i1 %318, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit201, label %319
 
 319:                                              ; preds = %316
-  %320 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i193, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %317), !noalias !16683
+  %320 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i193, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %317), !noalias !16683
   br label %321
 
 321:                                              ; preds = %319, %307
@@ -84054,10 +83994,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit201: ; pre
   store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i207, align 8, !alias.scope !16728, !noalias !16729
   %.sroa.5.0..sroa_idx.i.i208 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 14, ptr %.sroa.5.0..sroa_idx.i.i208, align 8, !alias.scope !16728, !noalias !16729
-  %.sroa.7.0..sroa_idx.i.i209 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i209, align 8, !alias.scope !16728, !noalias !16729
-  %.sroa.8.0..sroa_idx.i.i210 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 14, ptr %.sroa.8.0..sroa_idx.i.i210, align 8, !alias.scope !16728, !noalias !16729
+  %.sroa.610.0..sroa_idx.i.i209 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout4page1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PageElem$GT$4data4DATA17hcb6021cfd74d7345E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i209, align 8, !alias.scope !16728, !noalias !16729
+  %.sroa.7.0..sroa_idx.i.i210 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 14, ptr %.sroa.7.0..sroa_idx.i.i210, align 8, !alias.scope !16728, !noalias !16729
   %348 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bf52c54f9f497a4E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !16732
   %349 = icmp eq ptr %348, null
   br i1 %349, label %350, label %358
@@ -84073,7 +84013,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit201: ; pre
   br i1 %355, label %_ZN5typst11foundations6styles10StyleChain3get17h911e28bc28dbd10eE.exit217, label %356
 
 356:                                              ; preds = %353
-  %357 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i209, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %354), !noalias !16740
+  %357 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h4a526fe60dadf5e2E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i209, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %354), !noalias !16740
   br label %358
 
 358:                                              ; preds = %356, %344
@@ -88407,10 +88347,10 @@ define noundef zeroext i1 @"_ZN5typst6layout4page1_52_$LT$impl$u20$typst..layout
   store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !17306, !noalias !17307
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !17306, !noalias !17307
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17306, !noalias !17307
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !17306, !noalias !17307
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !17306, !noalias !17307
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17306, !noalias !17307
   %8 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !17310
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %18
@@ -88426,7 +88366,7 @@ define noundef zeroext i1 @"_ZN5typst6layout4page1_52_$LT$impl$u20$typst..layout
   br i1 %15, label %_ZN5typst11foundations6styles10StyleChain3get17hf7ff66e996636124E.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !17318
+  %17 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !17318
   br label %18
 
 18:                                               ; preds = %16, %2
@@ -88464,10 +88404,10 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst6layout4page1_52_$LT$impl$u20$typst.
   store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !17340, !noalias !17341
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !17340, !noalias !17341
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17340, !noalias !17341
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !17340, !noalias !17341
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !17340, !noalias !17341
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17340, !noalias !17341
   %9 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h4f7255ab1bf2a9b3E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !17344
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb70d4f10b02a4e80E.exit.i"
@@ -88483,7 +88423,7 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst6layout4page1_52_$LT$impl$u20$typst.
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17h962587ed5cf68775E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdee557f09cb052edE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !17352
+  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdee557f09cb052edE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !17352
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb70d4f10b02a4e80E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb70d4f10b02a4e80E.exit.i": ; preds = %17, %2
@@ -88516,10 +88456,10 @@ define noundef zeroext i1 @"_ZN5typst6layout4page1_52_$LT$impl$u20$typst..layout
   store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !17374, !noalias !17375
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !17374, !noalias !17375
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17374, !noalias !17375
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !17374, !noalias !17375
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !17374, !noalias !17375
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17374, !noalias !17375
   %5 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !17378
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -88535,7 +88475,7 @@ define noundef zeroext i1 @"_ZN5typst6layout4page1_52_$LT$impl$u20$typst..layout
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17ha4cf9a90493ddaa6E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !17386
+  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !17386
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -88569,10 +88509,10 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst6layout4page1_52_$LT$impl$u20$typst.
   store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !17408, !noalias !17409
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !17408, !noalias !17409
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17408, !noalias !17409
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !17408, !noalias !17409
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !17408, !noalias !17409
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17408, !noalias !17409
   %5 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h4f7255ab1bf2a9b3E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !17412
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb70d4f10b02a4e80E.exit.i"
@@ -88588,7 +88528,7 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst6layout4page1_52_$LT$impl$u20$typst.
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h962587ed5cf68775E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdee557f09cb052edE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !17420
+  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdee557f09cb052edE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !17420
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb70d4f10b02a4e80E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb70d4f10b02a4e80E.exit.i": ; preds = %13, %1
@@ -88846,10 +88786,10 @@ define void @"_ZN5typst6layout4page1_100_$LT$impl$u20$typst..foundations..elemen
   store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !17478, !noalias !17479
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !17478, !noalias !17479
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17478, !noalias !17479
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !17478, !noalias !17479
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !17478, !noalias !17479
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17478, !noalias !17479
   %17 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !17482
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %27
@@ -88865,7 +88805,7 @@ define void @"_ZN5typst6layout4page1_100_$LT$impl$u20$typst..foundations..elemen
   br i1 %24, label %_ZN5typst11foundations6styles10StyleChain3get17hc9a05b798e543990E.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23), !noalias !17490
+  %26 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23), !noalias !17490
   br label %27
 
 27:                                               ; preds = %25, %12
@@ -88902,10 +88842,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hc9a05b798e543990E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i15, align 8, !alias.scope !17512, !noalias !17513
   %.sroa.5.0..sroa_idx.i.i16 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i16, align 8, !alias.scope !17512, !noalias !17513
-  %.sroa.7.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i17, align 8, !alias.scope !17512, !noalias !17513
-  %.sroa.8.0..sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i18, align 8, !alias.scope !17512, !noalias !17513
+  %.sroa.610.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i17, align 8, !alias.scope !17512, !noalias !17513
+  %.sroa.7.0..sroa_idx.i.i18 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i18, align 8, !alias.scope !17512, !noalias !17513
   %35 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h4f7255ab1bf2a9b3E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !17516
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %_ZN5typst11foundations6styles10StyleChain3get17h962587ed5cf68775E.exit
@@ -88921,7 +88861,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hc9a05b798e543990E.exit: ; preds 
   br i1 %42, label %_ZN5typst11foundations6styles10StyleChain3get17h962587ed5cf68775E.exit.thread, label %43
 
 43:                                               ; preds = %40
-  %44 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdee557f09cb052edE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i17, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %41), !noalias !17524
+  %44 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdee557f09cb052edE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i17, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %41), !noalias !17524
   br label %_ZN5typst11foundations6styles10StyleChain3get17h962587ed5cf68775E.exit
 
 _ZN5typst11foundations6styles10StyleChain3get17h962587ed5cf68775E.exit.thread: ; preds = %37, %40
@@ -89048,10 +88988,10 @@ define void @"_ZN5typst6layout4page1_100_$LT$impl$u20$typst..foundations..elemen
   store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !17574, !noalias !17575
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !17574, !noalias !17575
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17574, !noalias !17575
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !17574, !noalias !17575
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !17574, !noalias !17575
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17574, !noalias !17575
   %14 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !17578
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %24
@@ -89067,7 +89007,7 @@ define void @"_ZN5typst6layout4page1_100_$LT$impl$u20$typst..foundations..elemen
   br i1 %21, label %_ZN5typst11foundations6styles10StyleChain3get17hf486625832aa5dbbE.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20), !noalias !17586
+  %23 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20), !noalias !17586
   br label %24
 
 24:                                               ; preds = %22, %11
@@ -89100,10 +89040,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hf486625832aa5dbbE.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i11, align 8, !alias.scope !17608, !noalias !17609
   %.sroa.5.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i12, align 8, !alias.scope !17608, !noalias !17609
-  %.sroa.7.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i13, align 8, !alias.scope !17608, !noalias !17609
-  %.sroa.8.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i14, align 8, !alias.scope !17608, !noalias !17609
+  %.sroa.610.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i13, align 8, !alias.scope !17608, !noalias !17609
+  %.sroa.7.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i14, align 8, !alias.scope !17608, !noalias !17609
   %29 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h4f7255ab1bf2a9b3E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !17612
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %_ZN5typst11foundations6styles10StyleChain3get17h962587ed5cf68775E.exit
@@ -89119,7 +89059,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hf486625832aa5dbbE.exit: ; preds 
   br i1 %36, label %_ZN5typst11foundations6styles10StyleChain3get17h962587ed5cf68775E.exit.thread, label %37
 
 37:                                               ; preds = %34
-  %38 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdee557f09cb052edE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35), !noalias !17620
+  %38 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdee557f09cb052edE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35), !noalias !17620
   br label %_ZN5typst11foundations6styles10StyleChain3get17h962587ed5cf68775E.exit
 
 _ZN5typst11foundations6styles10StyleChain3get17h962587ed5cf68775E.exit.thread: ; preds = %31, %34
@@ -89233,10 +89173,10 @@ define void @"_ZN5typst6layout4page1_100_$LT$impl$u20$typst..foundations..elemen
   store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !17670, !noalias !17671
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !17670, !noalias !17671
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17670, !noalias !17671
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !17670, !noalias !17671
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !17670, !noalias !17671
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !17670, !noalias !17671
   %9 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !17674
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -89252,7 +89192,7 @@ define void @"_ZN5typst6layout4page1_100_$LT$impl$u20$typst..foundations..elemen
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17hf916099006d9da43E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !17682
+  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !17682
   br label %19
 
 19:                                               ; preds = %17, %6
@@ -89289,10 +89229,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hf916099006d9da43E.exit: ; preds 
   store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i8, align 8, !alias.scope !17704, !noalias !17705
   %.sroa.5.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i9, align 8, !alias.scope !17704, !noalias !17705
-  %.sroa.7.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i10, align 8, !alias.scope !17704, !noalias !17705
-  %.sroa.8.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i11, align 8, !alias.scope !17704, !noalias !17705
+  %.sroa.610.0..sroa_idx.i.i10 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout4page1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..page..PagebreakElem$GT$4data4DATA17h953ec1059dd5eafaE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i10, align 8, !alias.scope !17704, !noalias !17705
+  %.sroa.7.0..sroa_idx.i.i11 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i11, align 8, !alias.scope !17704, !noalias !17705
   %27 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h4f7255ab1bf2a9b3E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !17708
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb70d4f10b02a4e80E.exit.i"
@@ -89308,7 +89248,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hf916099006d9da43E.exit: ; preds 
   br i1 %34, label %_ZN5typst11foundations6styles10StyleChain3get17h962587ed5cf68775E.exit, label %35
 
 35:                                               ; preds = %32
-  %36 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdee557f09cb052edE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33), !noalias !17716
+  %36 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hdee557f09cb052edE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33), !noalias !17716
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb70d4f10b02a4e80E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb70d4f10b02a4e80E.exit.i": ; preds = %35, %24
@@ -91434,10 +91374,10 @@ define i16 @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Place
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !18386, !noalias !18387
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18386, !noalias !18387
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18386, !noalias !18387
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !18386, !noalias !18387
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !18386, !noalias !18387
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18386, !noalias !18387
   %9 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hc80a440a90a253bfE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !18390
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -91453,7 +91393,7 @@ define i16 @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Place
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17h3003a5920dc3d426E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he1eac3a551c12268E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !18398
+  %18 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he1eac3a551c12268E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !18398
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -91496,10 +91436,10 @@ define noundef zeroext i1 @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layou
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !18420, !noalias !18421
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18420, !noalias !18421
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18420, !noalias !18421
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !18420, !noalias !18421
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !18420, !noalias !18421
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18420, !noalias !18421
   %9 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !18424
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -91515,7 +91455,7 @@ define noundef zeroext i1 @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layou
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17h08f898d6bf57fdd6E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !18432
+  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !18432
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -91552,10 +91492,10 @@ define noundef double @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..p
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !18453, !noalias !18454
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18453, !noalias !18454
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18453, !noalias !18454
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !18453, !noalias !18454
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !18453, !noalias !18454
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18453, !noalias !18454
   %8 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !18455
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %18
@@ -91571,7 +91511,7 @@ define noundef double @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..p
   br i1 %15, label %_ZN5typst11foundations6styles10StyleChain3get17h6f328f6dbc664eeaE.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !18463
+  %17 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !18463
   br label %18
 
 18:                                               ; preds = %16, %2
@@ -91617,10 +91557,10 @@ define void @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Plac
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !18489, !noalias !18490
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18489, !noalias !18490
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18489, !noalias !18490
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !18489, !noalias !18490
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !18489, !noalias !18490
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18489, !noalias !18490
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !18493
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %21
@@ -91636,7 +91576,7 @@ define void @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Plac
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !18501
+  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !18501
   br label %21
 
 20:                                               ; preds = %15, %12
@@ -91688,10 +91628,10 @@ define void @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Plac
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !18543, !noalias !18544
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18543, !noalias !18544
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18543, !noalias !18544
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !18543, !noalias !18544
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !18543, !noalias !18544
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18543, !noalias !18544
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !18547
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %21
@@ -91707,7 +91647,7 @@ define void @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Plac
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !18555
+  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !18555
   br label %21
 
 20:                                               ; preds = %15, %12
@@ -91759,10 +91699,10 @@ define i16 @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Place
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !18595, !noalias !18596
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18595, !noalias !18596
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18595, !noalias !18596
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !18595, !noalias !18596
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !18595, !noalias !18596
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18595, !noalias !18596
   %5 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hc80a440a90a253bfE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !18599
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -91778,7 +91718,7 @@ define i16 @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Place
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h49e13ec2aca038aeE.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he1eac3a551c12268E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !18607
+  %14 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he1eac3a551c12268E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !18607
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -91817,10 +91757,10 @@ define noundef zeroext i1 @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layou
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !18629, !noalias !18630
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18629, !noalias !18630
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18629, !noalias !18630
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !18629, !noalias !18630
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !18629, !noalias !18630
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18629, !noalias !18630
   %5 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !18633
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -91836,7 +91776,7 @@ define noundef zeroext i1 @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layou
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h08f898d6bf57fdd6E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !18641
+  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !18641
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -91869,10 +91809,10 @@ define noundef double @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..p
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !18662, !noalias !18663
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18662, !noalias !18663
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18662, !noalias !18663
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !18662, !noalias !18663
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !18662, !noalias !18663
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18662, !noalias !18663
   %5 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !18664
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -91888,7 +91828,7 @@ define noundef double @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..p
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h684698a19a86f15cE.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !18672
+  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !18672
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -91929,10 +91869,10 @@ define void @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Plac
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !18698, !noalias !18699
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18698, !noalias !18699
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18698, !noalias !18699
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !18698, !noalias !18699
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !18698, !noalias !18699
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18698, !noalias !18699
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !18702
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %17
@@ -91948,7 +91888,7 @@ define void @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Plac
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !18710
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !18710
   br label %17
 
 16:                                               ; preds = %11, %8
@@ -91995,10 +91935,10 @@ define void @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Plac
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !18752, !noalias !18753
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18752, !noalias !18753
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18752, !noalias !18753
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !18752, !noalias !18753
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !18752, !noalias !18753
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18752, !noalias !18753
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !18756
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %17
@@ -92014,7 +91954,7 @@ define void @"_ZN5typst6layout5place1_49_$LT$impl$u20$typst..layout..place..Plac
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !18764
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !18764
   br label %17
 
 16:                                               ; preds = %11, %8
@@ -92229,7 +92169,6 @@ define noundef zeroext i1 @"_ZN5typst6layout5place1_97_$LT$impl$u20$typst..found
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN5typst6layout5place1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..layout..place..PlaceElem$GT$5field17hf919ca6445c0265aE"(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(120) %1, i8 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.sroa.4 = alloca [7 x i8], align 1
   switch i8 %2, label %4 [
     i8 0, label %5
     i8 1, label %8
@@ -92248,12 +92187,8 @@ define void @"_ZN5typst6layout5place1_97_$LT$impl$u20$typst..foundations..elemen
   %7 = load i8, ptr %6, align 8, !range !1424, !noundef !16
   switch i8 %7, label %30 [
     i8 6, label %29
-    i8 5, label %.thread
+    i8 5, label %_ZN4core3ops8function6FnOnce9call_once17h7e181b06681bc293E.exit
   ]
-
-.thread:                                          ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4)
-  br label %_ZN4core3ops8function6FnOnce9call_once17h7e181b06681bc293E.exit
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 114
@@ -92312,7 +92247,6 @@ define void @"_ZN5typst6layout5place1_97_$LT$impl$u20$typst..foundations..elemen
 30:                                               ; preds = %5
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 113
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4)
   %31 = tail call { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h996700ad2487d67cE.llvm.2456044669961016091(ptr noalias noundef nonnull readonly align 1 @anon.17bb7092bb43bb22a4c4760daf7f42f8.128.llvm.2456044669961016091, i64 noundef 8, i64 noundef 24, i1 noundef zeroext false), !noalias !18813
   %32 = extractvalue { ptr, i64 } %31, 0
   %33 = icmp eq ptr %32, null
@@ -92334,17 +92268,14 @@ define void @"_ZN5typst6layout5place1_97_$LT$impl$u20$typst..foundations..elemen
   store i16 %.sroa.022.0.insert.insert, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !noalias !18822
   br label %_ZN4core3ops8function6FnOnce9call_once17h7e181b06681bc293E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h7e181b06681bc293E.exit: ; preds = %.thread, %"_ZN87_$LT$typst..layout..align..Alignment$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h2d5151b235398f82E.exit.i.i"
-  %.sroa.464.0 = phi ptr [ %32, %"_ZN87_$LT$typst..layout..align..Alignment$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h2d5151b235398f82E.exit.i.i" ], [ undef, %.thread ]
-  %storemerge.i.i = phi i8 [ 29, %"_ZN87_$LT$typst..layout..align..Alignment$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h2d5151b235398f82E.exit.i.i" ], [ 1, %.thread ]
+_ZN4core3ops8function6FnOnce9call_once17h7e181b06681bc293E.exit: ; preds = %5, %"_ZN87_$LT$typst..layout..align..Alignment$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h2d5151b235398f82E.exit.i.i"
+  %.sroa.464.0 = phi ptr [ %32, %"_ZN87_$LT$typst..layout..align..Alignment$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h2d5151b235398f82E.exit.i.i" ], [ undef, %5 ]
+  %storemerge.i.i = phi i8 [ 29, %"_ZN87_$LT$typst..layout..align..Alignment$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h2d5151b235398f82E.exit.i.i" ], [ 1, %5 ]
   store i8 %storemerge.i.i, ptr %0, align 8
-  %.sroa.4.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx63, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4, i64 7, i1 false)
   %.sroa.464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.464.0, ptr %.sroa.464.0..sroa_idx, align 8
   %.sroa.565.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @anon.17bb7092bb43bb22a4c4760daf7f42f8.1175.llvm.2456044669961016091, ptr %.sroa.565.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4)
   br label %37
 
 37:                                               ; preds = %54, %55, %46, %47, %40, %41, %38, %39, %29, %_ZN4core3ops8function6FnOnce9call_once17h7e181b06681bc293E.exit, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c32926eb311b31fE.exit", %4
@@ -92458,10 +92389,10 @@ define void @"_ZN5typst6layout5place1_97_$LT$impl$u20$typst..foundations..elemen
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !18839, !noalias !18840
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !18839, !noalias !18840
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18839, !noalias !18840
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !18839, !noalias !18840
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !18839, !noalias !18840
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !18839, !noalias !18840
   %17 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hc80a440a90a253bfE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !18843
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %_ZN5typst11foundations6styles10StyleChain3get17ha4bbb4f833ac48a3E.exit
@@ -92477,7 +92408,7 @@ define void @"_ZN5typst6layout5place1_97_$LT$impl$u20$typst..foundations..elemen
   br i1 %24, label %_ZN5typst11foundations6styles10StyleChain3get17ha4bbb4f833ac48a3E.exit.thread, label %25
 
 25:                                               ; preds = %22
-  %26 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he1eac3a551c12268E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23), !noalias !18851
+  %26 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he1eac3a551c12268E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23), !noalias !18851
   br label %_ZN5typst11foundations6styles10StyleChain3get17ha4bbb4f833ac48a3E.exit
 
 _ZN5typst11foundations6styles10StyleChain3get17ha4bbb4f833ac48a3E.exit.thread: ; preds = %19, %22
@@ -92548,10 +92479,10 @@ _ZN5typst11foundations6styles10StyleChain3get17ha4bbb4f833ac48a3E.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i30, align 8, !alias.scope !18881, !noalias !18882
   %.sroa.5.0..sroa_idx.i.i31 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i31, align 8, !alias.scope !18881, !noalias !18882
-  %.sroa.7.0..sroa_idx.i.i32 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i32, align 8, !alias.scope !18881, !noalias !18882
-  %.sroa.8.0..sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i33, align 8, !alias.scope !18881, !noalias !18882
+  %.sroa.610.0..sroa_idx.i.i32 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i32, align 8, !alias.scope !18881, !noalias !18882
+  %.sroa.7.0..sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i33, align 8, !alias.scope !18881, !noalias !18882
   %44 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !18885
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %54
@@ -92567,7 +92498,7 @@ _ZN5typst11foundations6styles10StyleChain3get17ha4bbb4f833ac48a3E.exit: ; preds 
   br i1 %51, label %_ZN5typst11foundations6styles10StyleChain3get17h08f898d6bf57fdd6E.exit, label %52
 
 52:                                               ; preds = %49
-  %53 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i32, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %50), !noalias !18893
+  %53 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i32, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %50), !noalias !18893
   br label %54
 
 54:                                               ; preds = %52, %38
@@ -92604,10 +92535,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h08f898d6bf57fdd6E.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i37, align 8, !alias.scope !18915, !noalias !18916
   %.sroa.5.0..sroa_idx.i.i38 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i38, align 8, !alias.scope !18915, !noalias !18916
-  %.sroa.7.0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i39, align 8, !alias.scope !18915, !noalias !18916
-  %.sroa.8.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i40, align 8, !alias.scope !18915, !noalias !18916
+  %.sroa.610.0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i39, align 8, !alias.scope !18915, !noalias !18916
+  %.sroa.7.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i40, align 8, !alias.scope !18915, !noalias !18916
   %61 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !18919
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %71
@@ -92623,7 +92554,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h08f898d6bf57fdd6E.exit: ; preds 
   br i1 %68, label %_ZN5typst11foundations6styles10StyleChain3get17h653d597bc2d2f2bfE.exit, label %69
 
 69:                                               ; preds = %66
-  %70 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i39, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %67), !noalias !18927
+  %70 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i39, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %67), !noalias !18927
   br label %71
 
 71:                                               ; preds = %69, %56
@@ -92669,10 +92600,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h653d597bc2d2f2bfE.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i44, align 8, !alias.scope !18952, !noalias !18953
   %.sroa.5.0..sroa_idx.i.i45 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i45, align 8, !alias.scope !18952, !noalias !18953
-  %.sroa.7.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i46, align 8, !alias.scope !18952, !noalias !18953
-  %.sroa.8.0..sroa_idx.i.i47 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i47, align 8, !alias.scope !18952, !noalias !18953
+  %.sroa.610.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i46, align 8, !alias.scope !18952, !noalias !18953
+  %.sroa.7.0..sroa_idx.i.i47 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i47, align 8, !alias.scope !18952, !noalias !18953
   %86 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !18956
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %96
@@ -92688,7 +92619,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h653d597bc2d2f2bfE.exit: ; preds 
   br i1 %93, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit, label %94
 
 94:                                               ; preds = %91
-  %95 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %92), !noalias !18964
+  %95 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %92), !noalias !18964
   br label %96
 
 96:                                               ; preds = %94, %80
@@ -92736,10 +92667,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i51, align 8, !alias.scope !18993, !noalias !18994
   %.sroa.5.0..sroa_idx.i.i52 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i52, align 8, !alias.scope !18993, !noalias !18994
-  %.sroa.7.0..sroa_idx.i.i53 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i53, align 8, !alias.scope !18993, !noalias !18994
-  %.sroa.8.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i54, align 8, !alias.scope !18993, !noalias !18994
+  %.sroa.610.0..sroa_idx.i.i53 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i53, align 8, !alias.scope !18993, !noalias !18994
+  %.sroa.7.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i54, align 8, !alias.scope !18993, !noalias !18994
   %108 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !18997
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %118
@@ -92755,7 +92686,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   br i1 %115, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit58, label %116
 
 116:                                              ; preds = %113
-  %117 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %114), !noalias !19005
+  %117 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %114), !noalias !19005
   br label %118
 
 118:                                              ; preds = %116, %102
@@ -92849,10 +92780,10 @@ define void @"_ZN5typst6layout5place1_97_$LT$impl$u20$typst..foundations..elemen
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !19033, !noalias !19034
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !19033, !noalias !19034
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !19033, !noalias !19034
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !19033, !noalias !19034
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !19033, !noalias !19034
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !19033, !noalias !19034
   %13 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hc80a440a90a253bfE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !19037
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %_ZN5typst11foundations6styles10StyleChain3get17h4b790f12478f44dfE.exit
@@ -92868,7 +92799,7 @@ define void @"_ZN5typst6layout5place1_97_$LT$impl$u20$typst..foundations..elemen
   br i1 %20, label %_ZN5typst11foundations6styles10StyleChain3get17h4b790f12478f44dfE.exit.thread, label %21
 
 21:                                               ; preds = %18
-  %22 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he1eac3a551c12268E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19), !noalias !19045
+  %22 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he1eac3a551c12268E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19), !noalias !19045
   br label %_ZN5typst11foundations6styles10StyleChain3get17h4b790f12478f44dfE.exit
 
 _ZN5typst11foundations6styles10StyleChain3get17h4b790f12478f44dfE.exit.thread: ; preds = %15, %18
@@ -92935,10 +92866,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h4b790f12478f44dfE.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i12, align 8, !alias.scope !19075, !noalias !19076
   %.sroa.5.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i13, align 8, !alias.scope !19075, !noalias !19076
-  %.sroa.7.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i14, align 8, !alias.scope !19075, !noalias !19076
-  %.sroa.8.0..sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i15, align 8, !alias.scope !19075, !noalias !19076
+  %.sroa.610.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i14, align 8, !alias.scope !19075, !noalias !19076
+  %.sroa.7.0..sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i15, align 8, !alias.scope !19075, !noalias !19076
   %37 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !19079
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %47
@@ -92954,7 +92885,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h4b790f12478f44dfE.exit: ; preds 
   br i1 %44, label %_ZN5typst11foundations6styles10StyleChain3get17h08f898d6bf57fdd6E.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43), !noalias !19087
+  %46 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43), !noalias !19087
   br label %47
 
 47:                                               ; preds = %45, %34
@@ -92987,10 +92918,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h08f898d6bf57fdd6E.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i19, align 8, !alias.scope !19109, !noalias !19110
   %.sroa.5.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i20, align 8, !alias.scope !19109, !noalias !19110
-  %.sroa.7.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i21, align 8, !alias.scope !19109, !noalias !19110
-  %.sroa.8.0..sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i22, align 8, !alias.scope !19109, !noalias !19110
+  %.sroa.610.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i21, align 8, !alias.scope !19109, !noalias !19110
+  %.sroa.7.0..sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i22, align 8, !alias.scope !19109, !noalias !19110
   %52 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !19113
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %62
@@ -93006,7 +92937,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h08f898d6bf57fdd6E.exit: ; preds 
   br i1 %59, label %_ZN5typst11foundations6styles10StyleChain3get17h5ca247fb5e0eae42E.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %58), !noalias !19121
+  %61 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %58), !noalias !19121
   br label %62
 
 62:                                               ; preds = %60, %49
@@ -93047,10 +92978,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h5ca247fb5e0eae42E.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i26, align 8, !alias.scope !19146, !noalias !19147
   %.sroa.5.0..sroa_idx.i.i27 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i27, align 8, !alias.scope !19146, !noalias !19147
-  %.sroa.7.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i28, align 8, !alias.scope !19146, !noalias !19147
-  %.sroa.8.0..sroa_idx.i.i29 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i29, align 8, !alias.scope !19146, !noalias !19147
+  %.sroa.610.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i28, align 8, !alias.scope !19146, !noalias !19147
+  %.sroa.7.0..sroa_idx.i.i29 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i29, align 8, !alias.scope !19146, !noalias !19147
   %74 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !19150
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %84
@@ -93066,7 +92997,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h5ca247fb5e0eae42E.exit: ; preds 
   br i1 %81, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit, label %82
 
 82:                                               ; preds = %79
-  %83 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i28, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %80), !noalias !19158
+  %83 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i28, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %80), !noalias !19158
   br label %84
 
 84:                                               ; preds = %82, %71
@@ -93109,10 +93040,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i33, align 8, !alias.scope !19187, !noalias !19188
   %.sroa.5.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i34, align 8, !alias.scope !19187, !noalias !19188
-  %.sroa.7.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i35, align 8, !alias.scope !19187, !noalias !19188
-  %.sroa.8.0..sroa_idx.i.i36 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i36, align 8, !alias.scope !19187, !noalias !19188
+  %.sroa.610.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i35, align 8, !alias.scope !19187, !noalias !19188
+  %.sroa.7.0..sroa_idx.i.i36 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i36, align 8, !alias.scope !19187, !noalias !19188
   %93 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !19191
   %94 = icmp eq ptr %93, null
   br i1 %94, label %95, label %103
@@ -93128,7 +93059,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   br i1 %100, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit40, label %101
 
 101:                                              ; preds = %98
-  %102 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i35, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %99), !noalias !19199
+  %102 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i35, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %99), !noalias !19199
   br label %103
 
 103:                                              ; preds = %101, %90
@@ -93191,10 +93122,10 @@ define void @"_ZN5typst6layout5place1_97_$LT$impl$u20$typst..foundations..elemen
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !19227, !noalias !19228
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !19227, !noalias !19228
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !19227, !noalias !19228
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !19227, !noalias !19228
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !19227, !noalias !19228
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !19227, !noalias !19228
   %13 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hc80a440a90a253bfE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !19231
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %23
@@ -93210,7 +93141,7 @@ define void @"_ZN5typst6layout5place1_97_$LT$impl$u20$typst..foundations..elemen
   br i1 %20, label %_ZN5typst11foundations6styles10StyleChain3get17h911838ebd621eb4aE.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he1eac3a551c12268E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19), !noalias !19239
+  %22 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17he1eac3a551c12268E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19), !noalias !19239
   br label %23
 
 23:                                               ; preds = %21, %10
@@ -93253,10 +93184,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h911838ebd621eb4aE.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i28, align 8, !alias.scope !19261, !noalias !19262
   %.sroa.5.0..sroa_idx.i.i29 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i29, align 8, !alias.scope !19261, !noalias !19262
-  %.sroa.7.0..sroa_idx.i.i30 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i30, align 8, !alias.scope !19261, !noalias !19262
-  %.sroa.8.0..sroa_idx.i.i31 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i31, align 8, !alias.scope !19261, !noalias !19262
+  %.sroa.610.0..sroa_idx.i.i30 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i30, align 8, !alias.scope !19261, !noalias !19262
+  %.sroa.7.0..sroa_idx.i.i31 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i31, align 8, !alias.scope !19261, !noalias !19262
   %34 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !19265
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %44
@@ -93272,7 +93203,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h911838ebd621eb4aE.exit: ; preds 
   br i1 %41, label %_ZN5typst11foundations6styles10StyleChain3get17h08f898d6bf57fdd6E.exit, label %42
 
 42:                                               ; preds = %39
-  %43 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i30, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %40), !noalias !19273
+  %43 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i30, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %40), !noalias !19273
   br label %44
 
 44:                                               ; preds = %42, %31
@@ -93309,10 +93240,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h08f898d6bf57fdd6E.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i35, align 8, !alias.scope !19295, !noalias !19296
   %.sroa.5.0..sroa_idx.i.i36 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i36, align 8, !alias.scope !19295, !noalias !19296
-  %.sroa.7.0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i37, align 8, !alias.scope !19295, !noalias !19296
-  %.sroa.8.0..sroa_idx.i.i38 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i38, align 8, !alias.scope !19295, !noalias !19296
+  %.sroa.610.0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i37, align 8, !alias.scope !19295, !noalias !19296
+  %.sroa.7.0..sroa_idx.i.i38 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i38, align 8, !alias.scope !19295, !noalias !19296
   %52 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !19299
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %62
@@ -93328,7 +93259,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h08f898d6bf57fdd6E.exit: ; preds 
   br i1 %59, label %_ZN5typst11foundations6styles10StyleChain3get17h0ccc9e2ee65b5f53E.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %58), !noalias !19307
+  %61 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %58), !noalias !19307
   br label %62
 
 62:                                               ; preds = %60, %48
@@ -93375,10 +93306,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h0ccc9e2ee65b5f53E.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i42, align 8, !alias.scope !19332, !noalias !19333
   %.sroa.5.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i43, align 8, !alias.scope !19332, !noalias !19333
-  %.sroa.7.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i44, align 8, !alias.scope !19332, !noalias !19333
-  %.sroa.8.0..sroa_idx.i.i45 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i45, align 8, !alias.scope !19332, !noalias !19333
+  %.sroa.610.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i44, align 8, !alias.scope !19332, !noalias !19333
+  %.sroa.7.0..sroa_idx.i.i45 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i45, align 8, !alias.scope !19332, !noalias !19333
   %78 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !19336
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %88
@@ -93394,7 +93325,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h0ccc9e2ee65b5f53E.exit: ; preds 
   br i1 %85, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit, label %86
 
 86:                                               ; preds = %83
-  %87 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i44, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %84), !noalias !19344
+  %87 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i44, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %84), !noalias !19344
   br label %88
 
 88:                                               ; preds = %86, %74
@@ -93443,10 +93374,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i49, align 8, !alias.scope !19373, !noalias !19374
   %.sroa.5.0..sroa_idx.i.i50 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i50, align 8, !alias.scope !19373, !noalias !19374
-  %.sroa.7.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i51, align 8, !alias.scope !19373, !noalias !19374
-  %.sroa.8.0..sroa_idx.i.i52 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i52, align 8, !alias.scope !19373, !noalias !19374
+  %.sroa.610.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst6layout5place1_104_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..layout..place..PlaceElem$GT$4data4DATA17ha22cc7fdd839913aE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i51, align 8, !alias.scope !19373, !noalias !19374
+  %.sroa.7.0..sroa_idx.i.i52 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i52, align 8, !alias.scope !19373, !noalias !19374
   %101 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h6bb6b21a1558af05E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !19377
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %111
@@ -93462,7 +93393,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit: ; preds 
   br i1 %108, label %_ZN5typst11foundations6styles10StyleChain3get17h150113f7816660f8E.exit56, label %109
 
 109:                                              ; preds = %106
-  %110 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %107), !noalias !19385
+  %110 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hb8e80d902dfde805E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %107), !noalias !19385
   br label %111
 
 111:                                              ; preds = %109, %97
@@ -96483,10 +96414,10 @@ define noundef zeroext i1 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model.
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !19931, !noalias !19932
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !19931, !noalias !19932
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !19931, !noalias !19932
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !19931, !noalias !19932
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !19931, !noalias !19932
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !19931, !noalias !19932
   %9 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !19935
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -96502,7 +96433,7 @@ define noundef zeroext i1 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model.
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17ha14b276d478193f1E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !19943
+  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !19943
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -96543,10 +96474,10 @@ define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN5typst5model5enum_1_
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !19965, !noalias !19966
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !19965, !noalias !19966
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !19965, !noalias !19966
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !19965, !noalias !19966
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !19965, !noalias !19966
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !19965, !noalias !19966
   %10 = call noundef align 8 dereferenceable_or_null(40) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hfb71daa7d2baa5fbE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !19969
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN5typst11foundations6styles10StyleChain7get_ref17h86d6e5303da6acd0E.exit
@@ -96562,7 +96493,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN5typst5model5enum_1_
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(40) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9ee1079fba440879E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !19977
+  %19 = call noundef align 8 dereferenceable(40) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9ee1079fba440879E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !19977
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17h86d6e5303da6acd0E.exit
 
 20:                                               ; preds = %15, %12
@@ -96598,10 +96529,10 @@ define noundef i64 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_.
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !19997, !noalias !19998
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !19997, !noalias !19998
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !19997, !noalias !19998
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !19997, !noalias !19998
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !19997, !noalias !19998
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !19997, !noalias !19998
   %8 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hbbe20f22b236ad66E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !20001
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i"
@@ -96617,7 +96548,7 @@ define noundef i64 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_.
   br i1 %15, label %_ZN5typst11foundations6styles10StyleChain3get17hf89937306fb51b9bE.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1e7470f06ce09da8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !20009
+  %17 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1e7470f06ce09da8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !20009
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i": ; preds = %16, %2
@@ -96654,10 +96585,10 @@ define noundef zeroext i1 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model.
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20031, !noalias !20032
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20031, !noalias !20032
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20031, !noalias !20032
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20031, !noalias !20032
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20031, !noalias !20032
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20031, !noalias !20032
   %9 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !20035
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -96673,7 +96604,7 @@ define noundef zeroext i1 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model.
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17h831687eab2762226E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !20043
+  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !20043
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -96711,10 +96642,10 @@ define noundef double @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enu
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20064, !noalias !20065
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20064, !noalias !20065
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20064, !noalias !20065
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20064, !noalias !20065
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20064, !noalias !20065
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20064, !noalias !20065
   %9 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !20066
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -96730,7 +96661,7 @@ define noundef double @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enu
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17h81c721cb8838e9d9E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !20074
+  %18 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !20074
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -96774,10 +96705,10 @@ define noundef double @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enu
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20097, !noalias !20098
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20097, !noalias !20098
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20097, !noalias !20098
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20097, !noalias !20098
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20097, !noalias !20098
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20097, !noalias !20098
   %9 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !20099
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -96793,7 +96724,7 @@ define noundef double @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enu
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17h32d60638b1b00cd8E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !20107
+  %18 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !20107
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -96840,10 +96771,10 @@ define void @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_..EnumEl
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20133, !noalias !20134
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20133, !noalias !20134
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20133, !noalias !20134
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20133, !noalias !20134
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20133, !noalias !20134
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20133, !noalias !20134
   %10 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hcf0d3afc3da061a2E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !20137
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %20
@@ -96859,7 +96790,7 @@ define void @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_..EnumEl
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h875f4e8e4aad13c0E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !20145
+  %19 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h875f4e8e4aad13c0E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !20145
   br label %20
 
 20:                                               ; preds = %18, %3
@@ -96913,10 +96844,10 @@ define i16 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_..EnumEle
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20182, !noalias !20183
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 7, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20182, !noalias !20183
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20182, !noalias !20183
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 7, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20182, !noalias !20183
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20182, !noalias !20183
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 7, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20182, !noalias !20183
   %9 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hf443c199ab7ebd37E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !20186
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %19
@@ -96932,7 +96863,7 @@ define i16 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_..EnumEle
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17h8bd8ae908130f66dE.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd2ecef11a3c05656E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !20194
+  %18 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd2ecef11a3c05656E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !20194
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -96974,10 +96905,10 @@ define noundef zeroext i1 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model.
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20216, !noalias !20217
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20216, !noalias !20217
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20216, !noalias !20217
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20216, !noalias !20217
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20216, !noalias !20217
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20216, !noalias !20217
   %5 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !20220
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -96993,7 +96924,7 @@ define noundef zeroext i1 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model.
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h102dd0bdc1d24798E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20228
+  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20228
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -97029,10 +96960,10 @@ define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN5typst5model5enum_1_
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20250, !noalias !20251
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 1, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20250, !noalias !20251
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20250, !noalias !20251
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20250, !noalias !20251
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20250, !noalias !20251
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 1, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20250, !noalias !20251
   %5 = call noundef align 8 dereferenceable_or_null(40) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hfb71daa7d2baa5fbE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !20254
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %_ZN5typst11foundations6styles10StyleChain7get_ref17h679ee765c84dbf2cE.exit
@@ -97048,7 +96979,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @"_ZN5typst5model5enum_1_
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(40) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9ee1079fba440879E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20262
+  %14 = call noundef align 8 dereferenceable(40) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9ee1079fba440879E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20262
   br label %_ZN5typst11foundations6styles10StyleChain7get_ref17h679ee765c84dbf2cE.exit
 
 15:                                               ; preds = %10, %7
@@ -97080,10 +97011,10 @@ define noundef i64 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_.
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20282, !noalias !20283
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20282, !noalias !20283
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20282, !noalias !20283
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20282, !noalias !20283
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20282, !noalias !20283
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20282, !noalias !20283
   %5 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hbbe20f22b236ad66E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !20286
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i"
@@ -97099,7 +97030,7 @@ define noundef i64 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_.
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h4f03fe2579c2c54cE.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1e7470f06ce09da8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20294
+  %14 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1e7470f06ce09da8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20294
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i": ; preds = %13, %1
@@ -97132,10 +97063,10 @@ define noundef zeroext i1 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model.
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20316, !noalias !20317
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20316, !noalias !20317
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20316, !noalias !20317
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20316, !noalias !20317
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20316, !noalias !20317
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20316, !noalias !20317
   %5 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !20320
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -97151,7 +97082,7 @@ define noundef zeroext i1 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model.
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17ha8bc353c36a24534E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20328
+  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20328
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -97184,10 +97115,10 @@ define noundef double @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enu
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20349, !noalias !20350
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20349, !noalias !20350
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20349, !noalias !20350
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20349, !noalias !20350
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20349, !noalias !20350
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20349, !noalias !20350
   %5 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !20351
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -97203,7 +97134,7 @@ define noundef double @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enu
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h81c721cb8838e9d9E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20359
+  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20359
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -97242,10 +97173,10 @@ define noundef double @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enu
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20382, !noalias !20383
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20382, !noalias !20383
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20382, !noalias !20383
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20382, !noalias !20383
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20382, !noalias !20383
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20382, !noalias !20383
   %5 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !20384
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -97261,7 +97192,7 @@ define noundef double @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enu
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h3af5c94669d79cceE.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20392
+  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20392
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -97304,10 +97235,10 @@ define void @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_..EnumEl
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20418, !noalias !20419
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20418, !noalias !20419
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20418, !noalias !20419
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20418, !noalias !20419
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20418, !noalias !20419
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20418, !noalias !20419
   %6 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hcf0d3afc3da061a2E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !20422
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %16
@@ -97323,7 +97254,7 @@ define void @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_..EnumEl
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h875f4e8e4aad13c0E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !20430
+  %15 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h875f4e8e4aad13c0E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !20430
   br label %16
 
 16:                                               ; preds = %14, %2
@@ -97373,10 +97304,10 @@ define i16 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_..EnumEle
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20467, !noalias !20468
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 7, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20467, !noalias !20468
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20467, !noalias !20468
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 7, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20467, !noalias !20468
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20467, !noalias !20468
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 7, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20467, !noalias !20468
   %5 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hf443c199ab7ebd37E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !20471
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
@@ -97392,7 +97323,7 @@ define i16 @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_..EnumEle
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h8295b214fbaa075fE.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd2ecef11a3c05656E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20479
+  %14 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd2ecef11a3c05656E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !20479
   br label %15
 
 15:                                               ; preds = %13, %1
@@ -98135,10 +98066,10 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20592, !noalias !20593
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20592, !noalias !20593
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20592, !noalias !20593
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20592, !noalias !20593
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20592, !noalias !20593
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20592, !noalias !20593
   %27 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %14), !noalias !20596
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %37
@@ -98154,7 +98085,7 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   br i1 %34, label %_ZN5typst11foundations6styles10StyleChain3get17h3c5104647fb8e608E.exit, label %35
 
 35:                                               ; preds = %32
-  %36 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33), !noalias !20604
+  %36 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %33), !noalias !20604
   br label %37
 
 37:                                               ; preds = %35, %21
@@ -98230,10 +98161,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h3c5104647fb8e608E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i37, align 8, !alias.scope !20637, !noalias !20638
   %.sroa.5.0..sroa_idx.i.i38 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i38, align 8, !alias.scope !20637, !noalias !20638
-  %.sroa.7.0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i39, align 8, !alias.scope !20637, !noalias !20638
-  %.sroa.8.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i40, align 8, !alias.scope !20637, !noalias !20638
+  %.sroa.610.0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i39, align 8, !alias.scope !20637, !noalias !20638
+  %.sroa.7.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i40, align 8, !alias.scope !20637, !noalias !20638
   %58 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hbbe20f22b236ad66E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %12), !noalias !20641
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i"
@@ -98249,7 +98180,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h3c5104647fb8e608E.exit: ; preds 
   br i1 %65, label %_ZN5typst11foundations6styles10StyleChain3get17h5bbc3ab710121c74E.exit, label %66
 
 66:                                               ; preds = %63
-  %67 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1e7470f06ce09da8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i39, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64), !noalias !20649
+  %67 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1e7470f06ce09da8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i39, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64), !noalias !20649
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i": ; preds = %66, %53
@@ -98291,10 +98222,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h5bbc3ab710121c74E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i44, align 8, !alias.scope !20671, !noalias !20672
   %.sroa.5.0..sroa_idx.i.i45 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i45, align 8, !alias.scope !20671, !noalias !20672
-  %.sroa.7.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i46, align 8, !alias.scope !20671, !noalias !20672
-  %.sroa.8.0..sroa_idx.i.i47 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i47, align 8, !alias.scope !20671, !noalias !20672
+  %.sroa.610.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i46, align 8, !alias.scope !20671, !noalias !20672
+  %.sroa.7.0..sroa_idx.i.i47 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i47, align 8, !alias.scope !20671, !noalias !20672
   %79 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %11), !noalias !20675
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %89
@@ -98310,7 +98241,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h5bbc3ab710121c74E.exit: ; preds 
   br i1 %86, label %_ZN5typst11foundations6styles10StyleChain3get17he3a4fbc688741304E.exit, label %87
 
 87:                                               ; preds = %84
-  %88 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %85), !noalias !20683
+  %88 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %85), !noalias !20683
   br label %89
 
 89:                                               ; preds = %87, %73
@@ -98348,10 +98279,10 @@ _ZN5typst11foundations6styles10StyleChain3get17he3a4fbc688741304E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i52, align 8, !alias.scope !20705, !noalias !20706
   %.sroa.5.0..sroa_idx.i.i53 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i53, align 8, !alias.scope !20705, !noalias !20706
-  %.sroa.7.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i54, align 8, !alias.scope !20705, !noalias !20706
-  %.sroa.8.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i55, align 8, !alias.scope !20705, !noalias !20706
+  %.sroa.610.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i54, align 8, !alias.scope !20705, !noalias !20706
+  %.sroa.7.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i55, align 8, !alias.scope !20705, !noalias !20706
   %97 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %10), !noalias !20709
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %107
@@ -98367,7 +98298,7 @@ _ZN5typst11foundations6styles10StyleChain3get17he3a4fbc688741304E.exit: ; preds 
   br i1 %104, label %_ZN5typst11foundations6styles10StyleChain3get17h81c721cb8838e9d9E.exit, label %105
 
 105:                                              ; preds = %102
-  %106 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i54, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %103), !noalias !20717
+  %106 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i54, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %103), !noalias !20717
   br label %107
 
 107:                                              ; preds = %105, %91
@@ -98413,10 +98344,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h81c721cb8838e9d9E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i59, align 8, !alias.scope !20741, !noalias !20742
   %.sroa.5.0..sroa_idx.i.i60 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i60, align 8, !alias.scope !20741, !noalias !20742
-  %.sroa.7.0..sroa_idx.i.i61 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i61, align 8, !alias.scope !20741, !noalias !20742
-  %.sroa.8.0..sroa_idx.i.i62 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i62, align 8, !alias.scope !20741, !noalias !20742
+  %.sroa.610.0..sroa_idx.i.i61 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i61, align 8, !alias.scope !20741, !noalias !20742
+  %.sroa.7.0..sroa_idx.i.i62 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i62, align 8, !alias.scope !20741, !noalias !20742
   %122 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !20745
   %123 = icmp eq ptr %122, null
   br i1 %123, label %124, label %132
@@ -98432,7 +98363,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h81c721cb8838e9d9E.exit: ; preds 
   br i1 %129, label %_ZN5typst11foundations6styles10StyleChain3get17h9517a6526d6f80a9E.exit, label %130
 
 130:                                              ; preds = %127
-  %131 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i61, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %128), !noalias !20753
+  %131 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i61, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %128), !noalias !20753
   br label %132
 
 132:                                              ; preds = %130, %116
@@ -98478,10 +98409,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h9517a6526d6f80a9E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i66, align 8, !alias.scope !20778, !noalias !20779
   %.sroa.5.0..sroa_idx.i.i67 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i67, align 8, !alias.scope !20778, !noalias !20779
-  %.sroa.7.0..sroa_idx.i.i68 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i68, align 8, !alias.scope !20778, !noalias !20779
-  %.sroa.8.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i69, align 8, !alias.scope !20778, !noalias !20779
+  %.sroa.610.0..sroa_idx.i.i68 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i68, align 8, !alias.scope !20778, !noalias !20779
+  %.sroa.7.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i69, align 8, !alias.scope !20778, !noalias !20779
   %147 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hcf0d3afc3da061a2E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !20782
   %148 = icmp eq ptr %147, null
   br i1 %148, label %149, label %157
@@ -98497,7 +98428,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h9517a6526d6f80a9E.exit: ; preds 
   br i1 %154, label %_ZN5typst11foundations6styles10StyleChain3get17h361872bc6b9e33cfE.exit.thread132, label %155
 
 155:                                              ; preds = %152
-  %156 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h875f4e8e4aad13c0E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i68, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %153), !noalias !20790
+  %156 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h875f4e8e4aad13c0E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i68, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %153), !noalias !20790
   br label %157
 
 157:                                              ; preds = %155, %141
@@ -98550,10 +98481,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h361872bc6b9e33cfE.exit.thread132
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i73, align 8, !alias.scope !20820, !noalias !20821
   %.sroa.5.0..sroa_idx.i.i74 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 7, ptr %.sroa.5.0..sroa_idx.i.i74, align 8, !alias.scope !20820, !noalias !20821
-  %.sroa.7.0..sroa_idx.i.i75 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i75, align 8, !alias.scope !20820, !noalias !20821
-  %.sroa.8.0..sroa_idx.i.i76 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 7, ptr %.sroa.8.0..sroa_idx.i.i76, align 8, !alias.scope !20820, !noalias !20821
+  %.sroa.610.0..sroa_idx.i.i75 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i75, align 8, !alias.scope !20820, !noalias !20821
+  %.sroa.7.0..sroa_idx.i.i76 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 7, ptr %.sroa.7.0..sroa_idx.i.i76, align 8, !alias.scope !20820, !noalias !20821
   %167 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hf443c199ab7ebd37E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !20824
   %168 = icmp eq ptr %167, null
   br i1 %168, label %169, label %177
@@ -98569,7 +98500,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h361872bc6b9e33cfE.exit.thread132
   br i1 %174, label %_ZN5typst11foundations6styles10StyleChain3get17hf8c61d3cc99c9f4bE.exit, label %175
 
 175:                                              ; preds = %172
-  %176 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd2ecef11a3c05656E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %173), !noalias !20832
+  %176 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd2ecef11a3c05656E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %173), !noalias !20832
   br label %177
 
 177:                                              ; preds = %175, %161
@@ -98698,10 +98629,10 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !20875, !noalias !20876
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !20875, !noalias !20876
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20875, !noalias !20876
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !20875, !noalias !20876
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !20875, !noalias !20876
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !20875, !noalias !20876
   %21 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %12), !noalias !20879
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %31
@@ -98717,7 +98648,7 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   br i1 %28, label %_ZN5typst11foundations6styles10StyleChain3get17h8aef3c7526d2efb9E.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27), !noalias !20887
+  %30 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27), !noalias !20887
   br label %31
 
 31:                                               ; preds = %29, %18
@@ -98784,10 +98715,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h8aef3c7526d2efb9E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i12, align 8, !alias.scope !20920, !noalias !20921
   %.sroa.5.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i13, align 8, !alias.scope !20920, !noalias !20921
-  %.sroa.7.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i14, align 8, !alias.scope !20920, !noalias !20921
-  %.sroa.8.0..sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i15, align 8, !alias.scope !20920, !noalias !20921
+  %.sroa.610.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i14, align 8, !alias.scope !20920, !noalias !20921
+  %.sroa.7.0..sroa_idx.i.i15 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i15, align 8, !alias.scope !20920, !noalias !20921
   %46 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hbbe20f22b236ad66E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %10), !noalias !20924
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i"
@@ -98803,7 +98734,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h8aef3c7526d2efb9E.exit: ; preds 
   br i1 %53, label %_ZN5typst11foundations6styles10StyleChain3get17h298eb8c3c82291b5E.exit, label %54
 
 54:                                               ; preds = %51
-  %55 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1e7470f06ce09da8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %52), !noalias !20932
+  %55 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1e7470f06ce09da8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %52), !noalias !20932
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i": ; preds = %54, %43
@@ -98841,10 +98772,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h298eb8c3c82291b5E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i19, align 8, !alias.scope !20954, !noalias !20955
   %.sroa.5.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i20, align 8, !alias.scope !20954, !noalias !20955
-  %.sroa.7.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i21, align 8, !alias.scope !20954, !noalias !20955
-  %.sroa.8.0..sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i22, align 8, !alias.scope !20954, !noalias !20955
+  %.sroa.610.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i21, align 8, !alias.scope !20954, !noalias !20955
+  %.sroa.7.0..sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i22, align 8, !alias.scope !20954, !noalias !20955
   %64 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !20958
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %74
@@ -98860,7 +98791,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h298eb8c3c82291b5E.exit: ; preds 
   br i1 %71, label %_ZN5typst11foundations6styles10StyleChain3get17hc616cceebad35417E.exit, label %72
 
 72:                                               ; preds = %69
-  %73 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %70), !noalias !20966
+  %73 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %70), !noalias !20966
   br label %74
 
 74:                                               ; preds = %72, %61
@@ -98893,10 +98824,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hc616cceebad35417E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i27, align 8, !alias.scope !20988, !noalias !20989
   %.sroa.5.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i28, align 8, !alias.scope !20988, !noalias !20989
-  %.sroa.7.0..sroa_idx.i.i29 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i29, align 8, !alias.scope !20988, !noalias !20989
-  %.sroa.8.0..sroa_idx.i.i30 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i30, align 8, !alias.scope !20988, !noalias !20989
+  %.sroa.610.0..sroa_idx.i.i29 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i29, align 8, !alias.scope !20988, !noalias !20989
+  %.sroa.7.0..sroa_idx.i.i30 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i30, align 8, !alias.scope !20988, !noalias !20989
   %79 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !20992
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %89
@@ -98912,7 +98843,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hc616cceebad35417E.exit: ; preds 
   br i1 %86, label %_ZN5typst11foundations6styles10StyleChain3get17h81c721cb8838e9d9E.exit, label %87
 
 87:                                               ; preds = %84
-  %88 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i29, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %85), !noalias !21000
+  %88 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i29, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %85), !noalias !21000
   br label %89
 
 89:                                               ; preds = %87, %76
@@ -98953,10 +98884,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h81c721cb8838e9d9E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i34, align 8, !alias.scope !21024, !noalias !21025
   %.sroa.5.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i35, align 8, !alias.scope !21024, !noalias !21025
-  %.sroa.7.0..sroa_idx.i.i36 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i36, align 8, !alias.scope !21024, !noalias !21025
-  %.sroa.8.0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i37, align 8, !alias.scope !21024, !noalias !21025
+  %.sroa.610.0..sroa_idx.i.i36 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i36, align 8, !alias.scope !21024, !noalias !21025
+  %.sroa.7.0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i37, align 8, !alias.scope !21024, !noalias !21025
   %101 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !21028
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %111
@@ -98972,7 +98903,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h81c721cb8838e9d9E.exit: ; preds 
   br i1 %108, label %_ZN5typst11foundations6styles10StyleChain3get17hc01614c9f58d251eE.exit, label %109
 
 109:                                              ; preds = %106
-  %110 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i36, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %107), !noalias !21036
+  %110 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i36, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %107), !noalias !21036
   br label %111
 
 111:                                              ; preds = %109, %98
@@ -99014,10 +98945,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hc01614c9f58d251eE.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i41, align 8, !alias.scope !21061, !noalias !21062
   %.sroa.5.0..sroa_idx.i.i42 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i42, align 8, !alias.scope !21061, !noalias !21062
-  %.sroa.7.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i43, align 8, !alias.scope !21061, !noalias !21062
-  %.sroa.8.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i44, align 8, !alias.scope !21061, !noalias !21062
+  %.sroa.610.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i43, align 8, !alias.scope !21061, !noalias !21062
+  %.sroa.7.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i44, align 8, !alias.scope !21061, !noalias !21062
   %123 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hcf0d3afc3da061a2E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !21065
   %124 = icmp eq ptr %123, null
   br i1 %124, label %125, label %133
@@ -99033,7 +98964,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hc01614c9f58d251eE.exit: ; preds 
   br i1 %130, label %_ZN5typst11foundations6styles10StyleChain3get17h361872bc6b9e33cfE.exit.thread99, label %131
 
 131:                                              ; preds = %128
-  %132 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h875f4e8e4aad13c0E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i43, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %129), !noalias !21073
+  %132 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h875f4e8e4aad13c0E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i43, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %129), !noalias !21073
   br label %133
 
 133:                                              ; preds = %131, %120
@@ -99082,10 +99013,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h361872bc6b9e33cfE.exit.thread99:
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i48, align 8, !alias.scope !21103, !noalias !21104
   %.sroa.5.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 7, ptr %.sroa.5.0..sroa_idx.i.i49, align 8, !alias.scope !21103, !noalias !21104
-  %.sroa.7.0..sroa_idx.i.i50 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i50, align 8, !alias.scope !21103, !noalias !21104
-  %.sroa.8.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 7, ptr %.sroa.8.0..sroa_idx.i.i51, align 8, !alias.scope !21103, !noalias !21104
+  %.sroa.610.0..sroa_idx.i.i50 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i50, align 8, !alias.scope !21103, !noalias !21104
+  %.sroa.7.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 7, ptr %.sroa.7.0..sroa_idx.i.i51, align 8, !alias.scope !21103, !noalias !21104
   %140 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hf443c199ab7ebd37E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !21107
   %141 = icmp eq ptr %140, null
   br i1 %141, label %142, label %150
@@ -99101,7 +99032,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h361872bc6b9e33cfE.exit.thread99:
   br i1 %147, label %_ZN5typst11foundations6styles10StyleChain3get17hcdff31750f4fca60E.exit, label %148
 
 148:                                              ; preds = %145
-  %149 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd2ecef11a3c05656E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %146), !noalias !21115
+  %149 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd2ecef11a3c05656E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i50, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %146), !noalias !21115
   br label %150
 
 150:                                              ; preds = %148, %137
@@ -99179,10 +99110,10 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !21143, !noalias !21144
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !21143, !noalias !21144
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21143, !noalias !21144
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !21143, !noalias !21144
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !21143, !noalias !21144
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21143, !noalias !21144
   %17 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !21147
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %27
@@ -99198,7 +99129,7 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   br i1 %24, label %_ZN5typst11foundations6styles10StyleChain3get17h4227438e5c7e80acE.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23), !noalias !21155
+  %26 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23), !noalias !21155
   br label %27
 
 27:                                               ; preds = %25, %14
@@ -99271,10 +99202,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h4227438e5c7e80acE.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i44, align 8, !alias.scope !21180, !noalias !21181
   %.sroa.5.0..sroa_idx.i.i45 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i45, align 8, !alias.scope !21180, !noalias !21181
-  %.sroa.7.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i46, align 8, !alias.scope !21180, !noalias !21181
-  %.sroa.8.0..sroa_idx.i.i47 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i47, align 8, !alias.scope !21180, !noalias !21181
+  %.sroa.610.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i46, align 8, !alias.scope !21180, !noalias !21181
+  %.sroa.7.0..sroa_idx.i.i47 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i47, align 8, !alias.scope !21180, !noalias !21181
   %48 = call noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hbbe20f22b236ad66E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !21184
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i"
@@ -99290,7 +99221,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h4227438e5c7e80acE.exit: ; preds 
   br i1 %55, label %_ZN5typst11foundations6styles10StyleChain3get17h9a5d64e7f5982957E.exit, label %56
 
 56:                                               ; preds = %53
-  %57 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1e7470f06ce09da8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %54), !noalias !21192
+  %57 = call noundef align 8 dereferenceable(8) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1e7470f06ce09da8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i46, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %54), !noalias !21192
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hf43882c7a6e6ff92E.exit.i": ; preds = %56, %44
@@ -99328,10 +99259,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h9a5d64e7f5982957E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i51, align 8, !alias.scope !21214, !noalias !21215
   %.sroa.5.0..sroa_idx.i.i52 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i52, align 8, !alias.scope !21214, !noalias !21215
-  %.sroa.7.0..sroa_idx.i.i53 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i53, align 8, !alias.scope !21214, !noalias !21215
-  %.sroa.8.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i54, align 8, !alias.scope !21214, !noalias !21215
+  %.sroa.610.0..sroa_idx.i.i53 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i53, align 8, !alias.scope !21214, !noalias !21215
+  %.sroa.7.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i54, align 8, !alias.scope !21214, !noalias !21215
   %66 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h51e4fd1d8a5cf9aaE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !21218
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %76
@@ -99347,7 +99278,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h9a5d64e7f5982957E.exit: ; preds 
   br i1 %73, label %_ZN5typst11foundations6styles10StyleChain3get17h1019a8fadfb480c9E.exit, label %74
 
 74:                                               ; preds = %71
-  %75 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %72), !noalias !21226
+  %75 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hfb5faca2d0273f13E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %72), !noalias !21226
   br label %76
 
 76:                                               ; preds = %74, %63
@@ -99385,10 +99316,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h1019a8fadfb480c9E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i59, align 8, !alias.scope !21248, !noalias !21249
   %.sroa.5.0..sroa_idx.i.i60 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i60, align 8, !alias.scope !21248, !noalias !21249
-  %.sroa.7.0..sroa_idx.i.i61 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i61, align 8, !alias.scope !21248, !noalias !21249
-  %.sroa.8.0..sroa_idx.i.i62 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i62, align 8, !alias.scope !21248, !noalias !21249
+  %.sroa.610.0..sroa_idx.i.i61 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i61, align 8, !alias.scope !21248, !noalias !21249
+  %.sroa.7.0..sroa_idx.i.i62 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i62, align 8, !alias.scope !21248, !noalias !21249
   %85 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !21252
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %95
@@ -99404,7 +99335,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h1019a8fadfb480c9E.exit: ; preds 
   br i1 %92, label %_ZN5typst11foundations6styles10StyleChain3get17h81c721cb8838e9d9E.exit, label %93
 
 93:                                               ; preds = %90
-  %94 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i61, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %91), !noalias !21260
+  %94 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i61, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %91), !noalias !21260
   br label %95
 
 95:                                               ; preds = %93, %81
@@ -99451,10 +99382,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h81c721cb8838e9d9E.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i66, align 8, !alias.scope !21284, !noalias !21285
   %.sroa.5.0..sroa_idx.i.i67 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i67, align 8, !alias.scope !21284, !noalias !21285
-  %.sroa.7.0..sroa_idx.i.i68 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i68, align 8, !alias.scope !21284, !noalias !21285
-  %.sroa.8.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i69, align 8, !alias.scope !21284, !noalias !21285
+  %.sroa.610.0..sroa_idx.i.i68 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i68, align 8, !alias.scope !21284, !noalias !21285
+  %.sroa.7.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i69, align 8, !alias.scope !21284, !noalias !21285
   %111 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h43aa7610571b2620E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !21288
   %112 = icmp eq ptr %111, null
   br i1 %112, label %113, label %121
@@ -99470,7 +99401,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h81c721cb8838e9d9E.exit: ; preds 
   br i1 %118, label %_ZN5typst11foundations6styles10StyleChain3get17h4d4f02d446534e1bE.exit, label %119
 
 119:                                              ; preds = %116
-  %120 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i68, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %117), !noalias !21296
+  %120 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h9a8b5d0c16900529E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i68, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %117), !noalias !21296
   br label %121
 
 121:                                              ; preds = %119, %107
@@ -99516,10 +99447,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h4d4f02d446534e1bE.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i73, align 8, !alias.scope !21321, !noalias !21322
   %.sroa.5.0..sroa_idx.i.i74 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i74, align 8, !alias.scope !21321, !noalias !21322
-  %.sroa.7.0..sroa_idx.i.i75 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i75, align 8, !alias.scope !21321, !noalias !21322
-  %.sroa.8.0..sroa_idx.i.i76 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i76, align 8, !alias.scope !21321, !noalias !21322
+  %.sroa.610.0..sroa_idx.i.i75 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i75, align 8, !alias.scope !21321, !noalias !21322
+  %.sroa.7.0..sroa_idx.i.i76 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i76, align 8, !alias.scope !21321, !noalias !21322
   %136 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hcf0d3afc3da061a2E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !21325
   %137 = icmp eq ptr %136, null
   br i1 %137, label %138, label %146
@@ -99535,7 +99466,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h4d4f02d446534e1bE.exit: ; preds 
   br i1 %143, label %_ZN5typst11foundations6styles10StyleChain3get17h361872bc6b9e33cfE.exit, label %144
 
 144:                                              ; preds = %141
-  %145 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h875f4e8e4aad13c0E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %142), !noalias !21333
+  %145 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h875f4e8e4aad13c0E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i75, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %142), !noalias !21333
   br label %146
 
 146:                                              ; preds = %144, %133
@@ -99580,10 +99511,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h361872bc6b9e33cfE.exit: ; preds 
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i80, align 8, !alias.scope !21358, !noalias !21359
   %.sroa.5.0..sroa_idx.i.i81 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 7, ptr %.sroa.5.0..sroa_idx.i.i81, align 8, !alias.scope !21358, !noalias !21359
-  %.sroa.7.0..sroa_idx.i.i82 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i82, align 8, !alias.scope !21358, !noalias !21359
-  %.sroa.8.0..sroa_idx.i.i83 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 7, ptr %.sroa.8.0..sroa_idx.i.i83, align 8, !alias.scope !21358, !noalias !21359
+  %.sroa.610.0..sroa_idx.i.i82 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumElem$GT$4data4DATA17hf354842333958aabE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i82, align 8, !alias.scope !21358, !noalias !21359
+  %.sroa.7.0..sroa_idx.i.i83 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 7, ptr %.sroa.7.0..sroa_idx.i.i83, align 8, !alias.scope !21358, !noalias !21359
   %156 = call noundef align 1 dereferenceable_or_null(2) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17hf443c199ab7ebd37E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !21362
   %157 = icmp eq ptr %156, null
   br i1 %157, label %158, label %166
@@ -99599,7 +99530,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h361872bc6b9e33cfE.exit: ; preds 
   br i1 %163, label %_ZN5typst11foundations6styles10StyleChain3get17hf181b4e4f8588cabE.exit, label %164
 
 164:                                              ; preds = %161
-  %165 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd2ecef11a3c05656E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i82, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %162), !noalias !21370
+  %165 = call noundef align 1 dereferenceable(2) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17hd2ecef11a3c05656E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i82, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %162), !noalias !21370
   br label %166
 
 166:                                              ; preds = %164, %153
@@ -101816,10 +101747,10 @@ define { i64, i64 } @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !21688, !noalias !21689
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !21688, !noalias !21689
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21688, !noalias !21689
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !21688, !noalias !21689
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !21688, !noalias !21689
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21688, !noalias !21689
   %8 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h9f4eea3504e7b446E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !21692
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i"
@@ -101835,7 +101766,7 @@ define { i64, i64 } @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_
   br i1 %15, label %_ZN5typst11foundations6styles10StyleChain3get17h207ca719aa070087E.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h858084ef6fcee015E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !21700
+  %17 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h858084ef6fcee015E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !21700
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i": ; preds = %16, %2
@@ -101880,10 +101811,10 @@ define { i64, i64 } @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !21722, !noalias !21723
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !21722, !noalias !21723
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21722, !noalias !21723
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !21722, !noalias !21723
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !21722, !noalias !21723
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21722, !noalias !21723
   %5 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h9f4eea3504e7b446E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !21726
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i"
@@ -101899,7 +101830,7 @@ define { i64, i64 } @"_ZN5typst5model5enum_1_47_$LT$impl$u20$typst..model..enum_
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h207ca719aa070087E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h858084ef6fcee015E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !21734
+  %14 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h858084ef6fcee015E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !21734
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i": ; preds = %13, %1
@@ -102088,10 +102019,10 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !21759, !noalias !21760
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !21759, !noalias !21760
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21759, !noalias !21760
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !21759, !noalias !21760
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !21759, !noalias !21760
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21759, !noalias !21760
   %14 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h9f4eea3504e7b446E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !21763
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i"
@@ -102107,7 +102038,7 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   br i1 %21, label %_ZN5typst11foundations6styles10StyleChain3get17h207ca719aa070087E.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h858084ef6fcee015E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20), !noalias !21771
+  %23 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h858084ef6fcee015E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20), !noalias !21771
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i": ; preds = %22, %9
@@ -102211,10 +102142,10 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !21793, !noalias !21794
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !21793, !noalias !21794
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21793, !noalias !21794
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !21793, !noalias !21794
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !21793, !noalias !21794
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21793, !noalias !21794
   %11 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h9f4eea3504e7b446E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !21797
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i"
@@ -102230,7 +102161,7 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   br i1 %18, label %_ZN5typst11foundations6styles10StyleChain3get17h207ca719aa070087E.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h858084ef6fcee015E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17), !noalias !21805
+  %20 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h858084ef6fcee015E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17), !noalias !21805
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i": ; preds = %19, %8
@@ -102300,10 +102231,10 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !21827, !noalias !21828
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !21827, !noalias !21828
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21827, !noalias !21828
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !21827, !noalias !21828
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst5model5enum_1_102_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..model..enum_..EnumItem$GT$4data4DATA17ha2302d719c1631deE.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !21827, !noalias !21828
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !21827, !noalias !21828
   %8 = call noundef align 8 dereferenceable_or_null(16) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h9f4eea3504e7b446E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !21831
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i"
@@ -102319,7 +102250,7 @@ define void @"_ZN5typst5model5enum_1_95_$LT$impl$u20$typst..foundations..element
   br i1 %15, label %_ZN5typst11foundations6styles10StyleChain3get17h207ca719aa070087E.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h858084ef6fcee015E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !21839
+  %17 = call noundef align 8 dereferenceable(16) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h858084ef6fcee015E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !21839
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc88bfc90da9fe5d7E.exit.i": ; preds = %16, %5
@@ -103991,10 +103922,10 @@ define noundef range(i8 0, 5) i8 @"_ZN5typst9visualize5image1_52_$LT$impl$u20$ty
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !22332, !noalias !22333
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !22332, !noalias !22333
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22332, !noalias !22333
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !22332, !noalias !22333
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !22332, !noalias !22333
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22332, !noalias !22333
   %9 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h065642f32f64d0e6E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !22336
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfbb9db5e81ec99c5E.exit.i"
@@ -104010,7 +103941,7 @@ define noundef range(i8 0, 5) i8 @"_ZN5typst9visualize5image1_52_$LT$impl$u20$ty
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h5f7048a09bca0f5fE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !22344
+  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h5f7048a09bca0f5fE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !22344
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfbb9db5e81ec99c5E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfbb9db5e81ec99c5E.exit.i": ; preds = %17, %2
@@ -104048,10 +103979,10 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !22368, !noalias !22369
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !22368, !noalias !22369
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22368, !noalias !22369
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !22368, !noalias !22369
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !22368, !noalias !22369
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22368, !noalias !22369
   %10 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h5759cbe64381ac3eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !22372
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %20
@@ -104067,7 +103998,7 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !22380
+  %19 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !22380
   br label %20
 
 20:                                               ; preds = %18, %3
@@ -104133,10 +104064,10 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !22427, !noalias !22428
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !22427, !noalias !22428
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22427, !noalias !22428
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !22427, !noalias !22428
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !22427, !noalias !22428
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22427, !noalias !22428
   %10 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h5759cbe64381ac3eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !22431
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %20
@@ -104152,7 +104083,7 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !22439
+  %19 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !22439
   br label %20
 
 20:                                               ; preds = %18, %3
@@ -104220,10 +104151,10 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !22486, !noalias !22487
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !22486, !noalias !22487
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22486, !noalias !22487
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !22486, !noalias !22487
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !22486, !noalias !22487
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22486, !noalias !22487
   %10 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17he25f0ddec199be03E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !22490
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %20
@@ -104239,7 +104170,7 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %15
-  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h72086ea60c2768f8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !22498
+  %19 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h72086ea60c2768f8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !noalias !22498
   br label %20
 
 20:                                               ; preds = %18, %3
@@ -104294,10 +104225,10 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst9visualize5image1_52_$LT$impl$u20$ty
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !22535, !noalias !22536
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !22535, !noalias !22536
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22535, !noalias !22536
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !22535, !noalias !22536
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !22535, !noalias !22536
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22535, !noalias !22536
   %9 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h0b9927da4ca910ebE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !22539
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hbe6b393ef7cc798aE.exit.i"
@@ -104313,7 +104244,7 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst9visualize5image1_52_$LT$impl$u20$ty
   br i1 %16, label %_ZN5typst11foundations6styles10StyleChain3get17hfba4b9ba9e217b3bE.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1d7b233b28dc1e4bE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !22547
+  %18 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1d7b233b28dc1e4bE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !noalias !22547
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hbe6b393ef7cc798aE.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hbe6b393ef7cc798aE.exit.i": ; preds = %17, %2
@@ -104346,10 +104277,10 @@ define noundef range(i8 0, 5) i8 @"_ZN5typst9visualize5image1_52_$LT$impl$u20$ty
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !22569, !noalias !22570
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !22569, !noalias !22570
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22569, !noalias !22570
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !22569, !noalias !22570
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !22569, !noalias !22570
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22569, !noalias !22570
   %5 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h065642f32f64d0e6E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !22573
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfbb9db5e81ec99c5E.exit.i"
@@ -104365,7 +104296,7 @@ define noundef range(i8 0, 5) i8 @"_ZN5typst9visualize5image1_52_$LT$impl$u20$ty
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h5f7048a09bca0f5fE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !22581
+  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h5f7048a09bca0f5fE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !22581
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfbb9db5e81ec99c5E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfbb9db5e81ec99c5E.exit.i": ; preds = %13, %1
@@ -104399,10 +104330,10 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !22605, !noalias !22606
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !22605, !noalias !22606
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22605, !noalias !22606
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !22605, !noalias !22606
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !22605, !noalias !22606
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22605, !noalias !22606
   %6 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h5759cbe64381ac3eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !22609
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %16
@@ -104418,7 +104349,7 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   br i1 %13, label %25, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !22617
+  %15 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !22617
   br label %16
 
 16:                                               ; preds = %14, %2
@@ -104480,10 +104411,10 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !22664, !noalias !22665
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !22664, !noalias !22665
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22664, !noalias !22665
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !22664, !noalias !22665
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !22664, !noalias !22665
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22664, !noalias !22665
   %6 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h5759cbe64381ac3eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !22668
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %16
@@ -104499,7 +104430,7 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   br i1 %13, label %25, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !22676
+  %15 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !22676
   br label %16
 
 16:                                               ; preds = %14, %2
@@ -104563,10 +104494,10 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !22723, !noalias !22724
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !22723, !noalias !22724
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22723, !noalias !22724
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !22723, !noalias !22724
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !22723, !noalias !22724
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22723, !noalias !22724
   %6 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17he25f0ddec199be03E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !22727
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %16
@@ -104582,7 +104513,7 @@ define void @"_ZN5typst9visualize5image1_52_$LT$impl$u20$typst..visualize..image
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %11
-  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h72086ea60c2768f8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !22735
+  %15 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h72086ea60c2768f8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %12), !noalias !22735
   br label %16
 
 16:                                               ; preds = %14, %2
@@ -104633,10 +104564,10 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst9visualize5image1_52_$LT$impl$u20$ty
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !22772, !noalias !22773
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !22772, !noalias !22773
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22772, !noalias !22773
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !22772, !noalias !22773
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !22772, !noalias !22773
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22772, !noalias !22773
   %5 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h0b9927da4ca910ebE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !22776
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hbe6b393ef7cc798aE.exit.i"
@@ -104652,7 +104583,7 @@ define noundef range(i8 0, 3) i8 @"_ZN5typst9visualize5image1_52_$LT$impl$u20$ty
   br i1 %12, label %_ZN5typst11foundations6styles10StyleChain3get17h3408c156e584a505E.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1d7b233b28dc1e4bE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !22784
+  %14 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1d7b233b28dc1e4bE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !22784
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hbe6b393ef7cc798aE.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hbe6b393ef7cc798aE.exit.i": ; preds = %13, %1
@@ -104890,10 +104821,6 @@ define void @"_ZN5typst9visualize5image1_100_$LT$impl$u20$typst..foundations..el
   %4 = alloca { i8, [16 x i8] }, align 1
   %5 = alloca { i8, [16 x i8] }, align 1
   %6 = alloca { i8, [16 x i8] }, align 1
-  %.sroa.487.sroa.0 = alloca [7 x i8], align 1
-  %.sroa.478.sroa.0 = alloca [7 x i8], align 1
-  %.sroa.473.sroa.0 = alloca [7 x i8], align 1
-  %.sroa.4 = alloca [7 x i8], align 1
   switch i8 %2, label %7 [
     i8 0, label %9
     i8 1, label %8
@@ -104903,9 +104830,6 @@ define void @"_ZN5typst9visualize5image1_100_$LT$impl$u20$typst..foundations..el
     i8 5, label %29
     i8 6, label %33
   ]
-
-default.unreachable170:                           ; preds = %26, %23
-  unreachable
 
 7:                                                ; preds = %3
   store i8 30, ptr %0, align 8
@@ -104953,236 +104877,216 @@ default.unreachable170:                           ; preds = %26, %23
 20:                                               ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %22 = load i8, ptr %21, align 1, !range !2007, !noundef !16
-  switch i8 %22, label %38 [
+  switch i8 %22, label %default.unreachable170 [
     i8 5, label %37
-    i8 4, label %.thread112
+    i8 4, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h6a970f699b1770adE.exit"
+    i8 3, label %50
+    i8 0, label %40
+    i8 1, label %38
+    i8 2, label %39
   ]
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i64, ptr %24, align 8, !range !343, !noundef !16
   switch i64 %25, label %default.unreachable170 [
-    i64 2, label %62
+    i64 2, label %60
     i64 0, label %_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit
-    i64 1, label %63
+    i64 1, label %61
   ]
 
 26:                                               ; preds = %3
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load i64, ptr %27, align 8, !range !343, !noundef !16
   switch i64 %28, label %default.unreachable170 [
-    i64 2, label %70
+    i64 2, label %68
     i64 0, label %_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit54
-    i64 1, label %71
+    i64 1, label %69
   ]
 
 29:                                               ; preds = %3
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %31 = load i64, ptr %30, align 8, !range !343, !noundef !16
   %32 = icmp eq i64 %31, 2
-  br i1 %32, label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14d65388c7deb4d0E.exit", label %78
+  br i1 %32, label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14d65388c7deb4d0E.exit", label %76
 
 33:                                               ; preds = %3
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %35 = load i8, ptr %34, align 8, !range !2008, !noundef !16
-  switch i8 %35, label %default.unreachable.i [
-    i8 3, label %90
-    i8 0, label %93
-    i8 1, label %91
-    i8 2, label %92
+  switch i8 %35, label %default.unreachable170 [
+    i8 3, label %88
+    i8 0, label %91
+    i8 1, label %89
+    i8 2, label %90
   ]
 
-36:                                               ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14d65388c7deb4d0E.exit", %_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit, %90, %_ZN4core3ops8function6FnOnce9call_once17h897c4ab0e8af4569E.exit, %70, %_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit54, %62, %_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit, %37, %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h6a970f699b1770adE.exit", %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit", %8, %7
+36:                                               ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h14d65388c7deb4d0E.exit", %_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit, %88, %_ZN4core3ops8function6FnOnce9call_once17h897c4ab0e8af4569E.exit, %68, %_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit54, %60, %_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit, %37, %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h6a970f699b1770adE.exit", %"_ZN64_$LT$ecow..dynamic..DynamicVec$u20$as$u20$core..clone..Clone$GT$5clone17hc750ecdfb2556fa4E.exit", %8, %7
   ret void
-
-.thread112:                                       ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4)
-  br label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h6a970f699b1770adE.exit"
 
 37:                                               ; preds = %20
   store i8 30, ptr %0, align 8
   br label %36
 
-38:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4)
-  switch i8 %22, label %39 [
-    i8 3, label %52
-    i8 0, label %42
-    i8 1, label %40
-    i8 2, label %41
-  ]
-
-39:                                               ; preds = %38
+default.unreachable170:                           ; preds = %33, %26, %23, %20
   unreachable
 
-40:                                               ; preds = %38
-  br label %42
+38:                                               ; preds = %20
+  br label %40
 
-41:                                               ; preds = %38
-  br label %42
+39:                                               ; preds = %20
+  br label %40
 
-42:                                               ; preds = %41, %40, %38
-  %.sroa.0.0.i.i.i = phi ptr [ @anon.43c633cc9d0c07b847282a0596e0d119.1162.llvm.16978709814855407318, %40 ], [ @anon.43c633cc9d0c07b847282a0596e0d119.1164.llvm.16978709814855407318, %41 ], [ @anon.43c633cc9d0c07b847282a0596e0d119.1160.llvm.16978709814855407318, %38 ]
+40:                                               ; preds = %20, %39, %38
+  %.sroa.0.0.i.i.i = phi ptr [ @anon.43c633cc9d0c07b847282a0596e0d119.1162.llvm.16978709814855407318, %38 ], [ @anon.43c633cc9d0c07b847282a0596e0d119.1164.llvm.16978709814855407318, %39 ], [ @anon.43c633cc9d0c07b847282a0596e0d119.1160.llvm.16978709814855407318, %20 ]
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %5), !noalias !22827
   call void @_ZN4ecow7dynamic9InlineVec10from_slice17hf2339a8bafc08660E.llvm.7889846851399105414(ptr noalias noundef nonnull sret({ i8, [16 x i8] }) align 1 captures(none) dereferenceable(17) %5, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef 3), !noalias !22843
-  %43 = load i8, ptr %5, align 1, !range !612, !noalias !22827, !noundef !16
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %47
+  %41 = load i8, ptr %5, align 1, !range !612, !noalias !22827, !noundef !16
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %43, label %45
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %.sroa.01.0.copyload2.i.i.i.i.i = load ptr, ptr %46, align 1, !noalias !22844
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %.sroa.01.0.copyload2.i.i.i.i.i = load ptr, ptr %44, align 1, !noalias !22844
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 9
   %.sroa.5.0.copyload3.i.i.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 1, !noalias !22844
   br label %"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i"
 
-47:                                               ; preds = %42
-  %48 = tail call { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef 3), !noalias !22843
-  %49 = extractvalue { ptr, i64 } %48, 0
-  %50 = extractvalue { ptr, i64 } %48, 1
-  %51 = icmp ne ptr %49, null
-  tail call void @llvm.assume(i1 %51)
+45:                                               ; preds = %40
+  %46 = tail call { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef 3), !noalias !22843
+  %47 = extractvalue { ptr, i64 } %46, 0
+  %48 = extractvalue { ptr, i64 } %46, 1
+  %49 = icmp ne ptr %47, null
+  tail call void @llvm.assume(i1 %49)
   br label %"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i"
 
-"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i": ; preds = %47, %45
-  %.sroa.5.0.i.i.i.i.i = phi i64 [ %.sroa.5.0.copyload3.i.i.i.i.i, %45 ], [ %50, %47 ]
-  %.sroa.01.0.i.i.i.i.i = phi ptr [ %.sroa.01.0.copyload2.i.i.i.i.i, %45 ], [ %49, %47 ]
+"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i": ; preds = %45, %43
+  %.sroa.5.0.i.i.i.i.i = phi i64 [ %.sroa.5.0.copyload3.i.i.i.i.i, %43 ], [ %48, %45 ]
+  %.sroa.01.0.i.i.i.i.i = phi ptr [ %.sroa.01.0.copyload2.i.i.i.i.i, %43 ], [ %47, %45 ]
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %5), !noalias !22827
   br label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h6a970f699b1770adE.exit"
 
-52:                                               ; preds = %38
+50:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %4), !noalias !22845
   call void @_ZN4ecow7dynamic9InlineVec10from_slice17hf2339a8bafc08660E.llvm.7889846851399105414(ptr noalias noundef nonnull sret({ i8, [16 x i8] }) align 1 captures(none) dereferenceable(17) %4, ptr noalias noundef nonnull readonly align 1 @anon.9efbc0c128adab6190fabe7f7e045142.980.llvm.12777920187102919001, i64 noundef 3), !noalias !22857
-  %53 = load i8, ptr %4, align 1, !range !612, !noalias !22845, !noundef !16
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %55, label %57
+  %51 = load i8, ptr %4, align 1, !range !612, !noalias !22845, !noundef !16
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %53, label %55
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %.sroa.01.0.copyload2.i.i.i5.i.i = load ptr, ptr %56, align 1, !noalias !22858
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %.sroa.01.0.copyload2.i.i.i5.i.i = load ptr, ptr %54, align 1, !noalias !22858
   %.sroa.5.0..sroa_idx.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.5.0.copyload3.i.i.i7.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i6.i.i, align 1, !noalias !22858
   br label %"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i"
 
-57:                                               ; preds = %52
-  %58 = tail call { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 @anon.9efbc0c128adab6190fabe7f7e045142.980.llvm.12777920187102919001, i64 noundef 3), !noalias !22857
-  %59 = extractvalue { ptr, i64 } %58, 0
-  %60 = extractvalue { ptr, i64 } %58, 1
-  %61 = icmp ne ptr %59, null
-  tail call void @llvm.assume(i1 %61)
+55:                                               ; preds = %50
+  %56 = tail call { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 @anon.9efbc0c128adab6190fabe7f7e045142.980.llvm.12777920187102919001, i64 noundef 3), !noalias !22857
+  %57 = extractvalue { ptr, i64 } %56, 0
+  %58 = extractvalue { ptr, i64 } %56, 1
+  %59 = icmp ne ptr %57, null
+  tail call void @llvm.assume(i1 %59)
   br label %"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i"
 
-"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i": ; preds = %57, %55
-  %.sroa.5.0.i.i.i2.i.i = phi i64 [ %.sroa.5.0.copyload3.i.i.i7.i.i, %55 ], [ %60, %57 ]
-  %.sroa.01.0.i.i.i3.i.i = phi ptr [ %.sroa.01.0.copyload2.i.i.i5.i.i, %55 ], [ %59, %57 ]
+"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i": ; preds = %55, %53
+  %.sroa.5.0.i.i.i2.i.i = phi i64 [ %.sroa.5.0.copyload3.i.i.i7.i.i, %53 ], [ %58, %55 ]
+  %.sroa.01.0.i.i.i3.i.i = phi ptr [ %.sroa.01.0.copyload2.i.i.i5.i.i, %53 ], [ %57, %55 ]
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %4), !noalias !22845
   br label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h6a970f699b1770adE.exit"
 
-"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h6a970f699b1770adE.exit": ; preds = %"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i", %"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i", %.thread112
-  %.sroa.570.0 = phi i64 [ undef, %.thread112 ], [ %.sroa.5.0.i.i.i2.i.i, %"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i" ], [ %.sroa.5.0.i.i.i.i.i, %"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i" ]
-  %.sroa.469.0 = phi ptr [ undef, %.thread112 ], [ %.sroa.01.0.i.i.i3.i.i, %"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i" ], [ %.sroa.01.0.i.i.i.i.i, %"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i" ]
-  %storemerge.i60 = phi i8 [ 1, %.thread112 ], [ 15, %"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i" ], [ 15, %"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i" ]
+"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h6a970f699b1770adE.exit": ; preds = %20, %"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i", %"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i"
+  %.sroa.570.0 = phi i64 [ %.sroa.5.0.i.i.i2.i.i, %"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i" ], [ %.sroa.5.0.i.i.i.i.i, %"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i" ], [ undef, %20 ]
+  %.sroa.469.0 = phi ptr [ %.sroa.01.0.i.i.i3.i.i, %"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i" ], [ %.sroa.01.0.i.i.i.i.i, %"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i" ], [ undef, %20 ]
+  %storemerge.i60 = phi i8 [ 15, %"_ZN93_$LT$typst..visualize..image..VectorFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17hf1f8c110c9bce5d5E.exit.i.i" ], [ 15, %"_ZN101_$LT$typst..visualize..image..raster..RasterFormat$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h3fcf650573b66ce5E.exit.i.i" ], [ 1, %20 ]
   store i8 %storemerge.i60, ptr %0, align 8
-  %.sroa.4.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx68, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4, i64 7, i1 false)
   %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.469.0, ptr %.sroa.469.0..sroa_idx, align 8
   %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.570.0, ptr %.sroa.570.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4)
   br label %36
 
-62:                                               ; preds = %23
+60:                                               ; preds = %23
   store i8 30, ptr %0, align 8
   br label %36
 
-63:                                               ; preds = %23
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %66 = load double, ptr %65, align 8, !noundef !16
-  %67 = load double, ptr %64, align 8, !noundef !16
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %69 = load double, ptr %68, align 8, !noundef !16
+61:                                               ; preds = %23
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %64 = load double, ptr %63, align 8, !noundef !16
+  %65 = load double, ptr %62, align 8, !noundef !16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %67 = load double, ptr %66, align 8, !noundef !16
   br label %_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit: ; preds = %23, %63
-  %.sroa.6.sroa.0.0.ph133 = phi double [ %67, %63 ], [ undef, %23 ]
-  %.sroa.6.sroa.4.0.ph131 = phi double [ %69, %63 ], [ undef, %23 ]
-  %.sroa.6.sroa.5.0.ph129 = phi double [ %66, %63 ], [ undef, %23 ]
-  %storemerge.i.i = phi i8 [ 8, %63 ], [ 1, %23 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.473.sroa.0)
+_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit: ; preds = %23, %61
+  %.sroa.6.sroa.0.0.ph133 = phi double [ %65, %61 ], [ undef, %23 ]
+  %.sroa.6.sroa.4.0.ph131 = phi double [ %67, %61 ], [ undef, %23 ]
+  %.sroa.6.sroa.5.0.ph129 = phi double [ %64, %61 ], [ undef, %23 ]
+  %storemerge.i.i = phi i8 [ 8, %61 ], [ 1, %23 ]
   store i8 %storemerge.i.i, ptr %0, align 8
-  %.sroa.473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.473.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.473.sroa.0, i64 7, i1 false)
   %.sroa.473.sroa.3.0..sroa.473.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.6.sroa.0.0.ph133, ptr %.sroa.473.sroa.3.0..sroa.473.0..sroa_idx.sroa_idx, align 8
   %.sroa.473.sroa.4.0..sroa.473.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sroa.6.sroa.4.0.ph131, ptr %.sroa.473.sroa.4.0..sroa.473.0..sroa_idx.sroa_idx, align 8
   %.sroa.473.sroa.5.0..sroa.473.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %.sroa.6.sroa.5.0.ph129, ptr %.sroa.473.sroa.5.0..sroa.473.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.473.sroa.0)
   br label %36
 
-70:                                               ; preds = %26
+68:                                               ; preds = %26
   store i8 30, ptr %0, align 8
   br label %36
 
-71:                                               ; preds = %26
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %74 = load double, ptr %73, align 8, !noundef !16
-  %75 = load double, ptr %72, align 8, !noundef !16
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %77 = load double, ptr %76, align 8, !noundef !16
+69:                                               ; preds = %26
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %72 = load double, ptr %71, align 8, !noundef !16
+  %73 = load double, ptr %70, align 8, !noundef !16
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %75 = load double, ptr %74, align 8, !noundef !16
   br label %_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit54
 
-_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit54: ; preds = %26, %71
-  %.sroa.613.sroa.5.0.ph154 = phi double [ %74, %71 ], [ undef, %26 ]
-  %.sroa.613.sroa.4.0.ph152 = phi double [ %77, %71 ], [ undef, %26 ]
-  %.sroa.613.sroa.0.0.ph150 = phi double [ %75, %71 ], [ undef, %26 ]
-  %storemerge.i.i52 = phi i8 [ 8, %71 ], [ 1, %26 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.478.sroa.0)
+_ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit54: ; preds = %26, %69
+  %.sroa.613.sroa.5.0.ph154 = phi double [ %72, %69 ], [ undef, %26 ]
+  %.sroa.613.sroa.4.0.ph152 = phi double [ %75, %69 ], [ undef, %26 ]
+  %.sroa.613.sroa.0.0.ph150 = phi double [ %73, %69 ], [ undef, %26 ]
+  %storemerge.i.i52 = phi i8 [ 8, %69 ], [ 1, %26 ]
   store i8 %storemerge.i.i52, ptr %0, align 8
-  %.sroa.478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.478.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.478.sroa.0, i64 7, i1 false)
   %.sroa.478.sroa.3.0..sroa.478.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sroa.613.sroa.0.0.ph150, ptr %.sroa.478.sroa.3.0..sroa.478.0..sroa_idx.sroa_idx, align 8
   %.sroa.478.sroa.4.0..sroa.478.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sroa.613.sroa.4.0.ph152, ptr %.sroa.478.sroa.4.0..sroa.478.0..sroa_idx.sroa_idx, align 8
   %.sroa.478.sroa.5.0..sroa.478.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %.sroa.613.sroa.5.0.ph154, ptr %.sroa.478.sroa.5.0..sroa.478.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.478.sroa.0)
   br label %36
 
-78:                                               ; preds = %29
+76:                                               ; preds = %29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22859)
   %trunc.i = trunc nuw i64 %31 to i1
-  br i1 %trunc.i, label %79, label %_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit
+  br i1 %trunc.i, label %77, label %_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 96
+77:                                               ; preds = %76
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22862)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22865)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22868)
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 111
-  %82 = load i8, ptr %81, align 1, !alias.scope !22870, !noalias !22871, !noundef !16
-  %83 = icmp slt i8 %82, 0
-  %.sroa.0.0.copyload1.i.i = load ptr, ptr %80, align 8, !alias.scope !22874, !noalias !22875
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 111
+  %80 = load i8, ptr %79, align 1, !alias.scope !22870, !noalias !22871, !noundef !16
+  %81 = icmp slt i8 %80, 0
+  %.sroa.0.0.copyload1.i.i = load ptr, ptr %78, align 8, !alias.scope !22874, !noalias !22875
   %.sroa.5.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.sroa.5.0.copyload3.i.i = load i64, ptr %.sroa.5.0..sroa_idx2.i.i, align 8, !alias.scope !22874, !noalias !22875
-  br i1 %83, label %_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit, label %84
+  br i1 %81, label %_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit, label %82
 
-84:                                               ; preds = %79
+82:                                               ; preds = %77
   %.not.i.i.i.i = icmp eq ptr %.sroa.0.0.copyload1.i.i, inttoptr (i64 16 to ptr)
-  br i1 %.not.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit, label %85
+  br i1 %.not.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit, label %83
 
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload1.i.i, i64 -16
-  %87 = atomicrmw add ptr %86, i64 1 monotonic, align 8, !noalias !22876
-  %88 = icmp slt i64 %87, 0
-  br i1 %88, label %89, label %_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload1.i.i, i64 -16
+  %85 = atomicrmw add ptr %84, i64 1 monotonic, align 8, !noalias !22876
+  %86 = icmp slt i64 %85, 0
+  br i1 %86, label %87, label %_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit
 
-89:                                               ; preds = %85
+87:                                               ; preds = %83
   tail call void @_ZN4ecow3vec18ref_count_overflow17ha57885ada501a9aaE(ptr noundef nonnull %.sroa.0.0.copyload1.i.i, i64 noundef %.sroa.5.0.copyload3.i.i) #77, !noalias !22876
   unreachable
 
@@ -105190,61 +105094,54 @@ _ZN4core3ops8function6FnOnce9call_once17h667bf4235ecf9ce8E.exit54: ; preds = %26
   store i8 30, ptr %0, align 8
   br label %36
 
-_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit: ; preds = %85, %84, %79, %78
-  %.sroa.487.sroa.3.0 = phi ptr [ undef, %78 ], [ %.sroa.0.0.copyload1.i.i, %85 ], [ inttoptr (i64 16 to ptr), %84 ], [ %.sroa.0.0.copyload1.i.i, %79 ]
-  %.sroa.487.sroa.4.0 = phi i64 [ undef, %78 ], [ %.sroa.5.0.copyload3.i.i, %85 ], [ %.sroa.5.0.copyload3.i.i, %84 ], [ %.sroa.5.0.copyload3.i.i, %79 ]
-  %storemerge.i.i57 = phi i8 [ 0, %78 ], [ 15, %85 ], [ 15, %84 ], [ 15, %79 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.487.sroa.0)
+_ZN4core3ops8function6FnOnce9call_once17h1dfe21acf08dead9E.exit: ; preds = %83, %82, %77, %76
+  %.sroa.487.sroa.3.0 = phi ptr [ undef, %76 ], [ %.sroa.0.0.copyload1.i.i, %83 ], [ inttoptr (i64 16 to ptr), %82 ], [ %.sroa.0.0.copyload1.i.i, %77 ]
+  %.sroa.487.sroa.4.0 = phi i64 [ undef, %76 ], [ %.sroa.5.0.copyload3.i.i, %83 ], [ %.sroa.5.0.copyload3.i.i, %82 ], [ %.sroa.5.0.copyload3.i.i, %77 ]
+  %storemerge.i.i57 = phi i8 [ 0, %76 ], [ 15, %83 ], [ 15, %82 ], [ 15, %77 ]
   store i8 %storemerge.i.i57, ptr %0, align 8
-  %.sroa.487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.487.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.487.sroa.0, i64 7, i1 false)
   %.sroa.487.sroa.3.0..sroa.487.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.487.sroa.3.0, ptr %.sroa.487.sroa.3.0..sroa.487.0..sroa_idx.sroa_idx, align 8
   %.sroa.487.sroa.4.0..sroa.487.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.487.sroa.4.0, ptr %.sroa.487.sroa.4.0..sroa.487.0..sroa_idx.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.487.sroa.0)
   br label %36
 
-90:                                               ; preds = %33
+88:                                               ; preds = %33
   store i8 30, ptr %0, align 8
   br label %36
 
-default.unreachable.i:                            ; preds = %33
-  unreachable
+89:                                               ; preds = %33
+  br label %91
 
-91:                                               ; preds = %33
-  br label %93
+90:                                               ; preds = %33
+  br label %91
 
-92:                                               ; preds = %33
-  br label %93
-
-93:                                               ; preds = %33, %92, %91
-  %.sroa.0.0.i.i59 = phi ptr [ @anon.9efbc0c128adab6190fabe7f7e045142.984.llvm.12777920187102919001, %91 ], [ @anon.9efbc0c128adab6190fabe7f7e045142.986.llvm.12777920187102919001, %92 ], [ @anon.9efbc0c128adab6190fabe7f7e045142.982.llvm.12777920187102919001, %33 ]
-  %.sroa.4.0.i.i = phi i64 [ 7, %91 ], [ 7, %92 ], [ 5, %33 ]
+91:                                               ; preds = %33, %90, %89
+  %.sroa.0.0.i.i59 = phi ptr [ @anon.9efbc0c128adab6190fabe7f7e045142.984.llvm.12777920187102919001, %89 ], [ @anon.9efbc0c128adab6190fabe7f7e045142.986.llvm.12777920187102919001, %90 ], [ @anon.9efbc0c128adab6190fabe7f7e045142.982.llvm.12777920187102919001, %33 ]
+  %.sroa.4.0.i.i = phi i64 [ 7, %89 ], [ 7, %90 ], [ 5, %33 ]
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %6), !noalias !22877
   call void @_ZN4ecow7dynamic9InlineVec10from_slice17hf2339a8bafc08660E.llvm.7889846851399105414(ptr noalias noundef nonnull sret({ i8, [16 x i8] }) align 1 captures(none) dereferenceable(17) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i59, i64 noundef %.sroa.4.0.i.i), !noalias !22891
-  %94 = load i8, ptr %6, align 1, !range !612, !noalias !22877, !noundef !16
-  %95 = icmp eq i8 %94, 0
-  br i1 %95, label %96, label %98
+  %92 = load i8, ptr %6, align 1, !range !612, !noalias !22877, !noundef !16
+  %93 = icmp eq i8 %92, 0
+  br i1 %93, label %94, label %96
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %.sroa.01.0.copyload2.i.i.i.i = load ptr, ptr %97, align 1, !noalias !22892
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %.sroa.01.0.copyload2.i.i.i.i = load ptr, ptr %95, align 1, !noalias !22892
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 9
   %.sroa.5.0.copyload3.i.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 1, !noalias !22892
   br label %_ZN4core3ops8function6FnOnce9call_once17h897c4ab0e8af4569E.exit
 
-98:                                               ; preds = %93
-  %99 = tail call { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i59, i64 noundef %.sroa.4.0.i.i), !noalias !22891
-  %100 = extractvalue { ptr, i64 } %99, 0
-  %101 = extractvalue { ptr, i64 } %99, 1
-  %102 = icmp ne ptr %100, null
-  tail call void @llvm.assume(i1 %102)
+96:                                               ; preds = %91
+  %97 = tail call { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i59, i64 noundef %.sroa.4.0.i.i), !noalias !22891
+  %98 = extractvalue { ptr, i64 } %97, 0
+  %99 = extractvalue { ptr, i64 } %97, 1
+  %100 = icmp ne ptr %98, null
+  tail call void @llvm.assume(i1 %100)
   br label %_ZN4core3ops8function6FnOnce9call_once17h897c4ab0e8af4569E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h897c4ab0e8af4569E.exit: ; preds = %96, %98
-  %.sroa.5.0.i.i.i.i = phi i64 [ %.sroa.5.0.copyload3.i.i.i.i, %96 ], [ %101, %98 ]
-  %.sroa.01.0.i.i.i.i = phi ptr [ %.sroa.01.0.copyload2.i.i.i.i, %96 ], [ %100, %98 ]
+_ZN4core3ops8function6FnOnce9call_once17h897c4ab0e8af4569E.exit: ; preds = %94, %96
+  %.sroa.5.0.i.i.i.i = phi i64 [ %.sroa.5.0.copyload3.i.i.i.i, %94 ], [ %99, %96 ]
+  %.sroa.01.0.i.i.i.i = phi ptr [ %.sroa.01.0.copyload2.i.i.i.i, %94 ], [ %98, %96 ]
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %6), !noalias !22877
   store i8 15, ptr %0, align 8
   %.sroa.494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -105340,10 +105237,10 @@ define void @"_ZN5typst9visualize5image1_100_$LT$impl$u20$typst..foundations..el
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !22915, !noalias !22916
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !22915, !noalias !22916
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22915, !noalias !22916
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !22915, !noalias !22916
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !22915, !noalias !22916
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !22915, !noalias !22916
   %32 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h065642f32f64d0e6E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %12), !noalias !22919
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %_ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit
@@ -105359,7 +105256,7 @@ define void @"_ZN5typst9visualize5image1_100_$LT$impl$u20$typst..foundations..el
   br i1 %39, label %_ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit.thread, label %40
 
 40:                                               ; preds = %37
-  %41 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h5f7048a09bca0f5fE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %38), !noalias !22927
+  %41 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h5f7048a09bca0f5fE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %38), !noalias !22927
   br label %_ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit
 
 _ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit.thread: ; preds = %34, %37
@@ -105476,10 +105373,10 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i25, align 8, !alias.scope !22982, !noalias !22983
   %.sroa.5.0..sroa_idx.i.i26 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i26, align 8, !alias.scope !22982, !noalias !22983
-  %.sroa.7.0..sroa_idx.i.i27 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i27, align 8, !alias.scope !22982, !noalias !22983
-  %.sroa.8.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i28, align 8, !alias.scope !22982, !noalias !22983
+  %.sroa.610.0..sroa_idx.i.i27 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i27, align 8, !alias.scope !22982, !noalias !22983
+  %.sroa.7.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i28, align 8, !alias.scope !22982, !noalias !22983
   %71 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h5759cbe64381ac3eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !22986
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %81
@@ -105495,7 +105392,7 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   br i1 %78, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h0dbad54299e52627E.exit", label %79
 
 79:                                               ; preds = %76
-  %80 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i27, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %77), !noalias !22994
+  %80 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i27, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %77), !noalias !22994
   br label %81
 
 81:                                               ; preds = %79, %65
@@ -105549,10 +105446,10 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i33, align 8, !alias.scope !23028, !noalias !23029
   %.sroa.5.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i34, align 8, !alias.scope !23028, !noalias !23029
-  %.sroa.7.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i35, align 8, !alias.scope !23028, !noalias !23029
-  %.sroa.8.0..sroa_idx.i.i36 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i36, align 8, !alias.scope !23028, !noalias !23029
+  %.sroa.610.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i35, align 8, !alias.scope !23028, !noalias !23029
+  %.sroa.7.0..sroa_idx.i.i36 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i36, align 8, !alias.scope !23028, !noalias !23029
   %96 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h5759cbe64381ac3eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !23032
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %106
@@ -105568,7 +105465,7 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   br i1 %103, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h0dbad54299e52627E.exit49", label %104
 
 104:                                              ; preds = %101
-  %105 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i35, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %102), !noalias !23040
+  %105 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i35, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %102), !noalias !23040
   br label %106
 
 106:                                              ; preds = %104, %90
@@ -105624,10 +105521,10 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i52, align 8, !alias.scope !23074, !noalias !23075
   %.sroa.5.0..sroa_idx.i.i53 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i53, align 8, !alias.scope !23074, !noalias !23075
-  %.sroa.7.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i54, align 8, !alias.scope !23074, !noalias !23075
-  %.sroa.8.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i55, align 8, !alias.scope !23074, !noalias !23075
+  %.sroa.610.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i54, align 8, !alias.scope !23074, !noalias !23075
+  %.sroa.7.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i55, align 8, !alias.scope !23074, !noalias !23075
   %121 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17he25f0ddec199be03E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !23078
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %131
@@ -105643,7 +105540,7 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   br i1 %128, label %_ZN5typst11foundations6styles10StyleChain3get17h0def72ad8b856cc4E.exit.thread, label %129
 
 129:                                              ; preds = %126
-  %130 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h72086ea60c2768f8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i54, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %127), !noalias !23086
+  %130 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h72086ea60c2768f8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i54, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %127), !noalias !23086
   br label %131
 
 131:                                              ; preds = %129, %115
@@ -105698,10 +105595,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h0def72ad8b856cc4E.exit: ; preds 
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i63, align 8, !alias.scope !23116, !noalias !23117
   %.sroa.5.0..sroa_idx.i.i64 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i64, align 8, !alias.scope !23116, !noalias !23117
-  %.sroa.7.0..sroa_idx.i.i65 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i65, align 8, !alias.scope !23116, !noalias !23117
-  %.sroa.8.0..sroa_idx.i.i66 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i66, align 8, !alias.scope !23116, !noalias !23117
+  %.sroa.610.0..sroa_idx.i.i65 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i65, align 8, !alias.scope !23116, !noalias !23117
+  %.sroa.7.0..sroa_idx.i.i66 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i66, align 8, !alias.scope !23116, !noalias !23117
   %141 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h0b9927da4ca910ebE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !23120
   %142 = icmp eq ptr %141, null
   br i1 %142, label %143, label %_ZN5typst11foundations6styles10StyleChain3get17h1035f4c012b10578E.exit
@@ -105717,7 +105614,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h0def72ad8b856cc4E.exit: ; preds 
   br i1 %148, label %_ZN5typst11foundations6styles10StyleChain3get17h1035f4c012b10578E.exit.thread, label %149
 
 149:                                              ; preds = %146
-  %150 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1d7b233b28dc1e4bE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %147), !noalias !23128
+  %150 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1d7b233b28dc1e4bE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i65, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %147), !noalias !23128
   br label %_ZN5typst11foundations6styles10StyleChain3get17h1035f4c012b10578E.exit
 
 _ZN5typst11foundations6styles10StyleChain3get17h1035f4c012b10578E.exit.thread: ; preds = %143, %146
@@ -105826,10 +105723,10 @@ define void @"_ZN5typst9visualize5image1_100_$LT$impl$u20$typst..foundations..el
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !23164, !noalias !23165
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !23164, !noalias !23165
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !23164, !noalias !23165
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !23164, !noalias !23165
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !23164, !noalias !23165
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !23164, !noalias !23165
   %18 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h065642f32f64d0e6E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %11), !noalias !23168
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %_ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit
@@ -105845,7 +105742,7 @@ define void @"_ZN5typst9visualize5image1_100_$LT$impl$u20$typst..foundations..el
   br i1 %25, label %_ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h5f7048a09bca0f5fE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %24), !noalias !23176
+  %27 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h5f7048a09bca0f5fE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %24), !noalias !23176
   br label %_ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit
 
 _ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit.thread: ; preds = %20, %23
@@ -105958,10 +105855,10 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i11, align 8, !alias.scope !23231, !noalias !23232
   %.sroa.5.0..sroa_idx.i.i12 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i12, align 8, !alias.scope !23231, !noalias !23232
-  %.sroa.7.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i13, align 8, !alias.scope !23231, !noalias !23232
-  %.sroa.8.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i14, align 8, !alias.scope !23231, !noalias !23232
+  %.sroa.610.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i13, align 8, !alias.scope !23231, !noalias !23232
+  %.sroa.7.0..sroa_idx.i.i14 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i14, align 8, !alias.scope !23231, !noalias !23232
   %54 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h5759cbe64381ac3eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !23235
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %64
@@ -105977,7 +105874,7 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   br i1 %61, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h0dbad54299e52627E.exit", label %62
 
 62:                                               ; preds = %59
-  %63 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %60), !noalias !23243
+  %63 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %60), !noalias !23243
   br label %64
 
 64:                                               ; preds = %62, %51
@@ -106027,10 +105924,10 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i19, align 8, !alias.scope !23277, !noalias !23278
   %.sroa.5.0..sroa_idx.i.i20 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i20, align 8, !alias.scope !23277, !noalias !23278
-  %.sroa.7.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i21, align 8, !alias.scope !23277, !noalias !23278
-  %.sroa.8.0..sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i22, align 8, !alias.scope !23277, !noalias !23278
+  %.sroa.610.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i21, align 8, !alias.scope !23277, !noalias !23278
+  %.sroa.7.0..sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i22, align 8, !alias.scope !23277, !noalias !23278
   %76 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h5759cbe64381ac3eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !23281
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %86
@@ -106046,7 +105943,7 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   br i1 %83, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h0dbad54299e52627E.exit35", label %84
 
 84:                                               ; preds = %81
-  %85 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %82), !noalias !23289
+  %85 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %82), !noalias !23289
   br label %86
 
 86:                                               ; preds = %84, %73
@@ -106098,10 +105995,10 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i38, align 8, !alias.scope !23323, !noalias !23324
   %.sroa.5.0..sroa_idx.i.i39 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i39, align 8, !alias.scope !23323, !noalias !23324
-  %.sroa.7.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i40, align 8, !alias.scope !23323, !noalias !23324
-  %.sroa.8.0..sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i41, align 8, !alias.scope !23323, !noalias !23324
+  %.sroa.610.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i40, align 8, !alias.scope !23323, !noalias !23324
+  %.sroa.7.0..sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i41, align 8, !alias.scope !23323, !noalias !23324
   %98 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17he25f0ddec199be03E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !23327
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %108
@@ -106117,7 +106014,7 @@ default.unreachable:                              ; preds = %_ZN5typst11foundati
   br i1 %105, label %_ZN5typst11foundations6styles10StyleChain3get17h0def72ad8b856cc4E.exit.thread, label %106
 
 106:                                              ; preds = %103
-  %107 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h72086ea60c2768f8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i40, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %104), !noalias !23335
+  %107 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h72086ea60c2768f8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i40, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %104), !noalias !23335
   br label %108
 
 108:                                              ; preds = %106, %95
@@ -106168,10 +106065,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h0def72ad8b856cc4E.exit: ; preds 
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i49, align 8, !alias.scope !23365, !noalias !23366
   %.sroa.5.0..sroa_idx.i.i50 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i50, align 8, !alias.scope !23365, !noalias !23366
-  %.sroa.7.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i51, align 8, !alias.scope !23365, !noalias !23366
-  %.sroa.8.0..sroa_idx.i.i52 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i52, align 8, !alias.scope !23365, !noalias !23366
+  %.sroa.610.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i51, align 8, !alias.scope !23365, !noalias !23366
+  %.sroa.7.0..sroa_idx.i.i52 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i52, align 8, !alias.scope !23365, !noalias !23366
   %115 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h0b9927da4ca910ebE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !23369
   %116 = icmp eq ptr %115, null
   br i1 %116, label %117, label %_ZN5typst11foundations6styles10StyleChain3get17h1df8ff3bf3527ff3E.exit
@@ -106187,7 +106084,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h0def72ad8b856cc4E.exit: ; preds 
   br i1 %122, label %_ZN5typst11foundations6styles10StyleChain3get17h1df8ff3bf3527ff3E.exit.thread, label %123
 
 123:                                              ; preds = %120
-  %124 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1d7b233b28dc1e4bE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %121), !noalias !23377
+  %124 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1d7b233b28dc1e4bE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i51, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %121), !noalias !23377
   br label %_ZN5typst11foundations6styles10StyleChain3get17h1df8ff3bf3527ff3E.exit
 
 _ZN5typst11foundations6styles10StyleChain3get17h1df8ff3bf3527ff3E.exit.thread: ; preds = %117, %120
@@ -106275,10 +106172,10 @@ define void @"_ZN5typst9visualize5image1_100_$LT$impl$u20$typst..foundations..el
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !23413, !noalias !23414
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 2, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !23413, !noalias !23414
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !23413, !noalias !23414
-  %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i8 2, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !alias.scope !23413, !noalias !23414
+  %.sroa.610.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i, align 8, !alias.scope !23413, !noalias !23414
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i8 2, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !23413, !noalias !23414
   %13 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h065642f32f64d0e6E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %7), !noalias !23417
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfbb9db5e81ec99c5E.exit.i"
@@ -106294,7 +106191,7 @@ define void @"_ZN5typst9visualize5image1_100_$LT$impl$u20$typst..foundations..el
   br i1 %20, label %_ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h5f7048a09bca0f5fE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19), !noalias !23425
+  %22 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h5f7048a09bca0f5fE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %19), !noalias !23425
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfbb9db5e81ec99c5E.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfbb9db5e81ec99c5E.exit.i": ; preds = %21, %10
@@ -106331,10 +106228,10 @@ _ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit: ; preds 
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i20, align 8, !alias.scope !23448, !noalias !23449
   %.sroa.5.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i8 3, ptr %.sroa.5.0..sroa_idx.i.i21, align 8, !alias.scope !23448, !noalias !23449
-  %.sroa.7.0..sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i22, align 8, !alias.scope !23448, !noalias !23449
-  %.sroa.8.0..sroa_idx.i.i23 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i8 3, ptr %.sroa.8.0..sroa_idx.i.i23, align 8, !alias.scope !23448, !noalias !23449
+  %.sroa.610.0..sroa_idx.i.i22 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i22, align 8, !alias.scope !23448, !noalias !23449
+  %.sroa.7.0..sroa_idx.i.i23 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i8 3, ptr %.sroa.7.0..sroa_idx.i.i23, align 8, !alias.scope !23448, !noalias !23449
   %31 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h5759cbe64381ac3eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %6), !noalias !23452
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %41
@@ -106350,7 +106247,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hb9ba8155e0dda3f6E.exit: ; preds 
   br i1 %38, label %_ZN5typst11foundations6styles10StyleChain3get17h23127edbf302d6e6E.exit, label %39
 
 39:                                               ; preds = %36
-  %40 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37), !noalias !23460
+  %40 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %37), !noalias !23460
   br label %41
 
 41:                                               ; preds = %39, %28
@@ -106406,10 +106303,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h23127edbf302d6e6E.exit: ; preds 
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i27, align 8, !alias.scope !23494, !noalias !23495
   %.sroa.5.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 4, ptr %.sroa.5.0..sroa_idx.i.i28, align 8, !alias.scope !23494, !noalias !23495
-  %.sroa.7.0..sroa_idx.i.i29 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i29, align 8, !alias.scope !23494, !noalias !23495
-  %.sroa.8.0..sroa_idx.i.i30 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i8 4, ptr %.sroa.8.0..sroa_idx.i.i30, align 8, !alias.scope !23494, !noalias !23495
+  %.sroa.610.0..sroa_idx.i.i29 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i29, align 8, !alias.scope !23494, !noalias !23495
+  %.sroa.7.0..sroa_idx.i.i30 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i8 4, ptr %.sroa.7.0..sroa_idx.i.i30, align 8, !alias.scope !23494, !noalias !23495
   %56 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h5759cbe64381ac3eE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !23498
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %66
@@ -106425,7 +106322,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h23127edbf302d6e6E.exit: ; preds 
   br i1 %63, label %_ZN5typst11foundations6styles10StyleChain3get17h23127edbf302d6e6E.exit40, label %64
 
 64:                                               ; preds = %61
-  %65 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i29, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %62), !noalias !23506
+  %65 = call noundef align 8 dereferenceable(32) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h643aab83cec85c6dE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i29, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %62), !noalias !23506
   br label %66
 
 66:                                               ; preds = %64, %53
@@ -106481,10 +106378,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h23127edbf302d6e6E.exit40: ; pred
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i43, align 8, !alias.scope !23540, !noalias !23541
   %.sroa.5.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 5, ptr %.sroa.5.0..sroa_idx.i.i44, align 8, !alias.scope !23540, !noalias !23541
-  %.sroa.7.0..sroa_idx.i.i45 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i45, align 8, !alias.scope !23540, !noalias !23541
-  %.sroa.8.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i8 5, ptr %.sroa.8.0..sroa_idx.i.i46, align 8, !alias.scope !23540, !noalias !23541
+  %.sroa.610.0..sroa_idx.i.i45 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i45, align 8, !alias.scope !23540, !noalias !23541
+  %.sroa.7.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i8 5, ptr %.sroa.7.0..sroa_idx.i.i46, align 8, !alias.scope !23540, !noalias !23541
   %81 = call noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17he25f0ddec199be03E.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !23544
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %91
@@ -106500,7 +106397,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h23127edbf302d6e6E.exit40: ; pred
   br i1 %88, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ecow..string..EcoString$GT$$GT$$GT$17he3b815d0001138abE.exit", label %89
 
 89:                                               ; preds = %86
-  %90 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h72086ea60c2768f8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i45, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %87), !noalias !23552
+  %90 = call noundef align 8 dereferenceable(24) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h72086ea60c2768f8E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i45, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %87), !noalias !23552
   br label %91
 
 91:                                               ; preds = %89, %78
@@ -106545,10 +106442,10 @@ _ZN5typst11foundations6styles10StyleChain3get17h23127edbf302d6e6E.exit40: ; pred
   store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.4.0..sroa_idx.i.i52, align 8, !alias.scope !23577, !noalias !23578
   %.sroa.5.0..sroa_idx.i.i53 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 6, ptr %.sroa.5.0..sroa_idx.i.i53, align 8, !alias.scope !23577, !noalias !23578
-  %.sroa.7.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.7.0..sroa_idx.i.i54, align 8, !alias.scope !23577, !noalias !23578
-  %.sroa.8.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i8 6, ptr %.sroa.8.0..sroa_idx.i.i55, align 8, !alias.scope !23577, !noalias !23578
+  %.sroa.610.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr @"_ZN5typst9visualize5image1_107_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..visualize..image..ImageElem$GT$4data4DATA17h3373f0a5b98717b1E.llvm.12777920187102919001", ptr %.sroa.610.0..sroa_idx.i.i54, align 8, !alias.scope !23577, !noalias !23578
+  %.sroa.7.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i8 6, ptr %.sroa.7.0..sroa_idx.i.i55, align 8, !alias.scope !23577, !noalias !23578
   %101 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h0b9927da4ca910ebE.llvm.4622153547959463051(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !23581
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hbe6b393ef7cc798aE.exit.i"
@@ -106564,7 +106461,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h23127edbf302d6e6E.exit40: ; pred
   br i1 %108, label %_ZN5typst11foundations6styles10StyleChain3get17h1b90879f6bf2b0cbE.exit, label %109
 
 109:                                              ; preds = %106
-  %110 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1d7b233b28dc1e4bE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i54, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %107), !noalias !23589
+  %110 = call noundef align 1 dereferenceable(1) ptr @"_ZN5typst11foundations6styles10StyleChain10properties28_$u7b$$u7b$closure$u7d$$u7d$17h1d7b233b28dc1e4bE.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.610.0..sroa_idx.i.i54, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %107), !noalias !23589
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hbe6b393ef7cc798aE.exit.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hbe6b393ef7cc798aE.exit.i": ; preds = %109, %98
@@ -111256,7 +111153,7 @@ define void @"_ZN93_$LT$typst..visualize..stroke..DashPattern$u20$as$u20$typst..
   %9 = alloca { i64, [2 x i64] }, align 8
   %10 = alloca { i8, [31 x i8] }, align 8
   %11 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.5375 = alloca [23 x i8], align 1
+  %.sroa.5374 = alloca [23 x i8], align 1
   %.sroa.733 = alloca [23 x i8], align 1
   %12 = alloca { i64, [2 x i64] }, align 8
   %.sroa.729 = alloca [2 x i64], align 8
@@ -111275,13 +111172,13 @@ define void @"_ZN93_$LT$typst..visualize..stroke..DashPattern$u20$as$u20$typst..
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = invoke { ptr, i64 } @_ZN4ecow7dynamic10DynamicVec8as_slice17h242300dddb8de35eE.llvm.7889846851399105414(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %22)
-          to label %_ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit unwind label %.thread390
+          to label %_ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit unwind label %.thread389
 
-.thread390:                                       ; preds = %.invoke, %44, %47, %50, %53, %56, %59, %91, %21
+.thread389:                                       ; preds = %.invoke, %44, %47, %50, %53, %56, %59, %91, %21
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #75
-          to label %.thread386 unwind label %64
+          to label %.thread385 unwind label %64
 
 _ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit: ; preds = %21
   %24 = extractvalue { ptr, i64 } %23, 0
@@ -111314,7 +111211,7 @@ _ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit: ; preds = %21
 
 .invoke:                                          ; preds = %39, %34, %29
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef 8, i64 noundef 48) #77
-          to label %.cont unwind label %.thread390
+          to label %.cont unwind label %.thread389
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -111348,7 +111245,7 @@ _ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit: ; preds = %21
 
 44:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit208"
   %45 = invoke noundef ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001(i64 noundef 48, i64 noundef 8)
-          to label %76 unwind label %.thread390
+          to label %76 unwind label %.thread389
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit214": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit202"
   %bcmp.i213 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(14) %24, ptr noundef nonnull dereferenceable(14) @anon.9efbc0c128adab6190fabe7f7e045142.946, i64 14), !alias.scope !24639
@@ -111357,7 +111254,7 @@ _ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit: ; preds = %21
 
 47:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit214"
   %48 = invoke noundef ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001(i64 noundef 48, i64 noundef 8)
-          to label %74 unwind label %.thread390
+          to label %74 unwind label %.thread389
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit218": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit214"
   %bcmp.i217 = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(14) %24, ptr noundef nonnull dereferenceable(14) @anon.9efbc0c128adab6190fabe7f7e045142.947, i64 14), !alias.scope !24643
@@ -111366,7 +111263,7 @@ _ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit: ; preds = %21
 
 50:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit218"
   %51 = invoke noundef ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001(i64 noundef 48, i64 noundef 8)
-          to label %72 unwind label %.thread390
+          to label %72 unwind label %.thread389
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit222": ; preds = %_ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit
   %bcmp.i221 = tail call i32 @bcmp(ptr nonnull readonly align 1 %24, ptr nonnull @anon.9efbc0c128adab6190fabe7f7e045142.948, i64 %25), !alias.scope !24647
@@ -111375,7 +111272,7 @@ _ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit: ; preds = %21
 
 53:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit222"
   %54 = invoke noundef ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001(i64 noundef 96, i64 noundef 8)
-          to label %69 unwind label %.thread390
+          to label %69 unwind label %.thread389
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit226": ; preds = %_ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit
   %bcmp.i225 = tail call i32 @bcmp(ptr nonnull readonly align 1 %24, ptr nonnull @anon.9efbc0c128adab6190fabe7f7e045142.949, i64 %25), !alias.scope !24651
@@ -111384,7 +111281,7 @@ _ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit: ; preds = %21
 
 56:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit226"
   %57 = invoke noundef ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001(i64 noundef 96, i64 noundef 8)
-          to label %66 unwind label %.thread390
+          to label %66 unwind label %.thread389
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit230": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit226"
   %bcmp.i229 = tail call i32 @bcmp(ptr nonnull readonly align 1 %24, ptr nonnull @anon.9efbc0c128adab6190fabe7f7e045142.950, i64 %25), !alias.scope !24655
@@ -111393,36 +111290,36 @@ _ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit: ; preds = %21
 
 59:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit230"
   %60 = invoke noundef ptr @_ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.12777920187102919001(i64 noundef 96, i64 noundef 8)
-          to label %61 unwind label %.thread390
+          to label %61 unwind label %.thread389
 
 61:                                               ; preds = %59
   store i64 1, ptr %60, align 8
-  %.sroa.4366.0..0.363.sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store double 3.000000e+00, ptr %.sroa.4366.0..0.363.sroa_idx, align 8
-  %.sroa.5367.0..0.363.sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store double 0.000000e+00, ptr %.sroa.5367.0..0.363.sroa_idx, align 8
+  %.sroa.4365.0..0.362.sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store double 3.000000e+00, ptr %.sroa.4365.0..0.362.sroa_idx, align 8
+  %.sroa.5366.0..0.362.sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 16
+  store double 0.000000e+00, ptr %.sroa.5366.0..0.362.sroa_idx, align 8
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store i64 1, ptr %62, align 8
-  %.sroa.4369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store double 4.000000e+00, ptr %.sroa.4369.0..sroa_idx, align 8
-  %.sroa.5370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5370.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 32
+  store double 4.000000e+00, ptr %.sroa.4368.0..sroa_idx, align 8
+  %.sroa.5369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 40
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5369.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 1, ptr %63, align 8
-  %.sroa.4372.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 80
-  store double 4.000000e+00, ptr %.sroa.4372.0..sroa_idx, align 8
-  %.sroa.5373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 88
-  store double 0.000000e+00, ptr %.sroa.5373.0..sroa_idx, align 8
+  %.sroa.4371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 80
+  store double 4.000000e+00, ptr %.sroa.4371.0..sroa_idx, align 8
+  %.sroa.5372.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 88
+  store double 0.000000e+00, ptr %.sroa.5372.0..sroa_idx, align 8
   store i64 4, ptr %0, align 8
-  %.sroa.4360.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %60, ptr %.sroa.4360.0..sroa_idx, align 8
-  %.sroa.5361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 4, ptr %.sroa.5361.0..sroa_idx, align 8
-  %.sroa.6362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6362.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %60, ptr %.sroa.4359.0..sroa_idx, align 8
+  %.sroa.5360.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 4, ptr %.sroa.5360.0..sroa_idx, align 8
+  %.sroa.6361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %.critedge
 
-64:                                               ; preds = %.thread390, %126, %113
+64:                                               ; preds = %.thread389, %126, %113
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #76
@@ -111430,178 +111327,178 @@ _ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit: ; preds = %21
 
 66:                                               ; preds = %56
   store i64 1, ptr %57, align 8
-  %.sroa.4348.0..0.345.sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store double 3.000000e+00, ptr %.sroa.4348.0..0.345.sroa_idx, align 8
-  %.sroa.5349.0..0.345.sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store double 0.000000e+00, ptr %.sroa.5349.0..0.345.sroa_idx, align 8
+  %.sroa.4347.0..0.344.sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store double 3.000000e+00, ptr %.sroa.4347.0..0.344.sroa_idx, align 8
+  %.sroa.5348.0..0.344.sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 16
+  store double 0.000000e+00, ptr %.sroa.5348.0..0.344.sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i64 1, ptr %67, align 8
-  %.sroa.4351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 32
-  store double 1.000000e+00, ptr %.sroa.4351.0..sroa_idx, align 8
-  %.sroa.5352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5352.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 32
+  store double 1.000000e+00, ptr %.sroa.4350.0..sroa_idx, align 8
+  %.sroa.5351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 40
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5351.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 1, ptr %68, align 8
-  %.sroa.4354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 80
-  store double 1.000000e+00, ptr %.sroa.4354.0..sroa_idx, align 8
-  %.sroa.5355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 88
-  store double 0.000000e+00, ptr %.sroa.5355.0..sroa_idx, align 8
+  %.sroa.4353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 80
+  store double 1.000000e+00, ptr %.sroa.4353.0..sroa_idx, align 8
+  %.sroa.5354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 88
+  store double 0.000000e+00, ptr %.sroa.5354.0..sroa_idx, align 8
   store i64 4, ptr %0, align 8
-  %.sroa.4342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %57, ptr %.sroa.4342.0..sroa_idx, align 8
-  %.sroa.5343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 4, ptr %.sroa.5343.0..sroa_idx, align 8
-  %.sroa.6344.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6344.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %57, ptr %.sroa.4341.0..sroa_idx, align 8
+  %.sroa.5342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 4, ptr %.sroa.5342.0..sroa_idx, align 8
+  %.sroa.6343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6343.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %.critedge
 
 69:                                               ; preds = %53
   store i64 1, ptr %54, align 8
-  %.sroa.4330.0..0.327.sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store double 3.000000e+00, ptr %.sroa.4330.0..0.327.sroa_idx, align 8
-  %.sroa.5331.0..0.327.sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store double 0.000000e+00, ptr %.sroa.5331.0..0.327.sroa_idx, align 8
+  %.sroa.4329.0..0.326.sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store double 3.000000e+00, ptr %.sroa.4329.0..0.326.sroa_idx, align 8
+  %.sroa.5330.0..0.326.sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store double 0.000000e+00, ptr %.sroa.5330.0..0.326.sroa_idx, align 8
   %70 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store i64 1, ptr %70, align 8
-  %.sroa.4333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 32
-  store double 2.000000e+00, ptr %.sroa.4333.0..sroa_idx, align 8
-  %.sroa.5334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5334.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 32
+  store double 2.000000e+00, ptr %.sroa.4332.0..sroa_idx, align 8
+  %.sroa.5333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 40
   %71 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5333.0..sroa_idx, i8 0, i64 16, i1 false)
   store i64 1, ptr %71, align 8
-  %.sroa.4336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 80
-  store double 2.000000e+00, ptr %.sroa.4336.0..sroa_idx, align 8
-  %.sroa.5337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 88
-  store double 0.000000e+00, ptr %.sroa.5337.0..sroa_idx, align 8
+  %.sroa.4335.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 80
+  store double 2.000000e+00, ptr %.sroa.4335.0..sroa_idx, align 8
+  %.sroa.5336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 88
+  store double 0.000000e+00, ptr %.sroa.5336.0..sroa_idx, align 8
   store i64 4, ptr %0, align 8
-  %.sroa.4324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %54, ptr %.sroa.4324.0..sroa_idx, align 8
-  %.sroa.5325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 4, ptr %.sroa.5325.0..sroa_idx, align 8
-  %.sroa.6326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6326.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %54, ptr %.sroa.4323.0..sroa_idx, align 8
+  %.sroa.5324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 4, ptr %.sroa.5324.0..sroa_idx, align 8
+  %.sroa.6325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6325.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %.critedge
 
 72:                                               ; preds = %50
   store i64 1, ptr %51, align 8
-  %.sroa.4315.0..0.313.sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store double 3.000000e+00, ptr %.sroa.4315.0..0.313.sroa_idx, align 8
-  %.sroa.5316.0..0.313.sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store double 0.000000e+00, ptr %.sroa.5316.0..0.313.sroa_idx, align 8
+  %.sroa.4314.0..0.312.sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store double 3.000000e+00, ptr %.sroa.4314.0..0.312.sroa_idx, align 8
+  %.sroa.5315.0..0.312.sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store double 0.000000e+00, ptr %.sroa.5315.0..0.312.sroa_idx, align 8
   %73 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i64 1, ptr %73, align 8
-  %.sroa.4318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 32
-  store double 6.000000e+00, ptr %.sroa.4318.0..sroa_idx, align 8
-  %.sroa.5319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 40
-  store double 0.000000e+00, ptr %.sroa.5319.0..sroa_idx, align 8
+  %.sroa.4317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 32
+  store double 6.000000e+00, ptr %.sroa.4317.0..sroa_idx, align 8
+  %.sroa.5318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 40
+  store double 0.000000e+00, ptr %.sroa.5318.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
-  %.sroa.4310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %51, ptr %.sroa.4310.0..sroa_idx, align 8
-  %.sroa.5311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 2, ptr %.sroa.5311.0..sroa_idx, align 8
-  %.sroa.6312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6312.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4309.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %51, ptr %.sroa.4309.0..sroa_idx, align 8
+  %.sroa.5310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 2, ptr %.sroa.5310.0..sroa_idx, align 8
+  %.sroa.6311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6311.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %.critedge
 
 74:                                               ; preds = %47
   store i64 1, ptr %48, align 8
-  %.sroa.4301.0..0.299.sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store double 3.000000e+00, ptr %.sroa.4301.0..0.299.sroa_idx, align 8
-  %.sroa.5302.0..0.299.sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store double 0.000000e+00, ptr %.sroa.5302.0..0.299.sroa_idx, align 8
+  %.sroa.4300.0..0.298.sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store double 3.000000e+00, ptr %.sroa.4300.0..0.298.sroa_idx, align 8
+  %.sroa.5301.0..0.298.sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store double 0.000000e+00, ptr %.sroa.5301.0..0.298.sroa_idx, align 8
   %75 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store i64 1, ptr %75, align 8
-  %.sroa.4304.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 32
-  store double 2.000000e+00, ptr %.sroa.4304.0..sroa_idx, align 8
-  %.sroa.5305.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 40
-  store double 0.000000e+00, ptr %.sroa.5305.0..sroa_idx, align 8
+  %.sroa.4303.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 32
+  store double 2.000000e+00, ptr %.sroa.4303.0..sroa_idx, align 8
+  %.sroa.5304.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 40
+  store double 0.000000e+00, ptr %.sroa.5304.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
-  %.sroa.4296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %48, ptr %.sroa.4296.0..sroa_idx, align 8
-  %.sroa.5297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 2, ptr %.sroa.5297.0..sroa_idx, align 8
-  %.sroa.6298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6298.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4295.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %48, ptr %.sroa.4295.0..sroa_idx, align 8
+  %.sroa.5296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 2, ptr %.sroa.5296.0..sroa_idx, align 8
+  %.sroa.6297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6297.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %.critedge
 
 76:                                               ; preds = %44
   store i64 1, ptr %45, align 8
-  %.sroa.4287.0..0.285.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store double 3.000000e+00, ptr %.sroa.4287.0..0.285.sroa_idx, align 8
-  %.sroa.5288.0..0.285.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store double 0.000000e+00, ptr %.sroa.5288.0..0.285.sroa_idx, align 8
+  %.sroa.4286.0..0.284.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store double 3.000000e+00, ptr %.sroa.4286.0..0.284.sroa_idx, align 8
+  %.sroa.5287.0..0.284.sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store double 0.000000e+00, ptr %.sroa.5287.0..0.284.sroa_idx, align 8
   %77 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 1, ptr %77, align 8
-  %.sroa.4290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store double 3.000000e+00, ptr %.sroa.4290.0..sroa_idx, align 8
-  %.sroa.5291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 40
-  store double 0.000000e+00, ptr %.sroa.5291.0..sroa_idx, align 8
+  %.sroa.4289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 32
+  store double 3.000000e+00, ptr %.sroa.4289.0..sroa_idx, align 8
+  %.sroa.5290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 40
+  store double 0.000000e+00, ptr %.sroa.5290.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
-  %.sroa.4282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %45, ptr %.sroa.4282.0..sroa_idx, align 8
-  %.sroa.5283.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 2, ptr %.sroa.5283.0..sroa_idx, align 8
-  %.sroa.6284.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6284.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %45, ptr %.sroa.4281.0..sroa_idx, align 8
+  %.sroa.5282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 2, ptr %.sroa.5282.0..sroa_idx, align 8
+  %.sroa.6283.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6283.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %.critedge
 
 78:                                               ; preds = %39
   store i64 0, ptr %41, align 8
   %79 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i64 1, ptr %79, align 8
-  %.sroa.4276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store double 4.000000e+00, ptr %.sroa.4276.0..sroa_idx, align 8
-  %.sroa.5277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store double 0.000000e+00, ptr %.sroa.5277.0..sroa_idx, align 8
+  %.sroa.4275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 32
+  store double 4.000000e+00, ptr %.sroa.4275.0..sroa_idx, align 8
+  %.sroa.5276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 40
+  store double 0.000000e+00, ptr %.sroa.5276.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
-  %.sroa.4270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %41, ptr %.sroa.4270.0..sroa_idx, align 8
-  %.sroa.5271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 2, ptr %.sroa.5271.0..sroa_idx, align 8
-  %.sroa.6272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6272.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %41, ptr %.sroa.4269.0..sroa_idx, align 8
+  %.sroa.5270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 2, ptr %.sroa.5270.0..sroa_idx, align 8
+  %.sroa.6271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6271.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %.critedge
 
 80:                                               ; preds = %34
   store i64 0, ptr %36, align 8
   %81 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 1, ptr %81, align 8
-  %.sroa.4264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store double 1.000000e+00, ptr %.sroa.4264.0..sroa_idx, align 8
-  %.sroa.5265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store double 0.000000e+00, ptr %.sroa.5265.0..sroa_idx, align 8
+  %.sroa.4263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 32
+  store double 1.000000e+00, ptr %.sroa.4263.0..sroa_idx, align 8
+  %.sroa.5264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 40
+  store double 0.000000e+00, ptr %.sroa.5264.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
-  %.sroa.4258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %36, ptr %.sroa.4258.0..sroa_idx, align 8
-  %.sroa.5259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 2, ptr %.sroa.5259.0..sroa_idx, align 8
-  %.sroa.6260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6260.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %36, ptr %.sroa.4257.0..sroa_idx, align 8
+  %.sroa.5258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 2, ptr %.sroa.5258.0..sroa_idx, align 8
+  %.sroa.6259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6259.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %.critedge
 
 82:                                               ; preds = %29
   store i64 0, ptr %31, align 8
   %83 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i64 1, ptr %83, align 8
-  %.sroa.4252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store double 2.000000e+00, ptr %.sroa.4252.0..sroa_idx, align 8
-  %.sroa.5253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 40
-  store double 0.000000e+00, ptr %.sroa.5253.0..sroa_idx, align 8
+  %.sroa.4251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 32
+  store double 2.000000e+00, ptr %.sroa.4251.0..sroa_idx, align 8
+  %.sroa.5252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 40
+  store double 0.000000e+00, ptr %.sroa.5252.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
-  %.sroa.4247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %31, ptr %.sroa.4247.0..sroa_idx, align 8
-  %.sroa.5248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 2, ptr %.sroa.5248.0..sroa_idx, align 8
-  %.sroa.6249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6249.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.4246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %31, ptr %.sroa.4246.0..sroa_idx, align 8
+  %.sroa.5247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 2, ptr %.sroa.5247.0..sroa_idx, align 8
+  %.sroa.6248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6248.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %.critedge
 
 84:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit"
   store i64 0, ptr %0, align 8
-  %.sroa.4241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4241.0..sroa_idx, align 8
-  %.sroa.5242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5242.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.4240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4240.0..sroa_idx, align 8
+  %.sroa.5241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5241.0..sroa_idx, i8 0, i64 24, i1 false)
   br label %.critedge
 
 thread-pre-split:                                 ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit218", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit208", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit222", %_ZN5typst11foundations3str3Str6as_str17hc8a9006eacbbed6dE.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit230"
@@ -111631,7 +111528,7 @@ thread-pre-split:                                 ; preds = %"_ZN73_$LT$$u5b$A$u
 91:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   invoke void @_ZN5typst11foundations4cast7Reflect5error17h701db7c3f29c230cE(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-          to label %96 unwind label %.thread390
+          to label %96 unwind label %.thread389
 
 92:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
@@ -111669,7 +111566,7 @@ thread-pre-split:                                 ; preds = %"_ZN73_$LT$$u5b$A$u
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.733)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.5375)
+  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.5374)
   %101 = invoke noundef align 8 dereferenceable(72) ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$8make_mut17h3d6f06cd25be53b2E.llvm.7325118056162354838"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
           to label %.noexc231 unwind label %114
 
@@ -111713,7 +111610,7 @@ thread-pre-split:                                 ; preds = %"_ZN73_$LT$$u5b$A$u
 113:                                              ; preds = %126, %114
   %.pn = phi { ptr, i32 } [ %115, %114 ], [ %127, %126 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst..foundations..dict..Dict$GT$17h2ab1f5b053e9f942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16) #75
-          to label %.thread386 unwind label %64
+          to label %.thread385 unwind label %64
 
 114:                                              ; preds = %110, %109, %.noexc231, %100, %150, %116
   %115 = landingpad { ptr, i32 }
@@ -111723,12 +111620,12 @@ thread-pre-split:                                 ; preds = %"_ZN73_$LT$$u5b$A$u
 116:                                              ; preds = %109, %105
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !24667
   %.sroa.6.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %5, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5375, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6.0..sroa_idx2.i, i64 23, i1 false), !noalias !24688
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5374, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6.0..sroa_idx2.i, i64 23, i1 false), !noalias !24688
   %.sroa.4.i.sroa.5.0..sroa.6.0..sroa_idx2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.sroa.4.i.sroa.5.0.copyload = load i64, ptr %.sroa.4.i.sroa.5.0..sroa.6.0..sroa_idx2.i.sroa_idx, align 8, !noalias !24662
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !24662
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.733, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5375, i64 23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5375)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.733, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5374, i64 23, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5374)
   store i8 %103, ptr %11, align 8
   %.sroa.733.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %11, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.733.0..sroa_idx34, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.733, i64 23, i1 false)
@@ -111738,12 +111635,12 @@ thread-pre-split:                                 ; preds = %"_ZN73_$LT$$u5b$A$u
           to label %119 unwind label %114
 
 117:                                              ; preds = %110
-  %.sroa.5375.8..sroa_idx376 = getelementptr inbounds nuw i8, ptr %.sroa.5375, i64 7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5375.8..sroa_idx376, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !24688
+  %.sroa.5374.8..sroa_idx375 = getelementptr inbounds nuw i8, ptr %.sroa.5374, i64 7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5374.8..sroa_idx375, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !24688
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !24662
   %.sroa.733.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.733, i64 7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.733.8..sroa_idx, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5375.8..sroa_idx376, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5375)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.733.8..sroa_idx, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.5374.8..sroa_idx375, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.5374)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.733.8..sroa_idx, i64 16, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
@@ -111786,17 +111683,17 @@ thread-pre-split:                                 ; preds = %"_ZN73_$LT$$u5b$A$u
 
 131:                                              ; preds = %128
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$typst..foundations..value..Value$C$ecow..string..EcoString$GT$$GT$17hc4bbb5cdd821df3aE"(ptr noalias noundef align 8 dereferenceable(32) %10)
-          to label %.thread467 unwind label %126
+          to label %.thread466 unwind label %126
 
-.thread467:                                       ; preds = %131
+.thread466:                                       ; preds = %131
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %136
 
 132:                                              ; preds = %128
   %.sroa.4133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %.sroa.4378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %.sroa.4377.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4378.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4133.0..sroa_idx, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4377.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4133.0..sroa_idx, i64 31, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store i8 %129, ptr %3, align 8, !noalias !24689
@@ -111824,7 +111721,7 @@ thread-pre-split:                                 ; preds = %"_ZN73_$LT$$u5b$A$u
   store double %.sroa.8.0.copyload, ptr %.sroa.2159.0..sroa_idx, align 8
   br label %150
 
-136:                                              ; preds = %133, %.thread467
+136:                                              ; preds = %133, %.thread466
   br label %137
 
 137:                                              ; preds = %133, %136
@@ -111908,9 +111805,9 @@ thread-pre-split:                                 ; preds = %"_ZN73_$LT$$u5b$A$u
   tail call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   br label %98
 
-.thread386:                                       ; preds = %113, %.thread390
-  %.pn174382 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread390 ], [ %.pn, %113 ]
-  resume { ptr, i32 } %.pn174382
+.thread385:                                       ; preds = %113, %.thread389
+  %.pn174381 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread389 ], [ %.pn, %113 ]
+  resume { ptr, i32 } %.pn174381
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112909,7 +112806,7 @@ define void @"_ZN88_$LT$typst..visualize..stroke..Stroke$u20$as$u20$typst..found
 47:                                               ; preds = %121, %28, %.noexc
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread298
+  br label %.thread297
 
 48:                                               ; preds = %.noexc
   %.not = icmp eq i128 %46, 96611174917201272329128964691855520766
@@ -113032,11 +112929,11 @@ default.unreachable3.i.i:                         ; preds = %54
 84:                                               ; preds = %87
   %85 = landingpad { ptr, i32 }
           cleanup
-  br i1 %52, label %.thread298, label %86
+  br i1 %52, label %.thread297, label %86
 
 86:                                               ; preds = %84
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst..visualize..paint..Paint$GT$17h99fba6fe7b498366E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %.thread298 unwind label %95, !noalias !24901
+          to label %.thread297 unwind label %95, !noalias !24901
 
 87:                                               ; preds = %74
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24913)
@@ -113095,8 +112992,8 @@ default.unreachable3.i.i:                         ; preds = %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx277, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.59.sroa.0.i, i64 16, i1 false)
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %.sroa.54.sroa.4.0.i, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.11278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double %.sroa.54.sroa.5.0.i, ptr %.sroa.11278.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store double %.sroa.54.sroa.5.0.i, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12, i64 24, i1 false)
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -113436,7 +113333,7 @@ thread-pre-split:                                 ; preds = %48
   call void @"_ZN4core3ptr51drop_in_place$LT$typst..foundations..dict..Dict$GT$17h2ab1f5b053e9f942E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
   br label %203
 
-189:                                              ; preds = %202, %.thread298, %193, %"_ZN4core3ptr90drop_in_place$LT$typst..foundations..auto..Smart$LT$typst..visualize..paint..Paint$GT$$GT$17hb596ff48144200b8E.llvm.12777920187102919001.exit267"
+189:                                              ; preds = %202, %.thread297, %193, %"_ZN4core3ptr90drop_in_place$LT$typst..foundations..auto..Smart$LT$typst..visualize..paint..Paint$GT$$GT$17hb596ff48144200b8E.llvm.12777920187102919001.exit267"
   %190 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #76
@@ -113594,12 +113491,12 @@ thread-pre-split:                                 ; preds = %48
   store i64 2, ptr %0, align 8
   br label %128
 
-.thread:                                          ; preds = %"_ZN4core3ptr90drop_in_place$LT$typst..foundations..auto..Smart$LT$typst..visualize..paint..Paint$GT$$GT$17hb596ff48144200b8E.llvm.12777920187102919001.exit267", %.thread298
-  %.pn227297 = phi { ptr, i32 } [ %eh.lpad-body301, %.thread298 ], [ %.pn217, %"_ZN4core3ptr90drop_in_place$LT$typst..foundations..auto..Smart$LT$typst..visualize..paint..Paint$GT$$GT$17hb596ff48144200b8E.llvm.12777920187102919001.exit267" ]
-  resume { ptr, i32 } %.pn227297
+.thread:                                          ; preds = %"_ZN4core3ptr90drop_in_place$LT$typst..foundations..auto..Smart$LT$typst..visualize..paint..Paint$GT$$GT$17hb596ff48144200b8E.llvm.12777920187102919001.exit267", %.thread297
+  %.pn227296 = phi { ptr, i32 } [ %eh.lpad-body300, %.thread297 ], [ %.pn217, %"_ZN4core3ptr90drop_in_place$LT$typst..foundations..auto..Smart$LT$typst..visualize..paint..Paint$GT$$GT$17hb596ff48144200b8E.llvm.12777920187102919001.exit267" ]
+  resume { ptr, i32 } %.pn227296
 
-.thread298:                                       ; preds = %86, %84, %47
-  %eh.lpad-body301 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %47 ], [ %85, %84 ], [ %85, %86 ]
+.thread297:                                       ; preds = %86, %84, %47
+  %eh.lpad-body300 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %47 ], [ %85, %84 ], [ %85, %86 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #75
           to label %.thread unwind label %189
 }
@@ -128263,7 +128160,6 @@ define void @"_ZN83_$LT$typst..layout..page..Margin$u20$as$u20$typst..foundation
   %.sroa.727 = alloca [2 x i64], align 8
   %18 = alloca { i64, [3 x i64] }, align 8
   %.sroa.7 = alloca [2 x i64], align 8
-  %.sroa.616 = alloca [7 x i8], align 1
   %19 = alloca { i8, [31 x i8] }, align 8
   %20 = alloca { i64, [2 x i64] }, align 8
   %21 = alloca ptr, align 8
@@ -128366,7 +128262,6 @@ define void @"_ZN83_$LT$typst..layout..page..Margin$u20$as$u20$typst..foundation
 
 47:                                               ; preds = %40
   store ptr %43, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.616)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   invoke fastcc void @"_ZN83_$LT$typst..layout..page..Margin$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value28_$u7b$$u7b$closure$u7d$$u7d$17h4698167cffde6837E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %18, ptr %21, ptr noalias noundef nonnull readonly align 1 @anon.9efbc0c128adab6190fabe7f7e045142.552, i64 noundef 4)
           to label %52 unwind label %50
@@ -128734,8 +128629,6 @@ define void @"_ZN83_$LT$typst..layout..page..Margin$u20$as$u20$typst..foundation
   store i64 %.sroa.6220.0, ptr %.sroa.015.sroa.9.sroa.6.0..sroa.015.sroa.9.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 %.0271, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 129
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.616.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.616, i64 7, i1 false)
   br label %150
 
 .thread421:                                       ; preds = %146, %147
@@ -128745,7 +128638,6 @@ define void @"_ZN83_$LT$typst..layout..page..Margin$u20$as$u20$typst..foundation
   br label %149
 
 150:                                              ; preds = %57, %65, %75, %85, %95, %111, %127, %141, %161, %118, %104, %149
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.616)
   call void @llvm.experimental.noalias.scope.decl(metadata !28434)
   call void @llvm.experimental.noalias.scope.decl(metadata !28437)
   call void @llvm.experimental.noalias.scope.decl(metadata !28440)
@@ -128816,8 +128708,8 @@ define void @"_ZN83_$LT$typst..layout..page..Margin$u20$as$u20$typst..foundation
   %.sroa.5377.0.copyload = load double, ptr %.sroa.5377.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   store i64 1, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sroa.0158.sroa.0.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.4347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.sroa.0158.sroa.0.0.copyload, ptr %.sroa.4347.0..sroa_idx, align 8
   %.sroa.5348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sroa.0158.sroa.4.0.copyload, ptr %.sroa.5348.0..sroa_idx, align 8
   %.sroa.6349.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -128865,8 +128757,8 @@ define void @"_ZN83_$LT$typst..layout..page..Margin$u20$as$u20$typst..foundation
   call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.2456044669961016091"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   store i64 0, ptr %0, align 8
-  %.sroa.7342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %.sroa.7342.0..sroa_idx, align 8
+  %.sroa.7341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %.sroa.7341.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -129647,7 +129539,7 @@ define void @"_ZN94_$LT$typst..foundations..selector..Selector$u20$as$u20$typst.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %20, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20)
   tail call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br label %111
+  br label %112
 
 thread-pre-split:                                 ; preds = %42
   %.pr = load i8, ptr %1, align 8, !alias.scope !28606
@@ -129675,7 +129567,7 @@ thread-pre-split:                                 ; preds = %42
 
 51:                                               ; preds = %44
   %52 = icmp eq i8 %45, 17
-  br i1 %52, label %53, label %55
+  br i1 %52, label %53, label %56
 
 53:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
@@ -129685,140 +129577,141 @@ thread-pre-split:                                 ; preds = %42
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   %54 = load i32, ptr %16, align 8, !range !2721, !noundef !16
   %trunc102 = trunc nuw i32 %54 to i1
-  br i1 %trunc102, label %157, label %154
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %trunc102, label %158, label %155
 
-55:                                               ; preds = %51
-  %56 = add nsw i8 %45, -13
-  %switch.and.i.i = and i8 %56, -3
+56:                                               ; preds = %51
+  %57 = add nsw i8 %45, -13
+  %switch.and.i.i = and i8 %57, -3
   %switch.selectcmp.i.i = icmp eq i8 %switch.and.i.i, 0
-  br i1 %switch.selectcmp.i.i, label %78, label %57
+  br i1 %switch.selectcmp.i.i, label %79, label %58
 
-57:                                               ; preds = %55
+58:                                               ; preds = %56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28609)
-  %58 = icmp eq i8 %45, 29
-  br i1 %58, label %59, label %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread"
+  %59 = icmp eq i8 %45, 29
+  br i1 %59, label %60, label %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread"
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28612)
-  %61 = load ptr, ptr %60, align 8, !alias.scope !28615, !nonnull !16, !noundef !16
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %63 = load ptr, ptr %62, align 8, !alias.scope !28615, !nonnull !16, !align !402, !noundef !16
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load i64, ptr %64, align 8, !range !1134, !invariant.load !16, !noalias !28615
-  %66 = add i64 %65, -1
-  %67 = and i64 %66, -16
-  %68 = getelementptr i8, ptr %61, i64 %67
-  %69 = getelementptr i8, ptr %68, i64 16
-  %70 = getelementptr inbounds nuw i8, ptr %63, i64 64
-  %71 = load ptr, ptr %70, align 8, !invariant.load !16, !noalias !28615, !nonnull !16
-  %72 = invoke { ptr, ptr } %71(ptr noundef align 1 %69)
+  %62 = load ptr, ptr %61, align 8, !alias.scope !28615, !nonnull !16, !noundef !16
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %64 = load ptr, ptr %63, align 8, !alias.scope !28615, !nonnull !16, !align !402, !noundef !16
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %66 = load i64, ptr %65, align 8, !range !1134, !invariant.load !16, !noalias !28615
+  %67 = add i64 %66, -1
+  %68 = and i64 %67, -16
+  %69 = getelementptr i8, ptr %62, i64 %68
+  %70 = getelementptr i8, ptr %69, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 64
+  %72 = load ptr, ptr %71, align 8, !invariant.load !16, !noalias !28615, !nonnull !16
+  %73 = invoke { ptr, ptr } %72(ptr noundef align 1 %70)
           to label %.noexc117 unwind label %180
 
-.noexc117:                                        ; preds = %59
-  %73 = extractvalue { ptr, ptr } %72, 0
-  %74 = extractvalue { ptr, ptr } %72, 1
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %76 = load ptr, ptr %75, align 8, !invariant.load !16, !noalias !28615, !nonnull !16
-  %77 = invoke noundef i128 %76(ptr noundef align 1 %73)
+.noexc117:                                        ; preds = %60
+  %74 = extractvalue { ptr, ptr } %73, 0
+  %75 = extractvalue { ptr, ptr } %73, 1
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %77 = load ptr, ptr %76, align 8, !invariant.load !16, !noalias !28615, !nonnull !16
+  %78 = invoke noundef i128 %77(ptr noundef align 1 %74)
           to label %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit" unwind label %180
 
-78:                                               ; preds = %55
+79:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @"_ZN5typst11foundations3str89_$LT$impl$u20$typst..foundations..cast..FromValue$u20$for$u20$ecow..string..EcoString$GT$10from_value17h8547a7b5a28b7d2eE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  %79 = load i64, ptr %13, align 8, !range !401, !noundef !16
-  %trunc100 = trunc nuw i64 %79 to i1
-  %80 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.620, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
+  %80 = load i64, ptr %13, align 8, !range !401, !noundef !16
+  %trunc100 = trunc nuw i64 %80 to i1
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.620, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  br i1 %trunc100, label %127, label %133
+  br i1 %trunc100, label %128, label %134
 
 "_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit": ; preds = %.noexc117
-  %81 = icmp eq i128 %77, -120832677138495619823346883556570293686
-  br i1 %81, label %102, label %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.thread"
+  %82 = icmp eq i128 %78, -120832677138495619823346883556570293686
+  br i1 %82, label %103, label %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.thread"
 
 "_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.thread": ; preds = %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit"
   %.pre = load i8, ptr %1, align 8, !range !3607, !alias.scope !28616
-  %82 = icmp eq i8 %.pre, 29
+  %83 = icmp eq i8 %.pre, 29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28616)
-  br i1 %82, label %83, label %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread"
+  br i1 %83, label %84, label %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread"
 
-83:                                               ; preds = %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.thread"
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
+84:                                               ; preds = %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.thread"
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28619)
-  %85 = load ptr, ptr %84, align 8, !alias.scope !28622, !nonnull !16, !noundef !16
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %87 = load ptr, ptr %86, align 8, !alias.scope !28622, !nonnull !16, !align !402, !noundef !16
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %89 = load i64, ptr %88, align 8, !range !1134, !invariant.load !16, !noalias !28622
-  %90 = add i64 %89, -1
-  %91 = and i64 %90, -16
-  %92 = getelementptr i8, ptr %85, i64 %91
-  %93 = getelementptr i8, ptr %92, i64 16
-  %94 = getelementptr inbounds nuw i8, ptr %87, i64 64
-  %95 = load ptr, ptr %94, align 8, !invariant.load !16, !noalias !28622, !nonnull !16
-  %96 = invoke { ptr, ptr } %95(ptr noundef align 1 %93)
+  %86 = load ptr, ptr %85, align 8, !alias.scope !28622, !nonnull !16, !noundef !16
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %88 = load ptr, ptr %87, align 8, !alias.scope !28622, !nonnull !16, !align !402, !noundef !16
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %90 = load i64, ptr %89, align 8, !range !1134, !invariant.load !16, !noalias !28622
+  %91 = add i64 %90, -1
+  %92 = and i64 %91, -16
+  %93 = getelementptr i8, ptr %86, i64 %92
+  %94 = getelementptr i8, ptr %93, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %88, i64 64
+  %96 = load ptr, ptr %95, align 8, !invariant.load !16, !noalias !28622, !nonnull !16
+  %97 = invoke { ptr, ptr } %96(ptr noundef align 1 %94)
           to label %.noexc120 unwind label %180
 
-.noexc120:                                        ; preds = %83
-  %97 = extractvalue { ptr, ptr } %96, 0
-  %98 = extractvalue { ptr, ptr } %96, 1
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  %100 = load ptr, ptr %99, align 8, !invariant.load !16, !noalias !28622, !nonnull !16
-  %101 = invoke noundef i128 %100(ptr noundef align 1 %97)
+.noexc120:                                        ; preds = %84
+  %98 = extractvalue { ptr, ptr } %97, 0
+  %99 = extractvalue { ptr, ptr } %97, 1
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
+  %101 = load ptr, ptr %100, align 8, !invariant.load !16, !noalias !28622, !nonnull !16
+  %102 = invoke noundef i128 %101(ptr noundef align 1 %98)
           to label %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit" unwind label %180
 
-102:                                              ; preds = %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit"
+103:                                              ; preds = %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @"_ZN86_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value17h6a81f8dd03ec1cc8E"(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %9)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  %103 = load ptr, ptr %10, align 8, !noundef !16
-  %104 = icmp eq ptr %103, null
-  %105 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.734, ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, i1 false)
-  br i1 %104, label %122, label %117
+  %104 = load ptr, ptr %10, align 8, !noundef !16
+  %105 = icmp eq ptr %104, null
+  %106 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.734, ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, i1 false)
+  br i1 %105, label %123, label %118
 
 "_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit": ; preds = %.noexc120
-  %106 = icmp eq i128 %101, -16582394481943294582273633036323555377
-  br i1 %106, label %107, label %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread"
+  %107 = icmp eq i128 %102, -16582394481943294582273633036323555377
+  br i1 %107, label %108, label %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread"
 
-"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread": ; preds = %57, %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.thread", %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit"
+"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread": ; preds = %58, %"_ZN84_$LT$typst..foundations..str..Regex$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hdcc2bb6f369074e7E.exit.thread", %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   invoke void @_ZN5typst11foundations4cast7Reflect5error17h4bf031a3258c21ebE(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-          to label %109 unwind label %180
+          to label %110 unwind label %180
 
-107:                                              ; preds = %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit"
+108:                                              ; preds = %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit"
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.650)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @"_ZN96_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value17h033d203d1672a84eE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 16 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %108 = load i64, ptr %6, align 16, !range !401, !noundef !16
-  %trunc = trunc nuw i64 %108 to i1
-  br i1 %trunc, label %114, label %112
+  %109 = load i64, ptr %6, align 16, !range !401, !noundef !16
+  %trunc = trunc nuw i64 %109 to i1
+  br i1 %trunc, label %115, label %113
 
-109:                                              ; preds = %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread"
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+110:                                              ; preds = %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread"
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i64 10, ptr %0, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   tail call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  br label %111
+  br label %112
 
-111:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit124", %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit", %114, %112, %126, %122, %157, %154, %.critedge, %109
+112:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit124", %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit", %115, %113, %127, %123, %158, %155, %.critedge, %110
   ret void
 
-112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw i8, ptr %6, i64 16
+113:                                              ; preds = %108
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.650.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.650, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.650.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %113, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.650.16..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %114, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.650.16..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.650)
@@ -129829,151 +129722,149 @@ thread-pre-split:                                 ; preds = %42
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.454.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.454, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.454)
-  br label %111
+  br label %112
 
-114:                                              ; preds = %107
-  %115 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.650, ptr noundef nonnull align 8 dereferenceable(16) %115, i64 16, i1 false)
+115:                                              ; preds = %108
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.650, ptr noundef nonnull align 8 dereferenceable(16) %116, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.650, i64 16, i1 false)
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.650, i64 16, i1 false)
   store i64 10, ptr %0, align 16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.650)
-  br label %111
+  br label %112
 
-117:                                              ; preds = %102
+118:                                              ; preds = %103
   %.sroa.580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.580.0.copyload = load i64, ptr %.sroa.580.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  store ptr %103, ptr %8, align 8
+  store ptr %104, ptr %8, align 8
   %.sroa.734.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.734.0..sroa_idx35, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.734, i64 16, i1 false)
   %.sroa.9.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %.sroa.580.0.copyload, ptr %.sroa.9.0..sroa_idx36, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @_ZN5typst11foundations8selector8Selector5regex17hfdbf36f3cc78f8e0E(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 16 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
-  %118 = load i64, ptr %7, align 16, !range !1550, !noundef !16
-  %119 = icmp eq i64 %118, 10
-  %120 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.641, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 16, i1 false)
-  br i1 %119, label %125, label %124
+  %119 = load i64, ptr %7, align 16, !range !1550, !noundef !16
+  %120 = icmp eq i64 %119, 10
+  %121 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.641, ptr noundef nonnull align 8 dereferenceable(16) %121, i64 16, i1 false)
+  br i1 %120, label %126, label %125
 
-122:                                              ; preds = %102
+123:                                              ; preds = %103
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.734, i64 16, i1 false)
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.734, i64 16, i1 false)
   store i64 10, ptr %0, align 16
-  br label %111
+  br label %112
 
-124:                                              ; preds = %117
+125:                                              ; preds = %118
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.348, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.586.0..sroa_idx, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.641, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.641, i64 16, i1 false)
   %.sroa.348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.348.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.348, i64 40, i1 false)
-  br label %126
+  br label %127
 
-125:                                              ; preds = %117
+126:                                              ; preds = %118
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.641, i64 16, i1 false)
-  br label %126
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.641, i64 16, i1 false)
+  br label %127
 
-126:                                              ; preds = %125, %124
-  store i64 %118, ptr %0, align 16
-  br label %111
+127:                                              ; preds = %126, %125
+  store i64 %119, ptr %0, align 16
+  br label %112
 
-127:                                              ; preds = %78
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.620, i64 16, i1 false)
+128:                                              ; preds = %79
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.620, i64 16, i1 false)
   store i64 10, ptr %0, align 16
   br label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit124"
 
-129:                                              ; preds = %133
-  %130 = landingpad { ptr, i32 }
+130:                                              ; preds = %134
+  %131 = landingpad { ptr, i32 }
           cleanup
-  %131 = icmp sgt i64 %141, -1
-  br i1 %131, label %132, label %.thread
+  %132 = icmp sgt i64 %142, -1
+  br i1 %132, label %133, label %.thread
 
-132:                                              ; preds = %129
+133:                                              ; preds = %130
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
-          to label %.thread unwind label %152
+          to label %.thread unwind label %153
 
-133:                                              ; preds = %78
+134:                                              ; preds = %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.620, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
-  %134 = getelementptr inbounds nuw i8, ptr %14, i64 15
-  %135 = load i8, ptr %134, align 1, !alias.scope !28623, !noundef !16
-  %136 = icmp slt i8 %135, 0
-  %137 = and i8 %135, 127
-  %138 = zext nneg i8 %137 to i64
-  %139 = load ptr, ptr %14, align 8, !alias.scope !28623, !nonnull !16
-  %140 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %141 = load i64, ptr %140, align 8
-  %.sroa.3.0.i = select i1 %136, i64 %138, i64 %141
-  %.sroa.0.0.i = select i1 %136, ptr %14, ptr %139
+  %135 = getelementptr inbounds nuw i8, ptr %14, i64 15
+  %136 = load i8, ptr %135, align 1, !alias.scope !28623, !noundef !16
+  %137 = icmp slt i8 %136, 0
+  %138 = and i8 %136, 127
+  %139 = zext nneg i8 %138 to i64
+  %140 = load ptr, ptr %14, align 8, !alias.scope !28623, !nonnull !16
+  %141 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %142 = load i64, ptr %141, align 8
+  %.sroa.3.0.i = select i1 %137, i64 %139, i64 %142
+  %.sroa.0.0.i = select i1 %137, ptr %14, ptr %140
   invoke void @_ZN5typst11foundations8selector8Selector4text17h44cf3fc83d6f0978E(ptr noalias noundef nonnull sret({ i64, [7 x i64] }) align 16 captures(none) dereferenceable(64) %11, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i)
-          to label %142 unwind label %129
+          to label %143 unwind label %130
 
-142:                                              ; preds = %133
-  %143 = load i64, ptr %11, align 16, !range !1550, !noundef !16
-  %144 = icmp eq i64 %143, 10
-  %145 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.625, ptr noundef nonnull align 8 dereferenceable(16) %145, i64 16, i1 false)
-  br i1 %144, label %148, label %147
+143:                                              ; preds = %134
+  %144 = load i64, ptr %11, align 16, !range !1550, !noundef !16
+  %145 = icmp eq i64 %144, 10
+  %146 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.625, ptr noundef nonnull align 8 dereferenceable(16) %146, i64 16, i1 false)
+  br i1 %145, label %149, label %148
 
-147:                                              ; preds = %142
+148:                                              ; preds = %143
   %.sroa.574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.574.0..sroa_idx, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.625, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.625, i64 16, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3, i64 40, i1 false)
-  br label %149
+  br label %150
 
-148:                                              ; preds = %142
+149:                                              ; preds = %143
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.625, i64 16, i1 false)
-  br label %149
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.625, i64 16, i1 false)
+  br label %150
 
-149:                                              ; preds = %148, %147
-  store i64 %143, ptr %0, align 16
-  %150 = icmp sgt i64 %141, -1
-  br i1 %150, label %151, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit124"
+150:                                              ; preds = %149, %148
+  store i64 %144, ptr %0, align 16
+  %151 = icmp sgt i64 %142, -1
+  br i1 %151, label %152, label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit124"
 
-151:                                              ; preds = %149
+152:                                              ; preds = %150
   call void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
   br label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit124"
 
-"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit124": ; preds = %151, %149, %127
+"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17h2cca40327d577ef0E.exit124": ; preds = %152, %150, %128
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  br label %111
+  br label %112
 
-152:                                              ; preds = %132, %180, %162
-  %153 = landingpad { ptr, i32 }
+153:                                              ; preds = %133, %180, %162
+  %154 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #76
   unreachable
 
-154:                                              ; preds = %53
-  %155 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %156 = load i32, ptr %155, align 4, !noundef !16
+155:                                              ; preds = %53
+  %156 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %157 = load i32, ptr %156, align 4, !noundef !16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   store i64 3, ptr %0, align 16
-  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %156, ptr %.sroa.418.0..sroa_idx, align 8
-  br label %111
+  store i32 %157, ptr %55, align 8
+  br label %112
 
-157:                                              ; preds = %53
-  %158 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.067, ptr noundef nonnull align 8 dereferenceable(16) %158, i64 16, i1 false)
+158:                                              ; preds = %53
+  %159 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.067, ptr noundef nonnull align 8 dereferenceable(16) %159, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.067, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.067, i64 16, i1 false)
   store i64 10, ptr %0, align 16
-  br label %111
+  br label %112
 
 160:                                              ; preds = %47
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -129985,14 +129876,14 @@ thread-pre-split:                                 ; preds = %42
   %163 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #75
-          to label %.thread unwind label %152
+          to label %.thread unwind label %153
 
 164:                                              ; preds = %47
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false)
   store i64 %48, ptr %19, align 8
-  %.not161 = icmp eq i64 %48, 1
-  br i1 %.not161, label %.thread165, label %165
+  %.not160 = icmp eq i64 %48, 1
+  br i1 %.not160, label %.thread164, label %165
 
 165:                                              ; preds = %164
   %166 = invoke { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 @anon.9efbc0c128adab6190fabe7f7e045142.1056, i64 noundef 47)
@@ -130003,7 +129894,7 @@ thread-pre-split:                                 ; preds = %42
   %168 = extractvalue { ptr, i64 } %166, 1
   %169 = icmp ne ptr %167, null
   tail call void @llvm.assume(i1 %169)
-  %.pre163.pre = load i64, ptr %19, align 8, !range !250, !alias.scope !28626
+  %.pre162.pre = load i64, ptr %19, align 8, !range !250, !alias.scope !28626
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %167, ptr %170, align 8
   %.sroa.064.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -130011,18 +129902,18 @@ thread-pre-split:                                 ; preds = %42
   store i64 10, ptr %0, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28631)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28632)
-  switch i64 %.pre163.pre, label %default.unreachable.i [
+  switch i64 %.pre162.pre, label %default.unreachable.i [
     i64 0, label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
     i64 1, label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
     i64 2, label %176
     i64 3, label %172
   ]
 
-.thread165:                                       ; preds = %164
+.thread164:                                       ; preds = %164
   %171 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !28633, !nonnull !16, !align !402
   store i64 0, ptr %0, align 16
-  %.sroa.5132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %171, ptr %.sroa.5132.0..sroa_idx, align 8
+  %.sroa.5131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %171, ptr %.sroa.5131.0..sroa_idx, align 8
   br label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
 
 default.unreachable.i:                            ; preds = %.noexc126
@@ -130054,19 +129945,19 @@ default.unreachable.i:                            ; preds = %.noexc126
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5e6fc6f6ee46223bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.4.0..sroa_idx)
   br label %"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit"
 
-"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit": ; preds = %.thread165, %.noexc129, %.noexc127, %176, %172, %.noexc126, %.noexc126, %160
+"_ZN4core3ptr51drop_in_place$LT$typst..foundations..func..Func$GT$17h9b8a5080a15f98e2E.exit": ; preds = %.thread164, %.noexc129, %.noexc127, %176, %172, %.noexc126, %.noexc126, %160
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
-  br label %111
+  br label %112
 
-.thread:                                          ; preds = %129, %132, %162, %180
-  %.pn139 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %180 ], [ %163, %162 ], [ %130, %132 ], [ %130, %129 ]
-  resume { ptr, i32 } %.pn139
+.thread:                                          ; preds = %130, %133, %162, %180
+  %.pn138 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %180 ], [ %163, %162 ], [ %131, %133 ], [ %131, %130 ]
+  resume { ptr, i32 } %.pn138
 
-180:                                              ; preds = %.noexc120, %83, %.noexc117, %59, %.noexc, %23, %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread", %43
+180:                                              ; preds = %.noexc120, %84, %.noexc117, %60, %.noexc, %23, %"_ZN94_$LT$typst..introspection..location..Location$u20$as$u20$typst..foundations..cast..Reflect$GT$8castable17hde191c25dad0753eE.exit.thread", %43
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.12777920187102919001"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #75
-          to label %.thread unwind label %152
+          to label %.thread unwind label %153
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

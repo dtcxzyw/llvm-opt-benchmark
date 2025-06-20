@@ -3187,7 +3187,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5salsa7runtime7Runtime25with_incremented_revision17h5b400cc27f882733E(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.6.i = alloca [3 x i8], align 1
   %3 = alloca { { ptr, i64 }, ptr }, align 8
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { ptr, ptr, ptr }, align 8
@@ -3465,7 +3464,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %101 = load i32, ptr %10, align 4, !range !89, !noundef !11
   call void @llvm.experimental.noalias.scope.decl(metadata !210)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.6.i)
   %102 = load ptr, ptr %5, align 8, !alias.scope !210, !nonnull !11, !align !15, !noundef !11
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = cmpxchg weak ptr %103, i64 0, i64 8 acquire monotonic, align 8, !noalias !210
@@ -3516,8 +3514,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
 
 123:                                              ; preds = %"_ZN4core3ptr109drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..CrateGraph$GT$$GT$$GT$17h89241a0d3dc5b25dE.exit.i", %122
   %.sroa.3.0.i = phi i8 [ undef, %122 ], [ %116, %"_ZN4core3ptr109drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$base_db..input..CrateGraph$GT$$GT$$GT$17h89241a0d3dc5b25dE.exit.i" ]
-  %.sroa.6.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %102, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx13.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.i, i64 3, i1 false), !noalias !210
   %124 = cmpxchg ptr %103, i64 8, i64 0 release monotonic, align 8, !noalias !210
   %125 = extractvalue { i64, i1 } %124, 1
   br i1 %125, label %161, label %126
@@ -3533,8 +3529,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   %.sroa.4.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %102, i64 24
   store i32 %101, ptr %.sroa.4.0..sroa_idx4.i, align 8, !noalias !210
   store i8 %111, ptr %115, align 4, !noalias !210
-  %.sroa.6.0..sroa_idx12.i = getelementptr inbounds nuw i8, ptr %102, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx12.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.i, i64 3, i1 false), !noalias !210
   %129 = cmpxchg ptr %103, i64 8, i64 0 release monotonic, align 8, !noalias !210
   %130 = extractvalue { i64, i1 } %129, 1
   br i1 %130, label %.body, label %131
@@ -3639,7 +3633,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit82.
   br label %.critedge71
 
 161:                                              ; preds = %123, %126
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br i1 %.not138, label %.loopexit, label %162
 

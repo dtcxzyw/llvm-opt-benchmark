@@ -3285,7 +3285,6 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction19EmitObjCMessageExprEP
   %20 = alloca %"class.clang::CodeGen::LValue", align 8
   %21 = alloca %"class.clang::CodeGen::CallArgList", align 8
   %.sroa.7.sroa.6 = alloca { %"class.clang::CharUnits", %"class.clang::CodeGen::CGPointerAuthInfo", ptr }, align 8
-  %.sroa.9 = alloca [7 x i8], align 1
   %22 = alloca %"class.clang::CodeGen::RValue", align 8
   %23 = alloca %"class.clang::CodeGen::RValue", align 8
   %24 = alloca %"class.llvm::Twine", align 8
@@ -4593,8 +4592,6 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit159: ; 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sroa.6, i64 32, i1 false)
   %.sroa.7251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %.sroa.7176.0, ptr %.sroa.7251.0..sroa_idx, align 8, !tbaa !306
-  %.sroa.8254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8254.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
   br label %_ZL20AdjustObjCObjectTypeRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueE.exit165
 
 663:                                              ; preds = %656
@@ -4612,8 +4609,6 @@ _ZN5clang7CodeGen15CodeGenFunction17GetAddrOfLocalVarEPKNS_7VarDeclE.exit159: ; 
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx250.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx250.sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sroa.6, i64 32, i1 false)
   store i8 %.sroa.7176.0, ptr %.sroa.7251.0..sroa_idx252, align 8, !tbaa !306
-  %.sroa.8254.0..sroa_idx255 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8254.0..sroa_idx255, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
   br label %_ZL20AdjustObjCObjectTypeRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeENS0_6RValueE.exit165
 
 669:                                              ; preds = %663
@@ -7551,14 +7546,14 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit:
   store ptr %1, ptr %14, align 8
   %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %.sroa.467.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store i8 0, ptr %.sroa.6.0..sroa_idx69, align 8
-  %.sroa.870.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 152
-  store i8 0, ptr %.sroa.870.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 153
-  store i8 0, ptr %.sroa.9.0..sroa_idx, align 1
-  %.sroa.1071.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 160
-  store i64 %.sroa.0.0.copyload.i, ptr %.sroa.1071.0..sroa_idx, align 8
+  %.sroa.569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 64
+  store i8 0, ptr %.sroa.569.0..sroa_idx, align 8
+  %.sroa.671.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 152
+  store i8 0, ptr %.sroa.671.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 153
+  store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.872.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 160
+  store i64 %.sroa.0.0.copyload.i, ptr %.sroa.872.0..sroa_idx, align 8
   store i32 1, ptr %15, align 8, !tbaa !304
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %11) #23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1800

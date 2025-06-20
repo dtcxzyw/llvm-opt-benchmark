@@ -22715,7 +22715,6 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser18parseD
   %13 = alloca %"class.llvm::Twine", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.llvm::Twine", align 8
-  %.sroa.9 = alloca [7 x i8], align 1
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.llvm::StringRef", align 8
   %18 = alloca %"class.llvm::Twine", align 8
@@ -22860,7 +22859,6 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser18parseD
   %.sroa.6108.0 = phi i64 [ %97, %94 ], [ 0, %98 ]
   %.sroa.0107.0 = phi ptr [ %96, %94 ], [ null, %98 ]
   %.sroa.0105.0 = load ptr, ptr %.sroa.0105.0.in, align 8, !tbaa !309
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #26
   %101 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %101, ptr %16, align 8, !tbaa !307
@@ -23424,8 +23422,6 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is
   store i64 %.sroa.592.0, ptr %.sroa.592.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i8 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
   %329 = load ptr, ptr %328, align 8, !tbaa !3
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 720
   %331 = load ptr, ptr %330, align 8
@@ -23450,8 +23446,6 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is
   store i64 %.sroa.592.0, ptr %.sroa.592.0..sroa_idx93, align 8
   %.sroa.6.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i8 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx95, align 8
-  %.sroa.9.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %30, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx97, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
   %338 = load ptr, ptr %336, align 8, !tbaa !3
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 712
   %340 = load ptr, ptr %339, align 8
@@ -23580,7 +23574,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i68, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i67
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #26
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
   br label %391
 
 391:                                              ; preds = %89, %.critedge4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69

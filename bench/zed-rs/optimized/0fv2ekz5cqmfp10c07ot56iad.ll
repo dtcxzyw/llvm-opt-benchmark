@@ -1804,10 +1804,10 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.16188651594484228709.e
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx, i8 0, i64 40, i1 false)
-  store i64 -1, ptr %.sroa.13.0..sroa_idx, align 8
+  %.sroa.729.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.729.0..sroa_idx, i8 0, i64 40, i1 false)
+  store i64 -1, ptr %.sroa.12.0..sroa_idx, align 8
   %10 = cmpxchg ptr %0, ptr null, ptr %.sroa.5.0..sroa_idx acq_rel acquire, align 8
   %11 = extractvalue { ptr, i1 } %10, 0
   %12 = extractvalue { ptr, i1 } %10, 1
@@ -1953,10 +1953,10 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.16188651594484228709.e
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 0, ptr %.sroa.6.0..sroa_idx.i, align 4
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx.i, i8 0, i64 40, i1 false)
-  store i64 -1, ptr %.sroa.13.0..sroa_idx.i, align 8
+  %.sroa.729.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.729.0..sroa_idx.i, i8 0, i64 40, i1 false)
+  store i64 -1, ptr %.sroa.12.0..sroa_idx.i, align 8
   %11 = cmpxchg ptr %1, ptr null, ptr %.sroa.5.0..sroa_idx.i acq_rel acquire, align 8
   %12 = extractvalue { ptr, i1 } %11, 0
   %13 = extractvalue { ptr, i1 } %11, 1
@@ -2373,10 +2373,10 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.10833762189268282141.exit
   store i64 1, ptr %1, align 8, !noalias !224
   %.sroa.4.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 0, ptr %.sroa.4.0..sroa_idx43, align 8, !noalias !224
-  %.sroa.6.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %35, ptr %.sroa.6.0..sroa_idx45, align 8, !noalias !224
-  %.sroa.7.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %.sroa.7.0..sroa_idx46, align 8, !noalias !224
+  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %35, ptr %.sroa.544.0..sroa_idx, align 8, !noalias !224
+  %.sroa.6.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store ptr null, ptr %.sroa.6.0..sroa_idx45, align 8, !noalias !224
   %36 = load ptr, ptr %34, align 8, !noundef !9
   store ptr %.sroa.4.0..sroa_idx43, ptr %34, align 8
   %37 = icmp eq ptr %36, null
@@ -39123,34 +39123,34 @@ _ZN5tokio7runtime4task7harness11cancel_task17h364184838868d31bE.exit.i.i: ; pred
 
 128:                                              ; preds = %121
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3)
-  br label %_ZN5tokio7runtime4task7harness11cancel_task17h364184838868d31bE.exit14.i.i
+  br label %_ZN5tokio7runtime4task7harness11cancel_task17h364184838868d31bE.exit12.i.i
 
 129:                                              ; preds = %122
   %130 = extractvalue { ptr, ptr } %125, 0
   %131 = extractvalue { ptr, ptr } %125, 1
   %132 = icmp ne ptr %131, null
   call void @llvm.assume(i1 %132)
-  br label %_ZN5tokio7runtime4task7harness11cancel_task17h364184838868d31bE.exit14.i.i
+  br label %_ZN5tokio7runtime4task7harness11cancel_task17h364184838868d31bE.exit12.i.i
 
-_ZN5tokio7runtime4task7harness11cancel_task17h364184838868d31bE.exit14.i.i: ; preds = %129, %128
-  %.sroa.8.0.i5.i.i = phi ptr [ undef, %128 ], [ %131, %129 ]
-  %.sroa.62.0.i6.i.i = phi ptr [ null, %128 ], [ %130, %129 ]
-  %.sroa.01.0.i8.i.i = load i64, ptr %22, align 8, !range !761, !noundef !9
+_ZN5tokio7runtime4task7harness11cancel_task17h364184838868d31bE.exit12.i.i: ; preds = %129, %128
+  %.sroa.8.0.i4.i.i = phi ptr [ undef, %128 ], [ %131, %129 ]
+  %.sroa.62.0.i5.i.i = phi ptr [ null, %128 ], [ %130, %129 ]
+  %.sroa.01.0.i7.i.i = load i64, ptr %22, align 8, !range !761, !noundef !9
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
-  %.sroa.4.0..sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i9.i.i, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.01.0.i8.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.62.0.i6.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %.sroa.8.0.i5.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i, align 8
+  %.sroa.4.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i8.i.i, align 8
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.sroa.01.0.i7.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.62.0.i5.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
+  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.sroa.8.0.i4.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
   store i32 1, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h1575022692540380E"(ptr noundef nonnull align 8 %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %4)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
   br label %133
 
-133:                                              ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h364184838868d31bE.exit14.i.i, %120, %_ZN5tokio7runtime4task7harness11cancel_task17h364184838868d31bE.exit.i.i
+133:                                              ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17h364184838868d31bE.exit12.i.i, %120, %_ZN5tokio7runtime4task7harness11cancel_task17h364184838868d31bE.exit.i.i
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17heb60a05cb60d3703E"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17h66562f7b9aff83d6E.exit"
 
@@ -40388,18 +40388,18 @@ _ZN5tokio7runtime4task7harness11cancel_task17hfe5b1a2149c6c569E.exit.i.i: ; pred
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h02068a374fd86425E.exit.thread11.i"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h02068a374fd86425E.exit.thread11.i": ; preds = %121, %120
-  %.sroa.8.0.i5.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
-  %.sroa.62.0.i6.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
-  %.sroa.01.0.i8.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
+  %.sroa.8.0.i4.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
+  %.sroa.62.0.i5.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
+  %.sroa.01.0.i7.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
-  %.sroa.4.0..sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i9.i.i, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.01.0.i8.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.62.0.i6.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %.sroa.8.0.i5.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i, align 8
+  %.sroa.4.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i8.i.i, align 8
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.sroa.01.0.i7.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.62.0.i5.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
+  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.sroa.8.0.i4.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
   store i32 1, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h8d7eee877413392eE"(ptr noundef nonnull align 8 %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %4)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
@@ -41658,18 +41658,18 @@ _ZN5tokio7runtime4task7harness11cancel_task17h31393b81642b5d59E.exit.i.i: ; pred
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hb5b6e55ac66bbdf5E.exit.thread11.i"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hb5b6e55ac66bbdf5E.exit.thread11.i": ; preds = %121, %120
-  %.sroa.8.0.i5.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
-  %.sroa.62.0.i6.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
-  %.sroa.01.0.i8.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
+  %.sroa.8.0.i4.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
+  %.sroa.62.0.i5.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
+  %.sroa.01.0.i7.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
-  %.sroa.4.0..sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i9.i.i, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.01.0.i8.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.62.0.i6.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %.sroa.8.0.i5.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i, align 8
+  %.sroa.4.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i8.i.i, align 8
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.sroa.01.0.i7.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.62.0.i5.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
+  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.sroa.8.0.i4.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
   store i32 1, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h178babf0b4548cddE"(ptr noundef nonnull align 8 %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %4)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
@@ -42107,18 +42107,18 @@ _ZN5tokio7runtime4task7harness11cancel_task17hd084e9d6aa01095aE.exit.i.i: ; pred
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hdf76423bbcca667aE.exit.thread11.i"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hdf76423bbcca667aE.exit.thread11.i": ; preds = %121, %120
-  %.sroa.8.0.i5.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
-  %.sroa.62.0.i6.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
-  %.sroa.01.0.i8.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
+  %.sroa.8.0.i4.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
+  %.sroa.62.0.i5.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
+  %.sroa.01.0.i7.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
-  %.sroa.4.0..sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i9.i.i, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.01.0.i8.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.62.0.i6.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %.sroa.8.0.i5.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i, align 8
+  %.sroa.4.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i8.i.i, align 8
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.sroa.01.0.i7.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.62.0.i5.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
+  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.sroa.8.0.i4.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
   store i32 1, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h06771a4742d62288E"(ptr noundef nonnull align 8 %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %4)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
@@ -43786,18 +43786,18 @@ _ZN5tokio7runtime4task7harness11cancel_task17h4ecb1da046bc783eE.exit.i.i: ; pred
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hfbca7390d5aacb5aE.exit.thread11.i"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hfbca7390d5aacb5aE.exit.thread11.i": ; preds = %121, %120
-  %.sroa.8.0.i5.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
-  %.sroa.62.0.i6.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
-  %.sroa.01.0.i8.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
+  %.sroa.8.0.i4.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
+  %.sroa.62.0.i5.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
+  %.sroa.01.0.i7.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
-  %.sroa.4.0..sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i9.i.i, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.01.0.i8.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.62.0.i6.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %.sroa.8.0.i5.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i, align 8
+  %.sroa.4.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i8.i.i, align 8
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.sroa.01.0.i7.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.62.0.i5.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
+  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.sroa.8.0.i4.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
   store i32 1, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h368f02ddf0025d8cE"(ptr noundef nonnull align 8 %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %4)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
@@ -44665,18 +44665,18 @@ _ZN5tokio7runtime4task7harness11cancel_task17h93cac96f32be7579E.exit.i.i: ; pred
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h8d8a027cceff716fE.exit.thread11.i"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h8d8a027cceff716fE.exit.thread11.i": ; preds = %121, %120
-  %.sroa.8.0.i5.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
-  %.sroa.62.0.i6.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
-  %.sroa.01.0.i8.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
+  %.sroa.8.0.i4.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
+  %.sroa.62.0.i5.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
+  %.sroa.01.0.i7.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
-  %.sroa.4.0..sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i9.i.i, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.01.0.i8.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.62.0.i6.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %.sroa.8.0.i5.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i, align 8
+  %.sroa.4.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i8.i.i, align 8
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.sroa.01.0.i7.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.62.0.i5.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
+  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.sroa.8.0.i4.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
   store i32 1, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17hda9ce278fb4e8790E"(ptr noundef nonnull align 8 %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %4)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
@@ -45117,34 +45117,34 @@ _ZN5tokio7runtime4task7harness11cancel_task17heaeee8a44a8d9f60E.exit.i.i: ; pred
 
 125:                                              ; preds = %118
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  br label %_ZN5tokio7runtime4task7harness11cancel_task17heaeee8a44a8d9f60E.exit14.i.i
+  br label %_ZN5tokio7runtime4task7harness11cancel_task17heaeee8a44a8d9f60E.exit12.i.i
 
 126:                                              ; preds = %119
   %127 = extractvalue { ptr, ptr } %122, 0
   %128 = extractvalue { ptr, ptr } %122, 1
   %129 = icmp ne ptr %128, null
   call void @llvm.assume(i1 %129)
-  br label %_ZN5tokio7runtime4task7harness11cancel_task17heaeee8a44a8d9f60E.exit14.i.i
+  br label %_ZN5tokio7runtime4task7harness11cancel_task17heaeee8a44a8d9f60E.exit12.i.i
 
-_ZN5tokio7runtime4task7harness11cancel_task17heaeee8a44a8d9f60E.exit14.i.i: ; preds = %126, %125
-  %.sroa.8.0.i6.i.i = phi ptr [ undef, %125 ], [ %128, %126 ]
-  %.sroa.62.0.i7.i.i = phi ptr [ null, %125 ], [ %127, %126 ]
-  %.sroa.01.0.i9.i.i = load i64, ptr %22, align 8, !range !761, !noundef !9
+_ZN5tokio7runtime4task7harness11cancel_task17heaeee8a44a8d9f60E.exit12.i.i: ; preds = %126, %125
+  %.sroa.8.0.i5.i.i = phi ptr [ undef, %125 ], [ %128, %126 ]
+  %.sroa.62.0.i6.i.i = phi ptr [ null, %125 ], [ %127, %126 ]
+  %.sroa.01.0.i8.i.i = load i64, ptr %22, align 8, !range !761, !noundef !9
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 2, ptr %130, align 8
-  %.sroa.5.0..sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.sroa.01.0.i9.i.i, ptr %.sroa.5.0..sroa_idx.i10.i.i, align 8
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.sroa.62.0.i7.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.8.0.i6.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i, align 8
+  %.sroa.5.0..sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %.sroa.01.0.i8.i.i, ptr %.sroa.5.0..sroa_idx.i9.i.i, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %.sroa.62.0.i6.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
+  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.8.0.i5.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
   store i32 1, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h61c82f4813a0f7aeE"(ptr noundef nonnull align 8 %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   br label %131
 
-131:                                              ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17heaeee8a44a8d9f60E.exit14.i.i, %_ZN5tokio7runtime4task7harness11cancel_task17heaeee8a44a8d9f60E.exit.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i.i.i.i", %87, %79, %.thread103.i.i.i
+131:                                              ; preds = %_ZN5tokio7runtime4task7harness11cancel_task17heaeee8a44a8d9f60E.exit12.i.i, %_ZN5tokio7runtime4task7harness11cancel_task17heaeee8a44a8d9f60E.exit.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16188651594484228709.exit.i.i.i.i.i.i", %87, %79, %.thread103.i.i.i
   call fastcc void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete17h3f3b2ca5eadb7c6cE"(ptr noundef nonnull %0)
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17hac438f325be3dafeE.exit"
 
@@ -49248,18 +49248,18 @@ _ZN5tokio7runtime4task7harness11cancel_task17hf51b03430e7d8185E.exit.i.i: ; pred
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h1483240819db1ac7E.exit.thread11.i"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17h1483240819db1ac7E.exit.thread11.i": ; preds = %121, %120
-  %.sroa.8.0.i5.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
-  %.sroa.62.0.i6.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
-  %.sroa.01.0.i8.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
+  %.sroa.8.0.i4.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
+  %.sroa.62.0.i5.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
+  %.sroa.01.0.i7.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
-  %.sroa.4.0..sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i9.i.i, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.01.0.i8.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.62.0.i6.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %.sroa.8.0.i5.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i, align 8
+  %.sroa.4.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i8.i.i, align 8
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.sroa.01.0.i7.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.62.0.i5.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
+  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.sroa.8.0.i4.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
   store i32 1, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h2010f78a3d63caa0E"(ptr noundef nonnull align 8 %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %4)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)
@@ -49697,18 +49697,18 @@ _ZN5tokio7runtime4task7harness11cancel_task17hee077d1ffd965949E.exit.i.i: ; pred
   br label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hafae947bfcd4fd5dE.exit.thread11.i"
 
 "_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17hafae947bfcd4fd5dE.exit.thread11.i": ; preds = %121, %120
-  %.sroa.8.0.i5.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
-  %.sroa.62.0.i6.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
-  %.sroa.01.0.i8.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
+  %.sroa.8.0.i4.i.i = phi ptr [ undef, %120 ], [ %123, %121 ]
+  %.sroa.62.0.i5.i.i = phi ptr [ null, %120 ], [ %122, %121 ]
+  %.sroa.01.0.i7.i.i = load i64, ptr %23, align 8, !range !761, !noundef !9
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4)
-  %.sroa.4.0..sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i9.i.i, align 8
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.01.0.i8.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.62.0.i6.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
-  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %.sroa.8.0.i5.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i12.i.i, align 8
+  %.sroa.4.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 1000000002, ptr %.sroa.4.0..sroa_idx.i8.i.i, align 8
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.sroa.01.0.i7.i.i, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i9.i.i, align 8
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.62.0.i5.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i10.i.i, align 8
+  %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr %.sroa.8.0.i4.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i11.i.i, align 8
   store i32 1, ptr %4, align 8
   call void @"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17h13c108af0d807a27E"(ptr noundef nonnull align 8 %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %4)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4)

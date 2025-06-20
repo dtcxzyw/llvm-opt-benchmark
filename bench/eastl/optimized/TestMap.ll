@@ -44405,23 +44405,12 @@ invoke.cont1:
   %nErrorCount = alloca i32, align 4
   %pt1A = alloca %"class.eastl::scoped_ptr.194", align 8
   %pt2A = alloca %"class.eastl::scoped_ptr.200", align 8
-  %ref.tmp15.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp23.sroa.3 = alloca [60 x i8], align 4
   %ref.tmp41.sroa.3 = alloca [124 x i8], align 4
   %ref.tmp44.sroa.3 = alloca [124 x i8], align 4
-  %ref.tmp115.sroa.3 = alloca [60 x i8], align 4
   %ref.tmp136.sroa.3 = alloca [124 x i8], align 4
   %ref.tmp140.sroa.3 = alloca [124 x i8], align 4
   %pt1A197 = alloca %"class.eastl::scoped_ptr.194", align 8
   %pt2A204 = alloca %"class.eastl::scoped_ptr.200", align 8
-  %ref.tmp226.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp226.sroa.5 = alloca [60 x i8], align 4
-  %ref.tmp235.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp235.sroa.5 = alloca [60 x i8], align 4
-  %ref.tmp248.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp248.sroa.5 = alloca [60 x i8], align 4
-  %ref.tmp257.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp257.sroa.5 = alloca [60 x i8], align 4
   %it1 = alloca %"struct.eastl::rbtree_iterator.176", align 8
   %ref.tmp314 = alloca %"struct.eastl::pair.178", align 64
   %ref.tmp329 = alloca %"struct.std::pair.183", align 64
@@ -44526,8 +44515,6 @@ for.body:                                         ; preds = %invoke.cont11, %for
 
 if.then.i:                                        ; preds = %for.body
   store i32 %i.01690, ptr %valueArrayInsert.sroa.29.01688, align 64
-  %ref.tmp15.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert.sroa.29.01688, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp15.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp15.sroa.3, i64 60, i1 false)
   br label %invoke.cont17
 
 if.else.i:                                        ; preds = %for.body
@@ -44557,8 +44544,6 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ], [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i ]
   store i32 %i.01690, ptr %retval.0.i.i.i.i.i.i.i.i.i, align 64
-  %ref.tmp15.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp15.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp15.sroa.3, i64 60, i1 false)
   %tobool.not.i7.i.i = icmp eq ptr %valueArrayInsert.sroa.0.21689, null
   br i1 %tobool.not.i7.i.i, label %_ZN5eastl6vectorI7Align64NS_9allocatorEE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
 
@@ -44599,8 +44584,6 @@ if.then22:                                        ; preds = %invoke.cont19
 if.then.i162:                                     ; preds = %if.then22
   %incdec.ptr.i163 = getelementptr inbounds nuw i8, ptr %valueArrayInsert.sroa.29.0.pn, i64 128
   store i32 %i.01690, ptr %valueArrayInsert.sroa.29.3, align 64
-  %ref.tmp23.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert.sroa.29.0.pn, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp23.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp23.sroa.3, i64 60, i1 false)
   br label %for.inc
 
 if.else.i137:                                     ; preds = %if.then22
@@ -44630,8 +44613,6 @@ if.end.i.i.i.i.i.i.i.i.i152:                      ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i155: ; preds = %if.end.i.i.i.i.i.i.i.i.i152, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i149
   %retval.0.i.i.i.i.i.i.i.i.i156 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i154, %if.end.i.i.i.i.i.i.i.i.i152 ], [ %retval.0.i.i.i150, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i149 ]
   store i32 %i.01690, ptr %retval.0.i.i.i.i.i.i.i.i.i156, align 64
-  %ref.tmp23.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i156.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i156, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp23.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i156.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp23.sroa.3, i64 60, i1 false)
   %tobool.not.i7.i.i157 = icmp eq ptr %valueArrayInsert.sroa.0.6, null
   br i1 %tobool.not.i7.i.i157, label %_ZN5eastl6vectorI7Align64NS_9allocatorEE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i159, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i158
 
@@ -45584,8 +45565,6 @@ for.body114:                                      ; preds = %invoke.cont108, %fo
 
 if.then.i321:                                     ; preds = %for.body114
   store i32 %i.41702, ptr %valueArrayInsert.sroa.29.21700, align 64
-  %ref.tmp115.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert.sroa.29.21700, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp115.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp115.sroa.3, i64 60, i1 false)
   br label %for.inc118
 
 if.else.i295:                                     ; preds = %for.body114
@@ -45615,8 +45594,6 @@ if.end.i.i.i.i.i.i.i.i.i310:                      ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i313: ; preds = %if.end.i.i.i.i.i.i.i.i.i310, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i307
   %retval.0.i.i.i.i.i.i.i.i.i314 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i312, %if.end.i.i.i.i.i.i.i.i.i310 ], [ %retval.0.i.i.i308, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i307 ]
   store i32 %i.41702, ptr %retval.0.i.i.i.i.i.i.i.i.i314, align 64
-  %ref.tmp115.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i314.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i314, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp115.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i314.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp115.sroa.3, i64 60, i1 false)
   %tobool.not.i7.i.i315 = icmp eq ptr %valueArrayInsert.sroa.0.51701, null
   br i1 %tobool.not.i7.i.i315, label %_ZN5eastl6vectorI7Align64NS_9allocatorEE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i317, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i316
 
@@ -46503,12 +46480,8 @@ for.body225:                                      ; preds = %invoke.cont217, %fo
 
 if.then.i681:                                     ; preds = %for.body225
   store i32 %i213.01715, ptr %valueArrayInsert1.sroa.12.01713, align 64
-  %ref.tmp226.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.01713, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp226.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp226.sroa.3, i64 60, i1 false)
   %ref.tmp226.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.01713, i64 64
   store i32 %i213.01715, ptr %ref.tmp226.sroa.4.0..sroa_idx, align 64
-  %ref.tmp226.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.01713, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp226.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp226.sroa.5, i64 60, i1 false)
   br label %invoke.cont234
 
 if.else.i658:                                     ; preds = %for.body225
@@ -46538,12 +46511,8 @@ if.end.i.i.i.i.i.i.i.i.i672:                      ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_4pairI7Align64S2_EES4_S4_EET1_T_T0_S5_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i672, %_ZN5eastl10VectorBaseINS_4pairI7Align64S2_EENS_9allocatorEE10DoAllocateEm.exit.i.i
   %retval.0.i.i.i.i.i.i.i.i.i675 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i674, %if.end.i.i.i.i.i.i.i.i.i672 ], [ %retval.0.i.i.i670, %_ZN5eastl10VectorBaseINS_4pairI7Align64S2_EENS_9allocatorEE10DoAllocateEm.exit.i.i ]
   store i32 %i213.01715, ptr %retval.0.i.i.i.i.i.i.i.i.i675, align 64
-  %ref.tmp226.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i675.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i675, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp226.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i675.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp226.sroa.3, i64 60, i1 false)
   %ref.tmp226.sroa.4.0.retval.0.i.i.i.i.i.i.i.i.i675.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i675, i64 64
   store i32 %i213.01715, ptr %ref.tmp226.sroa.4.0.retval.0.i.i.i.i.i.i.i.i.i675.sroa_idx, align 64
-  %ref.tmp226.sroa.5.0.retval.0.i.i.i.i.i.i.i.i.i675.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i675, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp226.sroa.5.0.retval.0.i.i.i.i.i.i.i.i.i675.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp226.sroa.5, i64 60, i1 false)
   %tobool.not.i7.i.i676 = icmp eq ptr %valueArrayInsert1.sroa.0.11714, null
   br i1 %tobool.not.i7.i.i676, label %_ZN5eastl6vectorINS_4pairI7Align64S2_EENS_9allocatorEE16DoInsertValueEndIJS3_EEEvDpOT_.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i677
 
@@ -46565,12 +46534,8 @@ invoke.cont234:                                   ; preds = %_ZN5eastl6vectorINS
 
 if.then.i709:                                     ; preds = %invoke.cont234
   store i32 %i213.01715, ptr %valueArrayInsert2.sroa.12.01709, align 64
-  %ref.tmp235.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.01709, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp235.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp235.sroa.3, i64 60, i1 false)
   %ref.tmp235.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.01709, i64 64
   store i32 %i213.01715, ptr %ref.tmp235.sroa.4.0..sroa_idx, align 64
-  %ref.tmp235.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.01709, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp235.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp235.sroa.5, i64 60, i1 false)
   br label %invoke.cont244
 
 if.else.i691:                                     ; preds = %invoke.cont234
@@ -46604,12 +46569,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPSt4pairI7Align64S2_ES4_S4_EET1_T_T0_S5_.exit.i.i: ; preds = %for.body.i.i.i.i.i, %_ZN5eastl10VectorBaseISt4pairI7Align64S2_ENS_9allocatorEE10DoAllocateEm.exit.i.i
   %retval.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %retval.0.i.i.i703, %_ZN5eastl10VectorBaseISt4pairI7Align64S2_ENS_9allocatorEE10DoAllocateEm.exit.i.i ], [ %incdec.ptr.i1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   store i32 %i213.01715, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i, align 64
-  %ref.tmp235.sroa.3.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp235.sroa.3.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp235.sroa.3, i64 60, i1 false)
   %ref.tmp235.sroa.4.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i, i64 64
   store i32 %i213.01715, ptr %ref.tmp235.sroa.4.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx, align 64
-  %ref.tmp235.sroa.5.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp235.sroa.5.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp235.sroa.5, i64 60, i1 false)
   %tobool.not.i7.i.i704 = icmp eq ptr %valueArrayInsert2.sroa.0.11710, null
   br i1 %tobool.not.i7.i.i704, label %_ZN5eastl6vectorISt4pairI7Align64S2_ENS_9allocatorEE16DoInsertValueEndIJS3_EEEvDpOT_.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i705
 
@@ -46644,12 +46605,8 @@ if.then247:                                       ; preds = %invoke.cont244
 if.then.i749:                                     ; preds = %if.then247
   %incdec.ptr.i750 = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.0.pn, i64 256
   store i32 %i213.01715, ptr %valueArrayInsert1.sroa.12.2, align 64
-  %ref.tmp248.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.0.pn, i64 132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp248.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp248.sroa.3, i64 60, i1 false)
   %ref.tmp248.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.0.pn, i64 192
   store i32 %i213.01715, ptr %ref.tmp248.sroa.4.0..sroa_idx, align 64
-  %ref.tmp248.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.0.pn, i64 196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp248.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp248.sroa.5, i64 60, i1 false)
   br label %invoke.cont256
 
 if.else.i723:                                     ; preds = %if.then247
@@ -46679,12 +46636,8 @@ if.end.i.i.i.i.i.i.i.i.i738:                      ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_4pairI7Align64S2_EES4_S4_EET1_T_T0_S5_.exit.i.i741: ; preds = %if.end.i.i.i.i.i.i.i.i.i738, %_ZN5eastl10VectorBaseINS_4pairI7Align64S2_EENS_9allocatorEE10DoAllocateEm.exit.i.i735
   %retval.0.i.i.i.i.i.i.i.i.i742 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i740, %if.end.i.i.i.i.i.i.i.i.i738 ], [ %retval.0.i.i.i736, %_ZN5eastl10VectorBaseINS_4pairI7Align64S2_EENS_9allocatorEE10DoAllocateEm.exit.i.i735 ]
   store i32 %i213.01715, ptr %retval.0.i.i.i.i.i.i.i.i.i742, align 64
-  %ref.tmp248.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i742.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i742, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp248.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i742.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp248.sroa.3, i64 60, i1 false)
   %ref.tmp248.sroa.4.0.retval.0.i.i.i.i.i.i.i.i.i742.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i742, i64 64
   store i32 %i213.01715, ptr %ref.tmp248.sroa.4.0.retval.0.i.i.i.i.i.i.i.i.i742.sroa_idx, align 64
-  %ref.tmp248.sroa.5.0.retval.0.i.i.i.i.i.i.i.i.i742.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i742, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp248.sroa.5.0.retval.0.i.i.i.i.i.i.i.i.i742.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp248.sroa.5, i64 60, i1 false)
   %tobool.not.i7.i.i743 = icmp eq ptr %valueArrayInsert1.sroa.0.3, null
   br i1 %tobool.not.i7.i.i743, label %_ZN5eastl6vectorINS_4pairI7Align64S2_EENS_9allocatorEE16DoInsertValueEndIJS3_EEEvDpOT_.exit.i745, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i744
 
@@ -46707,12 +46660,8 @@ invoke.cont256:                                   ; preds = %_ZN5eastl6vectorINS
 if.then.i789:                                     ; preds = %invoke.cont256
   %incdec.ptr.i790 = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.0.pn, i64 256
   store i32 %i213.01715, ptr %valueArrayInsert2.sroa.12.2, align 64
-  %ref.tmp257.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.0.pn, i64 132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp257.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp257.sroa.3, i64 60, i1 false)
   %ref.tmp257.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.0.pn, i64 192
   store i32 %i213.01715, ptr %ref.tmp257.sroa.4.0..sroa_idx, align 64
-  %ref.tmp257.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.0.pn, i64 196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp257.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp257.sroa.5, i64 60, i1 false)
   br label %for.inc267
 
 if.else.i760:                                     ; preds = %invoke.cont256
@@ -46746,12 +46695,8 @@ for.body.i.i.i.i.i775:                            ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPSt4pairI7Align64S2_ES4_S4_EET1_T_T0_S5_.exit.i.i781: ; preds = %for.body.i.i.i.i.i775, %_ZN5eastl10VectorBaseISt4pairI7Align64S2_ENS_9allocatorEE10DoAllocateEm.exit.i.i772
   %retval.sroa.0.0.lcssa.i.i.i.i.i782 = phi ptr [ %retval.0.i.i.i773, %_ZN5eastl10VectorBaseISt4pairI7Align64S2_ENS_9allocatorEE10DoAllocateEm.exit.i.i772 ], [ %incdec.ptr.i1.i.i.i.i.i779, %for.body.i.i.i.i.i775 ]
   store i32 %i213.01715, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i782, align 64
-  %ref.tmp257.sroa.3.0.retval.sroa.0.0.lcssa.i.i.i.i.i782.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i782, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp257.sroa.3.0.retval.sroa.0.0.lcssa.i.i.i.i.i782.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp257.sroa.3, i64 60, i1 false)
   %ref.tmp257.sroa.4.0.retval.sroa.0.0.lcssa.i.i.i.i.i782.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i782, i64 64
   store i32 %i213.01715, ptr %ref.tmp257.sroa.4.0.retval.sroa.0.0.lcssa.i.i.i.i.i782.sroa_idx, align 64
-  %ref.tmp257.sroa.5.0.retval.sroa.0.0.lcssa.i.i.i.i.i782.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i782, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp257.sroa.5.0.retval.sroa.0.0.lcssa.i.i.i.i.i782.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp257.sroa.5, i64 60, i1 false)
   %tobool.not.i7.i.i783 = icmp eq ptr %valueArrayInsert2.sroa.0.3, null
   br i1 %tobool.not.i7.i.i783, label %_ZN5eastl6vectorISt4pairI7Align64S2_ENS_9allocatorEE16DoInsertValueEndIJS3_EEEvDpOT_.exit.i785, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i784
 
@@ -48253,23 +48198,12 @@ invoke.cont1:
   %nErrorCount = alloca i32, align 4
   %pt1A = alloca %"class.eastl::scoped_ptr.156", align 8
   %pt2A = alloca %"class.eastl::scoped_ptr.164", align 8
-  %ref.tmp15.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp23.sroa.3 = alloca [60 x i8], align 4
   %ref.tmp40.sroa.3 = alloca [124 x i8], align 4
   %ref.tmp43.sroa.5 = alloca [124 x i8], align 4
-  %ref.tmp112.sroa.3 = alloca [60 x i8], align 4
   %ref.tmp132.sroa.3 = alloca [124 x i8], align 4
   %ref.tmp136.sroa.5 = alloca [124 x i8], align 4
   %pt1A191 = alloca %"class.eastl::scoped_ptr.156", align 8
   %pt2A198 = alloca %"class.eastl::scoped_ptr.164", align 8
-  %ref.tmp220.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp220.sroa.5 = alloca [60 x i8], align 4
-  %ref.tmp229.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp229.sroa.5 = alloca [60 x i8], align 4
-  %ref.tmp242.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp242.sroa.5 = alloca [60 x i8], align 4
-  %ref.tmp251.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp251.sroa.5 = alloca [60 x i8], align 4
   %it1 = alloca %"struct.eastl::rbtree_iterator.176", align 8
   %ref.tmp307 = alloca %"struct.eastl::pair.178", align 64
   %ref.tmp321 = alloca %"struct.std::pair.183", align 64
@@ -48374,8 +48308,6 @@ for.body:                                         ; preds = %invoke.cont11, %for
 
 if.then.i:                                        ; preds = %for.body
   store i32 %i.01717, ptr %valueArrayInsert.sroa.29.01715, align 64
-  %ref.tmp15.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert.sroa.29.01715, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp15.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp15.sroa.3, i64 60, i1 false)
   br label %invoke.cont17
 
 if.else.i:                                        ; preds = %for.body
@@ -48405,8 +48337,6 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ], [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i ]
   store i32 %i.01717, ptr %retval.0.i.i.i.i.i.i.i.i.i, align 64
-  %ref.tmp15.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp15.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp15.sroa.3, i64 60, i1 false)
   %tobool.not.i7.i.i = icmp eq ptr %valueArrayInsert.sroa.0.21716, null
   br i1 %tobool.not.i7.i.i, label %_ZN5eastl6vectorI7Align64NS_9allocatorEE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
 
@@ -48447,8 +48377,6 @@ if.then22:                                        ; preds = %invoke.cont19
 if.then.i162:                                     ; preds = %if.then22
   %incdec.ptr.i163 = getelementptr inbounds nuw i8, ptr %valueArrayInsert.sroa.29.0.pn, i64 128
   store i32 %i.01717, ptr %valueArrayInsert.sroa.29.3, align 64
-  %ref.tmp23.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert.sroa.29.0.pn, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp23.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp23.sroa.3, i64 60, i1 false)
   br label %for.inc
 
 if.else.i137:                                     ; preds = %if.then22
@@ -48478,8 +48406,6 @@ if.end.i.i.i.i.i.i.i.i.i152:                      ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i155: ; preds = %if.end.i.i.i.i.i.i.i.i.i152, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i149
   %retval.0.i.i.i.i.i.i.i.i.i156 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i154, %if.end.i.i.i.i.i.i.i.i.i152 ], [ %retval.0.i.i.i150, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i149 ]
   store i32 %i.01717, ptr %retval.0.i.i.i.i.i.i.i.i.i156, align 64
-  %ref.tmp23.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i156.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i156, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp23.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i156.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp23.sroa.3, i64 60, i1 false)
   %tobool.not.i7.i.i157 = icmp eq ptr %valueArrayInsert.sroa.0.6, null
   br i1 %tobool.not.i7.i.i157, label %_ZN5eastl6vectorI7Align64NS_9allocatorEE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i159, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i158
 
@@ -49414,8 +49340,6 @@ for.body111:                                      ; preds = %invoke.cont105, %fo
 
 if.then.i318:                                     ; preds = %for.body111
   store i32 %i.41729, ptr %valueArrayInsert.sroa.29.21727, align 64
-  %ref.tmp112.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert.sroa.29.21727, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp112.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp112.sroa.3, i64 60, i1 false)
   br label %for.inc115
 
 if.else.i292:                                     ; preds = %for.body111
@@ -49445,8 +49369,6 @@ if.end.i.i.i.i.i.i.i.i.i307:                      ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i310: ; preds = %if.end.i.i.i.i.i.i.i.i.i307, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i304
   %retval.0.i.i.i.i.i.i.i.i.i311 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i309, %if.end.i.i.i.i.i.i.i.i.i307 ], [ %retval.0.i.i.i305, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i304 ]
   store i32 %i.41729, ptr %retval.0.i.i.i.i.i.i.i.i.i311, align 64
-  %ref.tmp112.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i311.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i311, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp112.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i311.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp112.sroa.3, i64 60, i1 false)
   %tobool.not.i7.i.i312 = icmp eq ptr %valueArrayInsert.sroa.0.51728, null
   br i1 %tobool.not.i7.i.i312, label %_ZN5eastl6vectorI7Align64NS_9allocatorEE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i314, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i313
 
@@ -50328,12 +50250,8 @@ for.body219:                                      ; preds = %invoke.cont211, %fo
 
 if.then.i632:                                     ; preds = %for.body219
   store i32 %i207.01742, ptr %valueArrayInsert1.sroa.12.01740, align 64
-  %ref.tmp220.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.01740, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp220.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp220.sroa.3, i64 60, i1 false)
   %ref.tmp220.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.01740, i64 64
   store i32 %i207.01742, ptr %ref.tmp220.sroa.4.0..sroa_idx, align 64
-  %ref.tmp220.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.01740, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp220.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp220.sroa.5, i64 60, i1 false)
   br label %invoke.cont228
 
 if.else.i609:                                     ; preds = %for.body219
@@ -50363,12 +50281,8 @@ if.end.i.i.i.i.i.i.i.i.i623:                      ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_4pairI7Align64S2_EES4_S4_EET1_T_T0_S5_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i623, %_ZN5eastl10VectorBaseINS_4pairI7Align64S2_EENS_9allocatorEE10DoAllocateEm.exit.i.i
   %retval.0.i.i.i.i.i.i.i.i.i626 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i625, %if.end.i.i.i.i.i.i.i.i.i623 ], [ %retval.0.i.i.i621, %_ZN5eastl10VectorBaseINS_4pairI7Align64S2_EENS_9allocatorEE10DoAllocateEm.exit.i.i ]
   store i32 %i207.01742, ptr %retval.0.i.i.i.i.i.i.i.i.i626, align 64
-  %ref.tmp220.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i626.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i626, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp220.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i626.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp220.sroa.3, i64 60, i1 false)
   %ref.tmp220.sroa.4.0.retval.0.i.i.i.i.i.i.i.i.i626.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i626, i64 64
   store i32 %i207.01742, ptr %ref.tmp220.sroa.4.0.retval.0.i.i.i.i.i.i.i.i.i626.sroa_idx, align 64
-  %ref.tmp220.sroa.5.0.retval.0.i.i.i.i.i.i.i.i.i626.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i626, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp220.sroa.5.0.retval.0.i.i.i.i.i.i.i.i.i626.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp220.sroa.5, i64 60, i1 false)
   %tobool.not.i7.i.i627 = icmp eq ptr %valueArrayInsert1.sroa.0.11741, null
   br i1 %tobool.not.i7.i.i627, label %_ZN5eastl6vectorINS_4pairI7Align64S2_EENS_9allocatorEE16DoInsertValueEndIJS3_EEEvDpOT_.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i628
 
@@ -50390,12 +50304,8 @@ invoke.cont228:                                   ; preds = %_ZN5eastl6vectorINS
 
 if.then.i660:                                     ; preds = %invoke.cont228
   store i32 %i207.01742, ptr %valueArrayInsert2.sroa.12.01736, align 64
-  %ref.tmp229.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.01736, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp229.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp229.sroa.3, i64 60, i1 false)
   %ref.tmp229.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.01736, i64 64
   store i32 %i207.01742, ptr %ref.tmp229.sroa.4.0..sroa_idx, align 64
-  %ref.tmp229.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.01736, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp229.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp229.sroa.5, i64 60, i1 false)
   br label %invoke.cont238
 
 if.else.i642:                                     ; preds = %invoke.cont228
@@ -50429,12 +50339,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPSt4pairI7Align64S2_ES4_S4_EET1_T_T0_S5_.exit.i.i: ; preds = %for.body.i.i.i.i.i, %_ZN5eastl10VectorBaseISt4pairI7Align64S2_ENS_9allocatorEE10DoAllocateEm.exit.i.i
   %retval.sroa.0.0.lcssa.i.i.i.i.i = phi ptr [ %retval.0.i.i.i654, %_ZN5eastl10VectorBaseISt4pairI7Align64S2_ENS_9allocatorEE10DoAllocateEm.exit.i.i ], [ %incdec.ptr.i1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   store i32 %i207.01742, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i, align 64
-  %ref.tmp229.sroa.3.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp229.sroa.3.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp229.sroa.3, i64 60, i1 false)
   %ref.tmp229.sroa.4.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i, i64 64
   store i32 %i207.01742, ptr %ref.tmp229.sroa.4.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx, align 64
-  %ref.tmp229.sroa.5.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp229.sroa.5.0.retval.sroa.0.0.lcssa.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp229.sroa.5, i64 60, i1 false)
   %tobool.not.i7.i.i655 = icmp eq ptr %valueArrayInsert2.sroa.0.11737, null
   br i1 %tobool.not.i7.i.i655, label %_ZN5eastl6vectorISt4pairI7Align64S2_ENS_9allocatorEE16DoInsertValueEndIJS3_EEEvDpOT_.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i656
 
@@ -50469,12 +50375,8 @@ if.then241:                                       ; preds = %invoke.cont238
 if.then.i699:                                     ; preds = %if.then241
   %incdec.ptr.i700 = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.0.pn, i64 256
   store i32 %i207.01742, ptr %valueArrayInsert1.sroa.12.2, align 64
-  %ref.tmp242.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.0.pn, i64 132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp242.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp242.sroa.3, i64 60, i1 false)
   %ref.tmp242.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.0.pn, i64 192
   store i32 %i207.01742, ptr %ref.tmp242.sroa.4.0..sroa_idx, align 64
-  %ref.tmp242.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert1.sroa.12.0.pn, i64 196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp242.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp242.sroa.5, i64 60, i1 false)
   br label %invoke.cont250
 
 if.else.i673:                                     ; preds = %if.then241
@@ -50504,12 +50406,8 @@ if.end.i.i.i.i.i.i.i.i.i688:                      ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_4pairI7Align64S2_EES4_S4_EET1_T_T0_S5_.exit.i.i691: ; preds = %if.end.i.i.i.i.i.i.i.i.i688, %_ZN5eastl10VectorBaseINS_4pairI7Align64S2_EENS_9allocatorEE10DoAllocateEm.exit.i.i685
   %retval.0.i.i.i.i.i.i.i.i.i692 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i690, %if.end.i.i.i.i.i.i.i.i.i688 ], [ %retval.0.i.i.i686, %_ZN5eastl10VectorBaseINS_4pairI7Align64S2_EENS_9allocatorEE10DoAllocateEm.exit.i.i685 ]
   store i32 %i207.01742, ptr %retval.0.i.i.i.i.i.i.i.i.i692, align 64
-  %ref.tmp242.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i692.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i692, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp242.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i692.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp242.sroa.3, i64 60, i1 false)
   %ref.tmp242.sroa.4.0.retval.0.i.i.i.i.i.i.i.i.i692.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i692, i64 64
   store i32 %i207.01742, ptr %ref.tmp242.sroa.4.0.retval.0.i.i.i.i.i.i.i.i.i692.sroa_idx, align 64
-  %ref.tmp242.sroa.5.0.retval.0.i.i.i.i.i.i.i.i.i692.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i692, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp242.sroa.5.0.retval.0.i.i.i.i.i.i.i.i.i692.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp242.sroa.5, i64 60, i1 false)
   %tobool.not.i7.i.i693 = icmp eq ptr %valueArrayInsert1.sroa.0.3, null
   br i1 %tobool.not.i7.i.i693, label %_ZN5eastl6vectorINS_4pairI7Align64S2_EENS_9allocatorEE16DoInsertValueEndIJS3_EEEvDpOT_.exit.i695, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i694
 
@@ -50532,12 +50430,8 @@ invoke.cont250:                                   ; preds = %_ZN5eastl6vectorINS
 if.then.i739:                                     ; preds = %invoke.cont250
   %incdec.ptr.i740 = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.0.pn, i64 256
   store i32 %i207.01742, ptr %valueArrayInsert2.sroa.12.2, align 64
-  %ref.tmp251.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.0.pn, i64 132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp251.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp251.sroa.3, i64 60, i1 false)
   %ref.tmp251.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.0.pn, i64 192
   store i32 %i207.01742, ptr %ref.tmp251.sroa.4.0..sroa_idx, align 64
-  %ref.tmp251.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert2.sroa.12.0.pn, i64 196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp251.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp251.sroa.5, i64 60, i1 false)
   br label %for.inc261
 
 if.else.i710:                                     ; preds = %invoke.cont250
@@ -50571,12 +50465,8 @@ for.body.i.i.i.i.i725:                            ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIPSt4pairI7Align64S2_ES4_S4_EET1_T_T0_S5_.exit.i.i731: ; preds = %for.body.i.i.i.i.i725, %_ZN5eastl10VectorBaseISt4pairI7Align64S2_ENS_9allocatorEE10DoAllocateEm.exit.i.i722
   %retval.sroa.0.0.lcssa.i.i.i.i.i732 = phi ptr [ %retval.0.i.i.i723, %_ZN5eastl10VectorBaseISt4pairI7Align64S2_ENS_9allocatorEE10DoAllocateEm.exit.i.i722 ], [ %incdec.ptr.i1.i.i.i.i.i729, %for.body.i.i.i.i.i725 ]
   store i32 %i207.01742, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i732, align 64
-  %ref.tmp251.sroa.3.0.retval.sroa.0.0.lcssa.i.i.i.i.i732.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i732, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp251.sroa.3.0.retval.sroa.0.0.lcssa.i.i.i.i.i732.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp251.sroa.3, i64 60, i1 false)
   %ref.tmp251.sroa.4.0.retval.sroa.0.0.lcssa.i.i.i.i.i732.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i732, i64 64
   store i32 %i207.01742, ptr %ref.tmp251.sroa.4.0.retval.sroa.0.0.lcssa.i.i.i.i.i732.sroa_idx, align 64
-  %ref.tmp251.sroa.5.0.retval.sroa.0.0.lcssa.i.i.i.i.i732.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i.i.i732, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp251.sroa.5.0.retval.sroa.0.0.lcssa.i.i.i.i.i732.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp251.sroa.5, i64 60, i1 false)
   %tobool.not.i7.i.i733 = icmp eq ptr %valueArrayInsert2.sroa.0.3, null
   br i1 %tobool.not.i7.i.i733, label %_ZN5eastl6vectorISt4pairI7Align64S2_ENS_9allocatorEE16DoInsertValueEndIJS3_EEEvDpOT_.exit.i735, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i734
 
@@ -54962,10 +54852,6 @@ define linkonce_odr dso_local noundef i32 @_Z13TestMapSearchIN5eastl3mapI7Align6
 invoke.cont1:
   %nErrorCount = alloca i32, align 4
   %pt1A = alloca %"class.eastl::scoped_ptr.156", align 8
-  %ref.tmp6.sroa.3 = alloca [60 x i8], align 4
-  %k.sroa.5 = alloca [60 x i8], align 4
-  %ref.tmp22.sroa.3.sroa.0 = alloca [60 x i8], align 4
-  %ref.tmp22.sroa.3.sroa.3 = alloca [60 x i8], align 4
   store i32 0, ptr %nErrorCount, align 4
   store i64 0, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 0, ptr @_ZN10TestObject12sTOCtorCountE, align 8
@@ -55000,8 +54886,6 @@ for.body:                                         ; preds = %invoke.cont1, %for.
 
 if.then.i:                                        ; preds = %for.body
   store i32 %i.0586, ptr %valueArrayInsert.sroa.9.0584, align 64
-  %ref.tmp6.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert.sroa.9.0584, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp6.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp6.sroa.3, i64 60, i1 false)
   br label %for.inc
 
 if.else.i:                                        ; preds = %for.body
@@ -55031,8 +54915,6 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ], [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i ]
   store i32 %i.0586, ptr %retval.0.i.i.i.i.i.i.i.i.i, align 64
-  %ref.tmp6.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp6.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp6.sroa.3, i64 60, i1 false)
   %tobool.not.i7.i.i = icmp eq ptr %valueArrayInsert.sroa.0.0585, null
   br i1 %tobool.not.i7.i.i, label %_ZN5eastl6vectorI7Align64NS_9allocatorEE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
 
@@ -55133,8 +55015,6 @@ invoke.cont15:                                    ; preds = %for.body.i, %invoke
 
 for.body20:                                       ; preds = %invoke.cont15, %for.inc32
   %i.1588 = phi i32 [ %inc33, %for.inc32 ], [ 0, %invoke.cont15 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp22.sroa.3.sroa.0, ptr noundef nonnull align 4 dereferenceable(60) %k.sroa.5, i64 60, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp22.sroa.3.sroa.3, ptr noundef nonnull align 4 dereferenceable(60) %k.sroa.5, i64 60, i1 false)
   %pCurrent.015.i.i = load ptr, ptr %mpNodeParent.i.i.i, align 8, !noalias !1884
   %tobool.not16.i.i = icmp eq ptr %pCurrent.015.i.i, null
   br i1 %tobool.not16.i.i, label %if.then7.i.i, label %while.body.i.i507
@@ -55182,12 +55062,8 @@ if.then.i516:                                     ; preds = %_ZN5eastl6rbtreeI7A
 call.i6.i.i.i.i.i.noexc:                          ; preds = %if.then.i516
   %mValue.i.i.i517 = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i522, i64 64
   store i32 %i.1588, ptr %mValue.i.i.i517, align 64, !noalias !1887
-  %ref.tmp22.sroa.3.0.mValue.i.i.i517.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i522, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp22.sroa.3.0.mValue.i.i.i517.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp22.sroa.3.sroa.0, i64 60, i1 false), !noalias !1887
   %ref.tmp22.sroa.3.sroa.2.0.ref.tmp22.sroa.3.0.mValue.i.i.i517.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i522, i64 128
   store i32 %i.1588, ptr %ref.tmp22.sroa.3.sroa.2.0.ref.tmp22.sroa.3.0.mValue.i.i.i517.sroa_idx.sroa_idx, align 4, !noalias !1887
-  %ref.tmp22.sroa.3.sroa.3.0.ref.tmp22.sroa.3.0.mValue.i.i.i517.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i522, i64 132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp22.sroa.3.sroa.3.0.ref.tmp22.sroa.3.0.mValue.i.i.i517.sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp22.sroa.3.sroa.3, i64 60, i1 false), !noalias !1887
   %cmp.i.i.i518 = icmp eq ptr %retval.0.i10.i, %call
   br i1 %cmp.i.i.i518, label %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplIJS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EEPNS_16rbtree_node_baseEbRS3_DpOT_.exit.i, label %lor.lhs.false2.i.i.i
 
@@ -59085,8 +58961,6 @@ define linkonce_odr dso_local noundef i32 @_Z13TestMapSearchIN5eastl8multimapI7A
 invoke.cont1:
   %nErrorCount = alloca i32, align 4
   %pt1A = alloca %"class.eastl::scoped_ptr.194", align 8
-  %ref.tmp6.sroa.3 = alloca [60 x i8], align 4
-  %k.sroa.5 = alloca [60 x i8], align 4
   %ref.tmp156 = alloca %struct.Align64, align 64
   store i32 0, ptr %nErrorCount, align 4
   store i64 0, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -59122,8 +58996,6 @@ for.body:                                         ; preds = %invoke.cont1, %for.
 
 if.then.i:                                        ; preds = %for.body
   store i32 %i.0618, ptr %valueArrayInsert.sroa.9.0616, align 64
-  %ref.tmp6.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %valueArrayInsert.sroa.9.0616, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp6.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp6.sroa.3, i64 60, i1 false)
   br label %for.inc
 
 if.else.i:                                        ; preds = %for.body
@@ -59153,8 +59025,6 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ], [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseI7Align64NS_9allocatorEE10DoAllocateEm.exit.i.i ]
   store i32 %i.0618, ptr %retval.0.i.i.i.i.i.i.i.i.i, align 64
-  %ref.tmp6.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp6.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp6.sroa.3, i64 60, i1 false)
   %tobool.not.i7.i.i = icmp eq ptr %valueArrayInsert.sroa.0.0617, null
   br i1 %tobool.not.i7.i.i, label %_ZN5eastl6vectorI7Align64NS_9allocatorEE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
 
@@ -59298,12 +59168,8 @@ _ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_f
 call.i6.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE38DoGetKeyInsertionPositionNonuniqueKeysERS3_.exit.i.i.i
   %mValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i.i.i57, i64 64
   store i32 %i.1620, ptr %mValue.i.i.i.i.i, align 64, !noalias !2235
-  %ref.tmp22.sroa.3.0.mValue.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i.i.i57, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp22.sroa.3.0.mValue.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %k.sroa.5, i64 60, i1 false)
   %ref.tmp22.sroa.3.sroa.2.0.ref.tmp22.sroa.3.0.mValue.i.i.i.i.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i.i.i57, i64 128
   store i32 %i.1620, ptr %ref.tmp22.sroa.3.sroa.2.0.ref.tmp22.sroa.3.0.mValue.i.i.i.i.i.sroa_idx.sroa_idx, align 4, !noalias !2235
-  %ref.tmp22.sroa.3.sroa.3.0.ref.tmp22.sroa.3.0.mValue.i.i.i.i.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i.i.i57, i64 132
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp22.sroa.3.sroa.3.0.ref.tmp22.sroa.3.0.mValue.i.i.i.i.i.sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %k.sroa.5, i64 60, i1 false)
   %cmp.i.i.i.i.i = icmp eq ptr %pRangeEnd.0.lcssa.i.i.i.i, %call
   br i1 %cmp.i.i.i.i.i, label %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb0EE7emplaceIJS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EEDpOT_.exit.i, label %lor.lhs.false2.i.i.i.i.i
 

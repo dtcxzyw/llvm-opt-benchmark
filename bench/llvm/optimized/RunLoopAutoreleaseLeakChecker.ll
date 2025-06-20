@@ -3121,7 +3121,6 @@ _ZN5clang12ast_matchers15hasReceiverTypeERKNS0_8internal7MatcherINS_8QualTypeEEE
   %23 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %24 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %.sroa.072 = alloca [16 x i8], align 8
-  %.sroa.468 = alloca [3 x i8], align 1
   %.sroa.062 = alloca [16 x i8], align 8
   %25 = alloca %"class.clang::ast_matchers::internal::Matcher.684", align 8
   %26 = alloca %"class.clang::ast_matchers::internal::Matcher.117", align 8
@@ -3606,7 +3605,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.072)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.468)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.062)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #18
@@ -3706,8 +3704,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_8CallExprEEENS1_15Bindab
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18, !noalias !335
   call void @llvm.experimental.noalias.scope.decl(metadata !342)
   store i8 0, ptr %5, align 8, !noalias !335
-  %.sroa.468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.468.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.468, i64 3, i1 false), !noalias !335
   %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 275, ptr %.sroa.469.0..sroa_idx, align 4, !noalias !335
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3923,7 +3919,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_9NamedDeclEED2Ev.exit: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.062)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.468)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.072)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #18
   call void @llvm.experimental.noalias.scope.decl(metadata !357)
@@ -4585,7 +4580,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit55:                ; preds = %_ZN4llvmplERKNS_5Tw
   %62 = select i1 %.not24, ptr @.str.26, ptr @.str.25
   %63 = load i8, ptr %62, align 1, !tbaa !12
   %.not.i56 = icmp eq i8 %63, 0
-  %spec.select = select i1 %.not.i56, i8 1, i8 3
+  %storemerge.i57 = select i1 %.not.i56, i8 1, i8 3
   switch i8 %.sink135, label %67 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit73.thread
     i8 1, label %66
@@ -4601,7 +4596,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit73.thread:         ; preds = %_ZN4llvmplERKNS_5Tw
 66:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit55
   store ptr %62, ptr %12, align 8
   %.sroa.6104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i8 %spec.select, ptr %.sroa.6104.0..sroa_idx, align 8, !tbaa !505
+  store i8 %storemerge.i57, ptr %.sroa.6104.0..sroa_idx, align 8, !tbaa !505
   %.sroa.8105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 33
   store i8 1, ptr %.sroa.8105.0..sroa_idx, align 1, !tbaa !505
   br label %_ZN4llvmplERKNS_5TwineES2_.exit73
@@ -4627,11 +4622,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit73.thread:         ; preds = %_ZN4llvmplERKNS_5Tw
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 %.014.i.i62, ptr %71, align 8, !tbaa !495, !alias.scope !513
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 33
-  store i8 %spec.select, ptr %72, align 1, !tbaa !498, !alias.scope !513
+  store i8 %storemerge.i57, ptr %72, align 1, !tbaa !498, !alias.scope !513
   br label %_ZN4llvmplERKNS_5TwineES2_.exit73
 
 _ZN4llvmplERKNS_5TwineES2_.exit73:                ; preds = %66, %68, %69
-  %73 = phi i8 [ %spec.select, %66 ], [ %.pre132, %68 ], [ %.014.i.i62, %69 ]
+  %73 = phi i8 [ %storemerge.i57, %66 ], [ %.pre132, %68 ], [ %.014.i.i62, %69 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !523)
   call void @llvm.experimental.noalias.scope.decl(metadata !524)
   switch i8 %73, label %75 [
@@ -8955,10 +8950,10 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !558, !alias.scope !700
   store i8 0, ptr %18, align 8, !noalias !700
-  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 176, ptr %.sroa.5.0..sroa_idx7.i, align 4, !noalias !700
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 176, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !700
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 176, ptr %.sroa.46.0..sroa_idx.i, align 4, !noalias !700
+  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 176, ptr %.sroa.5.0..sroa_idx7.i, align 8, !noalias !700
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %7, ptr %21, align 8, !tbaa !47, !noalias !700
   %22 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !700

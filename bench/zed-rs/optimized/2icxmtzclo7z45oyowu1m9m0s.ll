@@ -10666,7 +10666,7 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
   br label %.body
 
 .body:                                            ; preds = %23, %75, %81, %120, %123, %20
-  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %.pn.i.i, %23 ], [ %76, %75 ], [ %76, %81 ], [ %.pn.pn45.i.i, %120 ], [ %.pn.pn45.i.i, %123 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %.pn.i.i, %23 ], [ %76, %75 ], [ %76, %81 ], [ %.pn.pn44.i.i, %120 ], [ %.pn.pn44.i.i, %123 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$multi_buffer..MultiBufferSnapshot$GT$17h663b7a221c47d1eaE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9) #49
           to label %common.resume unwind label %147
 
@@ -10675,12 +10675,12 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
   call void @llvm.experimental.noalias.scope.decl(metadata !1754)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !1756
   %22 = invoke noundef align 8 dereferenceable(320) ptr @"_ZN102_$LT$editor..selections_collection..MutableSelectionsCollection$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdb880cbb2b3e6db5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-          to label %24 unwind label %.body.thread48.i.i, !noalias !1757
+          to label %24 unwind label %.body.thread47.i.i, !noalias !1757
 
 23:                                               ; preds = %43
   br i1 %.sroa.012.3.i.i, label %120, label %.body
 
-.body.thread48.i.i:                               ; preds = %29, %24, %.noexc
+.body.thread47.i.i:                               ; preds = %29, %24, %.noexc
   %lpad.thr_comm.i.i = landingpad { ptr, i32 }
           cleanup
   br label %120
@@ -10690,12 +10690,12 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
   %26 = load ptr, ptr %12, align 8, !alias.scope !1758, !noalias !1757, !nonnull !4, !align !6, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 656
   %28 = invoke noundef nonnull align 8 ptr @_ZN4gpui3app10entity_map9EntityMap4read17h1a269f0344e2c08eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %25)
-          to label %29 unwind label %.body.thread48.i.i, !noalias !1757
+          to label %29 unwind label %.body.thread47.i.i, !noalias !1757
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %12, align 8, !alias.scope !1758, !noalias !1757, !nonnull !4, !align !6, !noundef !4
   invoke void @_ZN12multi_buffer11MultiBuffer8snapshot17ha827b1b3c2fad2f7E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %6, ptr noundef nonnull align 8 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %30)
-          to label %31 unwind label %.body.thread48.i.i, !noalias !1757
+          to label %31 unwind label %.body.thread47.i.i, !noalias !1757
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -10706,9 +10706,9 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !1760
   store ptr %3, ptr %5, align 8, !noalias !1760
   %36 = icmp ult i64 %35, 2
-  br i1 %36, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key17hf8bfd1d53780c573E.exit.thread65.i.i", label %37
+  br i1 %36, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key17hf8bfd1d53780c573E.exit.thread64.i.i", label %37
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key17hf8bfd1d53780c573E.exit.thread65.i.i": ; preds = %31
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key17hf8bfd1d53780c573E.exit.thread64.i.i": ; preds = %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !1760
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !1756
   br label %._crit_edge.i.i
@@ -10760,9 +10760,9 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
 
 .lr.ph.i.i:                                       ; preds = %98, %.lr.ph.preheader.i.i
   %44 = phi i64 [ %99, %98 ], [ %35, %.lr.ph.preheader.i.i ]
-  %.sroa.0.056.i.i = phi i64 [ %.sroa.0.1.i.i, %98 ], [ 1, %.lr.ph.preheader.i.i ]
+  %.sroa.0.055.i.i = phi i64 [ %.sroa.0.1.i.i, %98 ], [ 1, %.lr.ph.preheader.i.i ]
   %45 = phi i64 [ %100, %98 ], [ %35, %.lr.ph.preheader.i.i ]
-  %46 = add i64 %.sroa.0.056.i.i, -1
+  %46 = add i64 %.sroa.0.055.i.i, -1
   %47 = icmp ult i64 %46, %45
   br i1 %47, label %91, label %.invoke.i.i
 
@@ -10770,9 +10770,9 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
   store i64 %99, ptr %34, align 8, !noalias !1763
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key17hf8bfd1d53780c573E.exit.thread65.i.i"
-  %.lcssa.i.i = phi i64 [ %35, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key17hf8bfd1d53780c573E.exit.thread65.i.i" ], [ %100, %._crit_edge.i.loopexit.i ]
-  %.sroa.041.0.copyload.i.i = load i64, ptr %8, align 8, !alias.scope !1754, !noalias !1759
+._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key17hf8bfd1d53780c573E.exit.thread64.i.i"
+  %.lcssa.i.i = phi i64 [ %35, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key17hf8bfd1d53780c573E.exit.thread64.i.i" ], [ %100, %._crit_edge.i.loopexit.i ]
+  %.sroa.040.0.copyload.i.i = load i64, ptr %8, align 8, !alias.scope !1754, !noalias !1759
   %48 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %33, i64 %.lcssa.i.i
   %49 = ptrtoint ptr %33 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !1764
@@ -10780,11 +10780,11 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %33, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !1756
   %.sroa.332.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.sroa.041.0.copyload.i.i, ptr %.sroa.332.0..sroa_idx.i.i, align 8, !noalias !1756
+  store i64 %.sroa.040.0.copyload.i.i, ptr %.sroa.332.0..sroa_idx.i.i, align 8, !noalias !1756
   %.sroa.335.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %48, ptr %.sroa.335.0..sroa_idx.i.i, align 8, !noalias !1756
-  %.sroa.438.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %6, ptr %.sroa.438.0..sroa_idx.i.i, align 8, !noalias !1756
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %6, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !1756
   %50 = invoke { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_exact17hdadd8be4f77526f5E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, i64 noundef %.lcssa.i.i)
           to label %51 unwind label %.loopexit.split-lp.i.i, !noalias !1757
 
@@ -10890,7 +10890,7 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
 
 91:                                               ; preds = %.lr.ph.i.i
   %92 = getelementptr inbounds [0 x { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }], ptr %33, i64 0, i64 %46, i32 2
-  %93 = getelementptr inbounds [0 x { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }], ptr %33, i64 0, i64 %.sroa.0.056.i.i, i32 1
+  %93 = getelementptr inbounds [0 x { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }], ptr %33, i64 0, i64 %.sroa.0.055.i.i, i32 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1811)
   call void @llvm.experimental.noalias.scope.decl(metadata !1814)
   %94 = load i64, ptr %92, align 8, !alias.scope !1811, !noalias !1816, !noundef !4
@@ -10899,22 +10899,22 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
   br i1 %.not.i.i, label %96, label %102
 
 96:                                               ; preds = %91
-  %97 = add nuw i64 %.sroa.0.056.i.i, 1
+  %97 = add nuw i64 %.sroa.0.055.i.i, 1
   br label %98
 
 98:                                               ; preds = %117, %115, %96
   %99 = phi i64 [ %44, %96 ], [ %108, %115 ], [ %108, %117 ]
   %100 = phi i64 [ %45, %96 ], [ %108, %115 ], [ %108, %117 ]
-  %.sroa.0.1.i.i = phi i64 [ %97, %96 ], [ %.sroa.0.056.i.i, %115 ], [ %.sroa.0.056.i.i, %117 ]
+  %.sroa.0.1.i.i = phi i64 [ %97, %96 ], [ %.sroa.0.055.i.i, %115 ], [ %.sroa.0.055.i.i, %117 ]
   %101 = icmp ult i64 %.sroa.0.1.i.i, %100
   br i1 %101, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i
 
 102:                                              ; preds = %91
-  %103 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %33, i64 %.sroa.0.056.i.i
+  %103 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %33, i64 %.sroa.0.055.i.i
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %103, i64 16
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !1818
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 40
-  %105 = xor i64 %.sroa.0.056.i.i, -1
+  %105 = xor i64 %.sroa.0.055.i.i, -1
   %106 = add i64 %45, %105
   %107 = mul i64 %106, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %103, ptr nonnull align 8 %104, i64 %107, i1 false), !noalias !1822
@@ -10946,8 +10946,8 @@ define hidden void @_ZN6editor21selections_collection27MutableSelectionsCollecti
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !1757
   unreachable
 
-120:                                              ; preds = %.body.thread48.i.i, %23
-  %.pn.pn45.i.i = phi { ptr, i32 } [ %.pn.i.i, %23 ], [ %lpad.thr_comm.i.i, %.body.thread48.i.i ]
+120:                                              ; preds = %.body.thread47.i.i, %23
+  %.pn.pn44.i.i = phi { ptr, i32 } [ %.pn.i.i, %23 ], [ %lpad.thr_comm.i.i, %.body.thread47.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1829)
   call void @llvm.experimental.noalias.scope.decl(metadata !1832)
   call void @llvm.experimental.noalias.scope.decl(metadata !1835)

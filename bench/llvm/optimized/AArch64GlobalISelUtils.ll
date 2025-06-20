@@ -50,7 +50,7 @@ define dso_local void @_ZN4llvm17AArch64GISelUtils21getAArch64VectorSplatERKNS_1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8, !tbaa !3, !range !8, !noundef !9
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %40, label %8
+  br i1 %7, label %34, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -60,7 +60,7 @@ define dso_local void @_ZN4llvm17AArch64GISelUtils21getAArch64VectorSplatERKNS_1
 
 11:                                               ; preds = %8
   store i8 0, ptr %5, align 8, !tbaa !3
-  br label %40
+  br label %34
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -78,7 +78,7 @@ define dso_local void @_ZN4llvm17AArch64GISelUtils21getAArch64VectorSplatERKNS_1
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !36
   %23 = icmp ult i32 %22, 65
-  br i1 %23, label %24, label %32
+  br i1 %23, label %24, label %31
 
 24:                                               ; preds = %20
   %25 = load i64, ptr %4, align 8
@@ -88,36 +88,30 @@ define dso_local void @_ZN4llvm17AArch64GISelUtils21getAArch64VectorSplatERKNS_1
   %29 = shl i64 %25, %28
   %30 = ashr exact i64 %29, %28
   %.0.i.i = select i1 %26, i64 0, i64 %30
-  %31 = inttoptr i64 %25 to ptr
-  br label %35
-
-32:                                               ; preds = %20
-  %33 = load ptr, ptr %4, align 8, !tbaa !33
-  %34 = load i64, ptr %33, align 8, !tbaa !38
-  br label %35
-
-35:                                               ; preds = %32, %24
-  %36 = phi ptr [ %31, %24 ], [ %33, %32 ]
-  %.0.i = phi i64 [ %.0.i.i, %24 ], [ %34, %32 ]
-  store i64 %.0.i, ptr %0, align 8, !tbaa !38
+  store i64 %.0.i.i, ptr %0, align 8, !tbaa !38
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.410.0..sroa_idx, align 8, !tbaa !40
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 0, ptr %.sroa.511.0..sroa_idx, align 4, !tbaa !41
   store i8 1, ptr %5, align 8, !tbaa !3
-  store i8 0, ptr %17, align 8, !tbaa !34
-  %37 = icmp ult i32 %22, 65
-  %38 = icmp eq ptr %36, null
-  %or.cond = select i1 %37, i1 true, i1 %38
-  br i1 %or.cond, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, label %39
-
-39:                                               ; preds = %35
-  call void @_ZdaPv(ptr noundef nonnull %36) #8
   br label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
-_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %35, %39
+31:                                               ; preds = %20
+  %32 = load ptr, ptr %4, align 8, !tbaa !33
+  %33 = load i64, ptr %32, align 8, !tbaa !38
+  store i64 %33, ptr %0, align 8, !tbaa !38
+  %.sroa.410.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %.sroa.410.0..sroa_idx13, align 8, !tbaa !40
+  %.sroa.511.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 0, ptr %.sroa.511.0..sroa_idx14, align 4, !tbaa !41
+  store i8 1, ptr %5, align 8, !tbaa !3
+  store i8 0, ptr %17, align 8, !tbaa !34
+  call void @_ZdaPv(ptr noundef nonnull %32) #8
+  br label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
+
+_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %24, %31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
-  br label %40
+  br label %34
 
 _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit8: ; preds = %12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
@@ -126,9 +120,9 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit8: ; preds = %12
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 1, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !41
   store i8 1, ptr %5, align 8, !tbaa !3
-  br label %40
+  br label %34
 
-40:                                               ; preds = %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit8, %3, %11
+34:                                               ; preds = %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit8, %3, %11
   ret void
 }
 

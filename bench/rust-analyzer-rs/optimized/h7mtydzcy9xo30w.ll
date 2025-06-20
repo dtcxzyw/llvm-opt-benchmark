@@ -1979,8 +1979,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 29:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %.pre = load i64, ptr %7, align 8, !range !4, !alias.scope !350, !noalias !353
-  %30 = icmp eq i64 %.pre, 2
+  %.pr = load i64, ptr %7, align 8, !alias.scope !350, !noalias !353
+  %30 = icmp eq i64 %.pr, 2
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %29
@@ -2000,7 +2000,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24, !noalias !353
   unreachable
 
-36:                                               ; preds = %.thread, %31, %29
+36:                                               ; preds = %31, %.thread, %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !noalias !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 24

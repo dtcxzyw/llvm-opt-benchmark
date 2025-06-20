@@ -2573,10 +2573,10 @@ _ZNK4llvm5Twine11toStringRefERNS_15SmallVectorImplIcEE.exit: ; preds = %18, %21,
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %41, %45, %46
-  %.sink2 = phi i8 [ 4, %45 ], [ 4, %46 ], [ %44, %41 ]
+  %.sink17 = phi i8 [ 4, %45 ], [ 4, %46 ], [ %44, %41 ]
   %.sink = phi i8 [ 1, %45 ], [ %.0.i.i, %46 ], [ 1, %41 ]
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 %.sink2, ptr %50, align 8, !tbaa !320
+  store i8 %.sink17, ptr %50, align 8, !tbaa !320
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 %.sink, ptr %51, align 1, !tbaa !320
   %52 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116InitHeaderSearch15AddUnmappedPathERKN4llvm5TwineEN5clang8frontend15IncludeDirGroupEbSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 noundef %2, i1 noundef zeroext %3, i64 %4)

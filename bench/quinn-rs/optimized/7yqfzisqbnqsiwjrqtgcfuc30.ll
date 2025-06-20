@@ -5167,7 +5167,7 @@ common.resume:                                    ; preds = %85, %59, %55, %22
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 1009
   %33 = load i8, ptr %32, align 1, !range !53, !noundef !3
   %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %.loopexit45, label %35
+  br i1 %34, label %.loopexit44, label %35
 
 35:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcf470bb918880589E.exit"
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %8)
@@ -5263,14 +5263,14 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %48, %.noe
   %62 = getelementptr inbounds nuw i8, ptr %28, i64 160
   %63 = load ptr, ptr %62, align 16, !noundef !3
   %.not9 = icmp eq ptr %63, null
-  br i1 %.not9, label %.preheader, label %.loopexit45
+  br i1 %.not9, label %.preheader, label %.loopexit44
 
 .preheader:                                       ; preds = %61, %73
   %64 = invoke noundef zeroext i1 @"_ZN78_$LT$tokio..sync..notify..Notified$u20$as$u20$core..future..future..Future$GT$4poll17h903945428375182cE"(ptr noundef nonnull align 8 %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %65 unwind label %.loopexit
 
 65:                                               ; preds = %.preheader
-  br i1 %64, label %.loopexit45, label %66
+  br i1 %64, label %.loopexit44, label %66
 
 66:                                               ; preds = %65
   %67 = load ptr, ptr %1, align 8, !nonnull !3, !align !7, !noundef !3
@@ -5293,14 +5293,14 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %48, %.noe
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   br label %.preheader
 
-.loopexit45:                                      ; preds = %65, %61, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcf470bb918880589E.exit"
+.loopexit44:                                      ; preds = %65, %61, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcf470bb918880589E.exit"
   %.sink = phi i32 [ 1000000001, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcf470bb918880589E.exit" ], [ 1000000001, %61 ], [ 1000000002, %65 ]
   %.sroa.32.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %.sroa.32.0..sroa_idx, align 8
   %74 = getelementptr inbounds nuw i8, ptr %28, i64 4
   br i1 %31, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i20, label %75
 
-75:                                               ; preds = %.loopexit45
+75:                                               ; preds = %.loopexit44
   %76 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hbe50f93f4fcd319cE monotonic, align 8
   %77 = and i64 %76, 9223372036854775807
   %78 = icmp eq i64 %77, 0
@@ -5314,7 +5314,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i: ; preds = %48, %.noe
   store atomic i8 1, ptr %74 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i20
 
-_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i20: ; preds = %81, %79, %75, %.loopexit45
+_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i20: ; preds = %81, %79, %75, %.loopexit44
   %82 = atomicrmw xchg ptr %28, i32 0 release, align 4
   %83 = icmp eq i32 %82, 2
   br i1 %83, label %84, label %"_ZN4core3ptr87drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$quinn..endpoint..State$GT$$GT$17h12c0053696d7a6edE.exit21", !prof !5

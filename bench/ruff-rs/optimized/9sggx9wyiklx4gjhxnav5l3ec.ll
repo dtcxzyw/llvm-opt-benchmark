@@ -1528,7 +1528,6 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN13ruff_notebook8notebook8Notebook5empty17hc81d73b87601d3d9E(ptr dead_on_unwind noalias noundef writable writeonly sret([496 x i8]) align 8 captures(none) dereferenceable(496) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [16 x i8], align 8
-  %.sroa.4 = alloca [16 x i8], align 8
   %3 = alloca [360 x i8], align 8
   %4 = alloca [496 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %4)
@@ -1543,7 +1542,6 @@ define void @_ZN13ruff_notebook8notebook8Notebook5empty17hc81d73b87601d3d9E(ptr 
   unreachable
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4)
   %10 = invoke { i64, i64 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17hd34948fdcfd1d0a8E"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.3fc28e486149e932ea71a070040c162f.100)
           to label %11 unwind label %30
 
@@ -1552,9 +1550,6 @@ define void @_ZN13ruff_notebook8notebook8Notebook5empty17hc81d73b87601d3d9E(ptr 
   %13 = extractvalue { i64, i64 } %10, 1
   %.sroa.78.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 -9223372036854775808, ptr %.sroa.78.0..sroa_idx, align 8
-  %.sroa.4.0..sroa.78.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa.78.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4)
   store i64 0, ptr %6, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.56.sroa.4.sroa.4.0..sroa.56.sroa.4.0..sroa.56.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32

@@ -1433,7 +1433,6 @@ define hidden noundef zeroext i1 @"_ZN104_$LT$futures_util..future..future..shar
   %6 = alloca [16 x i8], align 8
   %7 = alloca [96 x i8], align 8
   %8 = alloca [40 x i8], align 8
-  %.sroa.513 = alloca [15 x i8], align 1
   %9 = alloca [16 x i8], align 8
   %10 = alloca [16 x i8], align 8
   %11 = alloca [32 x i8], align 8
@@ -1787,7 +1786,6 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.13795161181114573335.exit
 
 .thread175:                                       ; preds = %150
   store i8 1, ptr %137, align 8
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.513)
   br label %167
 
 153:                                              ; preds = %149
@@ -1834,7 +1832,6 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.13795161181114573335.exit
 
 163:                                              ; preds = %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17ha866e6dea0ab56fdE.exit"
   %.pre = load i8, ptr %138, align 8, !range !255, !alias.scope !269
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.513)
   switch i8 %.pre, label %164 [
     i8 2, label %167
     i8 0, label %167
@@ -1853,9 +1850,6 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.13795161181114573335.exit
 
 167:                                              ; preds = %.thread175, %164, %163, %163
   store i8 2, ptr %138, align 8
-  %.sroa.513.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %14, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.513.0..sroa_idx14, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.513, i64 15, i1 false)
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.513)
   %168 = load ptr, ptr %21, align 8, !nonnull !7, !noundef !7
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 64
   store atomic i64 2, ptr %169 seq_cst, align 8

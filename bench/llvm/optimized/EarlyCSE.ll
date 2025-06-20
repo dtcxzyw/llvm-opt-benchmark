@@ -1080,7 +1080,6 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18EarlyCSE3runEv(ptr 
   %27 = alloca %"class.llvm::MemoryLocation", align 8
   %28 = alloca %"struct.(anonymous namespace)::EarlyCSE::LoadValue", align 8
   %29 = alloca ptr, align 8
-  %.sroa.9267 = alloca [6 x i8], align 2
   %30 = alloca %"struct.(anonymous namespace)::CallValue", align 8
   %31 = alloca %"struct.(anonymous namespace)::CallValue", align 8
   %32 = alloca %"class.llvm::APInt", align 8
@@ -1088,7 +1087,6 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18EarlyCSE3runEv(ptr 
   %34 = alloca %"struct.(anonymous namespace)::EarlyCSE::LoadValue", align 8
   %35 = alloca %"class.(anonymous namespace)::EarlyCSE::ParseMemoryInst", align 8
   %36 = alloca ptr, align 8
-  %.sroa.9 = alloca [6 x i8], align 2
   %37 = alloca %"class.std::deque", align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %37) #26
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -2923,7 +2921,6 @@ _ZN12_GLOBAL__N_18EarlyCSE10removeMSSAERN4llvm11InstructionE.exit99: ; preds = %
 1005:                                             ; preds = %998
   %1006 = load ptr, ptr %129, align 8, !tbaa !391
   store ptr %1006, ptr %29, align 8, !tbaa !314
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.9267)
   %.val242.i = load i16, ptr %136, align 4
   %1007 = zext i16 %.val242.i to i32
   %1008 = load i32, ptr %137, align 8, !tbaa !416
@@ -2935,7 +2932,6 @@ _ZN12_GLOBAL__N_18EarlyCSE10removeMSSAERN4llvm11InstructionE.exit99: ; preds = %
 1012:                                             ; preds = %.sink.split.i.i.i318.i, %1000
   %.0.i315.ph.i = phi ptr [ %1004, %.sink.split.i.i.i318.i ], [ null, %1000 ]
   store ptr %.0.i315.ph.i, ptr %29, align 8, !tbaa !314
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.9267)
   %1013 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %1001) #30
   %1014 = icmp eq i8 %1002, 61
   br label %_ZNK12_GLOBAL__N_18EarlyCSE15ParseMemoryInst6isLoadEv.exit326.i
@@ -3002,14 +2998,11 @@ _ZN4llvm15ScopedHashTableIPNS_5ValueEN12_GLOBAL__N_18EarlyCSE9LoadValueENS_12Den
   store i8 %1017, ptr %.sroa.7265.0..sroa_idx, align 8, !tbaa !72
   %.sroa.8266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1043, i64 41
   store i8 %1018, ptr %.sroa.8266.0..sroa_idx, align 1, !tbaa !72
-  %.sroa.9267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1043, i64 42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9267.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9267, i64 6, i1 false), !tbaa.struct !61
   store ptr %.val.i.i86, ptr %1043, align 8, !tbaa !424
   %1046 = getelementptr inbounds nuw i8, ptr %1043, i64 8
   store ptr %1022, ptr %1046, align 8, !tbaa !425
   store ptr %1043, ptr %1020, align 8, !tbaa !418
   store ptr %1043, ptr %1021, align 8, !tbaa !257
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.9267)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #26
   br label %1047
 
@@ -4097,7 +4090,6 @@ _ZN12_GLOBAL__N_18EarlyCSE10removeMSSAERN4llvm11InstructionE.exit: ; preds = %.l
 1517:                                             ; preds = %1510
   %1518 = load ptr, ptr %129, align 8, !tbaa !391
   store ptr %1518, ptr %36, align 8, !tbaa !314
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.9)
   %.val244.i = load i16, ptr %136, align 4
   %1519 = zext i16 %.val244.i to i32
   %1520 = load i32, ptr %137, align 8, !tbaa !416
@@ -4109,7 +4101,6 @@ _ZN12_GLOBAL__N_18EarlyCSE10removeMSSAERN4llvm11InstructionE.exit: ; preds = %.l
 1524:                                             ; preds = %.sink.split.i.i.i372.i, %1512
   %.0.i369.ph.i = phi ptr [ %1516, %.sink.split.i.i.i372.i ], [ null, %1512 ]
   store ptr %.0.i369.ph.i, ptr %36, align 8, !tbaa !314
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.9)
   %1525 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(72) %1513) #30
   %1526 = icmp eq i8 %1514, 61
   br label %_ZNK12_GLOBAL__N_18EarlyCSE15ParseMemoryInst6isLoadEv.exit381.i
@@ -4176,14 +4167,11 @@ _ZN4llvm15ScopedHashTableIPNS_5ValueEN12_GLOBAL__N_18EarlyCSE9LoadValueENS_12Den
   store i8 %1529, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !72
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1555, i64 41
   store i8 %1530, ptr %.sroa.8.0..sroa_idx, align 1, !tbaa !72
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1555, i64 42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9, i64 6, i1 false), !tbaa.struct !61
   store ptr %.val.i.i, ptr %1555, align 8, !tbaa !424
   %1558 = getelementptr inbounds nuw i8, ptr %1555, i64 8
   store ptr %1534, ptr %1558, align 8, !tbaa !425
   store ptr %1555, ptr %1532, align 8, !tbaa !418
   store ptr %1555, ptr %1533, align 8, !tbaa !257
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #26
   %1559 = load i32, ptr %26, align 8, !tbaa !386
   %.not.i32 = icmp eq i32 %1559, 0

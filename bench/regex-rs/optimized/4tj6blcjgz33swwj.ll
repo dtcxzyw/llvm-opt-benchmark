@@ -261,8 +261,8 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   br label %"_ZN74_$LT$regex_automata..meta..regex..Config$u20$as$u20$core..clone..Clone$GT$5clone17h22eaa2114994b3f2E.exit.i"
 
 "_ZN74_$LT$regex_automata..meta..regex..Config$u20$as$u20$core..clone..Clone$GT$5clone17h22eaa2114994b3f2E.exit.i": ; preds = %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17hb70203dde2c9580eE.exit.i.i.i", %88, %76
-  %.sroa.4.060.i.i = phi ptr [ undef, %76 ], [ %.val1.i.i.i.i, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17hb70203dde2c9580eE.exit.i.i.i" ], [ undef, %88 ]
-  %.sroa.0.0.i.i = phi ptr [ undef, %76 ], [ %.val.i.i.i.i, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17hb70203dde2c9580eE.exit.i.i.i" ], [ undef, %88 ]
+  %.sroa.4.058.i.i = phi ptr [ undef, %76 ], [ undef, %88 ], [ %.val1.i.i.i.i, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17hb70203dde2c9580eE.exit.i.i.i" ]
+  %.sroa.0.0.i.i = phi ptr [ undef, %76 ], [ undef, %88 ], [ %.val.i.i.i.i, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17hb70203dde2c9580eE.exit.i.i.i" ]
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 114
   %98 = load i8, ptr %97, align 2, !range !38, !alias.scope !36, !noalias !37, !noundef !9
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -326,10 +326,10 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   store i8 %84, ptr %134, align 4, !alias.scope !30, !noalias !53
   %135 = getelementptr inbounds nuw i8, ptr %23, i64 80
   store ptr %.sroa.0.0.i.i, ptr %135, align 8, !alias.scope !30, !noalias !53
-  %.sroa.4.0..sroa_idx57.i.i = getelementptr inbounds nuw i8, ptr %23, i64 88
-  store ptr %.sroa.4.060.i.i, ptr %.sroa.4.0..sroa_idx57.i.i, align 8, !alias.scope !30, !noalias !53
-  %.sroa.5.0..sroa_idx58.i.i = getelementptr inbounds nuw i8, ptr %23, i64 96
-  store i8 %86, ptr %.sroa.5.0..sroa_idx58.i.i, align 8, !alias.scope !30, !noalias !53
+  %.sroa.4.0..sroa_idx56.i.i = getelementptr inbounds nuw i8, ptr %23, i64 88
+  store ptr %.sroa.4.058.i.i, ptr %.sroa.4.0..sroa_idx56.i.i, align 8, !alias.scope !30, !noalias !53
+  %.sroa.5.0..sroa_idx57.i.i = getelementptr inbounds nuw i8, ptr %23, i64 96
+  store i8 %86, ptr %.sroa.5.0..sroa_idx57.i.i, align 8, !alias.scope !30, !noalias !53
   %136 = getelementptr inbounds nuw i8, ptr %23, i64 114
   store i8 %98, ptr %136, align 2, !alias.scope !30, !noalias !53
   %137 = getelementptr inbounds nuw i8, ptr %23, i64 16

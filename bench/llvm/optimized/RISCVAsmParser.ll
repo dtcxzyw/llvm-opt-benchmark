@@ -3632,9 +3632,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127.i: ; preds = %
 _ZN4llvmplERKNS_5TwineES2_.exit147.i:             ; preds = %406, %403
   %.sroa.05.0.i.i137.i = phi ptr [ %60, %406 ], [ @.str.150, %403 ]
   %.014.i.i136.i = phi i8 [ 2, %406 ], [ 3, %403 ]
-  %.sink461.i = phi i8 [ 3, %406 ], [ 1, %403 ]
+  %storemerge.i = phi i8 [ 3, %406 ], [ 1, %403 ]
   store i8 3, ptr %195, align 8, !tbaa !333
-  store i8 %.sink461.i, ptr %196, align 1, !tbaa !333
+  store i8 %storemerge.i, ptr %196, align 1, !tbaa !333
   store ptr %.sroa.05.0.i.i137.i, ptr %59, align 8, !alias.scope !334
   store ptr @.str.151, ptr %199, align 8, !alias.scope !334
   store i8 %.014.i.i136.i, ptr %197, align 8, !tbaa !267, !alias.scope !334
@@ -3756,10 +3756,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit199.i:             ; preds = %.thread121, %414
   br i1 %.not.i13, label %428, label %379
 
 425:                                              ; preds = %421, %420, %_ZN4llvmplERKNS_5TwineES2_.exit199.i, %_ZN4llvmplERKNS_5TwineES2_.exit181.i.thread80
-  %.sink465.i = phi i8 [ 3, %420 ], [ %.014.i.i204.i, %421 ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit181.i.thread80 ], [ %419, %_ZN4llvmplERKNS_5TwineES2_.exit199.i ]
-  %.sink464.i = phi i8 [ 1, %420 ], [ 3, %421 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit181.i.thread80 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit199.i ]
-  store i8 %.sink465.i, ptr %209, align 8, !tbaa !333
-  store i8 %.sink464.i, ptr %210, align 1, !tbaa !333
+  %.sink464.i = phi i8 [ 3, %420 ], [ %.014.i.i204.i, %421 ], [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit181.i.thread80 ], [ %419, %_ZN4llvmplERKNS_5TwineES2_.exit199.i ]
+  %.sink463.i = phi i8 [ 1, %420 ], [ 3, %421 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit181.i.thread80 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit199.i ]
+  store i8 %.sink464.i, ptr %209, align 8, !tbaa !333
+  store i8 %.sink463.i, ptr %210, align 1, !tbaa !333
   %426 = load ptr, ptr %64, align 8, !tbaa !261
   %427 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %426, ptr %260, ptr noundef nonnull align 8 dereferenceable(34) %55, ptr null, ptr null) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %60) #25
@@ -18037,13 +18037,13 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %4
 
 27:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %26
   %.014.i.i.sink = phi i8 [ %.014.i.i, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ 3, %26 ]
-  %.sink87 = phi i8 [ 3, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ 1, %26 ]
+  %.sink = phi i8 [ 3, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ 1, %26 ]
   %28 = phi ptr [ %11, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ @.str.75, %26 ]
   %29 = phi i8 [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ 3, %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 %.014.i.i.sink, ptr %30, align 8, !tbaa !333
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 %.sink87, ptr %31, align 1, !tbaa !333
+  store i8 %.sink, ptr %31, align 1, !tbaa !333
   store ptr %28, ptr %10, align 8, !alias.scope !760
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %5, ptr %32, align 8, !alias.scope !760
@@ -18071,12 +18071,12 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %4
   br label %_ZN4llvmplERKNS_5TwineES2_.exit62
 
 _ZN4llvmplERKNS_5TwineES2_.exit62:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.thread39, %27
-  %.sink85 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit.thread39 ], [ 2, %27 ]
-  %.sink = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit.thread39 ], [ 3, %27 ]
+  %.sink88 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit.thread39 ], [ 2, %27 ]
+  %.sink86 = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit.thread39 ], [ 3, %27 ]
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 %.sink85, ptr %42, align 8, !tbaa !267, !alias.scope !775
+  store i8 %.sink88, ptr %42, align 8, !tbaa !267, !alias.scope !775
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 %.sink, ptr %43, align 1, !tbaa !264, !alias.scope !775
+  store i8 %.sink86, ptr %43, align 1, !tbaa !264, !alias.scope !775
   %44 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser5ErrorENS_5SMLocERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %.8.val, ptr %0, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr null, ptr null) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #25

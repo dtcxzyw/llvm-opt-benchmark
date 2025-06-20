@@ -18718,7 +18718,6 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h03
   %14 = alloca [16 x i8], align 8
   %15 = alloca [16 x i8], align 8
   %.sroa.0 = alloca [96 x i8], align 8
-  %.sroa.45 = alloca [6 x i8], align 2
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 95
   %17 = load i8, ptr %16, align 1, !noundef !4
   %18 = icmp ne i8 %17, 0
@@ -18740,7 +18739,6 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h03
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %35 = load i16, ptr %34, align 2
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.45)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   %36 = tail call { ptr, i64 } @"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h4e0daa8ae415412dE"()
   %37 = extractvalue { ptr, i64 } %36, 0
@@ -19403,10 +19401,7 @@ _ZN6brotli3enc10prior_eval9init_cdfs17h48cd81f863bba5c8E.exit221: ; preds = %.lr
   store i8 0, ptr %.sroa.43.0..sroa_idx, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 289
   store i8 1, ptr %.sroa.44.0..sroa_idx, align 1
-  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 290
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.45.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.45, i64 6, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.45)
   ret void
 
 167:                                              ; preds = %110, %102, %89, %81, %73, %65, %57, %49, %41

@@ -6914,10 +6914,10 @@ _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.exit: ; preds = %2
   store i64 -9223372036854775808, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 53, ptr %17, align 8
-  %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr %9, ptr %.sroa.475.0..sroa_idx, align 8
-  %.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store i64 53, ptr %.sroa.576.0..sroa_idx, align 8
+  %.sroa.483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store ptr %9, ptr %.sroa.483.0..sroa_idx, align 8
+  %.sroa.584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 88
+  store i64 53, ptr %.sroa.584.0..sroa_idx, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 6, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 128

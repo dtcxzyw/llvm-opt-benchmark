@@ -13614,7 +13614,6 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_var
   %32 = alloca { i64, [4 x i64] }, align 8
   %33 = alloca { i32, [2 x i32] }, align 4
   %34 = alloca { i64, [5 x i64] }, align 16
-  %.sroa.431 = alloca [5 x i64], align 8
   %35 = alloca { i64, [5 x i64] }, align 16
   %36 = alloca { { i64, ptr, {} }, i64 }, align 8
   %37 = alloca { i32, [2 x i32] }, align 4
@@ -13947,8 +13946,6 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
   store i64 -9223372036854775801, ptr %24, align 16
-  %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431, i64 40, i1 false)
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %24)
           to label %146 unwind label %.loopexit.split-lp171
 
@@ -13992,8 +13989,6 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15), !noalias !2968
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   store i64 -9223372036854775801, ptr %23, align 16
-  %.sroa.431.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431.0..sroa_idx32, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431, i64 40, i1 false)
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %23)
           to label %162 unwind label %.loopexit.split-lp171
 
@@ -14060,7 +14055,6 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   %196 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %197 = add i32 %164, -1
   %198 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.sroa.431.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %199 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %200 = getelementptr inbounds nuw i8, ptr %32, i64 32
   br label %201
@@ -14434,7 +14428,6 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
 285:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit.thread", %286
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22)
   store i64 -9223372036854775801, ptr %22, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431.0..sroa_idx33, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431, i64 40, i1 false)
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %22)
           to label %287 unwind label %.loopexit.split-lp.loopexit
 
@@ -14538,7 +14531,6 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_var
   %32 = alloca { i64, [4 x i64] }, align 8
   %33 = alloca { i32, [2 x i32] }, align 4
   %34 = alloca { i64, [5 x i64] }, align 16
-  %.sroa.431 = alloca [5 x i64], align 8
   %35 = alloca { i64, [5 x i64] }, align 16
   %36 = alloca { { i64, ptr, {} }, i64 }, align 8
   %37 = alloca { i32, [2 x i32] }, align 4
@@ -14862,8 +14854,6 @@ _ZN16wasmtime_environ4fact10trampoline6Memory6memarg17h2ad4b467e561f1e6E.llvm.72
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
   store i64 -9223372036854775801, ptr %24, align 16
-  %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431, i64 40, i1 false)
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %24)
           to label %135 unwind label %.loopexit.split-lp186
 
@@ -14907,8 +14897,6 @@ _ZN16wasmtime_environ4fact10trampoline6Memory6memarg17h2ad4b467e561f1e6E.llvm.72
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15), !noalias !3094
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   store i64 -9223372036854775801, ptr %23, align 16
-  %.sroa.431.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431.0..sroa_idx32, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431, i64 40, i1 false)
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %23)
           to label %151 unwind label %.loopexit.split-lp186
 
@@ -14974,7 +14962,6 @@ _ZN16wasmtime_environ4fact10trampoline6Memory6memarg17h2ad4b467e561f1e6E.llvm.72
   %186 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %187 = add i32 %153, -1
   %188 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.sroa.431.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %189 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %190 = getelementptr inbounds nuw i8, ptr %32, i64 32
   br label %191
@@ -15327,7 +15314,6 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
 265:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit.thread", %266
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22)
   store i64 -9223372036854775801, ptr %22, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431.0..sroa_idx33, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431, i64 40, i1 false)
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %22)
           to label %267 unwind label %.loopexit.split-lp.loopexit
 
@@ -15432,7 +15418,6 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline8Compiler15convert_var
   %32 = alloca { i64, [4 x i64] }, align 8
   %33 = alloca { i32, [2 x i32] }, align 4
   %34 = alloca { i64, [5 x i64] }, align 16
-  %.sroa.431 = alloca [5 x i64], align 8
   %35 = alloca { i64, [5 x i64] }, align 16
   %36 = alloca { { i64, ptr, {} }, i64 }, align 8
   %37 = alloca { i32, [2 x i32] }, align 4
@@ -15762,8 +15747,6 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
   store i64 -9223372036854775801, ptr %24, align 16
-  %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431, i64 40, i1 false)
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %24)
           to label %145 unwind label %.loopexit.split-lp173
 
@@ -15807,8 +15790,6 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15), !noalias !3219
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   store i64 -9223372036854775801, ptr %23, align 16
-  %.sroa.431.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431.0..sroa_idx32, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431, i64 40, i1 false)
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %23)
           to label %161 unwind label %.loopexit.split-lp173
 
@@ -15877,7 +15858,6 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler8i32_load17hd522cff0fdf3771fE.exi
   %196 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %197 = add i32 %163, -1
   %198 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.sroa.431.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %199 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %200 = getelementptr inbounds nuw i8, ptr %32, i64 32
   br label %201
@@ -16300,7 +16280,6 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler9i32_store17hf5496710384b8739E.ex
 303:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdf85eed3fbb43507E.llvm.12426178672938875897.exit.thread", %304
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22)
   store i64 -9223372036854775801, ptr %22, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431.0..sroa_idx33, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.431, i64 40, i1 false)
   invoke void @_ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E(ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(48) %22)
           to label %305 unwind label %.loopexit.split-lp.loopexit
 

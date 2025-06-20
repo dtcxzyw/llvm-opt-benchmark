@@ -22954,10 +22954,10 @@ define hidden void @"_ZN16markdown_preview17markdown_renderer25render_markdown_l
   %18 = load ptr, ptr %15, align 8, !noalias !4489, !nonnull !12, !noundef !12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !4489
   store i64 %14, ptr %10, align 8
-  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %18, ptr %.sroa.414.0..sroa_idx, align 8
-  %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 0, ptr %.sroa.515.0..sroa_idx, align 8
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %18, ptr %.sroa.413.0..sroa_idx, align 8
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i64 0, ptr %.sroa.514.0..sroa_idx, align 8
   %19 = invoke i40 @_ZN4gpui8platform9keystroke9Modifiers13secondary_key17h1731405b8d6c1427E()
           to label %22 unwind label %20
 
@@ -22980,8 +22980,8 @@ define hidden void @"_ZN16markdown_preview17markdown_renderer25render_markdown_l
   store ptr @"_ZN75_$LT$gpui..platform..keystroke..Keystroke$u20$as$u20$core..fmt..Display$GT$3fmt17h6f5f386a06d1241eE", ptr %.sroa.44.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !4493
   store ptr @anon.3d6e0453f1743ad13c27ad0248045ab1.126, ptr %4, align 8, !noalias !4501
-  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.412.0..sroa_idx, align 8, !noalias !4501
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !4501
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !4501
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24

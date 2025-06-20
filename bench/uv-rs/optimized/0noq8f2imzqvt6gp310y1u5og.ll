@@ -3980,7 +3980,6 @@ define void @"_ZN6uv_dev20generate_json_schema1_96_$LT$impl$u20$schemars..JsonSc
   %4 = alloca [200 x i8], align 8
   %5 = alloca [200 x i8], align 8
   %6 = alloca [200 x i8], align 8
-  %.sroa.5 = alloca [191 x i8], align 1
   %7 = alloca [200 x i8], align 8
   %8 = alloca [200 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %8)
@@ -4018,13 +4017,12 @@ define void @"_ZN6uv_dev20generate_json_schema1_96_$LT$impl$u20$schemars..JsonSc
   store i64 -9223372036854775808, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr null, ptr %22, align 8
-  %.sroa.2443.176..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 192
-  store i64 0, ptr %.sroa.2443.176..sroa_idx, align 8
+  %.sroa.1948.176..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 192
+  store i64 0, ptr %.sroa.1948.176..sroa_idx, align 8
   %23 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h4b1c88b721c5dcfbE(ptr noalias noundef nonnull align 8 dereferenceable(200) %7)
           to label %24 unwind label %13
 
 24:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 191, ptr nonnull %.sroa.5)
   %25 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !558
   %26 = call noalias noundef align 8 dereferenceable_or_null(200) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 200, i64 noundef range(i64 1, -9223372036854775807) 8) #31, !noalias !558
   %27 = icmp eq ptr %26, null
@@ -4046,9 +4044,6 @@ define void @"_ZN6uv_dev20generate_json_schema1_96_$LT$impl$u20$schemars..JsonSc
   store i64 -9223372036854775807, ptr %26, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(191) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(191) %.sroa.5, i64 191, i1 false)
-  call void @llvm.lifetime.end.p0(i64 191, ptr nonnull %.sroa.5)
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %.val = load ptr, ptr %32, align 8, !noundef !4
   %33 = icmp eq ptr %.val, null

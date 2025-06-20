@@ -3649,8 +3649,8 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN4core3ptr73drop_in_place$LT$ruff_linter..rules..isort..categorize..ImportSection$GT$17hd3721566e3385242E.exit.thread" unwind label %50
 
 "_ZN4core3ptr73drop_in_place$LT$ruff_linter..rules..isort..categorize..ImportSection$GT$17hd3721566e3385242E.exit.thread": ; preds = %31, %35, %52
-  %.pn19 = phi { ptr, i32 } [ %53, %52 ], [ %32, %31 ], [ %32, %35 ]
-  resume { ptr, i32 } %.pn19
+  %.pn18 = phi { ptr, i32 } [ %53, %52 ], [ %32, %31 ], [ %32, %35 ]
+  resume { ptr, i32 } %.pn18
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4034,8 +4034,8 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
           to label %"_ZN4core3ptr73drop_in_place$LT$ruff_linter..rules..isort..categorize..ImportSection$GT$17hd3721566e3385242E.exit.thread" unwind label %48
 
 "_ZN4core3ptr73drop_in_place$LT$ruff_linter..rules..isort..categorize..ImportSection$GT$17hd3721566e3385242E.exit.thread": ; preds = %29, %33, %50
-  %.pn19 = phi { ptr, i32 } [ %51, %50 ], [ %30, %29 ], [ %30, %33 ]
-  resume { ptr, i32 } %.pn19
+  %.pn18 = phi { ptr, i32 } [ %51, %50 ], [ %30, %29 ], [ %30, %33 ]
+  resume { ptr, i32 } %.pn18
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5953,21 +5953,21 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit": ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %12, ptr %9, align 8, !alias.scope !1134, !noalias !1135
-  %.sroa.05.0.copyload6 = load i8, ptr %10, align 8, !noalias !1134
-  %.not = icmp eq i8 %.sroa.05.0.copyload6, 22
+  %.sroa.0.0.copyload5 = load i8, ptr %10, align 8, !noalias !1134
+  %.not = icmp eq i8 %.sroa.0.0.copyload5, 22
   br i1 %.not, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread", label %13
 
 13:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit"
-  %.sroa.9.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %.sroa.9.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.9.0..sroa_idx7, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.9.0..sroa_idx6, i64 31, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = add i64 %15, 1
   store i64 %16, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  store i8 %.sroa.05.0.copyload6, ptr %3, align 8, !alias.scope !1137
+  store i8 %.sroa.0.0.copyload5, ptr %3, align 8, !alias.scope !1137
   call void @"_ZN15ruff_python_ast4name1_80_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_python_ast..name..Name$GT$11deserialize17h0dd77acc5b01145eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 23

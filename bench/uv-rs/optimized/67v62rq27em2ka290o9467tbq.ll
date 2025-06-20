@@ -74,10 +74,8 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7cc2cf19ece313ddE
   %1 = alloca [16 x i8], align 8
   %2 = alloca [104 x i8], align 8
   %3 = alloca [16 x i8], align 8
-  %.sroa.12.i = alloca [6 x i8], align 2
   %4 = alloca [96 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.12.i)
   %5 = load atomic i64, ptr @_ZN16uv_configuration9threading17RAYON_PARALLELISM17h48631c5207d76869E seq_cst, align 8
   store i64 0, ptr %4, align 8
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -94,9 +92,6 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7cc2cf19ece313ddE
   store i8 0, ptr %.sroa.106.0..sroa_idx.i, align 8
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 89
   store i8 0, ptr %.sroa.11.0..sroa_idx.i, align 1
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.12.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.12.i, i64 6, i1 false)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.12.i)
   %6 = invoke noundef i64 @_ZN16uv_configuration9threading14min_stack_size17h3cfa41c67de95dc4E()
           to label %9 unwind label %7
 
@@ -2145,8 +2140,8 @@ define void @_ZN16uv_configuration15package_options7Upgrade11constraints17h421f2
   br label %20
 
 20:                                               ; preds = %2, %5
-  %.sink = phi i64 [ 1, %5 ], [ 0, %2 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 1, %5 ], [ 0, %2 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 

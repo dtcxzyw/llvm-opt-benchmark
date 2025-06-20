@@ -13639,7 +13639,6 @@ declare noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm12ConstantExpr16getInsertElementEPNS_8ConstantES2_S2_PNS_4TypeE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [3 x ptr], align 16
-  %.sroa.5 = alloca [6 x i8], align 2
   %.sroa.7 = alloca %"class.llvm::ArrayRef.465", align 8
   %6 = alloca %"struct.llvm::ConstantExprKeyType", align 8
   %7 = tail call noundef ptr @_ZN4llvm36ConstantFoldInsertElementInstructionEPNS_8ConstantES1_S1_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #29
@@ -13659,7 +13658,6 @@ _ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit:       ; preds = %8
   store ptr %1, ptr %12, align 8, !tbaa !106
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %13, align 16, !tbaa !106
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i8 0, i64 16, i1 false)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
@@ -13668,8 +13666,6 @@ _ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit:       ; preds = %8
   store i8 62, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5, i64 6, i1 false)
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %.sroa.522.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -13720,7 +13716,6 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %31, %27, %23
   br label %_ZN4llvm19ConstantExprKeyTypeD2Ev.exit16
 
 _ZN4llvm19ConstantExprKeyTypeD2Ev.exit16:         ; preds = %38, %35, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %_ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
   br label %39
@@ -13733,7 +13728,6 @@ _ZN4llvm19ConstantExprKeyTypeD2Ev.exit16:         ; preds = %38, %35, %_ZN4llvm5
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm12ConstantExpr16getShuffleVectorEPNS_8ConstantES2_NS_8ArrayRefIiEEPNS_4TypeE(ptr noundef %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef readnone captures(address) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [2 x ptr], align 16
-  %.sroa.5 = alloca [6 x i8], align 2
   %7 = alloca %"struct.llvm::ConstantExprKeyType", align 8
   %8 = tail call noundef ptr @_ZN4llvm36ConstantFoldShuffleVectorInstructionEPNS_8ConstantES1_NS_8ArrayRefIiEE(ptr noundef %0, ptr noundef %1, ptr %2, i64 %3) #29
   %.not.not = icmp eq ptr %8, null
@@ -13760,14 +13754,11 @@ _ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit:       ; preds = %9
   store ptr %0, ptr %6, align 16, !tbaa !106
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %20, align 8, !tbaa !106
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.5)
   %21 = load ptr, ptr %18, align 8, !tbaa !105
   %22 = load ptr, ptr %21, align 8, !tbaa !115
   store i8 63, ptr %7, align 8
   %.sroa.4.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 0, ptr %.sroa.4.0..sroa_idx29, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5, i64 6, i1 false)
   %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %.sroa.530.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -13820,7 +13811,6 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %37, %33, %29
   br label %_ZN4llvm19ConstantExprKeyTypeD2Ev.exit18
 
 _ZN4llvm19ConstantExprKeyTypeD2Ev.exit18:         ; preds = %44, %41, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %_ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
   br label %45
 
@@ -14056,7 +14046,6 @@ _ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit: ; preds = %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm12ConstantExpr17getExtractElementEPNS_8ConstantES2_PNS_4TypeE(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca [2 x ptr], align 16
-  %.sroa.5 = alloca [6 x i8], align 2
   %.sroa.7 = alloca %"class.llvm::ArrayRef.465", align 8
   %5 = alloca %"struct.llvm::ConstantExprKeyType", align 8
   %6 = tail call noundef ptr @_ZN4llvm37ConstantFoldExtractElementInstructionEPNS_8ConstantES1_(ptr noundef %0, ptr noundef %1) #29
@@ -14076,7 +14065,6 @@ _ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit:       ; preds = %7
   store ptr %0, ptr %4, align 16, !tbaa !106
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %13, align 8, !tbaa !106
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i8 0, i64 16, i1 false)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #29
@@ -14084,8 +14072,6 @@ _ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit:       ; preds = %7
   store i8 61, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5, i64 6, i1 false)
   %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %.sroa.521.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -14136,7 +14122,6 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %30, %26, %22
   br label %_ZN4llvm19ConstantExprKeyTypeD2Ev.exit15
 
 _ZN4llvm19ConstantExprKeyTypeD2Ev.exit15:         ; preds = %37, %34, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %_ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
   br label %38
@@ -14288,7 +14273,6 @@ _ZNSt17_Optional_payloadIN4llvm13ConstantRangeELb0ELb0ELb0EED2Ev.exit: ; preds =
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm12ConstantExpr3getEjPNS_8ConstantES2_jPNS_4TypeE(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone captures(address) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca [2 x ptr], align 16
-  %.sroa.5 = alloca [6 x i8], align 2
   %.sroa.7 = alloca %"class.llvm::ArrayRef.465", align 8
   %7 = alloca %"struct.llvm::ConstantExprKeyType", align 8
   %8 = tail call noundef ptr @_ZN4llvm29ConstantFoldBinaryInstructionEjPNS_8ConstantES1_(i32 noundef %0, ptr noundef %1, ptr noundef %2) #29
@@ -14306,7 +14290,6 @@ _ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit:       ; preds = %9
   store ptr %1, ptr %6, align 16, !tbaa !106
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %13, align 8, !tbaa !106
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i8 0, i64 16, i1 false)
   %14 = trunc i32 %0 to i8
@@ -14317,8 +14300,6 @@ _ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit:       ; preds = %9
   store i8 %14, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %15, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5, i64 6, i1 false)
   %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %.sroa.523.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -14369,7 +14350,6 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %33, %29, %25
   br label %_ZN4llvm19ConstantExprKeyTypeD2Ev.exit17
 
 _ZN4llvm19ConstantExprKeyTypeD2Ev.exit17:         ; preds = %40, %37, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %_ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
   br label %41
@@ -19026,7 +19006,6 @@ _ZN4llvm12ConstantExpr10getBitCastEPNS_8ConstantEPNS_4TypeEb.exit: ; preds = %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZL13getFoldedCastN4llvm11Instruction7CastOpsEPNS_8ConstantEPNS_4TypeEb(i32 noundef range(i32 38, 51) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
-  %.sroa.5 = alloca [6 x i8], align 2
   %.sroa.7 = alloca %"class.llvm::ArrayRef.465", align 8
   %6 = alloca %"struct.llvm::ConstantExprKeyType", align 8
   store ptr %1, ptr %5, align 8, !tbaa !106
@@ -19038,15 +19017,12 @@ define internal fastcc noundef ptr @_ZL13getFoldedCastN4llvm11Instruction7CastOp
 _ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit:       ; preds = %4
   %8 = load ptr, ptr %2, align 8, !tbaa !105
   %9 = load ptr, ptr %8, align 8, !tbaa !115
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i8 0, i64 16, i1 false)
   %10 = trunc nuw nsw i32 %0 to i8
   store i8 %10, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5, i64 6, i1 false)
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %.sroa.518.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -19097,7 +19073,6 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %25, %21, %17
   br label %_ZN4llvm19ConstantExprKeyTypeD2Ev.exit12
 
 _ZN4llvm19ConstantExprKeyTypeD2Ev.exit12:         ; preds = %32, %29, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %_ZN4llvm19ConstantExprKeyTypeC2ERKS0_.exit
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
   br label %33
 

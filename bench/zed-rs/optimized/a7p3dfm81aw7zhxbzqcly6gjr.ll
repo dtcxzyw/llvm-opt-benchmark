@@ -44,23 +44,23 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   %14 = load i64, ptr %1, align 8, !range !9, !alias.scope !7, !noalias !4, !noundef !10
   %trunc.i = trunc nuw i64 %14 to i1
-  br i1 %trunc.i, label %18, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..element..AnyElement$GT$$GT$$GT$17h7afd02819a6deebbE.exit.i"
+  br i1 %trunc.i, label %15, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..element..AnyElement$GT$$GT$$GT$17h7afd02819a6deebbE.exit.i"
+
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = load ptr, ptr %16, align 8, !alias.scope !7, !noalias !4, !noundef !10
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %32, label %46
 
 "_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..element..AnyElement$GT$$GT$$GT$17h7afd02819a6deebbE.exit.i": ; preds = %2
   store i64 1, ptr %1, align 8, !alias.scope !7, !noalias !4
   %.sroa.55.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %.sroa.55.0..sroa_idx6.i, align 8, !alias.scope !7, !noalias !4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %16 = load ptr, ptr %15, align 8, !alias.scope !14, !noalias !15, !noundef !10
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %"_ZN115_$LT$itertools..intersperse..IntersperseWith$LT$I$C$ElemF$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a0102124c451774E.exit.thread", label %22
-
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8, !alias.scope !7, !noalias !4, !noundef !10
+  %20 = load ptr, ptr %19, align 8, !alias.scope !14, !noalias !15, !noundef !10
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %32, label %46
+  br i1 %21, label %"_ZN115_$LT$itertools..intersperse..IntersperseWith$LT$I$C$ElemF$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a0102124c451774E.exit.thread", label %22
 
 22:                                               ; preds = %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..element..AnyElement$GT$$GT$$GT$17h7afd02819a6deebbE.exit.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
@@ -94,7 +94,7 @@ common.resume.i:                                  ; preds = %70, %53
   %common.resume.op.i = phi { ptr, i32 } [ %54, %53 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op.i
 
-32:                                               ; preds = %18
+32:                                               ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %34 = load ptr, ptr %33, align 8, !alias.scope !36, !noalias !37, !noundef !10
@@ -131,33 +131,33 @@ common.resume.i:                                  ; preds = %70, %53
   %45 = icmp eq ptr %.pr.i, null
   br i1 %45, label %"_ZN115_$LT$itertools..intersperse..IntersperseWith$LT$I$C$ElemF$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a0102124c451774E.exit.thread", label %47
 
-46:                                               ; preds = %18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !alias.scope !55
-  store ptr null, ptr %19, align 8, !alias.scope !7, !noalias !4
+46:                                               ; preds = %15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !alias.scope !55
+  store ptr null, ptr %16, align 8, !alias.scope !7, !noalias !4
   br label %"_ZN115_$LT$itertools..intersperse..IntersperseWith$LT$I$C$ElemF$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a0102124c451774E.exit"
 
 47:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hb372a0e342b20fc5E.exit17.i"
   %48 = load i64, ptr %1, align 8, !range !9, !alias.scope !56, !noalias !4, !noundef !10
   %49 = icmp eq i64 %48, 0
-  %50 = load ptr, ptr %19, align 8, !alias.scope !7, !noalias !4
+  %50 = load ptr, ptr %16, align 8, !alias.scope !7, !noalias !4
   %51 = icmp eq ptr %50, null
   %or.cond.i = select i1 %49, i1 true, i1 %51
   br i1 %or.cond.i, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..element..AnyElement$GT$$GT$$GT$17h7afd02819a6deebbE.exit19.i", label %52
 
 52:                                               ; preds = %47
-  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca4c623c7abdb5c2E.llvm.13949071745391659084"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
+  invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hca4c623c7abdb5c2E.llvm.13949071745391659084"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
           to label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..element..AnyElement$GT$$GT$$GT$17h7afd02819a6deebbE.exit19.i" unwind label %53, !noalias !4
 
 53:                                               ; preds = %52
   %54 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %1, align 8, !alias.scope !7, !noalias !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !4
   br label %common.resume.i
 
 "_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..element..AnyElement$GT$$GT$$GT$17h7afd02819a6deebbE.exit19.i": ; preds = %52, %47
   store i64 1, ptr %1, align 8, !alias.scope !7, !noalias !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !4
   call void @llvm.lifetime.start.p0(i64 856, ptr nonnull %9), !noalias !59
   call void @llvm.lifetime.start.p0(i64 856, ptr nonnull %8), !noalias !59
   call void @_ZN2ui10components5label5label5Label3new17h160d905163199bc5E(ptr noalias noundef nonnull sret([856 x i8]) align 8 captures(none) dereferenceable(856) %8, ptr noalias noundef nonnull readonly align 1 @anon.c2874306f840af312fd4e9248a3b7c6c.23.llvm.5969616472770882882, i64 noundef 3), !noalias !64
@@ -217,10 +217,10 @@ common.resume.i:                                  ; preds = %70, %53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !65
   call void @llvm.lifetime.end.p0(i64 856, ptr nonnull %9), !noalias !59
   store ptr %59, ptr %13, align 8, !alias.scope !4, !noalias !7
-  %.sroa.420.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %60, ptr %.sroa.420.0..sroa_idx.i, align 8, !alias.scope !4, !noalias !7
-  %.sroa.521.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr @anon.0283ff5a57ed96ebbc99d183213aa26c.23.llvm.11525715369029410844, ptr %.sroa.521.0..sroa_idx.i, align 8, !alias.scope !4, !noalias !7
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %60, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4, !noalias !7
+  %.sroa.520.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr @anon.0283ff5a57ed96ebbc99d183213aa26c.23.llvm.11525715369029410844, ptr %.sroa.520.0..sroa_idx.i, align 8, !alias.scope !4, !noalias !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %77
 

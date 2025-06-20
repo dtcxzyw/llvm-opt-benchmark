@@ -1550,9 +1550,6 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   %8 = alloca { i64, [5 x i64] }, align 8
   %9 = alloca { { i64, [2 x i64] } }, align 8
   %10 = alloca { i64, [10 x i64] }, align 8
-  %.sroa.3108 = alloca [3 x i64], align 8
-  %.sroa.398 = alloca [3 x i64], align 8
-  %.sroa.380 = alloca [5 x i64], align 8
   %11 = alloca { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }, align 8
   %12 = alloca { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }, align 8
   %13 = alloca { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }, align 8
@@ -1676,12 +1673,10 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   %70 = landingpad { ptr, i32 }
           cleanup
   store i64 -9223372036854775808, ptr %45, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.380, i64 40, i1 false)
   br label %.thread
 
 71:                                               ; preds = %63
   store i64 -9223372036854775808, ptr %45, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.380, i64 40, i1 false)
   br label %64
 
 72:                                               ; preds = %64
@@ -1697,12 +1692,10 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   %77 = landingpad { ptr, i32 }
           cleanup
   store i64 -9223372036854775807, ptr %46, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.22.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.398, i64 24, i1 false)
   br label %.thread
 
 78:                                               ; preds = %72
   store i64 -9223372036854775807, ptr %46, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.22.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.398, i64 24, i1 false)
   br label %73
 
 79:                                               ; preds = %73
@@ -1718,12 +1711,10 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   %82 = landingpad { ptr, i32 }
           cleanup
   store i64 -9223372036854775808, ptr %47, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.24.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3108, i64 24, i1 false)
   br label %.thread
 
 83:                                               ; preds = %79
   store i64 -9223372036854775808, ptr %47, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.24.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3108, i64 24, i1 false)
   br label %80
 
 84:                                               ; preds = %80

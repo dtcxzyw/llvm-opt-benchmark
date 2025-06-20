@@ -4918,7 +4918,6 @@ define internal void @_ZNK12_GLOBAL__N_117ContainerModeling14handlePushBackERN5c
   %15 = alloca %"class.clang::ento::SVal", align 8
   %16 = alloca %"class.llvm::IntrusiveRefCntPtr.552", align 8
   %17 = alloca %"class.clang::ento::SVal", align 8
-  %.sroa.5 = alloca [7 x i8], align 1
   %18 = alloca %"class.llvm::APSInt", align 8
   %19 = alloca %"class.llvm::IntrusiveRefCntPtr.552", align 8
   store ptr %2, ptr %10, align 8
@@ -5139,7 +5138,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit78: ; pre
   %84 = phi ptr [ %66, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76.thread ], [ %80, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76 ], [ %82, %81 ]
   %85 = phi ptr [ %64, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76.thread ], [ %78, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76 ], [ %83, %81 ]
   %.sroa.0114.1149 = phi ptr [ null, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76.thread ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit76 ], [ %.sroa.0114.1154, %81 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #18
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 64, ptr %86, align 8, !tbaa !533, !alias.scope !535
@@ -5150,8 +5148,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit78: ; pre
   store ptr %88, ptr %17, align 8, !tbaa !3
   %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 6, ptr %.sroa.4105.0..sroa_idx, align 8, !tbaa !540
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5, i64 7, i1 false), !tbaa.struct !250
   %89 = load ptr, ptr %59, align 8, !tbaa !7
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8
@@ -5178,7 +5174,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit78: ; pre
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit78, %97, %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #18
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5)
   %101 = load ptr, ptr %16, align 8, !tbaa !307
   %.not.i.i79 = icmp eq ptr %101, null
   br i1 %.not.i.i79, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit80, label %102

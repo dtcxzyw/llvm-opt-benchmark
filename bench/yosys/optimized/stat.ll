@@ -844,7 +844,6 @@ define internal void @_ZN12_GLOBAL__N_18StatPass7executeESt6vectorINSt7__cxx1112
   %17 = alloca %"class.Yosys::LibertyParser", align 8
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.6.i = alloca [7 x i8], align 1
   %20 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
   %22 = alloca i64, align 8
@@ -1274,7 +1273,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.i: ; preds = %_
 
 220:                                              ; preds = %216
   %221 = getelementptr inbounds nuw i8, ptr %198, i64 32
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6.i)
   %222 = load ptr, ptr %221, align 8, !tbaa !29
   %223 = call double @strtod(ptr noundef nonnull captures(none) %222, ptr noundef null) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #29
@@ -1837,8 +1835,6 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEN12_GLOBAL__N_111cell_area_tEED2Ev.exit.i.i: ;
   store double %223, ptr %440, align 8, !tbaa !70
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %440, i64 8
   store i8 %215, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !60
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %440, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i, i64 7, i1 false), !tbaa.struct !63
   %441 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !60, !range !62, !noundef !63
   %442 = trunc nuw i8 %441 to i1
   %443 = icmp ne i32 %227, 0
@@ -1886,7 +1882,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i56.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i57.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #29
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6.i)
   br label %490
 
 461:                                              ; preds = %._crit_edge.i.i.i
@@ -1969,7 +1964,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67.i: ; preds = %_
   %.pn28.pn.i = phi { ptr, i32 } [ %478, %477 ], [ %.pn28.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i66.i ], [ %.pn28.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #29
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61.i
 
 490:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58.i, %216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.i, %190, %.lr.ph.i

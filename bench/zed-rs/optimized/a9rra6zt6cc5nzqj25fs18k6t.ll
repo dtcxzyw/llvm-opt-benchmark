@@ -2186,7 +2186,6 @@ default.unreachable:                              ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15futures_channel4mpsc7channel17ha81b7f2e53b3d9c1E(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [96 x i8], align 8
-  %.sroa.4 = alloca [104 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [16 x i8], align 8
   %6 = alloca [8 x i8], align 8
@@ -2200,7 +2199,6 @@ define hidden void @_ZN15futures_channel4mpsc7channel17ha81b7f2e53b3d9c1E(ptr de
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %.sroa.4)
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !404
   %11 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 120, i64 noundef 8) #40, !noalias !404
   %12 = icmp eq ptr %11, null
@@ -2216,11 +2214,8 @@ common.resume:                                    ; preds = %.body, %50, %"_ZN4c
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h9075fdd2435554aeE.exit": ; preds = %9
   store i64 -9223372036854775808, ptr %11, align 8
-  %.sroa.4.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.4.0..sroa_idx69, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.4, i64 104, i1 false)
   %.sroa.470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 112
   store ptr null, ptr %.sroa.470.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %.sroa.4)
   store ptr %11, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %13, align 8
@@ -2337,10 +2332,10 @@ common.resume:                                    ; preds = %.body, %50, %"_ZN4c
   store i32 0, ptr %.sroa.5.0..sroa_idx64, align 8
   %.sroa.6.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i8 0, ptr %.sroa.6.0..sroa_idx65, align 4
-  %.sroa.8.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr null, ptr %.sroa.8.0..sroa_idx67, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store i8 0, ptr %.sroa.11.0..sroa_idx, align 8
+  %.sroa.767.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store ptr null, ptr %.sroa.767.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 40
+  store i8 0, ptr %.sroa.10.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store ptr %24, ptr %0, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5773,12 +5768,12 @@ define hidden void @"_ZN89_$LT$futures_channel..mpsc..BoundedSenderInner$LT$T$GT
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 20
-  store i8 0, ptr %.sroa.626.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr null, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store i8 0, ptr %.sroa.11.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 20
+  store i8 0, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.726.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store ptr null, ptr %.sroa.726.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store i8 0, ptr %.sroa.10.0..sroa_idx, align 8
   store ptr %4, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %32, align 8

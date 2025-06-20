@@ -4229,7 +4229,7 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..nfa..thompson..nfa..Inner$
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %zext = zext i32 %38 to i64
-  %zext165 = zext i32 %36 to i64
+  %zext164 = zext i32 %36 to i64
   br label %57
 
 51:                                               ; preds = %27
@@ -4251,10 +4251,10 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..nfa..thompson..nfa..Inner$
   unreachable
 
 57:                                               ; preds = %.lr.ph, %"_ZN14regex_automata4util10primitives24WithStateIDIter$LT$I$GT$3new17hcf8fef1a038b4fb2E.exit"
-  %.sroa.8.0161 = phi i64 [ 0, %.lr.ph ], [ %109, %"_ZN14regex_automata4util10primitives24WithStateIDIter$LT$I$GT$3new17hcf8fef1a038b4fb2E.exit" ]
-  %.sroa.0148.0160 = phi ptr [ %29, %.lr.ph ], [ %58, %"_ZN14regex_automata4util10primitives24WithStateIDIter$LT$I$GT$3new17hcf8fef1a038b4fb2E.exit" ]
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0148.0160, i64 24
-  %exitcond.not = icmp eq i64 %.sroa.8.0161, %31
+  %.sroa.8.0160 = phi i64 [ 0, %.lr.ph ], [ %109, %"_ZN14regex_automata4util10primitives24WithStateIDIter$LT$I$GT$3new17hcf8fef1a038b4fb2E.exit" ]
+  %.sroa.0148.0159 = phi ptr [ %29, %.lr.ph ], [ %58, %"_ZN14regex_automata4util10primitives24WithStateIDIter$LT$I$GT$3new17hcf8fef1a038b4fb2E.exit" ]
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0148.0159, i64 24
+  %exitcond.not = icmp eq i64 %.sroa.8.0160, %31
   br i1 %exitcond.not, label %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i", label %62
 
 "_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i": ; preds = %57
@@ -4269,17 +4269,17 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..nfa..thompson..nfa..Inner$
 
 62:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  store ptr %.sroa.0148.0160, ptr %20, align 8
+  store ptr %.sroa.0148.0159, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
-  %63 = icmp eq i64 %.sroa.8.0161, %zext165
-  %64 = icmp eq i64 %.sroa.8.0161, %zext
+  %63 = icmp eq i64 %.sroa.8.0160, %zext164
+  %64 = icmp eq i64 %.sroa.8.0160, %zext
   %. = select i1 %64, i32 62, i32 32
   %.sink = select i1 %63, i32 94, i32 %.
   store i32 %.sink, ptr %19, align 4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  store i64 %.sroa.8.0161, ptr %16, align 8
+  store i64 %.sroa.8.0160, ptr %16, align 8
   store ptr %19, ptr %17, align 8
   store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17he4f8681ce2737fc3E", ptr %39, align 8
   store ptr %16, ptr %40, align 8
@@ -4377,19 +4377,19 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..nfa..thompson..nfa..Inner$
   br label %87
 
 87:                                               ; preds = %.preheader, %108
-  %.sroa.053.0162 = phi i64 [ 0, %.preheader ], [ %88, %108 ]
-  %88 = add nuw i64 %.sroa.053.0162, 1
+  %.sroa.053.0161 = phi i64 [ 0, %.preheader ], [ %88, %108 ]
+  %88 = add nuw i64 %.sroa.053.0161, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  store i64 %.sroa.053.0162, ptr %13, align 8
-  %exitcond166.not = icmp eq i64 %.sroa.053.0162, %60
-  br i1 %exitcond166.not, label %89, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit", !prof !108
+  store i64 %.sroa.053.0161, ptr %13, align 8
+  %exitcond165.not = icmp eq i64 %.sroa.053.0161, %60
+  br i1 %exitcond165.not, label %89, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit", !prof !108
 
 89:                                               ; preds = %87
   call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %60, i64 noundef %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a1b429415f23bfa071ebb028a9ce5fa.85) #28, !noalias !461
   unreachable
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit": ; preds = %87
-  %90 = getelementptr inbounds [0 x i32], ptr %.val, i64 0, i64 %.sroa.053.0162
+  %90 = getelementptr inbounds [0 x i32], ptr %.val, i64 0, i64 %.sroa.053.0161
   %91 = load i32, ptr %90, align 4, !noundef !5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
@@ -4469,11 +4469,11 @@ define noundef zeroext i1 @"_ZN78_$LT$regex_automata..nfa..thompson..nfa..Inner$
   ret i1 %.0
 
 108:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfc3b7093a43cfe7fE.exit"
-  %exitcond167.not = icmp eq i64 %88, %60
-  br i1 %exitcond167.not, label %.thread, label %87
+  %exitcond166.not = icmp eq i64 %88, %60
+  br i1 %exitcond166.not, label %.thread, label %87
 
 "_ZN14regex_automata4util10primitives24WithStateIDIter$LT$I$GT$3new17hcf8fef1a038b4fb2E.exit": ; preds = %62
-  %109 = add nuw nsw i64 %.sroa.8.0161, 1
+  %109 = add nuw nsw i64 %.sroa.8.0160, 1
   %110 = icmp eq ptr %58, %32
   br i1 %110, label %"_ZN14regex_automata4util10primitives24WithStateIDIter$LT$I$GT$3new17hcf8fef1a038b4fb2E.exit._crit_edge", label %57
 }

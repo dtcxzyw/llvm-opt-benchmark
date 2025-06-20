@@ -41656,12 +41656,12 @@ define void @_ZN17cranelift_codegen2ir8constant12ConstantPool4iter17h6e03a4947d4
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %2
-  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !4
-  store ptr null, ptr %.sroa.417.0..sroa_idx, align 8
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.45.sroa.4.0..sroa.45.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %.sroa.45.sroa.4.0..sroa.45.0..sroa_idx.sroa_idx, align 8
   %.sroa.45.sroa.5.0..sroa.45.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -43834,7 +43834,7 @@ define void @"_ZN90_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN93_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core..convert..TryInto$LT$i8$GT$$GT$8try_into17h49cdfeb885bf9076E"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 16 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 16 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = load i8, ptr %1, align 16, !range !7288, !noundef !4
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 0, label %4
     i8 8, label %14
     i8 1, label %_ZN17cranelift_codegen10data_value9DataValue2ty17h6a34404cc3d4050bE.exit
@@ -43854,7 +43854,7 @@ define void @"_ZN93_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core
   store i16 2, ptr %0, align 16
   br label %15
 
-default.unreachable1.i:                           ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -43902,7 +43902,7 @@ define void @"_ZN91_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN94_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core..convert..TryInto$LT$i16$GT$$GT$8try_into17h9da1d8e6ddc4bf07E"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 16 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 16 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = load i8, ptr %1, align 16, !range !7288, !noundef !4
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 1, label %4
     i8 0, label %_ZN17cranelift_codegen10data_value9DataValue2ty17h6a34404cc3d4050bE.exit
     i8 8, label %14
@@ -43922,7 +43922,7 @@ define void @"_ZN94_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core
   store i16 2, ptr %0, align 16
   br label %15
 
-default.unreachable1.i:                           ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -43970,7 +43970,7 @@ define void @"_ZN91_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN94_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core..convert..TryInto$LT$i32$GT$$GT$8try_into17hb173c28a0b3edb44E"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 16 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 16 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = load i8, ptr %1, align 16, !range !7288, !noundef !4
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 2, label %4
     i8 0, label %_ZN17cranelift_codegen10data_value9DataValue2ty17h6a34404cc3d4050bE.exit
     i8 1, label %8
@@ -43990,7 +43990,7 @@ define void @"_ZN94_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core
   store i16 2, ptr %0, align 16
   br label %15
 
-default.unreachable1.i:                           ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -44038,7 +44038,7 @@ define void @"_ZN91_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN94_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core..convert..TryInto$LT$i64$GT$$GT$8try_into17h235c8037202d127fE"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 16 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 16 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = load i8, ptr %1, align 16, !range !7288, !noundef !4
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 3, label %4
     i8 0, label %_ZN17cranelift_codegen10data_value9DataValue2ty17h6a34404cc3d4050bE.exit
     i8 1, label %8
@@ -44058,7 +44058,7 @@ define void @"_ZN94_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core
   store i16 2, ptr %0, align 16
   br label %15
 
-default.unreachable1.i:                           ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -44106,7 +44106,7 @@ define void @"_ZN92_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN95_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core..convert..TryInto$LT$i128$GT$$GT$8try_into17hdb2e76bdef7b734fE"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 16 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 16 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = load i8, ptr %1, align 16, !range !7288, !noundef !4
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 4, label %4
     i8 0, label %_ZN17cranelift_codegen10data_value9DataValue2ty17h6a34404cc3d4050bE.exit
     i8 1, label %8
@@ -44126,7 +44126,7 @@ define void @"_ZN95_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core
   store i16 2, ptr %0, align 16
   br label %15
 
-default.unreachable1.i:                           ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -44174,7 +44174,7 @@ define void @"_ZN129_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$cor
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN132_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core..convert..TryInto$LT$cranelift_codegen..ir..immediates..Ieee32$GT$$GT$8try_into17h53018d538fcac4b3E"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 16 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 16 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = load i8, ptr %1, align 16, !range !7288, !noundef !4
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 5, label %4
     i8 0, label %_ZN17cranelift_codegen10data_value9DataValue2ty17h6a34404cc3d4050bE.exit
     i8 1, label %7
@@ -44194,7 +44194,7 @@ define void @"_ZN132_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$cor
   store i16 2, ptr %0, align 16
   br label %14
 
-default.unreachable1.i:                           ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -44242,7 +44242,7 @@ define void @"_ZN129_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$cor
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN132_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core..convert..TryInto$LT$cranelift_codegen..ir..immediates..Ieee64$GT$$GT$8try_into17hba765e5e2627a05bE"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 16 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 16 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = load i8, ptr %1, align 16, !range !7288, !noundef !4
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 6, label %4
     i8 0, label %_ZN17cranelift_codegen10data_value9DataValue2ty17h6a34404cc3d4050bE.exit
     i8 1, label %7
@@ -44262,7 +44262,7 @@ define void @"_ZN132_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$cor
   store i16 2, ptr %0, align 16
   br label %14
 
-default.unreachable1.i:                           ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -44311,7 +44311,7 @@ define void @"_ZN112_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$cor
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN115_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core..convert..TryInto$LT$$u5b$u8$u3b$$u20$16$u5d$$GT$$GT$8try_into17h8a6594e2fa65f235E"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 16 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 16 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = load i8, ptr %1, align 16, !range !7288, !noundef !4
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 7, label %4
     i8 0, label %_ZN17cranelift_codegen10data_value9DataValue2ty17h6a34404cc3d4050bE.exit
     i8 1, label %8
@@ -44331,7 +44331,7 @@ define void @"_ZN115_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$cor
   store i16 2, ptr %0, align 16
   br label %15
 
-default.unreachable1.i:                           ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -44379,7 +44379,7 @@ define void @"_ZN111_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$cor
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN114_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$core..convert..TryInto$LT$$u5b$u8$u3b$$u20$8$u5d$$GT$$GT$8try_into17h09578ee7edb1abbeE"(ptr noalias noundef writeonly sret({ i16, [15 x i16] }) align 16 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 16 captures(none) dereferenceable(32) %1) unnamed_addr #3 {
   %3 = load i8, ptr %1, align 16, !range !7288, !noundef !4
-  switch i8 %3, label %default.unreachable1.i [
+  switch i8 %3, label %default.unreachable [
     i8 8, label %4
     i8 0, label %_ZN17cranelift_codegen10data_value9DataValue2ty17h6a34404cc3d4050bE.exit
     i8 1, label %8
@@ -44399,7 +44399,7 @@ define void @"_ZN114_$LT$cranelift_codegen..data_value..DataValue$u20$as$u20$cor
   store i16 2, ptr %0, align 16
   br label %15
 
-default.unreachable1.i:                           ; preds = %2
+default.unreachable:                              ; preds = %2
   unreachable
 
 8:                                                ; preds = %2

@@ -1362,7 +1362,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit: ; preds = %39
   %72 = load i32, ptr %71, align 4, !noalias !90, !noundef !14
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %74 = load i8, ptr %73, align 8, !range !81, !noalias !90, !noundef !14
-  %.sroa.43.8.insert.ext15 = zext nneg i8 %74 to i64
+  %.sroa.14.8.insert.ext15 = zext nneg i8 %74 to i64
   br label %"_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit"
 
 75:                                               ; preds = %61
@@ -1372,10 +1372,10 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit: ; preds = %39
   %79 = load i32, ptr %76, align 4, !noalias !90, !noundef !14
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %81 = load i8, ptr %80, align 8, !range !26, !noalias !90, !noundef !14
-  %.sroa.43.8.insert.ext11 = zext nneg i8 %81 to i64
-  %.sroa.43.12.insert.ext19 = zext nneg i8 %78 to i64
-  %.sroa.43.12.insert.shift20 = shl nuw nsw i64 %.sroa.43.12.insert.ext19, 32
-  %.sroa.43.12.insert.insert22 = or disjoint i64 %.sroa.43.12.insert.shift20, %.sroa.43.8.insert.ext11
+  %.sroa.14.8.insert.ext11 = zext nneg i8 %81 to i64
+  %.sroa.14.12.insert.ext19 = zext nneg i8 %78 to i64
+  %.sroa.14.12.insert.shift20 = shl nuw nsw i64 %.sroa.14.12.insert.ext19, 32
+  %.sroa.14.12.insert.insert22 = or disjoint i64 %.sroa.14.12.insert.shift20, %.sroa.14.8.insert.ext11
   br label %"_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit"
 
 82:                                               ; preds = %61
@@ -1383,7 +1383,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit: ; preds = %39
   %84 = load i32, ptr %83, align 4, !noalias !90, !noundef !14
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %86 = load i8, ptr %85, align 8, !range !26, !noalias !90, !noundef !14
-  %.sroa.43.8.insert.ext7 = zext nneg i8 %86 to i64
+  %.sroa.14.8.insert.ext7 = zext nneg i8 %86 to i64
   br label %"_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit"
 
 87:                                               ; preds = %61
@@ -1401,7 +1401,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit: ; preds = %39
   %95 = load i32, ptr %94, align 4, !range !83, !noalias !90, !noundef !14
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %97 = load i32, ptr %96, align 8, !noalias !90
-  %.sroa.43.8.insert.ext = zext i32 %97 to i64
+  %.sroa.14.8.insert.ext = zext i32 %97 to i64
   br label %"_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit"
 
 98:                                               ; preds = %61
@@ -1429,24 +1429,24 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit: ; preds = %39
   %.sroa.08.0.i = phi i32 [ %109, %107 ], [ undef, %101 ]
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %112 = load i8, ptr %111, align 4, !range !26, !noalias !90, !noundef !14
-  %.sroa.43.8.insert.ext3 = zext nneg i8 %103 to i64
-  %.sroa.43.12.insert.ext = zext nneg i8 %112 to i64
-  %.sroa.43.12.insert.shift = shl nuw nsw i64 %.sroa.43.12.insert.ext, 32
-  %.sroa.43.12.insert.insert = or disjoint i64 %.sroa.43.12.insert.shift, %.sroa.43.8.insert.ext3
+  %.sroa.14.8.insert.ext3 = zext nneg i8 %103 to i64
+  %.sroa.14.12.insert.ext = zext nneg i8 %112 to i64
+  %.sroa.14.12.insert.shift = shl nuw nsw i64 %.sroa.14.12.insert.ext, 32
+  %.sroa.14.12.insert.insert = or disjoint i64 %.sroa.14.12.insert.shift, %.sroa.14.8.insert.ext3
   br label %"_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit"
 
 "_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit": ; preds = %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %61, %64, %67, %70, %75, %82, %87, %90, %93, %98, %104, %110
-  %.sroa.351.0 = phi i32 [ undef, %64 ], [ undef, %67 ], [ %72, %70 ], [ %79, %75 ], [ %84, %82 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ undef, %98 ], [ %.sroa.08.0.i, %110 ], [ %106, %104 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ]
-  %.sroa.43.0 = phi i64 [ undef, %64 ], [ undef, %67 ], [ %.sroa.43.8.insert.ext15, %70 ], [ %.sroa.43.12.insert.insert22, %75 ], [ %.sroa.43.8.insert.ext7, %82 ], [ undef, %87 ], [ undef, %90 ], [ %.sroa.43.8.insert.ext, %93 ], [ %100, %98 ], [ %.sroa.43.12.insert.insert, %110 ], [ undef, %104 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ]
-  %.sroa.33.0 = phi i8 [ %66, %64 ], [ %69, %67 ], [ undef, %70 ], [ undef, %75 ], [ undef, %82 ], [ undef, %87 ], [ undef, %90 ], [ undef, %93 ], [ undef, %98 ], [ undef, %110 ], [ undef, %104 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ]
+  %.sroa.61.0 = phi i32 [ undef, %61 ], [ undef, %64 ], [ undef, %67 ], [ %72, %70 ], [ %79, %75 ], [ %84, %82 ], [ %89, %87 ], [ %92, %90 ], [ %95, %93 ], [ undef, %98 ], [ %.sroa.08.0.i, %110 ], [ %106, %104 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ]
+  %.sroa.4.0 = phi i8 [ undef, %61 ], [ %66, %64 ], [ %69, %67 ], [ undef, %70 ], [ undef, %75 ], [ undef, %82 ], [ undef, %87 ], [ undef, %90 ], [ undef, %93 ], [ undef, %98 ], [ undef, %110 ], [ undef, %104 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ]
+  %.sroa.14.0 = phi i64 [ undef, %61 ], [ undef, %64 ], [ undef, %67 ], [ %.sroa.14.8.insert.ext15, %70 ], [ %.sroa.14.12.insert.insert22, %75 ], [ %.sroa.14.8.insert.ext7, %82 ], [ undef, %87 ], [ undef, %90 ], [ %.sroa.14.8.insert.ext, %93 ], [ %100, %98 ], [ %.sroa.14.12.insert.insert, %110 ], [ undef, %104 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ], [ undef, %61 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %63, ptr %113, align 8
-  %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %.sroa.33.0, ptr %.sroa.33.0..sroa_idx, align 1
-  %.sroa.351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.351.0, ptr %.sroa.351.0..sroa_idx, align 4
-  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.43.0, ptr %.sroa.43.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.sroa.61.0, ptr %.sroa.61.0..sroa_idx, align 4
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.14.0, ptr %.sroa.14.0..sroa_idx, align 8
   br label %114
 
 114:                                              ; preds = %2, %2, %2, %"_ZN79_$LT$ruff_formatter..format_element..tag..Tag$u20$as$u20$core..clone..Clone$GT$5clone17h821775493f0fd8b0E.exit", %51, %_ZN5alloc2rc10RcInnerPtr10inc_strong17h8203a764ab41f7cbE.exit, %29, %19, %12, %8, %4

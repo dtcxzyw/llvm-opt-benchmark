@@ -616,16 +616,16 @@ define hidden { i64, i64 } @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5reset1
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16, !noalias !36
   unreachable
 
-common.resume.i.sink.split:                       ; preds = %85, %99
-  %.sink17 = phi i64 [ 112, %99 ], [ 64, %85 ]
-  %.sink = phi i64 [ %94, %99 ], [ %80, %85 ]
-  %common.resume.op.i.ph = phi { ptr, i32 } [ %100, %99 ], [ %86, %85 ]
-  %.sroa.5.sroa.521.0..sroa.5.0..sroa_idx16.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink17
-  store i64 %.sink, ptr %.sroa.5.sroa.521.0..sroa.5.0..sroa_idx16.sroa_idx.i.i, align 8, !alias.scope !22
+common.resume.sink.split.i:                       ; preds = %99, %85
+  %.sink5.i = phi i64 [ 64, %85 ], [ 112, %99 ]
+  %.sink.i = phi i64 [ %80, %85 ], [ %94, %99 ]
+  %common.resume.op.ph.i = phi { ptr, i32 } [ %86, %85 ], [ %100, %99 ]
+  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink5.i
+  store i64 %.sink.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !22
   br label %common.resume.i
 
-common.resume.i:                                  ; preds = %common.resume.i.sink.split, %89, %73
-  %common.resume.op.i = phi { ptr, i32 } [ %74, %73 ], [ %90, %89 ], [ %common.resume.op.i.ph, %common.resume.i.sink.split ]
+common.resume.i:                                  ; preds = %89, %common.resume.sink.split.i, %73
+  %common.resume.op.i = phi { ptr, i32 } [ %74, %73 ], [ %90, %89 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ]
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h42cfdd358f744aaaE.exit.i": ; preds = %68
@@ -653,7 +653,7 @@ common.resume.i:                                  ; preds = %common.resume.i.sin
           cleanup
   store i64 1, ptr %48, align 8, !alias.scope !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.sroa.0.i.i, i64 24, i1 false)
-  br label %common.resume.i.sink.split
+  br label %common.resume.sink.split.i
 
 "_ZN4core3ptr45drop_in_place$LT$quiche..ranges..RangeSet$GT$17hb184015df1b6107eE.exit.i": ; preds = %84, %83
   store i64 1, ptr %48, align 8, !alias.scope !22
@@ -710,7 +710,7 @@ common.resume.i:                                  ; preds = %common.resume.i.sin
           cleanup
   store i64 0, ptr %48, align 8, !alias.scope !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.sroa.020.i.i, i64 72, i1 false)
-  br label %common.resume.i.sink.split
+  br label %common.resume.sink.split.i
 
 "_ZN4core3ptr45drop_in_place$LT$quiche..ranges..RangeSet$GT$17hb184015df1b6107eE.exit4.i": ; preds = %98, %97
   store i64 0, ptr %48, align 8, !alias.scope !22
@@ -807,13 +807,13 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h626917
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !53
   %.not.i = icmp ult i64 %.sroa.0.0.i.i, %13
   %46 = ptrtoint ptr %1 to i64
-  %.sroa.0.054.i. = select i1 %.not.i, i64 %.sroa.0.054.i, i64 0
+  %spec.select = select i1 %.not.i, i64 %.sroa.0.054.i, i64 0
   store i64 %46, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %.sroa.0.054.i., ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %spec.select, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 %.sroa.04.053.i, ptr %.sroa.5.0..sroa_idx, align 8
-  %47 = icmp eq i64 %.sroa.0.054.i., 0
+  %47 = icmp eq i64 %spec.select, 0
   br i1 %47, label %52, label %.preheader
 
 48:                                               ; preds = %34
@@ -823,11 +823,11 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h626917
   br label %.thread.i
 
 50:                                               ; preds = %35, %17, %29
-  %.sroa.1038.0.ph = phi i64 [ undef, %29 ], [ %19, %17 ], [ undef, %35 ]
+  %.sroa.9.0.ph = phi i64 [ undef, %29 ], [ %19, %17 ], [ undef, %35 ]
   %.sroa.0.0.ph = phi i64 [ 14, %29 ], [ 12, %17 ], [ 14, %35 ]
   store i64 %.sroa.0.0.ph, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.1038.0.ph, ptr %51, align 8
+  store i64 %.sroa.9.0.ph, ptr %51, align 8
   br label %60
 
 52:                                               ; preds = %.thread.i
@@ -857,17 +857,17 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h626917
           to label %90 unwind label %88
 
 .preheader:                                       ; preds = %.thread.i, %79
-  %.sroa.040.060 = phi ptr [ %55, %79 ], [ %2, %.thread.i ]
-  %.sroa.641.059 = phi i64 [ %56, %79 ], [ %.sroa.0.054.i, %.thread.i ]
-  %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.641.059, i64 range(i64 1, 0) 4096)
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.040.060, i64 %.sroa.0.0.sroa.speculated.i.i
-  %56 = sub nuw i64 %.sroa.641.059, %.sroa.0.0.sroa.speculated.i.i
-  %57 = invoke noundef nonnull ptr @"_ZN86_$LT$quiche..range_buf..DefaultBufFactory$u20$as$u20$quiche..range_buf..BufFactory$GT$14buf_from_slice17hea69b3839e710227E"(ptr noalias noundef nonnull readonly align 1 %.sroa.040.060, i64 noundef %.sroa.0.0.sroa.speculated.i.i)
+  %.sroa.640.060 = phi i64 [ %56, %79 ], [ %.sroa.0.054.i, %.thread.i ]
+  %.sroa.039.059 = phi ptr [ %55, %79 ], [ %2, %.thread.i ]
+  %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.640.060, i64 range(i64 1, 0) 4096)
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.039.059, i64 %.sroa.0.0.sroa.speculated.i.i
+  %56 = sub nuw i64 %.sroa.640.060, %.sroa.0.0.sroa.speculated.i.i
+  %57 = invoke noundef nonnull ptr @"_ZN86_$LT$quiche..range_buf..DefaultBufFactory$u20$as$u20$quiche..range_buf..BufFactory$GT$14buf_from_slice17hea69b3839e710227E"(ptr noalias noundef nonnull readonly align 1 %.sroa.039.059, i64 noundef %.sroa.0.0.sroa.speculated.i.i)
           to label %61 unwind label %.loopexit
 
 58:                                               ; preds = %79
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0.054.i., ptr %59, align 8
+  store i64 %spec.select, ptr %59, align 8
   store i64 20, ptr %0, align 8
   call void @"_ZN4core3ptr102drop_in_place$LT$quiche..stream..send_buf..SendReserve$LT$quiche..range_buf..DefaultBufFactory$GT$$GT$17h0a6b996cb3bcf802E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
   br label %60

@@ -9902,16 +9902,16 @@ _ZN3std7process7Command6stderr17h44ec80579923e836E.exit: ; preds = %_ZN3std7proc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
   store i64 %32, ptr %0, align 8
-  %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %39, ptr %.sroa.264.0..sroa_idx, align 8
-  %.sroa.365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.val3.i, ptr %.sroa.365.0..sroa_idx, align 8
-  %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @anon.2b758752e93fe0560f89c3509e28cb19.106, ptr %.sroa.466.0..sroa_idx, align 8
-  %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 4, ptr %.sroa.567.0..sroa_idx, align 8
-  %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %25, ptr %.sroa.668.0..sroa_idx, align 8
+  %.sroa.263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %39, ptr %.sroa.263.0..sroa_idx, align 8
+  %.sroa.364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.val3.i, ptr %.sroa.364.0..sroa_idx, align 8
+  %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr @anon.2b758752e93fe0560f89c3509e28cb19.106, ptr %.sroa.465.0..sroa_idx, align 8
+  %.sroa.566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 4, ptr %.sroa.566.0..sroa_idx, align 8
+  %.sroa.667.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %25, ptr %.sroa.667.0..sroa_idx, align 8
   call void @"_ZN4core3ptr74drop_in_place$LT$std..sys..pal..unix..process..process_common..Command$GT$17h7fba006a82a5038fE.llvm.1525709606161698564"(ptr noalias noundef nonnull align 8 dereferenceable(208) %10)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %10)
   br label %72

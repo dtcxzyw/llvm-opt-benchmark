@@ -323,7 +323,7 @@ define hidden void @_ZN4core5array25try_from_trusted_iterator17h56929bb818d33921
 define hidden void @_ZN4core5array25try_from_trusted_iterator17h8fcca485d356ed95E.llvm.5814777820638942741(ptr noalias noundef writeonly sret({ [2 x [8 x i8]] }) align 1 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr }, align 8
   %.sroa.0.i = alloca i64, align 8
-  %.sroa.5.i = alloca i64, align 8
+  %.sroa.4.i = alloca i64, align 8
   %5 = alloca { ptr, ptr }, align 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -341,7 +341,7 @@ define hidden void @_ZN4core5array25try_from_trusted_iterator17h8fcca485d356ed95
 12:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !88
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -350,7 +350,7 @@ define hidden void @_ZN4core5array25try_from_trusted_iterator17h8fcca485d356ed95
 
 14:                                               ; preds = %14, %12
   %15 = phi i1 [ true, %12 ], [ false, %14 ]
-  %storemerge11.i.sroa.phi.i = phi ptr [ %.sroa.0.i, %12 ], [ %.sroa.5.i, %14 ]
+  %storemerge11.i.sroa.phi.i = phi ptr [ %.sroa.0.i, %12 ], [ %.sroa.4.i, %14 ]
   %16 = phi ptr [ %1, %12 ], [ %17, %14 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
@@ -366,12 +366,12 @@ _ZN4core5array18try_from_fn_erased17h4782dfaa72d9b83aE.exit.i: ; preds = %14
   %20 = call { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$12as_mut_slice17h5062875b88a3cf27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !88
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i = load i64, ptr %.sroa.0.i, align 8, !noalias !88
-  %.sroa.5.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.i = load i64, ptr %.sroa.5.i, align 8, !noalias !88
+  %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i = load i64, ptr %.sroa.4.i, align 8, !noalias !88
   store i64 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i, ptr %0, align 1, !alias.scope !108
-  %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.i, ptr %.sroa.49.0..sroa_idx.i, align 1, !alias.scope !108
+  %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.4.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i, ptr %.sroa.48.0..sroa_idx.i, align 1, !alias.scope !108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i)
   ret void
 
 21:                                               ; preds = %11
@@ -415,12 +415,12 @@ define hidden void @_ZN4core5array25try_from_trusted_iterator17he6fd0080cf798f2e
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !112
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %13, align 8, !noalias !115
-  %.sroa.0.0.copyload5.i = load <2 x i64>, ptr %1, align 8, !noalias !112
+  %.sroa.0.0.copyload.i = load <2 x i64>, ptr %1, align 8, !noalias !112
   %scevgep.i.i = getelementptr i8, ptr %1, i64 16
   store ptr %scevgep.i.i, ptr %4, align 8, !alias.scope !118, !noalias !115
   %14 = call { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$12as_mut_slice17h79c25e4c88afaa53E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !112
-  store <2 x i64> %.sroa.0.0.copyload5.i, ptr %0, align 8, !alias.scope !127
+  store <2 x i64> %.sroa.0.0.copyload.i, ptr %0, align 8, !alias.scope !127
   ret void
 
 15:                                               ; preds = %11
@@ -552,7 +552,7 @@ _ZN4core5array25try_from_trusted_iterator17h56929bb818d33921E.llvm.5814777820638
 define hidden void @"_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7try_map28_$u7b$$u7b$closure$u7d$$u7d$17h8b5146eb95e3be35E.llvm.5814777820638942741"(ptr noalias noundef writeonly sret({ [2 x [8 x i8]] }) align 1 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr }, align 8
   %.sroa.0.i.i = alloca i64, align 8
-  %.sroa.5.i.i = alloca i64, align 8
+  %.sroa.4.i.i = alloca i64, align 8
   %5 = alloca { ptr, ptr }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -572,7 +572,7 @@ define hidden void @"_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7tr
 12:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5.i.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !183
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -581,7 +581,7 @@ define hidden void @"_ZN4core5array40_$LT$impl$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7tr
 
 14:                                               ; preds = %14, %12
   %15 = phi i1 [ true, %12 ], [ false, %14 ]
-  %storemerge11.i.sroa.phi.i.i = phi ptr [ %.sroa.0.i.i, %12 ], [ %.sroa.5.i.i, %14 ]
+  %storemerge11.i.sroa.phi.i.i = phi ptr [ %.sroa.0.i.i, %12 ], [ %.sroa.4.i.i, %14 ]
   %16 = phi ptr [ %1, %12 ], [ %17, %14 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
@@ -615,12 +615,12 @@ _ZN4core5array25try_from_trusted_iterator17h8fcca485d356ed95E.llvm.5814777820638
   %26 = call { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$12as_mut_slice17h5062875b88a3cf27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !174
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !183
   %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i = load i64, ptr %.sroa.0.i.i, align 8, !noalias !183
-  %.sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.i.i, align 8, !noalias !183
+  %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.i.i, align 8, !noalias !183
   store i64 %.sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i, ptr %0, align 1, !alias.scope !198
-  %.sroa.49.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.i.i, ptr %.sroa.49.0..sroa_idx.i.i, align 1, !alias.scope !198
+  %.sroa.48.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i, ptr %.sroa.48.0..sroa_idx.i.i, align 1, !alias.scope !198
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 }
@@ -667,12 +667,12 @@ _ZN4core5array25try_from_trusted_iterator17he6fd0080cf798f2eE.llvm.5814777820638
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !208
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %18, align 8, !noalias !209
-  %.sroa.0.0.copyload5.i.i = load <2 x i64>, ptr %1, align 8, !noalias !208
+  %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %1, align 8, !noalias !208
   %scevgep.i.i.i = getelementptr i8, ptr %1, i64 16
   store ptr %scevgep.i.i.i, ptr %4, align 8, !alias.scope !212, !noalias !209
   %19 = call { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$12as_mut_slice17h79c25e4c88afaa53E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !202
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !208
-  store <2 x i64> %.sroa.0.0.copyload5.i.i, ptr %0, align 8, !alias.scope !221
+  store <2 x i64> %.sroa.0.0.copyload.i.i, ptr %0, align 8, !alias.scope !221
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 }
@@ -721,7 +721,7 @@ define hidden void @_ZN4core5array5drain16drain_array_with17ha81204ccb6ecfc90E(p
 define hidden void @_ZN4core5array5drain16drain_array_with17hb62536d2f5de645bE(ptr noalias noundef writeonly sret({ [2 x [8 x i8]] }) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr }, align 8
   %.sroa.0.i.i.i = alloca i64, align 8
-  %.sroa.5.i.i.i = alloca i64, align 8
+  %.sroa.4.i.i.i = alloca i64, align 8
   %4 = alloca { [2 x i64] }, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %5 = load <2 x i64>, ptr %1, align 8
@@ -731,7 +731,7 @@ define hidden void @_ZN4core5array5drain16drain_array_with17hb62536d2f5de645bE(p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5.i.i.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !279)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !282
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -740,7 +740,7 @@ define hidden void @_ZN4core5array5drain16drain_array_with17hb62536d2f5de645bE(p
 
 8:                                                ; preds = %8, %2
   %9 = phi i1 [ true, %2 ], [ false, %8 ]
-  %storemerge11.i.sroa.phi.i.i.i = phi ptr [ %.sroa.0.i.i.i, %2 ], [ %.sroa.5.i.i.i, %8 ]
+  %storemerge11.i.sroa.phi.i.i.i = phi ptr [ %.sroa.0.i.i.i, %2 ], [ %.sroa.4.i.i.i, %8 ]
   %10 = phi ptr [ %4, %2 ], [ %11, %8 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !284)
   call void @llvm.experimental.noalias.scope.decl(metadata !287)
@@ -756,12 +756,12 @@ define hidden void @_ZN4core5array5drain16drain_array_with17hb62536d2f5de645bE(p
   %14 = call { ptr, i64 } @"_ZN4core5slice4iter16IterMut$LT$T$GT$12as_mut_slice17h5062875b88a3cf27E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !297
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !282
   %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i = load i64, ptr %.sroa.0.i.i.i, align 8, !noalias !282
-  %.sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.i.i.i, align 8, !noalias !282
+  %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.i.i.i, align 8, !noalias !282
   store i64 %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i.i.i, ptr %0, align 1, !alias.scope !298
-  %.sroa.49.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.i.0..sroa.5.i.i.0..sroa.5.i.i.0..sroa.5.i.0..sroa.5.i.0..sroa.5.0..sroa.5.0..sroa.5.0.copyload.i.i.i, ptr %.sroa.49.0..sroa_idx.i.i.i, align 1, !alias.scope !298
+  %.sroa.48.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i.i, ptr %.sroa.48.0..sroa_idx.i.i.i, align 1, !alias.scope !298
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5.i.i.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret void
 }

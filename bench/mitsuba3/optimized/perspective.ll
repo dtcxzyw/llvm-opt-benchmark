@@ -1992,9 +1992,9 @@ define weak_odr void @_ZNK7mitsuba17PerspectiveCameraIfN5drjit6MatrixINS_8Spectr
   br i1 %36, label %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba6VectorIfLm2EEEE4mul_ERKS3_.exit.critedge, label %.preheader485.preheader
 
 .preheader485.preheader:                          ; preds = %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(49) %0, i8 0, i64 49, i1 false)
   %.sroa.19530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.23543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(49) %0, i8 0, i64 49, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %.sroa.19530.0..sroa_idx, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %.sroa.23543.0..sroa_idx, i8 0, i64 264, i1 false)
   br label %152
@@ -2064,10 +2064,10 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba6VectorIfLm2EEEE4mul_ERKS3_.exit.critedge: ; 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store <2 x float> %.sroa.7.36.vec.insert, ptr %.sroa.7.0..sroa_idx508, align 16
   %.sroa.14.0..sroa_idx516 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.14.0..sroa_idx516, i8 0, i64 9, i1 false)
   %.sroa.19530.0..sroa_idx531 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.23543.0..sroa_idx544 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr null, ptr %.sroa.23543.0..sroa_idx544, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.14.0..sroa_idx516, i8 0, i64 9, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %.sroa.19530.0..sroa_idx531, i8 0, i64 20, i1 false)
   br label %152
 

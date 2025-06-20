@@ -4494,8 +4494,8 @@ _ZN10async_task5utils14abort_on_panic17h215ec648311a570bE.exit: ; preds = %26, %
 
 89:                                               ; preds = %87, %85, %77
   %.sroa.10.0 = phi ptr [ %88, %87 ], [ %74, %85 ], [ %79, %77 ]
-  %.sroa.6.0279 = phi ptr [ null, %87 ], [ %73, %85 ], [ null, %77 ]
-  store ptr %.sroa.6.0279, ptr %3, align 8
+  %.sroa.6.0273 = phi ptr [ null, %87 ], [ %73, %85 ], [ null, %77 ]
+  store ptr %.sroa.6.0273, ptr %3, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.10.0, ptr %.sroa.10.8..sroa_idx, align 8
   %.val96.val = load ptr, ptr %8, align 8, !alias.scope !459, !noundef !4
@@ -5404,8 +5404,8 @@ _ZN10async_task5utils14abort_on_panic17h963563ebb61b1bc7E.exit: ; preds = %25, %
 
 87:                                               ; preds = %85, %83, %73
   %.sroa.10.0 = phi ptr [ %86, %85 ], [ %70, %83 ], [ %75, %73 ]
-  %.sroa.6.0279 = phi ptr [ null, %85 ], [ %69, %83 ], [ null, %73 ]
-  store ptr %.sroa.6.0279, ptr %3, align 8
+  %.sroa.6.0273 = phi ptr [ null, %85 ], [ %69, %83 ], [ null, %73 ]
+  store ptr %.sroa.6.0273, ptr %3, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.10.0, ptr %.sroa.10.8..sroa_idx, align 8
   %.val96.val = load ptr, ptr %8, align 8, !alias.scope !375
@@ -7277,8 +7277,8 @@ _ZN4core3ops8function6FnOnce9call_once17hf29d994627a6f16fE.llvm.1339133684658595
 
 113:                                              ; preds = %111, %109, %102
   %.sroa.10.0 = phi ptr [ %112, %111 ], [ %99, %109 ], [ %103, %102 ]
-  %.sroa.6.0275 = phi ptr [ null, %111 ], [ %98, %109 ], [ null, %102 ]
-  store ptr %.sroa.6.0275, ptr %7, align 8
+  %.sroa.6.0269 = phi ptr [ null, %111 ], [ %98, %109 ], [ null, %102 ]
+  store ptr %.sroa.6.0269, ptr %7, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.sroa.10.0, ptr %.sroa.10.8..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -8960,8 +8960,8 @@ _ZN10async_task5utils14abort_on_panic17h2352088787fa6644E.exit: ; preds = %21
 
 60:                                               ; preds = %58, %56, %49
   %.sroa.10.0 = phi ptr [ %59, %58 ], [ %45, %56 ], [ %50, %49 ]
-  %.sroa.6.0269 = phi ptr [ null, %58 ], [ %44, %56 ], [ null, %49 ]
-  store ptr %.sroa.6.0269, ptr %3, align 8
+  %.sroa.6.0263 = phi ptr [ null, %58 ], [ %44, %56 ], [ null, %49 ]
+  store ptr %.sroa.6.0263, ptr %3, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.10.0, ptr %.sroa.10.8..sroa_idx, align 8
   %.val96.val = load ptr, ptr %8, align 8, !alias.scope !443, !noundef !4

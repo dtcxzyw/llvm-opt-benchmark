@@ -115807,7 +115807,6 @@ define internal void @_ZNK12_GLOBAL__N_120AAICVTrackerCallSite15trackStatisticsE
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZN12_GLOBAL__N_120AAICVTrackerCallSite10updateImplERN4llvm10AttributorE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(4304) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::IRPosition", align 8
-  %.sroa.7 = alloca [7 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %4, align 8
   %5 = and i64 %.0.copyload.i.i.i.i.i.i, 3
@@ -115865,10 +115864,9 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit:     ; preds = %_ZNK4llvm10IRPositi
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(10) %25) #29
-  br label %73
+  br label %72
 
 30:                                               ; preds = %_ZNK4llvm10IRPosition14getAnchorScopeEv.exit
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %32 = load i32, ptr %31, align 8, !tbaa !2758
   %.0.copyload.i.i.i.i.i.i7 = load i64, ptr %4, align 8
@@ -115952,17 +115950,10 @@ _ZSteqIPN4llvm5ValueES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declval
 71:                                               ; preds = %68, %_ZSteqIPN4llvm5ValueES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit
   store ptr %61, ptr %63, align 8
   store i8 %62, ptr %64, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, i64 7, i1 false)
   br label %72
 
-72:                                               ; preds = %68, %_ZSteqIPN4llvm5ValueES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit, %71
-  %.1 = phi i32 [ 0, %71 ], [ 1, %_ZSteqIPN4llvm5ValueES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit ], [ 1, %68 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
-  br label %73
-
-73:                                               ; preds = %72, %24
-  %.0 = phi i32 [ %.1, %72 ], [ %29, %24 ]
+72:                                               ; preds = %71, %_ZSteqIPN4llvm5ValueES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit, %68, %24
+  %.0 = phi i32 [ %29, %24 ], [ 0, %71 ], [ 1, %_ZSteqIPN4llvm5ValueES2_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit ], [ 1, %68 ]
   ret i32 %.0
 }
 

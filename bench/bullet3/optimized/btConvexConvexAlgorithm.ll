@@ -810,7 +810,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %319, %_
   store i32 0, ptr %311, align 8, !tbaa !30
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i, %310, %305
+.loopexit:                                        ; preds = %310, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i, %305
   store i32 0, ptr %307, align 4, !tbaa !29
   %320 = load ptr, ptr %272, align 8, !tbaa !89
   %321 = load ptr, ptr %275, align 8, !tbaa !89

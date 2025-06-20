@@ -1434,8 +1434,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit109.thread.i: ; preds = %286, %284, %_Z
 
 320:                                              ; preds = %310
   store ptr %317, ptr %272, align 8, !alias.scope !131
-  store i8 3, ptr %273, align 8, !tbaa !118, !alias.scope !131
-  store i8 3, ptr %274, align 1, !tbaa !121, !alias.scope !131
+  store i8 3, ptr %273, align 8, !tbaa !130
+  store i8 3, ptr %274, align 1, !tbaa !130
   call void @_ZNK4llvm5Twine8toVectorERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %27, ptr noundef nonnull align 8 dereferenceable(24) %26) #14
   %321 = load ptr, ptr %26, align 8, !tbaa !126
   %322 = load i64, ptr %270, align 8, !tbaa !128

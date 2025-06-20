@@ -2785,9 +2785,9 @@ _ZN10serde_json3ser9Formatter12begin_object17h120dca5b8f96e472E.exit.i: ; preds 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %.thread, %27
-  %.sink30 = phi i64 [ %26, %27 ], [ %69, %.thread ], [ %.pre.i.i.i.i.i.i7, %.loopexit.sink.split ]
+  %.sink31 = phi i64 [ %26, %27 ], [ %69, %.thread ], [ %.pre.i.i.i.i.i.i7, %.loopexit.sink.split ]
   %73 = load ptr, ptr %.val.i, align 8, !noalias !18, !nonnull !18, !noundef !18
-  %74 = getelementptr inbounds i8, ptr %73, i64 %.sink30
+  %74 = getelementptr inbounds i8, ptr %73, i64 %.sink31
   store i8 125, ptr %74, align 1, !noalias !18
   %75 = load i64, ptr %16, align 8, !noalias !18, !noundef !18
   %76 = add i64 %75, 1

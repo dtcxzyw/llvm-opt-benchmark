@@ -1735,7 +1735,7 @@ define void @"_ZN93_$LT$wasmi_c_api..val..wasm_val_t$u20$as$u20$core..convert..F
   %4 = alloca [8 x i8], align 4
   %5 = alloca [16 x i8], align 1
   %6 = load i8, ptr %1, align 8, !range !102, !noundef !3
-  switch i8 %6, label %default.unreachable15 [
+  switch i8 %6, label %default.unreachable14 [
     i8 0, label %7
     i8 1, label %12
     i8 2, label %17
@@ -1745,7 +1745,7 @@ define void @"_ZN93_$LT$wasmi_c_api..val..wasm_val_t$u20$as$u20$core..convert..F
     i8 6, label %40
   ], !prof !103
 
-default.unreachable15:                            ; preds = %2
+default.unreachable14:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -1837,10 +1837,10 @@ default.unreachable15:                            ; preds = %2
 
 _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %46
   store i32 0, ptr %48, align 4
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 %34, ptr %.sroa.413.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 %36, ptr %.sroa.5.0..sroa_idx14, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i32 %34, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 %36, ptr %.sroa.5.0..sroa_idx13, align 4
   br label %51
 
 51:                                               ; preds = %32, %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit

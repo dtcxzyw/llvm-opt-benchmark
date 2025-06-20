@@ -31459,8 +31459,6 @@ define hidden void @_ZN3hir4Type19iterate_assoc_items17h0ee3bd7c676063f6E(ptr no
 define hidden noundef zeroext i1 @"_ZN3hir4Type19iterate_assoc_items28_$u7b$$u7b$closure$u7d$$u7d$17hb623a780fe215f5aE.llvm.16389444582445941026"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { i8, [23 x i8] } }, align 8
-  %.sroa.6 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.6)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !23, !align !99, !noundef !23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7397)
@@ -31611,11 +31609,8 @@ define hidden noundef zeroext i1 @"_ZN3hir4Type19iterate_assoc_items28_$u7b$$u7b
   %.sroa.0.0 = phi i8 [ 13, %30 ], [ 13, %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17hc9bc5c6fe8f774f3E.exit10.i" ], [ %spec.select, %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17hc9bc5c6fe8f774f3E.exit.i" ]
   %56 = load ptr, ptr %0, align 8, !nonnull !23, !align !290, !noundef !23
   store i8 %.sroa.0.0, ptr %56, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6, i64 3, i1 false)
   %.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 %2, ptr %.sroa.61.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.6)
   %57 = icmp ne i8 %.sroa.0.0, 13
   ret i1 %57
 }

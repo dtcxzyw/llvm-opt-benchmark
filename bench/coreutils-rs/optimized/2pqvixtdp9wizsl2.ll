@@ -331,8 +331,8 @@ _ZN14regex_automata4util6search5Input8set_span17hb1b2445b6c54e533E.exit: ; preds
   store i64 %3, ptr %.sroa.7.0..sroa_idx8, align 8
   %.sroa.9.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i64 %2, ptr %.sroa.9.0..sroa_idx9, align 8
-  %.sroa.1110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store i8 1, ptr %.sroa.1110.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 40
+  store i8 1, ptr %.sroa.11.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -742,8 +742,8 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.12123109310310187846.exit
 
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17hc44202f16b667d1cE.exit.i": ; preds = %.noexc7.i, %.noexc5.i, %153, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i, %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17ha7e34addecafb921E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !76
-  %.pre17 = load i64, ptr %15, align 8, !range !70
-  %174 = icmp ne i64 %.pre17, 0
+  %.pre16 = load i64, ptr %15, align 8, !range !70
+  %174 = icmp ne i64 %.pre16, 0
   br label %_ZN14regex_automata4meta5regex5Regex11search_half17h60ca0226af647e85E.exit
 
 .body.thread.sink.split.i:                        ; preds = %170, %111

@@ -154,14 +154,14 @@ _ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit: ; preds = %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %12, i8 0, i64 10, i1 false)
   store i32 -1, ptr %14, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 5176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %15, i8 0, i64 25, i1 false)
   %.sroa.53.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 5204
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 5238
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %15, i8 0, i64 25, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(34) %.sroa.53.0..sroa_idx.i, i8 0, i64 34, i1 false)
   store i8 -128, ptr %.sroa.14.0..sroa_idx.i, align 2, !tbaa !22
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 5239
-  store i32 0, ptr %.sroa.15.0..sroa_idx.i, align 1
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 5248
+  store i32 0, ptr %.sroa.15.0..sroa_idx.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %16, i8 0, i64 216, i1 false)
   store i8 %11, ptr %5, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -709,14 +709,14 @@ _ZN4Luau7CodeGen14ConstPropStateC2ERNS0_10IrFunctionE.exit: ; preds = %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %12, i8 0, i64 10, i1 false)
   store i32 -1, ptr %14, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 5176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %15, i8 0, i64 25, i1 false)
   %.sroa.53.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 5204
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 5238
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %15, i8 0, i64 25, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(34) %.sroa.53.0..sroa_idx.i, i8 0, i64 34, i1 false)
   store i8 -128, ptr %.sroa.14.0..sroa_idx.i, align 2, !tbaa !22
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 5239
-  store i32 0, ptr %.sroa.15.0..sroa_idx.i, align 1
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 5248
+  store i32 0, ptr %.sroa.15.0..sroa_idx.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %16, i8 0, i64 216, i1 false)
   store i8 %11, ptr %5, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1351,8 +1351,8 @@ _ZNKSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 .noexc110.i:                                      ; preds = %_ZNKSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 %260
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %270, i8 0, i64 34, i1 false)
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %257, %251
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %270, i8 0, i64 34, i1 false)
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc110.i, %.lr.ph.i.i.i.i.i.i.i

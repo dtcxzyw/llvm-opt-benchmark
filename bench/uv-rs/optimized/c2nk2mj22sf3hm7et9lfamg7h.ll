@@ -481,10 +481,10 @@ define hidden void @"_ZN114_$LT$serde..__private..de..missing_field..MissingFiel
 define hidden void @_ZN12clap_builder7builder14possible_value13PossibleValue3new17h800ffb192daffa38E(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) initializes((0, 56), (72, 73)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
 "_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..str..Str$GT$17h4a92b80c8beadf7cE.exit":
   store i64 0, ptr %0, align 8
-  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.49.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %.sroa.5.0..sroa_idx10, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %2, ptr %.sroa.5.0..sroa_idx9, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 -9223372036854775808, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -862,12 +862,12 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h3902bdb8f9fc0e8cE.llvm.71456
   br i1 %167, label %173, label %168
 
 168:                                              ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17h3902bdb8f9fc0e8cE.llvm.7145678236687640008.exit.i.i.i43
-  %.sroa.4.0..sroa_idx15.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %170 = load i64, ptr %169, align 8, !alias.scope !617, !noalias !618, !noundef !12
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %172 = load i64, ptr %171, align 8, !alias.scope !617, !noalias !618, !noundef !12
-  store ptr null, ptr %.sroa.4.0..sroa_idx15.i.i.i.i.i.i, align 8, !alias.scope !612, !noalias !619
+  %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !612, !noalias !619
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %166, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !612, !noalias !619
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1076,12 +1076,12 @@ _ZN10serde_json3ser9Formatter18begin_object_value17h3902bdb8f9fc0e8cE.llvm.71456
   br i1 %258, label %264, label %259
 
 259:                                              ; preds = %_ZN10serde_json3ser9Formatter18begin_object_value17h3902bdb8f9fc0e8cE.llvm.7145678236687640008.exit.i.i.i47
-  %.sroa.4.0..sroa_idx15.i.i.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %261 = load i64, ptr %260, align 8, !alias.scope !790, !noalias !791, !noundef !12
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %263 = load i64, ptr %262, align 8, !alias.scope !790, !noalias !791, !noundef !12
-  store ptr null, ptr %.sroa.4.0..sroa_idx15.i.i.i.i.i.i48, align 8, !alias.scope !785, !noalias !792
+  %.sroa.4.0..sroa_idx.i.i.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i48, align 8, !alias.scope !785, !noalias !792
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %257, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i.i49, align 8, !alias.scope !785, !noalias !792
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1868,12 +1868,12 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %.sroa.4.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !1181, !noalias !1178, !noundef !12
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !1181, !noalias !1178, !noundef !12
-  store ptr null, ptr %.sroa.4.0..sroa_idx15.i, align 8, !alias.scope !1178, !noalias !1181
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1178, !noalias !1181
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1178, !noalias !1181
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24

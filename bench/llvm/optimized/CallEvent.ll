@@ -3342,7 +3342,7 @@ define internal fastcc void @_ZL28addParameterValuesToBindingsPKN5clang17StackFr
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.sroa.057.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sroa.056.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.6.16..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3354,15 +3354,15 @@ define internal fastcc void @_ZL28addParameterValuesToBindingsPKN5clang17StackFr
 
 36:                                               ; preds = %.lr.ph, %184
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %184 ]
-  %.04870 = phi ptr [ %4, %.lr.ph ], [ %185, %184 ]
+  %.04869 = phi ptr [ %4, %.lr.ph ], [ %185, %184 ]
   %37 = load ptr, ptr %3, align 8, !tbaa !71
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(72) %3) #20
   %.not = icmp eq i32 %40, 7
-  br i1 %.not, label %._crit_edge77, label %41
+  br i1 %.not, label %._crit_edge76, label %41
 
-._crit_edge77:                                    ; preds = %36
+._crit_edge76:                                    ; preds = %36
   %.pre = trunc nuw i64 %indvars.iv to i32
   br label %58
 
@@ -3410,8 +3410,8 @@ _ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit: ; preds = %_ZN4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br i1 %57, label %184, label %58
 
-58:                                               ; preds = %._crit_edge77, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge77 ], [ %45, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit ]
+58:                                               ; preds = %._crit_edge76, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge76 ], [ %45, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit ]
   %59 = load ptr, ptr %3, align 8, !tbaa !71
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 88
   %61 = load ptr, ptr %60, align 8
@@ -3503,7 +3503,7 @@ _ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBu
   %112 = call noundef ptr %111(ptr noundef nonnull align 8 dereferenceable(72) %3) #20
   %113 = call noundef ptr @_ZN5clang4ento16MemRegionManager17getParamVarRegionEPKNS_4ExprEjPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef %112, i32 noundef %.pre-phi, ptr noundef %0) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #20
-  %114 = load ptr, ptr %.04870, align 8, !tbaa !74
+  %114 = load ptr, ptr %.04869, align 8, !tbaa !74
   %115 = getelementptr i8, ptr %66, i64 8
   %.val = load i64, ptr %115, align 8, !tbaa !73
   %116 = getelementptr i8, ptr %114, i64 48
@@ -3606,7 +3606,7 @@ _ZL15processArgumentN5clang4ento4SValEPKNS_4ExprEPKNS_11ParmVarDeclERNS0_11SValB
   %.pn12.i = phi ptr [ %163, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.thread.i ], [ %.sroa.019.0.i, %126 ], [ %.sroa.019.0.i, %121 ], [ %.sroa.019.0.i, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.sroa.019.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.i ], [ %.sroa.019.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.sroa.019.0.i, %137 ]
   %.pn10.i = phi i8 [ 5, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.thread.i ], [ %.sroa.5.0.i, %126 ], [ %.sroa.5.0.i, %121 ], [ %.sroa.5.0.i, %_ZL26castArgToParamTypeIfNeededRKN5clang4ento9CallEventEjNS0_4SValERNS0_11SValBuilderE.exit ], [ %.sroa.5.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit34.i ], [ %.sroa.5.0.i, %_ZL18isTransparentUnionN5clang8QualTypeE.exit.i ], [ %.sroa.5.0.i, %137 ]
   store ptr %113, ptr %12, align 8, !tbaa !198
-  store i8 4, ptr %.sroa.057.sroa.4.0..sroa_idx, align 8, !tbaa !725
+  store i8 4, ptr %.sroa.056.sroa.4.0..sroa_idx, align 8, !tbaa !725
   store ptr %.pn12.i, ptr %30, align 8, !tbaa !198
   store i8 %.pn10.i, ptr %.sroa.6.16..sroa_idx, align 8, !tbaa !725
   %164 = load i32, ptr %31, align 8, !tbaa !159
@@ -3651,7 +3651,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang4ento4SValES4_ELb1EE9push_backE
   br label %184
 
 184:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang4ento4SValES4_ELb1EE9push_backERKS5_.exit, %58, %_ZNK5clang4ento9CallEvent29isArgumentConstructedDirectlyEj.exit
-  %185 = getelementptr inbounds nuw i8, ptr %.04870, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %.04869, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %186 = icmp ne ptr %185, %18
   %187 = icmp samesign ult i64 %indvars.iv.next, %35
@@ -4883,8 +4883,8 @@ _ZNK5clang4ento9BlockCall22isConversionFromLambdaEv.exit: ; preds = %3
   %.fca.1.extract = extractvalue { ptr, i8 } %49, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
   store ptr %.fca.0.extract, ptr %7, align 8, !tbaa !198
-  %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %.fca.1.extract, ptr %.sroa.425.0..sroa_idx, align 8, !tbaa !725
+  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i8 %.fca.1.extract, ptr %.sroa.424.0..sroa_idx, align 8, !tbaa !725
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %48, ptr %50, align 8, !tbaa !198
   %.sroa.6.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -4948,9 +4948,9 @@ _ZNK5clang4ento9BlockCall22isConversionFromLambdaEv.exit.thread: ; preds = %3, %
 
 84:                                               ; preds = %_ZNK5clang4ento9BlockCall22isConversionFromLambdaEv.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang4ento4SValES4_ELb1EE9push_backERKS5_.exit
   %.sroa.6.0.in = phi i32 [ %28, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang4ento4SValES4_ELb1EE9push_backERKS5_.exit ], [ %83, %_ZNK5clang4ento9BlockCall22isConversionFromLambdaEv.exit.thread ]
-  %.sroa.033.0 = phi ptr [ %27, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang4ento4SValES4_ELb1EE9push_backERKS5_.exit ], [ %81, %_ZNK5clang4ento9BlockCall22isConversionFromLambdaEv.exit.thread ]
+  %.sroa.032.0 = phi ptr [ %27, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang4ento4SValES4_ELb1EE9push_backERKS5_.exit ], [ %81, %_ZNK5clang4ento9BlockCall22isConversionFromLambdaEv.exit.thread ]
   %.sroa.6.0 = zext i32 %.sroa.6.0.in to i64
-  call fastcc void @_ZL28addParameterValuesToBindingsPKN5clang17StackFrameContextERN4llvm15SmallVectorImplISt4pairINS_4ento4SValES7_EEERNS6_11SValBuilderERKNS6_9CallEventENS3_8ArrayRefIPNS_11ParmVarDeclEEE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(412) %13, ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.sroa.033.0, i64 %.sroa.6.0)
+  call fastcc void @_ZL28addParameterValuesToBindingsPKN5clang17StackFrameContextERN4llvm15SmallVectorImplISt4pairINS_4ento4SValES7_EEERNS6_11SValBuilderERKNS6_9CallEventENS3_8ArrayRefIPNS_11ParmVarDeclEEE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(412) %13, ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %.sroa.032.0, i64 %.sroa.6.0)
   ret void
 }
 
@@ -5075,8 +5075,8 @@ define dso_local void @_ZNK5clang4ento21AnyCXXConstructorCall28getInitialStackFr
   %.fca.1.extract = extractvalue { ptr, i8 } %30, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   store ptr %.fca.0.extract, ptr %4, align 8, !tbaa !198
-  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %.fca.1.extract, ptr %.sroa.416.0..sroa_idx, align 8, !tbaa !725
+  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 %.fca.1.extract, ptr %.sroa.415.0..sroa_idx, align 8, !tbaa !725
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %20, ptr %31, align 8, !tbaa !198
   %.sroa.6.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -6742,8 +6742,8 @@ _ZNK5clang4ento14ObjCMethodCall15getReceiverSValEv.exit: ; preds = %39, %_ZNK5cl
   %58 = call noundef ptr @_ZN5clang4ento16MemRegionManager12getVarRegionEPKNS_7VarDeclEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(152) %57, ptr noundef %56, ptr noundef nonnull %1) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
   store ptr %58, ptr %5, align 8, !tbaa !198
-  %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 4, ptr %.sroa.427.0..sroa_idx, align 8, !tbaa !725
+  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i8 4, ptr %.sroa.426.0..sroa_idx, align 8, !tbaa !725
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %.sroa.07.0.i, ptr %59, align 8, !tbaa !198
   %.sroa.6.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24

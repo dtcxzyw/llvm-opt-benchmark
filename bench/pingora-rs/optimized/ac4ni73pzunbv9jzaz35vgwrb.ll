@@ -324,10 +324,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %25, label %.invoke.i, label %41
 
 30:                                               ; preds = %7
-  %.sroa.456.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.456.0.copyload.i = load i64, ptr %.sroa.456.0..sroa_idx.i, align 8, !alias.scope !20, !noalias !25
-  %.sroa.5.0..sroa_idx57.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx57.i, align 8, !alias.scope !20, !noalias !25
+  %.sroa.455.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.455.0.copyload.i = load i64, ptr %.sroa.455.0..sroa_idx.i, align 8, !alias.scope !20, !noalias !25
+  %.sroa.5.0..sroa_idx56.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx56.i, align 8, !alias.scope !20, !noalias !25
   %31 = zext nneg i16 %20 to i64
   %32 = add i64 %.sroa.5.0.copyload.i, 1
   %.not.i.i = icmp ugt i64 %32, %31
@@ -963,7 +963,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .loopexit80:                                      ; preds = %.loopexit, %.thread63, %77, %.thread, %274
   %.sroa.10.058.sink = phi ptr [ %.sroa.021.0.i, %274 ], [ %18, %.thread ], [ %.sroa.021.0.i, %77 ], [ %.sroa.021.0.i, %.thread63 ], [ %.sroa.021.0.i, %.loopexit ]
-  %.sroa.14.057.sink = phi i64 [ %.sroa.8.0.i, %274 ], [ %.sroa.456.0.copyload.i, %.thread ], [ %.sroa.8.0.i, %77 ], [ %.sroa.8.0.i, %.thread63 ], [ %.sroa.8.0.i, %.loopexit ]
+  %.sroa.14.057.sink = phi i64 [ %.sroa.8.0.i, %274 ], [ %.sroa.455.0.copyload.i, %.thread ], [ %.sroa.8.0.i, %77 ], [ %.sroa.8.0.i, %.thread63 ], [ %.sroa.8.0.i, %.loopexit ]
   %.sroa.18.056.sink = phi i64 [ %.sroa.10.0.i, %274 ], [ %.sroa.5.0.copyload.i, %.thread ], [ %.sroa.10.0.i, %77 ], [ %.sroa.10.0.i, %.thread63 ], [ %.sroa.10.0.i, %.loopexit ]
   store ptr %.sroa.10.058.sink, ptr %0, align 8
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 8

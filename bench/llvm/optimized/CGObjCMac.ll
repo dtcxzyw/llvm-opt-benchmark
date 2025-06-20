@@ -42685,7 +42685,6 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %53
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 2288
   %.sroa.031.0.copyload = load i64, ptr %78, align 8, !tbaa !394
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %21) #27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %.sroa.6167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 48
   store i8 0, ptr %.sroa.6167.0..sroa_idx, align 8
   %79 = getelementptr inbounds nuw i8, ptr %21, i64 136
@@ -42693,6 +42692,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %53
   %80 = getelementptr inbounds nuw i8, ptr %21, i64 137
   store i8 0, ptr %80, align 1, !tbaa !1743
   %81 = getelementptr inbounds nuw i8, ptr %21, i64 144
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 %.sroa.031.0.copyload, ptr %81, align 8, !tbaa !394
   %82 = zext i32 %77 to i64
   %83 = add nuw nsw i64 %82, 1

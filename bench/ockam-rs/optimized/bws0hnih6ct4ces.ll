@@ -3081,11 +3081,11 @@ define hidden void @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deserialize$u2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5c61a6c19d58b127E.llvm.15328536302644105373.exit.i.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h5c61a6c19d58b127E.llvm.15328536302644105373.exit.i.i": ; preds = %26, %21
-  %.sink2.i.i.i = phi ptr [ null, %26 ], [ %24, %21 ]
-  %.sink.i1.i.i = phi i64 [ 0, %26 ], [ 1, %21 ]
+  %.sink.i1.i.i = phi ptr [ null, %26 ], [ %24, %21 ]
+  %storemerge.i.i.i = phi i64 [ 0, %26 ], [ 1, %21 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink2.i.i.i, ptr %27, align 8, !alias.scope !452, !noalias !442
-  store i64 %.sink.i1.i.i, ptr %0, align 8, !alias.scope !452, !noalias !442
+  store ptr %.sink.i1.i.i, ptr %27, align 8, !alias.scope !452, !noalias !442
+  store i64 %storemerge.i.i.i, ptr %0, align 8, !alias.scope !452, !noalias !442
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hd82301cd3547a881E.exit"
 
 "_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hd82301cd3547a881E.exit": ; preds = %10, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h84f0f6767076d535E.llvm.15328536302644105373.exit.i.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5c61a6c19d58b127E.llvm.15328536302644105373.exit.i.i"

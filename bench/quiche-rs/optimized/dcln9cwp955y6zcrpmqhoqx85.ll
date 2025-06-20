@@ -1614,8 +1614,8 @@ define void @"_ZN92_$LT$quiche..recovery..congestion..delivery_rate..Rate$u20$as
   store i64 0, ptr %.sroa.93.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %.sroa.10.0..sroa_idx, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 0, i64 36, i1 false)
   %.sroa.114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 0, i64 36, i1 false)
   store i32 1000000000, ptr %.sroa.114.0..sroa_idx, align 8
   %.sroa.125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %5, ptr %.sroa.125.0..sroa_idx, align 8
@@ -2688,7 +2688,6 @@ define hidden void @_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16Ban
   %.sroa.18 = alloca [6 x i8], align 2
   %.sroa.11 = alloca [6 x i8], align 2
   %.sroa.44 = alloca [6 x i8], align 2
-  %.sroa.55 = alloca [7 x i8], align 1
   %23 = getelementptr inbounds nuw { i64, i64 }, ptr %6, i64 %7
   %24 = icmp eq i64 %7, 0
   br i1 %24, label %._crit_edge, label %.lr.ph
@@ -2703,7 +2702,7 @@ define hidden void @_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16Ban
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
   %.sroa.5.0..sroa_idx127 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 49
-  %.sroa.9128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 50
+  %.sroa.9.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %22, i64 50
   br label %29
 
 29:                                               ; preds = %.lr.ph, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit
@@ -2768,7 +2767,6 @@ define hidden void @_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16Ban
 
 .lr.ph275.lr.ph:                                  ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.44)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.55)
   %43 = getelementptr inbounds nuw { i64, { { { i64, i32, [1 x i32] } } } }, ptr %4, i64 %5
   %.sroa.075.1272308 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -2821,8 +2819,8 @@ define hidden void @_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16Ban
   %.sroa.8132.0.ph313 = phi i64 [ undef, %.lr.ph275.lr.ph ], [ %.sroa.8132.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
   %.sroa.12.0146.ph312 = phi i64 [ undef, %.lr.ph275.lr.ph ], [ %.sroa.0.0.sroa.speculated.i121, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
   %.sroa.15.0148.ph311 = phi i32 [ 1000000000, %.lr.ph275.lr.ph ], [ %.sroa.3.0.i120, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
-  %.sroa.48.0.ph310 = phi i64 [ 0, %.lr.ph275.lr.ph ], [ %spec.select190, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
-  %.sroa.53.0.ph309 = phi i8 [ 0, %.lr.ph275.lr.ph ], [ %.sroa.53.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
+  %.sroa.47.0.ph310 = phi i64 [ 0, %.lr.ph275.lr.ph ], [ %spec.select190, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
+  %.sroa.52.0.ph309 = phi i8 [ 0, %.lr.ph275.lr.ph ], [ %.sroa.52.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
   br label %64
 
 63:                                               ; preds = %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler16on_ack_event_end17hc3a17a5d20b11ab1E.exit, %37
@@ -3047,13 +3045,13 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_pa
   %136 = trunc nuw i64 %.sroa.0129.0.ph314 to i1
   %137 = icmp ule i64 %.sroa.013.0.i, %.sroa.8132.0.ph313
   %.sroa.070.0.not = select i1 %136, i1 %137, i1 false
-  %.sroa.53.1 = select i1 %.sroa.070.0.not, i8 %.sroa.53.0.ph309, i8 %128
+  %.sroa.52.1 = select i1 %.sroa.070.0.not, i8 %.sroa.52.0.ph309, i8 %128
   %.sroa.8132.1 = select i1 %.sroa.070.0.not, i64 %.sroa.8132.0.ph313, i64 %.sroa.013.0.i
   br i1 %131, label %296, label %299
 
 .outer._crit_edge:                                ; preds = %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread
-  %.sroa.53.0.ph.lcssa253 = phi i8 [ %.sroa.53.0.ph309, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.53.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
-  %.sroa.48.0.ph.lcssa251 = phi i64 [ %.sroa.48.0.ph310, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %spec.select190, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
+  %.sroa.52.0.ph.lcssa253 = phi i8 [ %.sroa.52.0.ph309, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.52.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
+  %.sroa.47.0.ph.lcssa251 = phi i64 [ %.sroa.47.0.ph310, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %spec.select190, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
   %.sroa.15.0148.ph.lcssa249 = phi i32 [ %.sroa.15.0148.ph311, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.3.0.i120, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
   %.sroa.12.0146.ph.lcssa247 = phi i64 [ %.sroa.12.0146.ph312, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.0.0.sroa.speculated.i121, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
   %.sroa.8132.0.ph.lcssa244 = phi i64 [ %.sroa.8132.0.ph313, %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit.thread ], [ %.sroa.8132.1, %_ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126 ]
@@ -3456,16 +3454,13 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler16on_ac
   store i8 %.sroa.40.0, ptr %.sroa.40.0..sroa_idx, align 1
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.44.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.44, i64 6, i1 false)
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %.sroa.48.0.ph.lcssa251, ptr %.sroa.48.0..sroa_idx, align 8
-  %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %.sroa.0.0.i115, ptr %.sroa.51.0..sroa_idx, align 8
-  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 %.sroa.53.0.ph.lcssa253, ptr %.sroa.53.0..sroa_idx, align 8
-  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.55.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.55, i64 7, i1 false)
+  %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %.sroa.47.0.ph.lcssa251, ptr %.sroa.47.0..sroa_idx, align 8
+  %.sroa.50.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %.sroa.0.0.i115, ptr %.sroa.50.0..sroa_idx, align 8
+  %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i8 %.sroa.52.0.ph.lcssa253, ptr %.sroa.52.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.44)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.55)
   br label %63
 
 296:                                              ; preds = %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler22on_packet_acknowledged17h72364c8d82be5eb9E.exit
@@ -3484,7 +3479,7 @@ _ZN4core3cmp3Ord3max17he6c99174e23372e7E.exit126: ; preds = %296, %299
   %.sroa.0.0.sroa.speculated.i124 = select i1 %.sroa.0.0.i.i.i122, i64 %.sroa.058.0.ph318, i64 %.sroa.014.0.i
   %301 = load i64, ptr %48, align 8, !noundef !3
   %302 = sub i64 %301, %.sroa.728.0.copyload.i
-  %spec.select190 = call i64 @llvm.umax.i64(i64 %302, i64 %.sroa.48.0.ph310)
+  %spec.select190 = call i64 @llvm.umax.i64(i64 %302, i64 %.sroa.47.0.ph310)
   %303 = icmp eq ptr %.sroa.075.1274, %43
   %.sroa.075.1.idx271 = select i1 %303, i64 0, i64 24
   %.sroa.075.1272 = getelementptr inbounds nuw i8, ptr %.sroa.075.1274, i64 %.sroa.075.1.idx271
@@ -3510,7 +3505,7 @@ _ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_pa
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !158
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx127, align 8, !noalias !158
   %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..sroa_idx, align 1, !noalias !158
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9128.0..sroa_idx, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9.0..sroa_idx128, i64 6, i1 false)
   br label %_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler16BandwidthSampler14on_packet_lost17h77c8747ef2e2a427E.exit
 }
 
@@ -7457,13 +7452,13 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h6460c0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !507
   %.not.i = icmp ult i64 %.sroa.0.0.i.i, %13
   %46 = ptrtoint ptr %1 to i64
-  %.sroa.0.054.i. = select i1 %.not.i, i64 %.sroa.0.054.i, i64 0
+  %spec.select = select i1 %.not.i, i64 %.sroa.0.054.i, i64 0
   store i64 %46, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %.sroa.0.054.i., ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %spec.select, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 %.sroa.04.053.i, ptr %.sroa.5.0..sroa_idx, align 8
-  %47 = icmp eq i64 %.sroa.0.054.i., 0
+  %47 = icmp eq i64 %spec.select, 0
   br i1 %47, label %52, label %.preheader
 
 48:                                               ; preds = %34
@@ -7473,11 +7468,11 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h6460c0
   br label %.thread.i
 
 50:                                               ; preds = %35, %17, %29
-  %.sroa.1038.0.ph = phi i64 [ undef, %29 ], [ %19, %17 ], [ undef, %35 ]
+  %.sroa.9.0.ph = phi i64 [ undef, %29 ], [ %19, %17 ], [ undef, %35 ]
   %.sroa.0.0.ph = phi i64 [ 14, %29 ], [ 12, %17 ], [ 14, %35 ]
   store i64 %.sroa.0.0.ph, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.1038.0.ph, ptr %51, align 8
+  store i64 %.sroa.9.0.ph, ptr %51, align 8
   br label %60
 
 52:                                               ; preds = %.thread.i
@@ -7507,17 +7502,17 @@ define hidden void @"_ZN6quiche6stream8send_buf16SendBuf$LT$F$GT$5write17h6460c0
           to label %90 unwind label %88
 
 .preheader:                                       ; preds = %.thread.i, %79
-  %.sroa.040.060 = phi ptr [ %55, %79 ], [ %2, %.thread.i ]
-  %.sroa.641.059 = phi i64 [ %56, %79 ], [ %.sroa.0.054.i, %.thread.i ]
-  %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.641.059, i64 4096)
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.040.060, i64 %.sroa.0.0.sroa.speculated.i.i
-  %56 = sub nuw i64 %.sroa.641.059, %.sroa.0.0.sroa.speculated.i.i
-  %57 = invoke noundef nonnull ptr @"_ZN86_$LT$quiche..range_buf..DefaultBufFactory$u20$as$u20$quiche..range_buf..BufFactory$GT$14buf_from_slice17hea69b3839e710227E"(ptr noalias noundef nonnull readonly align 1 %.sroa.040.060, i64 noundef %.sroa.0.0.sroa.speculated.i.i)
+  %.sroa.640.060 = phi i64 [ %56, %79 ], [ %.sroa.0.054.i, %.thread.i ]
+  %.sroa.039.059 = phi ptr [ %55, %79 ], [ %2, %.thread.i ]
+  %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.640.060, i64 4096)
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.039.059, i64 %.sroa.0.0.sroa.speculated.i.i
+  %56 = sub nuw i64 %.sroa.640.060, %.sroa.0.0.sroa.speculated.i.i
+  %57 = invoke noundef nonnull ptr @"_ZN86_$LT$quiche..range_buf..DefaultBufFactory$u20$as$u20$quiche..range_buf..BufFactory$GT$14buf_from_slice17hea69b3839e710227E"(ptr noalias noundef nonnull readonly align 1 %.sroa.039.059, i64 noundef %.sroa.0.0.sroa.speculated.i.i)
           to label %61 unwind label %.loopexit
 
 58:                                               ; preds = %79
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0.054.i., ptr %59, align 8
+  store i64 %spec.select, ptr %59, align 8
   store i64 20, ptr %0, align 8
   call void @"_ZN4core3ptr102drop_in_place$LT$quiche..stream..send_buf..SendReserve$LT$quiche..range_buf..DefaultBufFactory$GT$$GT$17h81d7d9d1e487cfeaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
   br label %60

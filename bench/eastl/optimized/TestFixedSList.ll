@@ -360,7 +360,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #11
+  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #10
   resume { ptr, i32 } %1
 }
 
@@ -397,7 +397,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.body.i.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %while.body.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -441,7 +441,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #11
+  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #10
   resume { ptr, i32 } %1
 }
 
@@ -487,7 +487,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %while.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i
@@ -590,7 +590,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #11
+  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #10
   resume { ptr, i32 } %2
 }
 
@@ -632,7 +632,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #11
+  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #10
   resume { ptr, i32 } %2
 }
 
@@ -674,7 +674,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #11
+  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #10
   resume { ptr, i32 } %2
 }
 
@@ -708,7 +708,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #11
+  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #10
   resume { ptr, i32 } %1
 }
 
@@ -747,7 +747,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.body.i.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %while.body.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -798,7 +798,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.body.i.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %while.body.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -850,7 +850,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -1783,7 +1783,6 @@ entry:
   %list010162 = alloca %"class.eastl::fixed_slist.15", align 8
   %ref.tmp86 = alloca i32, align 4
   %fsl = alloca %"class.eastl::fixed_slist.23", align 8
-  %a.sroa.6 = alloca [60 x i8], align 4
   %listInt5 = alloca %"class.eastl::fixed_slist.33", align 8
   %listInt5222 = alloca %"class.eastl::fixed_slist.40", align 8
   %slist3TO33 = alloca %"class.eastl::fixed_slist.47", align 8
@@ -1958,7 +1957,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.body.i.i25
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %while.body.i.i25
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -2108,7 +2107,7 @@ if.then.i.i.i.i.i1275:                            ; preds = %while.body.i.i1265
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i1271
 
 delete.notnull.i.i.i.i.i.i1270:                   ; preds = %while.body.i.i1265
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i1266) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i1266) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i1271
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i1271: ; preds = %delete.notnull.i.i.i.i.i.i1270, %if.then.i.i.i.i.i1275
@@ -2174,7 +2173,7 @@ if.then.i.i.i.i.i.i.i55:                          ; preds = %while.body.i.i.i.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %while.body.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i55
@@ -2450,7 +2449,7 @@ lpad.loopexit.split-lp1478.loopexit.split-lp:     ; preds = %if.else8.i.i.i.i.i.
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp1478.loopexit, %lpad.loopexit.split-lp1478.loopexit.split-lp
   %lpad.phi1481 = phi { ptr, i32 } [ %lpad.loopexit1482, %lpad.loopexit.split-lp1478.loopexit ], [ %lpad.loopexit.split-lp1483, %lpad.loopexit.split-lp1478.loopexit.split-lp ]
-  call void @_ZN5eastl11fixed_slistIiLm64ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(1103) %list0101) #11
+  call void @_ZN5eastl11fixed_slistIiLm64ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(1103) %list0101) #10
   br label %common.resume
 
 lpad64.loopexit:                                  ; preds = %if.else8.i.i.i.i.i.i.i.i136
@@ -2465,7 +2464,7 @@ lpad64.loopexit.split-lp:                         ; preds = %_ZN5eastl11fixed_sl
 
 lpad64:                                           ; preds = %lpad64.loopexit.split-lp, %lpad64.loopexit
   %lpad.phi1476 = phi { ptr, i32 } [ %lpad.loopexit1474, %lpad64.loopexit ], [ %lpad.loopexit.split-lp1475, %lpad64.loopexit.split-lp ]
-  call void @_ZN5eastl11fixed_slistIiLm64ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(1111) %list010162) #11
+  call void @_ZN5eastl11fixed_slistIiLm64ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(1111) %list010162) #10
   br label %common.resume
 
 while.end:                                        ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit121
@@ -2540,7 +2539,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.else.i.i.i.i.i.i
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #13
+  call void @__clang_call_terminate(ptr %103) #12
   unreachable
 
 _ZN5eastl11fixed_slistIiLm64ELb1E15MallocAllocatorED2Ev.exit: ; preds = %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i, %invoke.cont133
@@ -2603,8 +2602,6 @@ invoke.cont137:                                   ; preds = %if.else.i.i.i.i.i.i
   %result.0.i.i.i.i = phi ptr [ %105, %if.then.i.i7.i.i.i.i ], [ %107, %if.then4.i.i13.i.i.i.i ], [ %call1.i.i.i.i.i.i.i178, %if.else.i.i.i.i.i.i.i177.invoke.cont137_crit_edge ]
   %mValue.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i, i64 64
   store i32 0, ptr %mValue.i.i, align 64
-  %a.sroa.6.0.mValue.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a.sroa.6.0.mValue.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a.sroa.6, i64 60, i1 false)
   store ptr %111, ptr %result.0.i.i.i.i, align 8
   store ptr %result.0.i.i.i.i, ptr %fsl, align 8
   %112 = load i64, ptr %mSize.i.i.i175, align 8
@@ -2650,8 +2647,6 @@ invoke.cont138:                                   ; preds = %if.else.i.i.i.i.i.i
   %result.0.i.i.i.i182 = phi ptr [ %113, %if.then.i.i7.i.i.i.i181 ], [ %115, %if.then4.i.i13.i.i.i.i190 ], [ %call1.i.i.i.i.i.i.i197, %if.else.i.i.i.i.i.i.i193.invoke.cont138_crit_edge ]
   %mValue.i.i183 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i182, i64 64
   store i32 0, ptr %mValue.i.i183, align 64
-  %a.sroa.6.0.mValue.i.i183.sroa_idx = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i182, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a.sroa.6.0.mValue.i.i183.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a.sroa.6, i64 60, i1 false)
   store ptr %119, ptr %result.0.i.i.i.i182, align 8
   store ptr %result.0.i.i.i.i182, ptr %fsl, align 8
   %120 = load i64, ptr %mSize.i.i.i175, align 8
@@ -2697,8 +2692,6 @@ invoke.cont139:                                   ; preds = %if.else.i.i.i.i.i.i
   %result.0.i.i.i.i202 = phi ptr [ %121, %if.then.i.i7.i.i.i.i201 ], [ %123, %if.then4.i.i13.i.i.i.i210 ], [ %call1.i.i.i.i.i.i.i217, %if.else.i.i.i.i.i.i.i213.invoke.cont139_crit_edge ]
   %mValue.i.i203 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i202, i64 64
   store i32 0, ptr %mValue.i.i203, align 64
-  %a.sroa.6.0.mValue.i.i203.sroa_idx = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i202, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a.sroa.6.0.mValue.i.i203.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a.sroa.6, i64 60, i1 false)
   store ptr %127, ptr %result.0.i.i.i.i202, align 8
   store ptr %result.0.i.i.i.i202, ptr %fsl, align 8
   %128 = load i64, ptr %mSize.i.i.i175, align 8
@@ -2744,8 +2737,6 @@ invoke.cont140:                                   ; preds = %if.else.i.i.i.i.i.i
   %result.0.i.i.i.i222 = phi ptr [ %129, %if.then.i.i7.i.i.i.i221 ], [ %131, %if.then4.i.i13.i.i.i.i230 ], [ %call1.i.i.i.i.i.i.i237, %if.else.i.i.i.i.i.i.i233.invoke.cont140_crit_edge ]
   %mValue.i.i223 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i222, i64 64
   store i32 0, ptr %mValue.i.i223, align 64
-  %a.sroa.6.0.mValue.i.i223.sroa_idx = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i222, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a.sroa.6.0.mValue.i.i223.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a.sroa.6, i64 60, i1 false)
   store ptr %135, ptr %result.0.i.i.i.i222, align 8
   store ptr %result.0.i.i.i.i222, ptr %fsl, align 8
   %136 = load i64, ptr %mSize.i.i.i175, align 8
@@ -2791,8 +2782,6 @@ invoke.cont141:                                   ; preds = %if.else.i.i.i.i.i.i
   %result.0.i.i.i.i242 = phi ptr [ %137, %if.then.i.i7.i.i.i.i241 ], [ %139, %if.then4.i.i13.i.i.i.i250 ], [ %call1.i.i.i.i.i.i.i257, %if.else.i.i.i.i.i.i.i253.invoke.cont141_crit_edge ]
   %mValue.i.i243 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i242, i64 64
   store i32 0, ptr %mValue.i.i243, align 64
-  %a.sroa.6.0.mValue.i.i243.sroa_idx = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i242, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a.sroa.6.0.mValue.i.i243.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a.sroa.6, i64 60, i1 false)
   store ptr %143, ptr %result.0.i.i.i.i242, align 8
   store ptr %result.0.i.i.i.i242, ptr %fsl, align 8
   %144 = load i64, ptr %mSize.i.i.i175, align 8
@@ -2822,7 +2811,7 @@ lpad135.loopexit.split-lp:                        ; preds = %if.else.i.i.i.i.i.i
 
 lpad135:                                          ; preds = %lpad135.loopexit.split-lp, %lpad135.loopexit
   %lpad.phi1473 = phi { ptr, i32 } [ %lpad.loopexit1471, %lpad135.loopexit ], [ %lpad.loopexit.split-lp1472, %lpad135.loopexit.split-lp ]
-  call void @_ZN5eastl11fixed_slistI7Align64Lm1ELb1E15CustomAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(319) %fsl) #11
+  call void @_ZN5eastl11fixed_slistI7Align64Lm1ELb1E15CustomAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(319) %fsl) #10
   br label %common.resume
 
 for.end:                                          ; preds = %for.inc
@@ -2868,7 +2857,7 @@ terminate.lpad.i.i.i275:                          ; preds = %if.else.i.i.i.i.i.i
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #13
+  call void @__clang_call_terminate(ptr %154) #12
   unreachable
 
 _ZN5eastl11fixed_slistI7Align64Lm1ELb1E15CustomAllocatorED2Ev.exit: ; preds = %_ZN5eastl9SListBaseI7Align64NS_20fixed_node_allocatorILm128ELm1ELm64ELm0ELb1E15CustomAllocatorEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i, %for.end
@@ -3739,7 +3728,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont289
   br label %invoke.cont291
 
 delete.notnull.i.i.i.i.i:                         ; preds = %invoke.cont289
-  call void @_ZdaPv(ptr noundef nonnull %285) #12
+  call void @_ZdaPv(ptr noundef nonnull %285) #11
   br label %invoke.cont291
 
 invoke.cont291:                                   ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i
@@ -3795,7 +3784,7 @@ if.then.i.i.i.i.i.i.i652:                         ; preds = %while.body.i.i.i.i6
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i649:                ; preds = %while.body.i.i.i.i644
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i645) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i645) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i649, %if.then.i.i.i.i.i.i.i652
@@ -3852,7 +3841,7 @@ _ZN5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl9S
 lpad.i:                                           ; preds = %.noexc661
   %305 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %slist3TO33) #11
+  call void @_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %slist3TO33) #10
   br label %lpad301.body
 
 invoke.cont302:                                   ; preds = %.noexc661
@@ -3909,7 +3898,7 @@ _ZN10TestObjectD2Ev.exit:                         ; preds = %invoke.cont302, %if
 lpad.i673:                                        ; preds = %.noexc675
   %312 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %toListA) #11
+  call void @_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %toListA) #10
   br label %ehcleanup354
 
 invoke.cont305:                                   ; preds = %.noexc675
@@ -4001,7 +3990,7 @@ invoke.cont312:                                   ; preds = %land.end
 lpad.i705:                                        ; preds = %.noexc707
   %324 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(615) %slist4TO44) #11
+  call void @_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(615) %slist4TO44) #10
   br label %lpad316.body
 
 invoke.cont317:                                   ; preds = %.noexc707
@@ -4114,7 +4103,7 @@ invoke.cont332:                                   ; preds = %land.end331
 lpad.i744:                                        ; preds = %.noexc746
   %340 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(615) %slist5TO55) #11
+  call void @_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(615) %slist5TO55) #10
   br label %lpad336.body
 
 invoke.cont337:                                   ; preds = %.noexc746
@@ -4229,7 +4218,7 @@ terminate.lpad.i.i.i779:                          ; preds = %if.else.i.i.i.i.i.i
   %360 = landingpad { ptr, i32 }
           catch ptr null
   %361 = extractvalue { ptr, i32 } %360, 0
-  call void @__clang_call_terminate(ptr %361) #13
+  call void @__clang_call_terminate(ptr %361) #12
   unreachable
 
 _ZN5eastl11fixed_slistI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit: ; preds = %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i, %invoke.cont350
@@ -4298,7 +4287,7 @@ terminate.lpad.i.i.i804:                          ; preds = %if.else.i.i.i.i.i.i
   %373 = landingpad { ptr, i32 }
           catch ptr null
   %374 = extractvalue { ptr, i32 } %373, 0
-  call void @__clang_call_terminate(ptr %374) #13
+  call void @__clang_call_terminate(ptr %374) #12
   unreachable
 
 _ZN5eastl11fixed_slistI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit809: ; preds = %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i805, %_ZN5eastl11fixed_slistI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit
@@ -4363,7 +4352,7 @@ terminate.lpad.i.i.i831:                          ; preds = %if.else.i.i.i.i.i.i
   %386 = landingpad { ptr, i32 }
           catch ptr null
   %387 = extractvalue { ptr, i32 } %386, 0
-  call void @__clang_call_terminate(ptr %387) #13
+  call void @__clang_call_terminate(ptr %387) #12
   unreachable
 
 _ZN5eastl11fixed_slistI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit836: ; preds = %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i832, %_ZN5eastl11fixed_slistI10TestObjectLm16ELb1E15MallocAllocatorED2Ev.exit809
@@ -4412,7 +4401,7 @@ if.then.i.i.i.i.i.i.i858:                         ; preds = %_ZN5eastl9SListNode
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i855:                ; preds = %_ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i.i849
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i.i.i844) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i.i.i844) #11
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i
 
 _ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i855, %if.then.i.i.i.i.i.i.i858
@@ -4468,7 +4457,7 @@ if.then.i.i.i.i.i.i.i881:                         ; preds = %_ZN5eastl9SListNode
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i878
 
 delete.notnull.i.i.i.i.i.i.i.i877:                ; preds = %_ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i.i871
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i.i.i866) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i.i.i866) #11
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i878
 
 _ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i878: ; preds = %delete.notnull.i.i.i.i.i.i.i.i877, %if.then.i.i.i.i.i.i.i881
@@ -4963,7 +4952,7 @@ if.then.i.i.i.i.i.i.i1071:                        ; preds = %_ZN5eastl9SListNode
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i1068
 
 delete.notnull.i.i.i.i.i.i.i.i1067:               ; preds = %_ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i.i1061
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i.i.i1056) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i.i.i1056) #11
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i1068
 
 _ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i1068: ; preds = %delete.notnull.i.i.i.i.i.i.i.i1067, %if.then.i.i.i.i.i.i.i1071
@@ -5019,7 +5008,7 @@ if.then.i.i.i.i.i.i.i1095:                        ; preds = %_ZN5eastl9SListNode
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i1092
 
 delete.notnull.i.i.i.i.i.i.i.i1091:               ; preds = %_ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i.i1085
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i.i.i1080) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i.i.i1080) #11
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i1092
 
 _ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i.i1092: ; preds = %delete.notnull.i.i.i.i.i.i.i.i1091, %if.then.i.i.i.i.i.i.i1095
@@ -5109,7 +5098,7 @@ common.resume:                                    ; preds = %while.body.i.i.i.i1
 lpad.i1104:                                       ; preds = %if.else8.i.i.i.i.i.i.i.i1295
   %505 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(207) %intList) #11
+  call void @_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(207) %intList) #10
   br label %common.resume
 
 _ZN5eastl11fixed_slistIiLm8ELb1ENS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit: ; preds = %_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE12DoCreateNodeIJRKiEEEPNS_9SListNodeIiEEDpOT_.exit.i.i.i
@@ -5152,7 +5141,7 @@ if.then.i.i.i.i.i.i1110:                          ; preds = %while.body.i.i.i110
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i1107
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i1110
@@ -5276,7 +5265,7 @@ if.then.i.i.i.i.i1419:                            ; preds = %while.body.i.i1409
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i1415
 
 delete.notnull.i.i.i.i.i.i1414:                   ; preds = %while.body.i.i1409
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i1410) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i1410) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i1415
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i1415: ; preds = %delete.notnull.i.i.i.i.i.i1414, %if.then.i.i.i.i.i1419
@@ -5437,7 +5426,7 @@ if.then.i.i.i.i.i.i.i1150:                        ; preds = %while.body.i.i.i.i1
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i1147:               ; preds = %while.body.i.i.i.i1142
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i1143) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i1143) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i1147, %if.then.i.i.i.i.i.i.i1150
@@ -5547,7 +5536,7 @@ terminate.lpad.i.i.i1178:                         ; preds = %if.else.i.i.i.i.i.i
   %569 = landingpad { ptr, i32 }
           catch ptr null
   %570 = extractvalue { ptr, i32 } %569, 0
-  call void @__clang_call_terminate(ptr %570) #13
+  call void @__clang_call_terminate(ptr %570) #12
   unreachable
 
 _ZN5eastl11fixed_slistIiLm64ELb1E15MallocAllocatorED2Ev.exit1183: ; preds = %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i1179, %invoke.cont508
@@ -5594,7 +5583,7 @@ while.body.i.i.i.i1189:                           ; preds = %while.body.i.i.i.i1
 lpad223:                                          ; preds = %if.else8.i.i.i.i.i.i.i.i601, %if.else8.i.i.i.i.i.i.i.i564, %if.else8.i.i.i.i.i.i.i.i546, %if.else8.i.i.i.i.i.i.i.i509, %if.else8.i.i.i.i.i.i.i.i491, %if.else8.i.i.i.i.i.i.i.i474, %invoke.cont294, %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit636, %_ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit623, %invoke.cont281, %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit613, %_ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit586, %invoke.cont266, %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit576, %_ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit531, %invoke.cont249, %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit521, %_ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit, %invoke.cont231, %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit, %_ZN5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEED2Ev.exit
   %578 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(159) %listInt5222) #11
+  call void @_ZN5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(159) %listInt5222) #10
   br label %common.resume
 
 lpad301:                                          ; preds = %.noexc, %_ZN5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEED2Ev.exit
@@ -5700,27 +5689,27 @@ _ZN10TestObjectD2Ev.exit1214:                     ; preds = %lpad336.body, %if.t
 lpad339:                                          ; preds = %_ZN10TestObjectD2Ev.exit755, %land.end349
   %598 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(615) %slist5TO55) #11
+  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(615) %slist5TO55) #10
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad339, %_ZN10TestObjectD2Ev.exit1214, %lpad326
   %.pn = phi { ptr, i32 } [ %598, %lpad339 ], [ %eh.lpad-body747, %_ZN10TestObjectD2Ev.exit1214 ], [ %592, %lpad326 ]
-  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(615) %toListB) #11
+  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(615) %toListB) #10
   br label %ehcleanup352
 
 ehcleanup352:                                     ; preds = %ehcleanup, %lpad320
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %591, %lpad320 ]
-  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(615) %slist4TO44) #11
+  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(615) %slist4TO44) #10
   br label %ehcleanup353
 
 ehcleanup353:                                     ; preds = %ehcleanup352, %_ZN10TestObjectD2Ev.exit1207, %lpad308
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup352 ], [ %eh.lpad-body708, %_ZN10TestObjectD2Ev.exit1207 ], [ %585, %lpad308 ]
-  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %toListA) #11
+  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %toListA) #10
   br label %ehcleanup354
 
 ehcleanup354:                                     ; preds = %lpad304, %lpad.i673, %ehcleanup353
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup353 ], [ %584, %lpad304 ], [ %312, %lpad.i673 ]
-  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %slist3TO33) #11
+  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %slist3TO33) #10
   br label %common.resume
 
 lpad359:                                          ; preds = %.noexc959, %invoke.cont388, %if.else8.i.i.i.i.i.i.i939, %if.else8.i.i.i.i.i.i.i904, %land.end387, %land.end369
@@ -5757,12 +5746,12 @@ _ZN10TestObjectD2Ev.exit1228:                     ; preds = %if.else8.i.i.i.i.i.
 
 ehcleanup432:                                     ; preds = %_ZN10TestObjectD2Ev.exit1228, %_ZN10TestObjectD2Ev.exit1221, %lpad393
   %.pn5 = phi { ptr, i32 } [ %600, %lpad393 ], [ %604, %_ZN10TestObjectD2Ev.exit1228 ], [ %601, %_ZN10TestObjectD2Ev.exit1221 ]
-  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %toListC) #11
+  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %toListC) #10
   br label %ehcleanup433
 
 ehcleanup433:                                     ; preds = %ehcleanup432, %lpad359
   %.pn5.pn = phi { ptr, i32 } [ %.pn5, %ehcleanup432 ], [ %599, %lpad359 ]
-  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %toListA355) #11
+  call void @_ZN5eastl11fixed_slistI10TestObjectLm16ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(607) %toListA355) #10
   br label %common.resume
 
 lpad440.loopexit:                                 ; preds = %if.else8.i.i.i.i.i.i.i1132
@@ -5787,13 +5776,13 @@ lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN5ea
 
 lpad440:                                          ; preds = %lpad440.loopexit.split-lp.loopexit, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad440.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad440.loopexit ], [ %lpad.loopexit1466, %lpad440.loopexit.split-lp.loopexit ], [ %lpad.loopexit1469, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN5eastl11fixed_slistIiLm8ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(207) %intList) #11
+  call void @_ZN5eastl11fixed_slistIiLm8ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(207) %intList) #10
   br label %common.resume
 
 lpad502:                                          ; preds = %_ZN5eastl11fixed_slistIiLm8ELb1ENS_9allocatorEED2Ev.exit, %invoke.cont506, %invoke.cont503
   %607 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl11fixed_slistIiLm64ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(1111) %c) #11
+  call void @_ZN5eastl11fixed_slistIiLm64ELb1E15MallocAllocatorED2Ev(ptr noundef nonnull align 8 dereferenceable(1111) %c) #10
   br label %common.resume
 }
 
@@ -5830,7 +5819,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -6012,7 +6001,7 @@ terminate.lpad.i.i:                               ; preds = %if.else.i.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #13
+  tail call void @__clang_call_terminate(ptr %8) #12
   unreachable
 
 _ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEED2Ev.exit: ; preds = %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i, %entry
@@ -6068,7 +6057,7 @@ terminate.lpad.i.i:                               ; preds = %if.else.i.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #13
+  tail call void @__clang_call_terminate(ptr %8) #12
   unreachable
 
 _ZN5eastl5slistI7Align64NS_20fixed_node_allocatorILm128ELm1ELm64ELm0ELb1E15CustomAllocatorEEED2Ev.exit: ; preds = %_ZN5eastl9SListBaseI7Align64NS_20fixed_node_allocatorILm128ELm1ELm64ELm0ELb1E15CustomAllocatorEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i, %entry
@@ -6107,7 +6096,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -6189,7 +6178,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #11
+  call void @_ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #10
   resume { ptr, i32 } %11
 }
 
@@ -6260,7 +6249,7 @@ terminate.lpad.i.i:                               ; preds = %if.else.i.i.i.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #13
+  tail call void @__clang_call_terminate(ptr %12) #12
   unreachable
 
 _ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev.exit: ; preds = %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i, %entry
@@ -6318,7 +6307,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN5eastl9SListNode
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %_ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i.i) #11
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i
 
 _ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -6565,7 +6554,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -6586,8 +6575,8 @@ declare void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 d
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
@@ -6668,7 +6657,7 @@ terminate.lpad.i:                                 ; preds = %if.else.i.i.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #13
+  tail call void @__clang_call_terminate(ptr %12) #12
   unreachable
 
 _ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEED2Ev.exit: ; preds = %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i, %entry
@@ -6726,7 +6715,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5eastl9SListNode
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %_ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i.i) #11
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i
 
 _ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -6772,7 +6761,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.body.i.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %while.body.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm8ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i: ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -6791,9 +6780,6 @@ declare void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -6855,7 +6841,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %while.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i
@@ -6996,7 +6982,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %while.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i
@@ -7123,7 +7109,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %while.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i
@@ -7229,7 +7215,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %while.body.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -7278,7 +7264,7 @@ if.then.i.i.i.i.i.i.i21:                          ; preds = %while.body.i.i.i.i1
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i17
 
 delete.notnull.i.i.i.i.i.i.i.i16:                 ; preds = %while.body.i.i.i.i11
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i12) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i12) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i17
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i17: ; preds = %delete.notnull.i.i.i.i.i.i.i.i16, %if.then.i.i.i.i.i.i.i21
@@ -7323,7 +7309,7 @@ if.then.i.i.i.i.i.i.i39:                          ; preds = %while.body.i.i.i.i3
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i36
 
 delete.notnull.i.i.i.i.i.i.i.i35:                 ; preds = %while.body.i.i.i.i30
-  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i31) #12
+  call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i.i31) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i36
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i.i36: ; preds = %delete.notnull.i.i.i.i.i.i.i.i35, %if.then.i.i.i.i.i.i.i39
@@ -7339,7 +7325,7 @@ _ZN5eastl11fixed_slistIiLm1ELb1ENS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl9S
 lpad:                                             ; preds = %_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i20, %_ZN5eastl5slistIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE5clearEv.exit.i.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5eastl11fixed_slistIiLm1ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(95) %temp) #11
+  call void @_ZN5eastl11fixed_slistIiLm1ELb1ENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(95) %temp) #10
   resume { ptr, i32 } %20
 }
 
@@ -7374,7 +7360,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.07.i.i.i) #11
   br label %_ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i
 
 _ZN5eastl9SListBaseIiNS_20fixed_node_allocatorILm16ELm1ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIiEE.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -7645,7 +7631,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5eastl9SListNode
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %_ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i) #11
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i
 
 _ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i
@@ -7847,7 +7833,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5eastl9SListNode
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %_ZN5eastl9SListNodeI10TestObjectED2Ev.exit.i
-  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i) #12
+  tail call void @_ZdaPv(ptr noundef nonnull %pNodeCurrent.08.i) #11
   br label %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i
 
 _ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1ENS_9allocatorEEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i: ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i
@@ -8369,7 +8355,7 @@ terminate.lpad.i:                                 ; preds = %if.else.i.i.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #13
+  tail call void @__clang_call_terminate(ptr %12) #12
   unreachable
 
 _ZN5eastl5slistI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE5clearEv.exit: ; preds = %_ZN5eastl9SListBaseI10TestObjectNS_20fixed_node_allocatorILm32ELm16ELm8ELm0ELb1E15MallocAllocatorEEE10DoFreeNodeEPNS_9SListNodeIS1_EE.exit.i.i, %if.then
@@ -8579,19 +8565,19 @@ if.end:                                           ; preds = %_ZN5eastl5slistI10T
 declare void @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #8
+declare void @llvm.va_start.p0(ptr) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #8
+declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8600,13 +8586,12 @@ attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #4 = { cold nofree noreturn }
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { builtin nounwind }
+attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

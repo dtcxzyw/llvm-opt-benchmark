@@ -4819,26 +4819,26 @@ _ZN11quinn_proto10connection4mtud12MtuDiscovery10with_state17he8e9ab6722af16a9E.
   %17 = trunc nuw i16 %3 to i1
   %.sroa.0.0.sroa.speculated.i.i = tail call i16 @llvm.umin.i16(i16 %4, i16 %1)
   %.sroa.11.0 = select i1 %17, i16 %4, i16 -9
-  %.sroa.14.0 = select i1 %17, i16 %.sroa.0.0.sroa.speculated.i.i, i16 %1
+  %.sroa.139.0 = select i1 %17, i16 %.sroa.0.0.sroa.speculated.i.i, i16 %1
   store i64 0, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %11, ptr %.sroa.47.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %15, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.68.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i16 %2, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 58
   store i16 %2, ptr %.sroa.8.0..sroa_idx, align 2
-  %.sroa.99.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 2, ptr %.sroa.99.0..sroa_idx, align 8
+  %.sroa.98.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 2, ptr %.sroa.98.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4, i64 64, i1 false)
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i16 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx, align 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i16 %.sroa.14.0, ptr %.sroa.14.0..sroa_idx, align 8
+  %.sroa.139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i16 %.sroa.139.0, ptr %.sroa.139.0..sroa_idx, align 8
   ret void
 }
 
@@ -4887,7 +4887,7 @@ _ZN11quinn_proto10connection4mtud12MtuDiscovery10with_state17he8e9ab6722af16a9E.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN11quinn_proto10connection4mtud12MtuDiscovery5reset17h8eac9934b54a6c1cE(ptr noalias noundef align 8 dereferenceable(152) initializes((144, 146)) %0, i16 noundef %1, i16 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
-  %.sroa.49 = alloca [64 x i8], align 8
+  %.sroa.4 = alloca [64 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i16 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4901,10 +4901,10 @@ define hidden void @_ZN11quinn_proto10connection4mtud12MtuDiscovery5reset17h8eac
 _ZN11quinn_proto10connection4mtud12MtuDiscovery37on_peer_max_udp_payload_size_received17h5b8f6bf532114aa8E.exit: ; preds = %3
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.sroa.49.32..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.49, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.49.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
+  %.sroa.4.32..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.32..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   store i64 2, ptr %6, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.49, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4, i64 64, i1 false)
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i16 @llvm.umin.i16(i16 %.sroa.6.0.copyload, i16 %1)
   store i16 %.sroa.0.0.sroa.speculated.i.i, ptr %5, align 8, !alias.scope !280
   store i16 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !280
@@ -4937,10 +4937,10 @@ _ZN11quinn_proto10connection4mtud17BlackHoleDetector3new17h82dad1ba0224b8ccE.exi
   %19 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %0, align 8
-  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %12, ptr %.sroa.520.0..sroa_idx, align 8
-  %.sroa.623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %16, ptr %.sroa.623.0..sroa_idx, align 8
+  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %12, ptr %.sroa.519.0..sroa_idx, align 8
+  %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %16, ptr %.sroa.622.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4951,16 +4951,16 @@ _ZN11quinn_proto10connection4mtud17BlackHoleDetector3new17h82dad1ba0224b8ccE.exi
 
 20:                                               ; preds = %_ZN11quinn_proto10connection4mtud17BlackHoleDetector3new17h82dad1ba0224b8ccE.exit
   store i64 0, ptr %0, align 8
-  %.sroa.520.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %12, ptr %.sroa.520.0..sroa_idx21, align 8
-  %.sroa.623.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %16, ptr %.sroa.623.0..sroa_idx24, align 8
-  %.sroa.7.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx26, i8 0, i64 16, i1 false)
-  %.sroa.8.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i16 %2, ptr %.sroa.8.0..sroa_idx27, align 8
-  %.sroa.9.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %0, i64 58
-  store i16 %2, ptr %.sroa.9.0..sroa_idx29, align 2
+  %.sroa.519.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %12, ptr %.sroa.519.0..sroa_idx20, align 8
+  %.sroa.622.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %16, ptr %.sroa.622.0..sroa_idx23, align 8
+  %.sroa.7.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx25, i8 0, i64 16, i1 false)
+  %.sroa.8.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i16 %2, ptr %.sroa.8.0..sroa_idx26, align 8
+  %.sroa.9.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %0, i64 58
+  store i16 %2, ptr %.sroa.9.0..sroa_idx28, align 2
   ret void
 }
 
@@ -5001,8 +5001,8 @@ define hidden { i16, i16 } @_ZN11quinn_proto10connection4mtud12MtuDiscovery13pol
   %minmaxop.i.i = select i1 %16, i16 %9, i16 %.val.i
   %.sroa.0.0.in.sroa.speculated.i.i.i = tail call i16 @llvm.umin.i16(i16 %minmaxop.i.i, i16 %13)
   store i64 0, ptr %5, align 8, !alias.scope !290
-  %.sroa.523.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 0, ptr %.sroa.523.0..sroa_idx.i, align 8, !alias.scope !290
+  %.sroa.522.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 0, ptr %.sroa.522.0..sroa_idx.i, align 8, !alias.scope !290
   br label %.thread
 
 17:                                               ; preds = %7
@@ -5037,15 +5037,15 @@ define hidden { i16, i16 } @_ZN11quinn_proto10connection4mtud12MtuDiscovery13pol
   br label %.thread
 
 .thread:                                          ; preds = %26, %11
-  %.sroa.0.0.sroa.speculated.i.i.sink47.i = phi i16 [ %.sroa.0.0.sroa.speculated.i.i.i, %11 ], [ %.sroa.0.0.sroa.speculated.i.i16.i, %26 ]
+  %.sroa.0.0.sroa.speculated.i.i.sink46.i = phi i16 [ %.sroa.0.0.sroa.speculated.i.i.i, %11 ], [ %.sroa.0.0.sroa.speculated.i.i16.i, %26 ]
   %.sroa.0.0.in.sroa.speculated.i.i.sink.i = phi i16 [ %.sroa.0.0.in.sroa.speculated.i.i.i, %11 ], [ %.sroa.0.0.in.sroa.speculated.i.i18.i, %26 ]
   %.val13.sink.i = phi i16 [ %.val13.i, %11 ], [ %.val15.i, %26 ]
-  %.sroa.725.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 90
-  store i16 %.sroa.0.0.in.sroa.speculated.i.i.sink.i, ptr %.sroa.725.0..sroa_idx.i, align 2, !alias.scope !290
-  %.sroa.826.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i16 %.val13.sink.i, ptr %.sroa.826.0..sroa_idx.i, align 4, !alias.scope !290
+  %.sroa.724.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 90
+  store i16 %.sroa.0.0.in.sroa.speculated.i.i.sink.i, ptr %.sroa.724.0..sroa_idx.i, align 2, !alias.scope !290
+  %.sroa.825.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i16 %.val13.sink.i, ptr %.sroa.825.0..sroa_idx.i, align 4, !alias.scope !290
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 94
-  store i16 %.sroa.0.0.sroa.speculated.i.i.sink47.i, ptr %.sroa.9.0..sroa_idx.i, align 2, !alias.scope !290
+  store i16 %.sroa.0.0.sroa.speculated.i.i.sink46.i, ptr %.sroa.9.0..sroa_idx.i, align 2, !alias.scope !290
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.phi.trans.insert5.i.i3 = getelementptr inbounds nuw i8, ptr %0, i64 90
   br label %45
@@ -5121,11 +5121,11 @@ _ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd
   br i1 %.not.i.not.i, label %70, label %68
 
 68:                                               ; preds = %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i, %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.thread.i
-  %.sroa.4.0.i43.i = phi i16 [ %66, %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.thread.i ], [ %54, %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i ]
+  %.sroa.4.0.i42.i = phi i16 [ %66, %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.thread.i ], [ %54, %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i ]
   store i64 1, ptr %5, align 8, !alias.scope !290
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %3, ptr %69, align 8, !alias.scope !290
-  store i16 %.sroa.4.0.i43.i, ptr %53, align 2, !alias.scope !290
+  store i16 %.sroa.4.0.i42.i, ptr %53, align 2, !alias.scope !290
   br label %_ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13poll_transmit17h9dba73a8caa37651E.exit
 
 70:                                               ; preds = %_ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd0e1aE.exit.i
@@ -5143,7 +5143,7 @@ _ZN11quinn_proto10connection4mtud11SearchState17next_mtu_to_probe17heda4e385c7bd
   br label %_ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13poll_transmit17h9dba73a8caa37651E.exit
 
 _ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13poll_transmit17h9dba73a8caa37651E.exit: ; preds = %70, %68, %37, %18, %17, %4
-  %.sroa.3.0 = phi i16 [ undef, %4 ], [ %40, %37 ], [ %.sroa.4.0.i43.i, %68 ], [ undef, %70 ], [ undef, %18 ], [ undef, %17 ]
+  %.sroa.3.0 = phi i16 [ undef, %4 ], [ %40, %37 ], [ %.sroa.4.0.i42.i, %68 ], [ undef, %70 ], [ undef, %18 ], [ undef, %17 ]
   %.sroa.0.0 = phi i16 [ 0, %4 ], [ 1, %37 ], [ 1, %68 ], [ 0, %70 ], [ 0, %18 ], [ 0, %17 ]
   %78 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
   %79 = insertvalue { i16, i16 } %78, i16 %.sroa.3.0, 1
@@ -5524,7 +5524,6 @@ _ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13on_probe_lost17h5deb8894
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN11quinn_proto10connection4mtud12MtuDiscovery17on_non_probe_lost17h3c6ffd4f68fa5a20E(ptr noalias noundef align 8 dereferenceable(152) %0, i64 noundef %1, i16 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.sroa.6.i = alloca [6 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
   %4 = load i64, ptr %0, align 8, !range !14, !alias.scope !310, !noundef !3
   %5 = trunc nuw i64 %4 to i1
@@ -5535,17 +5534,15 @@ define hidden void @_ZN11quinn_proto10connection4mtud12MtuDiscovery17on_non_prob
   %8 = load i64, ptr %7, align 8, !alias.scope !310, !noundef !3
   %9 = sub i64 %1, %8
   %.not.i = icmp eq i64 %9, 1
-  %.sroa.46.0..sroa_idx22.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.not.i, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread19.i, label %15
+  %.sroa.46.0..sroa_idx20.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %.not.i, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread17.i, label %15
 
-_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread19.i: ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.6.i)
-  %.sroa.46.0.copyload23.i = load i16, ptr %.sroa.46.0..sroa_idx22.i, align 8, !alias.scope !310
-  %.sroa.0.0.sroa.speculated.i.i.i25.i = tail call i16 @llvm.umin.i16(i16 %2, i16 %.sroa.46.0.copyload23.i)
+_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread17.i: ; preds = %6
+  %.sroa.46.0.copyload21.i = load i16, ptr %.sroa.46.0..sroa_idx20.i, align 8, !alias.scope !310
+  %.sroa.0.0.sroa.speculated.i.i.i22.i = tail call i16 @llvm.umin.i16(i16 %2, i16 %.sroa.46.0.copyload21.i)
   br label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit
 
 _ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i: ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17hd39a0f3de432b7daE.exit.i.i", %41, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i, %19, %15, %3
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.6.i)
   %.sroa.46.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit
 
@@ -5559,15 +5556,14 @@ _ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2
   %.sroa.04.0.copyload.pre.i = load i64, ptr %0, align 8, !alias.scope !310
   %.sroa.04.0.copyload.pre.fr.i = freeze i64 %.sroa.04.0.copyload.pre.i
   %14 = trunc i64 %.sroa.04.0.copyload.pre.fr.i to i1
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.6.i)
-  %.sroa.46.0.copyload.i = load i16, ptr %.sroa.46.0..sroa_idx22.i, align 8, !alias.scope !310
+  %.sroa.46.0.copyload.i = load i16, ptr %.sroa.46.0..sroa_idx20.i, align 8, !alias.scope !310
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call i16 @llvm.umin.i16(i16 %2, i16 %.sroa.46.0.copyload.i)
   %spec.select.i = select i1 %14, i16 %.sroa.0.0.sroa.speculated.i.i.i.i, i16 %2
   br label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit
 
 15:                                               ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
-  %.sroa.6.0.copyload.i.i = load i16, ptr %.sroa.46.0..sroa_idx22.i, align 8, !alias.scope !319
+  %.sroa.6.0.copyload.i.i = load i16, ptr %.sroa.46.0..sroa_idx20.i, align 8, !alias.scope !319
   store i64 0, ptr %0, align 8, !alias.scope !319
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 58
   %17 = load i16, ptr %16, align 2, !alias.scope !319, !noundef !3
@@ -5630,16 +5626,13 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i: ; pr
   store i16 %.sroa.6.0.copyload.i.i, ptr %40, align 2, !noalias !319
   br label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i
 
-_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit: ; preds = %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread19.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i
-  %.sroa.46.0..sroa_idx17.i = phi ptr [ %.sroa.46.0..sroa_idx11.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i ], [ %.sroa.46.0..sroa_idx22.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread19.i ], [ %.sroa.46.0..sroa_idx22.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i ]
-  %49 = phi i16 [ %2, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i ], [ %.sroa.0.0.sroa.speculated.i.i.i25.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread19.i ], [ %spec.select.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i ]
-  %.sroa.4.0..sroa_idx516.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.5.0..sroa_idx718.i = getelementptr inbounds nuw i8, ptr %0, i64 18
+_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit: ; preds = %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread17.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i
+  %.sroa.46.0..sroa_idx16.i = phi ptr [ %.sroa.46.0..sroa_idx11.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i ], [ %.sroa.46.0..sroa_idx20.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread17.i ], [ %.sroa.46.0..sroa_idx20.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i ]
+  %49 = phi i16 [ %2, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i ], [ %.sroa.0.0.sroa.speculated.i.i.i22.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread17.i ], [ %spec.select.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i ]
+  %.sroa.4.0..sroa_idx515.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %0, align 8, !alias.scope !310
-  store i64 %1, ptr %.sroa.4.0..sroa_idx516.i, align 8, !alias.scope !310
-  store i16 %49, ptr %.sroa.46.0..sroa_idx17.i, align 8, !alias.scope !310
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.0..sroa_idx718.i, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.6.i, i64 6, i1 false)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.6.i)
+  store i64 %1, ptr %.sroa.4.0..sroa_idx515.i, align 8, !alias.scope !310
+  store i16 %49, ptr %.sroa.46.0..sroa_idx16.i, align 8, !alias.scope !310
   ret void
 }
 

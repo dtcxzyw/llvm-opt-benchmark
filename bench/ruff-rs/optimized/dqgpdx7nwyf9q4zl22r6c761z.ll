@@ -51128,9 +51128,9 @@ _ZN5alloc5alloc15exchange_malloc17he7dced161648df71E.exit104.i: ; preds = %55
   %.sroa.413.0.insert.shift.i.i.i = shl nuw i64 %.sroa.413.0.insert.ext.i.i.i, 32
   %.sroa.012.0.insert.ext.i.i.i = zext i32 %68 to i64
   %.sroa.012.0.insert.insert.i.i.i = or disjoint i64 %.sroa.413.0.insert.shift.i.i.i, %.sroa.012.0.insert.ext.i.i.i
-  %.sroa.418.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15), !noalias !3671
-  call void @_ZN18ty_python_semantic5types10class_base9ClassBase3mro17ha6a68e1cabcbedb5E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %.sroa.418.0..sroa_idx.i.i.i, i64 %61, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, i32 noundef %66), !noalias !3662
+  call void @_ZN18ty_python_semantic5types10class_base9ClassBase3mro17ha6a68e1cabcbedb5E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %.sroa.4.0..sroa_idx.i.i.i, i64 %61, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, i32 noundef %66), !noalias !3662
   store i64 %.sroa.012.0.insert.insert.i.i.i, ptr %15, align 8, !noalias !3670
   %70 = call { ptr, i64 } @"_ZN153_$LT$ty_python_semantic..types..mro..Mro$u20$as$u20$core..iter..traits..collect..FromIterator$LT$ty_python_semantic..types..class_base..ClassBase$GT$$GT$9from_iter17hbd517bc9b4054b5cE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %15), !noalias !3674
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15), !noalias !3671

@@ -54263,16 +54263,11 @@ _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef nonnull align 1 dereferenceable(1) ptr @_ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEEixERKS5_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.9 = alloca [7 x i8], align 1
   %.val6 = load ptr, ptr %0, align 8, !tbaa !472
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val7 = load ptr, ptr %2, align 8, !tbaa !472
   %3 = icmp eq ptr %.val6, %.val7
   br i1 %3, label %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread, label %4
-
-_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread: ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9)
-  br label %69
 
 4:                                                ; preds = %1
   %5 = ptrtoint ptr %.0.val to i64
@@ -54364,212 +54359,201 @@ _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do
   br i1 %67, label %60, label %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread, !llvm.loop !1002
 
 _ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread: ; preds = %64, %._crit_edge.i
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9)
   %68 = icmp eq ptr %55, %54
-  br i1 %68, label %69, label %100
+  br i1 %68, label %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread, label %99
 
-69:                                               ; preds = %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread, %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !998
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %74 = load ptr, ptr %73, align 8, !tbaa !1181
-  %.not.i.i = icmp eq ptr %72, %74
-  br i1 %.not.i.i, label %79, label %75
+_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread: ; preds = %1, %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %71 = load ptr, ptr %70, align 8, !tbaa !998
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %73 = load ptr, ptr %72, align 8, !tbaa !1181
+  %.not.i.i = icmp eq ptr %71, %73
+  br i1 %.not.i.i, label %78, label %74
 
-75:                                               ; preds = %69
-  store ptr %.0.val, ptr %72, align 8
-  %.sroa.8.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %72, i64 8
+74:                                               ; preds = %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread
+  store ptr %.0.val, ptr %71, align 8
+  %.sroa.8.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i8 0, ptr %.sroa.8.0..sroa_idx6, align 8
-  %.sroa.9.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %72, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx11, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store i32 -1, ptr %76, align 8, !tbaa !999
-  %77 = load ptr, ptr %71, align 8, !tbaa !998
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  store ptr %78, ptr %71, align 8, !tbaa !998
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  store i32 -1, ptr %75, align 8, !tbaa !999
+  %76 = load ptr, ptr %70, align 8, !tbaa !998
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  store ptr %77, ptr %70, align 8, !tbaa !998
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bEiEEERSA_DpOT_.exit.i
 
-79:                                               ; preds = %69
-  %.val28.i.i.i = load ptr, ptr %70, align 8, !tbaa !997
-  %80 = ptrtoint ptr %72 to i64
-  %81 = ptrtoint ptr %.val28.i.i.i to i64
-  %82 = sub i64 %80, %81
-  %83 = icmp eq i64 %82, 9223372036854775800
-  br i1 %83, label %84, label %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
+78:                                               ; preds = %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread.thread
+  %.val28.i.i.i = load ptr, ptr %69, align 8, !tbaa !997
+  %79 = ptrtoint ptr %71 to i64
+  %80 = ptrtoint ptr %.val28.i.i.i to i64
+  %81 = sub i64 %79, %80
+  %82 = icmp eq i64 %81, 9223372036854775800
+  br i1 %82, label %83, label %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
 
-84:                                               ; preds = %79
+83:                                               ; preds = %78
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.204) #37
   unreachable
 
-_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %79
-  %85 = sdiv exact i64 %82, 24
-  %86 = icmp eq ptr %72, %.val28.i.i.i
-  %.sroa.speculated.i.i.i.i = select i1 %86, i64 1, i64 %85
-  %87 = add nsw i64 %.sroa.speculated.i.i.i.i, %85
-  %88 = icmp ult i64 %87, %85
-  %89 = tail call i64 @llvm.umin.i64(i64 %87, i64 384307168202282325)
-  %90 = select i1 %88, i64 384307168202282325, i64 %89
-  %.not.i.i.i.i = icmp ne i64 %90, 0
+_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %78
+  %84 = sdiv exact i64 %81, 24
+  %85 = icmp eq ptr %71, %.val28.i.i.i
+  %.sroa.speculated.i.i.i.i = select i1 %85, i64 1, i64 %84
+  %86 = add nsw i64 %.sroa.speculated.i.i.i.i, %84
+  %87 = icmp ult i64 %86, %84
+  %88 = tail call i64 @llvm.umin.i64(i64 %86, i64 384307168202282325)
+  %89 = select i1 %87, i64 384307168202282325, i64 %88
+  %.not.i.i.i.i = icmp ne i64 %89, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %91 = mul nuw nsw i64 %90, 24
-  %92 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %91) #38
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %82
-  store ptr %.0.val, ptr %93, align 8
-  %.sroa.8.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %90 = mul nuw nsw i64 %89, 24
+  %91 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %90) #38
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %81
+  store ptr %.0.val, ptr %92, align 8
+  %.sroa.8.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i8 0, ptr %.sroa.8.0..sroa_idx8, align 8
-  %.sroa.9.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %93, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx12, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store i32 -1, ptr %94, align 8, !tbaa !999
-  br i1 %86, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store i32 -1, ptr %93, align 8, !tbaa !999
+  br i1 %85, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.03.i.i.i.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i.i.i.i ], [ %92, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %.092.i.i.i.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i.i.i ], [ %.val28.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.03.i.i.i.i.i.i = phi ptr [ %95, %.lr.ph.i.i.i.i.i.i ], [ %91, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.092.i.i.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i.i.i ], [ %.val28.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.092.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !1182
-  %95 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 24
-  %96 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i = icmp eq ptr %95, %72
+  %94 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i.i, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i = icmp eq ptr %94, %71
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1186
 
 _ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %92, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %96, %.lr.ph.i.i.i.i.i.i ]
-  %97 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %91, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %95, %.lr.ph.i.i.i.i.i.i ]
+  %96 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 24
   %.not.i39.i.i.i = icmp eq ptr %.val28.i.i.i, null
-  br i1 %.not.i39.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bEiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %98
+  br i1 %.not.i39.i.i.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bEiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %97
 
-98:                                               ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val28.i.i.i, i64 noundef %82) #35
+97:                                               ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val28.i.i.i, i64 noundef %81) #35
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bEiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bEiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %98, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i.i
-  store ptr %92, ptr %70, align 8, !tbaa !997
-  store ptr %97, ptr %71, align 8, !tbaa !998
-  %99 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<(anonymous namespace)::FlowGraph::Node *, bool>::entry_t", ptr %92, i64 %90
-  store ptr %99, ptr %73, align 8, !tbaa !1181
+_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bEiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %97, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i.i
+  store ptr %91, ptr %69, align 8, !tbaa !997
+  store ptr %96, ptr %70, align 8, !tbaa !998
+  %98 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<(anonymous namespace)::FlowGraph::Node *, bool>::entry_t", ptr %91, i64 %89
+  store ptr %98, ptr %72, align 8, !tbaa !1181
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bEiEEERSA_DpOT_.exit.i
 
-_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bEiEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bEiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %75
+_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bEiEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bEiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %74
   tail call fastcc void @_ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %.val.pre.i = load ptr, ptr %70, align 8, !tbaa !997
-  %.val7.pre.i = load ptr, ptr %71, align 8, !tbaa !998
+  %.val.pre.i = load ptr, ptr %69, align 8, !tbaa !997
+  %.val7.pre.i = load ptr, ptr %70, align 8, !tbaa !998
   %.pre.i13 = ptrtoint ptr %.val7.pre.i to i64
   %.pre33.i = ptrtoint ptr %.val.pre.i to i64
   %.pre35.i = sub i64 %.pre.i13, %.pre33.i
   %.pre37.i = sdiv exact i64 %.pre35.i, 24
   %.pre39.i = trunc i64 %.pre37.i to i32
   %.pre41.i = add i32 %.pre39.i, -1
-  br label %_ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do_insertEOSt4pairIS5_bERj.exit
+  br label %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do_lookupERKS5_Rj.exit
 
-100:                                              ; preds = %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %102 = zext i32 %.016 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %55, i64 %102
-  %.val14.i = load i32, ptr %103, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %105 = load ptr, ptr %104, align 8, !tbaa !998
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %107 = load ptr, ptr %106, align 8, !tbaa !1181
-  %.not.i15.i = icmp eq ptr %105, %107
-  br i1 %.not.i15.i, label %112, label %108
+99:                                               ; preds = %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE7do_hashERKS5_.exit.thread
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %101 = zext i32 %.016 to i64
+  %102 = getelementptr inbounds nuw i32, ptr %55, i64 %101
+  %.val14.i = load i32, ptr %102, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %104 = load ptr, ptr %103, align 8, !tbaa !998
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %106 = load ptr, ptr %105, align 8, !tbaa !1181
+  %.not.i15.i = icmp eq ptr %104, %106
+  br i1 %.not.i15.i, label %111, label %107
 
-108:                                              ; preds = %100
-  store ptr %.0.val, ptr %105, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 8
+107:                                              ; preds = %99
+  store ptr %.0.val, ptr %104, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i8 0, ptr %.sroa.8.0..sroa_idx, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  store i32 %.val14.i, ptr %109, align 8, !tbaa !999
-  %110 = load ptr, ptr %104, align 8, !tbaa !998
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  store ptr %111, ptr %104, align 8, !tbaa !998
-  %.val8.pre.i = load ptr, ptr %101, align 8, !tbaa !997
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  store i32 %.val14.i, ptr %108, align 8, !tbaa !999
+  %109 = load ptr, ptr %103, align 8, !tbaa !998
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  store ptr %110, ptr %103, align 8, !tbaa !998
+  %.val8.pre.i = load ptr, ptr %100, align 8, !tbaa !997
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bERiEEERSA_DpOT_.exit.i
 
-112:                                              ; preds = %100
-  %.val27.i.i.i = load ptr, ptr %101, align 8, !tbaa !997
-  %113 = ptrtoint ptr %105 to i64
-  %114 = ptrtoint ptr %.val27.i.i.i to i64
-  %115 = sub i64 %113, %114
-  %116 = icmp eq i64 %115, 9223372036854775800
-  br i1 %116, label %117, label %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i
+111:                                              ; preds = %99
+  %.val27.i.i.i = load ptr, ptr %100, align 8, !tbaa !997
+  %112 = ptrtoint ptr %104 to i64
+  %113 = ptrtoint ptr %.val27.i.i.i to i64
+  %114 = sub i64 %112, %113
+  %115 = icmp eq i64 %114, 9223372036854775800
+  br i1 %115, label %116, label %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i
 
-117:                                              ; preds = %112
+116:                                              ; preds = %111
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.204) #37
   unreachable
 
-_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i: ; preds = %112
-  %118 = sdiv exact i64 %115, 24
-  %119 = icmp eq ptr %105, %.val27.i.i.i
-  %.sroa.speculated.i.i.i17.i = select i1 %119, i64 1, i64 %118
-  %120 = add nsw i64 %.sroa.speculated.i.i.i17.i, %118
-  %121 = icmp ult i64 %120, %118
-  %122 = tail call i64 @llvm.umin.i64(i64 %120, i64 384307168202282325)
-  %123 = select i1 %121, i64 384307168202282325, i64 %122
-  %.not.i.i.i18.i = icmp ne i64 %123, 0
+_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i: ; preds = %111
+  %117 = sdiv exact i64 %114, 24
+  %118 = icmp eq ptr %104, %.val27.i.i.i
+  %.sroa.speculated.i.i.i17.i = select i1 %118, i64 1, i64 %117
+  %119 = add nsw i64 %.sroa.speculated.i.i.i17.i, %117
+  %120 = icmp ult i64 %119, %117
+  %121 = tail call i64 @llvm.umin.i64(i64 %119, i64 384307168202282325)
+  %122 = select i1 %120, i64 384307168202282325, i64 %121
+  %.not.i.i.i18.i = icmp ne i64 %122, 0
   tail call void @llvm.assume(i1 %.not.i.i.i18.i)
-  %124 = mul nuw nsw i64 %123, 24
-  %125 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %124) #38
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %115
-  store ptr %.0.val, ptr %126, align 8
-  %.sroa.8.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %123 = mul nuw nsw i64 %122, 24
+  %124 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %123) #38
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 %114
+  store ptr %.0.val, ptr %125, align 8
+  %.sroa.8.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i8 0, ptr %.sroa.8.0..sroa_idx4, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  store i32 %.val14.i, ptr %127, align 8, !tbaa !999
-  br i1 %119, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i23.i, label %.lr.ph.i.i.i.i.i19.i
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  store i32 %.val14.i, ptr %126, align 8, !tbaa !999
+  br i1 %118, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i23.i, label %.lr.ph.i.i.i.i.i19.i
 
 .lr.ph.i.i.i.i.i19.i:                             ; preds = %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i, %.lr.ph.i.i.i.i.i19.i
-  %.03.i.i.i.i.i20.i = phi ptr [ %129, %.lr.ph.i.i.i.i.i19.i ], [ %125, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i ]
-  %.092.i.i.i.i.i21.i = phi ptr [ %128, %.lr.ph.i.i.i.i.i19.i ], [ %.val27.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i ]
+  %.03.i.i.i.i.i20.i = phi ptr [ %128, %.lr.ph.i.i.i.i.i19.i ], [ %124, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i ]
+  %.092.i.i.i.i.i21.i = phi ptr [ %127, %.lr.ph.i.i.i.i.i19.i ], [ %.val27.i.i.i, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.03.i.i.i.i.i20.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.092.i.i.i.i.i21.i, i64 24, i1 false), !alias.scope !1187
-  %128 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i21.i, i64 24
-  %129 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i20.i, i64 24
-  %.not.i.i.i.i.i22.i = icmp eq ptr %128, %105
+  %127 = getelementptr inbounds nuw i8, ptr %.092.i.i.i.i.i21.i, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %.03.i.i.i.i.i20.i, i64 24
+  %.not.i.i.i.i.i22.i = icmp eq ptr %127, %104
   br i1 %.not.i.i.i.i.i22.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i23.i, label %.lr.ph.i.i.i.i.i19.i, !llvm.loop !1186
 
 _ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i23.i: ; preds = %.lr.ph.i.i.i.i.i19.i, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i
-  %.0.lcssa.i.i.i.i.i24.i = phi ptr [ %125, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i ], [ %129, %.lr.ph.i.i.i.i.i19.i ]
-  %130 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i24.i, i64 24
+  %.0.lcssa.i.i.i.i.i24.i = phi ptr [ %124, %_ZNKSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12_M_check_lenEmPKc.exit.i.i16.i ], [ %128, %.lr.ph.i.i.i.i.i19.i ]
+  %129 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i24.i, i64 24
   %.not.i39.i.i25.i = icmp eq ptr %.val27.i.i.i, null
-  br i1 %.not.i39.i.i25.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %131
+  br i1 %.not.i39.i.i25.i, label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, label %130
 
-131:                                              ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i23.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.val27.i.i.i, i64 noundef %115) #35
+130:                                              ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i23.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %.val27.i.i.i, i64 noundef %114) #35
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %131, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i23.i
-  store ptr %125, ptr %101, align 8, !tbaa !997
-  store ptr %130, ptr %104, align 8, !tbaa !998
-  %132 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<(anonymous namespace)::FlowGraph::Node *, bool>::entry_t", ptr %125, i64 %123
-  store ptr %132, ptr %106, align 8, !tbaa !1181
+_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i: ; preds = %130, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit38.i.i23.i
+  store ptr %124, ptr %100, align 8, !tbaa !997
+  store ptr %129, ptr %103, align 8, !tbaa !998
+  %131 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<(anonymous namespace)::FlowGraph::Node *, bool>::entry_t", ptr %124, i64 %122
+  store ptr %131, ptr %105, align 8, !tbaa !1181
   br label %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bERiEEERSA_DpOT_.exit.i
 
-_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bERiEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %108
-  %.val9.i = phi ptr [ %111, %108 ], [ %130, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
-  %.val8.i = phi ptr [ %.val8.pre.i, %108 ], [ %125, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
-  %133 = ptrtoint ptr %.val9.i to i64
-  %134 = ptrtoint ptr %.val8.i to i64
-  %135 = sub i64 %133, %134
-  %136 = sdiv exact i64 %135, 24
-  %137 = trunc i64 %136 to i32
-  %138 = add i32 %137, -1
-  %139 = load ptr, ptr %0, align 8, !tbaa !217
-  %140 = getelementptr inbounds nuw i32, ptr %139, i64 %102
-  store i32 %138, ptr %140, align 4, !tbaa !109
-  br label %_ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do_insertEOSt4pairIS5_bERj.exit
-
-_ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do_insertEOSt4pairIS5_bERj.exit: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bEiEEERSA_DpOT_.exit.i, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bERiEEERSA_DpOT_.exit.i
-  %.val26 = phi ptr [ %.val8.i, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bERiEEERSA_DpOT_.exit.i ], [ %.val.pre.i, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bEiEEERSA_DpOT_.exit.i ]
-  %.pre-phi42.i = phi i32 [ %138, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bERiEEERSA_DpOT_.exit.i ], [ %.pre41.i, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bEiEEERSA_DpOT_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
+_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bERiEEERSA_DpOT_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %107
+  %.val9.i = phi ptr [ %110, %107 ], [ %129, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
+  %.val8.i = phi ptr [ %.val8.pre.i, %107 ], [ %124, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE17_M_realloc_insertIJSt4pairIS6_bERiEEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ]
+  %132 = ptrtoint ptr %.val9.i to i64
+  %133 = ptrtoint ptr %.val8.i to i64
+  %134 = sub i64 %132, %133
+  %135 = sdiv exact i64 %134, 24
+  %136 = trunc i64 %135 to i32
+  %137 = add i32 %136, -1
+  %138 = load ptr, ptr %0, align 8, !tbaa !217
+  %139 = getelementptr inbounds nuw i32, ptr %138, i64 %101
+  store i32 %137, ptr %139, align 4, !tbaa !109
   br label %_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do_lookupERKS5_Rj.exit
 
-_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do_lookupERKS5_Rj.exit: ; preds = %60, %_ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do_insertEOSt4pairIS5_bERj.exit
-  %.val = phi ptr [ %.val26, %_ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do_insertEOSt4pairIS5_bERj.exit ], [ %.val21.i, %60 ]
-  %.0 = phi i32 [ %.pre-phi42.i, %_ZN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do_insertEOSt4pairIS5_bERj.exit ], [ %.023.i, %60 ]
-  %141 = sext i32 %.0 to i64
-  %142 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<(anonymous namespace)::FlowGraph::Node *, bool>::entry_t", ptr %.val, i64 %141, i32 0, i32 1
-  ret ptr %142
+_ZNK5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS0_8hash_opsIS5_EEE9do_lookupERKS5_Rj.exit: ; preds = %60, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bERiEEERSA_DpOT_.exit.i, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bEiEEERSA_DpOT_.exit.i
+  %.val = phi ptr [ %.val8.i, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bERiEEERSA_DpOT_.exit.i ], [ %.val.pre.i, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bEiEEERSA_DpOT_.exit.i ], [ %.val21.i, %60 ]
+  %.0 = phi i32 [ %137, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bERiEEERSA_DpOT_.exit.i ], [ %.pre41.i, %_ZNSt6vectorIN5Yosys7hashlib4dictIPN12_GLOBAL__N_19FlowGraph4NodeEbNS1_8hash_opsIS6_EEE7entry_tESaISA_EE12emplace_backIJSt4pairIS6_bEiEEERSA_DpOT_.exit.i ], [ %.023.i, %60 ]
+  %140 = sext i32 %.0 to i64
+  %141 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<(anonymous namespace)::FlowGraph::Node *, bool>::entry_t", ptr %.val, i64 %140, i32 0, i32 1
+  ret ptr %141
 }
 
 ; Function Attrs: mustprogress uwtable

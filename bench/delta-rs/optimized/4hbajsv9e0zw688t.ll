@@ -521,7 +521,7 @@ define hidden void @_ZN12object_store5parse14parse_url_opts17h0b9d8255e93a17f6E(
   %89 = icmp eq i64 %88, 6
   %90 = getelementptr inbounds nuw i8, ptr %73, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.711, ptr noundef nonnull align 8 dereferenceable(24) %90, i64 24, i1 false)
-  br i1 %89, label %91, label %.thread393
+  br i1 %89, label %91, label %.thread392
 
 91:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %73)
@@ -534,7 +534,7 @@ define hidden void @_ZN12object_store5parse14parse_url_opts17h0b9d8255e93a17f6E(
     i8 4, label %100
   ]
 
-.thread393:                                       ; preds = %87
+.thread392:                                       ; preds = %87
   %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.593)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.593, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.587.0..sroa_idx, i64 48, i1 false)
@@ -625,9 +625,9 @@ define hidden void @_ZN12object_store5parse14parse_url_opts17h0b9d8255e93a17f6E(
   invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h3edc0e3925aaea89E.llvm.13299765037273942663"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %.sroa.0.i184, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %46)
           to label %358 unwind label %102
 
-.body:                                            ; preds = %474, %.thread377, %461, %.body.thread.i.i279, %366, %.thread360, %352, %.body.thread.i.i232, %257, %.thread343, %232, %.body.thread.i.i, %135, %123, %109, %102
-  %.4 = phi i8 [ 0, %135 ], [ 0, %257 ], [ 0, %366 ], [ %.3, %102 ], [ 1, %109 ], [ 1, %123 ], [ 0, %.body.thread.i.i ], [ 0, %232 ], [ 0, %.thread343 ], [ 0, %.body.thread.i.i232 ], [ 0, %352 ], [ 0, %.thread360 ], [ 0, %.body.thread.i.i279 ], [ 0, %461 ], [ 0, %.thread377 ], [ 1, %474 ]
-  %.pn143 = phi { ptr, i32 } [ %136, %135 ], [ %258, %257 ], [ %367, %366 ], [ %103, %102 ], [ %110, %109 ], [ %124, %123 ], [ %eh.lpad-body6.i.i, %.body.thread.i.i ], [ %233, %232 ], [ %.pn141346, %.thread343 ], [ %eh.lpad-body6.i.i233, %.body.thread.i.i232 ], [ %353, %352 ], [ %.pn139363, %.thread360 ], [ %eh.lpad-body6.i.i280, %.body.thread.i.i279 ], [ %462, %461 ], [ %.pn380, %.thread377 ], [ %475, %474 ]
+.body:                                            ; preds = %474, %.thread376, %461, %.body.thread.i.i279, %366, %.thread359, %352, %.body.thread.i.i232, %257, %.thread342, %232, %.body.thread.i.i, %135, %123, %109, %102
+  %.4 = phi i8 [ 0, %135 ], [ 0, %257 ], [ 0, %366 ], [ %.3, %102 ], [ 1, %109 ], [ 1, %123 ], [ 0, %.body.thread.i.i ], [ 0, %232 ], [ 0, %.thread342 ], [ 0, %.body.thread.i.i232 ], [ 0, %352 ], [ 0, %.thread359 ], [ 0, %.body.thread.i.i279 ], [ 0, %461 ], [ 0, %.thread376 ], [ 1, %474 ]
+  %.pn143 = phi { ptr, i32 } [ %136, %135 ], [ %258, %257 ], [ %367, %366 ], [ %103, %102 ], [ %110, %109 ], [ %124, %123 ], [ %eh.lpad-body6.i.i, %.body.thread.i.i ], [ %233, %232 ], [ %.pn141345, %.thread342 ], [ %eh.lpad-body6.i.i233, %.body.thread.i.i232 ], [ %353, %352 ], [ %.pn139362, %.thread359 ], [ %eh.lpad-body6.i.i280, %.body.thread.i.i279 ], [ %462, %461 ], [ %.pn379, %.thread376 ], [ %475, %474 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17h31b081cef248c658E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %74) #25
           to label %77 unwind label %247
 
@@ -741,12 +741,12 @@ define hidden void @_ZN12object_store5parse14parse_url_opts17h0b9d8255e93a17f6E(
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i), !noalias !186
   call void @llvm.lifetime.start.p0(i64 1224, ptr nonnull %70)
   invoke void @_ZN12object_store3aws7builder15AmazonS3Builder3new17hbf4ceeca9d7151c3E(ptr noalias noundef nonnull sret({ { { i64, [11 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [32 x i8], i8, [7 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, { i64, [8 x i64] }, { i64, { double, { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] } }, { i64, i32, [1 x i32] } }, { ptr, [1 x i64] } }) align 8 captures(none) dereferenceable(1224) %70)
-          to label %137 unwind label %.thread350
+          to label %137 unwind label %.thread349
 
-.thread350:                                       ; preds = %127
+.thread349:                                       ; preds = %127
   %134 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread343
+  br label %.thread342
 
 135:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h6a04c5d440fa6a33E.exit.i
   %136 = landingpad { ptr, i32 }
@@ -849,7 +849,7 @@ define hidden void @_ZN12object_store5parse14parse_url_opts17h0b9d8255e93a17f6E(
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0320, i64 24, i1 false), !alias.scope !274, !noalias !275
   invoke void @"_ZN4core3ptr64drop_in_place$LT$object_store..aws..builder..AmazonS3Builder$GT$17h667237d20244b511E"(ptr noalias noundef nonnull align 8 dereferenceable(1224) %70) #25
-          to label %.thread343 unwind label %167, !noalias !263
+          to label %.thread342 unwind label %167, !noalias !263
 
 167:                                              ; preds = %165
   %168 = landingpad { ptr, i32 }
@@ -1144,16 +1144,16 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h6a04c5d440fa6a33E.exit.i: ; preds 
 
 .body205:                                         ; preds = %147
   invoke void @"_ZN4core3ptr64drop_in_place$LT$object_store..aws..builder..AmazonS3Builder$GT$17h667237d20244b511E"(ptr noalias noundef nonnull align 8 dereferenceable(1224) %70) #25
-          to label %.thread343 unwind label %247
+          to label %.thread342 unwind label %247
 
-247:                                              ; preds = %.thread377, %.thread360, %.thread343, %486, %.body268, %.body221, %.body205, %.body
+247:                                              ; preds = %.thread376, %.thread359, %.thread342, %486, %.body268, %.body221, %.body205, %.body
   %248 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #26
   unreachable
 
-.thread343:                                       ; preds = %165, %.body205, %.thread350
-  %.pn141346 = phi { ptr, i32 } [ %134, %.thread350 ], [ %148, %.body205 ], [ %166, %165 ]
+.thread342:                                       ; preds = %165, %.body205, %.thread349
+  %.pn141345 = phi { ptr, i32 } [ %134, %.thread349 ], [ %148, %.body205 ], [ %166, %165 ]
   invoke void @"_ZN82_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcdf944a57f6f5406E.llvm.2651239618181311204"(ptr noalias noundef nonnull align 8 dereferenceable(64) %71)
           to label %.body unwind label %247
 
@@ -1179,12 +1179,12 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h6a04c5d440fa6a33E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i167), !noalias !208
   call void @llvm.lifetime.start.p0(i64 744, ptr nonnull %66)
   invoke void @_ZN12object_store3gcp7builder25GoogleCloudStorageBuilder3new17h9285893e95a618fbE(ptr noalias noundef nonnull sret({ { { i64, [11 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [32 x i8], i8, [7 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { double, { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] } }, { i64, i32, [1 x i32] } }, { ptr, [1 x i64] } }) align 8 captures(none) dereferenceable(744) %66)
-          to label %259 unwind label %.thread367
+          to label %259 unwind label %.thread366
 
-.thread367:                                       ; preds = %249
+.thread366:                                       ; preds = %249
   %256 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread360
+  br label %.thread359
 
 257:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h9dcee7e9db623f26E.exit.i
   %258 = landingpad { ptr, i32 }
@@ -1287,7 +1287,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h6a04c5d440fa6a33E.exit.i: ; preds 
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %275, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0326, i64 24, i1 false), !alias.scope !358, !noalias !359
   invoke void @"_ZN4core3ptr74drop_in_place$LT$object_store..gcp..builder..GoogleCloudStorageBuilder$GT$17heb232d09985aae8fE"(ptr noalias noundef nonnull align 8 dereferenceable(744) %66) #25
-          to label %.thread360 unwind label %289, !noalias !347
+          to label %.thread359 unwind label %289, !noalias !347
 
 289:                                              ; preds = %287
   %290 = landingpad { ptr, i32 }
@@ -1557,10 +1557,10 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h9dcee7e9db623f26E.exit.i: ; preds 
 
 .body221:                                         ; preds = %269
   invoke void @"_ZN4core3ptr74drop_in_place$LT$object_store..gcp..builder..GoogleCloudStorageBuilder$GT$17heb232d09985aae8fE"(ptr noalias noundef nonnull align 8 dereferenceable(744) %66) #25
-          to label %.thread360 unwind label %247
+          to label %.thread359 unwind label %247
 
-.thread360:                                       ; preds = %287, %.body221, %.thread367
-  %.pn139363 = phi { ptr, i32 } [ %256, %.thread367 ], [ %270, %.body221 ], [ %288, %287 ]
+.thread359:                                       ; preds = %287, %.body221, %.thread366
+  %.pn139362 = phi { ptr, i32 } [ %256, %.thread366 ], [ %270, %.body221 ], [ %288, %287 ]
   invoke void @"_ZN82_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcdf944a57f6f5406E.llvm.2651239618181311204"(ptr noalias noundef nonnull align 8 dereferenceable(64) %67)
           to label %.body unwind label %247
 
@@ -1586,12 +1586,12 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h9dcee7e9db623f26E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0.i184), !noalias !230
   call void @llvm.lifetime.start.p0(i64 1128, ptr nonnull %62)
   invoke void @_ZN12object_store5azure7builder21MicrosoftAzureBuilder3new17hb35f6206d6c7df69E(ptr noalias noundef nonnull sret({ { { i64, [11 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [32 x i8], i8, [7 x i8] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { double, { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] } }, { i64, i32, [1 x i32] } }, { ptr, [1 x i64] } }) align 8 captures(none) dereferenceable(1128) %62)
-          to label %368 unwind label %.thread384
+          to label %368 unwind label %.thread383
 
-.thread384:                                       ; preds = %358
+.thread383:                                       ; preds = %358
   %365 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread377
+  br label %.thread376
 
 366:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h2999913309bd11a3E.exit.i
   %367 = landingpad { ptr, i32 }
@@ -1694,7 +1694,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h9dcee7e9db623f26E.exit.i: ; preds 
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %384, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0332, i64 24, i1 false), !alias.scope !429, !noalias !430
   invoke void @"_ZN4core3ptr72drop_in_place$LT$object_store..azure..builder..MicrosoftAzureBuilder$GT$17h87c5a005117ebea2E"(ptr noalias noundef nonnull align 8 dereferenceable(1128) %62) #25
-          to label %.thread377 unwind label %398, !noalias !418
+          to label %.thread376 unwind label %398, !noalias !418
 
 398:                                              ; preds = %396
   %399 = landingpad { ptr, i32 }
@@ -1974,10 +1974,10 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h2999913309bd11a3E.exit.i: ; preds 
 
 .body268:                                         ; preds = %378
   invoke void @"_ZN4core3ptr72drop_in_place$LT$object_store..azure..builder..MicrosoftAzureBuilder$GT$17h87c5a005117ebea2E"(ptr noalias noundef nonnull align 8 dereferenceable(1128) %62) #25
-          to label %.thread377 unwind label %247
+          to label %.thread376 unwind label %247
 
-.thread377:                                       ; preds = %396, %.body268, %.thread384
-  %.pn380 = phi { ptr, i32 } [ %365, %.thread384 ], [ %379, %.body268 ], [ %397, %396 ]
+.thread376:                                       ; preds = %396, %.body268, %.thread383
+  %.pn379 = phi { ptr, i32 } [ %365, %.thread383 ], [ %379, %.body268 ], [ %397, %396 ]
   invoke void @"_ZN82_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcdf944a57f6f5406E.llvm.2651239618181311204"(ptr noalias noundef nonnull align 8 dereferenceable(64) %63)
           to label %.body unwind label %247
 
@@ -1994,10 +1994,10 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h2999913309bd11a3E.exit.i: ; preds 
   store i64 2, ptr %.sroa.5334.0..sroa_idx, align 8, !noalias !488
   %.sroa.7335.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %58, ptr %.sroa.7335.0..sroa_idx, align 8, !noalias !488
-  %.sroa.8336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 1, ptr %.sroa.8336.0..sroa_idx, align 8, !noalias !488
-  %.sroa.10337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %.sroa.10337.0..sroa_idx, align 8, !noalias !488
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 1, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !488
+  %.sroa.10336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %.sroa.10336.0..sroa_idx, align 8, !noalias !488
   invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %59, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
           to label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit unwind label %102
 
@@ -2052,8 +2052,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %468
   %481 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %482 = load i64, ptr %481, align 8
   %483 = icmp ne i64 %482, 0
-  %or.cond399.not = select i1 %480, i1 %483, i1 false
-  br i1 %or.cond399.not, label %"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E.exit315.sink.split", label %"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E.exit315"
+  %or.cond398.not = select i1 %480, i1 %483, i1 false
+  br i1 %or.cond398.not, label %"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E.exit315.sink.split", label %"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E.exit315"
 
 .critedge:                                        ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %56, i64 80, i1 false)
@@ -2062,11 +2062,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %468
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.9)
   br label %484
 
-484:                                              ; preds = %.thread393, %.critedge
+484:                                              ; preds = %.thread392, %.critedge
   %.old = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %.old397 = load i64, ptr %.old, align 8, !alias.scope !492, !noalias !503, !noundef !30
-  %.old398 = icmp eq i64 %.old397, 0
-  br i1 %.old398, label %"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E.exit315", label %"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E.exit315.sink.split"
+  %.old396 = load i64, ptr %.old, align 8, !alias.scope !492, !noalias !503, !noundef !30
+  %.old397 = icmp eq i64 %.old396, 0
+  br i1 %.old397, label %"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E.exit315", label %"_ZN4core3ptr133drop_in_place$LT$std..collections..hash..map..HashMap$LT$object_store..azure..builder..AzureConfigKey$C$alloc..string..String$GT$$GT$17h14cc4578fe63c275E.exit315.sink.split"
 
 485:                                              ; preds = %486, %77
   resume { ptr, i32 } %.pn145

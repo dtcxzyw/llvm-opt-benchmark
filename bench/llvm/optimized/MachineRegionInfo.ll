@@ -11213,34 +11213,34 @@ _ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctionEEEE7getNodeEPNS_17M
   %238 = add nuw i32 %231, 1
   store i32 %238, ptr %5, align 4, !tbaa !215, !noalias !604
   store ptr %.1.i, ptr %233, align 8, !tbaa !232, !noalias !604
-  br label %.loopexit92
+  br label %.loopexit
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i.i.i, %_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctionEEEE7getNodeEPNS_17MachineBasicBlockE.exit
   %239 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %.1.i) #18, !noalias !604
   %240 = extractvalue { ptr, i8 } %239, 1
   %241 = trunc nuw i8 %240 to i1
-  br i1 %241, label %.loopexit92, label %.critedge.backedge
+  br i1 %241, label %.loopexit, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %.lr.ph.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
   br label %.critedge
 
-.loopexit92:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge89
+.loopexit:                                        ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge89
   %242 = load ptr, ptr %3, align 8, !tbaa !180
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %244 = load ptr, ptr %243, align 8, !tbaa !184
   %.not.i.i18 = icmp eq ptr %242, %244
   br i1 %.not.i.i18, label %248, label %245
 
-245:                                              ; preds = %.loopexit92
+245:                                              ; preds = %.loopexit
   store ptr %.1.i, ptr %242, align 8
   %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %242, i64 24
   store i8 0, ptr %.sroa.539.0..sroa_idx, align 8
   %246 = load ptr, ptr %3, align 8, !tbaa !180
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 32
   store ptr %247, ptr %3, align 8, !tbaa !180
-  br label %.loopexit
+  br label %_ZNSt6vectorISt4pairIPKN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS4_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISB_EE9push_backEOSB_.exit
 
-248:                                              ; preds = %.loopexit92
+248:                                              ; preds = %.loopexit
   %249 = load ptr, ptr %2, align 8, !tbaa !183
   %250 = ptrtoint ptr %242 to i64
   %251 = ptrtoint ptr %249 to i64
@@ -11294,7 +11294,7 @@ _ZNSt6vectorISt4pairIPKN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIterato
   store ptr %265, ptr %3, align 8, !tbaa !180
   %267 = getelementptr inbounds nuw %"struct.std::pair.329", ptr %261, i64 %259
   store ptr %267, ptr %243, align 8, !tbaa !184
-  br label %.loopexit
+  br label %_ZNSt6vectorISt4pairIPKN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS4_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISB_EE9push_backEOSB_.exit
 
 268:                                              ; preds = %_ZNK4llvm14RNSuccIteratorIPKNS_17MachineRegionNodeENS_17MachineBasicBlockENS_13MachineRegionEEneERKS6_.exit, %_ZNK4llvm14RNSuccIteratorIPKNS_17MachineRegionNodeENS_17MachineBasicBlockENS_13MachineRegionEEneERKS6_.exit.thread
   %269 = load ptr, ptr %3, align 8, !tbaa !180
@@ -11302,9 +11302,9 @@ _ZNSt6vectorISt4pairIPKN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIterato
   store ptr %270, ptr %3, align 8, !tbaa !180
   %271 = load ptr, ptr %2, align 8, !tbaa !596
   %272 = icmp eq ptr %271, %270
-  br i1 %272, label %.loopexit, label %7, !llvm.loop !614
+  br i1 %272, label %_ZNSt6vectorISt4pairIPKN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS4_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISB_EE9push_backEOSB_.exit, label %7, !llvm.loop !614
 
-.loopexit:                                        ; preds = %268, %_ZNSt6vectorISt4pairIPKN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS4_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i, %245
+_ZNSt6vectorISt4pairIPKN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS4_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISB_EE9push_backEOSB_.exit: ; preds = %268, %_ZNSt6vectorISt4pairIPKN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS4_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_.exit.i.i, %245
   ret void
 }
 
@@ -12101,34 +12101,34 @@ _ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctionEEEE7getNodeEPNS_17M
   %238 = add nuw i32 %231, 1
   store i32 %238, ptr %5, align 4, !tbaa !215, !noalias !633
   store ptr %.1.i, ptr %233, align 8, !tbaa !232, !noalias !633
-  br label %.loopexit92
+  br label %.loopexit
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i.i.i, %_ZNK4llvm10RegionBaseINS_12RegionTraitsINS_15MachineFunctionEEEE7getNodeEPNS_17MachineBasicBlockE.exit
   %239 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %.1.i) #18, !noalias !633
   %240 = extractvalue { ptr, i8 } %239, 1
   %241 = trunc nuw i8 %240 to i1
-  br i1 %241, label %.loopexit92, label %.critedge.backedge
+  br i1 %241, label %.loopexit, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %.lr.ph.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
   br label %.critedge
 
-.loopexit92:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge89
+.loopexit:                                        ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge89
   %242 = load ptr, ptr %3, align 8, !tbaa !304
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %244 = load ptr, ptr %243, align 8, !tbaa !308
   %.not.i.i18 = icmp eq ptr %242, %244
   br i1 %.not.i.i18, label %248, label %245
 
-245:                                              ; preds = %.loopexit92
+245:                                              ; preds = %.loopexit
   store ptr %.1.i, ptr %242, align 8
   %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %242, i64 24
   store i8 0, ptr %.sroa.539.0..sroa_idx, align 8
   %246 = load ptr, ptr %3, align 8, !tbaa !304
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 32
   store ptr %247, ptr %3, align 8, !tbaa !304
-  br label %.loopexit
+  br label %_ZNSt6vectorISt4pairIPN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISA_EE9push_backEOSA_.exit
 
-248:                                              ; preds = %.loopexit92
+248:                                              ; preds = %.loopexit
   %249 = load ptr, ptr %2, align 8, !tbaa !307
   %250 = ptrtoint ptr %242 to i64
   %251 = ptrtoint ptr %249 to i64
@@ -12182,7 +12182,7 @@ _ZNSt6vectorISt4pairIPN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIterator
   store ptr %265, ptr %3, align 8, !tbaa !304
   %267 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %261, i64 %259
   store ptr %267, ptr %243, align 8, !tbaa !308
-  br label %.loopexit
+  br label %_ZNSt6vectorISt4pairIPN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISA_EE9push_backEOSA_.exit
 
 268:                                              ; preds = %_ZNK4llvm14RNSuccIteratorIPNS_17MachineRegionNodeENS_17MachineBasicBlockENS_13MachineRegionEEneERKS5_.exit, %_ZNK4llvm14RNSuccIteratorIPNS_17MachineRegionNodeENS_17MachineBasicBlockENS_13MachineRegionEEneERKS5_.exit.thread
   %269 = load ptr, ptr %3, align 8, !tbaa !304
@@ -12190,9 +12190,9 @@ _ZNSt6vectorISt4pairIPN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIterator
   store ptr %270, ptr %3, align 8, !tbaa !304
   %271 = load ptr, ptr %2, align 8, !tbaa !626
   %272 = icmp eq ptr %271, %270
-  br i1 %272, label %.loopexit, label %7, !llvm.loop !643
+  br i1 %272, label %_ZNSt6vectorISt4pairIPN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISA_EE9push_backEOSA_.exit, label %7, !llvm.loop !643
 
-.loopexit:                                        ; preds = %268, %_ZNSt6vectorISt4pairIPN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %245
+_ZNSt6vectorISt4pairIPN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISA_EE9push_backEOSA_.exit: ; preds = %268, %_ZNSt6vectorISt4pairIPN4llvm17MachineRegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_17MachineBasicBlockENS1_13MachineRegionEEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %245
   ret void
 }
 

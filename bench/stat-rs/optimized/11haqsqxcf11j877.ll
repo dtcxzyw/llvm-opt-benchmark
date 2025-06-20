@@ -1333,13 +1333,13 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.val.i.i.i = load i64, ptr %44, align 8, !alias.scope !311, !noalias !312, !noundef !7
   %45 = icmp ugt i64 %.val.i.i.i, 1
-  br i1 %45, label %.lr.ph17.i.i, label %.loopexit104
+  br i1 %45, label %.lr.ph17.i.i, label %.loopexit103
 
 .lr.ph17.i.i:                                     ; preds = %40
   %46 = shl i64 %.val1.i.i.i, 3
   %.not.i.i = icmp eq i64 %.val1.i.i.i, 0
   %47 = add i64 %.val.i.i.i, -2
-  br i1 %.not.i.i, label %.loopexit104, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %.loopexit103, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph17.i.i, %.lr.ph.i.i
   %indvar.i.i = phi i64 [ %50, %.lr.ph.i.i ], [ 0, %.lr.ph17.i.i ]
@@ -1352,9 +1352,9 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   %scevgep.i.i = getelementptr i8, ptr %41, i64 %51
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %49, i1 false), !noalias !313
   %exitcond.not.i.i = icmp eq i64 %indvar.i.i, %47
-  br i1 %exitcond.not.i.i, label %.loopexit104, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %.loopexit103, label %.lr.ph.i.i
 
-.loopexit104:                                     ; preds = %.lr.ph.i.i, %.lr.ph17.i.i, %40
+.loopexit103:                                     ; preds = %.lr.ph.i.i, %.lr.ph17.i.i, %40
   store i64 %36, ptr %25, align 8, !alias.scope !287, !noalias !290
   %.sroa.4.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %41, ptr %.sroa.4.0..sroa_idx2.i, align 8, !alias.scope !287, !noalias !290
@@ -1377,7 +1377,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h1a156d0a63799303E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, i64 noundef %53, i1 noundef zeroext false)
           to label %.noexc45 unwind label %73
 
-.noexc45:                                         ; preds = %.loopexit104
+.noexc45:                                         ; preds = %.loopexit103
   %54 = load i64, ptr %15, align 8, !range !188, !noalias !335, !noundef !7
   %trunc.i.i.i.i.i33 = trunc nuw i64 %54 to i1
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1401,7 +1401,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   %.val1.i.i.i34 = load i64, ptr %43, align 8, !alias.scope !340, !noalias !341, !noundef !7
   %.val.i.i.i35 = load i64, ptr %44, align 8, !alias.scope !340, !noalias !341, !noundef !7
   %.not.i.i36 = icmp eq i64 %.val.i.i.i35, 0
-  br i1 %.not.i.i36, label %.loopexit103, label %.lr.ph17.i.i37
+  br i1 %.not.i.i36, label %.loopexit102, label %.lr.ph17.i.i37
 
 .lr.ph17.i.i37:                                   ; preds = %60
   %63 = shl i64 %.val1.i.i.i34, 3
@@ -1412,7 +1412,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i44, %66
   %exitcond.not.i.i39 = icmp eq i64 %67, %.val.i.i.i35
-  br i1 %exitcond.not.i.i39, label %.loopexit103, label %66
+  br i1 %exitcond.not.i.i39, label %.loopexit102, label %66
 
 66:                                               ; preds = %.loopexit.i.i, %.lr.ph17.i.i37
   %.sroa.04.016.i.i38 = phi i64 [ 0, %.lr.ph17.i.i37 ], [ %67, %.loopexit.i.i ]
@@ -1433,12 +1433,12 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   invoke void @"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %25) #13
           to label %31 unwind label %257
 
-73:                                               ; preds = %271, %157, %58, %.loopexit104
+73:                                               ; preds = %271, %157, %58, %.loopexit103
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %72
 
-.loopexit103:                                     ; preds = %.loopexit.i.i, %60
+.loopexit102:                                     ; preds = %.loopexit.i.i, %60
   store i64 %56, ptr %23, align 8, !alias.scope !316, !noalias !319
   %.sroa.4.0..sroa_idx2.i40 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %61, ptr %.sroa.4.0..sroa_idx2.i40, align 8, !alias.scope !316, !noalias !319
@@ -1454,7 +1454,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   invoke fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17h06eddb585e2fee33E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %14, i64 noundef %.val.i.i.i35, i64 noundef %.val1.i.i.i34)
           to label %.noexc49 unwind label %102
 
-.noexc49:                                         ; preds = %.loopexit103
+.noexc49:                                         ; preds = %.loopexit102
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
   %75 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -1556,7 +1556,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   invoke void @"_ZN4core3ptr247drop_in_place$LT$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Dyn$GT$$GT$$GT$17h3cfcfd743d3219eeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %23) #13
           to label %72 unwind label %257
 
-102:                                              ; preds = %"_ZN154_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..cmp..PartialEq$LT$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$S2$GT$$GT$$GT$2eq17h16bd26a75f77fe52E.exit", %138, %.loopexit103
+102:                                              ; preds = %"_ZN154_$LT$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$u20$as$u20$core..cmp..PartialEq$LT$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$S2$GT$$GT$$GT$2eq17h16bd26a75f77fe52E.exit", %138, %.loopexit102
   %103 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1770,8 +1770,8 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   %212 = select i1 %210, ptr %211, ptr %207
   %213 = add i64 %208, -1
   %214 = icmp eq i64 %213, 0
-  %.idx101 = select i1 %214, i64 0, i64 8
-  %215 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx101
+  %.idx100 = select i1 %214, i64 0, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx100
   %216 = getelementptr double, ptr %207, i64 %199
   %217 = select i1 %210, ptr %216, ptr %206
   %218 = select i1 %210, ptr %211, ptr %205
@@ -1782,8 +1782,8 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
 220:                                              ; preds = %204
   %.not = icmp eq i64 %178, %199
   %.not11 = icmp eq i64 %199, %200
-  %or.cond100 = and i1 %.not, %.not11
-  br i1 %or.cond100, label %221, label %.loopexit
+  %or.cond99 = and i1 %.not, %.not11
+  br i1 %or.cond99, label %221, label %.loopexit
 
 221:                                              ; preds = %220
   %222 = invoke fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$11determinant17h307b6d4d378036d9E"(ptr noalias noundef readonly align 8 dereferenceable(40) %2)
@@ -1836,14 +1836,14 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   %.val1.i70 = load i64, ptr %43, align 8, !alias.scope !467, !noalias !482, !noundef !7
   %.val.i71 = load i64, ptr %44, align 8, !alias.scope !467, !noalias !482, !noundef !7
   store i64 %234, ptr %21, align 8
-  %.sroa.490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %241, ptr %.sroa.490.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %241, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 %231, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %.val1.i70, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.791.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i64 %.val.i71, ptr %.sroa.791.0..sroa_idx, align 8
+  %.sroa.790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store i64 %.val.i71, ptr %.sroa.790.0..sroa_idx, align 8
   invoke void @"_ZN8nalgebra6linalg8cholesky21Cholesky$LT$T$C$D$GT$12new_internal17hff6c0704c170f9c5E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %21, i64 noundef 0, double undef)
           to label %243 unwind label %32
 

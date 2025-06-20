@@ -2868,9 +2868,9 @@ define hidden noundef zeroext i1 @"_ZN93_$LT$pretty_assertions..StrComparison$LT
   br label %72
 
 72:                                               ; preds = %.backedge.i, %40
+  %.sroa.5.sroa.4.0.copyload.i = phi i64 [ %.sroa.5.sroa.4.0.copyload.pre.i, %.backedge.i ], [ undef, %40 ]
+  %.sroa.5.sroa.0.0.copyload.i = phi ptr [ %.sroa.5.sroa.0.0.copyload.pre.i, %.backedge.i ], [ undef, %40 ]
   %.sroa.038.0.copyload.i = phi i64 [ %.sroa.038.0.copyload.pre.i, %.backedge.i ], [ 4, %40 ]
-  %.sroa.5.sroa.0.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !595
-  %.sroa.5.sroa.4.0.copyload.i = load i64, ptr %.sroa.5.sroa.4.0..sroa.3.0..sroa_idx.sroa_idx.i, align 8, !noalias !595
   store i64 4, ptr %37, align 8, !noalias !595
   %73 = icmp eq i64 %.sroa.038.0.copyload.i, 4
   br i1 %73, label %74, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f6e874a53007cbdE.exit.i"
@@ -2992,6 +2992,8 @@ default.unreachable.i:                            ; preds = %88
 
 .backedge.i:                                      ; preds = %241, %153, %114, %101
   %.sroa.038.0.copyload.pre.i = load i64, ptr %37, align 8, !noalias !595
+  %.sroa.5.sroa.0.0.copyload.pre.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !595
+  %.sroa.5.sroa.4.0.copyload.pre.i = load i64, ptr %.sroa.5.sroa.4.0..sroa.3.0..sroa_idx.sroa_idx.i, align 8, !noalias !595
   br label %72
 
 .loopexit238.i:                                   ; preds = %100, %276, %.loopexit235.i, %.loopexit236.i, %.loopexit237.i

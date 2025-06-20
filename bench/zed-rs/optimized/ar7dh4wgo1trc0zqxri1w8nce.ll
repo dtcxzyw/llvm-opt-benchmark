@@ -4033,9 +4033,10 @@ define hidden void @"_ZN75_$LT$der..length..Length$u20$as$u20$core..convert..Try
   store i32 0, ptr %0, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 12, ptr %.sroa.540.0..sroa_idx, align 8
-  br label %12
+  br label %11
 
 7:                                                ; preds = %4
+  store i32 0, ptr %0, align 8
   %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 12, ptr %.sroa.531.0..sroa_idx, align 8
   br label %11
@@ -4044,14 +4045,10 @@ define hidden void @"_ZN75_$LT$der..length..Length$u20$as$u20$core..convert..Try
   %9 = trunc nuw nsw i64 %1 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %9, ptr %10, align 4
+  store i32 2, ptr %0, align 8
   br label %11
 
-11:                                               ; preds = %8, %7
-  %.sink = phi i32 [ 2, %8 ], [ 0, %7 ]
-  store i32 %.sink, ptr %0, align 8
-  br label %12
-
-12:                                               ; preds = %11, %6
+11:                                               ; preds = %7, %8, %6
   ret void
 }
 

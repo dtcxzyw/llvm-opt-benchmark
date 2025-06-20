@@ -16229,14 +16229,13 @@ define hidden void @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$3new17h10f9c2
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$8end_body17h28135f6706f8c1bdE"(ptr noalias noundef align 8 dereferenceable(496) %0) unnamed_addr #0 {
   %2 = alloca [80 x i8], align 8
-  %.sroa.7 = alloca [56 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %4 = load i64, ptr %3, align 8, !range !478, !noundef !4
   %5 = add nsw i64 %4, -3
   %6 = icmp ugt i64 %5, 3
   %7 = icmp ne i64 %5, 1
   tail call void @llvm.assume(i1 %7)
-  br i1 %6, label %8, label %24
+  br i1 %6, label %8, label %23
 
 8:                                                ; preds = %1
   switch i64 %4, label %default.unreachable [
@@ -16254,58 +16253,49 @@ default.unreachable:                              ; preds = %8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %.thread, label %13
 
-.thread:                                          ; preds = %9, %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.7)
-  br label %18
-
 13:                                               ; preds = %9
   store i64 6, ptr %3, align 8
   %14 = tail call noundef nonnull align 8 ptr @_ZN5hyper5error5Error22new_body_write_aborted17h9f7756afd47e6c6bE()
   %15 = tail call noundef nonnull align 8 ptr @_ZN5hyper5error5Error4with17h2240627872a18464E(ptr noalias noundef nonnull align 8 %14, i64 noundef %11)
-  br label %24
+  br label %23
 
 16:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.7)
   store i64 3, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 ptrtoint (ptr @anon.245a9df455dde184c36b08429d1355ab.182 to i64), ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 5, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7, i64 56, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   call void @"_ZN5hyper5proto2h12io17WriteBuf$LT$B$GT$6buffer17h35cdfa55ddb69eeaE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %2)
   %.pre = load i64, ptr %3, align 8, !range !380
-  br label %18
+  br label %.thread
 
-18:                                               ; preds = %16, %.thread
-  %19 = phi i64 [ %4, %.thread ], [ %.pre, %16 ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %21 = load i8, ptr %20, align 8, !range !94, !noundef !4
-  %22 = trunc nuw i8 %21 to i1
-  %23 = icmp eq i64 %19, 2
-  %or.cond5 = select i1 %22, i1 true, i1 %23
+.thread:                                          ; preds = %8, %9, %16
+  %18 = phi i64 [ %.pre, %16 ], [ %4, %9 ], [ %4, %8 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %20 = load i8, ptr %19, align 8, !range !94, !noundef !4
+  %21 = trunc nuw i8 %20 to i1
+  %22 = icmp eq i64 %18, 2
+  %or.cond5 = select i1 %21, i1 true, i1 %22
   %. = select i1 %or.cond5, i64 6, i64 5
   store i64 %., ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.7)
-  br label %24
+  br label %23
 
-24:                                               ; preds = %13, %18, %1
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %18 ], [ %15, %13 ]
+23:                                               ; preds = %13, %.thread, %1
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %.thread ], [ %15, %13 ]
   ret ptr %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$8end_body17h708e86d3ccb23541E"(ptr noalias noundef align 8 dereferenceable(408) %0) unnamed_addr #0 {
   %2 = alloca [80 x i8], align 8
-  %.sroa.7 = alloca [56 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load i64, ptr %3, align 8, !range !478, !noundef !4
   %5 = add nsw i64 %4, -3
   %6 = icmp ugt i64 %5, 3
   %7 = icmp ne i64 %5, 1
   tail call void @llvm.assume(i1 %7)
-  br i1 %6, label %8, label %24
+  br i1 %6, label %8, label %23
 
 8:                                                ; preds = %1
   switch i64 %4, label %default.unreachable [
@@ -16323,58 +16313,49 @@ default.unreachable:                              ; preds = %8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %.thread, label %13
 
-.thread:                                          ; preds = %9, %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.7)
-  br label %18
-
 13:                                               ; preds = %9
   store i64 6, ptr %3, align 8
   %14 = tail call noundef nonnull align 8 ptr @_ZN5hyper5error5Error22new_body_write_aborted17h9f7756afd47e6c6bE()
   %15 = tail call noundef nonnull align 8 ptr @_ZN5hyper5error5Error4with17h2240627872a18464E(ptr noalias noundef nonnull align 8 %14, i64 noundef %11)
-  br label %24
+  br label %23
 
 16:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.7)
   store i64 3, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 ptrtoint (ptr @anon.245a9df455dde184c36b08429d1355ab.182 to i64), ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 5, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7, i64 56, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @"_ZN5hyper5proto2h12io17WriteBuf$LT$B$GT$6buffer17h35cdfa55ddb69eeaE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %2)
   %.pre = load i64, ptr %3, align 8, !range !380
-  br label %18
+  br label %.thread
 
-18:                                               ; preds = %16, %.thread
-  %19 = phi i64 [ %4, %.thread ], [ %.pre, %16 ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %21 = load i8, ptr %20, align 8, !range !94, !noundef !4
-  %22 = trunc nuw i8 %21 to i1
-  %23 = icmp eq i64 %19, 2
-  %or.cond5 = select i1 %22, i1 true, i1 %23
+.thread:                                          ; preds = %8, %9, %16
+  %18 = phi i64 [ %.pre, %16 ], [ %4, %9 ], [ %4, %8 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %20 = load i8, ptr %19, align 8, !range !94, !noundef !4
+  %21 = trunc nuw i8 %20 to i1
+  %22 = icmp eq i64 %18, 2
+  %or.cond5 = select i1 %21, i1 true, i1 %22
   %. = select i1 %or.cond5, i64 6, i64 5
   store i64 %., ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.7)
-  br label %24
+  br label %23
 
-24:                                               ; preds = %13, %18, %1
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %18 ], [ %15, %13 ]
+23:                                               ; preds = %13, %.thread, %1
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %.thread ], [ %15, %13 ]
   ret ptr %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN5hyper5proto2h14conn21Conn$LT$I$C$B$C$T$GT$8end_body17h9c421dd44ae23f49E"(ptr noalias noundef align 8 dereferenceable(416) %0) unnamed_addr #0 {
   %2 = alloca [80 x i8], align 8
-  %.sroa.7 = alloca [56 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load i64, ptr %3, align 8, !range !478, !noundef !4
   %5 = add nsw i64 %4, -3
   %6 = icmp ugt i64 %5, 3
   %7 = icmp ne i64 %5, 1
   tail call void @llvm.assume(i1 %7)
-  br i1 %6, label %8, label %24
+  br i1 %6, label %8, label %23
 
 8:                                                ; preds = %1
   switch i64 %4, label %default.unreachable [
@@ -16392,44 +16373,36 @@ default.unreachable:                              ; preds = %8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %.thread, label %13
 
-.thread:                                          ; preds = %9, %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.7)
-  br label %18
-
 13:                                               ; preds = %9
   store i64 6, ptr %3, align 8
   %14 = tail call noundef nonnull align 8 ptr @_ZN5hyper5error5Error22new_body_write_aborted17h9f7756afd47e6c6bE()
   %15 = tail call noundef nonnull align 8 ptr @_ZN5hyper5error5Error4with17h2240627872a18464E(ptr noalias noundef nonnull align 8 %14, i64 noundef %11)
-  br label %24
+  br label %23
 
 16:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.7)
   store i64 3, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 ptrtoint (ptr @anon.245a9df455dde184c36b08429d1355ab.182 to i64), ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 5, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7, i64 56, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @"_ZN5hyper5proto2h12io17WriteBuf$LT$B$GT$6buffer17h35cdfa55ddb69eeaE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %2)
   %.pre = load i64, ptr %3, align 8, !range !380
-  br label %18
+  br label %.thread
 
-18:                                               ; preds = %16, %.thread
-  %19 = phi i64 [ %4, %.thread ], [ %.pre, %16 ]
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %21 = load i8, ptr %20, align 8, !range !94, !noundef !4
-  %22 = trunc nuw i8 %21 to i1
-  %23 = icmp eq i64 %19, 2
-  %or.cond5 = select i1 %22, i1 true, i1 %23
+.thread:                                          ; preds = %8, %9, %16
+  %18 = phi i64 [ %.pre, %16 ], [ %4, %9 ], [ %4, %8 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %20 = load i8, ptr %19, align 8, !range !94, !noundef !4
+  %21 = trunc nuw i8 %20 to i1
+  %22 = icmp eq i64 %18, 2
+  %or.cond5 = select i1 %21, i1 true, i1 %22
   %. = select i1 %or.cond5, i64 6, i64 5
   store i64 %., ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.7)
-  br label %24
+  br label %23
 
-24:                                               ; preds = %13, %18, %1
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %18 ], [ %15, %13 ]
+23:                                               ; preds = %13, %.thread, %1
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %.thread ], [ %15, %13 ]
   ret ptr %.sroa.0.0
 }
 

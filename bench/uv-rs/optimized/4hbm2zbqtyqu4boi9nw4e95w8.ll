@@ -758,8 +758,8 @@ define noundef zeroext i1 @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter15m
 .thread.i:                                        ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %45 = load i8, ptr %44, align 8, !range !102, !alias.scope !100, !noalias !97, !noundef !4
-  %switch.i.i3150.i = icmp samesign ult i8 %45, 3
-  br i1 %switch.i.i3150.i, label %31, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7ff4fbebb72c159eE.exit.i"
+  %switch.i.i3149.i = icmp samesign ult i8 %45, 3
+  br i1 %switch.i.i3149.i, label %31, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7ff4fbebb72c159eE.exit.i"
 
 ._crit_edge.i:                                    ; preds = %40
   br i1 %switch.i.i.i, label %31, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7ff4fbebb72c159eE.exit.i"
@@ -825,22 +825,22 @@ define noundef zeroext i1 @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter15m
   store i8 %56, ptr %.sroa.7.0..sroa_idx35.i, align 8, !noalias !113
   %.sroa.8.0..sroa_idx36.i = getelementptr inbounds nuw i8, ptr %6, i64 57
   store i8 %58, ptr %.sroa.8.0..sroa_idx36.i, align 1, !noalias !113
-  %.sroa.937.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 58
-  store i8 %54, ptr %.sroa.937.0..sroa_idx.i, align 2, !noalias !113
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 58
+  store i8 %54, ptr %.sroa.9.0..sroa_idx.i, align 2, !noalias !113
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !109
   store ptr %59, ptr %5, align 8, !alias.scope !114, !noalias !118
-  %.sroa.439.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %17, ptr %.sroa.439.0..sroa_idx.i, align 8, !alias.scope !114, !noalias !118
-  %.sroa.540.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 %61, ptr %.sroa.540.0..sroa_idx.i, align 8, !alias.scope !114, !noalias !118
-  %.sroa.641.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.641.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i, i64 39, i1 false), !noalias !107
-  %.sroa.742.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i8 %68, ptr %.sroa.742.0..sroa_idx.i, align 8, !alias.scope !114, !noalias !118
-  %.sroa.843.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 57
-  store i8 %70, ptr %.sroa.843.0..sroa_idx.i, align 1, !alias.scope !114, !noalias !118
-  %.sroa.944.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 58
-  store i8 %66, ptr %.sroa.944.0..sroa_idx.i, align 2, !alias.scope !114, !noalias !118
+  %.sroa.438.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %17, ptr %.sroa.438.0..sroa_idx.i, align 8, !alias.scope !114, !noalias !118
+  %.sroa.539.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i8 %61, ptr %.sroa.539.0..sroa_idx.i, align 8, !alias.scope !114, !noalias !118
+  %.sroa.640.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.640.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.5.i, i64 39, i1 false), !noalias !107
+  %.sroa.741.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i8 %68, ptr %.sroa.741.0..sroa_idx.i, align 8, !alias.scope !114, !noalias !118
+  %.sroa.842.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 57
+  store i8 %70, ptr %.sroa.842.0..sroa_idx.i, align 1, !alias.scope !114, !noalias !118
+  %.sroa.943.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 58
+  store i8 %66, ptr %.sroa.943.0..sroa_idx.i, align 2, !alias.scope !114, !noalias !118
   %71 = call noundef range(i8 -1, 4) i8 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17he71c6f3266ef9b79E.llvm.6970031979494773934(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %5), !noalias !109
   %72 = icmp eq i8 %71, 3
   br i1 %72, label %73, label %"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97f9bbf423196294E.exit"

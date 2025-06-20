@@ -6064,7 +6064,7 @@ define internal fastcc void @_ZN7globset4glob23char_to_escaped_literal17ha13e008
   %.sroa.7.0..sroa_idx36.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.8.0..sroa_idx37.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.10.0..sroa_idx38.i = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sroa.1139.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 40
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6086,10 +6086,10 @@ define internal fastcc void @_ZN7globset4glob23char_to_escaped_literal17ha13e008
   br label %74
 
 77:                                               ; preds = %107, %.lr.ph.i
-  %.sroa.0.042.i = phi ptr [ %59, %.lr.ph.i ], [ %78, %107 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.042.i, i64 1
+  %.sroa.0.041.i = phi ptr [ %59, %.lr.ph.i ], [ %78, %107 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.041.i, i64 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13), !noalias !1024
-  %79 = load i8, ptr %.sroa.0.042.i, align 1, !alias.scope !1021, !noalias !1026, !noundef !5
+  %79 = load i8, ptr %.sroa.0.041.i, align 1, !alias.scope !1021, !noalias !1026, !noundef !5
   store i8 %79, ptr %13, align 1, !noalias !1024
   %80 = icmp sgt i8 %79, -1
   br i1 %80, label %111, label %81
@@ -6114,7 +6114,7 @@ define internal fastcc void @_ZN7globset4glob23char_to_escaped_literal17ha13e008
   store ptr %8, ptr %.sroa.7.0..sroa_idx36.i, align 8, !noalias !1038
   store i64 1, ptr %.sroa.8.0..sroa_idx37.i, align 8, !noalias !1038
   store ptr %7, ptr %.sroa.10.0..sroa_idx38.i, align 8, !noalias !1038
-  store i64 1, ptr %.sroa.1139.0..sroa_idx.i, align 8, !noalias !1038
+  store i64 1, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !1038
   invoke void @_ZN5alloc3fmt6format12format_inner17h8acc7e10788d82b9E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
           to label %_ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i unwind label %75, !noalias !1024
 

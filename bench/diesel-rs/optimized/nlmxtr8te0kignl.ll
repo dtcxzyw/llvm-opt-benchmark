@@ -51,14 +51,14 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   %21 = load ptr, ptr %16, align 8, !alias.scope !19, !noalias !22, !nonnull !10, !align !11, !noundef !10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %22 = ptrtoint ptr %14 to i64
-  %.sroa.429.0.extract.trunc = trunc i64 %22 to i8
-  %.sroa.429.1.extract.shift = lshr i64 %22, 8
-  %.sroa.429.1.extract.trunc = trunc nuw i64 %.sroa.429.1.extract.shift to i56
+  %.sroa.4.0.extract.trunc = trunc i64 %22 to i8
+  %.sroa.4.1.extract.shift = lshr i64 %22, 8
+  %.sroa.4.1.extract.trunc = trunc nuw i64 %.sroa.4.1.extract.shift to i56
   store i64 -9223372036854775804, ptr %0, align 8
   %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.429.0.extract.trunc, ptr %.sroa.220.0..sroa_idx, align 8
+  store i8 %.sroa.4.0.extract.trunc, ptr %.sroa.220.0..sroa_idx, align 8
   %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i56 %.sroa.429.1.extract.trunc, ptr %.sroa.321.0..sroa_idx, align 1
+  store i56 %.sroa.4.1.extract.trunc, ptr %.sroa.321.0..sroa_idx, align 1
   %.sroa.321.sroa.2.0..sroa.321.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %21, ptr %.sroa.321.sroa.2.0..sroa.321.0..sroa_idx.sroa_idx, align 8
   %23 = load i32, ptr %8, align 8, !range !26, !alias.scope !27, !noundef !10
@@ -171,7 +171,7 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   ret void
 
 55:                                               ; preds = %.body.thread, %.body
-  %eh.lpad-body51 = phi { ptr, i32 } [ %28, %.body.thread ], [ %29, %.body ]
+  %eh.lpad-body50 = phi { ptr, i32 } [ %28, %.body.thread ], [ %29, %.body ]
   call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17hbb279f689a3d2c2aE"(ptr noalias noundef align 8 dereferenceable(24) %6) #11
   br label %.thread
 
@@ -182,8 +182,8 @@ define hidden void @"_ZN175_$LT$diesel..sqlite..connection..bind_collector..Sqli
   unreachable
 
 .thread:                                          ; preds = %55, %.body, %58
-  %.pn35 = phi { ptr, i32 } [ %59, %58 ], [ %29, %.body ], [ %eh.lpad-body51, %55 ]
-  resume { ptr, i32 } %.pn35
+  %.pn34 = phi { ptr, i32 } [ %59, %58 ], [ %29, %.body ], [ %eh.lpad-body50, %55 ]
+  resume { ptr, i32 } %.pn34
 
 58:                                               ; preds = %4
   %59 = landingpad { ptr, i32 }
@@ -703,28 +703,27 @@ define hidden void @_ZN6diesel6sqlite10connection16SqliteConnection14prepared_qu
   %30 = load i64, ptr %5, align 8, !range !91, !noalias !87, !noundef !10
   %31 = icmp eq i64 %30, 2
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !noalias !87
-  br i1 %31, label %34, label %33
+  br i1 %31, label %35, label %34
 
-33:                                               ; preds = %23
+34:                                               ; preds = %23
   %.sroa.510.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.510.0..sroa_idx.i, i64 40, i1 false), !noalias !87
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !87
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !92
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.i, i64 40, i1 false), !noalias !92
   %.sroa.77.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 -9223372036854775808, ptr %.sroa.77.0..sroa_idx.i, align 8, !alias.scope !84, !noalias !92
   br label %_ZN6diesel6sqlite10connection4stmt12StatementUse4bind17h3b8319790f873cadE.exit
 
-34:                                               ; preds = %23
+35:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !87
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !92
   br label %_ZN6diesel6sqlite10connection4stmt12StatementUse4bind17h3b8319790f873cadE.exit
 
-_ZN6diesel6sqlite10connection4stmt12StatementUse4bind17h3b8319790f873cadE.exit: ; preds = %33, %34
+_ZN6diesel6sqlite10connection4stmt12StatementUse4bind17h3b8319790f873cadE.exit: ; preds = %34, %35
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6.i)
   store i64 %30, ptr %0, align 8, !alias.scope !84, !noalias !92
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.7.i)

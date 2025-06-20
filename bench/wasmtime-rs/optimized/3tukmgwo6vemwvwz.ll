@@ -7475,9 +7475,9 @@ common.resume:                                    ; preds = %79, %104, %44
   br label %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit
 
 _ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit: ; preds = %58, %62, %63, %64, %65, %66
-  %.sroa.046.0 = phi i32 [ 11, %62 ], [ 12, %63 ], [ 13, %64 ], [ 14, %65 ], [ %69, %66 ], [ 10, %58 ]
-  %.sroa.947.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ undef, %64 ], [ undef, %65 ], [ %70, %66 ], [ undef, %58 ]
-  %.sroa.11.048 = phi i32 [ undef, %62 ], [ undef, %63 ], [ undef, %64 ], [ undef, %65 ], [ %sum.shift.i.i, %66 ], [ undef, %58 ]
+  %.sroa.045.0 = phi i32 [ 11, %62 ], [ 12, %63 ], [ 13, %64 ], [ 14, %65 ], [ %69, %66 ], [ 10, %58 ]
+  %.sroa.946.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ undef, %64 ], [ undef, %65 ], [ %70, %66 ], [ undef, %58 ]
+  %.sroa.11.047 = phi i32 [ undef, %62 ], [ undef, %63 ], [ undef, %64 ], [ undef, %65 ], [ %sum.shift.i.i, %66 ], [ undef, %58 ]
   %71 = load i8, ptr %59, align 8, !range !10, !noundef !4
   br label %109
 
@@ -7636,11 +7636,11 @@ _ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit: ; pr
 109:                                              ; preds = %106, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit, %57, %45
   %.sroa.12.sroa.0.sroa.8.sroa.0.0 = phi i24 [ undef, %106 ], [ %.sroa.4.5.extract.trunc, %45 ], [ %.sroa.12.sroa.0.sroa.8.sroa.0.0.copyload, %57 ], [ undef, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit ]
   %.sroa.12.sroa.7.0 = phi i32 [ undef, %106 ], [ %53, %45 ], [ %.sroa.12.sroa.7.0.copyload, %57 ], [ undef, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit ]
-  %.sroa.12.sroa.0.sroa.0.0 = phi i32 [ undef, %106 ], [ %50, %45 ], [ %.sroa.12.sroa.0.sroa.0.0.copyload, %57 ], [ %.sroa.11.048, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit ]
+  %.sroa.12.sroa.0.sroa.0.0 = phi i32 [ undef, %106 ], [ %50, %45 ], [ %.sroa.12.sroa.0.sroa.0.0.copyload, %57 ], [ %.sroa.11.047, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit ]
   %.sroa.12.sroa.0.sroa.7.0 = phi i8 [ undef, %106 ], [ %.sroa.4.4.extract.trunc, %45 ], [ %.sroa.12.sroa.0.sroa.7.0.copyload, %57 ], [ %71, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit ]
   %.sroa.12.sroa.0.sroa.9.0 = phi i32 [ undef, %106 ], [ %.sroa.5.0.copyload.lobit5.i, %45 ], [ %.sroa.12.sroa.0.sroa.9.0.copyload, %57 ], [ undef, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit ]
-  %.sroa.11.0 = phi i32 [ %108, %106 ], [ %56, %45 ], [ %.sroa.11.0.copyload, %57 ], [ %.sroa.947.0, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit ]
-  %.sroa.8.0 = phi i32 [ %107, %106 ], [ %54, %45 ], [ %.sroa.8.0.copyload, %57 ], [ %.sroa.046.0, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit ]
+  %.sroa.11.0 = phi i32 [ %108, %106 ], [ %56, %45 ], [ %.sroa.11.0.copyload, %57 ], [ %.sroa.946.0, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit ]
+  %.sroa.8.0 = phi i32 [ %107, %106 ], [ %54, %45 ], [ %.sroa.8.0.copyload, %57 ], [ %.sroa.045.0, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit ]
   %.sroa.0.0 = phi i64 [ 6, %106 ], [ 5, %45 ], [ %.sroa.0.0.copyload, %57 ], [ 2, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h8b578accb02fc092E.exit ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.8.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11478,8 +11478,8 @@ select.unfold:                                    ; preds = %._crit_edge.i.i.i, 
   store i8 %77, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx4.sroa_idx, align 4
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx4.sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 25
   store i8 %.sroa.5.0.i, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx4.sroa_idx, align 1
-  %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 28
-  store i32 %83, ptr %.sroa.65.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 28
+  store i32 %83, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 32
   store i32 %85, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 36

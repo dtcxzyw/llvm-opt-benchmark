@@ -1101,8 +1101,8 @@ _ZN5clang12CXXCatchStmtC2ENS_14SourceLocationEPNS_7VarDeclEPNS_4StmtE.exit: ; pr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %326, i8 0, i64 32, i1 false)
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %327, i8 0, i64 16, i1 false)
   store i8 0, ptr %328, align 8, !tbaa !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %327, i8 0, i64 16, i1 false)
   br label %348
 
 329:                                              ; preds = %277, %_ZN4llvm13IRBuilderBase12CreateSwitchEPNS_5ValueEPNS_10BasicBlockEjPNS_6MDNodeES6_.exit
@@ -1374,13 +1374,13 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %4
   br label %31
 
 28:                                               ; preds = %20, %21
-  %.sink108 = phi i8 [ 3, %20 ], [ %.014.i.i, %21 ]
+  %.sink107 = phi i8 [ 3, %20 ], [ %.014.i.i, %21 ]
   %.sink = phi i8 [ 1, %20 ], [ 3, %21 ]
   %.sroa.56.0.copyload.i.i32.ph = phi i64 [ undef, %20 ], [ %.sroa.56.0.i.i, %21 ]
   %.sroa.05.0.copyload.i.i30.ph = phi ptr [ @.str, %20 ], [ %.sroa.05.0.i.i, %21 ]
   %.ph = phi i1 [ true, %20 ], [ false, %21 ]
   %.sroa.598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i8 %.sink108, ptr %.sroa.598.0..sroa_idx, align 8, !tbaa !729
+  store i8 %.sink107, ptr %.sroa.598.0..sroa_idx, align 8, !tbaa !729
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 %.sink, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !729
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1402,7 +1402,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %4
   br label %_ZN4llvmplERKNS_5TwineES2_.exit44
 
 35:                                               ; preds = %28
-  %.014.i.i33 = select i1 %.ph, i8 %.sink108, i8 2
+  %.014.i.i33 = select i1 %.ph, i8 %.sink107, i8 2
   %.sroa.05.0.i.i34 = select i1 %.ph, ptr %.sroa.05.0.copyload.i.i30.ph, ptr %9
   %.sroa.56.0.i.i35 = select i1 %.ph, i64 %.sroa.56.0.copyload.i.i32.ph, i64 undef
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 33

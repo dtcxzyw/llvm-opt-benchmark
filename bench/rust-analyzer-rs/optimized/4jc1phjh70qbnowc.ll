@@ -17089,7 +17089,6 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN106_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$Q$GT$$GT$3set17h2e9971c36023af5aE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, ptr noundef nonnull %3, i8 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
-  %.sroa.6.i.i = alloca [3 x i8], align 1
   %7 = alloca { { ptr, i64 }, ptr }, align 8
   %8 = alloca { { ptr, i64 }, ptr }, align 8
   %9 = alloca { ptr, ptr, ptr }, align 8
@@ -17419,7 +17418,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !3578
   %122 = load i32, ptr %14, align 4, !range !1067, !noalias !3583, !noundef !1058
   call void @llvm.experimental.noalias.scope.decl(metadata !3599)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.6.i.i)
   %123 = load ptr, ptr %9, align 8, !alias.scope !3599, !noalias !3583, !nonnull !1058, !align !1059, !noundef !1058
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = cmpxchg weak ptr %124, i64 0, i64 8 acquire monotonic, align 8, !noalias !3602
@@ -17470,8 +17468,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 
 144:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$std..collections..hash..set..HashSet$LT$base_db..input..SourceRootId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h8d3f885cd8124540E.exit.i.i", %143
   %.sroa.3.0.i.i = phi i8 [ undef, %143 ], [ %137, %"_ZN4core3ptr216drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$std..collections..hash..set..HashSet$LT$base_db..input..SourceRootId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h8d3f885cd8124540E.exit.i.i" ]
-  %.sroa.6.0..sroa_idx13.i.i = getelementptr inbounds nuw i8, ptr %123, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx13.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.i.i, i64 3, i1 false), !noalias !3602
   %145 = cmpxchg ptr %124, i64 8, i64 0 release monotonic, align 8, !noalias !3614
   %.sroa.18.0.in.i.i.i.i.i.i = extractvalue { i64, i1 } %145, 1
   br i1 %.sroa.18.0.in.i.i.i.i.i.i, label %180, label %146
@@ -17487,8 +17483,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
   %.sroa.4.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %123, i64 24
   store i32 %122, ptr %.sroa.4.0..sroa_idx4.i.i, align 8, !noalias !3602
   store i8 %132, ptr %136, align 4, !noalias !3602
-  %.sroa.6.0..sroa_idx12.i.i = getelementptr inbounds nuw i8, ptr %123, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx12.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.i.i, i64 3, i1 false), !noalias !3602
   %149 = cmpxchg ptr %124, i64 8, i64 0 release monotonic, align 8, !noalias !3619
   %.sroa.18.0.in.i.i.i.i32.i.i = extractvalue { i64, i1 } %149, 1
   br i1 %.sroa.18.0.in.i.i.i.i32.i.i, label %.body.i, label %150
@@ -17593,7 +17587,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
   br label %.critedge69.i
 
 180:                                              ; preds = %146, %144
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.6.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !3583
   br i1 %.not137.i, label %.loopexit.i, label %181
 
@@ -17804,7 +17797,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN106_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$Q$GT$$GT$3set17h7475e3d46a2983f4E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, ptr noundef nonnull %3, i8 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
-  %.sroa.6.i.i = alloca [3 x i8], align 1
   %7 = alloca { { ptr, i64 }, ptr }, align 8
   %8 = alloca { { ptr, i64 }, ptr }, align 8
   %9 = alloca { ptr, ptr, ptr }, align 8
@@ -18140,7 +18132,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !3662
   %125 = load i32, ptr %14, align 4, !range !1067, !noalias !3667, !noundef !1058
   call void @llvm.experimental.noalias.scope.decl(metadata !3683)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.6.i.i)
   %126 = load ptr, ptr %9, align 8, !alias.scope !3683, !noalias !3667, !nonnull !1058, !align !1059, !noundef !1058
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = cmpxchg weak ptr %127, i64 0, i64 8 acquire monotonic, align 8, !noalias !3686
@@ -18191,8 +18182,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 
 147:                                              ; preds = %"_ZN4core3ptr216drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$std..collections..hash..set..HashSet$LT$base_db..input..SourceRootId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h8d3f885cd8124540E.exit.i.i", %146
   %.sroa.3.0.i.i = phi i8 [ undef, %146 ], [ %140, %"_ZN4core3ptr216drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$std..collections..hash..set..HashSet$LT$base_db..input..SourceRootId$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h8d3f885cd8124540E.exit.i.i" ]
-  %.sroa.6.0..sroa_idx13.i.i = getelementptr inbounds nuw i8, ptr %126, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx13.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.i.i, i64 3, i1 false), !noalias !3686
   %148 = cmpxchg ptr %127, i64 8, i64 0 release monotonic, align 8, !noalias !3698
   %.sroa.18.0.in.i.i.i.i.i.i = extractvalue { i64, i1 } %148, 1
   br i1 %.sroa.18.0.in.i.i.i.i.i.i, label %183, label %149
@@ -18208,8 +18197,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
   %.sroa.4.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %126, i64 24
   store i32 %125, ptr %.sroa.4.0..sroa_idx4.i.i, align 8, !noalias !3686
   store i8 %135, ptr %139, align 4, !noalias !3686
-  %.sroa.6.0..sroa_idx12.i.i = getelementptr inbounds nuw i8, ptr %126, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx12.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.i.i, i64 3, i1 false), !noalias !3686
   %152 = cmpxchg ptr %127, i64 8, i64 0 release monotonic, align 8, !noalias !3703
   %.sroa.18.0.in.i.i.i.i32.i.i = extractvalue { i64, i1 } %152, 1
   br i1 %.sroa.18.0.in.i.i.i.i32.i.i, label %.body.i, label %153
@@ -18314,7 +18301,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
   br label %.critedge69.i
 
 183:                                              ; preds = %149, %147
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.6.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !3667
   br i1 %.not137.i, label %.loopexit.i, label %184
 

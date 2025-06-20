@@ -2434,7 +2434,6 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   %53 = alloca [1 x { ptr, ptr }], align 8
   %54 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %55 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.14 = alloca [7 x i8], align 1
   %56 = alloca [3 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %57 = alloca { { i64, ptr, {} }, i64 }, align 8
   %58 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -2807,7 +2806,6 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 40
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 44
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 49
   %217 = getelementptr inbounds nuw i8, ptr %56, i64 56
   %.sroa.3149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 72
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 88
@@ -2820,7 +2818,6 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   %.sroa.11.0..sroa_idx112 = getelementptr inbounds nuw i8, ptr %56, i64 152
   %.sroa.12.0..sroa_idx122 = getelementptr inbounds nuw i8, ptr %56, i64 156
   %.sroa.13.0..sroa_idx132 = getelementptr inbounds nuw i8, ptr %56, i64 160
-  %.sroa.14.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %56, i64 161
   %219 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %220 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %221 = getelementptr inbounds nuw i8, ptr %60, i64 40
@@ -2832,14 +2829,12 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   %.sroa.11.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %.sroa.12.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %52, i64 44
   %.sroa.13.0..sroa_idx134 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  %.sroa.14.0..sroa_idx143 = getelementptr inbounds nuw i8, ptr %52, i64 49
   %225 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %.sroa.8.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %52, i64 72
   %.sroa.10.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %52, i64 88
   %.sroa.11.0..sroa_idx116 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %.sroa.12.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %52, i64 100
   %.sroa.13.0..sroa_idx136 = getelementptr inbounds nuw i8, ptr %52, i64 104
-  %.sroa.14.0..sroa_idx144 = getelementptr inbounds nuw i8, ptr %52, i64 105
   %226 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %227 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %228 = getelementptr inbounds nuw i8, ptr %54, i64 40
@@ -2851,14 +2846,12 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   %.sroa.11.0..sroa_idx118 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %.sroa.12.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %48, i64 44
   %.sroa.13.0..sroa_idx138 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %.sroa.14.0..sroa_idx145 = getelementptr inbounds nuw i8, ptr %48, i64 49
   %232 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %.sroa.8.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %48, i64 72
   %.sroa.10.0..sroa_idx110 = getelementptr inbounds nuw i8, ptr %48, i64 88
   %.sroa.11.0..sroa_idx120 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %.sroa.12.0..sroa_idx130 = getelementptr inbounds nuw i8, ptr %48, i64 100
   %.sroa.13.0..sroa_idx140 = getelementptr inbounds nuw i8, ptr %48, i64 104
-  %.sroa.14.0..sroa_idx146 = getelementptr inbounds nuw i8, ptr %48, i64 105
   %233 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %234 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %235 = getelementptr inbounds nuw i8, ptr %50, i64 40
@@ -3308,7 +3301,6 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   store i32 32, ptr %.sroa.11.0..sroa_idx, align 8
   store i32 0, ptr %.sroa.12.0..sroa_idx, align 4
   store i8 3, ptr %.sroa.13.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14, i64 7, i1 false)
   store i64 2, ptr %217, align 8
   store i64 2, ptr %.sroa.3149.0..sroa_idx, align 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -3321,7 +3313,6 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   store i32 32, ptr %.sroa.11.0..sroa_idx112, align 8
   store i32 0, ptr %.sroa.12.0..sroa_idx122, align 4
   store i8 3, ptr %.sroa.13.0..sroa_idx132, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.0..sroa_idx142, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14, i64 7, i1 false)
   store ptr @anon.9ab4b5496d0f80d34150a5d25f0f517e.168, ptr %60, align 8
   store i64 4, ptr %219, align 8
   store ptr %56, ptr %220, align 8
@@ -3375,14 +3366,12 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   store i32 32, ptr %.sroa.11.0..sroa_idx114, align 8
   store i32 0, ptr %.sroa.12.0..sroa_idx124, align 4
   store i8 3, ptr %.sroa.13.0..sroa_idx134, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.0..sroa_idx143, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14, i64 7, i1 false)
   store i64 2, ptr %225, align 8
   store i64 2, ptr %.sroa.8.0..sroa_idx86, align 8
   store i64 0, ptr %.sroa.10.0..sroa_idx106, align 8
   store i32 32, ptr %.sroa.11.0..sroa_idx116, align 8
   store i32 0, ptr %.sroa.12.0..sroa_idx126, align 4
   store i8 3, ptr %.sroa.13.0..sroa_idx136, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.0..sroa_idx144, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14, i64 7, i1 false)
   store ptr @anon.9ab4b5496d0f80d34150a5d25f0f517e.172, ptr %54, align 8
   store i64 3, ptr %226, align 8
   store ptr %52, ptr %227, align 8
@@ -3405,14 +3394,12 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   store i32 32, ptr %.sroa.11.0..sroa_idx118, align 8
   store i32 0, ptr %.sroa.12.0..sroa_idx128, align 4
   store i8 3, ptr %.sroa.13.0..sroa_idx138, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.0..sroa_idx145, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14, i64 7, i1 false)
   store i64 2, ptr %232, align 8
   store i64 2, ptr %.sroa.8.0..sroa_idx90, align 8
   store i64 0, ptr %.sroa.10.0..sroa_idx110, align 8
   store i32 32, ptr %.sroa.11.0..sroa_idx120, align 8
   store i32 0, ptr %.sroa.12.0..sroa_idx130, align 4
   store i8 3, ptr %.sroa.13.0..sroa_idx140, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.0..sroa_idx146, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14, i64 7, i1 false)
   store ptr @anon.9ab4b5496d0f80d34150a5d25f0f517e.175, ptr %50, align 8
   store i64 3, ptr %233, align 8
   store ptr %48, ptr %234, align 8

@@ -1692,7 +1692,7 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE10deallocateEv.exit.i.i: ; pre
   store i32 %.0.i.i, ptr %12, align 8, !tbaa !86
   br label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit
 
-_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit: ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE10deallocateEv.exit.i.i, %11, %7
+_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit: ; preds = %11, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE10deallocateEv.exit.i.i, %7
   store i32 128, ptr %8, align 4, !tbaa !85
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !87
@@ -1714,7 +1714,7 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit: ; preds =
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.22.0.copyload = load ptr, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !72
   %40 = icmp sgt i32 %36, %.051
-  br i1 %40, label %41, label %63
+  br i1 %40, label %41, label %64
 
 41:                                               ; preds = %35
   %42 = load i32, ptr %8, align 4, !tbaa !85
@@ -1782,127 +1782,127 @@ _ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE10deallocateEv.exit.i.i65: ; p
   br label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit72
 
 _ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit72: ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE10deallocateEv.exit.i.i65, %41
+  %62 = phi ptr [ %37, %41 ], [ %.0.i18.i.i61, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE10deallocateEv.exit.i.i65 ]
   store i32 %43, ptr %8, align 4, !tbaa !85
-  %62 = add nsw i32 %43, -4
-  br label %63
+  %63 = add nsw i32 %43, -4
+  br label %64
 
-63:                                               ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit72, %35
-  %.152 = phi i32 [ %62, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit72 ], [ %.051, %35 ]
-  %64 = icmp eq ptr %.sroa.0.0.copyload, %.sroa.22.0.copyload
-  br i1 %64, label %65, label %80
+64:                                               ; preds = %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit72, %35
+  %65 = phi ptr [ %62, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit72 ], [ %37, %35 ]
+  %.152 = phi i32 [ %63, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh6sStkNNEE6resizeEiRKS1_.exit72 ], [ %.051, %35 ]
+  %66 = icmp eq ptr %.sroa.0.0.copyload, %.sroa.22.0.copyload
+  br i1 %66, label %67, label %81
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 48
-  %67 = load ptr, ptr %66, align 8, !tbaa !49
-  %.not99 = icmp eq ptr %67, null
-  br i1 %.not99, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %68
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 48
+  %69 = load ptr, ptr %68, align 8, !tbaa !49
+  %.not99 = icmp eq ptr %69, null
+  br i1 %.not99, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %70
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 40
-  %70 = load ptr, ptr %69, align 8, !tbaa !49
-  %71 = load ptr, ptr %31, align 8, !tbaa !87
-  %72 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %71, i64 %38
-  store ptr %70, ptr %72, align 8, !tbaa !72
-  %.sroa.493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr %70, ptr %.sroa.493.0..sroa_idx, align 8, !tbaa !72
-  %73 = load ptr, ptr %66, align 8, !tbaa !49
-  %74 = sext i32 %.0 to i64
-  %75 = getelementptr %"struct.b3DynamicBvh::sStkNN", ptr %71, i64 %74
-  store ptr %73, ptr %75, align 8, !tbaa !72
-  %.sroa.491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store ptr %73, ptr %.sroa.491.0..sroa_idx, align 8, !tbaa !72
-  %76 = load ptr, ptr %69, align 8, !tbaa !49
-  %77 = load ptr, ptr %66, align 8, !tbaa !49
-  %78 = add nsw i32 %.0, 2
-  %79 = getelementptr i8, ptr %75, i64 16
-  store ptr %76, ptr %79, align 8, !tbaa !72
-  %.sroa.489.0..sroa_idx = getelementptr i8, ptr %75, i64 24
-  store ptr %77, ptr %.sroa.489.0..sroa_idx, align 8, !tbaa !72
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 40
+  %72 = load ptr, ptr %71, align 8, !tbaa !49
+  %73 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %65, i64 %38
+  store ptr %72, ptr %73, align 8, !tbaa !72
+  %.sroa.493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store ptr %72, ptr %.sroa.493.0..sroa_idx, align 8, !tbaa !72
+  %74 = load ptr, ptr %68, align 8, !tbaa !49
+  %75 = sext i32 %.0 to i64
+  %76 = getelementptr %"struct.b3DynamicBvh::sStkNN", ptr %65, i64 %75
+  store ptr %74, ptr %76, align 8, !tbaa !72
+  %.sroa.491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store ptr %74, ptr %.sroa.491.0..sroa_idx, align 8, !tbaa !72
+  %77 = load ptr, ptr %71, align 8, !tbaa !49
+  %78 = load ptr, ptr %68, align 8, !tbaa !49
+  %79 = add nsw i32 %.0, 2
+  %80 = getelementptr i8, ptr %76, i64 16
+  store ptr %77, ptr %80, align 8, !tbaa !72
+  %.sroa.489.0..sroa_idx = getelementptr i8, ptr %76, i64 24
+  store ptr %78, ptr %.sroa.489.0..sroa_idx, align 8, !tbaa !72
   br label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread
 
-80:                                               ; preds = %63
-  %81 = load float, ptr %.sroa.0.0.copyload, align 16, !tbaa !49
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 16
-  %83 = load float, ptr %82, align 16, !tbaa !49
-  %84 = fcmp ugt float %81, %83
-  br i1 %84, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %85
+81:                                               ; preds = %64
+  %82 = load float, ptr %.sroa.0.0.copyload, align 16, !tbaa !49
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 16
+  %84 = load float, ptr %83, align 16, !tbaa !49
+  %85 = fcmp ugt float %82, %84
+  br i1 %85, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %86
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 16
-  %87 = load float, ptr %86, align 16, !tbaa !49
-  %88 = load float, ptr %.sroa.22.0.copyload, align 16, !tbaa !49
-  %89 = fcmp ult float %87, %88
-  br i1 %89, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %90
+86:                                               ; preds = %81
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 16
+  %88 = load float, ptr %87, align 16, !tbaa !49
+  %89 = load float, ptr %.sroa.22.0.copyload, align 16, !tbaa !49
+  %90 = fcmp ult float %88, %89
+  br i1 %90, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %91
 
-90:                                               ; preds = %85
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
-  %92 = load float, ptr %91, align 4, !tbaa !49
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 20
-  %94 = load float, ptr %93, align 4, !tbaa !49
-  %95 = fcmp ugt float %92, %94
-  br i1 %95, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %96
+91:                                               ; preds = %86
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
+  %93 = load float, ptr %92, align 4, !tbaa !49
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 20
+  %95 = load float, ptr %94, align 4, !tbaa !49
+  %96 = fcmp ugt float %93, %95
+  br i1 %96, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %97
 
-96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 20
-  %98 = load float, ptr %97, align 4, !tbaa !49
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 4
-  %100 = load float, ptr %99, align 4, !tbaa !49
-  %101 = fcmp ult float %98, %100
-  br i1 %101, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %102
+97:                                               ; preds = %91
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 20
+  %99 = load float, ptr %98, align 4, !tbaa !49
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 4
+  %101 = load float, ptr %100, align 4, !tbaa !49
+  %102 = fcmp ult float %99, %101
+  br i1 %102, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %103
 
-102:                                              ; preds = %96
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
-  %104 = load float, ptr %103, align 8, !tbaa !49
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 24
-  %106 = load float, ptr %105, align 8, !tbaa !49
-  %107 = fcmp ugt float %104, %106
-  br i1 %107, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit
+103:                                              ; preds = %97
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
+  %105 = load float, ptr %104, align 8, !tbaa !49
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 24
+  %107 = load float, ptr %106, align 8, !tbaa !49
+  %108 = fcmp ugt float %105, %107
+  br i1 %108, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit
 
-_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit:          ; preds = %102
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 24
-  %109 = load float, ptr %108, align 8, !tbaa !49
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 8
-  %111 = load float, ptr %110, align 8, !tbaa !49
-  %112 = fcmp ult float %109, %111
-  br i1 %112, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %113
+_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit:          ; preds = %103
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 24
+  %110 = load float, ptr %109, align 8, !tbaa !49
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 8
+  %112 = load float, ptr %111, align 8, !tbaa !49
+  %113 = fcmp ult float %110, %112
+  br i1 %113, label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread, label %114
 
-113:                                              ; preds = %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 48
-  %115 = load ptr, ptr %114, align 8, !tbaa !49
-  %.not96 = icmp eq ptr %115, null
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 48
-  %117 = load ptr, ptr %116, align 8, !tbaa !49
-  %.not97 = icmp eq ptr %117, null
-  br i1 %.not96, label %144, label %118
+114:                                              ; preds = %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 48
+  %116 = load ptr, ptr %115, align 8, !tbaa !49
+  %.not96 = icmp eq ptr %116, null
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 48
+  %118 = load ptr, ptr %117, align 8, !tbaa !49
+  %.not97 = icmp eq ptr %118, null
+  br i1 %.not96, label %143, label %119
 
-118:                                              ; preds = %113
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 40
-  %120 = load ptr, ptr %119, align 8, !tbaa !49
-  br i1 %.not97, label %137, label %121
+119:                                              ; preds = %114
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 40
+  %121 = load ptr, ptr %120, align 8, !tbaa !49
+  br i1 %.not97, label %137, label %122
 
-121:                                              ; preds = %118
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 40
-  %123 = load ptr, ptr %122, align 8, !tbaa !49
-  %124 = load ptr, ptr %31, align 8, !tbaa !87
-  %125 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %124, i64 %38
-  store ptr %120, ptr %125, align 8, !tbaa !72
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 40
+  %124 = load ptr, ptr %123, align 8, !tbaa !49
+  %125 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %65, i64 %38
+  store ptr %121, ptr %125, align 8, !tbaa !72
   %.sroa.487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %125, i64 8
-  store ptr %123, ptr %.sroa.487.0..sroa_idx, align 8, !tbaa !72
-  %126 = load ptr, ptr %114, align 8, !tbaa !49
-  %127 = load ptr, ptr %122, align 8, !tbaa !49
+  store ptr %124, ptr %.sroa.487.0..sroa_idx, align 8, !tbaa !72
+  %126 = load ptr, ptr %115, align 8, !tbaa !49
+  %127 = load ptr, ptr %123, align 8, !tbaa !49
   %128 = sext i32 %.0 to i64
-  %129 = getelementptr %"struct.b3DynamicBvh::sStkNN", ptr %124, i64 %128
+  %129 = getelementptr %"struct.b3DynamicBvh::sStkNN", ptr %65, i64 %128
   store ptr %126, ptr %129, align 8, !tbaa !72
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %129, i64 8
   store ptr %127, ptr %.sroa.485.0..sroa_idx, align 8, !tbaa !72
-  %130 = load ptr, ptr %119, align 8, !tbaa !49
-  %131 = load ptr, ptr %116, align 8, !tbaa !49
+  %130 = load ptr, ptr %120, align 8, !tbaa !49
+  %131 = load ptr, ptr %117, align 8, !tbaa !49
   %132 = getelementptr i8, ptr %129, i64 16
   store ptr %130, ptr %132, align 8, !tbaa !72
   %.sroa.483.0..sroa_idx = getelementptr i8, ptr %129, i64 24
   store ptr %131, ptr %.sroa.483.0..sroa_idx, align 8, !tbaa !72
-  %133 = load ptr, ptr %114, align 8, !tbaa !49
-  %134 = load ptr, ptr %116, align 8, !tbaa !49
+  %133 = load ptr, ptr %115, align 8, !tbaa !49
+  %134 = load ptr, ptr %117, align 8, !tbaa !49
   %135 = add nsw i32 %.0, 3
   %136 = getelementptr i8, ptr %129, i64 32
   store ptr %133, ptr %136, align 8, !tbaa !72
@@ -1910,50 +1910,48 @@ _Z11b3IntersectRK12b3DbvtAabbMmS1_.exit:          ; preds = %102
   store ptr %134, ptr %.sroa.481.0..sroa_idx, align 8, !tbaa !72
   br label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread
 
-137:                                              ; preds = %118
-  %138 = load ptr, ptr %31, align 8, !tbaa !87
-  %139 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %138, i64 %38
-  store ptr %120, ptr %139, align 8, !tbaa !72
-  %.sroa.479.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 8
+137:                                              ; preds = %119
+  %138 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %65, i64 %38
+  store ptr %121, ptr %138, align 8, !tbaa !72
+  %.sroa.479.0..sroa_idx = getelementptr inbounds nuw i8, ptr %138, i64 8
   store ptr %.sroa.22.0.copyload, ptr %.sroa.479.0..sroa_idx, align 8, !tbaa !72
-  %140 = load ptr, ptr %114, align 8, !tbaa !49
-  %141 = add nsw i32 %.0, 1
-  %142 = sext i32 %.0 to i64
-  %143 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %138, i64 %142
-  store ptr %140, ptr %143, align 8, !tbaa !72
-  %.sroa.477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %139 = load ptr, ptr %115, align 8, !tbaa !49
+  %140 = add nsw i32 %.0, 1
+  %141 = sext i32 %.0 to i64
+  %142 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %65, i64 %141
+  store ptr %139, ptr %142, align 8, !tbaa !72
+  %.sroa.477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 8
   store ptr %.sroa.22.0.copyload, ptr %.sroa.477.0..sroa_idx, align 8, !tbaa !72
   br label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread
 
-144:                                              ; preds = %113
-  br i1 %.not97, label %154, label %145
+143:                                              ; preds = %114
+  br i1 %.not97, label %152, label %144
 
-145:                                              ; preds = %144
-  %146 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 40
-  %147 = load ptr, ptr %146, align 8, !tbaa !49
-  %148 = load ptr, ptr %31, align 8, !tbaa !87
-  %149 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %148, i64 %38
-  store ptr %.sroa.0.0.copyload, ptr %149, align 8, !tbaa !72
-  %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %149, i64 8
-  store ptr %147, ptr %.sroa.475.0..sroa_idx, align 8, !tbaa !72
-  %150 = load ptr, ptr %116, align 8, !tbaa !49
-  %151 = add nsw i32 %.0, 1
-  %152 = sext i32 %.0 to i64
-  %153 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %148, i64 %152
-  store ptr %.sroa.0.0.copyload, ptr %153, align 8, !tbaa !72
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store ptr %150, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !72
+144:                                              ; preds = %143
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.22.0.copyload, i64 40
+  %146 = load ptr, ptr %145, align 8, !tbaa !49
+  %147 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %65, i64 %38
+  store ptr %.sroa.0.0.copyload, ptr %147, align 8, !tbaa !72
+  %.sroa.475.0..sroa_idx = getelementptr inbounds nuw i8, ptr %147, i64 8
+  store ptr %146, ptr %.sroa.475.0..sroa_idx, align 8, !tbaa !72
+  %148 = load ptr, ptr %117, align 8, !tbaa !49
+  %149 = add nsw i32 %.0, 1
+  %150 = sext i32 %.0 to i64
+  %151 = getelementptr inbounds %"struct.b3DynamicBvh::sStkNN", ptr %65, i64 %150
+  store ptr %.sroa.0.0.copyload, ptr %151, align 8, !tbaa !72
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 8
+  store ptr %148, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !72
   br label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread
 
-154:                                              ; preds = %144
-  %155 = load ptr, ptr %3, align 8, !tbaa !4
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %157 = load ptr, ptr %156, align 8
-  tail call void %157(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.sroa.0.0.copyload, ptr noundef nonnull %.sroa.22.0.copyload)
+152:                                              ; preds = %143
+  %153 = load ptr, ptr %3, align 8, !tbaa !4
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %155 = load ptr, ptr %154, align 8
+  tail call void %155(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.sroa.0.0.copyload, ptr noundef nonnull %.sroa.22.0.copyload)
   br label %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread
 
-_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread:   ; preds = %80, %85, %90, %96, %102, %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit, %145, %154, %121, %137, %65, %68
-  %.1 = phi i32 [ %78, %68 ], [ %36, %65 ], [ %135, %121 ], [ %141, %137 ], [ %151, %145 ], [ %36, %154 ], [ %36, %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit ], [ %36, %102 ], [ %36, %96 ], [ %36, %90 ], [ %36, %85 ], [ %36, %80 ]
+_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit.thread:   ; preds = %81, %86, %91, %97, %103, %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit, %144, %152, %122, %137, %67, %70
+  %.1 = phi i32 [ %79, %70 ], [ %36, %67 ], [ %135, %122 ], [ %140, %137 ], [ %149, %144 ], [ %36, %152 ], [ %36, %_Z11b3IntersectRK12b3DbvtAabbMmS1_.exit ], [ %36, %103 ], [ %36, %97 ], [ %36, %91 ], [ %36, %86 ], [ %36, %81 ]
   %.not = icmp eq i32 %.1, 0
   br i1 %.not, label %.loopexit, label %35, !llvm.loop !91
 

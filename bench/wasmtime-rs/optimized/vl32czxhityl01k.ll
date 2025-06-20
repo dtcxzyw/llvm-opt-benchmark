@@ -420,7 +420,6 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5db
   %159 = alloca { ptr, i64 }, align 8
   %.sroa.19477 = alloca [2 x i64], align 8
   %.sroa.26491 = alloca [15 x i64], align 8
-  %.sroa.21354 = alloca [6 x i8], align 2
   %.sroa.52 = alloca [16 x i8], align 8
   %.sroa.65 = alloca [72 x i8], align 8
   %.sroa.23 = alloca [2 x i64], align 8
@@ -520,7 +519,6 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5db
   %.sroa.58.40..sroa_idx454 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %.sroa.65.40..sroa_idx457 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %.sroa.261.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %161, i64 9
-  %.sroa.21354.1..sroa.261.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %161, i64 10
   %188 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %189 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %190 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -759,7 +757,6 @@ define internal fastcc void @_ZN14cranelift_isle6parser6Parser10parse_defs17h5db
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %159)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.19477)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %.sroa.26491)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.21354)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.52)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.65)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.23)
@@ -4129,7 +4126,6 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %67)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.372.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.65, i64 72, i1 false), !noalias !6
   store i8 %.sroa.17.4, ptr %.sroa.261.0..sroa_idx.i, align 1, !noalias !6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.21354.1..sroa.261.0..sroa_idx.i.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.21354, i64 6, i1 false), !noalias !6
   store i64 %.sroa.22355.0, ptr %.sroa.271.0..sroa_idx.i, align 16, !noalias !6
   store i8 %.sroa.34.0, ptr %.sroa.12.8..sroa.271.0..sroa_idx.i.sroa_idx, align 8, !noalias !6
   store i56 %.sroa.45.0, ptr %.sroa.16.8..sroa.271.0..sroa_idx.i.sroa_idx, align 1, !noalias !6
@@ -4547,7 +4543,6 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %159)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.19477)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %.sroa.26491)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.21354)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.52)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.65)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.23)
@@ -4587,7 +4582,6 @@ _ZN14cranelift_isle6parser6Parser9is_rparen17h644bf5b8a2ba09a7E.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %159)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.19477)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %.sroa.26491)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.21354)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.52)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.65)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.23)

@@ -692,8 +692,8 @@ define void @"_ZN12uv_normalize10group_name1_89_$LT$impl$u20$schemars..JsonSchem
   store i64 -9223372036854775808, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 176
   store ptr null, ptr %20, align 8
-  %.sroa.2420.176..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 192
-  store i64 0, ptr %.sroa.2420.176..sroa_idx, align 8
+  %.sroa.1925.176..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 192
+  store i64 0, ptr %.sroa.1925.176..sroa_idx, align 8
   %21 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h4b1c88b721c5dcfbE(ptr noalias noundef nonnull align 8 dereferenceable(200) %5)
           to label %22 unwind label %11
 

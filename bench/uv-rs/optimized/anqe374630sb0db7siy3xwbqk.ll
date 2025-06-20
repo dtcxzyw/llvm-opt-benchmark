@@ -9083,8 +9083,8 @@ _ZN3std4path4Path4join17h5ba5bbd4e2bc2d68E.exit:  ; preds = %799
   store ptr %.sroa.0357.0, ptr %.sroa.4775.0..sroa_idx, align 8, !alias.scope !1834, !noalias !1827
   %.sroa.5776.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 64
   store i64 3, ptr %.sroa.5776.0..sroa_idx, align 8, !alias.scope !1834, !noalias !1827
-  %.sroa.7778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 184
-  store i64 3, ptr %.sroa.7778.0..sroa_idx, align 8, !alias.scope !1834, !noalias !1827
+  %.sroa.6778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 184
+  store i64 3, ptr %.sroa.6778.0..sroa_idx, align 8, !alias.scope !1834, !noalias !1827
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf74f6bf88d6e0e77E.llvm.5503902822965331766"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %89, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(304) %88, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.47af8473826c8c2585696a780e517604.271)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h21b495686dd6df8cE.exit" unwind label %876
 
@@ -10111,9 +10111,9 @@ define hidden void @_ZN16uv_build_backend8metadata13PyProjectToml15to_entry_poin
   store ptr %.sroa.09.0, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 2, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i64 2, ptr %.sroa.414.0..sroa_idx, align 8
+  %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.512.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.613.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sroa.714.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -10213,14 +10213,14 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17he1c87e6bc3f20c20E.exit9.i: ;
   br label %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0cd53e983efee656E.exit.i"
 
 "_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0cd53e983efee656E.exit.i": ; preds = %67, %64
-  %.sroa.6.1.i = phi i64 [ %69, %67 ], [ %.sroa.6.0.i, %64 ]
-  %.sroa.5.1.i = phi ptr [ %65, %67 ], [ %.sroa.5.0.i, %64 ]
-  %.sroa.9.1.i = phi ptr [ %65, %67 ], [ %.sroa.9.0.i, %64 ]
-  %.sroa.10.1.i = phi i64 [ %69, %67 ], [ %.sroa.10.0.i, %64 ]
-  %.sink19.i.i = phi i64 [ 1, %67 ], [ 0, %64 ]
-  %.sink.i.i = phi i64 [ %71, %67 ], [ 0, %64 ]
+  %.sroa.6.1.i = phi i64 [ %.sroa.6.0.i, %64 ], [ %69, %67 ]
+  %.sroa.5.1.i = phi ptr [ %.sroa.5.0.i, %64 ], [ %65, %67 ]
+  %.sroa.9.1.i = phi ptr [ %.sroa.9.0.i, %64 ], [ %65, %67 ]
+  %.sroa.10.1.i = phi i64 [ %.sroa.10.0.i, %64 ], [ %69, %67 ]
+  %.sink19.i.i = phi i64 [ 0, %64 ], [ 1, %67 ]
+  %.sink.i.i = phi i64 [ 0, %64 ], [ %71, %67 ]
   store i64 %.sink19.i.i, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !1988
-  store ptr null, ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx, align 8, !alias.scope !1988
+  store ptr null, ptr %.sroa.411.0..sroa_idx.i, align 8, !alias.scope !1988
   store ptr %.sroa.5.1.i, ptr %.sroa.512.0..sroa_idx.i, align 8, !alias.scope !1988
   store i64 %.sroa.6.1.i, ptr %.sroa.613.0..sroa_idx.i, align 8, !alias.scope !1988
   store i64 %.sink19.i.i, ptr %.sroa.714.0..sroa_idx.i, align 8, !alias.scope !1988

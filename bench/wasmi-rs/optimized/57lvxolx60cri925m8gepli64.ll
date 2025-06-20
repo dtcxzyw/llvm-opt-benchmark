@@ -441,10 +441,10 @@ common.resume:                                    ; preds = %53, %33
   store i64 %111, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !24, !noalias !41
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %113, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !24, !noalias !41
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %115, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !24, !noalias !41
-  %.sroa.5.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %117, ptr %.sroa.5.0..sroa_idx.i2, align 8, !alias.scope !24, !noalias !41
+  %.sroa.4.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %115, ptr %.sroa.4.0..sroa_idx.i2, align 8, !alias.scope !24, !noalias !41
+  %.sroa.5.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i16 %117, ptr %.sroa.5.0..sroa_idx.i3, align 8, !alias.scope !24, !noalias !41
   br label %118
 
 118:                                              ; preds = %121, %107

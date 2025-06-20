@@ -6364,11 +6364,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmplERKNS_5TwineES2_.exit123.i:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, %444
   %.str.209..str.210.i.sink = phi ptr [ %.str.209..str.210.i, %444 ], [ @.str.211, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
-  %.sink.i = phi i8 [ 3, %444 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
   %.sroa.05.0.i.i97.i = phi ptr [ %13, %444 ], [ @.str.211, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
+  %storemerge.i = phi i8 [ 3, %444 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i ]
   store ptr %.str.209..str.210.i.sink, ptr %13, align 8
   store i8 3, ptr %79, align 8, !tbaa !1080
-  store i8 %.sink.i, ptr %80, align 1, !tbaa !1080
+  store i8 %storemerge.i, ptr %80, align 1, !tbaa !1080
   %445 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !922
   %446 = load ptr, ptr %417, align 8, !tbaa !921
   store ptr %.sroa.05.0.i.i97.i, ptr %12, align 8, !alias.scope !1081

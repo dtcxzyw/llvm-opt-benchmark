@@ -6757,9 +6757,9 @@ _ZZN4llvm2cl16ExpansionContext19expandResponseFilesERNS_15SmallVectorImplIPKcEEE
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.backedge
   %110 = phi i64 [ 0, %.preheader.lr.ph ], [ %408, %.backedge ]
-  %.0366 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1449, %.backedge ]
-  %.sroa.8280.0362 = phi ptr [ undef, %.preheader.lr.ph ], [ %.sroa.8280.1446, %.backedge ]
-  %.sroa.0277.0360 = phi i32 [ undef, %.preheader.lr.ph ], [ %.sroa.0277.1445, %.backedge ]
+  %.0366 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1450, %.backedge ]
+  %.sroa.8280.0362 = phi ptr [ undef, %.preheader.lr.ph ], [ %.sroa.8280.1447, %.backedge ]
+  %.sroa.0277.0360 = phi i32 [ undef, %.preheader.lr.ph ], [ %.sroa.0277.1446, %.backedge ]
   %.val85343 = load ptr, ptr %11, align 8, !tbaa !75
   %.val86344 = load i32, ptr %33, align 8, !tbaa !72
   %111 = zext i32 %.val86344 to i64
@@ -6912,9 +6912,9 @@ _ZNK4llvm7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8getError
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZNK4llvm7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8getErrorEv.exit, %167
-  %.sink = phi i8 [ 3, %167 ], [ 1, %_ZNK4llvm7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8getErrorEv.exit ]
+  %storemerge = phi i8 [ 3, %167 ], [ 1, %_ZNK4llvm7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8getErrorEv.exit ]
   store i8 3, ptr %52, align 8, !tbaa !315
-  store i8 %.sink, ptr %53, align 1, !tbaa !315
+  store i8 %storemerge, ptr %53, align 1, !tbaa !315
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #26, !noalias !316
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(34) %15) #26, !noalias !316
   call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 %.sroa.0.0.copyload.i, ptr %.sroa.31.0.copyload.i) #26
@@ -7124,9 +7124,9 @@ _ZNK4llvm7ErrorOrINS_3vfs6StatusEE8getErrorEv.exit.thread: ; preds = %212
 _ZN4llvmplERKNS_5TwineES2_.exit159:               ; preds = %.thread310, %229
   %.sroa.05.0.i.i149 = phi ptr [ %24, %229 ], [ @.str, %.thread310 ]
   %.014.i.i148 = phi i8 [ 2, %229 ], [ 3, %.thread310 ]
-  %.sink456 = phi i8 [ 3, %229 ], [ 1, %.thread310 ]
+  %storemerge441 = phi i8 [ 3, %229 ], [ 1, %.thread310 ]
   store i8 3, ptr %97, align 8, !tbaa !315
-  store i8 %.sink456, ptr %98, align 1, !tbaa !315
+  store i8 %storemerge441, ptr %98, align 1, !tbaa !315
   store ptr %.sroa.05.0.i.i149, ptr %23, align 8, !alias.scope !324
   store ptr @.str.1, ptr %101, align 8, !alias.scope !324
   store i8 %.014.i.i148, ptr %99, align 8, !tbaa !9, !alias.scope !324
@@ -7162,10 +7162,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit159:               ; preds = %.thread310, %229
   br label %_ZN4llvmplERKNS_5TwineES2_.exit174
 
 _ZN4llvmplERKNS_5TwineES2_.exit174:               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit159, %234, %235
-  %.sink458 = phi i8 [ 4, %234 ], [ %.014.i.i163, %235 ], [ %233, %_ZN4llvmplERKNS_5TwineES2_.exit159 ]
-  %.sink457 = phi i8 [ 1, %234 ], [ 4, %235 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit159 ]
-  store i8 %.sink458, ptr %102, align 8, !tbaa !315
-  store i8 %.sink457, ptr %103, align 1, !tbaa !315
+  %.sink457 = phi i8 [ 4, %234 ], [ %.014.i.i163, %235 ], [ %233, %_ZN4llvmplERKNS_5TwineES2_.exit159 ]
+  %.sink = phi i8 [ 1, %234 ], [ 4, %235 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit159 ]
+  store i8 %.sink457, ptr %102, align 8, !tbaa !315
+  store i8 %.sink, ptr %103, align 1, !tbaa !315
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #26, !noalias !339
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(34) %22) #26, !noalias !339
   call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 %.sroa.0288.0, ptr nonnull %.sroa.9293.0) #26
@@ -7693,12 +7693,12 @@ _ZN4llvm7ErrorOrINS_3vfs6StatusEED2Ev.exit:       ; preds = %393, %_ZNKSt7__cxx1
   ]
 
 .backedge:                                        ; preds = %139, %135, %407, %407
-  %.1449 = phi i32 [ %.2, %407 ], [ %.2, %407 ], [ %140, %139 ], [ %136, %135 ]
-  %.sroa.8280.1446 = phi ptr [ %.sroa.8280.2, %407 ], [ %.sroa.8280.2, %407 ], [ %.sroa.8280.0362, %139 ], [ %.sroa.8280.0362, %135 ]
-  %.sroa.0277.1445 = phi i32 [ %.sroa.0277.2, %407 ], [ %.sroa.0277.2, %407 ], [ %.sroa.0277.0360, %139 ], [ %.sroa.0277.0360, %135 ]
-  %408 = zext i32 %.1449 to i64
+  %.1450 = phi i32 [ %.2, %407 ], [ %.2, %407 ], [ %140, %139 ], [ %136, %135 ]
+  %.sroa.8280.1447 = phi ptr [ %.sroa.8280.2, %407 ], [ %.sroa.8280.2, %407 ], [ %.sroa.8280.0362, %139 ], [ %.sroa.8280.0362, %135 ]
+  %.sroa.0277.1446 = phi i32 [ %.sroa.0277.2, %407 ], [ %.sroa.0277.2, %407 ], [ %.sroa.0277.0360, %139 ], [ %.sroa.0277.0360, %135 ]
+  %408 = zext i32 %.1450 to i64
   %409 = load i32, ptr %35, align 8, !tbaa !72
-  %.not = icmp eq i32 %409, %.1449
+  %.not = icmp eq i32 %409, %.1450
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit269, label %.preheader
 
 _ZN4llvm5ErrorD2Ev.exit269:                       ; preds = %.backedge, %407, %_ZZN4llvm2cl16ExpansionContext19expandResponseFilesERNS_15SmallVectorImplIPKcEEEN18ResponseFileRecordD2Ev.exit

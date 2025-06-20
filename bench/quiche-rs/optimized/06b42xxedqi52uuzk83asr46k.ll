@@ -5284,8 +5284,8 @@ define void @_ZN6quiche2h36stream6Stream3new17h3884e155bea8035fE(ptr dead_on_unw
   store i8 %.3, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %17, align 8
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %13, ptr %.sroa.44.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %13, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 16, ptr %.sroa.5.0..sroa_idx, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -8063,10 +8063,10 @@ define void @_ZN6quiche6packet5retry17h9dcddab3a686f985E(ptr dead_on_unwind noal
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   store i64 %25, ptr %39, align 8
-  %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 56
-  store ptr %33, ptr %.sroa.437.0..sroa_idx, align 8
-  %.sroa.538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store i64 %8, ptr %.sroa.538.0..sroa_idx, align 8
+  %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 56
+  store ptr %33, ptr %.sroa.436.0..sroa_idx, align 8
+  %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 64
+  store i64 %8, ptr %.sroa.537.0..sroa_idx, align 8
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 72
   store i64 -9223372036854775808, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 116

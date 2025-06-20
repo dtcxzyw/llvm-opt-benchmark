@@ -546,16 +546,16 @@ define void @"_ZN80_$LT$ty_python_semantic..types..Type$u20$as$u20$ty_ide..HasNa
   %32 = extractvalue { ptr, ptr } %30, 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9), !noalias !43
   store i64 0, ptr %9, align 8, !noalias !47
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i64 0, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !47
-  %.sroa.742.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 112
-  store ptr %31, ptr %.sroa.742.0..sroa_idx, align 8, !noalias !47
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 120
-  store ptr %32, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !47
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 128
-  store ptr %2, ptr %.sroa.9.0..sroa_idx, align 8, !noalias !47
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 136
-  store ptr %3, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !47
+  %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store i64 0, ptr %.sroa.442.0..sroa_idx, align 8, !noalias !47
+  %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 112
+  store ptr %31, ptr %.sroa.543.0..sroa_idx, align 8, !noalias !47
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 120
+  store ptr %32, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !47
+  %.sroa.744.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 128
+  store ptr %2, ptr %.sroa.744.0..sroa_idx, align 8, !noalias !47
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 136
+  store ptr %3, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !47
   call void @"_ZN119_$LT$ty_ide..NavigationTargets$u20$as$u20$core..iter..traits..collect..FromIterator$LT$ty_ide..NavigationTarget$GT$$GT$9from_iter17h3432bc0431fcc2f3E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %9), !noalias !48
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9), !noalias !43
   br label %51
@@ -604,7 +604,7 @@ define void @"_ZN80_$LT$ty_python_semantic..types..Type$u20$as$u20$ty_ide..HasNa
 
 49:                                               ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2e9dd128e579aa97E.exit.i", %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2e9dd128e579aa97E.exit.thread.i"
   %50 = icmp eq ptr %47, %42
-  br i1 %50, label %.loopexit53, label %.lr.ph.i
+  br i1 %50, label %.loopexit55, label %.lr.ph.i
 
 51:                                               ; preds = %"_ZN80_$LT$ty_python_semantic..types..Type$u20$as$u20$ty_ide..HasNavigationTargets$GT$18navigation_targets28_$u7b$$u7b$closure$u7d$$u7d$17h8b6503606eef4b14E.exit", %78, %63, %60, %23
   ret void
@@ -647,11 +647,11 @@ define void @"_ZN80_$LT$ty_python_semantic..types..Type$u20$as$u20$ty_ide..HasNa
   %59 = icmp eq ptr %56, %53
   br i1 %59, label %.loopexit, label %.lr.ph.i32
 
-.loopexit53:                                      ; preds = %49
+.loopexit55:                                      ; preds = %49
   store ptr %47, ptr %14, align 8, !alias.scope !68, !noalias !71
   br label %60
 
-60:                                               ; preds = %.loopexit53, %33
+60:                                               ; preds = %.loopexit55, %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @_ZN6ty_ide17NavigationTargets5empty17hda38beb36f250e4fE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0)

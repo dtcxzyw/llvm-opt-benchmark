@@ -93,15 +93,15 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %36 = load ptr, ptr %35, align 8, !alias.scope !5, !noalias !8, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %36, i64 %34
-  %.sroa.5.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %.sroa.5.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  store i8 2, ptr %.sroa.5.0..sroa_idx30, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 20
-  store i32 %1, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store i8 0, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 25
-  store i8 0, ptr %.sroa.9.0..sroa_idx, align 1
+  store i8 2, ptr %.sroa.5.0..sroa_idx29, align 8
+  %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 20
+  store i32 %1, ptr %.sroa.630.0..sroa_idx, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store i8 0, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 25
+  store i8 0, ptr %.sroa.8.0..sroa_idx, align 1
   %38 = load i64, ptr %27, align 8, !alias.scope !5, !noalias !8, !noundef !4
   %39 = add i64 %38, 1
   store i64 %39, ptr %27, align 8, !alias.scope !5, !noalias !8

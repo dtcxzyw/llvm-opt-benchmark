@@ -412,8 +412,8 @@ define hidden void @"_ZN3lru21LruCache$LT$K$C$V$GT$3new17h3cbba5c1f5174eb7E"(ptr
           to label %18 unwind label %16, !noalias !56
 
 12:                                               ; preds = %2
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !56
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !56
   %13 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !56
   %14 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 8, 121) 120, i64 noundef range(i64 4, 9) 8) #36, !noalias !56
   %15 = icmp eq ptr %14, null
@@ -436,8 +436,8 @@ define hidden void @"_ZN3lru21LruCache$LT$K$C$V$GT$3new17h3cbba5c1f5174eb7E"(ptr
   resume { ptr, i32 } %11
 
 "_ZN3lru25LruCache$LT$K$C$V$C$S$GT$9construct17h0a2d81efea760ac3E.exit": ; preds = %12
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %.sroa.55.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 104
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 112
+  %.sroa.35.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 104
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 112
   store i64 0, ptr %19, align 8, !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i64 40, i1 false), !alias.scope !56
@@ -448,8 +448,8 @@ define hidden void @"_ZN3lru21LruCache$LT$K$C$V$GT$3new17h3cbba5c1f5174eb7E"(ptr
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %14, ptr %22, align 8, !alias.scope !51, !noalias !54
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !56
-  store ptr %14, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !56
-  store ptr %8, ptr %.sroa.55.0..sroa_idx.i, align 8, !noalias !56
+  store ptr %14, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !56
+  store ptr %8, ptr %.sroa.35.0..sroa_idx.i, align 8, !noalias !56
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   ret void
 }
@@ -546,8 +546,8 @@ define hidden void @"_ZN3lru21LruCache$LT$K$C$V$GT$3new17hf9d1bf320cea1dbcE"(ptr
           to label %18 unwind label %16, !noalias !74
 
 12:                                               ; preds = %2
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !74
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !74
   %13 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !74
   %14 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 8, 121) 56, i64 noundef range(i64 4, 9) 8) #36, !noalias !74
   %15 = icmp eq ptr %14, null
@@ -570,8 +570,8 @@ define hidden void @"_ZN3lru21LruCache$LT$K$C$V$GT$3new17hf9d1bf320cea1dbcE"(ptr
   resume { ptr, i32 } %11
 
 "_ZN3lru25LruCache$LT$K$C$V$C$S$GT$9construct17h5e758f0db10b44baE.exit": ; preds = %12
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %.sroa.410.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %.sroa.310.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i64 0, ptr %19, align 8, !noalias !74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %4, i64 40, i1 false), !alias.scope !74
@@ -582,8 +582,8 @@ define hidden void @"_ZN3lru21LruCache$LT$K$C$V$GT$3new17hf9d1bf320cea1dbcE"(ptr
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %14, ptr %22, align 8, !alias.scope !69, !noalias !72
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !74
-  store ptr %14, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !74
-  store ptr %8, ptr %.sroa.410.0..sroa_idx.i, align 8, !noalias !74
+  store ptr %14, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !74
+  store ptr %8, ptr %.sroa.310.0..sroa_idx.i, align 8, !noalias !74
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   ret void
 }
@@ -3324,10 +3324,10 @@ define internal void @"_ZN3std4sync6poison4once4Once15call_once_force28_$u7b$$u7
   store ptr %24, ptr %.sroa.4.0..sroa_idx27.i.i.i, align 8, !alias.scope !722, !noalias !726
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %33, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !722, !noalias !726
-  %.sroa.628.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i8 0, ptr %.sroa.628.0..sroa_idx.i.i.i, align 8, !alias.scope !722, !noalias !726
-  %.sroa.8.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 0, ptr %.sroa.8.0..sroa_idx.i.i.i, align 8, !alias.scope !722, !noalias !726
+  %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i8 0, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !alias.scope !722, !noalias !726
+  %.sroa.728.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 0, ptr %.sroa.728.0..sroa_idx.i.i.i, align 8, !alias.scope !722, !noalias !726
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hce0efa3c3f136b3cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.07b1ec37b1efa0baddb32e7a79f4a4e1.42), !noalias !727
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !715
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)

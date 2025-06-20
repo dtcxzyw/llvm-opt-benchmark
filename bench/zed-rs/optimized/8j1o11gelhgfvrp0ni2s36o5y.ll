@@ -3142,7 +3142,7 @@ default.unreachable3.i:                           ; preds = %124
   %126 = bitcast i64 %.sroa.2.0.copyload to double
   %127 = tail call double @llvm.fabs.f64(double %126)
   %128 = fcmp ueq double %127, 0x7FF0000000000000
-  %..i.i = select i1 %128, i64 -9223372036854775808, i64 -9223372036854775806
+  %.sroa.0.0.i.i = select i1 %128, i64 -9223372036854775808, i64 -9223372036854775806
   br label %133
 
 129:                                              ; preds = %124
@@ -3158,7 +3158,7 @@ default.unreachable3.i:                           ; preds = %124
   br label %117
 
 133:                                              ; preds = %124, %129, %125
-  %.sink = phi i64 [ -9223372036854775806, %129 ], [ %..i.i, %125 ], [ -9223372036854775806, %124 ]
+  %.sink = phi i64 [ -9223372036854775806, %129 ], [ %.sroa.0.0.i.i, %125 ], [ -9223372036854775806, %124 ]
   %.lobit.i.i.sink = phi i64 [ %.lobit.i.i, %129 ], [ 2, %125 ], [ 0, %124 ]
   store i64 %.sink, ptr %26, align 8, !alias.scope !833, !noalias !836
   %.sroa.4.0..sroa_idx.i1.i = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -3766,7 +3766,7 @@ default.unreachable3.i125:                        ; preds = %318
   %320 = bitcast i64 %.sroa.2131.0.copyload to double
   %321 = tail call double @llvm.fabs.f64(double %320)
   %322 = fcmp ueq double %321, 0x7FF0000000000000
-  %..i.i122 = select i1 %322, i64 -9223372036854775808, i64 -9223372036854775806
+  %.sroa.0.0.i.i122 = select i1 %322, i64 -9223372036854775808, i64 -9223372036854775806
   br label %327
 
 323:                                              ; preds = %318
@@ -3782,7 +3782,7 @@ default.unreachable3.i125:                        ; preds = %318
   br label %117
 
 327:                                              ; preds = %318, %323, %319
-  %.sink171 = phi i64 [ -9223372036854775806, %323 ], [ %..i.i122, %319 ], [ -9223372036854775806, %318 ]
+  %.sink171 = phi i64 [ -9223372036854775806, %323 ], [ %.sroa.0.0.i.i122, %319 ], [ -9223372036854775806, %318 ]
   %.lobit.i.i117.sink = phi i64 [ %.lobit.i.i117, %323 ], [ 2, %319 ], [ 0, %318 ]
   store i64 %.sink171, ptr %26, align 8, !alias.scope !995, !noalias !998
   %.sroa.4.0..sroa_idx.i1.i118 = getelementptr inbounds nuw i8, ptr %26, i64 8

@@ -1834,12 +1834,12 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br i1 %.not.i, label %"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17haf9d9bc79d137d17E.exit", label %7
 
 7:                                                ; preds = %2
-  %.sroa.4.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !207, !noalias !212, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !207, !noalias !212, !noundef !3
-  store ptr null, ptr %.sroa.4.0..sroa_idx15.i, align 8, !noalias !210
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !210
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !210
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -8644,11 +8644,11 @@ _ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i16: ; preds = %
   %.sroa.08.0.i = phi i8 [ %36, %38 ], [ %24, %27 ]
   store i8 1, ptr %17, align 8, !noalias !1045
   store i8 %.sroa.08.0.i, ptr %0, align 8
-  %.sroa.435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.435.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.3.i, i64 39, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.3.i, i64 39, i1 false)
   br label %47
 
-47:                                               ; preds = %66, %67, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$tokio..task..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17h5c07a08ea08cd23fE.exit26", %46
+47:                                               ; preds = %66, %67, %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$tokio..task..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17h5c07a08ea08cd23fE.exit25", %46
   ret void
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h39295bc2aa0dd3d0E.exit18.thread": ; preds = %"_ZN4core3ptr113drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$h2..share..Pong$C$h2..error..Error$GT$$GT$$GT$17h1000091b5d24b5bbE.exit", %_ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.i16, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h39295bc2aa0dd3d0E.exit18"
@@ -8685,13 +8685,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.thread2.i20: ; p
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %.sroa.3.0.i, ptr %58, align 1, !noalias !1055
   %59 = invoke noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17h1022cc46dd5cf8eeE"(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-          to label %.noexc unwind label %60
-
-.noexc:                                           ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h737992a7891c1e9aE.exit"
-  %spec.select = select i1 %59, i8 7, i8 6
-  store i8 %spec.select, ptr %0, align 8, !alias.scope !1059, !noalias !1062
-  %.not.i25 = icmp eq i8 %57, 2
-  br i1 %.not.i25, label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$tokio..task..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17h5c07a08ea08cd23fE.exit26", label %65
+          to label %_ZN5tokio4task4coop11with_budget17ha99e0ffeb1f455e1E.exit unwind label %60
 
 60:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h737992a7891c1e9aE.exit"
   %61 = landingpad { ptr, i32 }
@@ -8706,14 +8700,20 @@ _ZN4core3ops8function6FnOnce9call_once17h9e14438c479599b0E.exit.thread2.i20: ; p
 63:                                               ; preds = %62
   %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19, !noalias !1064
+  call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19, !noalias !1059
   unreachable
 
-65:                                               ; preds = %.noexc
-  call void @"_ZN4core3ptr63drop_in_place$LT$tokio..task..coop..with_budget..ResetGuard$GT$17h7b422705c411f82aE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %6), !noalias !1064
-  br label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$tokio..task..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17h5c07a08ea08cd23fE.exit26"
+_ZN5tokio4task4coop11with_budget17ha99e0ffeb1f455e1E.exit: ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h737992a7891c1e9aE.exit"
+  %..i = select i1 %59, i8 7, i8 6
+  store i8 %..i, ptr %0, align 8, !alias.scope !1060, !noalias !1063
+  %.not.i24 = icmp eq i8 %57, 2
+  br i1 %.not.i24, label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$tokio..task..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17h5c07a08ea08cd23fE.exit25", label %65
 
-"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$tokio..task..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17h5c07a08ea08cd23fE.exit26": ; preds = %.noexc, %65
+65:                                               ; preds = %_ZN5tokio4task4coop11with_budget17ha99e0ffeb1f455e1E.exit
+  call void @"_ZN4core3ptr63drop_in_place$LT$tokio..task..coop..with_budget..ResetGuard$GT$17h7b422705c411f82aE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %6), !noalias !1059
+  br label %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$tokio..task..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17h5c07a08ea08cd23fE.exit25"
+
+"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$tokio..task..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17h5c07a08ea08cd23fE.exit25": ; preds = %_ZN5tokio4task4coop11with_budget17ha99e0ffeb1f455e1E.exit, %65
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6), !noalias !1055
   br label %47
 
@@ -11345,12 +11345,12 @@ attributes #20 = { nounwind }
 !1056 = distinct !{!1056, !1057, !"_ZN5tokio4task4coop11with_budget17ha99e0ffeb1f455e1E: argument 0"}
 !1057 = distinct !{!1057, !"_ZN5tokio4task4coop11with_budget17ha99e0ffeb1f455e1E"}
 !1058 = distinct !{!1058, !1057, !"_ZN5tokio4task4coop11with_budget17ha99e0ffeb1f455e1E: argument 1"}
-!1059 = !{!1060}
-!1060 = distinct !{!1060, !1061, !"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hdf5fb568df3802cbE: argument 0"}
-!1061 = distinct !{!1061, !"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hdf5fb568df3802cbE"}
-!1062 = !{!1063}
-!1063 = distinct !{!1063, !1061, !"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hdf5fb568df3802cbE: argument 1"}
-!1064 = !{!1056}
+!1059 = !{!1056}
+!1060 = !{!1061}
+!1061 = distinct !{!1061, !1062, !"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hdf5fb568df3802cbE: argument 0"}
+!1062 = distinct !{!1062, !"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hdf5fb568df3802cbE"}
+!1063 = !{!1064}
+!1064 = distinct !{!1064, !1062, !"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hdf5fb568df3802cbE: argument 1"}
 !1065 = !{!1066}
 !1066 = distinct !{!1066, !1067, !"_ZN5alloc11collections5btree3mem7replace17h4ac8b1313a61653cE: argument 0"}
 !1067 = distinct !{!1067, !"_ZN5alloc11collections5btree3mem7replace17h4ac8b1313a61653cE"}

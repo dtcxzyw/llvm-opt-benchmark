@@ -25907,7 +25907,6 @@ define internal void @"_ZNSt17_Function_handlerIFvRN2tf7RuntimeEEZNS0_25make_red
   %4 = alloca %"class.std::shared_ptr.387", align 8
   %5 = alloca %class.anon.424, align 8
   %.sroa.4.i.i.i = alloca %"class.tf::PartitionerBase.base", align 8
-  %.sroa.5.i.i.i = alloca [7 x i8], align 1
   %.val = load ptr, ptr %0, align 8, !tbaa !99
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %6, align 8, !tbaa !211
@@ -26032,7 +26031,6 @@ _ZN2tf15PreemptionGuardC2ERNS_7RuntimeE.exit.i.i.i: ; preds = %44, %40
   store ptr %62, ptr %4, align 8, !tbaa !891, !alias.scope !942
   %63 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 17
   %.sroa.545.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -26174,7 +26172,6 @@ _ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i: ; pre
   %.064.i.i.i = phi i64 [ 0, %59 ], [ %149, %"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit43.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #34
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %.sroa.4.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5.i.i.i)
   %127 = load ptr, ptr %.val, align 8, !tbaa !932
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.4.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(9) %27, i64 9, i1 false)
   %128 = load ptr, ptr %4, align 8, !tbaa !893
@@ -26224,7 +26221,6 @@ _ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i: ; preds = %136, %133, %126
 "_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRangeImEEdZ15reduce_by_indexmE3$_0St4plusIdENS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_RT0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESG_ENUlvE0_D2Ev.exit.i.i.i": ; preds = %147, %144, %_ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i
   store ptr %127, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.4.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.4.i.i.i, i64 9, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.i.i.i, i64 7, i1 false)
   store i64 %24, ptr %.sroa.545.0..sroa_idx.i.i.i, align 8
   store i64 %spec.select.i.i.i, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8
   store ptr %128, ptr %64, align 8, !tbaa !893
@@ -26236,7 +26232,6 @@ _ZNSt10shared_ptrISt6atomicImEEC2ERKS2_.exit.i.i.i: ; preds = %136, %133, %126
   store ptr %139, ptr %67, align 8, !tbaa !895
   store ptr %140, ptr %68, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %.sroa.4.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i.i.i)
   %149 = add nuw i64 %.064.i.i.i, 1
   %150 = icmp eq i64 %149, %spec.select.i.i.i
   br i1 %150, label %151, label %152

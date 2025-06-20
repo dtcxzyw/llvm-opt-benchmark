@@ -10414,34 +10414,34 @@ _ZNK4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEdeEv.exit
   %116 = add nuw i32 %109, 1
   store i32 %116, ptr %5, align 4, !tbaa !30, !noalias !578
   store ptr %104, ptr %111, align 8, !tbaa !56, !noalias !578
-  br label %.loopexit75
+  br label %.loopexit
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i.i.i, %_ZNK4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEdeEv.exit
   %117 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %104) #26, !noalias !578
   %118 = extractvalue { ptr, i8 } %117, 1
   %119 = trunc nuw i8 %118 to i1
-  br i1 %119, label %.loopexit75, label %.critedge.backedge
+  br i1 %119, label %.loopexit, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %.lr.ph.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
   br label %.critedge
 
-.loopexit75:                                      ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge74
+.loopexit:                                        ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %.critedge74
   %120 = load ptr, ptr %3, align 8, !tbaa !173
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %122 = load ptr, ptr %121, align 8, !tbaa !177
   %.not.i.i18 = icmp eq ptr %120, %122
   br i1 %.not.i.i18, label %126, label %123
 
-123:                                              ; preds = %.loopexit75
+123:                                              ; preds = %.loopexit
   store ptr %104, ptr %120, align 8
   %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 32
   store i8 0, ptr %.sroa.521.0..sroa_idx, align 8
   %124 = load ptr, ptr %3, align 8, !tbaa !173
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 40
   store ptr %125, ptr %3, align 8, !tbaa !173
-  br label %.loopexit
+  br label %_ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_10BasicBlockENS1_6RegionEEEEESaISA_EE9push_backEOSA_.exit
 
-126:                                              ; preds = %.loopexit75
+126:                                              ; preds = %.loopexit
   %127 = load ptr, ptr %2, align 8, !tbaa !176
   %128 = ptrtoint ptr %120 to i64
   %129 = ptrtoint ptr %127 to i64
@@ -10495,7 +10495,7 @@ _ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1
   store ptr %143, ptr %3, align 8, !tbaa !173
   %145 = getelementptr inbounds nuw %"struct.std::pair.197", ptr %139, i64 %137
   store ptr %145, ptr %121, align 8, !tbaa !177
-  br label %.loopexit
+  br label %_ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_10BasicBlockENS1_6RegionEEEEESaISA_EE9push_backEOSA_.exit
 
 146:                                              ; preds = %_ZNK4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEneERKS5_.exit, %_ZNK4llvm14RNSuccIteratorIPNS_10RegionNodeENS_10BasicBlockENS_6RegionEEneERKS5_.exit.thread
   %147 = load ptr, ptr %3, align 8, !tbaa !173
@@ -10503,9 +10503,9 @@ _ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1
   store ptr %148, ptr %3, align 8, !tbaa !173
   %149 = load ptr, ptr %2, align 8, !tbaa !566
   %150 = icmp eq ptr %149, %148
-  br i1 %150, label %.loopexit, label %7, !llvm.loop !588
+  br i1 %150, label %_ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_10BasicBlockENS1_6RegionEEEEESaISA_EE9push_backEOSA_.exit, label %7, !llvm.loop !588
 
-.loopexit:                                        ; preds = %146, %_ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_10BasicBlockENS1_6RegionEEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %123
+_ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_10BasicBlockENS1_6RegionEEEEESaISA_EE9push_backEOSA_.exit: ; preds = %146, %_ZNSt6vectorISt4pairIPN4llvm10RegionNodeESt8optionalINS1_14RNSuccIteratorIS3_NS1_10BasicBlockENS1_6RegionEEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %123
   ret void
 }
 

@@ -35284,7 +35284,7 @@ define hidden void @"_ZN91_$LT$object..read..any..Section$LT$R$GT$$u20$as$u20$ob
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
   %9 = load i64, ptr %1, align 8, !range !4, !noundef !5
-  switch i64 %9, label %default.unreachable66 [
+  switch i64 %9, label %default.unreachable62 [
     i64 0, label %10
     i64 1, label %26
     i64 2, label %42
@@ -35297,7 +35297,7 @@ define hidden void @"_ZN91_$LT$object..read..any..Section$LT$R$GT$$u20$as$u20$ob
     i64 9, label %122
   ]
 
-default.unreachable66:                            ; preds = %2
+default.unreachable62:                            ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
@@ -35464,12 +35464,12 @@ default.unreachable66:                            ; preds = %2
   %117 = extractvalue { ptr, i64 } %.fr15.i, 1
   %.not.i32 = icmp eq ptr %116, null
   %spec.select = select i1 %.not.i32, ptr @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, ptr %116
-  %spec.select65 = select i1 %.not.i32, i64 0, i64 %117
+  %spec.select61 = select i1 %.not.i32, i64 0, i64 %117
   br label %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$11relocations17he1b411fc7025be21E.exit"
 
 "_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$11relocations17he1b411fc7025be21E.exit": ; preds = %"_ZN94_$LT$object..xcoff..SectionHeader32$u20$as$u20$object..read..xcoff..section..SectionHeader$GT$11relocations17ha9966098d4654ee8E.exit.i", %102
   %118 = phi ptr [ @anon.b05fb5003af99ead400dd576f4a4fe71.5.llvm.14851531119274094909, %102 ], [ %spec.select, %"_ZN94_$LT$object..xcoff..SectionHeader32$u20$as$u20$object..read..xcoff..section..SectionHeader$GT$11relocations17ha9966098d4654ee8E.exit.i" ]
-  %119 = phi i64 [ 0, %102 ], [ %spec.select65, %"_ZN94_$LT$object..xcoff..SectionHeader32$u20$as$u20$object..read..xcoff..section..SectionHeader$GT$11relocations17ha9966098d4654ee8E.exit.i" ]
+  %119 = phi i64 [ 0, %102 ], [ %spec.select61, %"_ZN94_$LT$object..xcoff..SectionHeader32$u20$as$u20$object..read..xcoff..section..SectionHeader$GT$11relocations17ha9966098d4654ee8E.exit.i" ]
   %120 = getelementptr inbounds { i32, i32, i8, i8, [2 x i8] }, ptr %118, i64 %119
   %121 = ptrtoint ptr %106 to i64
   br label %138
@@ -35501,7 +35501,7 @@ default.unreachable66:                            ; preds = %2
 
 138:                                              ; preds = %2, %2, %122, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$11relocations17he1b411fc7025be21E.exit", %77, %52, %47, %42, %26, %10
   %.sroa.13.sroa.0.sroa.11.sroa.0.0 = phi ptr [ %.sroa.01.0.i, %10 ], [ %.sroa.01.0.i23, %26 ], [ undef, %42 ], [ undef, %47 ], [ %.sroa.01.0.i25, %52 ], [ %.sroa.01.0.i30, %77 ], [ undef, %2 ], [ undef, %2 ], [ %118, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$11relocations17he1b411fc7025be21E.exit" ], [ %.sroa.01.0.i34, %122 ]
-  %.sroa.13.sroa.0.sroa.11.sroa.11.0 = phi ptr [ %24, %10 ], [ %40, %26 ], [ undef, %42 ], [ undef, %47 ], [ %75, %52 ], [ %100, %77 ], [ undef, %2 ], [ undef, %2 ], [ %120, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$11relocations17he1b411fc7025be21E.exit" ], [ %136, %122 ]
+  %.sroa.13.sroa.0.sroa.11.sroa.9.0 = phi ptr [ %24, %10 ], [ %40, %26 ], [ undef, %42 ], [ undef, %47 ], [ %75, %52 ], [ %100, %77 ], [ undef, %2 ], [ undef, %2 ], [ %120, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$11relocations17he1b411fc7025be21E.exit" ], [ %136, %122 ]
   %.sroa.13.sroa.11.0 = phi ptr [ undef, %10 ], [ undef, %26 ], [ %46, %42 ], [ %51, %47 ], [ undef, %52 ], [ undef, %77 ], [ undef, %2 ], [ undef, %2 ], [ undef, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$11relocations17he1b411fc7025be21E.exit" ], [ undef, %122 ]
   %.sroa.13.sroa.12.0 = phi i64 [ undef, %10 ], [ undef, %26 ], [ %45, %42 ], [ %50, %47 ], [ undef, %52 ], [ undef, %77 ], [ undef, %2 ], [ undef, %2 ], [ undef, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$11relocations17he1b411fc7025be21E.exit" ], [ undef, %122 ]
   %.sroa.13.sroa.0.sroa.0.0 = phi i64 [ %25, %10 ], [ %41, %26 ], [ 2, %42 ], [ 2, %47 ], [ %76, %52 ], [ %101, %77 ], [ undef, %2 ], [ undef, %2 ], [ %121, %"_ZN115_$LT$object..read..xcoff..section..XcoffSection$LT$Xcoff$C$R$GT$$u20$as$u20$object..read..traits..ObjectSection$GT$11relocations17he1b411fc7025be21E.exit" ], [ %137, %122 ]
@@ -35510,8 +35510,8 @@ default.unreachable66:                            ; preds = %2
   store i64 %.sroa.13.sroa.0.sroa.0.0, ptr %.sroa.13.0..sroa_idx, align 8
   %.sroa.13.sroa.0.sroa.11.0..sroa.13.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.13.sroa.0.sroa.11.sroa.0.0, ptr %.sroa.13.sroa.0.sroa.11.0..sroa.13.0..sroa_idx.sroa_idx, align 8
-  %.sroa.13.sroa.0.sroa.11.sroa.11.0..sroa.13.sroa.0.sroa.11.0..sroa.13.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.13.sroa.0.sroa.11.sroa.11.0, ptr %.sroa.13.sroa.0.sroa.11.sroa.11.0..sroa.13.sroa.0.sroa.11.0..sroa.13.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  %.sroa.13.sroa.0.sroa.11.sroa.9.0..sroa.13.sroa.0.sroa.11.0..sroa.13.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sroa.13.sroa.0.sroa.11.sroa.9.0, ptr %.sroa.13.sroa.0.sroa.11.sroa.9.0..sroa.13.sroa.0.sroa.11.0..sroa.13.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.13.sroa.11.0..sroa.13.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sroa.13.sroa.11.0, ptr %.sroa.13.sroa.11.0..sroa.13.0..sroa_idx.sroa_idx, align 8
   %.sroa.13.sroa.12.0..sroa.13.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -43234,7 +43234,7 @@ default.unreachable:                              ; preds = %27
   %.sroa.10.0.i = phi ptr [ undef, %32 ], [ undef, %33 ], [ undef, %34 ], [ undef, %35 ], [ undef, %27 ], [ %46, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i.i" ], [ undef, %36 ]
   %.sroa.11.0.i = phi ptr [ undef, %32 ], [ undef, %33 ], [ undef, %34 ], [ undef, %35 ], [ undef, %27 ], [ %51, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i.i" ], [ undef, %36 ]
   %.sroa.12.0.i = phi i32 [ undef, %32 ], [ undef, %33 ], [ undef, %34 ], [ undef, %35 ], [ undef, %27 ], [ %56, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i.i" ], [ undef, %36 ]
-  %.sroa.1315.0.i = phi i8 [ undef, %32 ], [ undef, %33 ], [ undef, %34 ], [ undef, %35 ], [ undef, %27 ], [ %38, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i.i" ], [ %38, %36 ]
+  %.sroa.1314.0.i = phi i8 [ undef, %32 ], [ undef, %33 ], [ undef, %34 ], [ undef, %35 ], [ undef, %27 ], [ %38, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i.i" ], [ %38, %36 ]
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load i8, ptr %57, align 8, !range !85, !alias.scope !8488, !noalias !8485, !noundef !5
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -43248,7 +43248,7 @@ default.unreachable:                              ; preds = %27
   %.sroa.01.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sroa.12.0.i, ptr %.sroa.01.sroa.7.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
   %.sroa.01.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %.sroa.1315.0.i, ptr %.sroa.01.sroa.9.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
+  store i8 %.sroa.1314.0.i, ptr %.sroa.01.sroa.9.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %58, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
   store i64 8, ptr %0, align 8, !alias.scope !8485, !noalias !8488
@@ -43303,20 +43303,20 @@ default.unreachable:                              ; preds = %27
   br label %"_ZN73_$LT$wasmtime..runtime..types..HeapType$u20$as$u20$core..clone..Clone$GT$5clone17h0b74e8e8865b05d4E.exit.i"
 
 "_ZN73_$LT$wasmtime..runtime..types..HeapType$u20$as$u20$core..clone..Clone$GT$5clone17h0b74e8e8865b05d4E.exit.i": ; preds = %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i", %60
-  %.sroa.417.0.i = phi ptr [ %66, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i" ], [ undef, %60 ]
-  %.sroa.518.0.i = phi ptr [ %70, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i" ], [ undef, %60 ]
-  %.sroa.619.0.i = phi ptr [ %75, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i" ], [ undef, %60 ]
-  %.sroa.720.0.i = phi i32 [ %80, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i" ], [ undef, %60 ]
+  %.sroa.416.0.i = phi ptr [ %66, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i" ], [ undef, %60 ]
+  %.sroa.517.0.i = phi ptr [ %70, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i" ], [ undef, %60 ]
+  %.sroa.618.0.i = phi ptr [ %75, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i" ], [ undef, %60 ]
+  %.sroa.719.0.i = phi i32 [ %80, %"_ZN87_$LT$wasmtime..runtime..type_registry..RegisteredType$u20$as$u20$core..clone..Clone$GT$5clone17hc30058368ceef550E.exit.i.i" ], [ undef, %60 ]
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %3, ptr %0, align 8, !alias.scope !8485, !noalias !8488
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.417.0.i, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
+  store ptr %.sroa.416.0.i, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
   %.sroa.06.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.518.0.i, ptr %.sroa.06.sroa.5.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
+  store ptr %.sroa.517.0.i, ptr %.sroa.06.sroa.5.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
   %.sroa.06.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.619.0.i, ptr %.sroa.06.sroa.6.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
+  store ptr %.sroa.618.0.i, ptr %.sroa.06.sroa.6.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
   %.sroa.06.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sroa.720.0.i, ptr %.sroa.06.sroa.7.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
+  store i32 %.sroa.719.0.i, ptr %.sroa.06.sroa.7.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
   %.sroa.47.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %62, ptr %.sroa.47.0..sroa_idx.i, align 8, !alias.scope !8485, !noalias !8488
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48

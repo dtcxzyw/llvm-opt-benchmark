@@ -12287,8 +12287,8 @@ define hidden void @"_ZN4gpui8elements3div13Interactivity7on_drop28_$u7b$$u7b$cl
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4gpui8elements3div13Interactivity7tooltip17h48ae88524df69bcaE.llvm.5084362645732435487(ptr noalias noundef align 8 dereferenceable(664) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.5.16.copyload = load i64, ptr %1, align 8
-  %.sroa.714.16..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.714.16.copyload = load ptr, ptr %.sroa.714.16..sroa_idx, align 8
+  %.sroa.7.16..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.7.16.copyload = load ptr, ptr %.sroa.7.16..sroa_idx, align 8
   %.sroa.8.16..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.8.16.copyload = load i64, ptr %.sroa.8.16..sroa_idx, align 8
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2363
@@ -12310,9 +12310,9 @@ define hidden void @_ZN4gpui8elements3div13Interactivity7tooltip17h48ae88524df69
   br i1 %9, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16577549240926232442.exit.i.i1.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16577549240926232442.exit.i.i1.i.i.i.i": ; preds = %7
-  %10 = icmp ne ptr %.sroa.714.16.copyload, null
+  %10 = icmp ne ptr %.sroa.7.16.copyload, null
   tail call void @llvm.assume(i1 %10)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.714.16.copyload, i64 noundef %.sroa.5.16.copyload, i64 noundef 1) #36, !noalias !2366
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.7.16.copyload, i64 noundef %.sroa.5.16.copyload, i64 noundef 1) #36, !noalias !2366
   br label %common.resume
 
 common.resume:                                    ; preds = %7, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16577549240926232442.exit.i.i1.i.i.i.i", %16
@@ -12325,8 +12325,8 @@ common.resume:                                    ; preds = %7, %"_ZN63_$LT$allo
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.5.16.copyload, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.sroa.714.16.copyload, ptr %.sroa.714.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %.sroa.7.16.copyload, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %.sroa.8.16.copyload, ptr %.sroa.8.0..sroa_idx, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -18904,8 +18904,8 @@ define hidden void @_ZN4gpui8elements3div26StatefulInteractiveElement7tooltip17h
   store i64 1, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !2998
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.sroa.0.0.copyload, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !2998
-  %.sroa.714.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %.sroa.4.0.copyload, ptr %.sroa.714.0..sroa_idx.i, align 8, !noalias !2998
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %.sroa.4.0.copyload, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !2998
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %.sroa.5.0.copyload, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !2998
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 488
@@ -23073,7 +23073,7 @@ _ZN10serde_json5value5Value3get17h6cc34841f922e1fcE.exit: ; preds = %137
           to label %220 unwind label %241
 
 220:                                              ; preds = %.thread, %214
-  %.sink1.i126129 = phi ptr [ %207, %214 ], [ %211, %.thread ]
+  %.sink1.i125128 = phi ptr [ %207, %214 ], [ %211, %.thread ]
   %.sroa.012.0 = phi i8 [ 0, %214 ], [ 1, %.thread ]
   %.val38 = load ptr, ptr %18, align 8, !noundef !4
   %.val39 = load ptr, ptr %187, align 8
@@ -23312,7 +23312,7 @@ _ZN10serde_json5value5Value3get17h6cc34841f922e1fcE.exit: ; preds = %137
   br label %110
 
 307:                                              ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$settings..settings_store..DeserializedSetting$GT$$GT$17h005353c1211c3114E.exit79"
-  %308 = load ptr, ptr %.sink1.i126129, align 8, !invariant.load !4, !noalias !3435
+  %308 = load ptr, ptr %.sink1.i125128, align 8, !invariant.load !4, !noalias !3435
   %.not.i80 = icmp eq ptr %308, null
   br i1 %.not.i80, label %310, label %309
 
@@ -23321,9 +23321,9 @@ _ZN10serde_json5value5Value3get17h6cc34841f922e1fcE.exit: ; preds = %137
           to label %310 unwind label %317, !noalias !3435
 
 310:                                              ; preds = %309, %307
-  %311 = getelementptr inbounds nuw i8, ptr %.sink1.i126129, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %.sink1.i125128, i64 8
   %312 = load i64, ptr %311, align 8, !range !1235, !invariant.load !4, !noalias !3435
-  %313 = getelementptr inbounds nuw i8, ptr %.sink1.i126129, i64 16
+  %313 = getelementptr inbounds nuw i8, ptr %.sink1.i125128, i64 16
   %314 = load i64, ptr %313, align 8, !range !1236, !invariant.load !4, !noalias !3435
   %315 = icmp ult i64 %314, -9223372036854775807
   call void @llvm.assume(i1 %315)
@@ -23337,9 +23337,9 @@ _ZN10serde_json5value5Value3get17h6cc34841f922e1fcE.exit: ; preds = %137
 317:                                              ; preds = %309
   %318 = landingpad { ptr, i32 }
           cleanup
-  %319 = getelementptr inbounds nuw i8, ptr %.sink1.i126129, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %.sink1.i125128, i64 8
   %320 = load i64, ptr %319, align 8, !range !1235, !invariant.load !4, !noalias !3435
-  %321 = getelementptr inbounds nuw i8, ptr %.sink1.i126129, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %.sink1.i125128, i64 16
   %322 = load i64, ptr %321, align 8, !range !1236, !invariant.load !4, !noalias !3435
   %323 = icmp ult i64 %322, -9223372036854775807
   call void @llvm.assume(i1 %323)

@@ -99,13 +99,13 @@ _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %20, %_ZN
   %25 = load i8, ptr %5, align 8, !range !31
   %26 = trunc nuw i8 %25 to i1
   %or.cond.i.i = select i1 %.not.i5.i.i, i1 %26, i1 false
-  br i1 %or.cond.i.i, label %27, label %.lr.ph.i
+  br i1 %or.cond.i.i, label %27, label %.loopexit37
 
 27:                                               ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %24)
-          to label %.lr.ph.i unwind label %50
+          to label %.loopexit37 unwind label %50
 
-.lr.ph.i:                                         ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i, %27
+.loopexit37:                                      ; preds = %27, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
   store i8 1, ptr %5, align 8, !tbaa !7
   store ptr %18, ptr %6, align 8, !tbaa !15
   store i32 %3, ptr %8, align 8, !tbaa !17
@@ -114,7 +114,7 @@ _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %20, %_ZN
   %28 = icmp sgt i32 %3, %.pre
   br i1 %28, label %29, label %.lr.ph.preheader
 
-29:                                               ; preds = %.lr.ph.i
+29:                                               ; preds = %.loopexit37
   %30 = load i32, ptr %12, align 8, !tbaa !24
   %31 = icmp slt i32 %30, %3
   br i1 %31, label %32, label %..lr.ph.i21_crit_edge
@@ -187,7 +187,7 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i: ; preds = %44, %_ZNK20btAli
   store i32 %3, ptr %11, align 4, !tbaa !23
   br label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph.i21, %.lr.ph.i
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i21, %.loopexit37
   store i32 %3, ptr %11, align 4, !tbaa !23
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph

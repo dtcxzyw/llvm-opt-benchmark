@@ -3264,14 +3264,14 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit: ; preds = %3
   %12 = zext i16 %7 to i64
   %13 = getelementptr inbounds nuw [234 x ptr], ptr %11, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !197
-  %.not138 = icmp eq ptr %14, null
-  br i1 %.not138, label %15, label %23
+  %.not139 = icmp eq ptr %14, null
+  br i1 %.not139, label %15, label %23
 
 15:                                               ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
   %.not.i.i56 = icmp eq i16 %7, 2
   %.off = add i32 %2, -186
-  %switch137 = icmp ult i32 %.off, 3
-  %or.cond = and i1 %switch137, %.not.i.i56
+  %switch138 = icmp ult i32 %.off, 3
+  %or.cond = and i1 %switch138, %.not.i.i56
   br i1 %or.cond, label %16, label %_ZNK4llvm3EVTeqES0_.exit58
 
 16:                                               ; preds = %15
@@ -3390,8 +3390,8 @@ _ZNK4llvm4User10getOperandEj.exit67:              ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %83 = load ptr, ptr %82, align 8, !tbaa !230
   %84 = load i8, ptr %83, align 8, !tbaa !199
-  %.not141 = icmp eq i8 %84, 17
-  br i1 %.not141, label %90, label %129
+  %.not142 = icmp eq i8 %84, 17
+  br i1 %.not142, label %90, label %129
 
 _ZNK4llvm4User10getOperandEj.exit67.thread:       ; preds = %75
   %85 = getelementptr inbounds i8, ptr %1, i64 -8
@@ -3399,8 +3399,8 @@ _ZNK4llvm4User10getOperandEj.exit67.thread:       ; preds = %75
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %88 = load ptr, ptr %87, align 8, !tbaa !230
   %89 = load i8, ptr %88, align 8, !tbaa !199
-  %.not141143 = icmp eq i8 %89, 17
-  br i1 %.not141143, label %90, label %.thread
+  %.not142144 = icmp eq i8 %89, 17
+  br i1 %.not142144, label %90, label %.thread
 
 90:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit67.thread, %_ZNK4llvm4User10getOperandEj.exit67
   %91 = phi ptr [ %88, %_ZNK4llvm4User10getOperandEj.exit67.thread ], [ %83, %_ZNK4llvm4User10getOperandEj.exit67 ]
@@ -3428,7 +3428,7 @@ _ZNK4llvm4User10getOperandEj.exit67.thread:       ; preds = %75
 _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %96, %103
   %.0.i.i69 = phi i64 [ %.0.i.i.i, %96 ], [ %105, %103 ]
   %.0.i.i69.fr = freeze i64 %.0.i.i69
-  switch i32 %2, label %.thread125 [
+  switch i32 %2, label %.thread126 [
     i32 59, label %106
     i32 62, label %118
   ]
@@ -3437,47 +3437,47 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %96, %103
   %107 = load i8, ptr %1, align 8, !tbaa !199
   %108 = add i8 %107, -42
   %109 = icmp ult i8 %108, 18
-  br i1 %109, label %110, label %.thread125
+  br i1 %109, label %110, label %.thread126
 
 110:                                              ; preds = %106
   %111 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction7isExactEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #22
-  br i1 %111, label %112, label %.thread125
+  br i1 %111, label %112, label %.thread126
 
 112:                                              ; preds = %110
   %.not.i.i70 = icmp eq i64 %.0.i.i69.fr, 0
-  br i1 %.not.i.i70, label %.thread125, label %_ZN4llvm13isPowerOf2_64Em.exit
+  br i1 %.not.i.i70, label %.thread126, label %_ZN4llvm13isPowerOf2_64Em.exit
 
 _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %112
   %113 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i69.fr)
   %114 = icmp samesign ult i64 %113, 2
-  br i1 %114, label %115, label %.thread125
+  br i1 %114, label %115, label %.thread126
 
 115:                                              ; preds = %_ZN4llvm13isPowerOf2_64Em.exit
   %116 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i.i69.fr, i1 true)
   %117 = xor i64 %116, 63
-  br label %.thread125
+  br label %.thread126
 
 118:                                              ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit
   %119 = load i8, ptr %1, align 8, !tbaa !199
   %120 = add i8 %119, -42
   %121 = icmp ult i8 %120, 18
-  br i1 %121, label %122, label %.thread125
+  br i1 %121, label %122, label %.thread126
 
 122:                                              ; preds = %118
   %.not.i.i71 = icmp eq i64 %.0.i.i69.fr, 0
-  br i1 %.not.i.i71, label %.thread125, label %_ZN4llvm13isPowerOf2_64Em.exit72
+  br i1 %.not.i.i71, label %.thread126, label %_ZN4llvm13isPowerOf2_64Em.exit72
 
 _ZN4llvm13isPowerOf2_64Em.exit72:                 ; preds = %122
   %123 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i69.fr)
   %124 = icmp samesign ult i64 %123, 2
   %125 = sext i1 %124 to i64
   %spec.select = add i64 %.0.i.i69.fr, %125
-  %spec.select142 = select i1 %124, i32 186, i32 62
-  br label %.thread125
+  %spec.select143 = select i1 %124, i32 186, i32 62
+  br label %.thread126
 
-.thread125:                                       ; preds = %_ZN4llvm13isPowerOf2_64Em.exit72, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit, %122, %112, %106, %110, %_ZN4llvm13isPowerOf2_64Em.exit, %115, %118
+.thread126:                                       ; preds = %_ZN4llvm13isPowerOf2_64Em.exit72, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit, %122, %112, %106, %110, %_ZN4llvm13isPowerOf2_64Em.exit, %115, %118
   %.143 = phi i64 [ %.0.i.i69.fr, %118 ], [ %.0.i.i69.fr, %106 ], [ %.0.i.i69.fr, %110 ], [ %.0.i.i69.fr, %_ZN4llvm13isPowerOf2_64Em.exit ], [ %117, %115 ], [ 0, %112 ], [ 0, %122 ], [ %.0.i.i69.fr, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ %spec.select, %_ZN4llvm13isPowerOf2_64Em.exit72 ]
-  %.135 = phi i32 [ 62, %118 ], [ 59, %106 ], [ 59, %110 ], [ 59, %_ZN4llvm13isPowerOf2_64Em.exit ], [ 191, %115 ], [ 59, %112 ], [ 62, %122 ], [ %2, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ %spec.select142, %_ZN4llvm13isPowerOf2_64Em.exit72 ]
+  %.135 = phi i32 [ 62, %118 ], [ 59, %106 ], [ 59, %110 ], [ 59, %_ZN4llvm13isPowerOf2_64Em.exit ], [ 191, %115 ], [ 59, %112 ], [ 62, %122 ], [ %2, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ %spec.select143, %_ZN4llvm13isPowerOf2_64Em.exit72 ]
   %126 = tail call i32 @_ZN4llvm8FastISel12fastEmit_ri_ENS_3MVTEjjmS1_(ptr noundef nonnull align 8 dereferenceable(176) %0, i16 %.sroa.094.0, i32 noundef %.135, i32 noundef %74, i64 noundef %.143, i16 %.sroa.094.0)
   %.not52.not = icmp eq i32 %126, 0
   br i1 %.not52.not, label %_ZNK4llvm3EVTeqES0_.exit58, label %_ZNK4llvm3EVTeqES0_.exit58.sink.split
@@ -3510,13 +3510,13 @@ _ZNK4llvm4User10getOperandEj.exit76:              ; preds = %.thread, %129
   %.not54.not = icmp eq i32 %142, 0
   br i1 %.not54.not, label %_ZNK4llvm3EVTeqES0_.exit58, label %_ZNK4llvm3EVTeqES0_.exit58.sink.split
 
-_ZNK4llvm3EVTeqES0_.exit58.sink.split:            ; preds = %138, %.thread125, %56
-  %.sink = phi i32 [ %62, %56 ], [ %126, %.thread125 ], [ %142, %138 ]
+_ZNK4llvm3EVTeqES0_.exit58.sink.split:            ; preds = %138, %.thread126, %56
+  %.sink = phi i32 [ %62, %56 ], [ %126, %.thread126 ], [ %142, %138 ]
   tail call void @_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1, i32 %.sink, i32 noundef 1)
   br label %_ZNK4llvm3EVTeqES0_.exit58
 
-_ZNK4llvm3EVTeqES0_.exit58:                       ; preds = %_ZNK4llvm3EVTeqES0_.exit58.sink.split, %3, %.thread125, %_ZNK4llvm4User10getOperandEj.exit65, %138, %_ZNK4llvm4User10getOperandEj.exit76, %56, %_ZNK4llvm4User10getOperandEj.exit61, %15
-  %.0 = phi i1 [ false, %15 ], [ false, %_ZNK4llvm4User10getOperandEj.exit61 ], [ false, %56 ], [ false, %_ZNK4llvm4User10getOperandEj.exit65 ], [ false, %_ZNK4llvm4User10getOperandEj.exit76 ], [ false, %138 ], [ false, %.thread125 ], [ false, %3 ], [ true, %_ZNK4llvm3EVTeqES0_.exit58.sink.split ]
+_ZNK4llvm3EVTeqES0_.exit58:                       ; preds = %_ZNK4llvm3EVTeqES0_.exit58.sink.split, %3, %.thread126, %_ZNK4llvm4User10getOperandEj.exit65, %138, %_ZNK4llvm4User10getOperandEj.exit76, %56, %_ZNK4llvm4User10getOperandEj.exit61, %15
+  %.0 = phi i1 [ false, %15 ], [ false, %_ZNK4llvm4User10getOperandEj.exit61 ], [ false, %56 ], [ false, %_ZNK4llvm4User10getOperandEj.exit65 ], [ false, %_ZNK4llvm4User10getOperandEj.exit76 ], [ false, %138 ], [ false, %.thread126 ], [ false, %3 ], [ true, %_ZNK4llvm3EVTeqES0_.exit58.sink.split ]
   ret i1 %.0
 }
 

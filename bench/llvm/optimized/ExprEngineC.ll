@@ -6445,7 +6445,6 @@ define dso_local void @_ZN5clang4ento10ExprEngine31VisitIncrementDecrementOperat
   %11 = alloca ptr, align 8
   %12 = alloca %"class.clang::ento::EnvironmentEntry", align 8
   %13 = alloca %"class.clang::ento::EnvironmentEntry", align 8
-  %.sroa.9 = alloca [7 x i8], align 1
   %14 = alloca %"class.clang::ento::ExplodedNodeSet", align 8
   %15 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %16 = alloca %"class.clang::ento::SVal", align 8
@@ -6456,7 +6455,6 @@ define dso_local void @_ZN5clang4ento10ExprEngine31VisitIncrementDecrementOperat
   %21 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %22 = alloca %"class.clang::ento::SVal", align 8
   %23 = alloca %"class.clang::ento::SVal", align 8
-  %.sroa.14 = alloca [7 x i8], align 1
   %24 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %25 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %26 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -6484,7 +6482,6 @@ define dso_local void @_ZN5clang4ento10ExprEngine31VisitIncrementDecrementOperat
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit160
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit160: ; preds = %4, %41
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9)
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #15
   call void @_ZN5clang4ento16EnvironmentEntryC1EPKNS_4StmtEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %36, ptr noundef %38) #15
@@ -6560,16 +6557,13 @@ _ZN5clang4ento15StmtNodeBuilderC2ERNS0_15ExplodedNodeSetES3_RKNS0_18NodeBuilderC
   %74 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %30, i64 36
   %.sroa.7113.0..sroa_idx116 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %.sroa.9.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %32, i64 9
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 9
   %76 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %78 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %79 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %80 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %.sroa.7113.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.sroa.9.0..sroa_idx118 = getelementptr inbounds nuw i8, ptr %22, i64 9
   %.sroa.6246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %20, i64 16
   br label %110
@@ -6635,7 +6629,6 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit164:      ; preds = %_ZN5clang4ento15Exp
   %108 = shl nuw nsw i64 %107, 3
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %104, i64 noundef %108, i64 noundef 8) #15
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #15
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
   %.not.i.i165 = icmp eq ptr %.sroa.0251.0.lcssa, null
   br i1 %.not.i.i165, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit166, label %109
 
@@ -6708,7 +6701,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit172: ; preds 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit174: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit172, %125
   store ptr %.fca.0.extract106, ptr %22, align 8, !tbaa !208
   store i8 %.fca.1.extract107, ptr %.sroa.7113.0..sroa_idx114, align 8, !tbaa !223
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx118, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false), !tbaa.struct !246
   store ptr %.fca.0.extract91, ptr %23, align 8, !tbaa !208
   store i8 %.fca.1.extract92, ptr %.sroa.6246.0..sroa_idx, align 8, !tbaa !223
   call void @_ZN5clang4ento10ExprEngine9evalStoreERNS0_15ExplodedNodeSetEPKNS_4ExprES6_PNS0_12ExplodedNodeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValESE_PKNS_15ProgramPointTagE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull %1, ptr noundef %36, ptr noundef nonnull %111, ptr noundef nonnull %21, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %22, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %23, ptr noundef null) #15
@@ -6768,7 +6760,6 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit177:      ; preds = %_ZN5clang4ento11Nod
   %148 = and i32 %147, 15204352
   %149 = icmp eq i32 %148, 0
   %150 = select i1 %149, i32 5, i32 6
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.14)
   %.sroa.0.0.copyload.i = load i64, ptr %70, align 8, !tbaa !188
   %151 = and i64 %.sroa.0.0.copyload.i, -16
   %152 = inttoptr i64 %151 to ptr
@@ -7138,10 +7129,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit221: ; preds 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit223: ; preds = %287, %291
   store ptr %.fca.0.extract106, ptr %32, align 8, !tbaa !208
   store i8 %.fca.1.extract107, ptr %.sroa.7113.0..sroa_idx116, align 8, !tbaa !223
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx119, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false), !tbaa.struct !246
   store ptr %.sroa.0238.1, ptr %33, align 8, !tbaa !208
   store i8 %.sroa.8.1, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !223
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14, i64 7, i1 false), !tbaa.struct !246
   call void @_ZN5clang4ento10ExprEngine9evalStoreERNS0_15ExplodedNodeSetEPKNS_4ExprES6_PNS0_12ExplodedNodeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValESE_PKNS_15ProgramPointTagE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull %1, ptr noundef %36, ptr noundef nonnull %111, ptr noundef nonnull %31, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %32, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %33, ptr noundef null) #15
   %292 = load ptr, ptr %31, align 8, !tbaa !185
   %.not.i.i224 = icmp eq ptr %292, null
@@ -7192,7 +7181,6 @@ _ZN5clang4ento15ExplodedNodeSetD2Ev.exit232:      ; preds = %_ZN5clang4ento11Nod
   %311 = shl nuw nsw i64 %310, 3
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %308, i64 noundef %311, i64 noundef 8) #15
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %30) #15
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.14)
   br label %312
 
 312:                                              ; preds = %_ZN5clang4ento15ExplodedNodeSetD2Ev.exit232, %_ZN5clang4ento15ExplodedNodeSetD2Ev.exit177

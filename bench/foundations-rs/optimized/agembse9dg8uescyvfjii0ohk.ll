@@ -18929,7 +18929,7 @@ define internal { i64, ptr } @"_ZN11foundations9telemetry7tracing16output_otlp_g
   %42 = alloca [24 x i8], align 8
   %43 = alloca [24 x i8], align 8
   %.sroa.0.i29 = alloca [16 x i8], align 8
-  %.sroa.9121.i = alloca [7 x i8], align 1
+  %.sroa.9.i = alloca [7 x i8], align 1
   %44 = alloca [40 x i8], align 8
   %45 = alloca [392 x i8], align 8
   %.sroa.650.i.i = alloca [7 x i8], align 1
@@ -18963,12 +18963,9 @@ define internal { i64, ptr } @"_ZN11foundations9telemetry7tracing16output_otlp_g
   %65 = alloca [64 x i8], align 8
   %.sroa.0.i = alloca [1352 x i8], align 8
   %.sroa.052.i = alloca [1352 x i8], align 8
-  %.sroa.1194 = alloca [15 x i8], align 1
   %.sroa.1497 = alloca [16 x i8], align 8
   %.sroa.20103 = alloca [70 x i8], align 2
   %.sroa.21104 = alloca [88 x i8], align 8
-  %.sroa.24 = alloca [312 x i8], align 8
-  %.sroa.26 = alloca [951 x i8], align 1
   %.sroa.1276 = alloca [70 x i8], align 2
   %66 = alloca [64 x i8], align 8
   %.sroa.13 = alloca [7 x i8], align 1
@@ -20266,11 +20263,8 @@ common.ret:                                       ; preds = %1255, %511, %468
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %.sroa.1276.120..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %68, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.1497)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1497, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.1194)
   call void @llvm.lifetime.start.p0(i64 70, ptr nonnull %.sroa.20103)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.21104)
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %.sroa.24)
-  call void @llvm.lifetime.start.p0(i64 951, ptr nonnull %.sroa.26)
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 498
   store i8 0, ptr %482, align 2
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -20286,8 +20280,6 @@ common.ret:                                       ; preds = %1255, %511, %468
   store i64 0, ptr %475, align 8
   %.sroa.1093.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i8 0, ptr %.sroa.1093.0..sroa_idx, align 8
-  %.sroa.1194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 537
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.1194.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.1194, i64 15, i1 false)
   %.sroa.1295.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr @anon.7e31815fc6de9ce5100553543fa38e53.58, ptr %.sroa.1295.0..sroa_idx, align 8
   %.sroa.1396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 560
@@ -20312,12 +20304,8 @@ common.ret:                                       ; preds = %1255, %511, %468
   store ptr %486, ptr %.sroa.22105.0..sroa_idx, align 8
   %.sroa.23106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 784
   store i64 %488, ptr %.sroa.23106.0..sroa_idx, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 792
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %.sroa.24.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(312) %.sroa.24, i64 312, i1 false)
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store i8 0, ptr %.sroa.25.0..sroa_idx, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(951) %.sroa.26.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(951) %.sroa.26, i64 951, i1 false)
   %489 = getelementptr inbounds nuw i8, ptr %0, i64 504
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42)
@@ -20326,12 +20314,9 @@ common.ret:                                       ; preds = %1255, %511, %468
 
 491:                                              ; preds = %.body47, %1258
   %.pn16 = phi { ptr, i32 } [ %1259, %1258 ], [ %.pn14, %.body47 ]
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.1194)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.1497)
   call void @llvm.lifetime.end.p0(i64 70, ptr nonnull %.sroa.20103)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.21104)
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %.sroa.24)
-  call void @llvm.lifetime.end.p0(i64 951, ptr nonnull %.sroa.26)
   %492 = getelementptr inbounds nuw i8, ptr %0, i64 499
   %493 = load i8, ptr %492, align 1, !range !559, !noundef !7
   %494 = trunc nuw i8 %493 to i1
@@ -20413,12 +20398,9 @@ common.ret:                                       ; preds = %1255, %511, %468
 
 518:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %68)
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.1194)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.1497)
   call void @llvm.lifetime.start.p0(i64 70, ptr nonnull %.sroa.20103)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.21104)
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %.sroa.24)
-  call void @llvm.lifetime.start.p0(i64 951, ptr nonnull %.sroa.26)
   %.phi.trans.insert124 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %.pre125 = load i8, ptr %.phi.trans.insert124, align 8, !range !560, !noalias !2583
   %519 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -20484,7 +20466,7 @@ common.ret:                                       ; preds = %1255, %511, %468
   store ptr %542, ptr %544, align 8, !alias.scope !2586, !noalias !2583
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   store i64 0, ptr %545, align 8, !alias.scope !2586, !noalias !2583
-  br label %.thread133.i
+  br label %.thread131.i
 
 546:                                              ; preds = %540, %521
   %547 = landingpad { ptr, i32 }
@@ -20517,14 +20499,14 @@ common.ret:                                       ; preds = %1255, %511, %468
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %41), !noalias !2583
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %.sroa.089.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.891.i)
-  %.phi.trans.insert127.i = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %.pre128.i = load i8, ptr %.phi.trans.insert127.i, align 8, !range !27, !noalias !2592
+  %.phi.trans.insert125.i = getelementptr inbounds nuw i8, ptr %0, i64 2048
+  %.pre126.i = load i8, ptr %.phi.trans.insert125.i, align 8, !range !27, !noalias !2592
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %.sroa.12.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.14.i)
   %555 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %34), !noalias !2583
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %36), !noalias !2583
-  switch i8 %.pre128.i, label %default.unreachable138 [
+  switch i8 %.pre126.i, label %default.unreachable138 [
     i8 0, label %._crit_edge135
     i8 1, label %568
     i8 2, label %569
@@ -20536,12 +20518,12 @@ common.ret:                                       ; preds = %1255, %511, %468
   %.pre137 = load ptr, ptr %.phi.trans.insert136, align 8, !noalias !2592
   br label %556
 
-556:                                              ; preds = %._crit_edge135, %.thread132.i
-  %557 = phi ptr [ %1187, %.thread132.i ], [ %520, %._crit_edge135 ]
-  %558 = phi ptr [ %1188, %.thread132.i ], [ %519, %._crit_edge135 ]
-  %559 = phi ptr [ %1218, %.thread132.i ], [ %.pre137, %._crit_edge135 ]
-  %560 = phi ptr [ %.sroa.1093.0..sroa_idx.i, %.thread132.i ], [ %.phi.trans.insert127.i, %._crit_edge135 ]
-  %561 = phi ptr [ %1220, %.thread132.i ], [ %555, %._crit_edge135 ]
+556:                                              ; preds = %._crit_edge135, %.thread130.i
+  %557 = phi ptr [ %1187, %.thread130.i ], [ %520, %._crit_edge135 ]
+  %558 = phi ptr [ %1188, %.thread130.i ], [ %519, %._crit_edge135 ]
+  %559 = phi ptr [ %1218, %.thread130.i ], [ %.pre137, %._crit_edge135 ]
+  %560 = phi ptr [ %.sroa.1093.0..sroa_idx.i, %.thread130.i ], [ %.phi.trans.insert125.i, %._crit_edge135 ]
+  %561 = phi ptr [ %1220, %.thread130.i ], [ %555, %._crit_edge135 ]
   %562 = getelementptr inbounds nuw i8, ptr %0, i64 2050
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 2049
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %36, ptr noundef nonnull align 8 dereferenceable(128) %561, i64 128, i1 false), !noalias !2592
@@ -20624,8 +20606,8 @@ common.ret:                                       ; preds = %1255, %511, %468
   ]
 
 ..thread246.i.i_crit_edge.i:                      ; preds = %570
-  %.phi.trans.insert129.i = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  %.pre130.i = load ptr, ptr %.phi.trans.insert129.i, align 8, !noalias !2597
+  %.phi.trans.insert127.i = getelementptr inbounds nuw i8, ptr %0, i64 1424
+  %.pre128.i = load ptr, ptr %.phi.trans.insert127.i, align 8, !noalias !2597
   br label %.thread246.i.i.i
 
 572:                                              ; preds = %570
@@ -20639,9 +20621,9 @@ common.ret:                                       ; preds = %1255, %511, %468
 .thread246.i.i.i:                                 ; preds = %..thread246.i.i_crit_edge.i, %.thread.i.i37
   %573 = phi ptr [ %557, %.thread.i.i37 ], [ %520, %..thread246.i.i_crit_edge.i ]
   %574 = phi ptr [ %558, %.thread.i.i37 ], [ %519, %..thread246.i.i_crit_edge.i ]
-  %575 = phi ptr [ %560, %.thread.i.i37 ], [ %.phi.trans.insert127.i, %..thread246.i.i_crit_edge.i ]
+  %575 = phi ptr [ %560, %.thread.i.i37 ], [ %.phi.trans.insert125.i, %..thread246.i.i_crit_edge.i ]
   %576 = phi ptr [ %561, %.thread.i.i37 ], [ %555, %..thread246.i.i_crit_edge.i ]
-  %577 = phi ptr [ %559, %.thread.i.i37 ], [ %.pre130.i, %..thread246.i.i_crit_edge.i ]
+  %577 = phi ptr [ %559, %.thread.i.i37 ], [ %.pre128.i, %..thread246.i.i_crit_edge.i ]
   %578 = phi ptr [ %.sroa.10.0..sroa_idx.i.i, %.thread.i.i37 ], [ %.phi.trans.insert.i.i30, %..thread246.i.i_crit_edge.i ]
   %579 = phi ptr [ %567, %.thread.i.i37 ], [ %571, %..thread246.i.i_crit_edge.i ]
   %580 = getelementptr inbounds nuw i8, ptr %0, i64 1817
@@ -20708,7 +20690,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 587:                                              ; preds = %._crit_edge.i.i, %.thread246.i.i.i
   %588 = phi ptr [ %573, %.thread246.i.i.i ], [ %520, %._crit_edge.i.i ]
   %589 = phi ptr [ %574, %.thread246.i.i.i ], [ %519, %._crit_edge.i.i ]
-  %590 = phi ptr [ %575, %.thread246.i.i.i ], [ %.phi.trans.insert127.i, %._crit_edge.i.i ]
+  %590 = phi ptr [ %575, %.thread246.i.i.i ], [ %.phi.trans.insert125.i, %._crit_edge.i.i ]
   %591 = phi ptr [ %576, %.thread246.i.i.i ], [ %555, %._crit_edge.i.i ]
   %592 = phi ptr [ %578, %.thread246.i.i.i ], [ %.phi.trans.insert.i.i30, %._crit_edge.i.i ]
   %593 = phi ptr [ %579, %.thread246.i.i.i ], [ %571, %._crit_edge.i.i ]
@@ -20834,7 +20816,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 631:                                              ; preds = %618, %602
   %632 = phi ptr [ %588, %618 ], [ %520, %602 ]
   %633 = phi ptr [ %589, %618 ], [ %519, %602 ]
-  %634 = phi ptr [ %590, %618 ], [ %.phi.trans.insert127.i, %602 ]
+  %634 = phi ptr [ %590, %618 ], [ %.phi.trans.insert125.i, %602 ]
   %635 = phi ptr [ %591, %618 ], [ %555, %602 ]
   %636 = phi ptr [ %592, %618 ], [ %.phi.trans.insert.i.i30, %602 ]
   %637 = phi ptr [ %593, %618 ], [ %571, %602 ]
@@ -21093,7 +21075,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 .body.i.i.i:                                      ; preds = %680, %678
   %697 = phi ptr [ %520, %680 ], [ %667, %678 ]
   %698 = phi ptr [ %519, %680 ], [ %668, %678 ]
-  %699 = phi ptr [ %.phi.trans.insert127.i, %680 ], [ %669, %678 ]
+  %699 = phi ptr [ %.phi.trans.insert125.i, %680 ], [ %669, %678 ]
   %700 = phi ptr [ %555, %680 ], [ %670, %678 ]
   %701 = phi ptr [ %.phi.trans.insert.i.i30, %680 ], [ %671, %678 ]
   %702 = phi ptr [ %571, %680 ], [ %672, %678 ]
@@ -21125,7 +21107,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 713:                                              ; preds = %687, %572
   %714 = phi ptr [ %632, %687 ], [ %520, %572 ]
   %715 = phi ptr [ %633, %687 ], [ %519, %572 ]
-  %716 = phi ptr [ %634, %687 ], [ %.phi.trans.insert127.i, %572 ]
+  %716 = phi ptr [ %634, %687 ], [ %.phi.trans.insert125.i, %572 ]
   %717 = phi ptr [ %635, %687 ], [ %555, %572 ]
   %718 = phi ptr [ %636, %687 ], [ %.phi.trans.insert.i.i30, %572 ]
   %719 = phi ptr [ %637, %687 ], [ %571, %572 ]
@@ -21470,7 +21452,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 802:                                              ; preds = %._crit_edge16.i.i, %.thread247.i.i.i
   %803 = phi ptr [ %714, %.thread247.i.i.i ], [ %520, %._crit_edge16.i.i ]
   %804 = phi ptr [ %715, %.thread247.i.i.i ], [ %519, %._crit_edge16.i.i ]
-  %805 = phi ptr [ %716, %.thread247.i.i.i ], [ %.phi.trans.insert127.i, %._crit_edge16.i.i ]
+  %805 = phi ptr [ %716, %.thread247.i.i.i ], [ %.phi.trans.insert125.i, %._crit_edge16.i.i ]
   %806 = phi ptr [ %717, %.thread247.i.i.i ], [ %555, %._crit_edge16.i.i ]
   %807 = phi ptr [ %718, %.thread247.i.i.i ], [ %.phi.trans.insert.i.i30, %._crit_edge16.i.i ]
   %808 = phi ptr [ %719, %.thread247.i.i.i ], [ %571, %._crit_edge16.i.i ]
@@ -21540,7 +21522,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 825:                                              ; preds = %.thread.i.i.i.i, %._crit_edge.i.i.i
   %826 = phi ptr [ %880, %.thread.i.i.i.i ], [ %520, %._crit_edge.i.i.i ]
   %827 = phi ptr [ %881, %.thread.i.i.i.i ], [ %519, %._crit_edge.i.i.i ]
-  %828 = phi ptr [ %882, %.thread.i.i.i.i ], [ %.phi.trans.insert127.i, %._crit_edge.i.i.i ]
+  %828 = phi ptr [ %882, %.thread.i.i.i.i ], [ %.phi.trans.insert125.i, %._crit_edge.i.i.i ]
   %829 = phi ptr [ %883, %.thread.i.i.i.i ], [ %555, %._crit_edge.i.i.i ]
   %830 = phi ptr [ %884, %.thread.i.i.i.i ], [ %.phi.trans.insert.i.i30, %._crit_edge.i.i.i ]
   %831 = phi ptr [ %885, %.thread.i.i.i.i ], [ %571, %._crit_edge.i.i.i ]
@@ -21569,7 +21551,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 839:                                              ; preds = %825, %823
   %840 = phi ptr [ %826, %825 ], [ %520, %823 ]
   %841 = phi ptr [ %827, %825 ], [ %519, %823 ]
-  %842 = phi ptr [ %828, %825 ], [ %.phi.trans.insert127.i, %823 ]
+  %842 = phi ptr [ %828, %825 ], [ %.phi.trans.insert125.i, %823 ]
   %843 = phi ptr [ %829, %825 ], [ %555, %823 ]
   %844 = phi ptr [ %830, %825 ], [ %.phi.trans.insert.i.i30, %823 ]
   %845 = phi ptr [ %831, %825 ], [ %571, %823 ]
@@ -21736,7 +21718,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 .body.i.i.i.i:                                    ; preds = %857, %850
   %891 = phi ptr [ %520, %857 ], [ %840, %850 ]
   %892 = phi ptr [ %519, %857 ], [ %841, %850 ]
-  %893 = phi ptr [ %.phi.trans.insert127.i, %857 ], [ %842, %850 ]
+  %893 = phi ptr [ %.phi.trans.insert125.i, %857 ], [ %842, %850 ]
   %894 = phi ptr [ %555, %857 ], [ %843, %850 ]
   %895 = phi ptr [ %.phi.trans.insert.i.i30, %857 ], [ %844, %850 ]
   %896 = phi ptr [ %571, %857 ], [ %845, %850 ]
@@ -21748,7 +21730,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 898:                                              ; preds = %877, %801
   %899 = phi ptr [ %840, %877 ], [ %520, %801 ]
   %900 = phi ptr [ %841, %877 ], [ %519, %801 ]
-  %901 = phi ptr [ %842, %877 ], [ %.phi.trans.insert127.i, %801 ]
+  %901 = phi ptr [ %842, %877 ], [ %.phi.trans.insert125.i, %801 ]
   %902 = phi ptr [ %843, %877 ], [ %555, %801 ]
   %903 = phi ptr [ %844, %877 ], [ %.phi.trans.insert.i.i30, %801 ]
   %904 = phi ptr [ %845, %877 ], [ %571, %801 ]
@@ -22115,7 +22097,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 .body48.i.i.i:                                    ; preds = %929, %.body23.i.i.i.i
   %1023 = phi ptr [ %520, %929 ], [ %814, %.body23.i.i.i.i ]
   %1024 = phi ptr [ %519, %929 ], [ %815, %.body23.i.i.i.i ]
-  %1025 = phi ptr [ %.phi.trans.insert127.i, %929 ], [ %816, %.body23.i.i.i.i ]
+  %1025 = phi ptr [ %.phi.trans.insert125.i, %929 ], [ %816, %.body23.i.i.i.i ]
   %1026 = phi ptr [ %555, %929 ], [ %817, %.body23.i.i.i.i ]
   %1027 = phi ptr [ %.phi.trans.insert.i.i30, %929 ], [ %818, %.body23.i.i.i.i ]
   %1028 = phi ptr [ %571, %929 ], [ %819, %.body23.i.i.i.i ]
@@ -22224,7 +22206,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 .body.i.i32:                                      ; preds = %1040, %706
   %1060 = phi ptr [ %520, %1040 ], [ %707, %706 ]
   %1061 = phi ptr [ %519, %1040 ], [ %708, %706 ]
-  %1062 = phi ptr [ %.phi.trans.insert127.i, %1040 ], [ %709, %706 ]
+  %1062 = phi ptr [ %.phi.trans.insert125.i, %1040 ], [ %709, %706 ]
   %1063 = phi ptr [ %555, %1040 ], [ %710, %706 ]
   %1064 = phi ptr [ %571, %1040 ], [ %712, %706 ]
   %.pn2.i.i33 = phi { ptr, i32 } [ %1041, %1040 ], [ %.pn28.pn.i.i.i, %706 ]
@@ -22346,14 +22328,14 @@ common.ret:                                       ; preds = %1255, %511, %468
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %41), !noalias !2583
   %1097 = getelementptr inbounds nuw i8, ptr %0, i64 1105
   store i8 0, ptr %1097, align 1, !noalias !2583
-  br label %.thread133.i
+  br label %.thread131.i
 
 1098:                                             ; preds = %.thread112.i
   %1099 = landingpad { ptr, i32 }
           cleanup
   br label %1091
 
-.thread133.i:                                     ; preds = %1215, %"_ZN4core3ptr189drop_in_place$LT$core..result..Result$LT$tonic..response..Response$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceResponse$GT$$C$tonic..status..Status$GT$$GT$17h11fb2151d84a41dfE.exit.i", %"_ZN5alloc3vec12Vec$LT$T$GT$13with_capacity17h56a050a0b0b271cfE.exit.i"
+.thread131.i:                                     ; preds = %1215, %"_ZN4core3ptr189drop_in_place$LT$core..result..Result$LT$tonic..response..Response$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceResponse$GT$$C$tonic..status..Status$GT$$GT$17h11fb2151d84a41dfE.exit.i", %"_ZN5alloc3vec12Vec$LT$T$GT$13with_capacity17h56a050a0b0b271cfE.exit.i"
   %1100 = phi ptr [ %1187, %1215 ], [ %1053, %"_ZN4core3ptr189drop_in_place$LT$core..result..Result$LT$tonic..response..Response$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceResponse$GT$$C$tonic..status..Status$GT$$GT$17h11fb2151d84a41dfE.exit.i" ], [ %522, %"_ZN5alloc3vec12Vec$LT$T$GT$13with_capacity17h56a050a0b0b271cfE.exit.i" ]
   %1101 = phi ptr [ %1188, %1215 ], [ %1054, %"_ZN4core3ptr189drop_in_place$LT$core..result..Result$LT$tonic..response..Response$LT$opentelemetry_proto..proto..tonic..collector..trace..v1..ExportTraceServiceResponse$GT$$C$tonic..status..Status$GT$$GT$17h11fb2151d84a41dfE.exit.i" ], [ %523, %"_ZN5alloc3vec12Vec$LT$T$GT$13with_capacity17h56a050a0b0b271cfE.exit.i" ]
   %1102 = getelementptr inbounds nuw i8, ptr %0, i64 1064
@@ -22389,14 +22371,14 @@ common.ret:                                       ; preds = %1255, %511, %468
   %.pre131 = load i64, ptr %.phi.trans.insert130, align 8, !noalias !2729
   br label %1109
 
-1109:                                             ; preds = %._crit_edge126, %.thread133.i
-  %1110 = phi ptr [ %1100, %.thread133.i ], [ %520, %._crit_edge126 ]
-  %1111 = phi ptr [ %1101, %.thread133.i ], [ %519, %._crit_edge126 ]
-  %1112 = phi i64 [ %1105, %.thread133.i ], [ %.pre131, %._crit_edge126 ]
-  %1113 = phi ptr [ %1103, %.thread133.i ], [ %.pre129, %._crit_edge126 ]
-  %1114 = phi ptr [ %1102, %.thread133.i ], [ %.pre127, %._crit_edge126 ]
-  %1115 = phi ptr [ %.sroa.10.0..sroa_idx.i35, %.thread133.i ], [ %.phi.trans.insert.i41, %._crit_edge126 ]
-  %1116 = phi ptr [ %1106, %.thread133.i ], [ %1108, %._crit_edge126 ]
+1109:                                             ; preds = %._crit_edge126, %.thread131.i
+  %1110 = phi ptr [ %1100, %.thread131.i ], [ %520, %._crit_edge126 ]
+  %1111 = phi ptr [ %1101, %.thread131.i ], [ %519, %._crit_edge126 ]
+  %1112 = phi i64 [ %1105, %.thread131.i ], [ %.pre131, %._crit_edge126 ]
+  %1113 = phi ptr [ %1103, %.thread131.i ], [ %.pre129, %._crit_edge126 ]
+  %1114 = phi ptr [ %1102, %.thread131.i ], [ %.pre127, %._crit_edge126 ]
+  %1115 = phi ptr [ %.sroa.10.0..sroa_idx.i35, %.thread131.i ], [ %.phi.trans.insert.i41, %._crit_edge126 ]
+  %1116 = phi ptr [ %1106, %.thread131.i ], [ %1108, %._crit_edge126 ]
   %1117 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store i64 %1112, ptr %1117, align 8, !noalias !2729
   %1118 = getelementptr inbounds nuw i8, ptr %0, i64 1144
@@ -22536,19 +22518,19 @@ common.ret:                                       ; preds = %1255, %511, %468
   %.sroa.574.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %1170, ptr %.sroa.574.0..sroa_idx.i, align 8, !alias.scope !2739, !noalias !2743
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h853d0d6249720715E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %1125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7e31815fc6de9ce5100553543fa38e53.22)
-          to label %.thread134.i unwind label %1171
+          to label %.thread132.i unwind label %1171
 
 1171:                                             ; preds = %1169
   %1172 = landingpad { ptr, i32 }
           cleanup
   br label %1209
 
-.thread134.i:                                     ; preds = %1169
+.thread132.i:                                     ; preds = %1169
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !2732
   %1173 = getelementptr inbounds nuw i8, ptr %0, i64 1105
   store i8 1, ptr %1173, align 1, !noalias !2583
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i29)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9121.i)
+  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9.i)
   %1174 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %1175 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store ptr %1174, ptr %1175, align 8, !noalias !2583
@@ -22559,12 +22541,12 @@ common.ret:                                       ; preds = %1255, %511, %468
 
 1176:                                             ; preds = %518
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i29)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9121.i)
-  %.phi.trans.insert125.i = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  %.pre126.i = load i8, ptr %.phi.trans.insert125.i, align 8, !range !27, !noalias !2744
+  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9.i)
+  %.phi.trans.insert123.i = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  %.pre124.i = load i8, ptr %.phi.trans.insert123.i, align 8, !range !27, !noalias !2744
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43), !noalias !2583
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2748)
-  switch i8 %.pre126.i, label %default.unreachable138 [
+  switch i8 %.pre124.i, label %default.unreachable138 [
     i8 0, label %._crit_edge132
     i8 1, label %1184
     i8 2, label %1185
@@ -22576,11 +22558,11 @@ common.ret:                                       ; preds = %1255, %511, %468
   %.pre134 = load ptr, ptr %.phi.trans.insert133, align 8, !noalias !2744
   br label %1177
 
-1177:                                             ; preds = %._crit_edge132, %.thread134.i
-  %1178 = phi ptr [ %1122, %.thread134.i ], [ %520, %._crit_edge132 ]
-  %1179 = phi ptr [ %1123, %.thread134.i ], [ %519, %._crit_edge132 ]
-  %1180 = phi ptr [ %1174, %.thread134.i ], [ %.pre134, %._crit_edge132 ]
-  %1181 = phi ptr [ %.sroa.981.0..sroa_idx.i, %.thread134.i ], [ %.phi.trans.insert125.i, %._crit_edge132 ]
+1177:                                             ; preds = %._crit_edge132, %.thread132.i
+  %1178 = phi ptr [ %1122, %.thread132.i ], [ %520, %._crit_edge132 ]
+  %1179 = phi ptr [ %1123, %.thread132.i ], [ %519, %._crit_edge132 ]
+  %1180 = phi ptr [ %1174, %.thread132.i ], [ %.pre134, %._crit_edge132 ]
+  %1181 = phi ptr [ %.sroa.981.0..sroa_idx.i, %.thread132.i ], [ %.phi.trans.insert123.i, %._crit_edge132 ]
   %1182 = getelementptr inbounds nuw i8, ptr %1180, i64 120
   %1183 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store ptr %1182, ptr %1183, align 8, !noalias !2744
@@ -22603,7 +22585,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 1186:                                             ; preds = %1177, %1176
   %1187 = phi ptr [ %1178, %1177 ], [ %520, %1176 ]
   %1188 = phi ptr [ %1179, %1177 ], [ %519, %1176 ]
-  %1189 = phi ptr [ %1181, %1177 ], [ %.phi.trans.insert125.i, %1176 ]
+  %1189 = phi ptr [ %1181, %1177 ], [ %.phi.trans.insert123.i, %1176 ]
   %1190 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   invoke void @"_ZN87_$LT$core..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h49fb9df8ff1ab105E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %43, ptr noalias noundef nonnull align 8 dereferenceable(8) %1190, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %1195 unwind label %1191
@@ -22630,7 +22612,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 1199:                                             ; preds = %1195
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43), !noalias !2583
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i29)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9121.i)
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9.i)
   br label %1255
 
 1200:                                             ; preds = %.body64.i, %1205
@@ -22638,23 +22620,23 @@ common.ret:                                       ; preds = %1255, %511, %468
   %1202 = phi ptr [ %1188, %1205 ], [ %1238, %.body64.i ]
   %.pn35.i = phi { ptr, i32 } [ %1206, %1205 ], [ %.pn20.i, %.body64.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i29)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9121.i)
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9.i)
   br label %1239
 
 1203:                                             ; preds = %1195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i29, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !noalias !2583
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9121.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx.i, i64 7, i1 false), !noalias !2583
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx.i, i64 7, i1 false), !noalias !2583
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43), !noalias !2583
   %.not.i36 = icmp eq i8 %1197, 3
   br i1 %.not.i36, label %1217, label %1204
 
 1204:                                             ; preds = %1203
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i29, i64 16, i1 false), !noalias !2583
-  %.sroa.8118.0..sroa_idx119.i = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i8 %1197, ptr %.sroa.8118.0..sroa_idx119.i, align 8, !noalias !2583
-  %.sroa.9121.0..sroa_idx122.i = getelementptr inbounds nuw i8, ptr %42, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9121.0..sroa_idx122.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9121.i, i64 7, i1 false), !noalias !2583
+  %.sroa.8.0..sroa_idx118.i = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store i8 %1197, ptr %.sroa.8.0..sroa_idx118.i, align 8, !noalias !2583
+  %.sroa.9.0..sroa_idx120.i = getelementptr inbounds nuw i8, ptr %42, i64 17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx120.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.i, i64 7, i1 false), !noalias !2583
   invoke void @_ZN11foundations9telemetry7tracing8internal14reporter_error17hb925c79cbbde8a38E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %42)
           to label %1207 unwind label %1205
 
@@ -22665,7 +22647,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 
 1207:                                             ; preds = %1204
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i29)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9121.i)
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9.i)
   %1208 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   invoke void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$opentelemetry_proto..proto..tonic..trace..v1..ResourceSpans$GT$$GT$17he2ae81cd3365b44dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1208)
           to label %1215 unwind label %1213
@@ -22686,11 +22668,11 @@ common.ret:                                       ; preds = %1255, %511, %468
 1215:                                             ; preds = %1207
   %1216 = getelementptr inbounds nuw i8, ptr %0, i64 1105
   store i8 0, ptr %1216, align 1, !noalias !2583
-  br label %.thread133.i
+  br label %.thread131.i
 
 1217:                                             ; preds = %1203
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i29)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9121.i)
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9.i)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %41), !noalias !2583
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %.sroa.089.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.891.i)
@@ -22728,7 +22710,7 @@ common.ret:                                       ; preds = %1255, %511, %468
   call void @llvm.experimental.noalias.scope.decl(metadata !2753)
   %1227 = load ptr, ptr %4, align 8, !alias.scope !2753, !noalias !2756, !noundef !7
   %1228 = icmp eq ptr %1227, null
-  br i1 %1228, label %1229, label %.thread132.i, !prof !6
+  br i1 %1228, label %1229, label %.thread130.i, !prof !6
 
 1229:                                             ; preds = %.noexc67.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !2758
@@ -22741,7 +22723,7 @@ common.ret:                                       ; preds = %1255, %511, %468
 .noexc68.i:                                       ; preds = %1229
   unreachable
 
-.thread132.i:                                     ; preds = %.noexc67.i
+.thread130.i:                                     ; preds = %.noexc67.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.891.i, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !noalias !2583
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !2750
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !2583
@@ -22795,7 +22777,7 @@ common.ret:                                       ; preds = %1255, %511, %468
   %1244 = trunc nuw i8 %1243 to i1
   br i1 %1244, label %1251, label %1209
 
-.body59.i:                                        ; preds = %1128, %1130, %1209
+.body59.i:                                        ; preds = %1209, %1130, %1128
   %1245 = phi ptr [ %1210, %1209 ], [ %520, %1130 ], [ %1122, %1128 ]
   %1246 = phi ptr [ %1211, %1209 ], [ %519, %1130 ], [ %1123, %1128 ]
   %.pn38.pn.i = phi { ptr, i32 } [ %.pn38.i, %1209 ], [ %1131, %1130 ], [ %1129, %1128 ]
@@ -22830,12 +22812,9 @@ common.ret:                                       ; preds = %1255, %511, %468
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %68)
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.1194)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.1497)
   call void @llvm.lifetime.end.p0(i64 70, ptr nonnull %.sroa.20103)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.21104)
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %.sroa.24)
-  call void @llvm.lifetime.end.p0(i64 951, ptr nonnull %.sroa.26)
   store i8 4, ptr %69, align 8
   br label %common.ret
 
@@ -22852,12 +22831,9 @@ common.ret:                                       ; preds = %1255, %511, %468
   br label %491
 
 1260:                                             ; preds = %1257
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.1194)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.1497)
   call void @llvm.lifetime.end.p0(i64 70, ptr nonnull %.sroa.20103)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.21104)
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %.sroa.24)
-  call void @llvm.lifetime.end.p0(i64 951, ptr nonnull %.sroa.26)
   %1261 = getelementptr inbounds nuw i8, ptr %0, i64 499
   store i8 0, ptr %1261, align 1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %68)

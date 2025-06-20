@@ -572,7 +572,11 @@ _ZN20btAlignedObjectArrayIN7ConvexH8HalfEdgeEE10deallocateEv.exit.i.i: ; preds =
 53:                                               ; preds = %.loopexit48
   %54 = load i32, ptr %16, align 8, !tbaa !35
   %55 = icmp slt i32 %54, %3
-  br i1 %55, label %56, label %.lr.ph.i29
+  br i1 %55, label %56, label %..lr.ph.i29_crit_edge
+
+..lr.ph.i29_crit_edge:                            ; preds = %53
+  %.pre50 = load ptr, ptr %14, align 8, !tbaa !33
+  br label %.lr.ph.i29
 
 56:                                               ; preds = %53
   %.not.i.i.i34 = icmp eq i32 %3, 0
@@ -626,17 +630,16 @@ _ZN20btAlignedObjectArrayI7btPlaneE10deallocateEv.exit.i.i: ; preds = %70, %_ZNK
   store i32 %3, ptr %16, align 8, !tbaa !35
   br label %.lr.ph.i29
 
-.lr.ph.i29:                                       ; preds = %_ZN20btAlignedObjectArrayI7btPlaneE10deallocateEv.exit.i.i, %53
-  %71 = sext i32 %51 to i64
+.lr.ph.i29:                                       ; preds = %..lr.ph.i29_crit_edge, %_ZN20btAlignedObjectArrayI7btPlaneE10deallocateEv.exit.i.i
+  %71 = phi ptr [ %.pre50, %..lr.ph.i29_crit_edge ], [ %.0.i.i.i36, %_ZN20btAlignedObjectArrayI7btPlaneE10deallocateEv.exit.i.i ]
+  %72 = sext i32 %51 to i64
   %wide.trip.count.i30 = sext i32 %3 to i64
-  %72 = load ptr, ptr %14, align 8, !tbaa !33
-  %invariant.gep = getelementptr i8, ptr %72, i64 16
   br label %73
 
 73:                                               ; preds = %73, %.lr.ph.i29
-  %indvars.iv.i31 = phi i64 [ %71, %.lr.ph.i29 ], [ %indvars.iv.next.i32, %73 ]
-  %gep = getelementptr %class.btPlane, ptr %invariant.gep, i64 %indvars.iv.i31
-  store float 0.000000e+00, ptr %gep, align 4, !tbaa !4
+  %indvars.iv.i31 = phi i64 [ %72, %.lr.ph.i29 ], [ %indvars.iv.next.i32, %73 ]
+  %.sroa.4.0..sroa_idx = getelementptr inbounds %class.btPlane, ptr %71, i64 %indvars.iv.i31, i32 1
+  store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !4
   %indvars.iv.next.i32 = add nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i30
   br i1 %exitcond.not.i33, label %.loopexit, label %73, !llvm.loop !43
@@ -4356,7 +4359,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN11HullLibrary16CreateConvexHull
   br label %.loopexit211
 
 .loopexit211:                                     ; preds = %.lr.ph.i88, %67
-  %79 = phi ptr [ null, %67 ], [ %78, %.lr.ph.i88 ]
+  %79 = phi ptr [ %78, %.lr.ph.i88 ], [ null, %67 ]
   store i32 %40, ptr %72, align 4, !tbaa !20
   %80 = load ptr, ptr %11, align 8, !tbaa !94
   invoke void @_ZN11HullLibrary16BringOutYourDeadEPK9btVector3jPS0_RjPjj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %30, i32 noundef %40, ptr noundef nonnull %79, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull %80, i32 noundef %69)
@@ -4439,7 +4442,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i119: ; preds = %111,
   store i32 %87, ptr %91, align 8, !tbaa !21
   br label %.loopexit210
 
-.loopexit210:                                     ; preds = %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i119, %90, %86
+.loopexit210:                                     ; preds = %90, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i119, %86
   store i32 %87, ptr %85, align 4, !tbaa !20
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %68, ptr %112, align 8, !tbaa !115
@@ -4673,7 +4676,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i157: ; preds = %204,
   store i32 %180, ptr %184, align 8, !tbaa !21
   br label %.loopexit207
 
-.loopexit207:                                     ; preds = %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i157, %183, %179
+.loopexit207:                                     ; preds = %183, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i157, %179
   store i32 %180, ptr %85, align 4, !tbaa !20
   %205 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %68, ptr %205, align 8, !tbaa !115

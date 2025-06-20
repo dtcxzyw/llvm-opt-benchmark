@@ -162,18 +162,12 @@ default.unreachable24:                            ; preds = %40, %15
   store i8 %.sink, ptr %42, align 1
   br label %47
 
-47:                                               ; preds = %.sink.split, %46, %45, %40
-  br i1 %.not, label %48, label %49
-
-48:                                               ; preds = %47
-  store i64 -9223372036854775807, ptr %0, align 8
+47:                                               ; preds = %.sink.split, %40, %45, %46
+  %. = select i1 %.not, i64 -9223372036854775807, i64 -9223372036854775808
+  store i64 %., ptr %0, align 8
   br label %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit"
 
-49:                                               ; preds = %47
-  store i64 -9223372036854775808, ptr %0, align 8
-  br label %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit"
-
-"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit": ; preds = %48, %49, %39
+"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit": ; preds = %47, %39
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %26
 }
@@ -219,9 +213,9 @@ define hidden void @"_ZN143_$LT$futures_util..stream..select_with_strategy..Sele
   %10 = load i8, ptr %9, align 8, !range !8, !noundef !4
   switch i8 %10, label %default.unreachable21 [
     i8 0, label %11
-    i8 1, label %52
-    i8 2, label %60
-    i8 3, label %68
+    i8 1, label %50
+    i8 2, label %58
+    i8 3, label %66
   ]
 
 default.unreachable21:                            ; preds = %44, %24, %3
@@ -342,76 +336,70 @@ default.unreachable21:                            ; preds = %44, %24, %3
   br label %49
 
 49:                                               ; preds = %.sink.split.i, %48, %47, %44
-  br i1 %.not.i, label %50, label %51
-
-50:                                               ; preds = %49
-  store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !24, !noalias !31
+  %..i = select i1 %.not.i, i64 -9223372036854775807, i64 -9223372036854775808
+  store i64 %..i, ptr %0, align 8, !alias.scope !24, !noalias !31
   br label %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit.i"
 
-51:                                               ; preds = %49
-  store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !24, !noalias !31
-  br label %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit.i"
-
-"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit.i": ; preds = %51, %50, %43
+"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit.i": ; preds = %49, %43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !27
   br label %_ZN12futures_util6stream20select_with_strategy10poll_inner17h896c56d9ed1ba475E.llvm.7457057265985369429.exit
 
-52:                                               ; preds = %3
+50:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %53 = load ptr, ptr %8, align 8, !alias.scope !35, !noalias !38, !nonnull !4, !align !6, !noundef !4
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %55 = load ptr, ptr %54, align 8, !alias.scope !35, !noalias !38, !nonnull !4, !align !5, !noundef !4
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %57 = load ptr, ptr %56, align 8, !invariant.load !4, !noalias !41, !nonnull !4
-  call void %57(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %53, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !32
-  %58 = load i64, ptr %7, align 8, !range !7, !noundef !4
-  %59 = icmp eq i64 %58, -9223372036854775808
-  br i1 %59, label %70, label %69
+  %51 = load ptr, ptr %8, align 8, !alias.scope !35, !noalias !38, !nonnull !4, !align !6, !noundef !4
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %53 = load ptr, ptr %52, align 8, !alias.scope !35, !noalias !38, !nonnull !4, !align !5, !noundef !4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = load ptr, ptr %54, align 8, !invariant.load !4, !noalias !41, !nonnull !4
+  call void %55(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 1 %51, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !32
+  %56 = load i64, ptr %7, align 8, !range !7, !noundef !4
+  %57 = icmp eq i64 %56, -9223372036854775808
+  br i1 %57, label %68, label %67
 
-60:                                               ; preds = %3
+58:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %61 = load ptr, ptr %1, align 8, !alias.scope !45, !noalias !48, !nonnull !4, !align !6, !noundef !4
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %63 = load ptr, ptr %62, align 8, !alias.scope !45, !noalias !48, !nonnull !4, !align !5, !noundef !4
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %65 = load ptr, ptr %64, align 8, !invariant.load !4, !noalias !51, !nonnull !4
-  call void %65(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 1 %61, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !42
-  %66 = load i64, ptr %6, align 8, !range !7, !noundef !4
-  %67 = icmp eq i64 %66, -9223372036854775808
-  br i1 %67, label %72, label %71
+  %59 = load ptr, ptr %1, align 8, !alias.scope !45, !noalias !48, !nonnull !4, !align !6, !noundef !4
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %61 = load ptr, ptr %60, align 8, !alias.scope !45, !noalias !48, !nonnull !4, !align !5, !noundef !4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %63 = load ptr, ptr %62, align 8, !invariant.load !4, !noalias !51, !nonnull !4
+  call void %63(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 1 %59, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !42
+  %64 = load i64, ptr %6, align 8, !range !7, !noundef !4
+  %65 = icmp eq i64 %64, -9223372036854775808
+  br i1 %65, label %70, label %69
 
-68:                                               ; preds = %3
+66:                                               ; preds = %3
   store i64 -9223372036854775808, ptr %0, align 8
   br label %_ZN12futures_util6stream20select_with_strategy10poll_inner17h896c56d9ed1ba475E.llvm.7457057265985369429.exit
 
-_ZN12futures_util6stream20select_with_strategy10poll_inner17h896c56d9ed1ba475E.llvm.7457057265985369429.exit: ; preds = %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit.i", %26, %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit15", %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit", %68
+_ZN12futures_util6stream20select_with_strategy10poll_inner17h896c56d9ed1ba475E.llvm.7457057265985369429.exit: ; preds = %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit.i", %26, %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit15", %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit", %66
   ret void
 
-69:                                               ; preds = %52
+67:                                               ; preds = %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit"
 
-70:                                               ; preds = %52
+68:                                               ; preds = %50
   store i8 3, ptr %9, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit"
 
-"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit": ; preds = %70, %69
+"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit": ; preds = %68, %67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %_ZN12futures_util6stream20select_with_strategy10poll_inner17h896c56d9ed1ba475E.llvm.7457057265985369429.exit
 
-71:                                               ; preds = %60
+69:                                               ; preds = %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit15"
 
-72:                                               ; preds = %60
+70:                                               ; preds = %58
   store i8 3, ptr %9, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit15"
 
-"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit15": ; preds = %72, %71
+"_ZN4core3ptr115drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..vec..Vec$LT$fs..PathEvent$GT$$GT$$GT$$GT$17hd03fcf5c38e9dc0aE.llvm.7457057265985369429.exit15": ; preds = %70, %69
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %_ZN12futures_util6stream20select_with_strategy10poll_inner17h896c56d9ed1ba475E.llvm.7457057265985369429.exit
 }
@@ -470,9 +458,9 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %_ZN4core3ops8function6FnOnce9call_once17hdfdcb393cad810d7E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17hdfdcb393cad810d7E.exit: ; preds = %3, %6, %13
-  %.sink.i = phi i8 [ 6, %3 ], [ 4, %13 ], [ 5, %6 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 %.sink.i, ptr %14, align 8, !alias.scope !74, !noalias !75
+  %.sroa.4.0.sink.i.i = phi i8 [ 6, %3 ], [ 4, %13 ], [ 5, %6 ]
+  %.sroa.4.0..sroa_idx1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i8 %.sroa.4.0.sink.i.i, ptr %.sroa.4.0..sroa_idx1.i.i, align 8, !alias.scope !74, !noalias !75
   ret void
 }
 

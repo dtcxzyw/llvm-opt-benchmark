@@ -333,8 +333,8 @@ $_ZZN4llvm14isStrongerThanENS_14AtomicOrderingES0_E6lookup = comdat any
 @_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
 @_ZSt11__once_call = external thread_local local_unnamed_addr global ptr, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_AArch64PostLegalizerLowering.cpp, ptr null }]
-@switch.table._ZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoE = private unnamed_addr constant [13 x ptr] [ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr poison, ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_5E9_M_invokeERKSt9_Any_dataS3_", ptr poison, ptr poison, ptr poison, ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_4E9_M_invokeERKSt9_Any_dataS3_", ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_2E9_M_invokeERKSt9_Any_dataS3_", ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_3E9_M_invokeERKSt9_Any_dataS3_"], align 8
-@switch.table._ZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoE.138 = private unnamed_addr constant [13 x ptr] [ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr poison, ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr poison, ptr poison, ptr poison, ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"], align 8
+@switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.139 = private unnamed_addr constant [13 x ptr] [ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr poison, ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_5E9_M_invokeERKSt9_Any_dataS3_", ptr poison, ptr poison, ptr poison, ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_4E9_M_invokeERKSt9_Any_dataS3_", ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_2E9_M_invokeERKSt9_Any_dataS3_", ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_3E9_M_invokeERKSt9_Any_dataS3_"], align 8
+@switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.140 = private unnamed_addr constant [13 x ptr] [ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_1E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr poison, ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_5E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr poison, ptr poison, ptr poison, ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_4E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_2E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr poison, ptr @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIRBuilderEEZN12_GLOBAL__N_113getVectorFCMPENS0_9AArch64CC8CondCodeES1_S1_bbRNS0_19MachineRegisterInfoEE3$_3E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
@@ -2886,7 +2886,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_132AArch64PostLegalizerLowe
   %143 = load ptr, ptr %142, align 8, !tbaa !37
   %144 = load ptr, ptr %143, align 8, !tbaa !378
   tail call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %141, ptr noundef nonnull align 8 dereferenceable(70) %144)
-  switch i32 %1, label %2827 [
+  switch i32 %1, label %2841 [
     i32 1, label %145
     i32 2, label %274
     i32 3, label %382
@@ -2902,12 +2902,12 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_132AArch64PostLegalizerLowe
     i32 13, label %1745
     i32 14, label %1774
     i32 15, label %1864
-    i32 16, label %2017
-    i32 17, label %2096
-    i32 18, label %2120
-    i32 19, label %2234
-    i32 20, label %2493
-    i32 21, label %2614
+    i32 16, label %2031
+    i32 17, label %2110
+    i32 18, label %2134
+    i32 19, label %2248
+    i32 20, label %2507
+    i32 21, label %2628
   ]
 
 145:                                              ; preds = %4
@@ -7101,166 +7101,211 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i287: ; preds = %1932,
   %1951 = icmp ne i32 %1921, 7
   %1952 = zext i1 %1951 to i32
   store i32 %1952, ptr %49, align 4, !tbaa !615
-  br label %1955
+  br label %1956
 
 1953:                                             ; preds = %1946, %.thread.i
   %1954 = phi i1 [ false, %.thread.i ], [ %1948, %1946 ]
   call void @_ZN4llvm17AArch64GISelUtils31changeVectorFCMPPredToAArch64CCENS_7CmpInst9PredicateERNS_9AArch64CC8CondCodeES5_Rb(i32 noundef %1921, ptr noundef nonnull align 4 dereferenceable(4) %49, ptr noundef nonnull align 4 dereferenceable(4) %50, ptr noundef nonnull align 1 dereferenceable(1) %48) #25
-  br label %1955
+  %1955 = zext i1 %1954 to i8
+  br label %1956
 
-1955:                                             ; preds = %1953, %1950
-  %.0.i = phi i1 [ false, %1950 ], [ %1954, %1953 ]
+1956:                                             ; preds = %1953, %1950
+  %.0.i = phi i8 [ 0, %1950 ], [ %1955, %1953 ]
   %.sroa.027.0.i = phi i32 [ %1923, %1950 ], [ %1925, %1953 ]
   call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %1914, ptr noundef nonnull align 8 dereferenceable(70) %1911)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51) #25
-  %1956 = load i32, ptr %49, align 4, !tbaa !615
-  %1957 = getelementptr inbounds nuw i8, ptr %1912, i64 448
-  %.val.i289 = load ptr, ptr %1957, align 8
-  %1958 = getelementptr inbounds nuw i8, ptr %1912, i64 456
-  %.val59.i = load i32, ptr %1958, align 8
-  call fastcc void @_ZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoE(ptr dead_on_unwind noalias writable align 8 %51, i32 noundef %1956, i32 %1923, i32 %.sroa.027.0.i, i1 noundef zeroext %.0.i, ptr %.val.i289, i32 %.val59.i)
-  %1959 = load i32, ptr %50, align 4, !tbaa !615
-  %1960 = icmp eq i32 %1959, 14
-  br i1 %1960, label %1961, label %1968
+  %1957 = load i32, ptr %49, align 4, !tbaa !615
+  %1958 = getelementptr inbounds nuw i8, ptr %1912, i64 448
+  %.val.i289 = load ptr, ptr %1958, align 8
+  %1959 = getelementptr inbounds nuw i8, ptr %1912, i64 456
+  %.val59.i = load i32, ptr %1959, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !617)
+  %1960 = icmp slt i32 %1923, 0
+  br i1 %1960, label %1961, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i290
 
-1961:                                             ; preds = %1955
-  %1962 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %1963 = load ptr, ptr %1962, align 8, !tbaa !49
-  %.not.i.i.i291 = icmp eq ptr %1963, null
-  br i1 %.not.i.i.i291, label %1964, label %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit.i
+1961:                                             ; preds = %1956
+  %1962 = and i32 %1923, 2147483647
+  %1963 = icmp ugt i32 %.val59.i, %1962
+  br i1 %1963, label %1964, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i290
 
 1964:                                             ; preds = %1961
-  call void @_ZSt25__throw_bad_function_callv() #26
-  unreachable
+  %1965 = zext nneg i32 %1962 to i64
+  %1966 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val.i289, i64 %1965
+  %1967 = load i64, ptr %1966, align 8, !tbaa !16, !noalias !617
+  br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i290
 
-_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit.i: ; preds = %1961
-  %1965 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %1966 = load ptr, ptr %1965, align 8, !tbaa !617
-  %1967 = call i32 %1966(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(88) %1914) #25
-  br label %1994
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i290: ; preds = %1964, %1961, %1956
+  %.sroa.04.0.i.i.i291 = phi i64 [ %1967, %1964 ], [ 0, %1961 ], [ 0, %1956 ]
+  %1968 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i64 0, ptr %1968, align 8, !alias.scope !617
+  %1969 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27, !noalias !617
+  store i32 %1923, ptr %1969, align 16, !tbaa !115, !noalias !617
+  %.sroa.423.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1969, i64 4
+  store i32 %.sroa.027.0.i, ptr %.sroa.423.0..sroa_idx.i.i, align 4, !tbaa !115, !noalias !617
+  %.sroa.524.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1969, i64 8
+  store i8 %.0.i, ptr %.sroa.524.0..sroa_idx.i.i, align 8, !tbaa !614, !noalias !617
+  %.sroa.626.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1969, i64 16
+  store i64 %.sroa.04.0.i.i.i291, ptr %.sroa.626.0..sroa_idx.i.i, align 16, !tbaa !16, !noalias !617
+  store ptr %1969, ptr %51, align 8, !tbaa !66, !alias.scope !617
+  %1970 = sext i32 %1957 to i64
+  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.139, i64 0, i64 %1970
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %1971 = sext i32 %1957 to i64
+  %switch.gep672 = getelementptr inbounds [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.140, i64 0, i64 %1971
+  %switch.load673 = load ptr, ptr %switch.gep672, align 8
+  %1972 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %1973 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store ptr %switch.load, ptr %1972, align 8, !tbaa !620, !alias.scope !617
+  store ptr %switch.load673, ptr %1973, align 8, !tbaa !49, !alias.scope !617
+  %1974 = load i32, ptr %50, align 4, !tbaa !615
+  %1975 = icmp eq i32 %1974, 14
+  br i1 %1975, label %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit.i, label %1977
 
-1968:                                             ; preds = %1955
+_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit.i: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i290
+  %1976 = call i32 %switch.load(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(88) %1914) #25
+  br label %2009
+
+1977:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i290
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52) #25
-  %.val60.i = load ptr, ptr %1957, align 8
-  %.val61.i = load i32, ptr %1958, align 8
-  call fastcc void @_ZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoE(ptr dead_on_unwind noalias writable align 8 %52, i32 noundef %1959, i32 %1923, i32 %.sroa.027.0.i, i1 noundef zeroext %.0.i, ptr %.val60.i, i32 %.val61.i)
-  %1969 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %1970 = load ptr, ptr %1969, align 8, !tbaa !49
-  %.not.i.i62.i = icmp eq ptr %1970, null
-  br i1 %.not.i.i62.i, label %1971, label %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit63.i
+  call void @llvm.experimental.noalias.scope.decl(metadata !622)
+  br i1 %1960, label %1978, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i62.i
 
-1971:                                             ; preds = %1968
+1978:                                             ; preds = %1977
+  %1979 = and i32 %1923, 2147483647
+  %1980 = icmp ugt i32 %.val59.i, %1979
+  br i1 %1980, label %1981, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i62.i
+
+1981:                                             ; preds = %1978
+  %1982 = zext nneg i32 %1979 to i64
+  %1983 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val.i289, i64 %1982
+  %1984 = load i64, ptr %1983, align 8, !tbaa !16, !noalias !622
+  br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i62.i
+
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i62.i: ; preds = %1981, %1978, %1977
+  %.sroa.04.0.i.i63.i = phi i64 [ %1984, %1981 ], [ 0, %1978 ], [ 0, %1977 ]
+  %1985 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store i64 0, ptr %1985, align 8, !alias.scope !622
+  %1986 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27, !noalias !622
+  store i32 %1923, ptr %1986, align 16, !tbaa !115, !noalias !622
+  %.sroa.423.0..sroa_idx.i64.i = getelementptr inbounds nuw i8, ptr %1986, i64 4
+  store i32 %.sroa.027.0.i, ptr %.sroa.423.0..sroa_idx.i64.i, align 4, !tbaa !115, !noalias !622
+  %.sroa.524.0..sroa_idx.i65.i = getelementptr inbounds nuw i8, ptr %1986, i64 8
+  store i8 %.0.i, ptr %.sroa.524.0..sroa_idx.i65.i, align 8, !tbaa !614, !noalias !622
+  %.sroa.626.0..sroa_idx.i66.i = getelementptr inbounds nuw i8, ptr %1986, i64 16
+  store i64 %.sroa.04.0.i.i63.i, ptr %.sroa.626.0..sroa_idx.i66.i, align 16, !tbaa !16, !noalias !622
+  store ptr %1986, ptr %52, align 8, !tbaa !66, !alias.scope !622
+  %1987 = sext i32 %1974 to i64
+  %switch.gep674 = getelementptr inbounds [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.139, i64 0, i64 %1987
+  %switch.load675 = load ptr, ptr %switch.gep674, align 8
+  %1988 = sext i32 %1974 to i64
+  %switch.gep676 = getelementptr inbounds [13 x ptr], ptr @switch.table._ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEE.140, i64 0, i64 %1988
+  %switch.load677 = load ptr, ptr %switch.gep676, align 8
+  %1989 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %1990 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  store ptr %switch.load675, ptr %1989, align 8, !tbaa !620, !alias.scope !622
+  store ptr %switch.load677, ptr %1990, align 8, !tbaa !49, !alias.scope !622
+  %1991 = call i32 %switch.load675(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(88) %1914) #25
+  %1992 = load ptr, ptr %1973, align 8, !tbaa !49
+  %.not.i.i72.i = icmp eq ptr %1992, null
+  br i1 %.not.i.i72.i, label %1993, label %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit73.i
+
+1993:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i62.i
   call void @_ZSt25__throw_bad_function_callv() #26
   unreachable
 
-_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit63.i: ; preds = %1968
-  %1972 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %1973 = load ptr, ptr %1972, align 8, !tbaa !617
-  %1974 = call i32 %1973(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(88) %1914) #25
-  %1975 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %1976 = load ptr, ptr %1975, align 8, !tbaa !49
-  %.not.i.i64.i = icmp eq ptr %1976, null
-  br i1 %.not.i.i64.i, label %1977, label %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit65.i
-
-1977:                                             ; preds = %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit63.i
-  call void @_ZSt25__throw_bad_function_callv() #26
-  unreachable
-
-_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit65.i: ; preds = %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit63.i
-  %1978 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %1979 = load ptr, ptr %1978, align 8, !tbaa !617
-  %1980 = call i32 %1979(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(88) %1914) #25
+_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit73.i: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i62.i
+  %1994 = load ptr, ptr %1972, align 8, !tbaa !620
+  %1995 = call i32 %1994(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(88) %1914) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45) #25
   store i64 %.sroa.04.0.i.i288, ptr %45, align 8
-  %.sroa.490.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i32 0, ptr %.sroa.490.0..sroa_idx.i, align 8, !tbaa !619
+  %.sroa.498.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store i32 0, ptr %.sroa.498.0..sroa_idx.i, align 8, !tbaa !625
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %46) #25
-  store i32 %1980, ptr %46, align 8
-  %.sroa.486.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i32 0, ptr %.sroa.486.0..sroa_idx.i, align 8, !tbaa !452
-  %1981 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store i32 %1974, ptr %1981, align 8
-  %.sroa.482.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 40
-  store i32 0, ptr %.sroa.482.0..sroa_idx.i, align 8, !tbaa !452
-  %1982 = load ptr, ptr %1914, align 8, !tbaa !20
-  %1983 = getelementptr inbounds nuw i8, ptr %1982, i64 32
-  %1984 = load ptr, ptr %1983, align 8
-  %1985 = call { ptr, ptr } %1984(ptr noundef nonnull align 8 dereferenceable(88) %1914, i32 noundef 63, ptr nonnull %45, i64 1, ptr nonnull %46, i64 2, i64 0) #25
+  store i32 %1995, ptr %46, align 8
+  %.sroa.494.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 16
+  store i32 0, ptr %.sroa.494.0..sroa_idx.i, align 8, !tbaa !452
+  %1996 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  store i32 %1991, ptr %1996, align 8
+  %.sroa.490.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 40
+  store i32 0, ptr %.sroa.490.0..sroa_idx.i, align 8, !tbaa !452
+  %1997 = load ptr, ptr %1914, align 8, !tbaa !20
+  %1998 = getelementptr inbounds nuw i8, ptr %1997, i64 32
+  %1999 = load ptr, ptr %1998, align 8
+  %2000 = call { ptr, ptr } %1999(ptr noundef nonnull align 8 dereferenceable(88) %1914, i32 noundef 63, ptr nonnull %45, i64 1, ptr nonnull %46, i64 2, i64 0) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %46) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45) #25
-  %1986 = extractvalue { ptr, ptr } %1985, 1
-  %1987 = getelementptr inbounds nuw i8, ptr %1986, i64 32
-  %1988 = load ptr, ptr %1987, align 8, !tbaa !383
-  %1989 = getelementptr inbounds nuw i8, ptr %1988, i64 4
-  %1990 = load i32, ptr %1989, align 4, !tbaa !16
-  %1991 = load ptr, ptr %1969, align 8, !tbaa !49
-  %.not.i.i290 = icmp eq ptr %1991, null
-  br i1 %.not.i.i290, label %_ZNSt14_Function_baseD2Ev.exit.i, label %1992
+  %2001 = extractvalue { ptr, ptr } %2000, 1
+  %2002 = getelementptr inbounds nuw i8, ptr %2001, i64 32
+  %2003 = load ptr, ptr %2002, align 8, !tbaa !383
+  %2004 = getelementptr inbounds nuw i8, ptr %2003, i64 4
+  %2005 = load i32, ptr %2004, align 4, !tbaa !16
+  %2006 = load ptr, ptr %1990, align 8, !tbaa !49
+  %.not.i.i292 = icmp eq ptr %2006, null
+  br i1 %.not.i.i292, label %_ZNSt14_Function_baseD2Ev.exit.i, label %2007
 
-1992:                                             ; preds = %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit65.i
-  %1993 = call noundef zeroext i1 %1991(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef 3) #25
+2007:                                             ; preds = %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit73.i
+  %2008 = call noundef zeroext i1 %2006(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef 3) #25
   br label %_ZNSt14_Function_baseD2Ev.exit.i
 
-_ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %1992, %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit65.i
+_ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %2007, %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit73.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52) #25
-  br label %1994
+  br label %2009
 
-1994:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i, %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit.i
-  %.sroa.094.0.i = phi i32 [ %1967, %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit.i ], [ %1990, %_ZNSt14_Function_baseD2Ev.exit.i ]
-  %1995 = load i8, ptr %48, align 1, !tbaa !614, !range !64, !noundef !65
-  %1996 = trunc nuw i8 %1995 to i1
-  br i1 %1996, label %_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit.i, label %2012
+2009:                                             ; preds = %_ZNSt14_Function_baseD2Ev.exit.i, %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit.i
+  %.sroa.0102.0.i = phi i32 [ %1976, %_ZNKSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEEclES3_.exit.i ], [ %2005, %_ZNSt14_Function_baseD2Ev.exit.i ]
+  %2010 = load i8, ptr %48, align 1, !tbaa !614, !range !64, !noundef !65
+  %2011 = trunc nuw i8 %2010 to i1
+  br i1 %2011, label %_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit.i, label %2027
 
-_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit.i: ; preds = %1994
+_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit.i: ; preds = %2009
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42) #25
   store i64 %.sroa.04.0.i.i288, ptr %42, align 8, !tbaa !16
-  %1997 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i32 0, ptr %1997, align 8, !tbaa !408
-  %1998 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %1914, ptr noundef nonnull align 8 dereferenceable(20) %42, i64 noundef -1) #25
-  %1999 = extractvalue { ptr, ptr } %1998, 0
-  %2000 = extractvalue { ptr, ptr } %1998, 1
+  %2012 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store i32 0, ptr %2012, align 8, !tbaa !408
+  %2013 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %1914, ptr noundef nonnull align 8 dereferenceable(20) %42, i64 noundef -1) #25
+  %2014 = extractvalue { ptr, ptr } %2013, 0
+  %2015 = extractvalue { ptr, ptr } %2013, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43) #25
   store i64 %.sroa.04.0.i.i288, ptr %43, align 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i32 0, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !619
+  store i32 0, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !625
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %44) #25
-  store i32 %.sroa.094.0.i, ptr %44, align 8
-  %.sroa.469.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i32 0, ptr %.sroa.469.0..sroa_idx.i, align 8, !tbaa !452
-  %2001 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr %1999, ptr %2001, align 8, !tbaa !454
+  store i32 %.sroa.0102.0.i, ptr %44, align 8
+  %.sroa.477.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store i32 0, ptr %.sroa.477.0..sroa_idx.i, align 8, !tbaa !452
+  %2016 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store ptr %2014, ptr %2016, align 8, !tbaa !454
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store ptr %2000, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !378
-  %2002 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  store i32 1, ptr %2002, align 8, !tbaa !455
-  %2003 = load ptr, ptr %1914, align 8, !tbaa !20
-  %2004 = getelementptr inbounds nuw i8, ptr %2003, i64 32
-  %2005 = load ptr, ptr %2004, align 8
-  %2006 = call { ptr, ptr } %2005(ptr noundef nonnull align 8 dereferenceable(88) %1914, i32 noundef 64, ptr nonnull %43, i64 1, ptr nonnull %44, i64 2, i64 0) #25
+  store ptr %2015, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !378
+  %2017 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  store i32 1, ptr %2017, align 8, !tbaa !455
+  %2018 = load ptr, ptr %1914, align 8, !tbaa !20
+  %2019 = getelementptr inbounds nuw i8, ptr %2018, i64 32
+  %2020 = load ptr, ptr %2019, align 8
+  %2021 = call { ptr, ptr } %2020(ptr noundef nonnull align 8 dereferenceable(88) %1914, i32 noundef 64, ptr nonnull %43, i64 1, ptr nonnull %44, i64 2, i64 0) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %44) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43) #25
-  %2007 = extractvalue { ptr, ptr } %2006, 1
-  %2008 = getelementptr inbounds nuw i8, ptr %2007, i64 32
-  %2009 = load ptr, ptr %2008, align 8, !tbaa !383
-  %2010 = getelementptr inbounds nuw i8, ptr %2009, i64 4
-  %2011 = load i32, ptr %2010, align 4, !tbaa !16
-  br label %2012
+  %2022 = extractvalue { ptr, ptr } %2021, 1
+  %2023 = getelementptr inbounds nuw i8, ptr %2022, i64 32
+  %2024 = load ptr, ptr %2023, align 8, !tbaa !383
+  %2025 = getelementptr inbounds nuw i8, ptr %2024, i64 4
+  %2026 = load i32, ptr %2025, align 4, !tbaa !16
+  br label %2027
 
-2012:                                             ; preds = %_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit.i, %1994
-  %.sroa.094.1.i = phi i32 [ %2011, %_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit.i ], [ %.sroa.094.0.i, %1994 ]
-  call void @_ZN4llvm19MachineRegisterInfo14replaceRegWithENS_8RegisterES1_(ptr noundef nonnull align 8 dereferenceable(504) %1912, i32 %1919, i32 %.sroa.094.1.i) #25
+2027:                                             ; preds = %_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit.i, %2009
+  %.sroa.0102.1.i = phi i32 [ %2026, %_ZN4llvm16MachineIRBuilder8buildNotERKNS_5DstOpERKNS_5SrcOpE.exit.i ], [ %.sroa.0102.0.i, %2009 ]
+  call void @_ZN4llvm19MachineRegisterInfo14replaceRegWithENS_8RegisterES1_(ptr noundef nonnull align 8 dereferenceable(504) %1912, i32 %1919, i32 %.sroa.0102.1.i) #25
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1911) #25
-  %2013 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %2014 = load ptr, ptr %2013, align 8, !tbaa !49
-  %.not.i66.i = icmp eq ptr %2014, null
-  br i1 %.not.i66.i, label %_ZN12_GLOBAL__N_120applyLowerVectorFCMPERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, label %2015
+  %2028 = load ptr, ptr %1973, align 8, !tbaa !49
+  %.not.i74.i = icmp eq ptr %2028, null
+  br i1 %.not.i74.i, label %_ZN12_GLOBAL__N_120applyLowerVectorFCMPERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, label %2029
 
-2015:                                             ; preds = %2012
-  %2016 = call noundef zeroext i1 %2014(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %51, i32 noundef 3) #25
+2029:                                             ; preds = %2027
+  %2030 = call noundef zeroext i1 %2028(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %51, i32 noundef 3) #25
   br label %_ZN12_GLOBAL__N_120applyLowerVectorFCMPERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit
 
-_ZN12_GLOBAL__N_120applyLowerVectorFCMPERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit: ; preds = %2012, %2015
+_ZN12_GLOBAL__N_120applyLowerVectorFCMPERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit: ; preds = %2027, %2029
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #25
@@ -7268,1559 +7313,1559 @@ _ZN12_GLOBAL__N_120applyLowerVectorFCMPERN4llvm12MachineInstrERNS0_19MachineRegi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47) #25
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2017:                                             ; preds = %4
-  %2018 = load ptr, ptr %142, align 8, !tbaa !37
-  %2019 = load ptr, ptr %2018, align 8, !tbaa !378
-  %2020 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %2021 = load ptr, ptr %2020, align 8, !tbaa !382
-  %2022 = getelementptr i8, ptr %2019, i64 32
-  %.val.i292 = load ptr, ptr %2022, align 8, !tbaa !383
-  %2023 = getelementptr i8, ptr %.val.i292, i64 4
-  %.val.val.i293 = load i32, ptr %2023, align 4, !tbaa !16
-  %2024 = icmp slt i32 %.val.val.i293, 0
-  br i1 %2024, label %2025, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i294
+2031:                                             ; preds = %4
+  %2032 = load ptr, ptr %142, align 8, !tbaa !37
+  %2033 = load ptr, ptr %2032, align 8, !tbaa !378
+  %2034 = getelementptr inbounds nuw i8, ptr %0, i64 4256
+  %2035 = load ptr, ptr %2034, align 8, !tbaa !382
+  %2036 = getelementptr i8, ptr %2033, i64 32
+  %.val.i293 = load ptr, ptr %2036, align 8, !tbaa !383
+  %2037 = getelementptr i8, ptr %.val.i293, i64 4
+  %.val.val.i294 = load i32, ptr %2037, align 4, !tbaa !16
+  %2038 = icmp slt i32 %.val.val.i294, 0
+  br i1 %2038, label %2039, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i295
 
-2025:                                             ; preds = %2017
-  %2026 = and i32 %.val.val.i293, 2147483647
-  %2027 = getelementptr inbounds nuw i8, ptr %2021, i64 456
-  %2028 = load i32, ptr %2027, align 8, !tbaa !38
-  %2029 = icmp ugt i32 %2028, %2026
-  br i1 %2029, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i310, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i294
+2039:                                             ; preds = %2031
+  %2040 = and i32 %.val.val.i294, 2147483647
+  %2041 = getelementptr inbounds nuw i8, ptr %2035, i64 456
+  %2042 = load i32, ptr %2041, align 8, !tbaa !38
+  %2043 = icmp ugt i32 %2042, %2040
+  br i1 %2043, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i311, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i295
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i310: ; preds = %2025
-  %2030 = getelementptr inbounds nuw i8, ptr %2021, i64 448
-  %2031 = zext nneg i32 %2026 to i64
-  %2032 = load ptr, ptr %2030, align 8, !tbaa !37
-  %2033 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2032, i64 %2031
-  %2034 = load i64, ptr %2033, align 8, !tbaa !16
-  %2035 = and i64 %2034, -7
-  %spec.select.i.i.i.i311 = icmp ne i64 %2035, 0
-  %2036 = and i64 %2034, 4
-  %2037 = icmp ne i64 %2036, 0
-  %2038 = and i1 %spec.select.i.i.i.i311, %2037
-  br i1 %2038, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit", label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i294
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i311: ; preds = %2039
+  %2044 = getelementptr inbounds nuw i8, ptr %2035, i64 448
+  %2045 = zext nneg i32 %2040 to i64
+  %2046 = load ptr, ptr %2044, align 8, !tbaa !37
+  %2047 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2046, i64 %2045
+  %2048 = load i64, ptr %2047, align 8, !tbaa !16
+  %2049 = and i64 %2048, -7
+  %spec.select.i.i.i.i312 = icmp ne i64 %2049, 0
+  %2050 = and i64 %2048, 4
+  %2051 = icmp ne i64 %2050, 0
+  %2052 = and i1 %spec.select.i.i.i.i312, %2051
+  br i1 %2052, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit", label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i295
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i294: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i310, %2025, %2017
-  %2039 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %2021, i32 %.val.val.i293) #25
-  %.not.i.i.i.not.i.i.i.i = icmp eq ptr %2039, null
-  br i1 %.not.i.i.i.not.i.i.i.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit", label %2040
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i295: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i311, %2039, %2031
+  %2053 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %2035, i32 %.val.val.i294) #25
+  %.not.i.i.i.not.i.i.i.i = icmp eq ptr %2053, null
+  br i1 %.not.i.i.i.not.i.i.i.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit", label %2054
 
-2040:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i294
-  %2041 = getelementptr inbounds nuw i8, ptr %2039, i64 68
-  %2042 = load i16, ptr %2041, align 4, !tbaa !449
-  %2043 = icmp eq i16 %2042, 132
-  br i1 %2043, label %2044, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+2054:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i295
+  %2055 = getelementptr inbounds nuw i8, ptr %2053, i64 68
+  %2056 = load i16, ptr %2055, align 4, !tbaa !449
+  %2057 = icmp eq i16 %2056, 132
+  br i1 %2057, label %2058, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2044:                                             ; preds = %2040
-  %2045 = getelementptr inbounds nuw i8, ptr %2039, i64 40
-  %2046 = load i24, ptr %2045, align 8
-  %2047 = icmp eq i24 %2046, 2
-  br i1 %2047, label %2048, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+2058:                                             ; preds = %2054
+  %2059 = getelementptr inbounds nuw i8, ptr %2053, i64 40
+  %2060 = load i24, ptr %2059, align 8
+  %2061 = icmp eq i24 %2060, 2
+  br i1 %2061, label %2062, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2048:                                             ; preds = %2044
-  %2049 = getelementptr inbounds nuw i8, ptr %2039, i64 32
-  %2050 = load ptr, ptr %2049, align 8, !tbaa !383
-  %2051 = getelementptr inbounds nuw i8, ptr %2050, i64 36
-  %2052 = load i32, ptr %2051, align 4, !tbaa !16
+2062:                                             ; preds = %2058
+  %2063 = getelementptr inbounds nuw i8, ptr %2053, i64 32
+  %2064 = load ptr, ptr %2063, align 8, !tbaa !383
+  %2065 = getelementptr inbounds nuw i8, ptr %2064, i64 36
+  %2066 = load i32, ptr %2065, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #25
-  %2053 = icmp slt i32 %2052, 0
-  br i1 %2053, label %2054, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13.i.i
+  %2067 = icmp slt i32 %2066, 0
+  br i1 %2067, label %2068, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13.i.i
 
-2054:                                             ; preds = %2048
-  %2055 = and i32 %2052, 2147483647
-  %2056 = getelementptr inbounds nuw i8, ptr %2021, i64 456
-  %2057 = load i32, ptr %2056, align 8, !tbaa !38
-  %2058 = icmp ugt i32 %2057, %2055
-  br i1 %2058, label %2059, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13.i.i
+2068:                                             ; preds = %2062
+  %2069 = and i32 %2066, 2147483647
+  %2070 = getelementptr inbounds nuw i8, ptr %2035, i64 456
+  %2071 = load i32, ptr %2070, align 8, !tbaa !38
+  %2072 = icmp ugt i32 %2071, %2069
+  br i1 %2072, label %2073, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13.i.i
 
-2059:                                             ; preds = %2054
-  %2060 = getelementptr inbounds nuw i8, ptr %2021, i64 448
-  %2061 = zext nneg i32 %2055 to i64
-  %2062 = load ptr, ptr %2060, align 8, !tbaa !37
-  %2063 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2062, i64 %2061
-  %2064 = load i64, ptr %2063, align 8, !tbaa !16
+2073:                                             ; preds = %2068
+  %2074 = getelementptr inbounds nuw i8, ptr %2035, i64 448
+  %2075 = zext nneg i32 %2069 to i64
+  %2076 = load ptr, ptr %2074, align 8, !tbaa !37
+  %2077 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2076, i64 %2075
+  %2078 = load i64, ptr %2077, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13.i.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13.i.i: ; preds = %2059, %2054, %2048
-  %.sroa.04.0.i12.i.i = phi i64 [ %2064, %2059 ], [ 0, %2054 ], [ 0, %2048 ]
-  %2065 = and i64 %.sroa.04.0.i12.i.i, -7
-  %spec.select.i.i.i.i.i296 = icmp ne i64 %2065, 0
-  %2066 = and i64 %.sroa.04.0.i12.i.i, 2
-  %2067 = and i64 %.sroa.04.0.i12.i.i, 6
-  %2068 = icmp eq i64 %2067, 2
-  %or.cond.i.i.i297 = and i1 %spec.select.i.i.i.i.i296, %2068
-  %2069 = and i64 %.sroa.04.0.i12.i.i, 1
-  %2070 = icmp ne i64 %2069, 0
-  %or.cond8.i.i.i298 = or i1 %2070, %or.cond.i.i.i297
-  br i1 %or.cond8.i.i.i298, label %2071, label %2073
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13.i.i: ; preds = %2073, %2068, %2062
+  %.sroa.04.0.i12.i.i = phi i64 [ %2078, %2073 ], [ 0, %2068 ], [ 0, %2062 ]
+  %2079 = and i64 %.sroa.04.0.i12.i.i, -7
+  %spec.select.i.i.i.i.i297 = icmp ne i64 %2079, 0
+  %2080 = and i64 %.sroa.04.0.i12.i.i, 2
+  %2081 = and i64 %.sroa.04.0.i12.i.i, 6
+  %2082 = icmp eq i64 %2081, 2
+  %or.cond.i.i.i298 = and i1 %spec.select.i.i.i.i.i297, %2082
+  %2083 = and i64 %.sroa.04.0.i12.i.i, 1
+  %2084 = icmp ne i64 %2083, 0
+  %or.cond8.i.i.i299 = or i1 %2084, %or.cond.i.i.i298
+  br i1 %or.cond8.i.i.i299, label %2085, label %2087
 
-2071:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13.i.i
-  %.not.i.i.i.i.i307 = icmp ne i64 %2066, 0
-  %2072 = and i1 %.not.i.i.i.i.i307, %spec.select.i.i.i.i.i296
-  %.0.in.v.i.i.i.i308 = select i1 %2072, i64 48, i64 32
-  %.0.in.i.i.i.i309 = lshr i64 %.sroa.04.0.i12.i.i, %.0.in.v.i.i.i.i308
+2085:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13.i.i
+  %.not.i.i.i.i.i308 = icmp ne i64 %2080, 0
+  %2086 = and i1 %.not.i.i.i.i.i308, %spec.select.i.i.i.i.i297
+  %.0.in.v.i.i.i.i309 = select i1 %2086, i64 48, i64 32
+  %.0.in.i.i.i.i310 = lshr i64 %.sroa.04.0.i12.i.i, %.0.in.v.i.i.i.i309
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_15clEv.exit"
 
-2073:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13.i.i
-  %2074 = lshr i64 %.sroa.04.0.i12.i.i, 8
-  %.sroa.0.0.insert.ext.i.i.i.i.i299 = and i64 %2074, 65535
-  %.not.i.i1.i.i.i300 = icmp ne i64 %2066, 0
-  %2075 = and i1 %.not.i.i1.i.i.i300, %spec.select.i.i.i.i.i296
-  %.0.in.v.i3.i.i.i301 = select i1 %2075, i64 48, i64 32
-  %.0.in.i4.i.i.i302 = lshr i64 %.sroa.04.0.i12.i.i, %.0.in.v.i3.i.i.i301
-  %2076 = mul nuw nsw i64 %.0.in.i4.i.i.i302, %.sroa.0.0.insert.ext.i.i.i.i.i299
-  %2077 = and i64 %2076, 4294967295
-  %2078 = trunc i64 %.sroa.04.0.i12.i.i to i8
-  %2079 = lshr i8 %2078, 3
-  %2080 = and i8 %2079, 1
+2087:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit13.i.i
+  %2088 = lshr i64 %.sroa.04.0.i12.i.i, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i300 = and i64 %2088, 65535
+  %.not.i.i1.i.i.i301 = icmp ne i64 %2080, 0
+  %2089 = and i1 %.not.i.i1.i.i.i301, %spec.select.i.i.i.i.i297
+  %.0.in.v.i3.i.i.i302 = select i1 %2089, i64 48, i64 32
+  %.0.in.i4.i.i.i303 = lshr i64 %.sroa.04.0.i12.i.i, %.0.in.v.i3.i.i.i302
+  %2090 = mul nuw nsw i64 %.0.in.i4.i.i.i303, %.sroa.0.0.insert.ext.i.i.i.i.i300
+  %2091 = and i64 %2090, 4294967295
+  %2092 = trunc i64 %.sroa.04.0.i12.i.i to i8
+  %2093 = lshr i8 %2092, 3
+  %2094 = and i8 %2093, 1
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_15clEv.exit"
 
-"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_15clEv.exit": ; preds = %2071, %2073
-  %.sroa.06.0.i.i.i304 = phi i64 [ %.0.in.i.i.i.i309, %2071 ], [ %2077, %2073 ]
-  %.sroa.3.0.i.i.i305 = phi i8 [ 0, %2071 ], [ %2080, %2073 ]
-  store i64 %.sroa.06.0.i.i.i304, ptr %41, align 8
-  %.sroa.2.0..sroa_idx.i.i306 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i8 %.sroa.3.0.i.i.i305, ptr %.sroa.2.0..sroa_idx.i.i306, align 8
-  %2081 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %41) #25
-  %2082 = icmp ult i64 %2081, 65
+"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_15clEv.exit": ; preds = %2085, %2087
+  %.sroa.06.0.i.i.i305 = phi i64 [ %.0.in.i.i.i.i310, %2085 ], [ %2091, %2087 ]
+  %.sroa.3.0.i.i.i306 = phi i8 [ 0, %2085 ], [ %2094, %2087 ]
+  store i64 %.sroa.06.0.i.i.i305, ptr %41, align 8
+  %.sroa.2.0..sroa_idx.i.i307 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i8 %.sroa.3.0.i.i.i306, ptr %.sroa.2.0..sroa_idx.i.i307, align 8
+  %2095 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %41) #25
+  %2096 = icmp ult i64 %2095, 65
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #25
-  br i1 %2082, label %2083, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+  br i1 %2096, label %2097, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2083:                                             ; preds = %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_15clEv.exit"
-  %2084 = load ptr, ptr %142, align 8, !tbaa !37
-  %2085 = load ptr, ptr %2084, align 8, !tbaa !378
-  %2086 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %2087 = load ptr, ptr %2086, align 8, !tbaa !269
-  %2088 = load ptr, ptr %2087, align 8, !tbaa !20
-  %2089 = getelementptr inbounds nuw i8, ptr %2088, i64 32
-  %2090 = load ptr, ptr %2089, align 8
-  call void %2090(ptr noundef nonnull align 8 dereferenceable(64) %2087, ptr noundef nonnull align 8 dereferenceable(70) %2085) #25
-  %2091 = getelementptr inbounds nuw i8, ptr %2085, i64 32
-  %2092 = load ptr, ptr %2091, align 8, !tbaa !383
-  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %2092, i32 %2052) #25
-  %2093 = load ptr, ptr %2087, align 8, !tbaa !20
-  %2094 = getelementptr inbounds nuw i8, ptr %2093, i64 40
-  %2095 = load ptr, ptr %2094, align 8
-  call void %2095(ptr noundef nonnull align 8 dereferenceable(64) %2087, ptr noundef nonnull align 8 dereferenceable(70) %2085) #25
+2097:                                             ; preds = %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_15clEv.exit"
+  %2098 = load ptr, ptr %142, align 8, !tbaa !37
+  %2099 = load ptr, ptr %2098, align 8, !tbaa !378
+  %2100 = getelementptr inbounds nuw i8, ptr %0, i64 4232
+  %2101 = load ptr, ptr %2100, align 8, !tbaa !269
+  %2102 = load ptr, ptr %2101, align 8, !tbaa !20
+  %2103 = getelementptr inbounds nuw i8, ptr %2102, i64 32
+  %2104 = load ptr, ptr %2103, align 8
+  call void %2104(ptr noundef nonnull align 8 dereferenceable(64) %2101, ptr noundef nonnull align 8 dereferenceable(70) %2099) #25
+  %2105 = getelementptr inbounds nuw i8, ptr %2099, i64 32
+  %2106 = load ptr, ptr %2105, align 8, !tbaa !383
+  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %2106, i32 %2066) #25
+  %2107 = load ptr, ptr %2101, align 8, !tbaa !20
+  %2108 = getelementptr inbounds nuw i8, ptr %2107, i64 40
+  %2109 = load ptr, ptr %2108, align 8
+  call void %2109(ptr noundef nonnull align 8 dereferenceable(64) %2101, ptr noundef nonnull align 8 dereferenceable(70) %2099) #25
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2096:                                             ; preds = %4
+2110:                                             ; preds = %4
   %.val58.val = load ptr, ptr %142, align 8, !tbaa !37
-  %2097 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %.val59.val = load ptr, ptr %2097, align 8, !tbaa !382
+  %2111 = getelementptr inbounds nuw i8, ptr %0, i64 4256
+  %.val59.val = load ptr, ptr %2111, align 8, !tbaa !382
   %.val58.val.val = load ptr, ptr %.val58.val, align 8, !tbaa !378
-  %2098 = getelementptr i8, ptr %.val59.val, i64 448
-  %.val59.val.val = load ptr, ptr %2098, align 8
-  %2099 = getelementptr i8, ptr %.val58.val.val, i64 32
-  %.val58.val.val.val = load ptr, ptr %2099, align 8, !tbaa !383
-  %2100 = getelementptr i8, ptr %.val58.val.val.val, i64 4
-  %.val58.val.val.val.val = load i32, ptr %2100, align 4, !tbaa !16
-  %2101 = icmp slt i32 %.val58.val.val.val.val, 0
-  br i1 %2101, label %2102, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+  %2112 = getelementptr i8, ptr %.val59.val, i64 448
+  %.val59.val.val = load ptr, ptr %2112, align 8
+  %2113 = getelementptr i8, ptr %.val58.val.val, i64 32
+  %.val58.val.val.val = load ptr, ptr %2113, align 8, !tbaa !383
+  %2114 = getelementptr i8, ptr %.val58.val.val.val, i64 4
+  %.val58.val.val.val.val = load i32, ptr %2114, align 4, !tbaa !16
+  %2115 = icmp slt i32 %.val58.val.val.val.val, 0
+  br i1 %2115, label %2116, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2102:                                             ; preds = %2096
-  %2103 = getelementptr i8, ptr %.val59.val, i64 456
-  %.val59.val.val60 = load i32, ptr %2103, align 8
-  %2104 = and i32 %.val58.val.val.val.val, 2147483647
-  %2105 = icmp ugt i32 %.val59.val.val60, %2104
-  br i1 %2105, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_16clEv.exit", label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+2116:                                             ; preds = %2110
+  %2117 = getelementptr i8, ptr %.val59.val, i64 456
+  %.val59.val.val60 = load i32, ptr %2117, align 8
+  %2118 = and i32 %.val58.val.val.val.val, 2147483647
+  %2119 = icmp ugt i32 %.val59.val.val60, %2118
+  br i1 %2119, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_16clEv.exit", label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_16clEv.exit": ; preds = %2102
-  %2106 = zext nneg i32 %2104 to i64
-  %2107 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val59.val.val, i64 %2106
-  %2108 = load i64, ptr %2107, align 8, !tbaa !16
-  %2109 = and i64 %2108, -7
-  %spec.select.i.i.i.i313 = icmp ne i64 %2109, 0
-  %2110 = and i64 %2108, 4
-  %2111 = icmp ne i64 %2110, 0
-  %2112 = and i1 %spec.select.i.i.i.i313, %2111
-  br i1 %2112, label %2113, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_16clEv.exit": ; preds = %2116
+  %2120 = zext nneg i32 %2118 to i64
+  %2121 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val59.val.val, i64 %2120
+  %2122 = load i64, ptr %2121, align 8, !tbaa !16
+  %2123 = and i64 %2122, -7
+  %spec.select.i.i.i.i314 = icmp ne i64 %2123, 0
+  %2124 = and i64 %2122, 4
+  %2125 = icmp ne i64 %2124, 0
+  %2126 = and i1 %spec.select.i.i.i.i314, %2125
+  br i1 %2126, label %2127, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2113:                                             ; preds = %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_16clEv.exit"
-  %2114 = getelementptr inbounds nuw i8, ptr %0, i64 4240
-  %2115 = load ptr, ptr %2114, align 8, !tbaa !310
-  %2116 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %2117 = load ptr, ptr %2116, align 8, !tbaa !269
-  tail call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %2115, ptr noundef nonnull align 8 dereferenceable(70) %.val58.val.val)
+2127:                                             ; preds = %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_16clEv.exit"
+  %2128 = getelementptr inbounds nuw i8, ptr %0, i64 4240
+  %2129 = load ptr, ptr %2128, align 8, !tbaa !310
+  %2130 = getelementptr inbounds nuw i8, ptr %0, i64 4232
+  %2131 = load ptr, ptr %2130, align 8, !tbaa !269
+  tail call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %2129, ptr noundef nonnull align 8 dereferenceable(70) %.val58.val.val)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %40) #25
-  %2118 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %.val58.val.val) #25
-  call void @_ZN4llvm15LegalizerHelperC1ERNS_15MachineFunctionERNS_19GISelChangeObserverERNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(1065) %2118, ptr noundef nonnull align 8 dereferenceable(64) %2117, ptr noundef nonnull align 8 dereferenceable(88) %2115) #25
-  %2119 = call noundef i32 @_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(70) %.val58.val.val, i32 noundef 0, i64 0) #25
+  %2132 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %.val58.val.val) #25
+  call void @_ZN4llvm15LegalizerHelperC1ERNS_15MachineFunctionERNS_19GISelChangeObserverERNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(1065) %2132, ptr noundef nonnull align 8 dereferenceable(64) %2131, ptr noundef nonnull align 8 dereferenceable(88) %2129) #25
+  %2133 = call noundef i32 @_ZN4llvm15LegalizerHelper5lowerERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(70) %.val58.val.val, i32 noundef 0, i64 0) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %40) #25
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2120:                                             ; preds = %4
-  %2121 = load ptr, ptr %142, align 8, !tbaa !37
-  %2122 = load ptr, ptr %2121, align 8, !tbaa !378
-  %2123 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %2124 = load ptr, ptr %2123, align 8, !tbaa !382
-  %2125 = getelementptr i8, ptr %2122, i64 32
-  %.val.i314 = load ptr, ptr %2125, align 8
-  %2126 = getelementptr i8, ptr %2122, i64 40
-  %.val1.i315 = load i24, ptr %2126, align 8
-  %.not.i.i316 = icmp eq i24 %.val1.i315, 3
-  br i1 %.not.i.i316, label %2127, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+2134:                                             ; preds = %4
+  %2135 = load ptr, ptr %142, align 8, !tbaa !37
+  %2136 = load ptr, ptr %2135, align 8, !tbaa !378
+  %2137 = getelementptr inbounds nuw i8, ptr %0, i64 4256
+  %2138 = load ptr, ptr %2137, align 8, !tbaa !382
+  %2139 = getelementptr i8, ptr %2136, i64 32
+  %.val.i315 = load ptr, ptr %2139, align 8
+  %2140 = getelementptr i8, ptr %2136, i64 40
+  %.val1.i316 = load i24, ptr %2140, align 8
+  %.not.i.i317 = icmp eq i24 %.val1.i316, 3
+  br i1 %.not.i.i317, label %2141, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2127:                                             ; preds = %2120
-  %2128 = getelementptr inbounds nuw i8, ptr %.val.i314, i64 36
-  %2129 = load i32, ptr %2128, align 4, !tbaa !16
-  %2130 = icmp slt i32 %2129, 0
-  %2131 = getelementptr inbounds nuw i8, ptr %2124, i64 48
-  %2132 = and i32 %2129, 2147483647
-  %2133 = zext nneg i32 %2132 to i64
-  %2134 = load ptr, ptr %2131, align 8
-  %2135 = getelementptr inbounds nuw %"struct.std::pair.312", ptr %2134, i64 %2133, i32 1
-  %2136 = getelementptr inbounds nuw i8, ptr %2124, i64 296
-  %2137 = zext nneg i32 %2129 to i64
-  %2138 = load ptr, ptr %2136, align 8
-  %2139 = getelementptr inbounds nuw ptr, ptr %2138, i64 %2137
-  %.0.in.i.i.i.i.i318 = select i1 %2130, ptr %2135, ptr %2139
-  %.0.i.i.i.i.i = load ptr, ptr %.0.in.i.i.i.i.i318, align 8, !tbaa !620
-  %.not.i.i.i.i.i319 = icmp eq ptr %.0.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i319, label %.loopexit.i.i322, label %2140
+2141:                                             ; preds = %2134
+  %2142 = getelementptr inbounds nuw i8, ptr %.val.i315, i64 36
+  %2143 = load i32, ptr %2142, align 4, !tbaa !16
+  %2144 = icmp slt i32 %2143, 0
+  %2145 = getelementptr inbounds nuw i8, ptr %2138, i64 48
+  %2146 = and i32 %2143, 2147483647
+  %2147 = zext nneg i32 %2146 to i64
+  %2148 = load ptr, ptr %2145, align 8
+  %2149 = getelementptr inbounds nuw %"struct.std::pair.312", ptr %2148, i64 %2147, i32 1
+  %2150 = getelementptr inbounds nuw i8, ptr %2138, i64 296
+  %2151 = zext nneg i32 %2143 to i64
+  %2152 = load ptr, ptr %2150, align 8
+  %2153 = getelementptr inbounds nuw ptr, ptr %2152, i64 %2151
+  %.0.in.i.i.i.i.i319 = select i1 %2144, ptr %2149, ptr %2153
+  %.0.i.i.i.i.i = load ptr, ptr %.0.in.i.i.i.i.i319, align 8, !tbaa !626
+  %.not.i.i.i.i.i320 = icmp eq ptr %.0.i.i.i.i.i, null
+  br i1 %.not.i.i.i.i.i320, label %.loopexit.i.i323, label %2154
 
-2140:                                             ; preds = %2127
-  %2141 = load i32, ptr %.0.i.i.i.i.i, align 8
-  %2142 = and i32 %2141, -2130706432
-  %or.cond.not.i.i.i.i.i = icmp eq i32 %2142, 0
+2154:                                             ; preds = %2141
+  %2155 = load i32, ptr %.0.i.i.i.i.i, align 8
+  %2156 = and i32 %2155, -2130706432
+  %or.cond.not.i.i.i.i.i = icmp eq i32 %2156, 0
   br i1 %or.cond.not.i.i.i.i.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit", label %.critedge2.i.i.i.i.i.i
 
-.critedge2.i.i.i.i.i.i:                           ; preds = %2140, %2143
-  %.pn.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i320, %2143 ], [ %.0.i.i.i.i.i, %2140 ]
+.critedge2.i.i.i.i.i.i:                           ; preds = %2154, %2157
+  %.pn.i.i.i.i.i.i = phi ptr [ %storemerge.i.i.i.i.i.i321, %2157 ], [ %.0.i.i.i.i.i, %2154 ]
   %storemerge.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i.i.i, i64 24
-  %storemerge.i.i.i.i.i.i320 = load ptr, ptr %storemerge.in.i.i.i.i.i.i, align 8, !tbaa !16
-  %.not.i.i.i.i.i.i321 = icmp eq ptr %storemerge.i.i.i.i.i.i320, null
-  br i1 %.not.i.i.i.i.i.i321, label %.loopexit.i.i322, label %2143
+  %storemerge.i.i.i.i.i.i321 = load ptr, ptr %storemerge.in.i.i.i.i.i.i, align 8, !tbaa !16
+  %.not.i.i.i.i.i.i322 = icmp eq ptr %storemerge.i.i.i.i.i.i321, null
+  br i1 %.not.i.i.i.i.i.i322, label %.loopexit.i.i323, label %2157
 
-2143:                                             ; preds = %.critedge2.i.i.i.i.i.i
-  %2144 = load i32, ptr %storemerge.i.i.i.i.i.i320, align 8
-  %2145 = and i32 %2144, -2130706432
-  %or.cond.not.i.i.i.i.i.i = icmp eq i32 %2145, 0
-  br i1 %or.cond.not.i.i.i.i.i.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit", label %.critedge2.i.i.i.i.i.i, !llvm.loop !621
+2157:                                             ; preds = %.critedge2.i.i.i.i.i.i
+  %2158 = load i32, ptr %storemerge.i.i.i.i.i.i321, align 8
+  %2159 = and i32 %2158, -2130706432
+  %or.cond.not.i.i.i.i.i.i = icmp eq i32 %2159, 0
+  br i1 %or.cond.not.i.i.i.i.i.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit", label %.critedge2.i.i.i.i.i.i, !llvm.loop !627
 
-.loopexit.i.i322:                                 ; preds = %.critedge2.i.i.i.i.i.i, %2127
-  %2146 = getelementptr inbounds nuw i8, ptr %.val.i314, i64 4
-  %2147 = load i32, ptr %2146, align 4, !tbaa !16
-  %2148 = icmp slt i32 %2147, 0
-  br i1 %2148, label %2149, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
-
-2149:                                             ; preds = %.loopexit.i.i322
-  %2150 = and i32 %2147, 2147483647
-  %2151 = getelementptr inbounds nuw i8, ptr %2124, i64 456
-  %2152 = load i32, ptr %2151, align 8, !tbaa !38
-  %2153 = icmp ugt i32 %2152, %2150
-  br i1 %2153, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i323, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
-
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i323: ; preds = %2149
-  %2154 = getelementptr inbounds nuw i8, ptr %2124, i64 448
-  %2155 = zext nneg i32 %2150 to i64
-  %2156 = load ptr, ptr %2154, align 8, !tbaa !37
-  %2157 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2156, i64 %2155
-  %2158 = load i64, ptr %2157, align 8, !tbaa !16
-  %2159 = and i64 %2158, -7
-  %spec.select.i.i.i.i324 = icmp ne i64 %2159, 0
-  %2160 = and i64 %2158, 4
-  %2161 = icmp ne i64 %2160, 0
-  %2162 = and i1 %spec.select.i.i.i.i324, %2161
+.loopexit.i.i323:                                 ; preds = %.critedge2.i.i.i.i.i.i, %2141
+  %2160 = getelementptr inbounds nuw i8, ptr %.val.i315, i64 4
+  %2161 = load i32, ptr %2160, align 4, !tbaa !16
+  %2162 = icmp slt i32 %2161, 0
   br i1 %2162, label %2163, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2163:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i323
-  %2164 = getelementptr inbounds nuw i8, ptr %.val.i314, i64 68
-  %2165 = load i32, ptr %2164, align 4, !tbaa !16
-  %2166 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 807, i32 %2165, ptr noundef nonnull align 8 dereferenceable(504) %2124) #25
-  %.not24.i.i = icmp eq ptr %2166, null
-  br i1 %.not24.i.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit", label %2167
+2163:                                             ; preds = %.loopexit.i.i323
+  %2164 = and i32 %2161, 2147483647
+  %2165 = getelementptr inbounds nuw i8, ptr %2138, i64 456
+  %2166 = load i32, ptr %2165, align 8, !tbaa !38
+  %2167 = icmp ugt i32 %2166, %2164
+  br i1 %2167, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i324, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2167:                                             ; preds = %2163
-  %2168 = getelementptr inbounds nuw i8, ptr %2166, i64 32
-  %2169 = load ptr, ptr %2168, align 8, !tbaa !383
-  %2170 = getelementptr inbounds nuw i8, ptr %2169, i64 36
-  %2171 = load i32, ptr %2170, align 4, !tbaa !16
-  %2172 = getelementptr inbounds nuw i8, ptr %2169, i64 68
-  %2173 = load i32, ptr %2172, align 4, !tbaa !16
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i324: ; preds = %2163
+  %2168 = getelementptr inbounds nuw i8, ptr %2138, i64 448
+  %2169 = zext nneg i32 %2164 to i64
+  %2170 = load ptr, ptr %2168, align 8, !tbaa !37
+  %2171 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2170, i64 %2169
+  %2172 = load i64, ptr %2171, align 8, !tbaa !16
+  %2173 = and i64 %2172, -7
+  %spec.select.i.i.i.i325 = icmp ne i64 %2173, 0
+  %2174 = and i64 %2172, 4
+  %2175 = icmp ne i64 %2174, 0
+  %2176 = and i1 %spec.select.i.i.i.i325, %2175
+  br i1 %2176, label %2177, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+
+2177:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i324
+  %2178 = getelementptr inbounds nuw i8, ptr %.val.i315, i64 68
+  %2179 = load i32, ptr %2178, align 4, !tbaa !16
+  %2180 = tail call noundef ptr @_ZN4llvm12getOpcodeDefEjNS_8RegisterERKNS_19MachineRegisterInfoE(i32 noundef 807, i32 %2179, ptr noundef nonnull align 8 dereferenceable(504) %2138) #25
+  %.not24.i.i = icmp eq ptr %2180, null
+  br i1 %.not24.i.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit", label %2181
+
+2181:                                             ; preds = %2177
+  %2182 = getelementptr inbounds nuw i8, ptr %2180, i64 32
+  %2183 = load ptr, ptr %2182, align 8, !tbaa !383
+  %2184 = getelementptr inbounds nuw i8, ptr %2183, i64 36
+  %2185 = load i32, ptr %2184, align 4, !tbaa !16
+  %2186 = getelementptr inbounds nuw i8, ptr %2183, i64 68
+  %2187 = load i32, ptr %2186, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38) #25
-  %2174 = getelementptr inbounds nuw i8, ptr %2169, i64 100
-  %2175 = load i32, ptr %2174, align 4, !tbaa !16
-  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.518") align 8 %38, i32 %2175, ptr noundef nonnull align 8 dereferenceable(504) %2124, i1 noundef zeroext true) #25
-  %2176 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %2177 = load i8, ptr %2176, align 8, !tbaa !466, !range !64, !noundef !65
-  %2178 = trunc nuw i8 %2177 to i1
+  %2188 = getelementptr inbounds nuw i8, ptr %2183, i64 100
+  %2189 = load i32, ptr %2188, align 4, !tbaa !16
+  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.518") align 8 %38, i32 %2189, ptr noundef nonnull align 8 dereferenceable(504) %2138, i1 noundef zeroext true) #25
+  %2190 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %2191 = load i8, ptr %2190, align 8, !tbaa !466, !range !64, !noundef !65
+  %2192 = trunc nuw i8 %2191 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #25
-  br i1 %2178, label %2179, label %.critedge.i.i325
+  br i1 %2192, label %2193, label %.critedge.i.i326
 
-2179:                                             ; preds = %2167
-  %2180 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %2181 = load i32, ptr %2180, align 8, !tbaa !418
-  %2182 = icmp ult i32 %2181, 65
-  %2183 = load ptr, ptr %38, align 8
-  %.0.in.i.i.i327 = select i1 %2182, ptr %38, ptr %2183
-  %.0.i.i.i328 = load i64, ptr %.0.in.i.i.i327, align 8, !tbaa !16
-  %2184 = and i64 %2158, 2
-  %2185 = and i64 %2158, 1
-  %.not7.i.i = icmp eq i64 %2185, 0
-  br i1 %.not7.i.i, label %2187, label %2186
+2193:                                             ; preds = %2181
+  %2194 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %2195 = load i32, ptr %2194, align 8, !tbaa !418
+  %2196 = icmp ult i32 %2195, 65
+  %2197 = load ptr, ptr %38, align 8
+  %.0.in.i.i.i328 = select i1 %2196, ptr %38, ptr %2197
+  %.0.i.i.i329 = load i64, ptr %.0.in.i.i.i328, align 8, !tbaa !16
+  %2198 = and i64 %2172, 2
+  %2199 = and i64 %2172, 1
+  %.not7.i.i = icmp eq i64 %2199, 0
+  br i1 %.not7.i.i, label %2201, label %2200
 
-2186:                                             ; preds = %2179
-  %.not.i.i.i.i27.not.i.i = icmp eq i64 %2184, 0
-  %.0.in.v.i.i.i.i.i329 = select i1 %.not.i.i.i.i27.not.i.i, i64 32, i64 48
-  %.0.in.i.i.i28.i.i = lshr i64 %2158, %.0.in.v.i.i.i.i.i329
+2200:                                             ; preds = %2193
+  %.not.i.i.i.i27.not.i.i = icmp eq i64 %2198, 0
+  %.0.in.v.i.i.i.i.i330 = select i1 %.not.i.i.i.i27.not.i.i, i64 32, i64 48
+  %.0.in.i.i.i28.i.i = lshr i64 %2172, %.0.in.v.i.i.i.i.i330
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i
 
-2187:                                             ; preds = %2179
-  %2188 = lshr i64 %2158, 8
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i334 = and i64 %2188, 65535
-  %.not.i.i1.i.i.not.i.i = icmp eq i64 %2184, 0
-  %.0.in.v.i3.i.i.i.i335 = select i1 %.not.i.i1.i.i.not.i.i, i64 32, i64 48
-  %.0.in.i4.i.i.i.i336 = lshr i64 %2158, %.0.in.v.i3.i.i.i.i335
-  %2189 = mul nuw nsw i64 %.0.in.i4.i.i.i.i336, %.sroa.0.0.insert.ext.i.i.i.i.i.i334
-  %2190 = and i64 %2189, 4294967295
-  %2191 = trunc i64 %2158 to i8
-  %2192 = lshr i8 %2191, 3
-  %2193 = and i8 %2192, 1
+2201:                                             ; preds = %2193
+  %2202 = lshr i64 %2172, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i335 = and i64 %2202, 65535
+  %.not.i.i1.i.i.not.i.i = icmp eq i64 %2198, 0
+  %.0.in.v.i3.i.i.i.i336 = select i1 %.not.i.i1.i.i.not.i.i, i64 32, i64 48
+  %.0.in.i4.i.i.i.i337 = lshr i64 %2172, %.0.in.v.i3.i.i.i.i336
+  %2203 = mul nuw nsw i64 %.0.in.i4.i.i.i.i337, %.sroa.0.0.insert.ext.i.i.i.i.i.i335
+  %2204 = and i64 %2203, 4294967295
+  %2205 = trunc i64 %2172 to i8
+  %2206 = lshr i8 %2205, 3
+  %2207 = and i8 %2206, 1
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i
 
-_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i:         ; preds = %2187, %2186
-  %.sroa.06.0.i.i.i.i330 = phi i64 [ %.0.in.i.i.i28.i.i, %2186 ], [ %2190, %2187 ]
-  %.sroa.3.0.i.i.i.i331 = phi i8 [ 0, %2186 ], [ %2193, %2187 ]
-  %2194 = add nuw nsw i64 %.sroa.06.0.i.i.i.i330, 7
-  %2195 = lshr i64 %2194, 3
-  store i64 %2195, ptr %39, align 8
-  %.sroa.2.0..sroa_idx.i.i332 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i8 %.sroa.3.0.i.i.i.i331, ptr %.sroa.2.0..sroa_idx.i.i332, align 8
-  %2196 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %39) #25
-  %.not25.i.i = icmp eq i64 %.0.i.i.i328, %2196
+_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i:         ; preds = %2201, %2200
+  %.sroa.06.0.i.i.i.i331 = phi i64 [ %.0.in.i.i.i28.i.i, %2200 ], [ %2204, %2201 ]
+  %.sroa.3.0.i.i.i.i332 = phi i8 [ 0, %2200 ], [ %2207, %2201 ]
+  %2208 = add nuw nsw i64 %.sroa.06.0.i.i.i.i331, 7
+  %2209 = lshr i64 %2208, 3
+  store i64 %2209, ptr %39, align 8
+  %.sroa.2.0..sroa_idx.i.i333 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i8 %.sroa.3.0.i.i.i.i332, ptr %.sroa.2.0..sroa_idx.i.i333, align 8
+  %2210 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %39) #25
+  %.not25.i.i = icmp eq i64 %.0.i.i.i329, %2210
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #25
-  br i1 %.not25.i.i, label %2197, label %_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i
+  br i1 %.not25.i.i, label %2211, label %_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i
 
-.critedge.i.i325:                                 ; preds = %2167
+.critedge.i.i326:                                 ; preds = %2181
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #25
   br label %_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i
 
-2197:                                             ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i
-  %2198 = call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %2173, ptr noundef nonnull align 8 dereferenceable(504) %2124) #25
-  %.not.i.i.i29.i.i = icmp eq ptr %2198, null
-  br i1 %.not.i.i.i29.i.i, label %_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i, label %2199
+2211:                                             ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i
+  %2212 = call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %2187, ptr noundef nonnull align 8 dereferenceable(504) %2138) #25
+  %.not.i.i.i29.i.i = icmp eq ptr %2212, null
+  br i1 %.not.i.i.i29.i.i, label %_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i, label %2213
 
-2199:                                             ; preds = %2197
-  %2200 = getelementptr inbounds nuw i8, ptr %2198, i64 68
-  %2201 = load i16, ptr %2200, align 4, !tbaa !449
-  %2202 = icmp eq i16 %2201, 67
-  %spec.select = select i1 %2202, i32 %2171, i32 0
+2213:                                             ; preds = %2211
+  %2214 = getelementptr inbounds nuw i8, ptr %2212, i64 68
+  %2215 = load i16, ptr %2214, align 4, !tbaa !449
+  %2216 = icmp eq i16 %2215, 67
+  %spec.select = select i1 %2216, i32 %2185, i32 0
   br label %_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i
 
-_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i: ; preds = %2199, %2197, %.critedge.i.i325, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i
-  %.sroa.0463.0 = phi i32 [ 0, %2197 ], [ 0, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i ], [ 0, %.critedge.i.i325 ], [ %spec.select, %2199 ]
-  %.3.i.i = phi i1 [ false, %2197 ], [ false, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i ], [ false, %.critedge.i.i325 ], [ %2202, %2199 ]
-  %2203 = load i8, ptr %2176, align 8, !tbaa !466, !range !64, !noundef !65
-  %2204 = trunc nuw i8 %2203 to i1
-  br i1 %2204, label %2205, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit"
+_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i: ; preds = %2213, %2211, %.critedge.i.i326, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i
+  %.sroa.0463.0 = phi i32 [ 0, %2211 ], [ 0, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i ], [ 0, %.critedge.i.i326 ], [ %spec.select, %2213 ]
+  %.3.i.i = phi i1 [ false, %2211 ], [ false, %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i.i ], [ false, %.critedge.i.i326 ], [ %2216, %2213 ]
+  %2217 = load i8, ptr %2190, align 8, !tbaa !466, !range !64, !noundef !65
+  %2218 = trunc nuw i8 %2217 to i1
+  br i1 %2218, label %2219, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit"
 
-2205:                                             ; preds = %_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i
-  store i8 0, ptr %2176, align 8, !tbaa !466
-  %2206 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %2207 = load i32, ptr %2206, align 8, !tbaa !418
-  %2208 = icmp ugt i32 %2207, 64
-  br i1 %2208, label %2209, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit"
+2219:                                             ; preds = %_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i
+  store i8 0, ptr %2190, align 8, !tbaa !466
+  %2220 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %2221 = load i32, ptr %2220, align 8, !tbaa !418
+  %2222 = icmp ugt i32 %2221, 64
+  br i1 %2222, label %2223, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit"
 
-2209:                                             ; preds = %2205
-  %2210 = load ptr, ptr %38, align 8, !tbaa !16
-  %2211 = icmp eq ptr %2210, null
-  br i1 %2211, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit", label %2212
+2223:                                             ; preds = %2219
+  %2224 = load ptr, ptr %38, align 8, !tbaa !16
+  %2225 = icmp eq ptr %2224, null
+  br i1 %2225, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit", label %2226
 
-2212:                                             ; preds = %2209
-  call void @_ZdaPv(ptr noundef nonnull %2210) #24
+2226:                                             ; preds = %2223
+  call void @_ZdaPv(ptr noundef nonnull %2224) #24
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit"
 
-"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit": ; preds = %_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i, %2205, %2209, %2212
+"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit": ; preds = %_ZN4llvm12getOpcodeDefINS_12GImplicitDefEEEPT_NS_8RegisterERKNS_19MachineRegisterInfoE.exit.thread.i.i, %2219, %2223, %2226
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38) #25
-  br i1 %.3.i.i, label %2213, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+  br i1 %.3.i.i, label %2227, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2213:                                             ; preds = %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit"
-  %2214 = load ptr, ptr %142, align 8, !tbaa !37
-  %2215 = load ptr, ptr %2214, align 8, !tbaa !378
-  %2216 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %2217 = load ptr, ptr %2216, align 8, !tbaa !269
-  %2218 = load ptr, ptr %2217, align 8, !tbaa !20
-  %2219 = getelementptr inbounds nuw i8, ptr %2218, i64 32
-  %2220 = load ptr, ptr %2219, align 8
-  call void %2220(ptr noundef nonnull align 8 dereferenceable(64) %2217, ptr noundef nonnull align 8 dereferenceable(70) %2215) #25
-  %2221 = getelementptr inbounds nuw i8, ptr %2215, i64 32
-  %2222 = load ptr, ptr %2221, align 8, !tbaa !383
-  %2223 = getelementptr inbounds nuw i8, ptr %2222, i64 4
-  %2224 = load i32, ptr %2223, align 4, !tbaa !16
-  %2225 = getelementptr inbounds nuw i8, ptr %2222, i64 36
-  %2226 = load i32, ptr %2225, align 4, !tbaa !16
-  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %2222, i32 %2226) #25
-  %2227 = load ptr, ptr %2221, align 8, !tbaa !383
-  %2228 = getelementptr inbounds nuw i8, ptr %2227, i64 32
-  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %2228, i32 %2224) #25
-  %2229 = load ptr, ptr %2221, align 8, !tbaa !383
-  %2230 = getelementptr inbounds nuw i8, ptr %2229, i64 64
-  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %2230, i32 %.sroa.0463.0) #25
-  %2231 = load ptr, ptr %2217, align 8, !tbaa !20
-  %2232 = getelementptr inbounds nuw i8, ptr %2231, i64 40
-  %2233 = load ptr, ptr %2232, align 8
-  call void %2233(ptr noundef nonnull align 8 dereferenceable(64) %2217, ptr noundef nonnull align 8 dereferenceable(70) %2215) #25
+2227:                                             ; preds = %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit"
+  %2228 = load ptr, ptr %142, align 8, !tbaa !37
+  %2229 = load ptr, ptr %2228, align 8, !tbaa !378
+  %2230 = getelementptr inbounds nuw i8, ptr %0, i64 4232
+  %2231 = load ptr, ptr %2230, align 8, !tbaa !269
+  %2232 = load ptr, ptr %2231, align 8, !tbaa !20
+  %2233 = getelementptr inbounds nuw i8, ptr %2232, i64 32
+  %2234 = load ptr, ptr %2233, align 8
+  call void %2234(ptr noundef nonnull align 8 dereferenceable(64) %2231, ptr noundef nonnull align 8 dereferenceable(70) %2229) #25
+  %2235 = getelementptr inbounds nuw i8, ptr %2229, i64 32
+  %2236 = load ptr, ptr %2235, align 8, !tbaa !383
+  %2237 = getelementptr inbounds nuw i8, ptr %2236, i64 4
+  %2238 = load i32, ptr %2237, align 4, !tbaa !16
+  %2239 = getelementptr inbounds nuw i8, ptr %2236, i64 36
+  %2240 = load i32, ptr %2239, align 4, !tbaa !16
+  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %2236, i32 %2240) #25
+  %2241 = load ptr, ptr %2235, align 8, !tbaa !383
+  %2242 = getelementptr inbounds nuw i8, ptr %2241, i64 32
+  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %2242, i32 %2238) #25
+  %2243 = load ptr, ptr %2235, align 8, !tbaa !383
+  %2244 = getelementptr inbounds nuw i8, ptr %2243, i64 64
+  call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %2244, i32 %.sroa.0463.0) #25
+  %2245 = load ptr, ptr %2231, align 8, !tbaa !20
+  %2246 = getelementptr inbounds nuw i8, ptr %2245, i64 40
+  %2247 = load ptr, ptr %2246, align 8
+  call void %2247(ptr noundef nonnull align 8 dereferenceable(64) %2231, ptr noundef nonnull align 8 dereferenceable(70) %2229) #25
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2234:                                             ; preds = %4
+2248:                                             ; preds = %4
   %.val61.val = load ptr, ptr %142, align 8, !tbaa !37
-  %2235 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %.val62.val = load ptr, ptr %2235, align 8, !tbaa !382
+  %2249 = getelementptr inbounds nuw i8, ptr %0, i64 4256
+  %.val62.val = load ptr, ptr %2249, align 8, !tbaa !382
   %.val61.val.val = load ptr, ptr %.val61.val, align 8, !tbaa !378
-  %2236 = getelementptr inbounds nuw i8, ptr %.val61.val.val, i64 32
-  %2237 = load ptr, ptr %2236, align 8, !tbaa !383
-  %2238 = getelementptr inbounds nuw i8, ptr %2237, i64 4
-  %2239 = load i32, ptr %2238, align 4, !tbaa !16
-  %2240 = icmp slt i32 %2239, 0
-  br i1 %2240, label %2241, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i338
-
-2241:                                             ; preds = %2234
-  %2242 = and i32 %2239, 2147483647
-  %2243 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 456
-  %2244 = load i32, ptr %2243, align 8, !tbaa !38
-  %2245 = icmp ugt i32 %2244, %2242
-  br i1 %2245, label %2246, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i338
-
-2246:                                             ; preds = %2241
-  %2247 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 448
-  %2248 = zext nneg i32 %2242 to i64
-  %2249 = load ptr, ptr %2247, align 8, !tbaa !37
-  %2250 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2249, i64 %2248
-  %2251 = load i64, ptr %2250, align 8, !tbaa !16
-  br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i338
-
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i338: ; preds = %2246, %2241, %2234
-  %.sroa.04.0.i.i.i339 = phi i64 [ %2251, %2246 ], [ 0, %2241 ], [ 0, %2234 ]
-  %2252 = getelementptr inbounds nuw i8, ptr %2237, i64 36
+  %2250 = getelementptr inbounds nuw i8, ptr %.val61.val.val, i64 32
+  %2251 = load ptr, ptr %2250, align 8, !tbaa !383
+  %2252 = getelementptr inbounds nuw i8, ptr %2251, i64 4
   %2253 = load i32, ptr %2252, align 4, !tbaa !16
-  %2254 = tail call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %2253, ptr noundef nonnull align 8 dereferenceable(504) %.val62.val) #25
-  %2255 = load ptr, ptr %2236, align 8, !tbaa !383
-  %2256 = getelementptr inbounds nuw i8, ptr %2255, i64 68
-  %2257 = load i32, ptr %2256, align 4, !tbaa !16
-  %2258 = tail call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %2257, ptr noundef nonnull align 8 dereferenceable(504) %.val62.val) #25
-  %2259 = and i64 %.sroa.04.0.i.i.i339, -7
-  %spec.select.i.i.i.i340 = icmp ne i64 %2259, 0
-  %2260 = and i64 %.sroa.04.0.i.i.i339, 4
-  %2261 = icmp ne i64 %2260, 0
-  %2262 = and i1 %spec.select.i.i.i.i340, %2261
-  br i1 %2262, label %2263, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+  %2254 = icmp slt i32 %2253, 0
+  br i1 %2254, label %2255, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i339
 
-2263:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i338
-  %2264 = getelementptr inbounds nuw i8, ptr %2254, i64 68
-  %2265 = load i16, ptr %2264, align 4, !tbaa !449
-  %2266 = getelementptr inbounds nuw i8, ptr %2258, i64 68
-  %2267 = load i16, ptr %2266, align 4, !tbaa !449
-  %2268 = icmp eq i16 %2265, 139
-  %2269 = icmp eq i16 %2267, 139
-  %or.cond.i.i341 = and i1 %2268, %2269
-  br i1 %or.cond.i.i341, label %2273, label %2270
+2255:                                             ; preds = %2248
+  %2256 = and i32 %2253, 2147483647
+  %2257 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 456
+  %2258 = load i32, ptr %2257, align 8, !tbaa !38
+  %2259 = icmp ugt i32 %2258, %2256
+  br i1 %2259, label %2260, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i339
 
-2270:                                             ; preds = %2263
-  %2271 = icmp eq i16 %2265, 137
-  %2272 = icmp eq i16 %2267, 137
-  %or.cond3.i.i = and i1 %2271, %2272
-  br i1 %or.cond3.i.i, label %2273, label %.critedge.i.i342
+2260:                                             ; preds = %2255
+  %2261 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 448
+  %2262 = zext nneg i32 %2256 to i64
+  %2263 = load ptr, ptr %2261, align 8, !tbaa !37
+  %2264 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2263, i64 %2262
+  %2265 = load i64, ptr %2264, align 8, !tbaa !16
+  br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i339
 
-2273:                                             ; preds = %2270, %2263
-  %2274 = getelementptr inbounds nuw i8, ptr %2254, i64 32
-  %2275 = load ptr, ptr %2274, align 8, !tbaa !383
-  %2276 = getelementptr inbounds nuw i8, ptr %2275, i64 4
-  %2277 = load i32, ptr %2276, align 4, !tbaa !16
-  %2278 = icmp slt i32 %2277, 0
-  br i1 %2278, label %2279, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i339: ; preds = %2260, %2255, %2248
+  %.sroa.04.0.i.i.i340 = phi i64 [ %2265, %2260 ], [ 0, %2255 ], [ 0, %2248 ]
+  %2266 = getelementptr inbounds nuw i8, ptr %2251, i64 36
+  %2267 = load i32, ptr %2266, align 4, !tbaa !16
+  %2268 = tail call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %2267, ptr noundef nonnull align 8 dereferenceable(504) %.val62.val) #25
+  %2269 = load ptr, ptr %2250, align 8, !tbaa !383
+  %2270 = getelementptr inbounds nuw i8, ptr %2269, i64 68
+  %2271 = load i32, ptr %2270, align 4, !tbaa !16
+  %2272 = tail call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %2271, ptr noundef nonnull align 8 dereferenceable(504) %.val62.val) #25
+  %2273 = and i64 %.sroa.04.0.i.i.i340, -7
+  %spec.select.i.i.i.i341 = icmp ne i64 %2273, 0
+  %2274 = and i64 %.sroa.04.0.i.i.i340, 4
+  %2275 = icmp ne i64 %2274, 0
+  %2276 = and i1 %spec.select.i.i.i.i341, %2275
+  br i1 %2276, label %2277, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2279:                                             ; preds = %2273
-  %2280 = and i32 %2277, 2147483647
-  %2281 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 456
-  %2282 = load i32, ptr %2281, align 8, !tbaa !38
-  %2283 = icmp ugt i32 %2282, %2280
-  br i1 %2283, label %2284, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i
+2277:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i339
+  %2278 = getelementptr inbounds nuw i8, ptr %2268, i64 68
+  %2279 = load i16, ptr %2278, align 4, !tbaa !449
+  %2280 = getelementptr inbounds nuw i8, ptr %2272, i64 68
+  %2281 = load i16, ptr %2280, align 4, !tbaa !449
+  %2282 = icmp eq i16 %2279, 139
+  %2283 = icmp eq i16 %2281, 139
+  %or.cond.i.i342 = and i1 %2282, %2283
+  br i1 %or.cond.i.i342, label %2287, label %2284
 
-2284:                                             ; preds = %2279
-  %2285 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 448
-  %2286 = zext nneg i32 %2280 to i64
-  %2287 = load ptr, ptr %2285, align 8, !tbaa !37
-  %2288 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2287, i64 %2286
-  %2289 = load i64, ptr %2288, align 8, !tbaa !16
+2284:                                             ; preds = %2277
+  %2285 = icmp eq i16 %2279, 137
+  %2286 = icmp eq i16 %2281, 137
+  %or.cond3.i.i = and i1 %2285, %2286
+  br i1 %or.cond3.i.i, label %2287, label %.critedge.i.i343
+
+2287:                                             ; preds = %2284, %2277
+  %2288 = getelementptr inbounds nuw i8, ptr %2268, i64 32
+  %2289 = load ptr, ptr %2288, align 8, !tbaa !383
+  %2290 = getelementptr inbounds nuw i8, ptr %2289, i64 4
+  %2291 = load i32, ptr %2290, align 4, !tbaa !16
+  %2292 = icmp slt i32 %2291, 0
+  br i1 %2292, label %2293, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i
+
+2293:                                             ; preds = %2287
+  %2294 = and i32 %2291, 2147483647
+  %2295 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 456
+  %2296 = load i32, ptr %2295, align 8, !tbaa !38
+  %2297 = icmp ugt i32 %2296, %2294
+  br i1 %2297, label %2298, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i
+
+2298:                                             ; preds = %2293
+  %2299 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 448
+  %2300 = zext nneg i32 %2294 to i64
+  %2301 = load ptr, ptr %2299, align 8, !tbaa !37
+  %2302 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2301, i64 %2300
+  %2303 = load i64, ptr %2302, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i: ; preds = %2284, %2279, %2273
-  %.sroa.04.0.i33.i.i = phi i64 [ %2289, %2284 ], [ 0, %2279 ], [ 0, %2273 ]
-  %2290 = and i64 %.sroa.04.0.i33.i.i, 2
-  %.not.i.i.i.i343 = icmp ne i64 %2290, 0
-  %2291 = and i64 %.sroa.04.0.i33.i.i, -7
-  %spec.select.i.i.i.i.i344 = icmp ne i64 %2291, 0
-  %2292 = and i1 %.not.i.i.i.i343, %spec.select.i.i.i.i.i344
-  %.0.in.v.i.i.i345 = select i1 %2292, i64 48, i64 32
-  %.0.in.i.i.i346 = lshr i64 %.sroa.04.0.i33.i.i, %.0.in.v.i.i.i345
-  %.0.i.i.i347 = trunc nuw i64 %.0.in.i.i.i346 to i32
-  %2293 = getelementptr inbounds nuw i8, ptr %2275, i64 36
-  %2294 = load i32, ptr %2293, align 4, !tbaa !16
-  %2295 = icmp slt i32 %2294, 0
-  br i1 %2295, label %2296, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit36.i.i
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i: ; preds = %2298, %2293, %2287
+  %.sroa.04.0.i33.i.i = phi i64 [ %2303, %2298 ], [ 0, %2293 ], [ 0, %2287 ]
+  %2304 = and i64 %.sroa.04.0.i33.i.i, 2
+  %.not.i.i.i.i344 = icmp ne i64 %2304, 0
+  %2305 = and i64 %.sroa.04.0.i33.i.i, -7
+  %spec.select.i.i.i.i.i345 = icmp ne i64 %2305, 0
+  %2306 = and i1 %.not.i.i.i.i344, %spec.select.i.i.i.i.i345
+  %.0.in.v.i.i.i346 = select i1 %2306, i64 48, i64 32
+  %.0.in.i.i.i347 = lshr i64 %.sroa.04.0.i33.i.i, %.0.in.v.i.i.i346
+  %.0.i.i.i348 = trunc nuw i64 %.0.in.i.i.i347 to i32
+  %2307 = getelementptr inbounds nuw i8, ptr %2289, i64 36
+  %2308 = load i32, ptr %2307, align 4, !tbaa !16
+  %2309 = icmp slt i32 %2308, 0
+  br i1 %2309, label %2310, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit36.i.i
 
-2296:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i
-  %2297 = and i32 %2294, 2147483647
-  %2298 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 456
-  %2299 = load i32, ptr %2298, align 8, !tbaa !38
-  %2300 = icmp ugt i32 %2299, %2297
-  br i1 %2300, label %2301, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit36.i.i
+2310:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i
+  %2311 = and i32 %2308, 2147483647
+  %2312 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 456
+  %2313 = load i32, ptr %2312, align 8, !tbaa !38
+  %2314 = icmp ugt i32 %2313, %2311
+  br i1 %2314, label %2315, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit36.i.i
 
-2301:                                             ; preds = %2296
-  %2302 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 448
-  %2303 = zext nneg i32 %2297 to i64
-  %2304 = load ptr, ptr %2302, align 8, !tbaa !37
-  %2305 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2304, i64 %2303
-  %2306 = load i64, ptr %2305, align 8, !tbaa !16
+2315:                                             ; preds = %2310
+  %2316 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 448
+  %2317 = zext nneg i32 %2311 to i64
+  %2318 = load ptr, ptr %2316, align 8, !tbaa !37
+  %2319 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2318, i64 %2317
+  %2320 = load i64, ptr %2319, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit36.i.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit36.i.i: ; preds = %2301, %2296, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i
-  %.sroa.04.0.i35.i.i = phi i64 [ %2306, %2301 ], [ 0, %2296 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i ]
-  %2307 = and i64 %.sroa.04.0.i35.i.i, 2
-  %.not.i.i37.i.i = icmp ne i64 %2307, 0
-  %2308 = and i64 %.sroa.04.0.i35.i.i, -7
-  %spec.select.i.i.i38.i.i = icmp ne i64 %2308, 0
-  %2309 = and i1 %.not.i.i37.i.i, %spec.select.i.i.i38.i.i
-  %.0.in.v.i39.i.i = select i1 %2309, i64 48, i64 32
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit36.i.i: ; preds = %2315, %2310, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i
+  %.sroa.04.0.i35.i.i = phi i64 [ %2320, %2315 ], [ 0, %2310 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit34.i.i ]
+  %2321 = and i64 %.sroa.04.0.i35.i.i, 2
+  %.not.i.i37.i.i = icmp ne i64 %2321, 0
+  %2322 = and i64 %.sroa.04.0.i35.i.i, -7
+  %spec.select.i.i.i38.i.i = icmp ne i64 %2322, 0
+  %2323 = and i1 %.not.i.i37.i.i, %spec.select.i.i.i38.i.i
+  %.0.in.v.i39.i.i = select i1 %2323, i64 48, i64 32
   %.0.in.i40.i.i = lshr i64 %.sroa.04.0.i35.i.i, %.0.in.v.i39.i.i
   %.0.i41.i.i = trunc nuw i64 %.0.in.i40.i.i to i32
-  %2310 = shl i32 %.0.i41.i.i, 1
-  %2311 = icmp eq i32 %2310, %.0.i.i.i347
-  br i1 %2311, label %2312, label %.critedge.i.i342
+  %2324 = shl i32 %.0.i41.i.i, 1
+  %2325 = icmp eq i32 %2324, %.0.i.i.i348
+  br i1 %2325, label %2326, label %.critedge.i.i343
 
-2312:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit36.i.i
-  %2313 = getelementptr inbounds nuw i8, ptr %2258, i64 32
-  %2314 = load ptr, ptr %2313, align 8, !tbaa !383
-  %2315 = getelementptr inbounds nuw i8, ptr %2314, i64 4
-  %2316 = load i32, ptr %2315, align 4, !tbaa !16
-  %2317 = icmp slt i32 %2316, 0
-  br i1 %2317, label %2318, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i
+2326:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit36.i.i
+  %2327 = getelementptr inbounds nuw i8, ptr %2272, i64 32
+  %2328 = load ptr, ptr %2327, align 8, !tbaa !383
+  %2329 = getelementptr inbounds nuw i8, ptr %2328, i64 4
+  %2330 = load i32, ptr %2329, align 4, !tbaa !16
+  %2331 = icmp slt i32 %2330, 0
+  br i1 %2331, label %2332, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i
 
-2318:                                             ; preds = %2312
-  %2319 = and i32 %2316, 2147483647
-  %2320 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 456
-  %2321 = load i32, ptr %2320, align 8, !tbaa !38
-  %2322 = icmp ugt i32 %2321, %2319
-  br i1 %2322, label %2323, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i
+2332:                                             ; preds = %2326
+  %2333 = and i32 %2330, 2147483647
+  %2334 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 456
+  %2335 = load i32, ptr %2334, align 8, !tbaa !38
+  %2336 = icmp ugt i32 %2335, %2333
+  br i1 %2336, label %2337, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i
 
-2323:                                             ; preds = %2318
-  %2324 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 448
-  %2325 = zext nneg i32 %2319 to i64
-  %2326 = load ptr, ptr %2324, align 8, !tbaa !37
-  %2327 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2326, i64 %2325
-  %2328 = load i64, ptr %2327, align 8, !tbaa !16
+2337:                                             ; preds = %2332
+  %2338 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 448
+  %2339 = zext nneg i32 %2333 to i64
+  %2340 = load ptr, ptr %2338, align 8, !tbaa !37
+  %2341 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2340, i64 %2339
+  %2342 = load i64, ptr %2341, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i: ; preds = %2323, %2318, %2312
-  %.sroa.04.0.i42.i.i = phi i64 [ %2328, %2323 ], [ 0, %2318 ], [ 0, %2312 ]
-  %2329 = and i64 %.sroa.04.0.i42.i.i, 2
-  %.not.i.i44.i.i = icmp ne i64 %2329, 0
-  %2330 = and i64 %.sroa.04.0.i42.i.i, -7
-  %spec.select.i.i.i45.i.i = icmp ne i64 %2330, 0
-  %2331 = and i1 %.not.i.i44.i.i, %spec.select.i.i.i45.i.i
-  %.0.in.v.i46.i.i = select i1 %2331, i64 48, i64 32
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i: ; preds = %2337, %2332, %2326
+  %.sroa.04.0.i42.i.i = phi i64 [ %2342, %2337 ], [ 0, %2332 ], [ 0, %2326 ]
+  %2343 = and i64 %.sroa.04.0.i42.i.i, 2
+  %.not.i.i44.i.i = icmp ne i64 %2343, 0
+  %2344 = and i64 %.sroa.04.0.i42.i.i, -7
+  %spec.select.i.i.i45.i.i = icmp ne i64 %2344, 0
+  %2345 = and i1 %.not.i.i44.i.i, %spec.select.i.i.i45.i.i
+  %.0.in.v.i46.i.i = select i1 %2345, i64 48, i64 32
   %.0.in.i47.i.i = lshr i64 %.sroa.04.0.i42.i.i, %.0.in.v.i46.i.i
   %.0.i48.i.i = trunc nuw i64 %.0.in.i47.i.i to i32
-  %2332 = getelementptr inbounds nuw i8, ptr %2314, i64 36
-  %2333 = load i32, ptr %2332, align 4, !tbaa !16
-  %2334 = icmp slt i32 %2333, 0
-  br i1 %2334, label %2335, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i
+  %2346 = getelementptr inbounds nuw i8, ptr %2328, i64 36
+  %2347 = load i32, ptr %2346, align 4, !tbaa !16
+  %2348 = icmp slt i32 %2347, 0
+  br i1 %2348, label %2349, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i
 
-2335:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i
-  %2336 = and i32 %2333, 2147483647
-  %2337 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 456
-  %2338 = load i32, ptr %2337, align 8, !tbaa !38
-  %2339 = icmp ugt i32 %2338, %2336
-  br i1 %2339, label %2340, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i
+2349:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i
+  %2350 = and i32 %2347, 2147483647
+  %2351 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 456
+  %2352 = load i32, ptr %2351, align 8, !tbaa !38
+  %2353 = icmp ugt i32 %2352, %2350
+  br i1 %2353, label %2354, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i
 
-2340:                                             ; preds = %2335
-  %2341 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 448
-  %2342 = zext nneg i32 %2336 to i64
-  %2343 = load ptr, ptr %2341, align 8, !tbaa !37
-  %2344 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2343, i64 %2342
-  %2345 = load i64, ptr %2344, align 8, !tbaa !16
+2354:                                             ; preds = %2349
+  %2355 = getelementptr inbounds nuw i8, ptr %.val62.val, i64 448
+  %2356 = zext nneg i32 %2350 to i64
+  %2357 = load ptr, ptr %2355, align 8, !tbaa !37
+  %2358 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2357, i64 %2356
+  %2359 = load i64, ptr %2358, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i: ; preds = %2340, %2335, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i
-  %.sroa.04.0.i49.i.i = phi i64 [ %2345, %2340 ], [ 0, %2335 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i ]
-  %2346 = and i64 %.sroa.04.0.i49.i.i, 2
-  %.not.i.i51.i.i = icmp ne i64 %2346, 0
-  %2347 = and i64 %.sroa.04.0.i49.i.i, -7
-  %spec.select.i.i.i52.i.i = icmp ne i64 %2347, 0
-  %2348 = and i1 %.not.i.i51.i.i, %spec.select.i.i.i52.i.i
-  %.0.in.v.i53.i.i = select i1 %2348, i64 48, i64 32
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i: ; preds = %2354, %2349, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i
+  %.sroa.04.0.i49.i.i = phi i64 [ %2359, %2354 ], [ 0, %2349 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit43.i.i ]
+  %2360 = and i64 %.sroa.04.0.i49.i.i, 2
+  %.not.i.i51.i.i = icmp ne i64 %2360, 0
+  %2361 = and i64 %.sroa.04.0.i49.i.i, -7
+  %spec.select.i.i.i52.i.i = icmp ne i64 %2361, 0
+  %2362 = and i1 %.not.i.i51.i.i, %spec.select.i.i.i52.i.i
+  %.0.in.v.i53.i.i = select i1 %2362, i64 48, i64 32
   %.0.in.i54.i.i = lshr i64 %.sroa.04.0.i49.i.i, %.0.in.v.i53.i.i
   %.0.i55.i.i = trunc nuw i64 %.0.in.i54.i.i to i32
-  %2349 = shl i32 %.0.i55.i.i, 1
-  %2350 = icmp ne i32 %2349, %.0.i48.i.i
-  %spec.select.i.i.i348 = icmp ne i64 %.sroa.04.0.i.i.i339, 274877907460
-  %or.cond62.i.i = select i1 %2350, i1 %spec.select.i.i.i348, i1 false
-  br i1 %or.cond62.i.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit", label %2351
+  %2363 = shl i32 %.0.i55.i.i, 1
+  %2364 = icmp ne i32 %2363, %.0.i48.i.i
+  %spec.select.i.i.i349 = icmp ne i64 %.sroa.04.0.i.i.i340, 274877907460
+  %or.cond62.i.i = select i1 %2364, i1 %spec.select.i.i.i349, i1 false
+  br i1 %or.cond62.i.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit", label %2365
 
-.critedge.i.i342:                                 ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit36.i.i, %2270
-  %spec.select.i.old.not.i.i = icmp eq i64 %.sroa.04.0.i.i.i339, 274877907460
-  br i1 %spec.select.i.old.not.i.i, label %2351, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+.critedge.i.i343:                                 ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit36.i.i, %2284
+  %spec.select.i.old.not.i.i = icmp eq i64 %.sroa.04.0.i.i.i340, 274877907460
+  br i1 %spec.select.i.old.not.i.i, label %2365, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2351:                                             ; preds = %.critedge.i.i342, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i
-  %2352 = load ptr, ptr %142, align 8, !tbaa !37
-  %2353 = load ptr, ptr %2352, align 8, !tbaa !378
-  %2354 = load ptr, ptr %2235, align 8, !tbaa !382
-  %2355 = getelementptr inbounds nuw i8, ptr %0, i64 4240
-  %2356 = load ptr, ptr %2355, align 8, !tbaa !310
-  %2357 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %2358 = load ptr, ptr %2357, align 8, !tbaa !269
-  %2359 = getelementptr inbounds nuw i8, ptr %2353, i64 32
-  %2360 = load ptr, ptr %2359, align 8, !tbaa !383
-  %2361 = getelementptr inbounds nuw i8, ptr %2360, i64 4
-  %2362 = load i32, ptr %2361, align 4, !tbaa !16
-  %2363 = icmp slt i32 %2362, 0
-  br i1 %2363, label %2364, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i349
+2365:                                             ; preds = %.critedge.i.i343, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i
+  %2366 = load ptr, ptr %142, align 8, !tbaa !37
+  %2367 = load ptr, ptr %2366, align 8, !tbaa !378
+  %2368 = load ptr, ptr %2249, align 8, !tbaa !382
+  %2369 = getelementptr inbounds nuw i8, ptr %0, i64 4240
+  %2370 = load ptr, ptr %2369, align 8, !tbaa !310
+  %2371 = getelementptr inbounds nuw i8, ptr %0, i64 4232
+  %2372 = load ptr, ptr %2371, align 8, !tbaa !269
+  %2373 = getelementptr inbounds nuw i8, ptr %2367, i64 32
+  %2374 = load ptr, ptr %2373, align 8, !tbaa !383
+  %2375 = getelementptr inbounds nuw i8, ptr %2374, i64 4
+  %2376 = load i32, ptr %2375, align 4, !tbaa !16
+  %2377 = icmp slt i32 %2376, 0
+  br i1 %2377, label %2378, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i350
 
-2364:                                             ; preds = %2351
-  %2365 = and i32 %2362, 2147483647
-  %2366 = getelementptr inbounds nuw i8, ptr %2354, i64 456
-  %2367 = load i32, ptr %2366, align 8, !tbaa !38
-  %2368 = icmp ugt i32 %2367, %2365
-  br i1 %2368, label %2369, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i349
+2378:                                             ; preds = %2365
+  %2379 = and i32 %2376, 2147483647
+  %2380 = getelementptr inbounds nuw i8, ptr %2368, i64 456
+  %2381 = load i32, ptr %2380, align 8, !tbaa !38
+  %2382 = icmp ugt i32 %2381, %2379
+  br i1 %2382, label %2383, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i350
 
-2369:                                             ; preds = %2364
-  %2370 = getelementptr inbounds nuw i8, ptr %2354, i64 448
-  %2371 = zext nneg i32 %2365 to i64
-  %2372 = load ptr, ptr %2370, align 8, !tbaa !37
-  %2373 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2372, i64 %2371
-  %2374 = load i64, ptr %2373, align 8, !tbaa !16
-  %2375 = icmp eq i64 %2374, 274877907460
-  br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i349
+2383:                                             ; preds = %2378
+  %2384 = getelementptr inbounds nuw i8, ptr %2368, i64 448
+  %2385 = zext nneg i32 %2379 to i64
+  %2386 = load ptr, ptr %2384, align 8, !tbaa !37
+  %2387 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2386, i64 %2385
+  %2388 = load i64, ptr %2387, align 8, !tbaa !16
+  %2389 = icmp eq i64 %2388, 274877907460
+  br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i350
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i349: ; preds = %2369, %2364, %2351
-  %.sroa.04.0.i.i350 = phi i1 [ %2375, %2369 ], [ false, %2364 ], [ false, %2351 ]
-  %2376 = getelementptr inbounds nuw i8, ptr %2360, i64 36
-  %2377 = load i32, ptr %2376, align 4, !tbaa !16
-  %2378 = tail call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %2377, ptr noundef nonnull align 8 dereferenceable(504) %2354) #25
-  %2379 = load ptr, ptr %2359, align 8, !tbaa !383
-  %2380 = getelementptr inbounds nuw i8, ptr %2379, i64 68
-  %2381 = load i32, ptr %2380, align 4, !tbaa !16
-  %2382 = tail call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %2381, ptr noundef nonnull align 8 dereferenceable(504) %2354) #25
-  %2383 = getelementptr inbounds nuw i8, ptr %2378, i64 68
-  %2384 = load i16, ptr %2383, align 4, !tbaa !449
-  %2385 = getelementptr inbounds nuw i8, ptr %2382, i64 68
-  %2386 = load i16, ptr %2385, align 4, !tbaa !449
-  %2387 = icmp eq i16 %2384, 139
-  %2388 = icmp eq i16 %2386, 139
-  %or.cond.i351 = and i1 %2387, %2388
-  br i1 %or.cond.i351, label %2392, label %2389
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i350: ; preds = %2383, %2378, %2365
+  %.sroa.04.0.i.i351 = phi i1 [ %2389, %2383 ], [ false, %2378 ], [ false, %2365 ]
+  %2390 = getelementptr inbounds nuw i8, ptr %2374, i64 36
+  %2391 = load i32, ptr %2390, align 4, !tbaa !16
+  %2392 = tail call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %2391, ptr noundef nonnull align 8 dereferenceable(504) %2368) #25
+  %2393 = load ptr, ptr %2373, align 8, !tbaa !383
+  %2394 = getelementptr inbounds nuw i8, ptr %2393, i64 68
+  %2395 = load i32, ptr %2394, align 4, !tbaa !16
+  %2396 = tail call noundef ptr @_ZN4llvm20getDefIgnoringCopiesENS_8RegisterERKNS_19MachineRegisterInfoE(i32 %2395, ptr noundef nonnull align 8 dereferenceable(504) %2368) #25
+  %2397 = getelementptr inbounds nuw i8, ptr %2392, i64 68
+  %2398 = load i16, ptr %2397, align 4, !tbaa !449
+  %2399 = getelementptr inbounds nuw i8, ptr %2396, i64 68
+  %2400 = load i16, ptr %2399, align 4, !tbaa !449
+  %2401 = icmp eq i16 %2398, 139
+  %2402 = icmp eq i16 %2400, 139
+  %or.cond.i352 = and i1 %2401, %2402
+  br i1 %or.cond.i352, label %2406, label %2403
 
-2389:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i349
-  %2390 = icmp eq i16 %2384, 137
-  %2391 = icmp eq i16 %2386, 137
-  %or.cond3.i352 = and i1 %2390, %2391
-  br i1 %or.cond3.i352, label %2392, label %.critedge.i
+2403:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i350
+  %2404 = icmp eq i16 %2398, 137
+  %2405 = icmp eq i16 %2400, 137
+  %or.cond3.i353 = and i1 %2404, %2405
+  br i1 %or.cond3.i353, label %2406, label %.critedge.i
 
-2392:                                             ; preds = %2389, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i349
-  %2393 = getelementptr inbounds nuw i8, ptr %2378, i64 32
-  %2394 = load ptr, ptr %2393, align 8, !tbaa !383
-  %2395 = getelementptr inbounds nuw i8, ptr %2394, i64 4
-  %2396 = load i32, ptr %2395, align 4, !tbaa !16
-  %2397 = icmp slt i32 %2396, 0
-  br i1 %2397, label %2398, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i
+2406:                                             ; preds = %2403, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i350
+  %2407 = getelementptr inbounds nuw i8, ptr %2392, i64 32
+  %2408 = load ptr, ptr %2407, align 8, !tbaa !383
+  %2409 = getelementptr inbounds nuw i8, ptr %2408, i64 4
+  %2410 = load i32, ptr %2409, align 4, !tbaa !16
+  %2411 = icmp slt i32 %2410, 0
+  br i1 %2411, label %2412, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i
 
-2398:                                             ; preds = %2392
-  %2399 = and i32 %2396, 2147483647
-  %2400 = getelementptr inbounds nuw i8, ptr %2354, i64 456
-  %2401 = load i32, ptr %2400, align 8, !tbaa !38
-  %2402 = icmp ugt i32 %2401, %2399
-  br i1 %2402, label %2403, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i
+2412:                                             ; preds = %2406
+  %2413 = and i32 %2410, 2147483647
+  %2414 = getelementptr inbounds nuw i8, ptr %2368, i64 456
+  %2415 = load i32, ptr %2414, align 8, !tbaa !38
+  %2416 = icmp ugt i32 %2415, %2413
+  br i1 %2416, label %2417, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i
 
-2403:                                             ; preds = %2398
-  %2404 = getelementptr inbounds nuw i8, ptr %2354, i64 448
-  %2405 = zext nneg i32 %2399 to i64
-  %2406 = load ptr, ptr %2404, align 8, !tbaa !37
-  %2407 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2406, i64 %2405
-  %2408 = load i64, ptr %2407, align 8, !tbaa !16
+2417:                                             ; preds = %2412
+  %2418 = getelementptr inbounds nuw i8, ptr %2368, i64 448
+  %2419 = zext nneg i32 %2413 to i64
+  %2420 = load ptr, ptr %2418, align 8, !tbaa !37
+  %2421 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2420, i64 %2419
+  %2422 = load i64, ptr %2421, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i: ; preds = %2403, %2398, %2392
-  %.sroa.04.0.i51.i = phi i64 [ %2408, %2403 ], [ 0, %2398 ], [ 0, %2392 ]
-  %2409 = and i64 %.sroa.04.0.i51.i, 2
-  %.not.i.i.i353 = icmp ne i64 %2409, 0
-  %2410 = and i64 %.sroa.04.0.i51.i, -7
-  %spec.select.i.i.i.i354 = icmp ne i64 %2410, 0
-  %2411 = and i1 %.not.i.i.i353, %spec.select.i.i.i.i354
-  %.0.in.v.i.i = select i1 %2411, i64 48, i64 32
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i: ; preds = %2417, %2412, %2406
+  %.sroa.04.0.i51.i = phi i64 [ %2422, %2417 ], [ 0, %2412 ], [ 0, %2406 ]
+  %2423 = and i64 %.sroa.04.0.i51.i, 2
+  %.not.i.i.i354 = icmp ne i64 %2423, 0
+  %2424 = and i64 %.sroa.04.0.i51.i, -7
+  %spec.select.i.i.i.i355 = icmp ne i64 %2424, 0
+  %2425 = and i1 %.not.i.i.i354, %spec.select.i.i.i.i355
+  %.0.in.v.i.i = select i1 %2425, i64 48, i64 32
   %.0.in.i.i = lshr i64 %.sroa.04.0.i51.i, %.0.in.v.i.i
-  %.0.i.i355 = trunc nuw i64 %.0.in.i.i to i32
-  %2412 = getelementptr inbounds nuw i8, ptr %2394, i64 36
-  %2413 = load i32, ptr %2412, align 4, !tbaa !16
-  %2414 = icmp slt i32 %2413, 0
-  br i1 %2414, label %2415, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54.i
+  %.0.i.i356 = trunc nuw i64 %.0.in.i.i to i32
+  %2426 = getelementptr inbounds nuw i8, ptr %2408, i64 36
+  %2427 = load i32, ptr %2426, align 4, !tbaa !16
+  %2428 = icmp slt i32 %2427, 0
+  br i1 %2428, label %2429, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54.i
 
-2415:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i
-  %2416 = and i32 %2413, 2147483647
-  %2417 = getelementptr inbounds nuw i8, ptr %2354, i64 456
-  %2418 = load i32, ptr %2417, align 8, !tbaa !38
-  %2419 = icmp ugt i32 %2418, %2416
-  br i1 %2419, label %2420, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54.i
+2429:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i
+  %2430 = and i32 %2427, 2147483647
+  %2431 = getelementptr inbounds nuw i8, ptr %2368, i64 456
+  %2432 = load i32, ptr %2431, align 8, !tbaa !38
+  %2433 = icmp ugt i32 %2432, %2430
+  br i1 %2433, label %2434, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54.i
 
-2420:                                             ; preds = %2415
-  %2421 = getelementptr inbounds nuw i8, ptr %2354, i64 448
-  %2422 = zext nneg i32 %2416 to i64
-  %2423 = load ptr, ptr %2421, align 8, !tbaa !37
-  %2424 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2423, i64 %2422
-  %2425 = load i64, ptr %2424, align 8, !tbaa !16
+2434:                                             ; preds = %2429
+  %2435 = getelementptr inbounds nuw i8, ptr %2368, i64 448
+  %2436 = zext nneg i32 %2430 to i64
+  %2437 = load ptr, ptr %2435, align 8, !tbaa !37
+  %2438 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2437, i64 %2436
+  %2439 = load i64, ptr %2438, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54.i: ; preds = %2420, %2415, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i
-  %.sroa.04.0.i53.i = phi i64 [ %2425, %2420 ], [ 0, %2415 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i ]
-  %2426 = and i64 %.sroa.04.0.i53.i, 2
-  %.not.i.i55.i = icmp ne i64 %2426, 0
-  %2427 = and i64 %.sroa.04.0.i53.i, -7
-  %spec.select.i.i.i56.i = icmp ne i64 %2427, 0
-  %2428 = and i1 %.not.i.i55.i, %spec.select.i.i.i56.i
-  %.0.in.v.i57.i = select i1 %2428, i64 48, i64 32
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54.i: ; preds = %2434, %2429, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i
+  %.sroa.04.0.i53.i = phi i64 [ %2439, %2434 ], [ 0, %2429 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit52.i ]
+  %2440 = and i64 %.sroa.04.0.i53.i, 2
+  %.not.i.i55.i = icmp ne i64 %2440, 0
+  %2441 = and i64 %.sroa.04.0.i53.i, -7
+  %spec.select.i.i.i56.i = icmp ne i64 %2441, 0
+  %2442 = and i1 %.not.i.i55.i, %spec.select.i.i.i56.i
+  %.0.in.v.i57.i = select i1 %2442, i64 48, i64 32
   %.0.in.i58.i = lshr i64 %.sroa.04.0.i53.i, %.0.in.v.i57.i
   %.0.i59.i = trunc nuw i64 %.0.in.i58.i to i32
-  %2429 = shl i32 %.0.i59.i, 1
-  %2430 = icmp eq i32 %2429, %.0.i.i355
-  br i1 %2430, label %2431, label %.critedge.i
+  %2443 = shl i32 %.0.i59.i, 1
+  %2444 = icmp eq i32 %2443, %.0.i.i356
+  br i1 %2444, label %2445, label %.critedge.i
 
-2431:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54.i
-  %2432 = getelementptr inbounds nuw i8, ptr %2382, i64 32
-  %2433 = load ptr, ptr %2432, align 8, !tbaa !383
-  %2434 = getelementptr inbounds nuw i8, ptr %2433, i64 4
-  %2435 = load i32, ptr %2434, align 4, !tbaa !16
-  %2436 = icmp slt i32 %2435, 0
-  br i1 %2436, label %2437, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i
+2445:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54.i
+  %2446 = getelementptr inbounds nuw i8, ptr %2396, i64 32
+  %2447 = load ptr, ptr %2446, align 8, !tbaa !383
+  %2448 = getelementptr inbounds nuw i8, ptr %2447, i64 4
+  %2449 = load i32, ptr %2448, align 4, !tbaa !16
+  %2450 = icmp slt i32 %2449, 0
+  br i1 %2450, label %2451, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i
 
-2437:                                             ; preds = %2431
-  %2438 = and i32 %2435, 2147483647
-  %2439 = getelementptr inbounds nuw i8, ptr %2354, i64 456
-  %2440 = load i32, ptr %2439, align 8, !tbaa !38
-  %2441 = icmp ugt i32 %2440, %2438
-  br i1 %2441, label %2442, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i
+2451:                                             ; preds = %2445
+  %2452 = and i32 %2449, 2147483647
+  %2453 = getelementptr inbounds nuw i8, ptr %2368, i64 456
+  %2454 = load i32, ptr %2453, align 8, !tbaa !38
+  %2455 = icmp ugt i32 %2454, %2452
+  br i1 %2455, label %2456, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i
 
-2442:                                             ; preds = %2437
-  %2443 = getelementptr inbounds nuw i8, ptr %2354, i64 448
-  %2444 = zext nneg i32 %2438 to i64
-  %2445 = load ptr, ptr %2443, align 8, !tbaa !37
-  %2446 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2445, i64 %2444
-  %2447 = load i64, ptr %2446, align 8, !tbaa !16
+2456:                                             ; preds = %2451
+  %2457 = getelementptr inbounds nuw i8, ptr %2368, i64 448
+  %2458 = zext nneg i32 %2452 to i64
+  %2459 = load ptr, ptr %2457, align 8, !tbaa !37
+  %2460 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2459, i64 %2458
+  %2461 = load i64, ptr %2460, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i: ; preds = %2442, %2437, %2431
-  %.sroa.04.0.i60.i = phi i64 [ %2447, %2442 ], [ 0, %2437 ], [ 0, %2431 ]
-  %2448 = and i64 %.sroa.04.0.i60.i, 2
-  %.not.i.i62.i356 = icmp ne i64 %2448, 0
-  %2449 = and i64 %.sroa.04.0.i60.i, -7
-  %spec.select.i.i.i63.i = icmp ne i64 %2449, 0
-  %2450 = and i1 %.not.i.i62.i356, %spec.select.i.i.i63.i
-  %.0.in.v.i64.i = select i1 %2450, i64 48, i64 32
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i: ; preds = %2456, %2451, %2445
+  %.sroa.04.0.i60.i = phi i64 [ %2461, %2456 ], [ 0, %2451 ], [ 0, %2445 ]
+  %2462 = and i64 %.sroa.04.0.i60.i, 2
+  %.not.i.i62.i = icmp ne i64 %2462, 0
+  %2463 = and i64 %.sroa.04.0.i60.i, -7
+  %spec.select.i.i.i63.i = icmp ne i64 %2463, 0
+  %2464 = and i1 %.not.i.i62.i, %spec.select.i.i.i63.i
+  %.0.in.v.i64.i = select i1 %2464, i64 48, i64 32
   %.0.in.i65.i = lshr i64 %.sroa.04.0.i60.i, %.0.in.v.i64.i
   %.0.i66.i = trunc nuw i64 %.0.in.i65.i to i32
-  %2451 = getelementptr inbounds nuw i8, ptr %2433, i64 36
-  %2452 = load i32, ptr %2451, align 4, !tbaa !16
-  %2453 = icmp slt i32 %2452, 0
-  br i1 %2453, label %2454, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i
+  %2465 = getelementptr inbounds nuw i8, ptr %2447, i64 36
+  %2466 = load i32, ptr %2465, align 4, !tbaa !16
+  %2467 = icmp slt i32 %2466, 0
+  br i1 %2467, label %2468, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i
 
-2454:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i
-  %2455 = and i32 %2452, 2147483647
-  %2456 = getelementptr inbounds nuw i8, ptr %2354, i64 456
-  %2457 = load i32, ptr %2456, align 8, !tbaa !38
-  %2458 = icmp ugt i32 %2457, %2455
-  br i1 %2458, label %2459, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i
+2468:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i
+  %2469 = and i32 %2466, 2147483647
+  %2470 = getelementptr inbounds nuw i8, ptr %2368, i64 456
+  %2471 = load i32, ptr %2470, align 8, !tbaa !38
+  %2472 = icmp ugt i32 %2471, %2469
+  br i1 %2472, label %2473, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i
 
-2459:                                             ; preds = %2454
-  %2460 = getelementptr inbounds nuw i8, ptr %2354, i64 448
-  %2461 = zext nneg i32 %2455 to i64
-  %2462 = load ptr, ptr %2460, align 8, !tbaa !37
-  %2463 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2462, i64 %2461
-  %2464 = load i64, ptr %2463, align 8, !tbaa !16
+2473:                                             ; preds = %2468
+  %2474 = getelementptr inbounds nuw i8, ptr %2368, i64 448
+  %2475 = zext nneg i32 %2469 to i64
+  %2476 = load ptr, ptr %2474, align 8, !tbaa !37
+  %2477 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2476, i64 %2475
+  %2478 = load i64, ptr %2477, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i: ; preds = %2459, %2454, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i
-  %.sroa.04.0.i67.i = phi i64 [ %2464, %2459 ], [ 0, %2454 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i ]
-  %2465 = and i64 %.sroa.04.0.i67.i, 2
-  %.not.i.i69.i = icmp ne i64 %2465, 0
-  %2466 = and i64 %.sroa.04.0.i67.i, -7
-  %spec.select.i.i.i70.i = icmp ne i64 %2466, 0
-  %2467 = and i1 %.not.i.i69.i, %spec.select.i.i.i70.i
-  %.0.in.v.i71.i = select i1 %2467, i64 48, i64 32
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i: ; preds = %2473, %2468, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i
+  %.sroa.04.0.i67.i = phi i64 [ %2478, %2473 ], [ 0, %2468 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit61.i ]
+  %2479 = and i64 %.sroa.04.0.i67.i, 2
+  %.not.i.i69.i = icmp ne i64 %2479, 0
+  %2480 = and i64 %.sroa.04.0.i67.i, -7
+  %spec.select.i.i.i70.i = icmp ne i64 %2480, 0
+  %2481 = and i1 %.not.i.i69.i, %spec.select.i.i.i70.i
+  %.0.in.v.i71.i = select i1 %2481, i64 48, i64 32
   %.0.in.i72.i = lshr i64 %.sroa.04.0.i67.i, %.0.in.v.i71.i
   %.0.i73.i = trunc nuw i64 %.0.in.i72.i to i32
-  %2468 = shl i32 %.0.i73.i, 1
-  %2469 = icmp eq i32 %2468, %.0.i66.i
-  br i1 %2469, label %2470, label %.critedge.i
+  %2482 = shl i32 %.0.i73.i, 1
+  %2483 = icmp eq i32 %2482, %.0.i66.i
+  br i1 %2483, label %2484, label %.critedge.i
 
-2470:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i
-  tail call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %2356, ptr noundef nonnull align 8 dereferenceable(70) %2353)
-  %2471 = load i16, ptr %2383, align 4, !tbaa !449
-  %2472 = icmp eq i16 %2471, 139
-  %2473 = select i1 %2472, i32 830, i32 823
+2484:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i
+  tail call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %2370, ptr noundef nonnull align 8 dereferenceable(70) %2367)
+  %2485 = load i16, ptr %2397, align 4, !tbaa !449
+  %2486 = icmp eq i16 %2485, 139
+  %2487 = select i1 %2486, i32 830, i32 823
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35) #25
-  %2474 = load ptr, ptr %2359, align 8, !tbaa !383
-  %2475 = getelementptr inbounds nuw i8, ptr %2474, i64 4
-  %2476 = load i32, ptr %2475, align 4, !tbaa !16
-  store i32 %2476, ptr %35, align 8, !tbaa !115
-  %2477 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i32 1, ptr %2477, align 8, !tbaa !408
+  %2488 = load ptr, ptr %2373, align 8, !tbaa !383
+  %2489 = getelementptr inbounds nuw i8, ptr %2488, i64 4
+  %2490 = load i32, ptr %2489, align 4, !tbaa !16
+  store i32 %2490, ptr %35, align 8, !tbaa !115
+  %2491 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store i32 1, ptr %2491, align 8, !tbaa !408
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36) #25
-  %2478 = load ptr, ptr %2393, align 8, !tbaa !383
-  %2479 = getelementptr inbounds nuw i8, ptr %2478, i64 36
-  %2480 = load i32, ptr %2479, align 4, !tbaa !16
-  store i32 %2480, ptr %36, align 8, !tbaa !115
-  %2481 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i32 0, ptr %2481, align 8, !tbaa !455
-  %2482 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %2483 = load ptr, ptr %2432, align 8, !tbaa !383
-  %2484 = getelementptr inbounds nuw i8, ptr %2483, i64 36
-  %2485 = load i32, ptr %2484, align 4, !tbaa !16
-  store i32 %2485, ptr %2482, align 8, !tbaa !115
-  %2486 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store i32 0, ptr %2486, align 8, !tbaa !455
-  %2487 = load ptr, ptr %2356, align 8, !tbaa !20
-  %2488 = getelementptr inbounds nuw i8, ptr %2487, i64 32
-  %2489 = load ptr, ptr %2488, align 8
-  %2490 = call { ptr, ptr } %2489(ptr noundef nonnull align 8 dereferenceable(88) %2356, i32 noundef %2473, ptr nonnull %35, i64 1, ptr nonnull %36, i64 2, i64 0) #25
+  %2492 = load ptr, ptr %2407, align 8, !tbaa !383
+  %2493 = getelementptr inbounds nuw i8, ptr %2492, i64 36
+  %2494 = load i32, ptr %2493, align 4, !tbaa !16
+  store i32 %2494, ptr %36, align 8, !tbaa !115
+  %2495 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store i32 0, ptr %2495, align 8, !tbaa !455
+  %2496 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %2497 = load ptr, ptr %2446, align 8, !tbaa !383
+  %2498 = getelementptr inbounds nuw i8, ptr %2497, i64 36
+  %2499 = load i32, ptr %2498, align 4, !tbaa !16
+  store i32 %2499, ptr %2496, align 8, !tbaa !115
+  %2500 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  store i32 0, ptr %2500, align 8, !tbaa !455
+  %2501 = load ptr, ptr %2370, align 8, !tbaa !20
+  %2502 = getelementptr inbounds nuw i8, ptr %2501, i64 32
+  %2503 = load ptr, ptr %2502, align 8
+  %2504 = call { ptr, ptr } %2503(ptr noundef nonnull align 8 dereferenceable(88) %2370, i32 noundef %2487, ptr nonnull %35, i64 1, ptr nonnull %36, i64 2, i64 0) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35) #25
-  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2353) #25
+  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2367) #25
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-.critedge.i:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54.i, %2389
-  br i1 %.sroa.04.0.i.i350, label %_ZNK4llvm3LLT18changeElementCountENS_12ElementCountE.exit.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+.critedge.i:                                      ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit54.i, %2403
+  br i1 %.sroa.04.0.i.i351, label %_ZNK4llvm3LLT18changeElementCountENS_12ElementCountE.exit.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
 _ZNK4llvm3LLT18changeElementCountENS_12ElementCountE.exit.i: ; preds = %.critedge.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %37) #25
-  %2491 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %2353) #25
-  call void @_ZN4llvm15LegalizerHelperC1ERNS_15MachineFunctionERNS_19GISelChangeObserverERNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(1065) %2491, ptr noundef nonnull align 8 dereferenceable(64) %2358, ptr noundef nonnull align 8 dereferenceable(88) %2356) #25
-  call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %2356, ptr noundef nonnull align 8 dereferenceable(70) %2353)
-  %2492 = call noundef i32 @_ZN4llvm15LegalizerHelper19fewerElementsVectorERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(70) %2353, i32 noundef 0, i64 274877906945) #25
+  %2505 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %2367) #25
+  call void @_ZN4llvm15LegalizerHelperC1ERNS_15MachineFunctionERNS_19GISelChangeObserverERNS_16MachineIRBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(1065) %2505, ptr noundef nonnull align 8 dereferenceable(64) %2372, ptr noundef nonnull align 8 dereferenceable(88) %2370) #25
+  call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %2370, ptr noundef nonnull align 8 dereferenceable(70) %2367)
+  %2506 = call noundef i32 @_ZN4llvm15LegalizerHelper19fewerElementsVectorERNS_12MachineInstrEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(70) %2367, i32 noundef 0, i64 274877906945) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37) #25
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2493:                                             ; preds = %4
+2507:                                             ; preds = %4
   %.val63.val = load ptr, ptr %142, align 8, !tbaa !37
-  %2494 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %.val64.val = load ptr, ptr %2494, align 8, !tbaa !382
+  %2508 = getelementptr inbounds nuw i8, ptr %0, i64 4256
+  %.val64.val = load ptr, ptr %2508, align 8, !tbaa !382
   %.val63.val.val = load ptr, ptr %.val63.val, align 8, !tbaa !378
-  %2495 = getelementptr i8, ptr %.val64.val, i64 448
-  %.val64.val.val = load ptr, ptr %2495, align 8
-  %2496 = getelementptr inbounds nuw i8, ptr %.val63.val.val, i64 40
-  %2497 = load i24, ptr %2496, align 8
-  %2498 = zext i24 %2497 to i64
-  %2499 = add nuw nsw i64 %2498, 4294967295
-  %2500 = getelementptr inbounds nuw i8, ptr %.val63.val.val, i64 32
-  %2501 = load ptr, ptr %2500, align 8, !tbaa !383
-  %2502 = and i64 %2499, 4294967295
-  %2503 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2501, i64 %2502, i32 1
-  %2504 = load i32, ptr %2503, align 4, !tbaa !16
-  %2505 = icmp slt i32 %2504, 0
-  br i1 %2505, label %2506, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i357
+  %2509 = getelementptr i8, ptr %.val64.val, i64 448
+  %.val64.val.val = load ptr, ptr %2509, align 8
+  %2510 = getelementptr inbounds nuw i8, ptr %.val63.val.val, i64 40
+  %2511 = load i24, ptr %2510, align 8
+  %2512 = zext i24 %2511 to i64
+  %2513 = add nuw nsw i64 %2512, 4294967295
+  %2514 = getelementptr inbounds nuw i8, ptr %.val63.val.val, i64 32
+  %2515 = load ptr, ptr %2514, align 8, !tbaa !383
+  %2516 = and i64 %2513, 4294967295
+  %2517 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2515, i64 %2516, i32 1
+  %2518 = load i32, ptr %2517, align 4, !tbaa !16
+  %2519 = icmp slt i32 %2518, 0
+  br i1 %2519, label %2520, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i357
 
-2506:                                             ; preds = %2493
-  %2507 = getelementptr i8, ptr %.val64.val, i64 456
-  %.val64.val.val65 = load i32, ptr %2507, align 8
-  %2508 = and i32 %2504, 2147483647
-  %2509 = icmp ugt i32 %.val64.val.val65, %2508
-  br i1 %2509, label %2510, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i357
+2520:                                             ; preds = %2507
+  %2521 = getelementptr i8, ptr %.val64.val, i64 456
+  %.val64.val.val65 = load i32, ptr %2521, align 8
+  %2522 = and i32 %2518, 2147483647
+  %2523 = icmp ugt i32 %.val64.val.val65, %2522
+  br i1 %2523, label %2524, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i357
 
-2510:                                             ; preds = %2506
-  %2511 = zext nneg i32 %2508 to i64
-  %2512 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val64.val.val, i64 %2511
-  %2513 = load i64, ptr %2512, align 8, !tbaa !16
+2524:                                             ; preds = %2520
+  %2525 = zext nneg i32 %2522 to i64
+  %2526 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val64.val.val, i64 %2525
+  %2527 = load i64, ptr %2526, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i357
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i357: ; preds = %2510, %2506, %2493
-  %.sroa.04.0.i.i.i358 = phi i64 [ %2513, %2510 ], [ 0, %2506 ], [ 0, %2493 ]
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i357: ; preds = %2524, %2520, %2507
+  %.sroa.04.0.i.i.i358 = phi i64 [ %2527, %2524 ], [ 0, %2520 ], [ 0, %2507 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #25
-  %2514 = and i64 %.sroa.04.0.i.i.i358, -7
-  %spec.select.i.i.i.i.i359 = icmp ne i64 %2514, 0
-  %2515 = and i64 %.sroa.04.0.i.i.i358, 2
-  %2516 = and i64 %.sroa.04.0.i.i.i358, 6
-  %2517 = icmp eq i64 %2516, 2
-  %or.cond.i.i.i360 = and i1 %spec.select.i.i.i.i.i359, %2517
-  %2518 = and i64 %.sroa.04.0.i.i.i358, 1
-  %2519 = icmp ne i64 %2518, 0
-  %or.cond8.i.i.i361 = or i1 %2519, %or.cond.i.i.i360
-  br i1 %or.cond8.i.i.i361, label %2520, label %2522
+  %2528 = and i64 %.sroa.04.0.i.i.i358, -7
+  %spec.select.i.i.i.i.i359 = icmp ne i64 %2528, 0
+  %2529 = and i64 %.sroa.04.0.i.i.i358, 2
+  %2530 = and i64 %.sroa.04.0.i.i.i358, 6
+  %2531 = icmp eq i64 %2530, 2
+  %or.cond.i.i.i360 = and i1 %spec.select.i.i.i.i.i359, %2531
+  %2532 = and i64 %.sroa.04.0.i.i.i358, 1
+  %2533 = icmp ne i64 %2532, 0
+  %or.cond8.i.i.i361 = or i1 %2533, %or.cond.i.i.i360
+  br i1 %or.cond8.i.i.i361, label %2534, label %2536
 
-2520:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i357
-  %.not.i.i.i.i.i374 = icmp ne i64 %2515, 0
-  %2521 = and i1 %.not.i.i.i.i.i374, %spec.select.i.i.i.i.i359
-  %.0.in.v.i.i.i.i375 = select i1 %2521, i64 48, i64 32
+2534:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i357
+  %.not.i.i.i.i.i374 = icmp ne i64 %2529, 0
+  %2535 = and i1 %.not.i.i.i.i.i374, %spec.select.i.i.i.i.i359
+  %.0.in.v.i.i.i.i375 = select i1 %2535, i64 48, i64 32
   %.0.in.i.i.i.i376 = lshr i64 %.sroa.04.0.i.i.i358, %.0.in.v.i.i.i.i375
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i366
 
-2522:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i357
-  %2523 = lshr i64 %.sroa.04.0.i.i.i358, 8
-  %.sroa.0.0.insert.ext.i.i.i.i.i362 = and i64 %2523, 65535
-  %.not.i.i1.i.i.i363 = icmp ne i64 %2515, 0
-  %2524 = and i1 %.not.i.i1.i.i.i363, %spec.select.i.i.i.i.i359
-  %.0.in.v.i3.i.i.i364 = select i1 %2524, i64 48, i64 32
+2536:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i357
+  %2537 = lshr i64 %.sroa.04.0.i.i.i358, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i362 = and i64 %2537, 65535
+  %.not.i.i1.i.i.i363 = icmp ne i64 %2529, 0
+  %2538 = and i1 %.not.i.i1.i.i.i363, %spec.select.i.i.i.i.i359
+  %.0.in.v.i3.i.i.i364 = select i1 %2538, i64 48, i64 32
   %.0.in.i4.i.i.i365 = lshr i64 %.sroa.04.0.i.i.i358, %.0.in.v.i3.i.i.i364
-  %2525 = mul nuw nsw i64 %.0.in.i4.i.i.i365, %.sroa.0.0.insert.ext.i.i.i.i.i362
-  %2526 = and i64 %2525, 4294967295
-  %2527 = trunc i64 %.sroa.04.0.i.i.i358 to i8
-  %2528 = lshr i8 %2527, 3
-  %2529 = and i8 %2528, 1
+  %2539 = mul nuw nsw i64 %.0.in.i4.i.i.i365, %.sroa.0.0.insert.ext.i.i.i.i.i362
+  %2540 = and i64 %2539, 4294967295
+  %2541 = trunc i64 %.sroa.04.0.i.i.i358 to i8
+  %2542 = lshr i8 %2541, 3
+  %2543 = and i8 %2542, 1
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i366
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i366:       ; preds = %2522, %2520
-  %.sroa.06.0.i.i.i367 = phi i64 [ %.0.in.i.i.i.i376, %2520 ], [ %2526, %2522 ]
-  %.sroa.3.0.i.i.i368 = phi i8 [ 0, %2520 ], [ %2529, %2522 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i366:       ; preds = %2536, %2534
+  %.sroa.06.0.i.i.i367 = phi i64 [ %.0.in.i.i.i.i376, %2534 ], [ %2540, %2536 ]
+  %.sroa.3.0.i.i.i368 = phi i8 [ 0, %2534 ], [ %2543, %2536 ]
   store i64 %.sroa.06.0.i.i.i367, ptr %33, align 8
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i8 %.sroa.3.0.i.i.i368, ptr %.sroa.24.0..sroa_idx.i.i, align 8
-  %2530 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %33) #25
-  %.not.i.i369 = icmp eq i64 %2530, 128
+  %2544 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %33) #25
+  %.not.i.i369 = icmp eq i64 %2544, 128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #25
-  br i1 %.not.i.i369, label %.critedge.i.i373, label %2531
+  br i1 %.not.i.i369, label %.critedge.i.i373, label %2545
 
-2531:                                             ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i366
-  br i1 %or.cond8.i.i.i361, label %2532, label %2534
+2545:                                             ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i366
+  br i1 %or.cond8.i.i.i361, label %2546, label %2548
 
-2532:                                             ; preds = %2531
-  %.not.i.i.i24.i.i = icmp ne i64 %2515, 0
-  %2533 = and i1 %.not.i.i.i24.i.i, %spec.select.i.i.i.i.i359
-  %.0.in.v.i.i25.i.i = select i1 %2533, i64 48, i64 32
+2546:                                             ; preds = %2545
+  %.not.i.i.i24.i.i = icmp ne i64 %2529, 0
+  %2547 = and i1 %.not.i.i.i24.i.i, %spec.select.i.i.i.i.i359
+  %.0.in.v.i.i25.i.i = select i1 %2547, i64 48, i64 32
   %.0.in.i.i26.i.i = lshr i64 %.sroa.04.0.i.i.i358, %.0.in.v.i.i25.i.i
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit27.i.i
 
-2534:                                             ; preds = %2531
-  %2535 = lshr i64 %.sroa.04.0.i.i.i358, 8
-  %.sroa.0.0.insert.ext.i.i.i16.i.i = and i64 %2535, 65535
-  %.not.i.i1.i17.i.i = icmp ne i64 %2515, 0
-  %2536 = and i1 %.not.i.i1.i17.i.i, %spec.select.i.i.i.i.i359
-  %.0.in.v.i3.i18.i.i = select i1 %2536, i64 48, i64 32
+2548:                                             ; preds = %2545
+  %2549 = lshr i64 %.sroa.04.0.i.i.i358, 8
+  %.sroa.0.0.insert.ext.i.i.i16.i.i = and i64 %2549, 65535
+  %.not.i.i1.i17.i.i = icmp ne i64 %2529, 0
+  %2550 = and i1 %.not.i.i1.i17.i.i, %spec.select.i.i.i.i.i359
+  %.0.in.v.i3.i18.i.i = select i1 %2550, i64 48, i64 32
   %.0.in.i4.i19.i.i = lshr i64 %.sroa.04.0.i.i.i358, %.0.in.v.i3.i18.i.i
-  %2537 = mul nuw nsw i64 %.0.in.i4.i19.i.i, %.sroa.0.0.insert.ext.i.i.i16.i.i
-  %2538 = and i64 %2537, 4294967295
-  %2539 = trunc i64 %.sroa.04.0.i.i.i358 to i8
-  %2540 = lshr i8 %2539, 3
-  %2541 = and i8 %2540, 1
+  %2551 = mul nuw nsw i64 %.0.in.i4.i19.i.i, %.sroa.0.0.insert.ext.i.i.i16.i.i
+  %2552 = and i64 %2551, 4294967295
+  %2553 = trunc i64 %.sroa.04.0.i.i.i358 to i8
+  %2554 = lshr i8 %2553, 3
+  %2555 = and i8 %2554, 1
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit27.i.i
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit27.i.i:        ; preds = %2534, %2532
-  %.sroa.06.0.i20.i.i = phi i64 [ %.0.in.i.i26.i.i, %2532 ], [ %2538, %2534 ]
-  %.sroa.3.0.i21.i.i = phi i8 [ 0, %2532 ], [ %2541, %2534 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit27.i.i:        ; preds = %2548, %2546
+  %.sroa.06.0.i20.i.i = phi i64 [ %.0.in.i.i26.i.i, %2546 ], [ %2552, %2548 ]
+  %.sroa.3.0.i21.i.i = phi i8 [ 0, %2546 ], [ %2555, %2548 ]
   store i64 %.sroa.06.0.i20.i.i, ptr %34, align 8
   %.sroa.2.0..sroa_idx.i.i370 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i8 %.sroa.3.0.i21.i.i, ptr %.sroa.2.0..sroa_idx.i.i370, align 8
-  %2542 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %34) #25
-  %.not12.i.i = icmp eq i64 %2542, 64
+  %2556 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %34) #25
+  %.not12.i.i = icmp eq i64 %2556, 64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #25
-  br i1 %.not12.i.i, label %2543, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+  br i1 %.not12.i.i, label %2557, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
 .critedge.i.i373:                                 ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i366
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #25
-  br label %2543
+  br label %2557
 
-2543:                                             ; preds = %.critedge.i.i373, %_ZNK4llvm3LLT13getSizeInBitsEv.exit27.i.i
-  %2544 = and i64 %.sroa.04.0.i.i.i358, 12
-  %2545 = icmp eq i64 %2544, 4
-  %or.cond.not.i.i = and i1 %spec.select.i.i.i.i.i359, %2545
+2557:                                             ; preds = %.critedge.i.i373, %_ZNK4llvm3LLT13getSizeInBitsEv.exit27.i.i
+  %2558 = and i64 %.sroa.04.0.i.i.i358, 12
+  %2559 = icmp eq i64 %2558, 4
+  %or.cond.not.i.i = and i1 %spec.select.i.i.i.i.i359, %2559
   br i1 %or.cond.not.i.i, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_19clEv.exit", label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_19clEv.exit": ; preds = %2543
-  %2546 = load i24, ptr %2496, align 8
-  %2547 = zext i24 %2546 to i32
-  %2548 = trunc i64 %.sroa.04.0.i.i.i358 to i32
-  %2549 = lshr i32 %2548, 8
-  %2550 = and i32 %2549, 65535
-  %2551 = add nuw nsw i32 %2550, 1
-  %2552 = icmp eq i32 %2551, %2547
-  br i1 %2552, label %2553, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
+"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_19clEv.exit": ; preds = %2557
+  %2560 = load i24, ptr %2510, align 8
+  %2561 = zext i24 %2560 to i32
+  %2562 = trunc i64 %.sroa.04.0.i.i.i358 to i32
+  %2563 = lshr i32 %2562, 8
+  %2564 = and i32 %2563, 65535
+  %2565 = add nuw nsw i32 %2564, 1
+  %2566 = icmp eq i32 %2565, %2561
+  br i1 %2566, label %2567, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2553:                                             ; preds = %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_19clEv.exit"
-  %2554 = load ptr, ptr %142, align 8, !tbaa !37
-  %2555 = load ptr, ptr %2554, align 8, !tbaa !378
-  %2556 = load ptr, ptr %2494, align 8, !tbaa !382
-  %2557 = getelementptr inbounds nuw i8, ptr %0, i64 4240
-  %2558 = load ptr, ptr %2557, align 8, !tbaa !310
-  %2559 = getelementptr i8, ptr %2556, i64 448
-  %.val66 = load ptr, ptr %2559, align 8
-  %2560 = getelementptr inbounds nuw i8, ptr %2555, i64 40
-  %2561 = load i24, ptr %2560, align 8
-  %2562 = zext i24 %2561 to i64
-  %2563 = add nuw nsw i64 %2562, 4294967295
-  %2564 = getelementptr inbounds nuw i8, ptr %2555, i64 32
-  %2565 = load ptr, ptr %2564, align 8, !tbaa !383
-  %2566 = and i64 %2563, 4294967295
-  %2567 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2565, i64 %2566, i32 1
-  %2568 = load i32, ptr %2567, align 4, !tbaa !16
-  %2569 = icmp slt i32 %2568, 0
-  br i1 %2569, label %2570, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i377
+2567:                                             ; preds = %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_19clEv.exit"
+  %2568 = load ptr, ptr %142, align 8, !tbaa !37
+  %2569 = load ptr, ptr %2568, align 8, !tbaa !378
+  %2570 = load ptr, ptr %2508, align 8, !tbaa !382
+  %2571 = getelementptr inbounds nuw i8, ptr %0, i64 4240
+  %2572 = load ptr, ptr %2571, align 8, !tbaa !310
+  %2573 = getelementptr i8, ptr %2570, i64 448
+  %.val66 = load ptr, ptr %2573, align 8
+  %2574 = getelementptr inbounds nuw i8, ptr %2569, i64 40
+  %2575 = load i24, ptr %2574, align 8
+  %2576 = zext i24 %2575 to i64
+  %2577 = add nuw nsw i64 %2576, 4294967295
+  %2578 = getelementptr inbounds nuw i8, ptr %2569, i64 32
+  %2579 = load ptr, ptr %2578, align 8, !tbaa !383
+  %2580 = and i64 %2577, 4294967295
+  %2581 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2579, i64 %2580, i32 1
+  %2582 = load i32, ptr %2581, align 4, !tbaa !16
+  %2583 = icmp slt i32 %2582, 0
+  br i1 %2583, label %2584, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i377
 
-2570:                                             ; preds = %2553
-  %2571 = getelementptr i8, ptr %2556, i64 456
-  %.val67 = load i32, ptr %2571, align 8
-  %2572 = and i32 %2568, 2147483647
-  %2573 = icmp ugt i32 %.val67, %2572
-  br i1 %2573, label %2574, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i377
+2584:                                             ; preds = %2567
+  %2585 = getelementptr i8, ptr %2570, i64 456
+  %.val67 = load i32, ptr %2585, align 8
+  %2586 = and i32 %2582, 2147483647
+  %2587 = icmp ugt i32 %.val67, %2586
+  br i1 %2587, label %2588, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i377
 
-2574:                                             ; preds = %2570
-  %2575 = zext nneg i32 %2572 to i64
-  %2576 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val66, i64 %2575
-  %2577 = load i64, ptr %2576, align 8, !tbaa !16
+2588:                                             ; preds = %2584
+  %2589 = zext nneg i32 %2586 to i64
+  %2590 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val66, i64 %2589
+  %2591 = load i64, ptr %2590, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i377
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i377: ; preds = %2574, %2570, %2553
-  %.sroa.04.0.i.i378 = phi i64 [ %2577, %2574 ], [ 0, %2570 ], [ 0, %2553 ]
-  %2578 = and i64 %.sroa.04.0.i.i378, 8
-  %.not.i.i379 = icmp eq i64 %2578, 0
-  %2579 = lshr i64 %.sroa.04.0.i.i378, 8
-  %wide.trip.count.i = and i64 %2579, 65535
-  %2580 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %2581 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %2582 = getelementptr inbounds nuw i8, ptr %2558, i64 8
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i377: ; preds = %2588, %2584, %2567
+  %.sroa.04.0.i.i378 = phi i64 [ %2591, %2588 ], [ 0, %2584 ], [ 0, %2567 ]
+  %2592 = and i64 %.sroa.04.0.i.i378, 8
+  %.not.i.i379 = icmp eq i64 %2592, 0
+  %2593 = lshr i64 %.sroa.04.0.i.i378, 8
+  %wide.trip.count.i = and i64 %2593, 65535
+  %2594 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %2595 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %2596 = getelementptr inbounds nuw i8, ptr %2572, i64 8
   %.sroa.2.0..sroa_idx.i.i380 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %2583 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %2597 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %.sroa.4.0..sroa_idx.i.i381 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %2584 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  br label %2585
+  %2598 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  br label %2599
 
-2585:                                             ; preds = %2587, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i377
-  %indvars.iv.i382 = phi i64 [ %indvars.iv.next.i387, %2587 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i377 ]
-  br i1 %.not.i.i379, label %_ZNK4llvm3LLT14getNumElementsEv.exit.i, label %2586
+2599:                                             ; preds = %2601, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i377
+  %indvars.iv.i382 = phi i64 [ %indvars.iv.next.i387, %2601 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i377 ]
+  br i1 %.not.i.i379, label %_ZNK4llvm3LLT14getNumElementsEv.exit.i, label %2600
 
-2586:                                             ; preds = %2585
+2600:                                             ; preds = %2599
   call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str.16) #25
   br label %_ZNK4llvm3LLT14getNumElementsEv.exit.i
 
-_ZNK4llvm3LLT14getNumElementsEv.exit.i:           ; preds = %2586, %2585
+_ZNK4llvm3LLT14getNumElementsEv.exit.i:           ; preds = %2600, %2599
   %exitcond.not.i = icmp eq i64 %indvars.iv.i382, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_127applyScalarizeVectorUnmergeERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, label %2587
+  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_127applyScalarizeVectorUnmergeERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, label %2601
 
-2587:                                             ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit.i
+2601:                                             ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31) #25
-  %2588 = load ptr, ptr %2564, align 8, !tbaa !383
-  %2589 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2588, i64 %indvars.iv.i382, i32 1
-  %2590 = load i32, ptr %2589, align 4, !tbaa !16
-  store i32 %2590, ptr %31, align 8, !tbaa !115
-  store i32 1, ptr %2580, align 8, !tbaa !408
+  %2602 = load ptr, ptr %2578, align 8, !tbaa !383
+  %2603 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2602, i64 %indvars.iv.i382, i32 1
+  %2604 = load i32, ptr %2603, align 4, !tbaa !16
+  store i32 %2604, ptr %31, align 8, !tbaa !115
+  store i32 1, ptr %2594, align 8, !tbaa !408
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32) #25
-  store i32 %2568, ptr %32, align 8, !tbaa !115
-  store i32 0, ptr %2581, align 8, !tbaa !455
-  %2591 = load ptr, ptr %2582, align 8, !tbaa !622
-  %2592 = getelementptr inbounds nuw i8, ptr %2591, i64 16
-  %2593 = load ptr, ptr %2592, align 8, !tbaa !256
-  %2594 = load ptr, ptr %2593, align 8, !tbaa !20
-  %2595 = getelementptr inbounds nuw i8, ptr %2594, i64 144
-  %2596 = load ptr, ptr %2595, align 8
-  %2597 = call noundef ptr %2596(ptr noundef nonnull align 8 dereferenceable(304) %2593) #25
+  store i32 %2582, ptr %32, align 8, !tbaa !115
+  store i32 0, ptr %2595, align 8, !tbaa !455
+  %2605 = load ptr, ptr %2596, align 8, !tbaa !628
+  %2606 = getelementptr inbounds nuw i8, ptr %2605, i64 16
+  %2607 = load ptr, ptr %2606, align 8, !tbaa !256
+  %2608 = load ptr, ptr %2607, align 8, !tbaa !20
+  %2609 = getelementptr inbounds nuw i8, ptr %2608, i64 144
+  %2610 = load ptr, ptr %2609, align 8
+  %2611 = call noundef ptr %2610(ptr noundef nonnull align 8 dereferenceable(304) %2607) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #25
-  %2598 = load ptr, ptr %2582, align 8, !tbaa !622
-  %2599 = load ptr, ptr %2598, align 8, !tbaa !145
-  %2600 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %2599) #25
-  %2601 = load ptr, ptr %2597, align 8, !tbaa !20
-  %2602 = getelementptr inbounds nuw i8, ptr %2601, i64 72
-  %2603 = load ptr, ptr %2602, align 8
-  %2604 = call i16 %2603(ptr noundef nonnull align 8 dereferenceable(412423) %2597, ptr noundef nonnull align 8 dereferenceable(496) %2600) #25
-  %2605 = zext i16 %2604 to i64
-  %2606 = add nsw i64 %2605, -1
-  %2607 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2606
-  %.sroa.0.0.copyload.i.i.i383 = load i64, ptr %2607, align 16
-  %.sroa.2.0..sroa_idx.i.i.i384 = getelementptr inbounds nuw i8, ptr %2607, i64 8
+  %2612 = load ptr, ptr %2596, align 8, !tbaa !628
+  %2613 = load ptr, ptr %2612, align 8, !tbaa !145
+  %2614 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %2613) #25
+  %2615 = load ptr, ptr %2611, align 8, !tbaa !20
+  %2616 = getelementptr inbounds nuw i8, ptr %2615, i64 72
+  %2617 = load ptr, ptr %2616, align 8
+  %2618 = call i16 %2617(ptr noundef nonnull align 8 dereferenceable(412423) %2611, ptr noundef nonnull align 8 dereferenceable(496) %2614) #25
+  %2619 = zext i16 %2618 to i64
+  %2620 = add nsw i64 %2619, -1
+  %2621 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %2620
+  %.sroa.0.0.copyload.i.i.i383 = load i64, ptr %2621, align 16
+  %.sroa.2.0..sroa_idx.i.i.i384 = getelementptr inbounds nuw i8, ptr %2621, i64 8
   %.sroa.2.0.copyload.i.i.i385 = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i384, align 8
   store i64 %.sroa.0.0.copyload.i.i.i383, ptr %28, align 8
   store i8 %.sroa.2.0.copyload.i.i.i385, ptr %.sroa.2.0..sroa_idx.i.i380, align 8
-  %2608 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %28) #25
+  %2622 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %28) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #25
-  %2609 = shl i64 %2608, 32
-  %storemerge.i.i.i.i.i386 = or disjoint i64 %2609, 1
+  %2623 = shl i64 %2622, 32
+  %storemerge.i.i.i.i.i386 = or disjoint i64 %2623, 1
   store i64 %storemerge.i.i.i.i.i386, ptr %30, align 8, !tbaa !16
-  store i32 0, ptr %2583, align 8, !tbaa !408
-  %2610 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2558, ptr noundef nonnull align 8 dereferenceable(20) %30, i64 noundef %indvars.iv.i382) #25
-  %2611 = extractvalue { ptr, ptr } %2610, 0
-  %2612 = extractvalue { ptr, ptr } %2610, 1
-  store ptr %2611, ptr %29, align 8, !tbaa !454
-  store ptr %2612, ptr %.sroa.4.0..sroa_idx.i.i381, align 8, !tbaa !378
-  store i32 1, ptr %2584, align 8, !tbaa !455
-  %2613 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder25buildExtractVectorElementERKNS_5DstOpERKNS_5SrcOpES6_(ptr noundef nonnull align 8 dereferenceable(88) %2558, ptr noundef nonnull align 8 dereferenceable(20) %31, ptr noundef nonnull align 8 dereferenceable(20) %32, ptr noundef nonnull align 8 dereferenceable(20) %29) #25
+  store i32 0, ptr %2597, align 8, !tbaa !408
+  %2624 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2572, ptr noundef nonnull align 8 dereferenceable(20) %30, i64 noundef %indvars.iv.i382) #25
+  %2625 = extractvalue { ptr, ptr } %2624, 0
+  %2626 = extractvalue { ptr, ptr } %2624, 1
+  store ptr %2625, ptr %29, align 8, !tbaa !454
+  store ptr %2626, ptr %.sroa.4.0..sroa_idx.i.i381, align 8, !tbaa !378
+  store i32 1, ptr %2598, align 8, !tbaa !455
+  %2627 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder25buildExtractVectorElementERKNS_5DstOpERKNS_5SrcOpES6_(ptr noundef nonnull align 8 dereferenceable(88) %2572, ptr noundef nonnull align 8 dereferenceable(20) %31, ptr noundef nonnull align 8 dereferenceable(20) %32, ptr noundef nonnull align 8 dereferenceable(20) %29) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #25
   %indvars.iv.next.i387 = add nuw nsw i64 %indvars.iv.i382, 1
-  br label %2585, !llvm.loop !623
+  br label %2599, !llvm.loop !629
 
 _ZN12_GLOBAL__N_127applyScalarizeVectorUnmergeERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit: ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit.i
-  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2555) #25
+  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2569) #25
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2614:                                             ; preds = %4
+2628:                                             ; preds = %4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %139) #25
-  %2615 = getelementptr inbounds nuw i8, ptr %139, i64 4
-  store i32 0, ptr %2615, align 4, !tbaa !380
-  %2616 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %2617 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  store ptr %2617, ptr %2616, align 8, !tbaa !37
-  %2618 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  store i32 0, ptr %2618, align 8, !tbaa !38
-  %2619 = getelementptr inbounds nuw i8, ptr %139, i64 20
-  store i32 2, ptr %2619, align 4, !tbaa !39
+  %2629 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  store i32 0, ptr %2629, align 4, !tbaa !380
+  %2630 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %2631 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  store ptr %2631, ptr %2630, align 8, !tbaa !37
+  %2632 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  store i32 0, ptr %2632, align 8, !tbaa !38
+  %2633 = getelementptr inbounds nuw i8, ptr %139, i64 20
+  store i32 2, ptr %2633, align 4, !tbaa !39
   %.val68.val = load ptr, ptr %142, align 8, !tbaa !37
-  %2620 = getelementptr inbounds nuw i8, ptr %0, i64 4256
-  %.val69.val = load ptr, ptr %2620, align 8, !tbaa !382
+  %2634 = getelementptr inbounds nuw i8, ptr %0, i64 4256
+  %.val69.val = load ptr, ptr %2634, align 8, !tbaa !382
   %.val68.val.val = load ptr, ptr %.val68.val, align 8, !tbaa !378
-  %2621 = getelementptr i8, ptr %.val68.val.val, i64 32
-  %.val68.val.val.val = load ptr, ptr %2621, align 8, !tbaa !383
-  %2622 = getelementptr i8, ptr %.val68.val.val.val, i64 100
-  %.val68.val.val.val.val = load i32, ptr %2622, align 4, !tbaa !16
+  %2635 = getelementptr i8, ptr %.val68.val.val, i64 32
+  %.val68.val.val.val = load ptr, ptr %2635, align 8, !tbaa !383
+  %2636 = getelementptr i8, ptr %.val68.val.val.val, i64 100
+  %.val68.val.val.val.val = load i32, ptr %2636, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #25
   call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.518") align 8 %27, i32 %.val68.val.val.val.val, ptr noundef nonnull align 8 dereferenceable(504) %.val69.val, i1 noundef zeroext true) #25
-  %2623 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %2624 = load i8, ptr %2623, align 8, !tbaa !466, !range !64, !noundef !65
-  %2625 = trunc nuw i8 %2624 to i1
-  br i1 %2625, label %2626, label %2634
+  %2637 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %2638 = load i8, ptr %2637, align 8, !tbaa !466, !range !64, !noundef !65
+  %2639 = trunc nuw i8 %2638 to i1
+  br i1 %2639, label %2640, label %2648
 
-2626:                                             ; preds = %2614
-  store i8 0, ptr %2623, align 8, !tbaa !466
-  %2627 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %2628 = load i32, ptr %2627, align 8, !tbaa !418
-  %2629 = icmp ugt i32 %2628, 64
-  br i1 %2629, label %2630, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_20clEv.exit.thread"
+2640:                                             ; preds = %2628
+  store i8 0, ptr %2637, align 8, !tbaa !466
+  %2641 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %2642 = load i32, ptr %2641, align 8, !tbaa !418
+  %2643 = icmp ugt i32 %2642, 64
+  br i1 %2643, label %2644, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_20clEv.exit.thread"
 
-2630:                                             ; preds = %2626
-  %2631 = load ptr, ptr %27, align 8, !tbaa !16
-  %2632 = icmp eq ptr %2631, null
-  br i1 %2632, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_20clEv.exit.thread", label %2633
+2644:                                             ; preds = %2640
+  %2645 = load ptr, ptr %27, align 8, !tbaa !16
+  %2646 = icmp eq ptr %2645, null
+  br i1 %2646, label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_20clEv.exit.thread", label %2647
 
-2633:                                             ; preds = %2630
-  call void @_ZdaPv(ptr noundef nonnull %2631) #24
+2647:                                             ; preds = %2644
+  call void @_ZdaPv(ptr noundef nonnull %2645) #24
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_20clEv.exit.thread"
 
-"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_20clEv.exit.thread": ; preds = %2626, %2630, %2633
+"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_20clEv.exit.thread": ; preds = %2640, %2644, %2647
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #25
   br label %_ZN12_GLOBAL__N_119applyNonConstInsertERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit
 
-2634:                                             ; preds = %2614
+2648:                                             ; preds = %2628
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #25
-  %2635 = load ptr, ptr %142, align 8, !tbaa !37
-  %2636 = load ptr, ptr %2635, align 8, !tbaa !378
-  %2637 = load ptr, ptr %2620, align 8, !tbaa !382
-  %2638 = getelementptr inbounds nuw i8, ptr %0, i64 4240
-  %2639 = load ptr, ptr %2638, align 8, !tbaa !310
-  call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %2639, ptr noundef nonnull align 8 dereferenceable(70) %2636)
-  %2640 = getelementptr inbounds nuw i8, ptr %2636, i64 32
-  %2641 = load ptr, ptr %2640, align 8, !tbaa !383
-  %2642 = getelementptr inbounds nuw i8, ptr %2641, i64 100
-  %2643 = load i32, ptr %2642, align 4, !tbaa !16
-  %2644 = getelementptr inbounds nuw i8, ptr %2641, i64 4
-  %2645 = load i32, ptr %2644, align 4, !tbaa !16
-  %2646 = icmp slt i32 %2645, 0
-  br i1 %2646, label %2647, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388
-
-2647:                                             ; preds = %2634
-  %2648 = and i32 %2645, 2147483647
-  %2649 = getelementptr inbounds nuw i8, ptr %2637, i64 456
-  %2650 = load i32, ptr %2649, align 8, !tbaa !38
-  %2651 = icmp ugt i32 %2650, %2648
-  br i1 %2651, label %2652, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388
-
-2652:                                             ; preds = %2647
-  %2653 = getelementptr inbounds nuw i8, ptr %2637, i64 448
-  %2654 = zext nneg i32 %2648 to i64
-  %2655 = load ptr, ptr %2653, align 8, !tbaa !37
-  %2656 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2655, i64 %2654
-  %2657 = load i64, ptr %2656, align 8, !tbaa !16
-  br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388
-
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388: ; preds = %2652, %2647, %2634
-  %.sroa.04.0.i.i389 = phi i64 [ %2657, %2652 ], [ 0, %2647 ], [ 0, %2634 ]
-  %2658 = getelementptr inbounds nuw i8, ptr %2641, i64 68
+  %2649 = load ptr, ptr %142, align 8, !tbaa !37
+  %2650 = load ptr, ptr %2649, align 8, !tbaa !378
+  %2651 = load ptr, ptr %2634, align 8, !tbaa !382
+  %2652 = getelementptr inbounds nuw i8, ptr %0, i64 4240
+  %2653 = load ptr, ptr %2652, align 8, !tbaa !310
+  call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %2653, ptr noundef nonnull align 8 dereferenceable(70) %2650)
+  %2654 = getelementptr inbounds nuw i8, ptr %2650, i64 32
+  %2655 = load ptr, ptr %2654, align 8, !tbaa !383
+  %2656 = getelementptr inbounds nuw i8, ptr %2655, i64 100
+  %2657 = load i32, ptr %2656, align 4, !tbaa !16
+  %2658 = getelementptr inbounds nuw i8, ptr %2655, i64 4
   %2659 = load i32, ptr %2658, align 4, !tbaa !16
   %2660 = icmp slt i32 %2659, 0
-  br i1 %2660, label %2661, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390
+  br i1 %2660, label %2661, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388
 
-2661:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388
+2661:                                             ; preds = %2648
   %2662 = and i32 %2659, 2147483647
-  %2663 = getelementptr inbounds nuw i8, ptr %2637, i64 456
+  %2663 = getelementptr inbounds nuw i8, ptr %2651, i64 456
   %2664 = load i32, ptr %2663, align 8, !tbaa !38
   %2665 = icmp ugt i32 %2664, %2662
-  br i1 %2665, label %2666, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390
+  br i1 %2665, label %2666, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388
 
 2666:                                             ; preds = %2661
-  %2667 = getelementptr inbounds nuw i8, ptr %2637, i64 448
+  %2667 = getelementptr inbounds nuw i8, ptr %2651, i64 448
   %2668 = zext nneg i32 %2662 to i64
   %2669 = load ptr, ptr %2667, align 8, !tbaa !37
   %2670 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2669, i64 %2668
   %2671 = load i64, ptr %2670, align 8, !tbaa !16
+  br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388
+
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388: ; preds = %2666, %2661, %2648
+  %.sroa.04.0.i.i389 = phi i64 [ %2671, %2666 ], [ 0, %2661 ], [ 0, %2648 ]
+  %2672 = getelementptr inbounds nuw i8, ptr %2655, i64 68
+  %2673 = load i32, ptr %2672, align 4, !tbaa !16
+  %2674 = icmp slt i32 %2673, 0
+  br i1 %2674, label %2675, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390
+
+2675:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388
+  %2676 = and i32 %2673, 2147483647
+  %2677 = getelementptr inbounds nuw i8, ptr %2651, i64 456
+  %2678 = load i32, ptr %2677, align 8, !tbaa !38
+  %2679 = icmp ugt i32 %2678, %2676
+  br i1 %2679, label %2680, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390
+
+2680:                                             ; preds = %2675
+  %2681 = getelementptr inbounds nuw i8, ptr %2651, i64 448
+  %2682 = zext nneg i32 %2676 to i64
+  %2683 = load ptr, ptr %2681, align 8, !tbaa !37
+  %2684 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2683, i64 %2682
+  %2685 = load i64, ptr %2684, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390: ; preds = %2666, %2661, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388
-  %.sroa.04.0.i67.i391 = phi i64 [ %2671, %2666 ], [ 0, %2661 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388 ]
-  %2672 = icmp slt i32 %2643, 0
-  br i1 %2672, label %2673, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit70.i
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390: ; preds = %2680, %2675, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388
+  %.sroa.04.0.i67.i391 = phi i64 [ %2685, %2680 ], [ 0, %2675 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i388 ]
+  %2686 = icmp slt i32 %2657, 0
+  br i1 %2686, label %2687, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit70.i
 
-2673:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390
-  %2674 = and i32 %2643, 2147483647
-  %2675 = getelementptr inbounds nuw i8, ptr %2637, i64 456
-  %2676 = load i32, ptr %2675, align 8, !tbaa !38
-  %2677 = icmp ugt i32 %2676, %2674
-  br i1 %2677, label %2678, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit70.i
+2687:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390
+  %2688 = and i32 %2657, 2147483647
+  %2689 = getelementptr inbounds nuw i8, ptr %2651, i64 456
+  %2690 = load i32, ptr %2689, align 8, !tbaa !38
+  %2691 = icmp ugt i32 %2690, %2688
+  br i1 %2691, label %2692, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit70.i
 
-2678:                                             ; preds = %2673
-  %2679 = getelementptr inbounds nuw i8, ptr %2637, i64 448
-  %2680 = zext nneg i32 %2674 to i64
-  %2681 = load ptr, ptr %2679, align 8, !tbaa !37
-  %2682 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2681, i64 %2680
-  %2683 = load i64, ptr %2682, align 8, !tbaa !16
+2692:                                             ; preds = %2687
+  %2693 = getelementptr inbounds nuw i8, ptr %2651, i64 448
+  %2694 = zext nneg i32 %2688 to i64
+  %2695 = load ptr, ptr %2693, align 8, !tbaa !37
+  %2696 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2695, i64 %2694
+  %2697 = load i64, ptr %2696, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit70.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit70.i: ; preds = %2678, %2673, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390
-  %.sroa.04.0.i69.i = phi i64 [ %2683, %2678 ], [ 0, %2673 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390 ]
-  %2684 = and i64 %.sroa.04.0.i.i389, -7
-  %spec.select.i.i.i.i392 = icmp ne i64 %2684, 0
-  %2685 = and i64 %.sroa.04.0.i.i389, 4
-  %2686 = icmp ne i64 %2685, 0
-  %2687 = and i1 %spec.select.i.i.i.i392, %2686
-  %2688 = and i64 %.sroa.04.0.i.i389, 8
-  %2689 = icmp ne i64 %2688, 0
-  %or.cond.i393 = select i1 %2687, i1 %2689, i1 false
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit70.i: ; preds = %2692, %2687, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390
+  %.sroa.04.0.i69.i = phi i64 [ %2697, %2692 ], [ 0, %2687 ], [ 0, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit68.i390 ]
+  %2698 = and i64 %.sroa.04.0.i.i389, -7
+  %spec.select.i.i.i.i392 = icmp ne i64 %2698, 0
+  %2699 = and i64 %.sroa.04.0.i.i389, 4
+  %2700 = icmp ne i64 %2699, 0
+  %2701 = and i1 %spec.select.i.i.i.i392, %2700
+  %2702 = and i64 %.sroa.04.0.i.i389, 8
+  %2703 = icmp ne i64 %2702, 0
+  %or.cond.i393 = select i1 %2701, i1 %2703, i1 false
   br i1 %or.cond.i393, label %_ZN12_GLOBAL__N_119applyNonConstInsertERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, label %_ZNK4llvm3LLT16isScalableVectorEv.exit.thread.i
 
 _ZNK4llvm3LLT16isScalableVectorEv.exit.thread.i:  ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit70.i
-  %2690 = getelementptr inbounds nuw i8, ptr %2639, i64 8
-  %2691 = load ptr, ptr %2690, align 8, !tbaa !622
-  %2692 = and i64 %.sroa.04.0.i.i389, 2
-  %2693 = and i64 %.sroa.04.0.i.i389, 6
-  %2694 = icmp eq i64 %2693, 2
-  %or.cond.i.i.i394 = and i1 %spec.select.i.i.i.i392, %2694
-  %2695 = and i64 %.sroa.04.0.i.i389, 1
-  %2696 = icmp ne i64 %2695, 0
-  %or.cond8.i.i.i395 = or i1 %2696, %or.cond.i.i.i394
-  br i1 %or.cond8.i.i.i395, label %2697, label %2699
+  %2704 = getelementptr inbounds nuw i8, ptr %2653, i64 8
+  %2705 = load ptr, ptr %2704, align 8, !tbaa !628
+  %2706 = and i64 %.sroa.04.0.i.i389, 2
+  %2707 = and i64 %.sroa.04.0.i.i389, 6
+  %2708 = icmp eq i64 %2707, 2
+  %or.cond.i.i.i394 = and i1 %spec.select.i.i.i.i392, %2708
+  %2709 = and i64 %.sroa.04.0.i.i389, 1
+  %2710 = icmp ne i64 %2709, 0
+  %or.cond8.i.i.i395 = or i1 %2710, %or.cond.i.i.i394
+  br i1 %or.cond8.i.i.i395, label %2711, label %2713
 
-2697:                                             ; preds = %_ZNK4llvm3LLT16isScalableVectorEv.exit.thread.i
-  %.not.i.i.i.i.i404 = icmp ne i64 %2692, 0
-  %2698 = and i1 %.not.i.i.i.i.i404, %spec.select.i.i.i.i392
-  %.0.in.v.i.i.i.i405 = select i1 %2698, i64 48, i64 32
+2711:                                             ; preds = %_ZNK4llvm3LLT16isScalableVectorEv.exit.thread.i
+  %.not.i.i.i.i.i404 = icmp ne i64 %2706, 0
+  %2712 = and i1 %.not.i.i.i.i.i404, %spec.select.i.i.i.i392
+  %.0.in.v.i.i.i.i405 = select i1 %2712, i64 48, i64 32
   %.0.in.i.i.i.i406 = lshr i64 %.sroa.04.0.i.i389, %.0.in.v.i.i.i.i405
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i
 
-2699:                                             ; preds = %_ZNK4llvm3LLT16isScalableVectorEv.exit.thread.i
-  %2700 = lshr i64 %.sroa.04.0.i.i389, 8
-  %.sroa.0.0.insert.ext.i.i.i.i.i396 = and i64 %2700, 65535
-  %.not.i.i1.i.i.i397 = icmp ne i64 %2692, 0
-  %2701 = and i1 %.not.i.i1.i.i.i397, %spec.select.i.i.i.i392
-  %.0.in.v.i3.i.i.i398 = select i1 %2701, i64 48, i64 32
+2713:                                             ; preds = %_ZNK4llvm3LLT16isScalableVectorEv.exit.thread.i
+  %2714 = lshr i64 %.sroa.04.0.i.i389, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i396 = and i64 %2714, 65535
+  %.not.i.i1.i.i.i397 = icmp ne i64 %2706, 0
+  %2715 = and i1 %.not.i.i1.i.i.i397, %spec.select.i.i.i.i392
+  %.0.in.v.i3.i.i.i398 = select i1 %2715, i64 48, i64 32
   %.0.in.i4.i.i.i399 = lshr i64 %.sroa.04.0.i.i389, %.0.in.v.i3.i.i.i398
-  %2702 = mul nuw nsw i64 %.0.in.i4.i.i.i399, %.sroa.0.0.insert.ext.i.i.i.i.i396
-  %2703 = and i64 %2702, 4294967295
+  %2716 = mul nuw nsw i64 %.0.in.i4.i.i.i399, %.sroa.0.0.insert.ext.i.i.i.i.i396
+  %2717 = and i64 %2716, 4294967295
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i
 
-_ZNK4llvm3LLT14getSizeInBytesEv.exit.i:           ; preds = %2699, %2697
-  %.sroa.06.0.i.i.i400 = phi i64 [ %.0.in.i.i.i.i406, %2697 ], [ %2703, %2699 ]
-  %2704 = add nuw nsw i64 %.sroa.06.0.i.i.i400, 7
-  %2705 = lshr i64 %2704, 3
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %2705, i64 16)
-  %2706 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.speculated.i, i1 false)
-  %2707 = trunc nuw nsw i64 %2706 to i8
-  %2708 = sub nsw i8 63, %2707
-  %2709 = getelementptr inbounds nuw i8, ptr %2691, i64 48
-  %2710 = load ptr, ptr %2709, align 8, !tbaa !624
+_ZNK4llvm3LLT14getSizeInBytesEv.exit.i:           ; preds = %2713, %2711
+  %.sroa.06.0.i.i.i400 = phi i64 [ %.0.in.i.i.i.i406, %2711 ], [ %2717, %2713 ]
+  %2718 = add nuw nsw i64 %.sroa.06.0.i.i.i400, 7
+  %2719 = lshr i64 %2718, 3
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %2719, i64 16)
+  %2720 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.speculated.i, i1 false)
+  %2721 = trunc nuw nsw i64 %2720 to i8
+  %2722 = sub nsw i8 63, %2721
+  %2723 = getelementptr inbounds nuw i8, ptr %2705, i64 48
+  %2724 = load ptr, ptr %2723, align 8, !tbaa !630
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #25
-  br i1 %or.cond8.i.i.i395, label %2711, label %2713
+  br i1 %or.cond8.i.i.i395, label %2725, label %2727
 
-2711:                                             ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i
-  %.not.i.i.i.i82.i = icmp ne i64 %2692, 0
-  %2712 = and i1 %.not.i.i.i.i82.i, %spec.select.i.i.i.i392
-  %.0.in.v.i.i.i83.i = select i1 %2712, i64 48, i64 32
+2725:                                             ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i
+  %.not.i.i.i.i82.i = icmp ne i64 %2706, 0
+  %2726 = and i1 %.not.i.i.i.i82.i, %spec.select.i.i.i.i392
+  %.0.in.v.i.i.i83.i = select i1 %2726, i64 48, i64 32
   %.0.in.i.i.i84.i = lshr i64 %.sroa.04.0.i.i389, %.0.in.v.i.i.i83.i
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit85.i
 
-2713:                                             ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i
-  %2714 = lshr i64 %.sroa.04.0.i.i389, 8
-  %.sroa.0.0.insert.ext.i.i.i.i74.i = and i64 %2714, 65535
-  %.not.i.i1.i.i75.i = icmp ne i64 %2692, 0
-  %2715 = and i1 %.not.i.i1.i.i75.i, %spec.select.i.i.i.i392
-  %.0.in.v.i3.i.i76.i = select i1 %2715, i64 48, i64 32
+2727:                                             ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit.i
+  %2728 = lshr i64 %.sroa.04.0.i.i389, 8
+  %.sroa.0.0.insert.ext.i.i.i.i74.i = and i64 %2728, 65535
+  %.not.i.i1.i.i75.i = icmp ne i64 %2706, 0
+  %2729 = and i1 %.not.i.i1.i.i75.i, %spec.select.i.i.i.i392
+  %.0.in.v.i3.i.i76.i = select i1 %2729, i64 48, i64 32
   %.0.in.i4.i.i77.i = lshr i64 %.sroa.04.0.i.i389, %.0.in.v.i3.i.i76.i
-  %2716 = mul nuw nsw i64 %.0.in.i4.i.i77.i, %.sroa.0.0.insert.ext.i.i.i.i74.i
-  %2717 = and i64 %2716, 4294967295
-  %2718 = trunc i64 %.sroa.04.0.i.i389 to i8
-  %2719 = lshr i8 %2718, 3
-  %2720 = and i8 %2719, 1
+  %2730 = mul nuw nsw i64 %.0.in.i4.i.i77.i, %.sroa.0.0.insert.ext.i.i.i.i74.i
+  %2731 = and i64 %2730, 4294967295
+  %2732 = trunc i64 %.sroa.04.0.i.i389 to i8
+  %2733 = lshr i8 %2732, 3
+  %2734 = and i8 %2733, 1
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit85.i
 
-_ZNK4llvm3LLT14getSizeInBytesEv.exit85.i:         ; preds = %2713, %2711
-  %.sroa.06.0.i.i78.i = phi i64 [ %.0.in.i.i.i84.i, %2711 ], [ %2717, %2713 ]
-  %.sroa.3.0.i.i79.i = phi i8 [ 0, %2711 ], [ %2720, %2713 ]
-  %2721 = add nuw nsw i64 %.sroa.06.0.i.i78.i, 7
-  %2722 = lshr i64 %2721, 3
-  store i64 %2722, ptr %9, align 8
+_ZNK4llvm3LLT14getSizeInBytesEv.exit85.i:         ; preds = %2727, %2725
+  %.sroa.06.0.i.i78.i = phi i64 [ %.0.in.i.i.i84.i, %2725 ], [ %2731, %2727 ]
+  %.sroa.3.0.i.i79.i = phi i8 [ 0, %2725 ], [ %2734, %2727 ]
+  %2735 = add nuw nsw i64 %.sroa.06.0.i.i78.i, 7
+  %2736 = lshr i64 %2735, 3
+  store i64 %2736, ptr %9, align 8
   %.sroa.227.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %.sroa.3.0.i.i79.i, ptr %.sroa.227.0..sroa_idx.i, align 8
-  %2723 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #25
-  %2724 = call noundef i32 @_ZN4llvm16MachineFrameInfo17CreateStackObjectEmNS_5AlignEbPKNS_10AllocaInstEh(ptr noundef nonnull align 8 dereferenceable(696) %2710, i64 noundef %2723, i8 %2708, i1 noundef zeroext false, ptr noundef null, i8 noundef zeroext 0) #25
+  %2737 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %9) #25
+  %2738 = call noundef i32 @_ZN4llvm16MachineFrameInfo17CreateStackObjectEmNS_5AlignEbPKNS_10AllocaInstEh(ptr noundef nonnull align 8 dereferenceable(696) %2724, i64 noundef %2737, i8 %2722, i1 noundef zeroext false, ptr noundef null, i8 noundef zeroext 0) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #25
-  call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %10, ptr noundef nonnull align 8 dereferenceable(1065) %2691, i32 noundef %2724, i64 noundef 0) #25
+  call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %10, ptr noundef nonnull align 8 dereferenceable(1065) %2705, i32 noundef %2738, i64 noundef 0) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #25
   store i64 18014398509481986, ptr %11, align 8, !tbaa !16
-  %2725 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 0, ptr %2725, align 8, !tbaa !408
-  %2726 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildFrameIndexERKNS_5DstOpEi(ptr noundef nonnull align 8 dereferenceable(88) %2639, ptr noundef nonnull align 8 dereferenceable(20) %11, i32 noundef %2724) #25
-  %2727 = extractvalue { ptr, ptr } %2726, 0
-  %2728 = extractvalue { ptr, ptr } %2726, 1
+  %2739 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i32 0, ptr %2739, align 8, !tbaa !408
+  %2740 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder15buildFrameIndexERKNS_5DstOpEi(ptr noundef nonnull align 8 dereferenceable(88) %2653, ptr noundef nonnull align 8 dereferenceable(20) %11, i32 noundef %2738) #25
+  %2741 = extractvalue { ptr, ptr } %2740, 0
+  %2742 = extractvalue { ptr, ptr } %2740, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #25
-  %2729 = load ptr, ptr %2640, align 8, !tbaa !383
-  %2730 = getelementptr inbounds nuw i8, ptr %2729, i64 36
-  %2731 = load i32, ptr %2730, align 4, !tbaa !16
-  store i32 %2731, ptr %12, align 8
-  %2732 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 0, ptr %2732, align 8, !tbaa !455
+  %2743 = load ptr, ptr %2654, align 8, !tbaa !383
+  %2744 = getelementptr inbounds nuw i8, ptr %2743, i64 36
+  %2745 = load i32, ptr %2744, align 4, !tbaa !16
+  store i32 %2745, ptr %12, align 8
+  %2746 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i32 0, ptr %2746, align 8, !tbaa !455
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #25
-  store ptr %2727, ptr %13, align 8, !tbaa !454
+  store ptr %2741, ptr %13, align 8, !tbaa !454
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %2728, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !378
-  %2733 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i32 1, ptr %2733, align 8, !tbaa !455
+  store ptr %2742, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !378
+  %2747 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i32 1, ptr %2747, align 8, !tbaa !455
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
-  %2734 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_NS_18MachinePointerInfoENS_5AlignENS_17MachineMemOperand5FlagsERKNS_9AAMDNodesE(ptr noundef nonnull align 8 dereferenceable(88) %2639, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %10, i8 3, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(32) %14) #25
+  %2748 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_NS_18MachinePointerInfoENS_5AlignENS_17MachineMemOperand5FlagsERKNS_9AAMDNodesE(ptr noundef nonnull align 8 dereferenceable(88) %2653, ptr noundef nonnull align 8 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %10, i8 3, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #25
   store i64 %.sroa.04.0.i69.i, ptr %15, align 8, !tbaa !16
-  %2735 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i32 0, ptr %2735, align 8, !tbaa !408
-  %.not.i.i401 = icmp eq i64 %2688, 0
-  br i1 %.not.i.i401, label %_ZNK4llvm3LLT14getNumElementsEv.exit.i402, label %2736
+  %2749 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i32 0, ptr %2749, align 8, !tbaa !408
+  %.not.i.i401 = icmp eq i64 %2702, 0
+  br i1 %.not.i.i401, label %_ZNK4llvm3LLT14getNumElementsEv.exit.i402, label %2750
 
-2736:                                             ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit85.i
+2750:                                             ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit85.i
   call void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef nonnull @.str.16) #25
   br label %_ZNK4llvm3LLT14getNumElementsEv.exit.i402
 
-_ZNK4llvm3LLT14getNumElementsEv.exit.i402:        ; preds = %2736, %_ZNK4llvm3LLT14getSizeInBytesEv.exit85.i
-  %2737 = lshr i64 %.sroa.04.0.i.i389, 8
-  %2738 = and i64 %2737, 65535
-  %2739 = add nsw i64 %2738, -1
-  %2740 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2639, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 noundef %2739) #25
-  %2741 = extractvalue { ptr, ptr } %2740, 0
-  %2742 = extractvalue { ptr, ptr } %2740, 1
+_ZNK4llvm3LLT14getNumElementsEv.exit.i402:        ; preds = %2750, %_ZNK4llvm3LLT14getSizeInBytesEv.exit85.i
+  %2751 = lshr i64 %.sroa.04.0.i.i389, 8
+  %2752 = and i64 %2751, 65535
+  %2753 = add nsw i64 %2752, -1
+  %2754 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2653, ptr noundef nonnull align 8 dereferenceable(20) %15, i64 noundef %2753) #25
+  %2755 = extractvalue { ptr, ptr } %2754, 0
+  %2756 = extractvalue { ptr, ptr } %2754, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #25
   store i64 %.sroa.04.0.i69.i, ptr %7, align 8
   %.sroa.4135.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %.sroa.4135.0..sroa_idx.i, align 8, !tbaa !619
+  store i32 0, ptr %.sroa.4135.0..sroa_idx.i, align 8, !tbaa !625
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #25
-  store i32 %2643, ptr %8, align 8
+  store i32 %2657, ptr %8, align 8
   %.sroa.4131.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %.sroa.4131.0..sroa_idx.i, align 8, !tbaa !452
-  %2743 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %2741, ptr %2743, align 8
+  %2757 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %2755, ptr %2757, align 8
   %.sroa.0126.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %2742, ptr %.sroa.0126.sroa.4.0..sroa_idx.i, align 8, !tbaa !16
+  store ptr %2756, ptr %.sroa.0126.sroa.4.0..sroa_idx.i, align 8, !tbaa !16
   %.sroa.4127.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 1, ptr %.sroa.4127.0..sroa_idx.i, align 8, !tbaa !452
-  %2744 = load ptr, ptr %2639, align 8, !tbaa !20
-  %2745 = getelementptr inbounds nuw i8, ptr %2744, i64 32
-  %2746 = load ptr, ptr %2745, align 8
-  %2747 = call { ptr, ptr } %2746(ptr noundef nonnull align 8 dereferenceable(88) %2639, i32 noundef 62, ptr nonnull %7, i64 1, ptr nonnull %8, i64 2, i64 0) #25
+  %2758 = load ptr, ptr %2653, align 8, !tbaa !20
+  %2759 = getelementptr inbounds nuw i8, ptr %2758, i64 32
+  %2760 = load ptr, ptr %2759, align 8
+  %2761 = call { ptr, ptr } %2760(ptr noundef nonnull align 8 dereferenceable(88) %2653, i32 noundef 62, ptr nonnull %7, i64 1, ptr nonnull %8, i64 2, i64 0) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #25
-  %2748 = extractvalue { ptr, ptr } %2747, 1
-  %2749 = getelementptr inbounds nuw i8, ptr %2748, i64 32
-  %2750 = load ptr, ptr %2749, align 8, !tbaa !383
-  %2751 = getelementptr inbounds nuw i8, ptr %2750, i64 4
-  %2752 = load i32, ptr %2751, align 4, !tbaa !16
+  %2762 = extractvalue { ptr, ptr } %2761, 1
+  %2763 = getelementptr inbounds nuw i8, ptr %2762, i64 32
+  %2764 = load ptr, ptr %2763, align 8, !tbaa !383
+  %2765 = getelementptr inbounds nuw i8, ptr %2764, i64 4
+  %2766 = load i32, ptr %2765, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #25
   store i64 %.sroa.04.0.i69.i, ptr %16, align 8, !tbaa !16
-  %2753 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 0, ptr %2753, align 8, !tbaa !408
+  %2767 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 0, ptr %2767, align 8, !tbaa !408
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #25
-  %2754 = and i64 %.sroa.04.0.i67.i391, -7
-  %spec.select.i.i.i.i86.i = icmp ne i64 %2754, 0
-  %2755 = and i64 %.sroa.04.0.i67.i391, 2
-  %2756 = and i64 %.sroa.04.0.i67.i391, 6
-  %2757 = icmp eq i64 %2756, 2
-  %or.cond.i.i87.i = and i1 %spec.select.i.i.i.i86.i, %2757
-  %2758 = and i64 %.sroa.04.0.i67.i391, 1
-  %2759 = icmp ne i64 %2758, 0
-  %or.cond8.i.i88.i = or i1 %2759, %or.cond.i.i87.i
-  br i1 %or.cond8.i.i88.i, label %2760, label %2762
+  %2768 = and i64 %.sroa.04.0.i67.i391, -7
+  %spec.select.i.i.i.i86.i = icmp ne i64 %2768, 0
+  %2769 = and i64 %.sroa.04.0.i67.i391, 2
+  %2770 = and i64 %.sroa.04.0.i67.i391, 6
+  %2771 = icmp eq i64 %2770, 2
+  %or.cond.i.i87.i = and i1 %spec.select.i.i.i.i86.i, %2771
+  %2772 = and i64 %.sroa.04.0.i67.i391, 1
+  %2773 = icmp ne i64 %2772, 0
+  %or.cond8.i.i88.i = or i1 %2773, %or.cond.i.i87.i
+  br i1 %or.cond8.i.i88.i, label %2774, label %2776
 
-2760:                                             ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit.i402
-  %.not.i.i.i.i97.i = icmp ne i64 %2755, 0
-  %2761 = and i1 %.not.i.i.i.i97.i, %spec.select.i.i.i.i86.i
-  %.0.in.v.i.i.i98.i = select i1 %2761, i64 48, i64 32
+2774:                                             ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit.i402
+  %.not.i.i.i.i97.i = icmp ne i64 %2769, 0
+  %2775 = and i1 %.not.i.i.i.i97.i, %spec.select.i.i.i.i86.i
+  %.0.in.v.i.i.i98.i = select i1 %2775, i64 48, i64 32
   %.0.in.i.i.i99.i = lshr i64 %.sroa.04.0.i67.i391, %.0.in.v.i.i.i98.i
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit100.i
 
-2762:                                             ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit.i402
-  %2763 = lshr i64 %.sroa.04.0.i67.i391, 8
-  %.sroa.0.0.insert.ext.i.i.i.i89.i = and i64 %2763, 65535
-  %.not.i.i1.i.i90.i = icmp ne i64 %2755, 0
-  %2764 = and i1 %.not.i.i1.i.i90.i, %spec.select.i.i.i.i86.i
-  %.0.in.v.i3.i.i91.i = select i1 %2764, i64 48, i64 32
+2776:                                             ; preds = %_ZNK4llvm3LLT14getNumElementsEv.exit.i402
+  %2777 = lshr i64 %.sroa.04.0.i67.i391, 8
+  %.sroa.0.0.insert.ext.i.i.i.i89.i = and i64 %2777, 65535
+  %.not.i.i1.i.i90.i = icmp ne i64 %2769, 0
+  %2778 = and i1 %.not.i.i1.i.i90.i, %spec.select.i.i.i.i86.i
+  %.0.in.v.i3.i.i91.i = select i1 %2778, i64 48, i64 32
   %.0.in.i4.i.i92.i = lshr i64 %.sroa.04.0.i67.i391, %.0.in.v.i3.i.i91.i
-  %2765 = mul nuw nsw i64 %.0.in.i4.i.i92.i, %.sroa.0.0.insert.ext.i.i.i.i89.i
-  %2766 = and i64 %2765, 4294967295
-  %2767 = trunc i64 %.sroa.04.0.i67.i391 to i8
-  %2768 = lshr i8 %2767, 3
-  %2769 = and i8 %2768, 1
+  %2779 = mul nuw nsw i64 %.0.in.i4.i.i92.i, %.sroa.0.0.insert.ext.i.i.i.i89.i
+  %2780 = and i64 %2779, 4294967295
+  %2781 = trunc i64 %.sroa.04.0.i67.i391 to i8
+  %2782 = lshr i8 %2781, 3
+  %2783 = and i8 %2782, 1
   br label %_ZNK4llvm3LLT14getSizeInBytesEv.exit100.i
 
-_ZNK4llvm3LLT14getSizeInBytesEv.exit100.i:        ; preds = %2762, %2760
-  %.sroa.06.0.i.i93.i = phi i64 [ %.0.in.i.i.i99.i, %2760 ], [ %2766, %2762 ]
-  %.sroa.3.0.i.i94.i = phi i8 [ 0, %2760 ], [ %2769, %2762 ]
-  %2770 = add nuw nsw i64 %.sroa.06.0.i.i93.i, 7
-  %2771 = lshr i64 %2770, 3
-  store i64 %2771, ptr %17, align 8
+_ZNK4llvm3LLT14getSizeInBytesEv.exit100.i:        ; preds = %2776, %2774
+  %.sroa.06.0.i.i93.i = phi i64 [ %.0.in.i.i.i99.i, %2774 ], [ %2780, %2776 ]
+  %.sroa.3.0.i.i94.i = phi i8 [ 0, %2774 ], [ %2783, %2776 ]
+  %2784 = add nuw nsw i64 %.sroa.06.0.i.i93.i, 7
+  %2785 = lshr i64 %2784, 3
+  store i64 %2785, ptr %17, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 %.sroa.3.0.i.i94.i, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %2772 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %17) #25
-  %2773 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2639, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 noundef %2772) #25
-  %2774 = extractvalue { ptr, ptr } %2773, 0
-  %2775 = extractvalue { ptr, ptr } %2773, 1
+  %2786 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %17) #25
+  %2787 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2653, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 noundef %2786) #25
+  %2788 = extractvalue { ptr, ptr } %2787, 0
+  %2789 = extractvalue { ptr, ptr } %2787, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #25
   store i64 %.sroa.04.0.i69.i, ptr %5, align 8
   %.sroa.4120.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %.sroa.4120.0..sroa_idx.i, align 8, !tbaa !619
+  store i32 0, ptr %.sroa.4120.0..sroa_idx.i, align 8, !tbaa !625
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #25
-  store i32 %2752, ptr %6, align 8
+  store i32 %2766, ptr %6, align 8
   %.sroa.4116.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %.sroa.4116.0..sroa_idx.i, align 8, !tbaa !452
-  %2776 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %2774, ptr %2776, align 8
+  %2790 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %2788, ptr %2790, align 8
   %.sroa.0113.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %2775, ptr %.sroa.0113.sroa.4.0..sroa_idx.i, align 8, !tbaa !16
+  store ptr %2789, ptr %.sroa.0113.sroa.4.0..sroa_idx.i, align 8, !tbaa !16
   %.sroa.4.0..sroa_idx.i403 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 1, ptr %.sroa.4.0..sroa_idx.i403, align 8, !tbaa !452
-  %2777 = load ptr, ptr %2639, align 8, !tbaa !20
-  %2778 = getelementptr inbounds nuw i8, ptr %2777, i64 32
-  %2779 = load ptr, ptr %2778, align 8
-  %2780 = call { ptr, ptr } %2779(ptr noundef nonnull align 8 dereferenceable(88) %2639, i32 noundef 55, ptr nonnull %5, i64 1, ptr nonnull %6, i64 2, i64 0) #25
+  %2791 = load ptr, ptr %2653, align 8, !tbaa !20
+  %2792 = getelementptr inbounds nuw i8, ptr %2791, i64 32
+  %2793 = load ptr, ptr %2792, align 8
+  %2794 = call { ptr, ptr } %2793(ptr noundef nonnull align 8 dereferenceable(88) %2653, i32 noundef 55, ptr nonnull %5, i64 1, ptr nonnull %6, i64 2, i64 0) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #25
-  %2781 = extractvalue { ptr, ptr } %2780, 1
-  %2782 = getelementptr inbounds nuw i8, ptr %2781, i64 32
-  %2783 = load ptr, ptr %2782, align 8, !tbaa !383
-  %2784 = getelementptr inbounds nuw i8, ptr %2783, i64 4
-  %2785 = load i32, ptr %2784, align 4, !tbaa !16
+  %2795 = extractvalue { ptr, ptr } %2794, 1
+  %2796 = getelementptr inbounds nuw i8, ptr %2795, i64 32
+  %2797 = load ptr, ptr %2796, align 8, !tbaa !383
+  %2798 = getelementptr inbounds nuw i8, ptr %2797, i64 4
+  %2799 = load i32, ptr %2798, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #25
-  %2786 = getelementptr inbounds nuw i8, ptr %2728, i64 32
-  %2787 = load ptr, ptr %2786, align 8, !tbaa !383
-  %2788 = getelementptr inbounds nuw i8, ptr %2787, i64 4
-  %2789 = load i32, ptr %2788, align 4, !tbaa !16
-  %2790 = icmp slt i32 %2789, 0
-  br i1 %2790, label %2791, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit102.i
+  %2800 = getelementptr inbounds nuw i8, ptr %2742, i64 32
+  %2801 = load ptr, ptr %2800, align 8, !tbaa !383
+  %2802 = getelementptr inbounds nuw i8, ptr %2801, i64 4
+  %2803 = load i32, ptr %2802, align 4, !tbaa !16
+  %2804 = icmp slt i32 %2803, 0
+  br i1 %2804, label %2805, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit102.i
 
-2791:                                             ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit100.i
-  %2792 = and i32 %2789, 2147483647
-  %2793 = getelementptr inbounds nuw i8, ptr %2637, i64 456
-  %2794 = load i32, ptr %2793, align 8, !tbaa !38
-  %2795 = icmp ugt i32 %2794, %2792
-  br i1 %2795, label %2796, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit102.i
+2805:                                             ; preds = %_ZNK4llvm3LLT14getSizeInBytesEv.exit100.i
+  %2806 = and i32 %2803, 2147483647
+  %2807 = getelementptr inbounds nuw i8, ptr %2651, i64 456
+  %2808 = load i32, ptr %2807, align 8, !tbaa !38
+  %2809 = icmp ugt i32 %2808, %2806
+  br i1 %2809, label %2810, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit102.i
 
-2796:                                             ; preds = %2791
-  %2797 = getelementptr inbounds nuw i8, ptr %2637, i64 448
-  %2798 = zext nneg i32 %2792 to i64
-  %2799 = load ptr, ptr %2797, align 8, !tbaa !37
-  %2800 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2799, i64 %2798
-  %2801 = load i64, ptr %2800, align 8, !tbaa !16
+2810:                                             ; preds = %2805
+  %2811 = getelementptr inbounds nuw i8, ptr %2651, i64 448
+  %2812 = zext nneg i32 %2806 to i64
+  %2813 = load ptr, ptr %2811, align 8, !tbaa !37
+  %2814 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %2813, i64 %2812
+  %2815 = load i64, ptr %2814, align 8, !tbaa !16
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit102.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit102.i: ; preds = %2796, %2791, %_ZNK4llvm3LLT14getSizeInBytesEv.exit100.i
-  %.sroa.04.0.i101.i = phi i64 [ %2801, %2796 ], [ 0, %2791 ], [ 0, %_ZNK4llvm3LLT14getSizeInBytesEv.exit100.i ]
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit102.i: ; preds = %2810, %2805, %_ZNK4llvm3LLT14getSizeInBytesEv.exit100.i
+  %.sroa.04.0.i101.i = phi i64 [ %2815, %2810 ], [ 0, %2805 ], [ 0, %_ZNK4llvm3LLT14getSizeInBytesEv.exit100.i ]
   store i64 %.sroa.04.0.i101.i, ptr %18, align 8, !tbaa !16
-  %2802 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i32 0, ptr %2802, align 8, !tbaa !408
+  %2816 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i32 0, ptr %2816, align 8, !tbaa !408
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #25
-  store ptr %2727, ptr %19, align 8, !tbaa !454
+  store ptr %2741, ptr %19, align 8, !tbaa !454
   %.sroa.6.0..sroa_idx145.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %2728, ptr %.sroa.6.0..sroa_idx145.i, align 8, !tbaa !378
-  %2803 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i32 1, ptr %2803, align 8, !tbaa !455
+  store ptr %2742, ptr %.sroa.6.0..sroa_idx145.i, align 8, !tbaa !378
+  %2817 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i32 1, ptr %2817, align 8, !tbaa !455
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #25
-  store i32 %2785, ptr %20, align 8, !tbaa !115
-  %2804 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i32 0, ptr %2804, align 8, !tbaa !455
-  %2805 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildPtrAddERKNS_5DstOpERKNS_5SrcOpES6_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2639, ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(20) %20, i64 0) #25
-  %2806 = extractvalue { ptr, ptr } %2805, 1
-  %2807 = getelementptr inbounds nuw i8, ptr %2806, i64 32
-  %2808 = load ptr, ptr %2807, align 8, !tbaa !383
-  %2809 = getelementptr inbounds nuw i8, ptr %2808, i64 4
-  %2810 = load i32, ptr %2809, align 4, !tbaa !16
+  store i32 %2799, ptr %20, align 8, !tbaa !115
+  %2818 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store i32 0, ptr %2818, align 8, !tbaa !455
+  %2819 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder11buildPtrAddERKNS_5DstOpERKNS_5SrcOpES6_St8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2653, ptr noundef nonnull align 8 dereferenceable(20) %18, ptr noundef nonnull align 8 dereferenceable(20) %19, ptr noundef nonnull align 8 dereferenceable(20) %20, i64 0) #25
+  %2820 = extractvalue { ptr, ptr } %2819, 1
+  %2821 = getelementptr inbounds nuw i8, ptr %2820, i64 32
+  %2822 = load ptr, ptr %2821, align 8, !tbaa !383
+  %2823 = getelementptr inbounds nuw i8, ptr %2822, i64 4
+  %2824 = load i32, ptr %2823, align 4, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #25
-  %2811 = load ptr, ptr %2640, align 8, !tbaa !383
-  %2812 = getelementptr inbounds nuw i8, ptr %2811, i64 68
-  %2813 = load i32, ptr %2812, align 4, !tbaa !16
-  store i32 %2813, ptr %21, align 8, !tbaa !115
-  %2814 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i32 0, ptr %2814, align 8, !tbaa !455
+  %2825 = load ptr, ptr %2654, align 8, !tbaa !383
+  %2826 = getelementptr inbounds nuw i8, ptr %2825, i64 68
+  %2827 = load i32, ptr %2826, align 4, !tbaa !16
+  store i32 %2827, ptr %21, align 8, !tbaa !115
+  %2828 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i32 0, ptr %2828, align 8, !tbaa !455
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #25
-  store i32 %2810, ptr %22, align 8, !tbaa !115
-  %2815 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i32 0, ptr %2815, align 8, !tbaa !455
+  store i32 %2824, ptr %22, align 8, !tbaa !115
+  %2829 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store i32 0, ptr %2829, align 8, !tbaa !455
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
-  %2816 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_NS_18MachinePointerInfoENS_5AlignENS_17MachineMemOperand5FlagsERKNS_9AAMDNodesE(ptr noundef nonnull align 8 dereferenceable(88) %2639, ptr noundef nonnull align 8 dereferenceable(20) %21, ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %10, i8 0, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(32) %23) #25
+  %2830 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_NS_18MachinePointerInfoENS_5AlignENS_17MachineMemOperand5FlagsERKNS_9AAMDNodesE(ptr noundef nonnull align 8 dereferenceable(88) %2653, ptr noundef nonnull align 8 dereferenceable(20) %21, ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %10, i8 0, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(32) %23) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #25
-  %2817 = load ptr, ptr %2640, align 8, !tbaa !383
-  %2818 = getelementptr inbounds nuw i8, ptr %2817, i64 4
-  %2819 = load i32, ptr %2818, align 4, !tbaa !16
-  store i32 %2819, ptr %24, align 8, !tbaa !115
-  %2820 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i32 1, ptr %2820, align 8, !tbaa !408
+  %2831 = load ptr, ptr %2654, align 8, !tbaa !383
+  %2832 = getelementptr inbounds nuw i8, ptr %2831, i64 4
+  %2833 = load i32, ptr %2832, align 4, !tbaa !16
+  store i32 %2833, ptr %24, align 8, !tbaa !115
+  %2834 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i32 1, ptr %2834, align 8, !tbaa !408
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #25
-  store ptr %2727, ptr %25, align 8, !tbaa !454
+  store ptr %2741, ptr %25, align 8, !tbaa !454
   %.sroa.6.0..sroa_idx147.i = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %2728, ptr %.sroa.6.0..sroa_idx147.i, align 8, !tbaa !378
-  %2821 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i32 1, ptr %2821, align 8, !tbaa !455
+  store ptr %2742, ptr %.sroa.6.0..sroa_idx147.i, align 8, !tbaa !378
+  %2835 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store i32 1, ptr %2835, align 8, !tbaa !455
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
-  %2822 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildLoadERKNS_5DstOpERKNS_5SrcOpENS_18MachinePointerInfoENS_5AlignENS_17MachineMemOperand5FlagsERKNS_9AAMDNodesE(ptr noundef nonnull align 8 dereferenceable(88) %2639, ptr noundef nonnull align 8 dereferenceable(20) %24, ptr noundef nonnull align 8 dereferenceable(20) %25, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %10, i8 3, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(32) %26) #25
+  %2836 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildLoadERKNS_5DstOpERKNS_5SrcOpENS_18MachinePointerInfoENS_5AlignENS_17MachineMemOperand5FlagsERKNS_9AAMDNodesE(ptr noundef nonnull align 8 dereferenceable(88) %2653, ptr noundef nonnull align 8 dereferenceable(20) %24, ptr noundef nonnull align 8 dereferenceable(20) %25, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %10, i8 3, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #25
-  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2636) #25
+  call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %2650) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #25
   br label %_ZN12_GLOBAL__N_119applyNonConstInsertERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit
 
 _ZN12_GLOBAL__N_119applyNonConstInsertERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit102.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit70.i, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_20clEv.exit.thread"
-  %2823 = xor i1 %2625, true
-  %2824 = load ptr, ptr %2616, align 8, !tbaa !37
-  %2825 = icmp eq ptr %2824, %2617
-  br i1 %2825, label %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit407, label %2826
+  %2837 = xor i1 %2639, true
+  %2838 = load ptr, ptr %2630, align 8, !tbaa !37
+  %2839 = icmp eq ptr %2838, %2631
+  br i1 %2839, label %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit407, label %2840
 
-2826:                                             ; preds = %_ZN12_GLOBAL__N_119applyNonConstInsertERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit
-  call void @free(ptr noundef %2824) #25
+2840:                                             ; preds = %_ZN12_GLOBAL__N_119applyNonConstInsertERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit
+  call void @free(ptr noundef %2838) #25
   br label %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit407
 
-_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit407: ; preds = %_ZN12_GLOBAL__N_119applyNonConstInsertERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, %2826
+_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit407: ; preds = %_ZN12_GLOBAL__N_119applyNonConstInsertERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, %2840
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %139) #25
   br label %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit"
 
-2827:                                             ; preds = %4
+2841:                                             ; preds = %4
   unreachable
 
-"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit": ; preds = %2143, %1794, %2543, %_ZNK4llvm3LLT13getSizeInBitsEv.exit27.i.i, %.loopexit.i.i322, %2149, %2163, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i323, %2140, %2120, %2096, %2102, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i294, %2044, %2040, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i310, %1864, %1874, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit18.i.i, %1906, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i279, %1888, %1774, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i.i261, %_ZN12_GLOBAL__N_123tryAdjustICmpImmAndPredEN4llvm8RegisterENS0_7CmpInst9PredicateERKNS0_19MachineRegisterInfoE.exit.i.i, %1449, %1458, %1472, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i245, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i225, %_ZN12_GLOBAL__N_19isINSMaskEN4llvm8ArrayRefIiEEi.exit.i.i, %1270, %1268, %1266, %_ZNK4llvm3LLT14getNumElementsEv.exit34.i.i, %1272, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i206, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit27.i.i, %_ZNK4llvm3LLT18changeElementCountENS_12ElementCountE.exit.i, %.critedge.i, %2470, %.critedge.i.i342, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i338, %2213, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit", %2083, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_15clEv.exit", %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_12clEv.exit.thread493", %1718, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_10clEv.exit", %_ZN12_GLOBAL__N_117applyVAshrLshrImmERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERl.exit, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK3$_9clEv.exit", %_ZN12_GLOBAL__N_18applyINSERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderERSt5tupleIJNS0_8RegisterEiS8_iEE.exit, %_ZN12_GLOBAL__N_112applyDupLaneERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderERSt4pairIjiE.exit, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_19clEv.exit", %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_16clEv.exit", %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_12clEv.exit", %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_11clEv.exit", %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit407, %_ZN12_GLOBAL__N_127applyScalarizeVectorUnmergeERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, %2113, %_ZN12_GLOBAL__N_120applyLowerVectorFCMPERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, %_ZN12_GLOBAL__N_129applyLowerBuildToInsertVecEltERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, %1757, %1719, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit200, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit197, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit164, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit134, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit105, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit77, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit
-  %.1 = phi i1 [ %.0.i.i465, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit ], [ %.0.i.i72468, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit77 ], [ %.0.i.i85472, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit105 ], [ %.032.i14.i.i474, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit134 ], [ %.020.i13.i.i476, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit164 ], [ %.016.i15.i.i478, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit197 ], [ %1155, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit200 ], [ true, %1719 ], [ true, %1757 ], [ true, %_ZN12_GLOBAL__N_129applyLowerBuildToInsertVecEltERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit ], [ true, %_ZN12_GLOBAL__N_120applyLowerVectorFCMPERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit ], [ true, %2113 ], [ true, %_ZN12_GLOBAL__N_127applyScalarizeVectorUnmergeERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit ], [ %2823, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit407 ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_11clEv.exit" ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_12clEv.exit" ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_16clEv.exit" ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_19clEv.exit" ], [ true, %_ZN12_GLOBAL__N_112applyDupLaneERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderERSt4pairIjiE.exit ], [ true, %_ZN12_GLOBAL__N_18applyINSERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderERSt5tupleIJNS0_8RegisterEiS8_iEE.exit ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK3$_9clEv.exit" ], [ true, %_ZN12_GLOBAL__N_117applyVAshrLshrImmERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERl.exit ], [ true, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_10clEv.exit" ], [ false, %1718 ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_12clEv.exit.thread493" ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_15clEv.exit" ], [ true, %2083 ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit" ], [ true, %2213 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i338 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i ], [ false, %.critedge.i.i342 ], [ true, %2470 ], [ true, %.critedge.i ], [ true, %_ZNK4llvm3LLT18changeElementCountENS_12ElementCountE.exit.i ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit27.i.i ], [ false, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i206 ], [ false, %1272 ], [ false, %_ZNK4llvm3LLT14getNumElementsEv.exit34.i.i ], [ false, %1266 ], [ false, %1268 ], [ false, %1270 ], [ false, %_ZN12_GLOBAL__N_19isINSMaskEN4llvm8ArrayRefIiEEi.exit.i.i ], [ false, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i225 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i245 ], [ false, %1472 ], [ false, %1458 ], [ false, %1449 ], [ false, %_ZN12_GLOBAL__N_123tryAdjustICmpImmAndPredEN4llvm8RegisterENS0_7CmpInst9PredicateERKNS0_19MachineRegisterInfoE.exit.i.i ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i.i261 ], [ false, %1774 ], [ false, %1888 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i279 ], [ false, %1906 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit18.i.i ], [ false, %1874 ], [ false, %1864 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i310 ], [ false, %2040 ], [ false, %2044 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i294 ], [ false, %2102 ], [ false, %2096 ], [ false, %2120 ], [ false, %2140 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i323 ], [ false, %2163 ], [ false, %2149 ], [ false, %.loopexit.i.i322 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit27.i.i ], [ false, %2543 ], [ false, %1794 ], [ false, %2143 ]
+"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_18clEv.exit": ; preds = %2157, %1794, %2557, %_ZNK4llvm3LLT13getSizeInBitsEv.exit27.i.i, %.loopexit.i.i323, %2163, %2177, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i324, %2154, %2134, %2110, %2116, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i295, %2058, %2054, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i311, %1864, %1874, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit18.i.i, %1906, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i279, %1888, %1774, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i.i261, %_ZN12_GLOBAL__N_123tryAdjustICmpImmAndPredEN4llvm8RegisterENS0_7CmpInst9PredicateERKNS0_19MachineRegisterInfoE.exit.i.i, %1449, %1458, %1472, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i245, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i225, %_ZN12_GLOBAL__N_19isINSMaskEN4llvm8ArrayRefIiEEi.exit.i.i, %1270, %1268, %1266, %_ZNK4llvm3LLT14getNumElementsEv.exit34.i.i, %1272, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i206, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit27.i.i, %_ZNK4llvm3LLT18changeElementCountENS_12ElementCountE.exit.i, %.critedge.i, %2484, %.critedge.i.i343, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i339, %2227, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit", %2097, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_15clEv.exit", %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_12clEv.exit.thread493", %1718, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_10clEv.exit", %_ZN12_GLOBAL__N_117applyVAshrLshrImmERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERl.exit, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK3$_9clEv.exit", %_ZN12_GLOBAL__N_18applyINSERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderERSt5tupleIJNS0_8RegisterEiS8_iEE.exit, %_ZN12_GLOBAL__N_112applyDupLaneERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderERSt4pairIjiE.exit, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_19clEv.exit", %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_16clEv.exit", %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_12clEv.exit", %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_11clEv.exit", %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit407, %_ZN12_GLOBAL__N_127applyScalarizeVectorUnmergeERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, %2127, %_ZN12_GLOBAL__N_120applyLowerVectorFCMPERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, %_ZN12_GLOBAL__N_129applyLowerBuildToInsertVecEltERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit, %1757, %1719, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit200, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit197, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit164, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit134, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit105, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit77, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit
+  %.1 = phi i1 [ %.0.i.i465, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit ], [ %.0.i.i72468, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit77 ], [ %.0.i.i85472, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit105 ], [ %.032.i14.i.i474, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit134 ], [ %.020.i13.i.i476, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit164 ], [ %.016.i15.i.i478, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit197 ], [ %1155, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit200 ], [ true, %1719 ], [ true, %1757 ], [ true, %_ZN12_GLOBAL__N_129applyLowerBuildToInsertVecEltERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit ], [ true, %_ZN12_GLOBAL__N_120applyLowerVectorFCMPERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit ], [ true, %2127 ], [ true, %_ZN12_GLOBAL__N_127applyScalarizeVectorUnmergeERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderE.exit ], [ %2837, %_ZN12_GLOBAL__N_119ShuffleVectorPseudoD2Ev.exit407 ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_11clEv.exit" ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_12clEv.exit" ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_16clEv.exit" ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_19clEv.exit" ], [ true, %_ZN12_GLOBAL__N_112applyDupLaneERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderERSt4pairIjiE.exit ], [ true, %_ZN12_GLOBAL__N_18applyINSERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERNS0_16MachineIRBuilderERSt5tupleIJNS0_8RegisterEiS8_iEE.exit ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK3$_9clEv.exit" ], [ true, %_ZN12_GLOBAL__N_117applyVAshrLshrImmERN4llvm12MachineInstrERNS0_19MachineRegisterInfoERl.exit ], [ true, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_10clEv.exit" ], [ false, %1718 ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_12clEv.exit.thread493" ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_15clEv.exit" ], [ true, %2097 ], [ false, %"_ZZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl15runCustomActionEjRKN4llvm20GIMatchTableExecutor12MatcherStateERNS1_11SmallVectorINS1_19MachineInstrBuilderELj4EEEENK4$_17clEv.exit" ], [ true, %2227 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i339 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit50.i.i ], [ false, %.critedge.i.i343 ], [ true, %2484 ], [ true, %.critedge.i ], [ true, %_ZNK4llvm3LLT18changeElementCountENS_12ElementCountE.exit.i ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit27.i.i ], [ false, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i206 ], [ false, %1272 ], [ false, %_ZNK4llvm3LLT14getNumElementsEv.exit34.i.i ], [ false, %1266 ], [ false, %1268 ], [ false, %1270 ], [ false, %_ZN12_GLOBAL__N_19isINSMaskEN4llvm8ArrayRefIiEEi.exit.i.i ], [ false, %_ZNK4llvm3LLT14getNumElementsEv.exit.i.i225 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i245 ], [ false, %1472 ], [ false, %1458 ], [ false, %1449 ], [ false, %_ZN12_GLOBAL__N_123tryAdjustICmpImmAndPredEN4llvm8RegisterENS0_7CmpInst9PredicateERKNS0_19MachineRegisterInfoE.exit.i.i ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i.i261 ], [ false, %1774 ], [ false, %1888 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i279 ], [ false, %1906 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit18.i.i ], [ false, %1874 ], [ false, %1864 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i311 ], [ false, %2054 ], [ false, %2058 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.thread.i.i295 ], [ false, %2116 ], [ false, %2110 ], [ false, %2134 ], [ false, %2154 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.i.i324 ], [ false, %2177 ], [ false, %2163 ], [ false, %.loopexit.i.i323 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit27.i.i ], [ false, %2557 ], [ false, %1794 ], [ false, %2157 ]
   ret i1 %.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_132AArch64PostLegalizerLoweringImpl13tryCombineAllERN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(5616) initializes((4416, 4420)) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4248
-  %4 = load ptr, ptr %3, align 8, !tbaa !625
+  %4 = load ptr, ptr %3, align 8, !tbaa !631
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !256
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4240
@@ -8863,7 +8908,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
   %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(304) %6) #25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4256
   %34 = load ptr, ptr %33, align 8, !tbaa !382
-  %35 = load ptr, ptr %34, align 8, !tbaa !626
+  %35 = load ptr, ptr %34, align 8, !tbaa !632
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !256
   %38 = load ptr, ptr %37, align 8, !tbaa !20
@@ -8912,7 +8957,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %28
   %30 = load i64, ptr %29, align 8
   %spec.select.i.i46.i = icmp eq i64 %14, %30
-  br i1 %spec.select.i.i46.i, label %.loopexit, label %.lr.ph.i, !prof !684
+  br i1 %spec.select.i.i46.i, label %.loopexit, label %.lr.ph.i, !prof !690
 
 .lr.ph.i:                                         ; preds = %13, %35
   %31 = phi i64 [ %42, %35 ], [ %30, %13 ]
@@ -8940,12 +8985,12 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %40
   %42 = load i64, ptr %41, align 8
   %spec.select.i.i.i = icmp eq i64 %14, %42
-  br i1 %spec.select.i.i.i, label %.loopexit, label %.lr.ph.i, !prof !685, !llvm.loop !686
+  br i1 %spec.select.i.i.i, label %.loopexit, label %.lr.ph.i, !prof !691, !llvm.loop !692
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit: ; preds = %33, %2
   %.sink.i = phi ptr [ %34, %33 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %.sink.i, ptr %3, align 8, !tbaa !687
+  store ptr %.sink.i, ptr %3, align 8, !tbaa !693
   %43 = lshr i32 %4, 1
   %44 = shl i32 %43, 2
   %45 = add i32 %44, 4
@@ -8972,7 +9017,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEE
   tail call void @_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(1032) %0, i32 noundef %.sink.i.i)
   %54 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.pre.i = load i32, ptr %0, align 8
-  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !687
+  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !693
   %.pre8.i = and i32 %.pre.i, 1
   br label %55
 
@@ -9047,7 +9092,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %28
   %30 = load i64, ptr %29, align 8
   %spec.select.i.i46 = icmp eq i64 %14, %30
-  br i1 %spec.select.i.i46, label %._crit_edge, label %.lr.ph, !prof !684
+  br i1 %spec.select.i.i46, label %._crit_edge, label %.lr.ph, !prof !690
 
 .lr.ph:                                           ; preds = %13, %35
   %31 = phi i64 [ %42, %35 ], [ %30, %13 ]
@@ -9075,12 +9120,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %40
   %42 = load i64, ptr %41, align 8
   %spec.select.i.i = icmp eq i64 %14, %42
-  br i1 %spec.select.i.i, label %._crit_edge, label %.lr.ph, !prof !685, !llvm.loop !686
+  br i1 %spec.select.i.i, label %._crit_edge, label %.lr.ph, !prof !691, !llvm.loop !692
 
 ._crit_edge:                                      ; preds = %35, %13, %3, %33
   %.sink = phi ptr [ %34, %33 ], [ null, %3 ], [ %29, %13 ], [ %41, %35 ]
   %.0 = phi i1 [ false, %33 ], [ false, %3 ], [ true, %13 ], [ true, %35 ]
-  store ptr %.sink, ptr %2, align 8, !tbaa !687
+  store ptr %.sink, ptr %2, align 8, !tbaa !693
   ret i1 %.0
 }
 
@@ -9147,7 +9192,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12Dens
   %.1 = phi ptr [ %.02538, %27 ], [ %33, %29 ], [ %.02538, %27 ]
   %.026.add = add nuw nsw i64 %.026.idx37, 16
   %.not29 = icmp eq i64 %.026.add, 1024
-  br i1 %.not29, label %25, label %27, !llvm.loop !688
+  br i1 %.not29, label %25, label %27, !llvm.loop !694
 
 35:                                               ; preds = %25
   %36 = load i32, ptr %0, align 8
@@ -9168,7 +9213,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12Dens
 
 43:                                               ; preds = %20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %44, align 8, !tbaa !687
+  %.sroa.0.0.copyload = load ptr, ptr %44, align 8, !tbaa !693
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !115
   %45 = icmp ult i32 %.0, 65
@@ -9267,7 +9312,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEE
   %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %38
   %40 = load i64, ptr %39, align 8
   %spec.select.i.i46.i = icmp eq i64 %16, %40
-  br i1 %spec.select.i.i46.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit, label %.lr.ph.i15, !prof !684
+  br i1 %spec.select.i.i46.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit, label %.lr.ph.i15, !prof !690
 
 .lr.ph.i15:                                       ; preds = %17, %45
   %41 = phi i64 [ %52, %45 ], [ %40, %17 ]
@@ -9295,7 +9340,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEE
   %51 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %50
   %52 = load i64, ptr %51, align 8
   %spec.select.i.i.i = icmp eq i64 %16, %52
-  br i1 %spec.select.i.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit, label %.lr.ph.i15, !prof !685, !llvm.loop !686
+  br i1 %spec.select.i.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit, label %.lr.ph.i15, !prof !691, !llvm.loop !692
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit: ; preds = %45, %17, %43
   %.sink.i = phi ptr [ %44, %43 ], [ %39, %17 ], [ %51, %45 ]
@@ -9315,7 +9360,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEE
 61:                                               ; preds = %.lr.ph, %.lr.ph, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPS7_.exit
   %62 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %.not = icmp eq ptr %62, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !689
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !695
 }
 
 declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
@@ -9323,9 +9368,9 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !690
+  %4 = load ptr, ptr %3, align 8, !tbaa !696
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %4, ptr %5, align 8, !tbaa !691
+  store ptr %4, ptr %5, align 8, !tbaa !697
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = ptrtoint ptr %1 to i64
   store i64 %7, ptr %6, align 8
@@ -9343,33 +9388,33 @@ define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLoc
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 7
-  %17 = load i8, ptr %16, align 1, !tbaa !692, !range !64, !noundef !65
+  %17 = load i8, ptr %16, align 1, !tbaa !698, !range !64, !noundef !65
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %21 = load i32, ptr %14, align 8, !tbaa !694
+  %21 = load i32, ptr %14, align 8, !tbaa !700
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %25 = load i8, ptr %24, align 4, !tbaa !695, !range !64, !noundef !65
+  %25 = load i8, ptr %24, align 4, !tbaa !701, !range !64, !noundef !65
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 5
-  %27 = load i8, ptr %26, align 1, !tbaa !696, !range !64, !noundef !65
+  %27 = load i8, ptr %26, align 1, !tbaa !702, !range !64, !noundef !65
   %narrow.i.i.i.i.i.i.i = add nuw nsw i8 %27, %25
   %28 = zext nneg i8 %narrow.i.i.i.i.i.i.i to i64
   %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 6
-  %31 = load i8, ptr %30, align 2, !tbaa !697, !range !64, !noundef !65
+  %31 = load i8, ptr %30, align 2, !tbaa !703, !range !64, !noundef !65
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !698
+  %34 = load ptr, ptr %33, align 8, !tbaa !704
   br label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i
 
 _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %19, %15, %11, %2
   %.04.i.i = phi ptr [ null, %2 ], [ null, %11 ], [ %34, %19 ], [ null, %15 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.04.i.i, ptr %35, align 8, !tbaa !699
+  store ptr %.04.i.i, ptr %35, align 8, !tbaa !705
   %36 = load i64, ptr %8, align 8, !tbaa !16
   %37 = icmp ugt i64 %36, 7
   br i1 %37, label %38, label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
@@ -9383,36 +9428,36 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %19, %15, %11, %2
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 9
-  %44 = load i8, ptr %43, align 1, !tbaa !700, !range !64, !noundef !65
+  %44 = load i8, ptr %43, align 1, !tbaa !706, !range !64, !noundef !65
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %48 = load i32, ptr %41, align 8, !tbaa !694
+  %48 = load i32, ptr %41, align 8, !tbaa !700
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %52 = load i8, ptr %51, align 4, !tbaa !695, !range !64, !noundef !65
+  %52 = load i8, ptr %51, align 4, !tbaa !701, !range !64, !noundef !65
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 5
-  %54 = load i8, ptr %53, align 1, !tbaa !696, !range !64, !noundef !65
+  %54 = load i8, ptr %53, align 1, !tbaa !702, !range !64, !noundef !65
   %narrow.i.i.i.i.i.i7.i = add nuw nsw i8 %54, %52
   %55 = zext nneg i8 %narrow.i.i.i.i.i.i7.i to i64
   %56 = getelementptr inbounds nuw ptr, ptr %50, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %41, i64 6
-  %58 = load i8, ptr %57, align 2, !tbaa !697, !range !64, !noundef !65
+  %58 = load i8, ptr %57, align 2, !tbaa !703, !range !64, !noundef !65
   %59 = getelementptr inbounds nuw i8, ptr %41, i64 7
-  %60 = load i8, ptr %59, align 1, !tbaa !692, !range !64, !noundef !65
+  %60 = load i8, ptr %59, align 1, !tbaa !698, !range !64, !noundef !65
   %narrow.i.i.i = add nuw nsw i8 %60, %58
   %61 = zext nneg i8 %narrow.i.i.i to i64
   %62 = getelementptr inbounds nuw ptr, ptr %56, i64 %61
-  %63 = load ptr, ptr %62, align 8, !tbaa !698
+  %63 = load ptr, ptr %62, align 8, !tbaa !704
   br label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
 
 _ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit: ; preds = %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i, %38, %42, %46
   %.04.i5.i = phi ptr [ null, %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i ], [ null, %38 ], [ %63, %46 ], [ null, %42 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.04.i5.i, ptr %64, align 8, !tbaa !701
+  store ptr %.04.i5.i, ptr %64, align 8, !tbaa !707
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %67 = icmp eq ptr %65, %66
@@ -9458,18 +9503,18 @@ declare void @_ZN4llvm24reportInvalidSizeRequestEPKc(ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !690
+  %4 = load ptr, ptr %3, align 8, !tbaa !696
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4llvm16MachineIRBuilderE, i64 16), ptr %0, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !702
+  %7 = load ptr, ptr %6, align 8, !tbaa !708
   tail call void @_ZN4llvm16MachineIRBuilder5setMFERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(1065) %7) #25
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %9, align 8
-  %10 = load ptr, ptr %3, align 8, !tbaa !690
-  store ptr %10, ptr %8, align 8, !tbaa !691
+  %10 = load ptr, ptr %3, align 8, !tbaa !696
+  store ptr %10, ptr %8, align 8, !tbaa !697
   %11 = ptrtoint ptr %1 to i64
   store i64 %11, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -9486,33 +9531,33 @@ define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstr
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 7
-  %21 = load i8, ptr %20, align 1, !tbaa !692, !range !64, !noundef !65
+  %21 = load i8, ptr %20, align 1, !tbaa !698, !range !64, !noundef !65
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %25 = load i32, ptr %18, align 8, !tbaa !694
+  %25 = load i32, ptr %18, align 8, !tbaa !700
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %29 = load i8, ptr %28, align 4, !tbaa !695, !range !64, !noundef !65
+  %29 = load i8, ptr %28, align 4, !tbaa !701, !range !64, !noundef !65
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 5
-  %31 = load i8, ptr %30, align 1, !tbaa !696, !range !64, !noundef !65
+  %31 = load i8, ptr %30, align 1, !tbaa !702, !range !64, !noundef !65
   %narrow.i.i.i.i.i.i.i = add nuw nsw i8 %31, %29
   %32 = zext nneg i8 %narrow.i.i.i.i.i.i.i to i64
   %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 6
-  %35 = load i8, ptr %34, align 2, !tbaa !697, !range !64, !noundef !65
+  %35 = load i8, ptr %34, align 2, !tbaa !703, !range !64, !noundef !65
   %36 = zext nneg i8 %35 to i64
   %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !698
+  %38 = load ptr, ptr %37, align 8, !tbaa !704
   br label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i
 
 _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %23, %19, %15, %2
   %.04.i.i = phi ptr [ null, %2 ], [ null, %15 ], [ %38, %23 ], [ null, %19 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.04.i.i, ptr %39, align 8, !tbaa !699
+  store ptr %.04.i.i, ptr %39, align 8, !tbaa !705
   %40 = load i64, ptr %12, align 8, !tbaa !16
   %41 = icmp ugt i64 %40, 7
   br i1 %41, label %42, label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
@@ -9526,36 +9571,36 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %23, %19, %15, %2
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 9
-  %48 = load i8, ptr %47, align 1, !tbaa !700, !range !64, !noundef !65
+  %48 = load i8, ptr %47, align 1, !tbaa !706, !range !64, !noundef !65
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %50, label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %52 = load i32, ptr %45, align 8, !tbaa !694
+  %52 = load i32, ptr %45, align 8, !tbaa !700
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %56 = load i8, ptr %55, align 4, !tbaa !695, !range !64, !noundef !65
+  %56 = load i8, ptr %55, align 4, !tbaa !701, !range !64, !noundef !65
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 5
-  %58 = load i8, ptr %57, align 1, !tbaa !696, !range !64, !noundef !65
+  %58 = load i8, ptr %57, align 1, !tbaa !702, !range !64, !noundef !65
   %narrow.i.i.i.i.i.i7.i = add nuw nsw i8 %58, %56
   %59 = zext nneg i8 %narrow.i.i.i.i.i.i7.i to i64
   %60 = getelementptr inbounds nuw ptr, ptr %54, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 6
-  %62 = load i8, ptr %61, align 2, !tbaa !697, !range !64, !noundef !65
+  %62 = load i8, ptr %61, align 2, !tbaa !703, !range !64, !noundef !65
   %63 = getelementptr inbounds nuw i8, ptr %45, i64 7
-  %64 = load i8, ptr %63, align 1, !tbaa !692, !range !64, !noundef !65
+  %64 = load i8, ptr %63, align 1, !tbaa !698, !range !64, !noundef !65
   %narrow.i.i.i = add nuw nsw i8 %64, %62
   %65 = zext nneg i8 %narrow.i.i.i to i64
   %66 = getelementptr inbounds nuw ptr, ptr %60, i64 %65
-  %67 = load ptr, ptr %66, align 8, !tbaa !698
+  %67 = load ptr, ptr %66, align 8, !tbaa !704
   br label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
 
 _ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit: ; preds = %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i, %42, %46, %50
   %.04.i5.i = phi ptr [ null, %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i ], [ null, %42 ], [ %67, %50 ], [ null, %46 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.04.i5.i, ptr %68, align 8, !tbaa !701
+  store ptr %.04.i5.i, ptr %68, align 8, !tbaa !707
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = icmp eq ptr %69, %70
@@ -10054,49 +10099,6 @@ declare noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8
 
 declare void @_ZN4llvm17AArch64GISelUtils31changeVectorFCMPPredToAArch64CCENS_7CmpInst9PredicateERNS_9AArch64CC8CondCodeES5_Rb(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, i32 noundef %1, i32 %2, i32 %3, i1 noundef zeroext %4, ptr readonly captures(none) %.448.val, i32 %.456.val) unnamed_addr #0 {
-  %6 = icmp slt i32 %2, 0
-  br i1 %6, label %7, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
-
-7:                                                ; preds = %5
-  %8 = and i32 %2, 2147483647
-  %9 = icmp ugt i32 %.456.val, %8
-  br i1 %9, label %10, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
-
-10:                                               ; preds = %7
-  %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.448.val, i64 %11
-  %13 = load i64, ptr %12, align 8, !tbaa !16
-  br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
-
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %5, %7, %10
-  %.sroa.04.0.i = phi i64 [ %13, %10 ], [ 0, %7 ], [ 0, %5 ]
-  %14 = zext i1 %4 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %17, align 8
-  %18 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  store i32 %2, ptr %18, align 16, !tbaa !115
-  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 %3, ptr %.sroa.423.0..sroa_idx, align 4, !tbaa !115
-  %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i8 %14, ptr %.sroa.524.0..sroa_idx, align 8, !tbaa !614
-  %.sroa.626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %.sroa.04.0.i, ptr %.sroa.626.0..sroa_idx, align 16, !tbaa !16
-  store ptr %18, ptr %0, align 8, !tbaa !66
-  %19 = sext i32 %1 to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._ZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoE, i64 0, i64 %19
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %20 = sext i32 %1 to i64
-  %switch.gep1 = getelementptr inbounds [13 x ptr], ptr @switch.table._ZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoE.138, i64 0, i64 %20
-  %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  store ptr %switch.load, ptr %16, align 8, !tbaa !617
-  store ptr %switch.load2, ptr %15, align 8, !tbaa !49
-  ret void
-}
-
 declare void @_ZN4llvm19MachineRegisterInfo14replaceRegWithENS_8RegisterES1_(ptr noundef nonnull align 8 dereferenceable(504), i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10110,7 +10112,7 @@ define internal i32 @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIR
   %9 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !66
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %11 = load i8, ptr %10, align 8, !tbaa !740, !range !64, !noundef !65
+  %11 = load i8, ptr %10, align 8, !tbaa !746, !range !64, !noundef !65
   %12 = trunc nuw i8 %11 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #25
@@ -10174,7 +10176,7 @@ define internal i32 @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIR
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %4, align 8
   %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8, !tbaa !619
+  store i32 0, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8, !tbaa !625
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #25
   store ptr %.sroa.037.0.i.i.i, ptr %5, align 8
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -10216,13 +10218,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8RegisterER
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !742
+  store ptr null, ptr %0, align 8, !tbaa !748
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !744
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !750
   store ptr %7, ptr %0, align 8, !tbaa !66
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
@@ -10247,7 +10249,7 @@ define internal i32 @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIR
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %8 = load i8, ptr %7, align 8, !tbaa !745, !range !64, !noundef !65
+  %8 = load i8, ptr %7, align 8, !tbaa !751, !range !64, !noundef !65
   %9 = trunc nuw i8 %8 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
@@ -10320,13 +10322,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8RegisterER
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !742
+  store ptr null, ptr %0, align 8, !tbaa !748
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !744
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !750
   store ptr %7, ptr %0, align 8, !tbaa !66
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
@@ -10351,7 +10353,7 @@ define internal i32 @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIR
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %8 = load i8, ptr %7, align 8, !tbaa !747, !range !64, !noundef !65
+  %8 = load i8, ptr %7, align 8, !tbaa !753, !range !64, !noundef !65
   %9 = trunc nuw i8 %8 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
@@ -10424,13 +10426,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8RegisterER
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !742
+  store ptr null, ptr %0, align 8, !tbaa !748
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !744
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !750
   store ptr %7, ptr %0, align 8, !tbaa !66
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
@@ -10455,7 +10457,7 @@ define internal i32 @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIR
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %8 = load i8, ptr %7, align 8, !tbaa !749, !range !64, !noundef !65
+  %8 = load i8, ptr %7, align 8, !tbaa !755, !range !64, !noundef !65
   %9 = trunc nuw i8 %8 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
@@ -10528,13 +10530,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8RegisterER
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !742
+  store ptr null, ptr %0, align 8, !tbaa !748
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !744
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !750
   store ptr %7, ptr %0, align 8, !tbaa !66
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
@@ -10559,7 +10561,7 @@ define internal i32 @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIR
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %8 = load i8, ptr %7, align 8, !tbaa !751, !range !64, !noundef !65
+  %8 = load i8, ptr %7, align 8, !tbaa !757, !range !64, !noundef !65
   %9 = trunc nuw i8 %8 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
@@ -10632,13 +10634,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8RegisterER
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_4E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !742
+  store ptr null, ptr %0, align 8, !tbaa !748
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_4E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !744
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !750
   store ptr %7, ptr %0, align 8, !tbaa !66
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_4E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
@@ -10663,7 +10665,7 @@ define internal i32 @"_ZNSt17_Function_handlerIFN4llvm8RegisterERNS0_16MachineIR
   %6 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %8 = load i8, ptr %7, align 8, !tbaa !753, !range !64, !noundef !65
+  %8 = load i8, ptr %7, align 8, !tbaa !759, !range !64, !noundef !65
   %9 = trunc nuw i8 %8 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
@@ -10736,13 +10738,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm8RegisterER
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_5E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !742
+  store ptr null, ptr %0, align 8, !tbaa !748
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_5E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !744
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !750
   store ptr %7, ptr %0, align 8, !tbaa !66
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS2_8RegisterES5_bbRNS2_19MachineRegisterInfoEE3$_5E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
@@ -10816,14 +10818,14 @@ define internal fastcc noundef zeroext i1 @_ZNK4llvm20GIMatchTableExecutor17exec
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 4, ptr %36, align 4, !tbaa !39
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %38 = load ptr, ptr %37, align 8, !tbaa !755
+  %38 = load ptr, ptr %37, align 8, !tbaa !761
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !37
   %41 = load ptr, ptr %40, align 8, !tbaa !378
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !756
+  %43 = load ptr, ptr %42, align 8, !tbaa !762
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !757
+  %45 = load i64, ptr %44, align 8, !tbaa !763
   %46 = and i64 %45, 2097152
   %.not730 = icmp eq i64 %46, 0
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 44
@@ -11025,7 +11027,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %109, %115
 124:                                              ; preds = %105, %105
   %125 = add i64 %.0303, 2
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %127 = load i8, ptr %126, align 1, !tbaa !16, !alias.scope !759
+  %127 = load i8, ptr %126, align 1, !tbaa !16, !alias.scope !765
   %128 = zext i8 %127 to i64
   %129 = icmp slt i8 %127, 0
   br i1 %129, label %130, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit, !prof !123
@@ -11039,7 +11041,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %109, %115
   %.012.i.i = phi i32 [ 7, %130 ], [ %141, %132 ]
   %.1.i.i = phi i64 [ %131, %130 ], [ %140, %132 ]
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 %133
-  %135 = load i8, ptr %134, align 1, !tbaa !16, !alias.scope !759
+  %135 = load i8, ptr %134, align 1, !tbaa !16, !alias.scope !765
   %136 = and i8 %135, 127
   %137 = zext nneg i8 %136 to i64
   %138 = zext nneg i32 %.012.i.i to i64
@@ -11048,14 +11050,14 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %109, %115
   %141 = add i32 %.012.i.i, 7
   %142 = add i64 %133, 1
   %143 = icmp slt i8 %135, 0
-  br i1 %143, label %132, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit, !llvm.loop !762
+  br i1 %143, label %132, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit: ; preds = %132, %124
   %.1304 = phi i64 [ %125, %124 ], [ %142, %132 ]
   %.0.i.i = phi i64 [ %128, %124 ], [ %140, %132 ]
   %144 = add i64 %.1304, 1
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 %.1304
-  %146 = load i8, ptr %145, align 1, !tbaa !16, !alias.scope !763
+  %146 = load i8, ptr %145, align 1, !tbaa !16, !alias.scope !769
   %147 = zext i8 %146 to i64
   %148 = icmp slt i8 %146, 0
   br i1 %148, label %149, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1342, !prof !123
@@ -11069,7 +11071,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1339 = phi i32 [ 7, %149 ], [ %160, %151 ]
   %.1.i.i1340 = phi i64 [ %150, %149 ], [ %159, %151 ]
   %153 = getelementptr inbounds nuw i8, ptr %5, i64 %152
-  %154 = load i8, ptr %153, align 1, !tbaa !16, !alias.scope !763
+  %154 = load i8, ptr %153, align 1, !tbaa !16, !alias.scope !769
   %155 = and i8 %154, 127
   %156 = zext nneg i8 %155 to i64
   %157 = zext nneg i32 %.012.i.i1339 to i64
@@ -11078,14 +11080,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %160 = add i32 %.012.i.i1339, 7
   %161 = add i64 %152, 1
   %162 = icmp slt i8 %154, 0
-  br i1 %162, label %151, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1342, !llvm.loop !762
+  br i1 %162, label %151, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1342, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1342: ; preds = %151, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit
   %.2305 = phi i64 [ %144, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit ], [ %161, %151 ]
   %.0.i.i1338 = phi i64 [ %147, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit ], [ %159, %151 ]
   %163 = add i64 %.2305, 1
   %164 = getelementptr inbounds nuw i8, ptr %5, i64 %.2305
-  %165 = load i8, ptr %164, align 1, !tbaa !16, !alias.scope !766
+  %165 = load i8, ptr %164, align 1, !tbaa !16, !alias.scope !772
   %166 = zext i8 %165 to i64
   %167 = icmp slt i8 %165, 0
   br i1 %167, label %168, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1347, !prof !123
@@ -11099,7 +11101,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1344 = phi i32 [ 7, %168 ], [ %179, %170 ]
   %.1.i.i1345 = phi i64 [ %169, %168 ], [ %178, %170 ]
   %172 = getelementptr inbounds nuw i8, ptr %5, i64 %171
-  %173 = load i8, ptr %172, align 1, !tbaa !16, !alias.scope !766
+  %173 = load i8, ptr %172, align 1, !tbaa !16, !alias.scope !772
   %174 = and i8 %173, 127
   %175 = zext nneg i8 %174 to i64
   %176 = zext nneg i32 %.012.i.i1344 to i64
@@ -11108,7 +11110,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %179 = add i32 %.012.i.i1344, 7
   %180 = add i64 %171, 1
   %181 = icmp slt i8 %173, 0
-  br i1 %181, label %170, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1347, !llvm.loop !762
+  br i1 %181, label %170, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1347, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1347: ; preds = %170, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1342
   %.3306 = phi i64 [ %163, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1342 ], [ %180, %170 ]
@@ -11217,7 +11219,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
 237:                                              ; preds = %105, %105
   %238 = add i64 %.0303, 2
   %239 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %240 = load i8, ptr %239, align 1, !tbaa !16, !alias.scope !769
+  %240 = load i8, ptr %239, align 1, !tbaa !16, !alias.scope !775
   %241 = zext i8 %240 to i64
   %242 = icmp slt i8 %240, 0
   br i1 %242, label %243, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1361, !prof !123
@@ -11231,7 +11233,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
   %.012.i.i1358 = phi i32 [ 7, %243 ], [ %254, %245 ]
   %.1.i.i1359 = phi i64 [ %244, %243 ], [ %253, %245 ]
   %247 = getelementptr inbounds nuw i8, ptr %5, i64 %246
-  %248 = load i8, ptr %247, align 1, !tbaa !16, !alias.scope !769
+  %248 = load i8, ptr %247, align 1, !tbaa !16, !alias.scope !775
   %249 = and i8 %248, 127
   %250 = zext nneg i8 %249 to i64
   %251 = zext nneg i32 %.012.i.i1358 to i64
@@ -11240,7 +11242,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
   %254 = add i32 %.012.i.i1358, 7
   %255 = add i64 %246, 1
   %256 = icmp slt i8 %248, 0
-  br i1 %256, label %245, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1361, !llvm.loop !762
+  br i1 %256, label %245, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1361, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1361: ; preds = %245, %237
   %.10313 = phi i64 [ %238, %237 ], [ %255, %245 ]
@@ -11290,7 +11292,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 279:                                              ; preds = %105
   %280 = add i64 %.0303, 2
   %281 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %282 = load i8, ptr %281, align 1, !tbaa !16, !alias.scope !772
+  %282 = load i8, ptr %281, align 1, !tbaa !16, !alias.scope !778
   %283 = zext i8 %282 to i64
   %284 = icmp slt i8 %282, 0
   br i1 %284, label %285, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1371, !prof !123
@@ -11304,7 +11306,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1368 = phi i32 [ 7, %285 ], [ %296, %287 ]
   %.1.i.i1369 = phi i64 [ %286, %285 ], [ %295, %287 ]
   %289 = getelementptr inbounds nuw i8, ptr %5, i64 %288
-  %290 = load i8, ptr %289, align 1, !tbaa !16, !alias.scope !772
+  %290 = load i8, ptr %289, align 1, !tbaa !16, !alias.scope !778
   %291 = and i8 %290, 127
   %292 = zext nneg i8 %291 to i64
   %293 = zext nneg i32 %.012.i.i1368 to i64
@@ -11313,7 +11315,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %296 = add i32 %.012.i.i1368, 7
   %297 = add i64 %288, 1
   %298 = icmp slt i8 %290, 0
-  br i1 %298, label %287, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1371, !llvm.loop !762
+  br i1 %298, label %287, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1371, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1371: ; preds = %287, %279
   %.15318 = phi i64 [ %280, %279 ], [ %297, %287 ]
@@ -11377,7 +11379,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit1377: ; preds = %314, %
 326:                                              ; preds = %105
   %327 = add i64 %.0303, 2
   %328 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %329 = load i8, ptr %328, align 1, !tbaa !16, !alias.scope !775
+  %329 = load i8, ptr %328, align 1, !tbaa !16, !alias.scope !781
   %330 = zext i8 %329 to i64
   %331 = icmp slt i8 %329, 0
   br i1 %331, label %332, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1382, !prof !123
@@ -11391,7 +11393,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit1377: ; preds = %314, %
   %.012.i.i1379 = phi i32 [ 7, %332 ], [ %343, %334 ]
   %.1.i.i1380 = phi i64 [ %333, %332 ], [ %342, %334 ]
   %336 = getelementptr inbounds nuw i8, ptr %5, i64 %335
-  %337 = load i8, ptr %336, align 1, !tbaa !16, !alias.scope !775
+  %337 = load i8, ptr %336, align 1, !tbaa !16, !alias.scope !781
   %338 = and i8 %337, 127
   %339 = zext nneg i8 %338 to i64
   %340 = zext nneg i32 %.012.i.i1379 to i64
@@ -11400,14 +11402,14 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit1377: ; preds = %314, %
   %343 = add i32 %.012.i.i1379, 7
   %344 = add i64 %335, 1
   %345 = icmp slt i8 %337, 0
-  br i1 %345, label %334, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1382, !llvm.loop !762
+  br i1 %345, label %334, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1382, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1382: ; preds = %334, %326
   %.16319 = phi i64 [ %327, %326 ], [ %344, %334 ]
   %.0.i.i1378 = phi i64 [ %330, %326 ], [ %342, %334 ]
   %346 = add i64 %.16319, 1
   %347 = getelementptr inbounds nuw i8, ptr %5, i64 %.16319
-  %348 = load i8, ptr %347, align 1, !tbaa !16, !alias.scope !778
+  %348 = load i8, ptr %347, align 1, !tbaa !16, !alias.scope !784
   %349 = zext i8 %348 to i64
   %350 = icmp slt i8 %348, 0
   br i1 %350, label %351, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1387, !prof !123
@@ -11421,7 +11423,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1384 = phi i32 [ 7, %351 ], [ %362, %353 ]
   %.1.i.i1385 = phi i64 [ %352, %351 ], [ %361, %353 ]
   %355 = getelementptr inbounds nuw i8, ptr %5, i64 %354
-  %356 = load i8, ptr %355, align 1, !tbaa !16, !alias.scope !778
+  %356 = load i8, ptr %355, align 1, !tbaa !16, !alias.scope !784
   %357 = and i8 %356, 127
   %358 = zext nneg i8 %357 to i64
   %359 = zext nneg i32 %.012.i.i1384 to i64
@@ -11430,7 +11432,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %362 = add i32 %.012.i.i1384, 7
   %363 = add i64 %354, 1
   %364 = icmp slt i8 %356, 0
-  br i1 %364, label %353, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1387, !llvm.loop !762
+  br i1 %364, label %353, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1387, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1387: ; preds = %353, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1382
   %.17320 = phi i64 [ %346, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1382 ], [ %363, %353 ]
@@ -11503,7 +11505,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %377, %381,
   %412 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %393, i64 %411
   %413 = load i64, ptr %412, align 8
   %spec.select.i.i27.i.i.i = icmp eq i64 %.sroa.04.0.i, %413
-  br i1 %spec.select.i.i27.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit, label %.lr.ph.i.i.i, !prof !684
+  br i1 %spec.select.i.i27.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit, label %.lr.ph.i.i.i, !prof !690
 
 .lr.ph.i.i.i:                                     ; preds = %397, %415
   %414 = phi i64 [ %421, %415 ], [ %413, %397 ]
@@ -11520,7 +11522,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %377, %381,
   %420 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %393, i64 %419
   %421 = load i64, ptr %420, align 8
   %spec.select.i.i.i.i.i = icmp eq i64 %.sroa.04.0.i, %421
-  br i1 %spec.select.i.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit, label %.lr.ph.i.i.i, !prof !685, !llvm.loop !781
+  br i1 %spec.select.i.i.i.i.i, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit, label %.lr.ph.i.i.i, !prof !691, !llvm.loop !787
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
   %422 = zext i32 %395 to i64
@@ -11536,7 +11538,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vE
 
 427:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit
   %428 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
-  %429 = load i32, ptr %428, align 8, !tbaa !782
+  %429 = load i32, ptr %428, align 8, !tbaa !788
   %430 = zext i32 %429 to i64
   %431 = zext i16 %.0.copyload.i.i1388 to i64
   %432 = icmp samesign uge i64 %430, %431
@@ -11582,7 +11584,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit1394: ; preds = %439, %
 451:                                              ; preds = %105, %105
   %452 = add i64 %.0303, 2
   %453 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %454 = load i8, ptr %453, align 1, !tbaa !16, !alias.scope !784
+  %454 = load i8, ptr %453, align 1, !tbaa !16, !alias.scope !790
   %455 = zext i8 %454 to i64
   %456 = icmp slt i8 %454, 0
   br i1 %456, label %457, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1399, !prof !123
@@ -11596,7 +11598,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit1394: ; preds = %439, %
   %.012.i.i1396 = phi i32 [ 7, %457 ], [ %468, %459 ]
   %.1.i.i1397 = phi i64 [ %458, %457 ], [ %467, %459 ]
   %461 = getelementptr inbounds nuw i8, ptr %5, i64 %460
-  %462 = load i8, ptr %461, align 1, !tbaa !16, !alias.scope !784
+  %462 = load i8, ptr %461, align 1, !tbaa !16, !alias.scope !790
   %463 = and i8 %462, 127
   %464 = zext nneg i8 %463 to i64
   %465 = zext nneg i32 %.012.i.i1396 to i64
@@ -11605,14 +11607,14 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit1394: ; preds = %439, %
   %468 = add i32 %.012.i.i1396, 7
   %469 = add i64 %460, 1
   %470 = icmp slt i8 %462, 0
-  br i1 %470, label %459, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1399, !llvm.loop !762
+  br i1 %470, label %459, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1399, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1399: ; preds = %459, %451
   %.19322 = phi i64 [ %452, %451 ], [ %469, %459 ]
   %.0.i.i1395 = phi i64 [ %455, %451 ], [ %467, %459 ]
   %471 = add i64 %.19322, 1
   %472 = getelementptr inbounds nuw i8, ptr %5, i64 %.19322
-  %473 = load i8, ptr %472, align 1, !tbaa !16, !alias.scope !787
+  %473 = load i8, ptr %472, align 1, !tbaa !16, !alias.scope !793
   %474 = zext i8 %473 to i64
   %475 = icmp slt i8 %473, 0
   br i1 %475, label %476, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1404, !prof !123
@@ -11626,7 +11628,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1401 = phi i32 [ 7, %476 ], [ %487, %478 ]
   %.1.i.i1402 = phi i64 [ %477, %476 ], [ %486, %478 ]
   %480 = getelementptr inbounds nuw i8, ptr %5, i64 %479
-  %481 = load i8, ptr %480, align 1, !tbaa !16, !alias.scope !787
+  %481 = load i8, ptr %480, align 1, !tbaa !16, !alias.scope !793
   %482 = and i8 %481, 127
   %483 = zext nneg i8 %482 to i64
   %484 = zext nneg i32 %.012.i.i1401 to i64
@@ -11635,7 +11637,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %487 = add i32 %.012.i.i1401, 7
   %488 = add i64 %479, 1
   %489 = icmp slt i8 %481, 0
-  br i1 %489, label %478, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1404, !llvm.loop !762
+  br i1 %489, label %478, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1404, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1404: ; preds = %478, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1399
   %.20323 = phi i64 [ %471, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1399 ], [ %488, %478 ]
@@ -11675,7 +11677,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 509:                                              ; preds = %105
   %510 = add i64 %.0303, 2
   %511 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %512 = load i8, ptr %511, align 1, !tbaa !16, !alias.scope !790
+  %512 = load i8, ptr %511, align 1, !tbaa !16, !alias.scope !796
   %513 = zext i8 %512 to i64
   %514 = icmp slt i8 %512, 0
   br i1 %514, label %515, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1412, !prof !123
@@ -11689,7 +11691,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1409 = phi i32 [ 7, %515 ], [ %526, %517 ]
   %.1.i.i1410 = phi i64 [ %516, %515 ], [ %525, %517 ]
   %519 = getelementptr inbounds nuw i8, ptr %5, i64 %518
-  %520 = load i8, ptr %519, align 1, !tbaa !16, !alias.scope !790
+  %520 = load i8, ptr %519, align 1, !tbaa !16, !alias.scope !796
   %521 = and i8 %520, 127
   %522 = zext nneg i8 %521 to i64
   %523 = zext nneg i32 %.012.i.i1409 to i64
@@ -11698,14 +11700,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %526 = add i32 %.012.i.i1409, 7
   %527 = add i64 %518, 1
   %528 = icmp slt i8 %520, 0
-  br i1 %528, label %517, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1412, !llvm.loop !762
+  br i1 %528, label %517, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1412, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1412: ; preds = %517, %509
   %.24327 = phi i64 [ %510, %509 ], [ %527, %517 ]
   %.0.i.i1408 = phi i64 [ %513, %509 ], [ %525, %517 ]
   %529 = add i64 %.24327, 1
   %530 = getelementptr inbounds nuw i8, ptr %5, i64 %.24327
-  %531 = load i8, ptr %530, align 1, !tbaa !16, !alias.scope !793
+  %531 = load i8, ptr %530, align 1, !tbaa !16, !alias.scope !799
   %532 = zext i8 %531 to i64
   %533 = icmp slt i8 %531, 0
   br i1 %533, label %534, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1417, !prof !123
@@ -11719,7 +11721,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1414 = phi i32 [ 7, %534 ], [ %545, %536 ]
   %.1.i.i1415 = phi i64 [ %535, %534 ], [ %544, %536 ]
   %538 = getelementptr inbounds nuw i8, ptr %5, i64 %537
-  %539 = load i8, ptr %538, align 1, !tbaa !16, !alias.scope !793
+  %539 = load i8, ptr %538, align 1, !tbaa !16, !alias.scope !799
   %540 = and i8 %539, 127
   %541 = zext nneg i8 %540 to i64
   %542 = zext nneg i32 %.012.i.i1414 to i64
@@ -11728,7 +11730,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %545 = add i32 %.012.i.i1414, 7
   %546 = add i64 %537, 1
   %547 = icmp slt i8 %539, 0
-  br i1 %547, label %536, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1417, !llvm.loop !762
+  br i1 %547, label %536, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1417, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1417: ; preds = %536, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1412
   %.25328 = phi i64 [ %529, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1412 ], [ %546, %536 ]
@@ -11760,7 +11762,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 562:                                              ; preds = %105, %105
   %563 = add i64 %.0303, 2
   %564 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %565 = load i8, ptr %564, align 1, !tbaa !16, !alias.scope !796
+  %565 = load i8, ptr %564, align 1, !tbaa !16, !alias.scope !802
   %566 = zext i8 %565 to i64
   %567 = icmp slt i8 %565, 0
   br i1 %567, label %568, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1425, !prof !123
@@ -11774,7 +11776,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1422 = phi i32 [ 7, %568 ], [ %579, %570 ]
   %.1.i.i1423 = phi i64 [ %569, %568 ], [ %578, %570 ]
   %572 = getelementptr inbounds nuw i8, ptr %5, i64 %571
-  %573 = load i8, ptr %572, align 1, !tbaa !16, !alias.scope !796
+  %573 = load i8, ptr %572, align 1, !tbaa !16, !alias.scope !802
   %574 = and i8 %573, 127
   %575 = zext nneg i8 %574 to i64
   %576 = zext nneg i32 %.012.i.i1422 to i64
@@ -11783,7 +11785,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %579 = add i32 %.012.i.i1422, 7
   %580 = add i64 %571, 1
   %581 = icmp slt i8 %573, 0
-  br i1 %581, label %570, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1425, !llvm.loop !762
+  br i1 %581, label %570, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1425, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1425: ; preds = %570, %562
   %.29 = phi i64 [ %563, %562 ], [ %580, %570 ]
@@ -11794,7 +11796,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 583:                                              ; preds = %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1425
   %584 = add i64 %.29, 1
   %585 = getelementptr inbounds nuw i8, ptr %5, i64 %.29
-  %586 = load i8, ptr %585, align 1, !tbaa !16, !alias.scope !799
+  %586 = load i8, ptr %585, align 1, !tbaa !16, !alias.scope !805
   %587 = zext i8 %586 to i64
   %588 = icmp slt i8 %586, 0
   br i1 %588, label %589, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1430, !prof !123
@@ -11808,7 +11810,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1427 = phi i32 [ 7, %589 ], [ %600, %591 ]
   %.1.i.i1428 = phi i64 [ %590, %589 ], [ %599, %591 ]
   %593 = getelementptr inbounds nuw i8, ptr %5, i64 %592
-  %594 = load i8, ptr %593, align 1, !tbaa !16, !alias.scope !799
+  %594 = load i8, ptr %593, align 1, !tbaa !16, !alias.scope !805
   %595 = and i8 %594, 127
   %596 = zext nneg i8 %595 to i64
   %597 = zext nneg i32 %.012.i.i1427 to i64
@@ -11817,7 +11819,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %600 = add i32 %.012.i.i1427, 7
   %601 = add i64 %592, 1
   %602 = icmp slt i8 %594, 0
-  br i1 %602, label %591, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1430, !llvm.loop !762
+  br i1 %602, label %591, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1430, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1430: ; preds = %591, %583
   %.30332 = phi i64 [ %584, %583 ], [ %601, %591 ]
@@ -11900,7 +11902,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 651:                                              ; preds = %105
   %652 = add i64 %.0303, 2
   %653 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %654 = load i8, ptr %653, align 1, !tbaa !16, !alias.scope !802
+  %654 = load i8, ptr %653, align 1, !tbaa !16, !alias.scope !808
   %655 = zext i8 %654 to i64
   %656 = icmp slt i8 %654, 0
   br i1 %656, label %657, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1440, !prof !123
@@ -11914,7 +11916,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1437 = phi i32 [ 7, %657 ], [ %668, %659 ]
   %.1.i.i1438 = phi i64 [ %658, %657 ], [ %667, %659 ]
   %661 = getelementptr inbounds nuw i8, ptr %5, i64 %660
-  %662 = load i8, ptr %661, align 1, !tbaa !16, !alias.scope !802
+  %662 = load i8, ptr %661, align 1, !tbaa !16, !alias.scope !808
   %663 = and i8 %662, 127
   %664 = zext nneg i8 %663 to i64
   %665 = zext nneg i32 %.012.i.i1437 to i64
@@ -11923,7 +11925,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %668 = add i32 %.012.i.i1437, 7
   %669 = add i64 %660, 1
   %670 = icmp slt i8 %662, 0
-  br i1 %670, label %659, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1440, !llvm.loop !762
+  br i1 %670, label %659, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1440, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1440: ; preds = %659, %651
   %.35335 = phi i64 [ %652, %651 ], [ %669, %659 ]
@@ -11969,7 +11971,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 698:                                              ; preds = %105
   %699 = add i64 %.0303, 2
   %700 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %701 = load i8, ptr %700, align 1, !tbaa !16, !alias.scope !805
+  %701 = load i8, ptr %700, align 1, !tbaa !16, !alias.scope !811
   %702 = zext i8 %701 to i64
   %703 = icmp slt i8 %701, 0
   br i1 %703, label %704, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1449, !prof !123
@@ -11983,7 +11985,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1446 = phi i32 [ 7, %704 ], [ %715, %706 ]
   %.1.i.i1447 = phi i64 [ %705, %704 ], [ %714, %706 ]
   %708 = getelementptr inbounds nuw i8, ptr %5, i64 %707
-  %709 = load i8, ptr %708, align 1, !tbaa !16, !alias.scope !805
+  %709 = load i8, ptr %708, align 1, !tbaa !16, !alias.scope !811
   %710 = and i8 %709, 127
   %711 = zext nneg i8 %710 to i64
   %712 = zext nneg i32 %.012.i.i1446 to i64
@@ -11992,7 +11994,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %715 = add i32 %.012.i.i1446, 7
   %716 = add i64 %707, 1
   %717 = icmp slt i8 %709, 0
-  br i1 %717, label %706, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1449, !llvm.loop !762
+  br i1 %717, label %706, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1449, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1449: ; preds = %706, %698
   %.39339 = phi i64 [ %699, %698 ], [ %716, %706 ]
@@ -12033,7 +12035,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 741:                                              ; preds = %105, %105
   %742 = add i64 %.0303, 2
   %743 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %744 = load i8, ptr %743, align 1, !tbaa !16, !alias.scope !808
+  %744 = load i8, ptr %743, align 1, !tbaa !16, !alias.scope !814
   %745 = zext i8 %744 to i64
   %746 = icmp slt i8 %744, 0
   br i1 %746, label %747, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1458, !prof !123
@@ -12047,7 +12049,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1455 = phi i32 [ 7, %747 ], [ %758, %749 ]
   %.1.i.i1456 = phi i64 [ %748, %747 ], [ %757, %749 ]
   %751 = getelementptr inbounds nuw i8, ptr %5, i64 %750
-  %752 = load i8, ptr %751, align 1, !tbaa !16, !alias.scope !808
+  %752 = load i8, ptr %751, align 1, !tbaa !16, !alias.scope !814
   %753 = and i8 %752, 127
   %754 = zext nneg i8 %753 to i64
   %755 = zext nneg i32 %.012.i.i1455 to i64
@@ -12056,7 +12058,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %758 = add i32 %.012.i.i1455, 7
   %759 = add i64 %750, 1
   %760 = icmp slt i8 %752, 0
-  br i1 %760, label %749, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1458, !llvm.loop !762
+  br i1 %760, label %749, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1458, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1458: ; preds = %749, %741
   %.43343 = phi i64 [ %742, %741 ], [ %759, %749 ]
@@ -12134,7 +12136,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 801:                                              ; preds = %105
   %802 = add i64 %.0303, 2
   %803 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %804 = load i8, ptr %803, align 1, !tbaa !16, !alias.scope !811
+  %804 = load i8, ptr %803, align 1, !tbaa !16, !alias.scope !817
   %805 = zext i8 %804 to i64
   %806 = icmp slt i8 %804, 0
   br i1 %806, label %807, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1473, !prof !123
@@ -12148,7 +12150,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1470 = phi i32 [ 7, %807 ], [ %818, %809 ]
   %.1.i.i1471 = phi i64 [ %808, %807 ], [ %817, %809 ]
   %811 = getelementptr inbounds nuw i8, ptr %5, i64 %810
-  %812 = load i8, ptr %811, align 1, !tbaa !16, !alias.scope !811
+  %812 = load i8, ptr %811, align 1, !tbaa !16, !alias.scope !817
   %813 = and i8 %812, 127
   %814 = zext nneg i8 %813 to i64
   %815 = zext nneg i32 %.012.i.i1470 to i64
@@ -12157,7 +12159,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %818 = add i32 %.012.i.i1470, 7
   %819 = add i64 %810, 1
   %820 = icmp slt i8 %812, 0
-  br i1 %820, label %809, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1473, !llvm.loop !762
+  br i1 %820, label %809, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1473, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1473: ; preds = %809, %801
   %.51351 = phi i64 [ %802, %801 ], [ %819, %809 ]
@@ -12193,7 +12195,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 839:                                              ; preds = %105
   %840 = add i64 %.0303, 2
   %841 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %842 = load i8, ptr %841, align 1, !tbaa !16, !alias.scope !814
+  %842 = load i8, ptr %841, align 1, !tbaa !16, !alias.scope !820
   %843 = zext i8 %842 to i64
   %844 = icmp slt i8 %842, 0
   br i1 %844, label %845, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1482, !prof !123
@@ -12207,7 +12209,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1479 = phi i32 [ 7, %845 ], [ %856, %847 ]
   %.1.i.i1480 = phi i64 [ %846, %845 ], [ %855, %847 ]
   %849 = getelementptr inbounds nuw i8, ptr %5, i64 %848
-  %850 = load i8, ptr %849, align 1, !tbaa !16, !alias.scope !814
+  %850 = load i8, ptr %849, align 1, !tbaa !16, !alias.scope !820
   %851 = and i8 %850, 127
   %852 = zext nneg i8 %851 to i64
   %853 = zext nneg i32 %.012.i.i1479 to i64
@@ -12216,7 +12218,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %856 = add i32 %.012.i.i1479, 7
   %857 = add i64 %848, 1
   %858 = icmp slt i8 %850, 0
-  br i1 %858, label %847, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1482, !llvm.loop !762
+  br i1 %858, label %847, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1482, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1482: ; preds = %847, %839
   %.55 = phi i64 [ %840, %839 ], [ %857, %847 ]
@@ -12237,7 +12239,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %872 = load ptr, ptr %98, align 8
   %873 = getelementptr inbounds nuw ptr, ptr %872, i64 %871
   %.0.in.i.i.i = select i1 %866, ptr %870, ptr %873
-  %.0.i.i.i1483 = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !620
+  %.0.i.i.i1483 = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !626
   %.not.i.i.i = icmp eq ptr %.0.i.i.i1483, null
   br i1 %.not.i.i.i, label %.critedge49, label %874
 
@@ -12258,7 +12260,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %878 = load i32, ptr %storemerge.i.i.i.i, align 8
   %879 = and i32 %878, -2130706432
   %or.cond.not.i.i.i.i = icmp eq i32 %879, 0
-  br i1 %or.cond.not.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, label %.critedge2.i.i.i.i, !llvm.loop !621
+  br i1 %or.cond.not.i.i.i.i, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, label %.critedge2.i.i.i.i, !llvm.loop !627
 
 _ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit: ; preds = %877, %874
   %880 = load i32, ptr %32, align 8, !tbaa !38
@@ -12278,7 +12280,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 887:                                              ; preds = %105
   %888 = add i64 %.0303, 2
   %889 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %890 = load i8, ptr %889, align 1, !tbaa !16, !alias.scope !817
+  %890 = load i8, ptr %889, align 1, !tbaa !16, !alias.scope !823
   %891 = zext i8 %890 to i64
   %892 = icmp slt i8 %890, 0
   br i1 %892, label %893, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1492, !prof !123
@@ -12292,7 +12294,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1489 = phi i32 [ 7, %893 ], [ %904, %895 ]
   %.1.i.i1490 = phi i64 [ %894, %893 ], [ %903, %895 ]
   %897 = getelementptr inbounds nuw i8, ptr %5, i64 %896
-  %898 = load i8, ptr %897, align 1, !tbaa !16, !alias.scope !817
+  %898 = load i8, ptr %897, align 1, !tbaa !16, !alias.scope !823
   %899 = and i8 %898, 127
   %900 = zext nneg i8 %899 to i64
   %901 = zext nneg i32 %.012.i.i1489 to i64
@@ -12301,7 +12303,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %904 = add i32 %.012.i.i1489, 7
   %905 = add i64 %896, 1
   %906 = icmp slt i8 %898, 0
-  br i1 %906, label %895, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1492, !llvm.loop !762
+  br i1 %906, label %895, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1492, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1492: ; preds = %895, %887
   %.59 = phi i64 [ %888, %887 ], [ %905, %895 ]
@@ -12334,7 +12336,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 923:                                              ; preds = %105
   %924 = add i64 %.0303, 2
   %925 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %926 = load i8, ptr %925, align 1, !tbaa !16, !alias.scope !820
+  %926 = load i8, ptr %925, align 1, !tbaa !16, !alias.scope !826
   %927 = zext i8 %926 to i64
   %928 = icmp slt i8 %926, 0
   br i1 %928, label %929, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1500, !prof !123
@@ -12348,7 +12350,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1497 = phi i32 [ 7, %929 ], [ %940, %931 ]
   %.1.i.i1498 = phi i64 [ %930, %929 ], [ %939, %931 ]
   %933 = getelementptr inbounds nuw i8, ptr %5, i64 %932
-  %934 = load i8, ptr %933, align 1, !tbaa !16, !alias.scope !820
+  %934 = load i8, ptr %933, align 1, !tbaa !16, !alias.scope !826
   %935 = and i8 %934, 127
   %936 = zext nneg i8 %935 to i64
   %937 = zext nneg i32 %.012.i.i1497 to i64
@@ -12357,7 +12359,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %940 = add i32 %.012.i.i1497, 7
   %941 = add i64 %932, 1
   %942 = icmp slt i8 %934, 0
-  br i1 %942, label %931, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1500, !llvm.loop !762
+  br i1 %942, label %931, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1500, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1500: ; preds = %931, %923
   %.63 = phi i64 [ %924, %923 ], [ %941, %931 ]
@@ -12394,7 +12396,7 @@ _ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread443: ; preds = %953
 _ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit: ; preds = %953
   %956 = and i64 %951, -8
   %957 = inttoptr i64 %956 to ptr
-  %958 = load i32, ptr %957, align 8, !tbaa !694
+  %958 = load i32, ptr %957, align 8, !tbaa !700
   %959 = icmp eq i32 %958, 1
   br i1 %959, label %.thread, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread
 
@@ -12441,7 +12443,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %.thread
   %976 = and i64 %971, -8
   %977 = inttoptr i64 %976 to ptr
   %978 = getelementptr inbounds nuw i8, ptr %977, i64 16
-  %979 = load i32, ptr %977, align 8, !tbaa !694
+  %979 = load i32, ptr %977, align 8, !tbaa !700
   %980 = sext i32 %979 to i64
   %981 = getelementptr inbounds nuw ptr, ptr %978, i64 %980
   %.not8301043 = icmp eq i32 %979, 0
@@ -12459,7 +12461,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %.thread
   %.07581045 = phi ptr [ %.sroa.0.0.i1372, %.lr.ph1046 ], [ %1010, %1008 ]
   %.661044 = phi i64 [ %.651361, %.lr.ph1046 ], [ %.69.ph, %1008 ]
   %985 = phi i32 [ %.promoted1042, %.lr.ph1046 ], [ %1009, %1008 ]
-  %986 = load ptr, ptr %.07581045, align 8, !tbaa !823
+  %986 = load ptr, ptr %.07581045, align 8, !tbaa !829
   %987 = getelementptr inbounds nuw i8, ptr %986, i64 36
   %988 = load i16, ptr %987, align 4
   %989 = lshr i16 %988, 8
@@ -12513,7 +12515,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1011:                                             ; preds = %105
   %1012 = add i64 %.0303, 2
   %1013 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %1014 = load i8, ptr %1013, align 1, !tbaa !16, !alias.scope !825
+  %1014 = load i8, ptr %1013, align 1, !tbaa !16, !alias.scope !831
   %1015 = zext i8 %1014 to i64
   %1016 = icmp slt i8 %1014, 0
   br i1 %1016, label %1017, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1514, !prof !123
@@ -12527,7 +12529,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1511 = phi i32 [ 7, %1017 ], [ %1028, %1019 ]
   %.1.i.i1512 = phi i64 [ %1018, %1017 ], [ %1027, %1019 ]
   %1021 = getelementptr inbounds nuw i8, ptr %5, i64 %1020
-  %1022 = load i8, ptr %1021, align 1, !tbaa !16, !alias.scope !825
+  %1022 = load i8, ptr %1021, align 1, !tbaa !16, !alias.scope !831
   %1023 = and i8 %1022, 127
   %1024 = zext nneg i8 %1023 to i64
   %1025 = zext nneg i32 %.012.i.i1511 to i64
@@ -12536,7 +12538,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1028 = add i32 %.012.i.i1511, 7
   %1029 = add i64 %1020, 1
   %1030 = icmp slt i8 %1022, 0
-  br i1 %1030, label %1019, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1514, !llvm.loop !762
+  br i1 %1030, label %1019, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1514, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1514: ; preds = %1019, %1011
   %.72 = phi i64 [ %1012, %1011 ], [ %1029, %1019 ]
@@ -12572,7 +12574,7 @@ _ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit1516.thread462: ; preds = %1040
 _ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit1516: ; preds = %1040
   %1043 = and i64 %1038, -8
   %1044 = inttoptr i64 %1043 to ptr
-  %1045 = load i32, ptr %1044, align 8, !tbaa !694
+  %1045 = load i32, ptr %1044, align 8, !tbaa !700
   %1046 = icmp eq i32 %1045, 1
   br i1 %1046, label %.thread1373, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit1516.thread
 
@@ -12619,7 +12621,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit1525:  ; preds = %.thread1373
   %1063 = and i64 %1058, -8
   %1064 = inttoptr i64 %1063 to ptr
   %1065 = getelementptr inbounds nuw i8, ptr %1064, i64 16
-  %1066 = load i32, ptr %1064, align 8, !tbaa !694
+  %1066 = load i32, ptr %1064, align 8, !tbaa !700
   %1067 = sext i32 %1066 to i64
   %1068 = getelementptr inbounds nuw ptr, ptr %1065, i64 %1067
   %.not8291035 = icmp eq i32 %1066, 0
@@ -12638,7 +12640,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit1525:  ; preds = %.thread1373
   %.07591037 = phi ptr [ %.sroa.0.0.i15201387, %.lr.ph1038 ], [ %1101, %1099 ]
   %.751036 = phi i64 [ %.741376, %.lr.ph1038 ], [ %.78.ph, %1099 ]
   %1073 = phi i32 [ %.promoted1034, %.lr.ph1038 ], [ %1100, %1099 ]
-  %1074 = load ptr, ptr %.07591037, align 8, !tbaa !823
+  %1074 = load ptr, ptr %.07591037, align 8, !tbaa !829
   %1075 = getelementptr inbounds nuw i8, ptr %1074, i64 36
   %1076 = load i16, ptr %1075, align 4
   %1077 = lshr i16 %1076, 8
@@ -12694,7 +12696,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1102:                                             ; preds = %105
   %1103 = add i64 %.0303, 2
   %1104 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %1105 = load i8, ptr %1104, align 1, !tbaa !16, !alias.scope !828
+  %1105 = load i8, ptr %1104, align 1, !tbaa !16, !alias.scope !834
   %1106 = zext i8 %1105 to i64
   %1107 = icmp slt i8 %1105, 0
   br i1 %1107, label %1108, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1538, !prof !123
@@ -12708,7 +12710,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1535 = phi i32 [ 7, %1108 ], [ %1119, %1110 ]
   %.1.i.i1536 = phi i64 [ %1109, %1108 ], [ %1118, %1110 ]
   %1112 = getelementptr inbounds nuw i8, ptr %5, i64 %1111
-  %1113 = load i8, ptr %1112, align 1, !tbaa !16, !alias.scope !828
+  %1113 = load i8, ptr %1112, align 1, !tbaa !16, !alias.scope !834
   %1114 = and i8 %1113, 127
   %1115 = zext nneg i8 %1114 to i64
   %1116 = zext nneg i32 %.012.i.i1535 to i64
@@ -12717,7 +12719,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1119 = add i32 %.012.i.i1535, 7
   %1120 = add i64 %1111, 1
   %1121 = icmp slt i8 %1113, 0
-  br i1 %1121, label %1110, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1538, !llvm.loop !762
+  br i1 %1121, label %1110, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1538, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1538: ; preds = %1110, %1102
   %.81 = phi i64 [ %1103, %1102 ], [ %1120, %1110 ]
@@ -12753,7 +12755,7 @@ _ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit1540.thread481: ; preds = %1131
 _ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit1540: ; preds = %1131
   %1134 = and i64 %1129, -8
   %1135 = inttoptr i64 %1134 to ptr
-  %1136 = load i32, ptr %1135, align 8, !tbaa !694
+  %1136 = load i32, ptr %1135, align 8, !tbaa !700
   %1137 = icmp eq i32 %1136, 1
   br i1 %1137, label %.thread1388, label %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit1540.thread
 
@@ -12800,7 +12802,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit1549:  ; preds = %.thread1388
   %1154 = and i64 %1149, -8
   %1155 = inttoptr i64 %1154 to ptr
   %1156 = getelementptr inbounds nuw i8, ptr %1155, i64 16
-  %1157 = load i32, ptr %1155, align 8, !tbaa !694
+  %1157 = load i32, ptr %1155, align 8, !tbaa !700
   %1158 = sext i32 %1157 to i64
   %1159 = getelementptr inbounds nuw ptr, ptr %1156, i64 %1158
   %.not8281029 = icmp eq i32 %1157, 0
@@ -12819,7 +12821,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit1549:  ; preds = %.thread1388
   %.07601031 = phi ptr [ %.sroa.0.0.i15441402, %.lr.ph1032 ], [ %1192, %1190 ]
   %.841030 = phi i64 [ %.831391, %.lr.ph1032 ], [ %.87.ph, %1190 ]
   %1164 = phi i32 [ %.promoted, %.lr.ph1032 ], [ %1191, %1190 ]
-  %1165 = load ptr, ptr %.07601031, align 8, !tbaa !823
+  %1165 = load ptr, ptr %.07601031, align 8, !tbaa !829
   %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 36
   %1167 = load i16, ptr %1166, align 4
   %1168 = lshr i16 %1167, 8
@@ -12875,7 +12877,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1193:                                             ; preds = %105
   %1194 = add i64 %.0303, 2
   %1195 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %1196 = load i8, ptr %1195, align 1, !tbaa !16, !alias.scope !831
+  %1196 = load i8, ptr %1195, align 1, !tbaa !16, !alias.scope !837
   %1197 = zext i8 %1196 to i64
   %1198 = icmp slt i8 %1196, 0
   br i1 %1198, label %1199, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1562, !prof !123
@@ -12889,7 +12891,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1559 = phi i32 [ 7, %1199 ], [ %1210, %1201 ]
   %.1.i.i1560 = phi i64 [ %1200, %1199 ], [ %1209, %1201 ]
   %1203 = getelementptr inbounds nuw i8, ptr %5, i64 %1202
-  %1204 = load i8, ptr %1203, align 1, !tbaa !16, !alias.scope !831
+  %1204 = load i8, ptr %1203, align 1, !tbaa !16, !alias.scope !837
   %1205 = and i8 %1204, 127
   %1206 = zext nneg i8 %1205 to i64
   %1207 = zext nneg i32 %.012.i.i1559 to i64
@@ -12898,14 +12900,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1210 = add i32 %.012.i.i1559, 7
   %1211 = add i64 %1202, 1
   %1212 = icmp slt i8 %1204, 0
-  br i1 %1212, label %1201, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1562, !llvm.loop !762
+  br i1 %1212, label %1201, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1562, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1562: ; preds = %1201, %1193
   %.90 = phi i64 [ %1194, %1193 ], [ %1211, %1201 ]
   %.0.i.i1558 = phi i64 [ %1197, %1193 ], [ %1209, %1201 ]
   %1213 = add i64 %.90, 1
   %1214 = getelementptr inbounds nuw i8, ptr %5, i64 %.90
-  %1215 = load i8, ptr %1214, align 1, !tbaa !16, !alias.scope !834
+  %1215 = load i8, ptr %1214, align 1, !tbaa !16, !alias.scope !840
   %1216 = zext i8 %1215 to i64
   %1217 = icmp slt i8 %1215, 0
   br i1 %1217, label %1218, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1567, !prof !123
@@ -12919,7 +12921,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1564 = phi i32 [ 7, %1218 ], [ %1229, %1220 ]
   %.1.i.i1565 = phi i64 [ %1219, %1218 ], [ %1228, %1220 ]
   %1222 = getelementptr inbounds nuw i8, ptr %5, i64 %1221
-  %1223 = load i8, ptr %1222, align 1, !tbaa !16, !alias.scope !834
+  %1223 = load i8, ptr %1222, align 1, !tbaa !16, !alias.scope !840
   %1224 = and i8 %1223, 127
   %1225 = zext nneg i8 %1224 to i64
   %1226 = zext nneg i32 %.012.i.i1564 to i64
@@ -12928,7 +12930,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1229 = add i32 %.012.i.i1564, 7
   %1230 = add i64 %1221, 1
   %1231 = icmp slt i8 %1223, 0
-  br i1 %1231, label %1220, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1567, !llvm.loop !762
+  br i1 %1231, label %1220, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1567, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1567: ; preds = %1220, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1562
   %.91 = phi i64 [ %1213, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1562 ], [ %1230, %1220 ]
@@ -12959,7 +12961,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1245:                                             ; preds = %1241
   %1246 = and i64 %1239, -8
   %1247 = inttoptr i64 %1246 to ptr
-  %1248 = load i32, ptr %1247, align 8, !tbaa !694
+  %1248 = load i32, ptr %1247, align 8, !tbaa !700
   %1249 = zext i32 %1248 to i64
   br label %_ZNK4llvm12MachineInstr17getNumMemOperandsEv.exit
 
@@ -13011,7 +13013,7 @@ _ZNK4llvm12MachineInstr17getNumMemOperandsEv.exit: ; preds = %_ZZNK4llvm20GIMatc
 _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %1268, %1270
   %.sroa.0.0.i.i1572 = phi ptr [ %1264, %1268 ], [ %1273, %1270 ]
   %1274 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i1572, i64 %.0.i.i1563
-  %1275 = load ptr, ptr %1274, align 8, !tbaa !823
+  %1275 = load ptr, ptr %1274, align 8, !tbaa !829
   %1276 = call noundef i32 @_ZNK4llvm18MachinePointerInfo12getAddrSpaceEv(ptr noundef nonnull align 8 dereferenceable(80) %1275) #25
   %1277 = zext i8 %1234 to i32
   %.not826.not1024 = icmp eq i8 %1234, 0
@@ -13024,14 +13026,14 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %1268, %1270
 1279:                                             ; preds = %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1577
   %1280 = add nuw nsw i32 %.07641026, 1
   %.not826.not = icmp eq i32 %1280, %1277
-  br i1 %.not826.not, label %.critedge, label %1281, !llvm.loop !837
+  br i1 %.not826.not, label %.critedge, label %1281, !llvm.loop !843
 
 1281:                                             ; preds = %.lr.ph1028, %1279
   %.07641026 = phi i32 [ 0, %.lr.ph1028 ], [ %1280, %1279 ]
   %.931025 = phi i64 [ %1232, %.lr.ph1028 ], [ %.94, %1279 ]
   %1282 = add i64 %.931025, 1
   %1283 = getelementptr inbounds nuw i8, ptr %5, i64 %.931025
-  %1284 = load i8, ptr %1283, align 1, !tbaa !16, !alias.scope !838
+  %1284 = load i8, ptr %1283, align 1, !tbaa !16, !alias.scope !844
   %1285 = zext i8 %1284 to i64
   %1286 = icmp slt i8 %1284, 0
   br i1 %1286, label %1287, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1577, !prof !123
@@ -13045,7 +13047,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %1268, %1270
   %.012.i.i1574 = phi i32 [ 7, %1287 ], [ %1298, %1289 ]
   %.1.i.i1575 = phi i64 [ %1288, %1287 ], [ %1297, %1289 ]
   %1291 = getelementptr inbounds nuw i8, ptr %5, i64 %1290
-  %1292 = load i8, ptr %1291, align 1, !tbaa !16, !alias.scope !838
+  %1292 = load i8, ptr %1291, align 1, !tbaa !16, !alias.scope !844
   %1293 = and i8 %1292, 127
   %1294 = zext nneg i8 %1293 to i64
   %1295 = zext nneg i32 %.012.i.i1574 to i64
@@ -13054,7 +13056,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %1268, %1270
   %1298 = add i32 %.012.i.i1574, 7
   %1299 = add i64 %1290, 1
   %1300 = icmp slt i8 %1292, 0
-  br i1 %1300, label %1289, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1577, !llvm.loop !762
+  br i1 %1300, label %1289, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1577, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1577: ; preds = %1289, %1281
   %.94 = phi i64 [ %1282, %1281 ], [ %1299, %1289 ]
@@ -13080,7 +13082,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1308:                                             ; preds = %105
   %1309 = add i64 %.0303, 2
   %1310 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %1311 = load i8, ptr %1310, align 1, !tbaa !16, !alias.scope !841
+  %1311 = load i8, ptr %1310, align 1, !tbaa !16, !alias.scope !847
   %1312 = zext i8 %1311 to i64
   %1313 = icmp slt i8 %1311, 0
   br i1 %1313, label %1314, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1585, !prof !123
@@ -13094,7 +13096,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1582 = phi i32 [ 7, %1314 ], [ %1325, %1316 ]
   %.1.i.i1583 = phi i64 [ %1315, %1314 ], [ %1324, %1316 ]
   %1318 = getelementptr inbounds nuw i8, ptr %5, i64 %1317
-  %1319 = load i8, ptr %1318, align 1, !tbaa !16, !alias.scope !841
+  %1319 = load i8, ptr %1318, align 1, !tbaa !16, !alias.scope !847
   %1320 = and i8 %1319, 127
   %1321 = zext nneg i8 %1320 to i64
   %1322 = zext nneg i32 %.012.i.i1582 to i64
@@ -13103,14 +13105,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1325 = add i32 %.012.i.i1582, 7
   %1326 = add i64 %1317, 1
   %1327 = icmp slt i8 %1319, 0
-  br i1 %1327, label %1316, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1585, !llvm.loop !762
+  br i1 %1327, label %1316, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1585, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1585: ; preds = %1316, %1308
   %.98 = phi i64 [ %1309, %1308 ], [ %1326, %1316 ]
   %.0.i.i1581 = phi i64 [ %1312, %1308 ], [ %1324, %1316 ]
   %1328 = add i64 %.98, 1
   %1329 = getelementptr inbounds nuw i8, ptr %5, i64 %.98
-  %1330 = load i8, ptr %1329, align 1, !tbaa !16, !alias.scope !844
+  %1330 = load i8, ptr %1329, align 1, !tbaa !16, !alias.scope !850
   %1331 = zext i8 %1330 to i64
   %1332 = icmp slt i8 %1330, 0
   br i1 %1332, label %1333, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1590, !prof !123
@@ -13124,7 +13126,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1587 = phi i32 [ 7, %1333 ], [ %1344, %1335 ]
   %.1.i.i1588 = phi i64 [ %1334, %1333 ], [ %1343, %1335 ]
   %1337 = getelementptr inbounds nuw i8, ptr %5, i64 %1336
-  %1338 = load i8, ptr %1337, align 1, !tbaa !16, !alias.scope !844
+  %1338 = load i8, ptr %1337, align 1, !tbaa !16, !alias.scope !850
   %1339 = and i8 %1338, 127
   %1340 = zext nneg i8 %1339 to i64
   %1341 = zext nneg i32 %.012.i.i1587 to i64
@@ -13133,7 +13135,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1344 = add i32 %.012.i.i1587, 7
   %1345 = add i64 %1336, 1
   %1346 = icmp slt i8 %1338, 0
-  br i1 %1346, label %1335, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1590, !llvm.loop !762
+  br i1 %1346, label %1335, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1590, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1590: ; preds = %1335, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1585
   %.99 = phi i64 [ %1328, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1585 ], [ %1345, %1335 ]
@@ -13164,7 +13166,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1360:                                             ; preds = %1356
   %1361 = and i64 %1354, -8
   %1362 = inttoptr i64 %1361 to ptr
-  %1363 = load i32, ptr %1362, align 8, !tbaa !694
+  %1363 = load i32, ptr %1362, align 8, !tbaa !700
   %1364 = zext i32 %1363 to i64
   br label %_ZNK4llvm12MachineInstr17getNumMemOperandsEv.exit1592
 
@@ -13215,7 +13217,7 @@ _ZNK4llvm12MachineInstr17getNumMemOperandsEv.exit1592: ; preds = %_ZZNK4llvm20GI
 _ZNK4llvm12MachineInstr17memoperands_beginEv.exit1597: ; preds = %1382, %1384
   %.sroa.0.0.i.i1596 = phi ptr [ %1378, %1382 ], [ %1387, %1384 ]
   %1388 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i1596, i64 %.0.i.i1586
-  %1389 = load ptr, ptr %1388, align 8, !tbaa !823
+  %1389 = load ptr, ptr %1388, align 8, !tbaa !829
   %1390 = call i8 @_ZNK4llvm17MachineMemOperand8getAlignEv(ptr noundef nonnull align 8 dereferenceable(80) %1389) #25
   %1391 = zext nneg i8 %1390 to i64
   %1392 = shl nuw i64 1, %1391
@@ -13240,7 +13242,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1402:                                             ; preds = %105
   %1403 = add i64 %.0303, 2
   %1404 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %1405 = load i8, ptr %1404, align 1, !tbaa !16, !alias.scope !847
+  %1405 = load i8, ptr %1404, align 1, !tbaa !16, !alias.scope !853
   %1406 = zext i8 %1405 to i64
   %1407 = icmp slt i8 %1405, 0
   br i1 %1407, label %1408, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1605, !prof !123
@@ -13254,7 +13256,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1602 = phi i32 [ 7, %1408 ], [ %1419, %1410 ]
   %.1.i.i1603 = phi i64 [ %1409, %1408 ], [ %1418, %1410 ]
   %1412 = getelementptr inbounds nuw i8, ptr %5, i64 %1411
-  %1413 = load i8, ptr %1412, align 1, !tbaa !16, !alias.scope !847
+  %1413 = load i8, ptr %1412, align 1, !tbaa !16, !alias.scope !853
   %1414 = and i8 %1413, 127
   %1415 = zext nneg i8 %1414 to i64
   %1416 = zext nneg i32 %.012.i.i1602 to i64
@@ -13263,14 +13265,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1419 = add i32 %.012.i.i1602, 7
   %1420 = add i64 %1411, 1
   %1421 = icmp slt i8 %1413, 0
-  br i1 %1421, label %1410, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1605, !llvm.loop !762
+  br i1 %1421, label %1410, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1605, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1605: ; preds = %1410, %1402
   %.104 = phi i64 [ %1403, %1402 ], [ %1420, %1410 ]
   %.0.i.i1601 = phi i64 [ %1406, %1402 ], [ %1418, %1410 ]
   %1422 = add i64 %.104, 1
   %1423 = getelementptr inbounds nuw i8, ptr %5, i64 %.104
-  %1424 = load i8, ptr %1423, align 1, !tbaa !16, !alias.scope !850
+  %1424 = load i8, ptr %1423, align 1, !tbaa !16, !alias.scope !856
   %1425 = zext i8 %1424 to i64
   %1426 = icmp slt i8 %1424, 0
   br i1 %1426, label %1427, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1610, !prof !123
@@ -13284,7 +13286,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1607 = phi i32 [ 7, %1427 ], [ %1438, %1429 ]
   %.1.i.i1608 = phi i64 [ %1428, %1427 ], [ %1437, %1429 ]
   %1431 = getelementptr inbounds nuw i8, ptr %5, i64 %1430
-  %1432 = load i8, ptr %1431, align 1, !tbaa !16, !alias.scope !850
+  %1432 = load i8, ptr %1431, align 1, !tbaa !16, !alias.scope !856
   %1433 = and i8 %1432, 127
   %1434 = zext nneg i8 %1433 to i64
   %1435 = zext nneg i32 %.012.i.i1607 to i64
@@ -13293,7 +13295,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1438 = add i32 %.012.i.i1607, 7
   %1439 = add i64 %1430, 1
   %1440 = icmp slt i8 %1432, 0
-  br i1 %1440, label %1429, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1610, !llvm.loop !762
+  br i1 %1440, label %1429, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1610, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1610: ; preds = %1429, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1605
   %.105 = phi i64 [ %1422, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1605 ], [ %1439, %1429 ]
@@ -13324,7 +13326,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1453:                                             ; preds = %1449
   %1454 = and i64 %1447, -8
   %1455 = inttoptr i64 %1454 to ptr
-  %1456 = load i32, ptr %1455, align 8, !tbaa !694
+  %1456 = load i32, ptr %1455, align 8, !tbaa !700
   %1457 = zext i32 %1456 to i64
   br label %_ZNK4llvm12MachineInstr17getNumMemOperandsEv.exit1613
 
@@ -13374,7 +13376,7 @@ _ZNK4llvm12MachineInstr17getNumMemOperandsEv.exit1613: ; preds = %_ZZNK4llvm20GI
 _ZNK4llvm12MachineInstr17memoperands_beginEv.exit1618: ; preds = %1474, %1476
   %.sroa.0.0.i.i1617 = phi ptr [ %1470, %1474 ], [ %1479, %1476 ]
   %1480 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i1617, i64 %.0.i.i1606
-  %1481 = load ptr, ptr %1480, align 8, !tbaa !823
+  %1481 = load ptr, ptr %1480, align 8, !tbaa !829
   %1482 = getelementptr inbounds nuw i8, ptr %1481, i64 24
   %1483 = load i64, ptr %1482, align 8
   %1484 = and i64 %1483, -7
@@ -13436,7 +13438,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1509:                                             ; preds = %105, %105, %105
   %1510 = add i64 %.0303, 2
   %1511 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %1512 = load i8, ptr %1511, align 1, !tbaa !16, !alias.scope !853
+  %1512 = load i8, ptr %1511, align 1, !tbaa !16, !alias.scope !859
   %1513 = zext i8 %1512 to i64
   %1514 = icmp slt i8 %1512, 0
   br i1 %1514, label %1515, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1626, !prof !123
@@ -13450,7 +13452,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1623 = phi i32 [ 7, %1515 ], [ %1526, %1517 ]
   %.1.i.i1624 = phi i64 [ %1516, %1515 ], [ %1525, %1517 ]
   %1519 = getelementptr inbounds nuw i8, ptr %5, i64 %1518
-  %1520 = load i8, ptr %1519, align 1, !tbaa !16, !alias.scope !853
+  %1520 = load i8, ptr %1519, align 1, !tbaa !16, !alias.scope !859
   %1521 = and i8 %1520, 127
   %1522 = zext nneg i8 %1521 to i64
   %1523 = zext nneg i32 %.012.i.i1623 to i64
@@ -13459,14 +13461,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1526 = add i32 %.012.i.i1623, 7
   %1527 = add i64 %1518, 1
   %1528 = icmp slt i8 %1520, 0
-  br i1 %1528, label %1517, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1626, !llvm.loop !762
+  br i1 %1528, label %1517, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1626, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1626: ; preds = %1517, %1509
   %.110 = phi i64 [ %1510, %1509 ], [ %1527, %1517 ]
   %.0.i.i1622 = phi i64 [ %1513, %1509 ], [ %1525, %1517 ]
   %1529 = add i64 %.110, 1
   %1530 = getelementptr inbounds nuw i8, ptr %5, i64 %.110
-  %1531 = load i8, ptr %1530, align 1, !tbaa !16, !alias.scope !856
+  %1531 = load i8, ptr %1530, align 1, !tbaa !16, !alias.scope !862
   %1532 = zext i8 %1531 to i64
   %1533 = icmp slt i8 %1531, 0
   br i1 %1533, label %1534, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1631, !prof !123
@@ -13480,7 +13482,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1628 = phi i32 [ 7, %1534 ], [ %1545, %1536 ]
   %.1.i.i1629 = phi i64 [ %1535, %1534 ], [ %1544, %1536 ]
   %1538 = getelementptr inbounds nuw i8, ptr %5, i64 %1537
-  %1539 = load i8, ptr %1538, align 1, !tbaa !16, !alias.scope !856
+  %1539 = load i8, ptr %1538, align 1, !tbaa !16, !alias.scope !862
   %1540 = and i8 %1539, 127
   %1541 = zext nneg i8 %1540 to i64
   %1542 = zext nneg i32 %.012.i.i1628 to i64
@@ -13489,14 +13491,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1545 = add i32 %.012.i.i1628, 7
   %1546 = add i64 %1537, 1
   %1547 = icmp slt i8 %1539, 0
-  br i1 %1547, label %1536, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1631, !llvm.loop !762
+  br i1 %1547, label %1536, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1631, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1631: ; preds = %1536, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1626
   %.111 = phi i64 [ %1529, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1626 ], [ %1546, %1536 ]
   %.0.i.i1627 = phi i64 [ %1532, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1626 ], [ %1544, %1536 ]
   %1548 = add i64 %.111, 1
   %1549 = getelementptr inbounds nuw i8, ptr %5, i64 %.111
-  %1550 = load i8, ptr %1549, align 1, !tbaa !16, !alias.scope !859
+  %1550 = load i8, ptr %1549, align 1, !tbaa !16, !alias.scope !865
   %1551 = zext i8 %1550 to i64
   %1552 = icmp slt i8 %1550, 0
   br i1 %1552, label %1553, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1636, !prof !123
@@ -13510,7 +13512,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1633 = phi i32 [ 7, %1553 ], [ %1564, %1555 ]
   %.1.i.i1634 = phi i64 [ %1554, %1553 ], [ %1563, %1555 ]
   %1557 = getelementptr inbounds nuw i8, ptr %5, i64 %1556
-  %1558 = load i8, ptr %1557, align 1, !tbaa !16, !alias.scope !859
+  %1558 = load i8, ptr %1557, align 1, !tbaa !16, !alias.scope !865
   %1559 = and i8 %1558, 127
   %1560 = zext nneg i8 %1559 to i64
   %1561 = zext nneg i32 %.012.i.i1633 to i64
@@ -13519,7 +13521,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1564 = add i32 %.012.i.i1633, 7
   %1565 = add i64 %1556, 1
   %1566 = icmp slt i8 %1558, 0
-  br i1 %1566, label %1555, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1636, !llvm.loop !762
+  br i1 %1566, label %1555, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1636, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1636: ; preds = %1555, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1631
   %.112 = phi i64 [ %1548, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1631 ], [ %1565, %1555 ]
@@ -13572,7 +13574,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1593:                                             ; preds = %1589
   %1594 = and i64 %1587, -8
   %1595 = inttoptr i64 %1594 to ptr
-  %1596 = load i32, ptr %1595, align 8, !tbaa !694
+  %1596 = load i32, ptr %1595, align 8, !tbaa !700
   %1597 = zext i32 %1596 to i64
   br label %_ZNK4llvm12MachineInstr17getNumMemOperandsEv.exit1641
 
@@ -13622,7 +13624,7 @@ _ZNK4llvm12MachineInstr17getNumMemOperandsEv.exit1641: ; preds = %1585, %1589, %
 _ZNK4llvm12MachineInstr17memoperands_beginEv.exit1646: ; preds = %1614, %1616
   %.sroa.0.0.i.i1645 = phi ptr [ %1610, %1614 ], [ %1619, %1616 ]
   %1620 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i1645, i64 %.0.i.i1627
-  %1621 = load ptr, ptr %1620, align 8, !tbaa !823
+  %1621 = load ptr, ptr %1620, align 8, !tbaa !829
   %1622 = getelementptr inbounds nuw i8, ptr %1573, i64 4
   %1623 = load i32, ptr %1622, align 4, !tbaa !16
   %1624 = icmp slt i32 %1623, 0
@@ -13874,7 +13876,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1734:                                             ; preds = %1732
   %1735 = add i64 %.0303, 2
   %1736 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %1737 = load i8, ptr %1736, align 1, !tbaa !16, !alias.scope !862
+  %1737 = load i8, ptr %1736, align 1, !tbaa !16, !alias.scope !868
   %1738 = zext i8 %1737 to i64
   %1739 = icmp slt i8 %1737, 0
   br i1 %1739, label %1740, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1706, !prof !123
@@ -13888,7 +13890,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1703 = phi i32 [ 7, %1740 ], [ %1751, %1742 ]
   %.1.i.i1704 = phi i64 [ %1741, %1740 ], [ %1750, %1742 ]
   %1744 = getelementptr inbounds nuw i8, ptr %5, i64 %1743
-  %1745 = load i8, ptr %1744, align 1, !tbaa !16, !alias.scope !862
+  %1745 = load i8, ptr %1744, align 1, !tbaa !16, !alias.scope !868
   %1746 = and i8 %1745, 127
   %1747 = zext nneg i8 %1746 to i64
   %1748 = zext nneg i32 %.012.i.i1703 to i64
@@ -13897,14 +13899,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1751 = add i32 %.012.i.i1703, 7
   %1752 = add i64 %1743, 1
   %1753 = icmp slt i8 %1745, 0
-  br i1 %1753, label %1742, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1706, !llvm.loop !762
+  br i1 %1753, label %1742, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1706, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1706: ; preds = %1742, %1734, %1732
   %.122 = phi i64 [ %106, %1732 ], [ %1735, %1734 ], [ %1752, %1742 ]
   %1754 = phi i64 [ 0, %1732 ], [ %1738, %1734 ], [ %1750, %1742 ]
   %1755 = add i64 %.122, 1
   %1756 = getelementptr inbounds nuw i8, ptr %5, i64 %.122
-  %1757 = load i8, ptr %1756, align 1, !tbaa !16, !alias.scope !865
+  %1757 = load i8, ptr %1756, align 1, !tbaa !16, !alias.scope !871
   %1758 = zext i8 %1757 to i64
   %1759 = icmp slt i8 %1757, 0
   br i1 %1759, label %1760, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1711, !prof !123
@@ -13918,7 +13920,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1708 = phi i32 [ 7, %1760 ], [ %1771, %1762 ]
   %.1.i.i1709 = phi i64 [ %1761, %1760 ], [ %1770, %1762 ]
   %1764 = getelementptr inbounds nuw i8, ptr %5, i64 %1763
-  %1765 = load i8, ptr %1764, align 1, !tbaa !16, !alias.scope !865
+  %1765 = load i8, ptr %1764, align 1, !tbaa !16, !alias.scope !871
   %1766 = and i8 %1765, 127
   %1767 = zext nneg i8 %1766 to i64
   %1768 = zext nneg i32 %.012.i.i1708 to i64
@@ -13927,7 +13929,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1771 = add i32 %.012.i.i1708, 7
   %1772 = add i64 %1763, 1
   %1773 = icmp slt i8 %1765, 0
-  br i1 %1773, label %1762, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1711, !llvm.loop !762
+  br i1 %1773, label %1762, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1711, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1711: ; preds = %1762, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1706
   %.123 = phi i64 [ %1755, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1706 ], [ %1772, %1762 ]
@@ -13998,7 +14000,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1814:                                             ; preds = %105
   %1815 = add i64 %.0303, 2
   %1816 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %1817 = load i8, ptr %1816, align 1, !tbaa !16, !alias.scope !868
+  %1817 = load i8, ptr %1816, align 1, !tbaa !16, !alias.scope !874
   %1818 = zext i8 %1817 to i64
   %1819 = icmp slt i8 %1817, 0
   br i1 %1819, label %1820, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1722, !prof !123
@@ -14012,7 +14014,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1719 = phi i32 [ 7, %1820 ], [ %1831, %1822 ]
   %.1.i.i1720 = phi i64 [ %1821, %1820 ], [ %1830, %1822 ]
   %1824 = getelementptr inbounds nuw i8, ptr %5, i64 %1823
-  %1825 = load i8, ptr %1824, align 1, !tbaa !16, !alias.scope !868
+  %1825 = load i8, ptr %1824, align 1, !tbaa !16, !alias.scope !874
   %1826 = and i8 %1825, 127
   %1827 = zext nneg i8 %1826 to i64
   %1828 = zext nneg i32 %.012.i.i1719 to i64
@@ -14021,14 +14023,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1831 = add i32 %.012.i.i1719, 7
   %1832 = add i64 %1823, 1
   %1833 = icmp slt i8 %1825, 0
-  br i1 %1833, label %1822, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1722, !llvm.loop !762
+  br i1 %1833, label %1822, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1722, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1722: ; preds = %1822, %1814
   %.127 = phi i64 [ %1815, %1814 ], [ %1832, %1822 ]
   %.0.i.i1718 = phi i64 [ %1818, %1814 ], [ %1830, %1822 ]
   %1834 = add i64 %.127, 1
   %1835 = getelementptr inbounds nuw i8, ptr %5, i64 %.127
-  %1836 = load i8, ptr %1835, align 1, !tbaa !16, !alias.scope !871
+  %1836 = load i8, ptr %1835, align 1, !tbaa !16, !alias.scope !877
   %1837 = zext i8 %1836 to i64
   %1838 = icmp slt i8 %1836, 0
   br i1 %1838, label %1839, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1727, !prof !123
@@ -14042,7 +14044,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1724 = phi i32 [ 7, %1839 ], [ %1850, %1841 ]
   %.1.i.i1725 = phi i64 [ %1840, %1839 ], [ %1849, %1841 ]
   %1843 = getelementptr inbounds nuw i8, ptr %5, i64 %1842
-  %1844 = load i8, ptr %1843, align 1, !tbaa !16, !alias.scope !871
+  %1844 = load i8, ptr %1843, align 1, !tbaa !16, !alias.scope !877
   %1845 = and i8 %1844, 127
   %1846 = zext nneg i8 %1845 to i64
   %1847 = zext nneg i32 %.012.i.i1724 to i64
@@ -14051,14 +14053,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1850 = add i32 %.012.i.i1724, 7
   %1851 = add i64 %1842, 1
   %1852 = icmp slt i8 %1844, 0
-  br i1 %1852, label %1841, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1727, !llvm.loop !762
+  br i1 %1852, label %1841, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1727, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1727: ; preds = %1841, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1722
   %.128 = phi i64 [ %1834, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1722 ], [ %1851, %1841 ]
   %.0.i.i1723 = phi i64 [ %1837, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1722 ], [ %1849, %1841 ]
   %1853 = add i64 %.128, 1
   %1854 = getelementptr inbounds nuw i8, ptr %5, i64 %.128
-  %1855 = load i8, ptr %1854, align 1, !tbaa !16, !alias.scope !874
+  %1855 = load i8, ptr %1854, align 1, !tbaa !16, !alias.scope !880
   %1856 = zext i8 %1855 to i64
   %1857 = icmp slt i8 %1855, 0
   br i1 %1857, label %1858, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1732, !prof !123
@@ -14072,7 +14074,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1729 = phi i32 [ 7, %1858 ], [ %1869, %1860 ]
   %.1.i.i1730 = phi i64 [ %1859, %1858 ], [ %1868, %1860 ]
   %1862 = getelementptr inbounds nuw i8, ptr %5, i64 %1861
-  %1863 = load i8, ptr %1862, align 1, !tbaa !16, !alias.scope !874
+  %1863 = load i8, ptr %1862, align 1, !tbaa !16, !alias.scope !880
   %1864 = and i8 %1863, 127
   %1865 = zext nneg i8 %1864 to i64
   %1866 = zext nneg i32 %.012.i.i1729 to i64
@@ -14081,7 +14083,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1869 = add i32 %.012.i.i1729, 7
   %1870 = add i64 %1861, 1
   %1871 = icmp slt i8 %1863, 0
-  br i1 %1871, label %1860, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1732, !llvm.loop !762
+  br i1 %1871, label %1860, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1732, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1732: ; preds = %1860, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1727
   %.129 = phi i64 [ %1853, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1727 ], [ %1870, %1860 ]
@@ -14118,16 +14120,16 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1734: ; preds = %_ZZNK4
 
 1892:                                             ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1734
   %1893 = getelementptr inbounds nuw i8, ptr %1874, i64 24
-  %1894 = load ptr, ptr %1893, align 8, !tbaa !690
+  %1894 = load ptr, ptr %1893, align 8, !tbaa !696
   %1895 = getelementptr inbounds nuw i8, ptr %1894, i64 32
-  %1896 = load ptr, ptr %1895, align 8, !tbaa !702
+  %1896 = load ptr, ptr %1895, align 8, !tbaa !708
   %1897 = lshr i64 %.sroa.04.0.i1733, 24
   %1898 = trunc i64 %1897 to i32
   %1899 = and i32 %1898, 16777215
   %1900 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1065) %1896) #25
   %1901 = call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %1900, i32 noundef %1899) #25
   %1902 = getelementptr inbounds nuw i8, ptr %1901, i64 4
-  %1903 = load i32, ptr %1902, align 4, !tbaa !877
+  %1903 = load i32, ptr %1902, align 4, !tbaa !883
   %1904 = zext i32 %1903 to i64
   br label %1905
 
@@ -14202,7 +14204,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 1930:                                             ; preds = %105
   %1931 = add i64 %.0303, 2
   %1932 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %1933 = load i8, ptr %1932, align 1, !tbaa !16, !alias.scope !879
+  %1933 = load i8, ptr %1932, align 1, !tbaa !16, !alias.scope !885
   %1934 = zext i8 %1933 to i64
   %1935 = icmp slt i8 %1933, 0
   br i1 %1935, label %1936, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1763, !prof !123
@@ -14216,7 +14218,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1760 = phi i32 [ 7, %1936 ], [ %1947, %1938 ]
   %.1.i.i1761 = phi i64 [ %1937, %1936 ], [ %1946, %1938 ]
   %1940 = getelementptr inbounds nuw i8, ptr %5, i64 %1939
-  %1941 = load i8, ptr %1940, align 1, !tbaa !16, !alias.scope !879
+  %1941 = load i8, ptr %1940, align 1, !tbaa !16, !alias.scope !885
   %1942 = and i8 %1941, 127
   %1943 = zext nneg i8 %1942 to i64
   %1944 = zext nneg i32 %.012.i.i1760 to i64
@@ -14225,14 +14227,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1947 = add i32 %.012.i.i1760, 7
   %1948 = add i64 %1939, 1
   %1949 = icmp slt i8 %1941, 0
-  br i1 %1949, label %1938, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1763, !llvm.loop !762
+  br i1 %1949, label %1938, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1763, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1763: ; preds = %1938, %1930
   %.134 = phi i64 [ %1931, %1930 ], [ %1948, %1938 ]
   %.0.i.i1759 = phi i64 [ %1934, %1930 ], [ %1946, %1938 ]
   %1950 = add i64 %.134, 1
   %1951 = getelementptr inbounds nuw i8, ptr %5, i64 %.134
-  %1952 = load i8, ptr %1951, align 1, !tbaa !16, !alias.scope !882
+  %1952 = load i8, ptr %1951, align 1, !tbaa !16, !alias.scope !888
   %1953 = zext i8 %1952 to i64
   %1954 = icmp slt i8 %1952, 0
   br i1 %1954, label %1955, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1768, !prof !123
@@ -14246,7 +14248,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1765 = phi i32 [ 7, %1955 ], [ %1966, %1957 ]
   %.1.i.i1766 = phi i64 [ %1956, %1955 ], [ %1965, %1957 ]
   %1959 = getelementptr inbounds nuw i8, ptr %5, i64 %1958
-  %1960 = load i8, ptr %1959, align 1, !tbaa !16, !alias.scope !882
+  %1960 = load i8, ptr %1959, align 1, !tbaa !16, !alias.scope !888
   %1961 = and i8 %1960, 127
   %1962 = zext nneg i8 %1961 to i64
   %1963 = zext nneg i32 %.012.i.i1765 to i64
@@ -14255,14 +14257,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1966 = add i32 %.012.i.i1765, 7
   %1967 = add i64 %1958, 1
   %1968 = icmp slt i8 %1960, 0
-  br i1 %1968, label %1957, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1768, !llvm.loop !762
+  br i1 %1968, label %1957, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1768, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1768: ; preds = %1957, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1763
   %.135 = phi i64 [ %1950, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1763 ], [ %1967, %1957 ]
   %.0.i.i1764 = phi i64 [ %1953, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1763 ], [ %1965, %1957 ]
   %1969 = add i64 %.135, 1
   %1970 = getelementptr inbounds nuw i8, ptr %5, i64 %.135
-  %1971 = load i8, ptr %1970, align 1, !tbaa !16, !alias.scope !885
+  %1971 = load i8, ptr %1970, align 1, !tbaa !16, !alias.scope !891
   %1972 = zext i8 %1971 to i64
   %1973 = icmp slt i8 %1971, 0
   br i1 %1973, label %1974, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1773, !prof !123
@@ -14276,7 +14278,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1770 = phi i32 [ 7, %1974 ], [ %1985, %1976 ]
   %.1.i.i1771 = phi i64 [ %1975, %1974 ], [ %1984, %1976 ]
   %1978 = getelementptr inbounds nuw i8, ptr %5, i64 %1977
-  %1979 = load i8, ptr %1978, align 1, !tbaa !16, !alias.scope !885
+  %1979 = load i8, ptr %1978, align 1, !tbaa !16, !alias.scope !891
   %1980 = and i8 %1979, 127
   %1981 = zext nneg i8 %1980 to i64
   %1982 = zext nneg i32 %.012.i.i1770 to i64
@@ -14285,7 +14287,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1985 = add i32 %.012.i.i1770, 7
   %1986 = add i64 %1977, 1
   %1987 = icmp slt i8 %1979, 0
-  br i1 %1987, label %1976, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1773, !llvm.loop !762
+  br i1 %1987, label %1976, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1773, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1773: ; preds = %1976, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1768
   %.136 = phi i64 [ %1969, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1768 ], [ %1986, %1976 ]
@@ -14298,13 +14300,13 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %1993 = and i64 %.0.i.i1764, 4294967295
   %1994 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %1992, i64 %1993
   %1995 = getelementptr inbounds nuw [3 x ptr], ptr %96, i64 0, i64 %.0.i.i1769
-  store ptr %1994, ptr %1995, align 8, !tbaa !620
+  store ptr %1994, ptr %1995, align 8, !tbaa !626
   br label %.critedge49
 
 1996:                                             ; preds = %105
   %1997 = add i64 %.0303, 2
   %1998 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %1999 = load i8, ptr %1998, align 1, !tbaa !16, !alias.scope !888
+  %1999 = load i8, ptr %1998, align 1, !tbaa !16, !alias.scope !894
   %2000 = zext i8 %1999 to i64
   %2001 = icmp slt i8 %1999, 0
   br i1 %2001, label %2002, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1778, !prof !123
@@ -14318,7 +14320,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1775 = phi i32 [ 7, %2002 ], [ %2013, %2004 ]
   %.1.i.i1776 = phi i64 [ %2003, %2002 ], [ %2012, %2004 ]
   %2006 = getelementptr inbounds nuw i8, ptr %5, i64 %2005
-  %2007 = load i8, ptr %2006, align 1, !tbaa !16, !alias.scope !888
+  %2007 = load i8, ptr %2006, align 1, !tbaa !16, !alias.scope !894
   %2008 = and i8 %2007, 127
   %2009 = zext nneg i8 %2008 to i64
   %2010 = zext nneg i32 %.012.i.i1775 to i64
@@ -14327,14 +14329,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2013 = add i32 %.012.i.i1775, 7
   %2014 = add i64 %2005, 1
   %2015 = icmp slt i8 %2007, 0
-  br i1 %2015, label %2004, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1778, !llvm.loop !762
+  br i1 %2015, label %2004, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1778, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1778: ; preds = %2004, %1996
   %.137 = phi i64 [ %1997, %1996 ], [ %2014, %2004 ]
   %.0.i.i1774 = phi i64 [ %2000, %1996 ], [ %2012, %2004 ]
   %2016 = add i64 %.137, 1
   %2017 = getelementptr inbounds nuw i8, ptr %5, i64 %.137
-  %2018 = load i8, ptr %2017, align 1, !tbaa !16, !alias.scope !891
+  %2018 = load i8, ptr %2017, align 1, !tbaa !16, !alias.scope !897
   %2019 = zext i8 %2018 to i64
   %2020 = icmp slt i8 %2018, 0
   br i1 %2020, label %2021, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1783, !prof !123
@@ -14348,7 +14350,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1780 = phi i32 [ 7, %2021 ], [ %2032, %2023 ]
   %.1.i.i1781 = phi i64 [ %2022, %2021 ], [ %2031, %2023 ]
   %2025 = getelementptr inbounds nuw i8, ptr %5, i64 %2024
-  %2026 = load i8, ptr %2025, align 1, !tbaa !16, !alias.scope !891
+  %2026 = load i8, ptr %2025, align 1, !tbaa !16, !alias.scope !897
   %2027 = and i8 %2026, 127
   %2028 = zext nneg i8 %2027 to i64
   %2029 = zext nneg i32 %.012.i.i1780 to i64
@@ -14357,7 +14359,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2032 = add i32 %.012.i.i1780, 7
   %2033 = add i64 %2024, 1
   %2034 = icmp slt i8 %2026, 0
-  br i1 %2034, label %2023, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1783, !llvm.loop !762
+  br i1 %2034, label %2023, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1783, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1783: ; preds = %2023, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1778
   %.138 = phi i64 [ %2016, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1778 ], [ %2033, %2023 ]
@@ -14451,7 +14453,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1786: ; preds = %_ZN4ll
 2081:                                             ; preds = %2079
   %2082 = add i64 %.0303, 2
   %2083 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2084 = load i8, ptr %2083, align 1, !tbaa !16, !alias.scope !894
+  %2084 = load i8, ptr %2083, align 1, !tbaa !16, !alias.scope !900
   %2085 = zext i8 %2084 to i64
   %2086 = icmp slt i8 %2084, 0
   br i1 %2086, label %2087, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1791, !prof !123
@@ -14465,7 +14467,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1786: ; preds = %_ZN4ll
   %.012.i.i1788 = phi i32 [ 7, %2087 ], [ %2098, %2089 ]
   %.1.i.i1789 = phi i64 [ %2088, %2087 ], [ %2097, %2089 ]
   %2091 = getelementptr inbounds nuw i8, ptr %5, i64 %2090
-  %2092 = load i8, ptr %2091, align 1, !tbaa !16, !alias.scope !894
+  %2092 = load i8, ptr %2091, align 1, !tbaa !16, !alias.scope !900
   %2093 = and i8 %2092, 127
   %2094 = zext nneg i8 %2093 to i64
   %2095 = zext nneg i32 %.012.i.i1788 to i64
@@ -14474,14 +14476,14 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1786: ; preds = %_ZN4ll
   %2098 = add i32 %.012.i.i1788, 7
   %2099 = add i64 %2090, 1
   %2100 = icmp slt i8 %2092, 0
-  br i1 %2100, label %2089, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1791, !llvm.loop !762
+  br i1 %2100, label %2089, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1791, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1791: ; preds = %2089, %2081, %2079
   %.140 = phi i64 [ %106, %2079 ], [ %2082, %2081 ], [ %2099, %2089 ]
   %2101 = phi i64 [ 0, %2079 ], [ %2085, %2081 ], [ %2097, %2089 ]
   %2102 = add i64 %.140, 1
   %2103 = getelementptr inbounds nuw i8, ptr %5, i64 %.140
-  %2104 = load i8, ptr %2103, align 1, !tbaa !16, !alias.scope !897
+  %2104 = load i8, ptr %2103, align 1, !tbaa !16, !alias.scope !903
   %2105 = zext i8 %2104 to i64
   %2106 = icmp slt i8 %2104, 0
   br i1 %2106, label %2107, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1796, !prof !123
@@ -14495,7 +14497,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1793 = phi i32 [ 7, %2107 ], [ %2118, %2109 ]
   %.1.i.i1794 = phi i64 [ %2108, %2107 ], [ %2117, %2109 ]
   %2111 = getelementptr inbounds nuw i8, ptr %5, i64 %2110
-  %2112 = load i8, ptr %2111, align 1, !tbaa !16, !alias.scope !897
+  %2112 = load i8, ptr %2111, align 1, !tbaa !16, !alias.scope !903
   %2113 = and i8 %2112, 127
   %2114 = zext nneg i8 %2113 to i64
   %2115 = zext nneg i32 %.012.i.i1793 to i64
@@ -14504,7 +14506,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2118 = add i32 %.012.i.i1793, 7
   %2119 = add i64 %2110, 1
   %2120 = icmp slt i8 %2112, 0
-  br i1 %2120, label %2109, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1796, !llvm.loop !762
+  br i1 %2120, label %2109, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1796, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1796: ; preds = %2109, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1791
   %.141 = phi i64 [ %2102, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1791 ], [ %2119, %2109 ]
@@ -14525,10 +14527,10 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 2132:                                             ; preds = %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1796
   %2133 = getelementptr inbounds nuw i8, ptr %5, i64 %.141
   %.0.copyload.i.i1797 = load i16, ptr %2133, align 1
-  %2134 = load ptr, ptr %54, align 8, !tbaa !900
+  %2134 = load ptr, ptr %54, align 8, !tbaa !906
   %2135 = zext i16 %.0.copyload.i.i1797 to i64
   %2136 = getelementptr inbounds nuw ptr, ptr %2134, i64 %2135
-  %2137 = load ptr, ptr %2136, align 8, !tbaa !901
+  %2137 = load ptr, ptr %2136, align 8, !tbaa !907
   %2138 = getelementptr inbounds nuw i8, ptr %2128, i64 4
   %2139 = load i32, ptr %2138, align 4, !tbaa !16
   %2140 = icmp slt i32 %2139, 0
@@ -14576,7 +14578,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 2164:                                             ; preds = %105
   %2165 = add i64 %.0303, 2
   %2166 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2167 = load i8, ptr %2166, align 1, !tbaa !16, !alias.scope !903
+  %2167 = load i8, ptr %2166, align 1, !tbaa !16, !alias.scope !909
   %2168 = zext i8 %2167 to i64
   %2169 = icmp slt i8 %2167, 0
   br i1 %2169, label %2170, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1807, !prof !123
@@ -14590,7 +14592,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1804 = phi i32 [ 7, %2170 ], [ %2181, %2172 ]
   %.1.i.i1805 = phi i64 [ %2171, %2170 ], [ %2180, %2172 ]
   %2174 = getelementptr inbounds nuw i8, ptr %5, i64 %2173
-  %2175 = load i8, ptr %2174, align 1, !tbaa !16, !alias.scope !903
+  %2175 = load i8, ptr %2174, align 1, !tbaa !16, !alias.scope !909
   %2176 = and i8 %2175, 127
   %2177 = zext nneg i8 %2176 to i64
   %2178 = zext nneg i32 %.012.i.i1804 to i64
@@ -14599,14 +14601,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2181 = add i32 %.012.i.i1804, 7
   %2182 = add i64 %2173, 1
   %2183 = icmp slt i8 %2175, 0
-  br i1 %2183, label %2172, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1807, !llvm.loop !762
+  br i1 %2183, label %2172, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1807, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1807: ; preds = %2172, %2164
   %.145 = phi i64 [ %2165, %2164 ], [ %2182, %2172 ]
   %.0.i.i1803 = phi i64 [ %2168, %2164 ], [ %2180, %2172 ]
   %2184 = add i64 %.145, 1
   %2185 = getelementptr inbounds nuw i8, ptr %5, i64 %.145
-  %2186 = load i8, ptr %2185, align 1, !tbaa !16, !alias.scope !906
+  %2186 = load i8, ptr %2185, align 1, !tbaa !16, !alias.scope !912
   %2187 = zext i8 %2186 to i64
   %2188 = icmp slt i8 %2186, 0
   br i1 %2188, label %2189, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1812, !prof !123
@@ -14620,7 +14622,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1809 = phi i32 [ 7, %2189 ], [ %2200, %2191 ]
   %.1.i.i1810 = phi i64 [ %2190, %2189 ], [ %2199, %2191 ]
   %2193 = getelementptr inbounds nuw i8, ptr %5, i64 %2192
-  %2194 = load i8, ptr %2193, align 1, !tbaa !16, !alias.scope !906
+  %2194 = load i8, ptr %2193, align 1, !tbaa !16, !alias.scope !912
   %2195 = and i8 %2194, 127
   %2196 = zext nneg i8 %2195 to i64
   %2197 = zext nneg i32 %.012.i.i1809 to i64
@@ -14629,7 +14631,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2200 = add i32 %.012.i.i1809, 7
   %2201 = add i64 %2192, 1
   %2202 = icmp slt i8 %2194, 0
-  br i1 %2202, label %2191, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1812, !llvm.loop !762
+  br i1 %2202, label %2191, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1812, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1812: ; preds = %2191, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1807
   %.146 = phi i64 [ %2184, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1807 ], [ %2201, %2191 ]
@@ -14672,7 +14674,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2224 = and i64 %.0.i.i1808, 4294967295
   %2225 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %2223, i64 %2224
   call void %2218(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.684") align 8 %25, ptr noundef nonnull align 8 dereferenceable(5616) %2208, ptr noundef nonnull align 8 dereferenceable(32) %2225) #25
-  %2226 = load i8, ptr %90, align 8, !tbaa !909, !range !64, !noundef !65
+  %2226 = load i8, ptr %90, align 8, !tbaa !915, !range !64, !noundef !65
   %2227 = trunc nuw i8 %2226 to i1
   br i1 %2227, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1817.thread, label %2228
 
@@ -14697,12 +14699,12 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2237 = load ptr, ptr %2, align 8, !tbaa !334
   %2238 = getelementptr inbounds nuw %"class.llvm::SmallVector.690", ptr %2237, i64 %2236
   %2239 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt8functionIFvRNS_19MachineInstrBuilderEEEEaSERKS6_(ptr noundef nonnull align 8 dereferenceable(144) %2238, ptr noundef nonnull align 8 dereferenceable(144) %25)
-  %.pre = load i8, ptr %90, align 8, !tbaa !909, !range !64
+  %.pre = load i8, ptr %90, align 8, !tbaa !915, !range !64
   %2240 = trunc nuw i8 %.pre to i1
   br i1 %2240, label %2241, label %_ZNSt14_Optional_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEELb0ELb0EED2Ev.exit.thread
 
 2241:                                             ; preds = %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1817.thread
-  store i8 0, ptr %90, align 8, !tbaa !909
+  store i8 0, ptr %90, align 8, !tbaa !915
   %2242 = load ptr, ptr %25, align 8, !tbaa !37
   %2243 = load i32, ptr %91, align 8, !tbaa !38
   %.not4.i.i.i.i.i.i = icmp eq i32 %2243, 0
@@ -14754,7 +14756,7 @@ _ZNSt14_Optional_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuild
   %2255 = icmp eq i8 %108, 37
   %2256 = add i64 %.0303, 2
   %2257 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2258 = load i8, ptr %2257, align 1, !tbaa !16, !alias.scope !911
+  %2258 = load i8, ptr %2257, align 1, !tbaa !16, !alias.scope !917
   %2259 = zext i8 %2258 to i64
   %2260 = icmp slt i8 %2258, 0
   br i1 %2260, label %2261, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1823, !prof !123
@@ -14768,7 +14770,7 @@ _ZNSt14_Optional_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuild
   %.012.i.i1820 = phi i32 [ 7, %2261 ], [ %2272, %2263 ]
   %.1.i.i1821 = phi i64 [ %2262, %2261 ], [ %2271, %2263 ]
   %2265 = getelementptr inbounds nuw i8, ptr %5, i64 %2264
-  %2266 = load i8, ptr %2265, align 1, !tbaa !16, !alias.scope !911
+  %2266 = load i8, ptr %2265, align 1, !tbaa !16, !alias.scope !917
   %2267 = and i8 %2266, 127
   %2268 = zext nneg i8 %2267 to i64
   %2269 = zext nneg i32 %.012.i.i1820 to i64
@@ -14777,14 +14779,14 @@ _ZNSt14_Optional_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuild
   %2272 = add i32 %.012.i.i1820, 7
   %2273 = add i64 %2264, 1
   %2274 = icmp slt i8 %2266, 0
-  br i1 %2274, label %2263, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1823, !llvm.loop !762
+  br i1 %2274, label %2263, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1823, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1823: ; preds = %2263, %2254
   %.150 = phi i64 [ %2256, %2254 ], [ %2273, %2263 ]
   %.0.i.i1819 = phi i64 [ %2259, %2254 ], [ %2271, %2263 ]
   %2275 = add i64 %.150, 1
   %2276 = getelementptr inbounds nuw i8, ptr %5, i64 %.150
-  %2277 = load i8, ptr %2276, align 1, !tbaa !16, !alias.scope !914
+  %2277 = load i8, ptr %2276, align 1, !tbaa !16, !alias.scope !920
   %2278 = zext i8 %2277 to i64
   %2279 = icmp slt i8 %2277, 0
   br i1 %2279, label %2280, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1828, !prof !123
@@ -14798,7 +14800,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1825 = phi i32 [ 7, %2280 ], [ %2291, %2282 ]
   %.1.i.i1826 = phi i64 [ %2281, %2280 ], [ %2290, %2282 ]
   %2284 = getelementptr inbounds nuw i8, ptr %5, i64 %2283
-  %2285 = load i8, ptr %2284, align 1, !tbaa !16, !alias.scope !914
+  %2285 = load i8, ptr %2284, align 1, !tbaa !16, !alias.scope !920
   %2286 = and i8 %2285, 127
   %2287 = zext nneg i8 %2286 to i64
   %2288 = zext nneg i32 %.012.i.i1825 to i64
@@ -14807,7 +14809,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2291 = add i32 %.012.i.i1825, 7
   %2292 = add i64 %2283, 1
   %2293 = icmp slt i8 %2285, 0
-  br i1 %2293, label %2282, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1828, !llvm.loop !762
+  br i1 %2293, label %2282, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1828, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1828: ; preds = %2282, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1823
   %.151 = phi i64 [ %2275, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1823 ], [ %2292, %2282 ]
@@ -14930,7 +14932,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 2361:                                             ; preds = %105
   %2362 = add i64 %.0303, 2
   %2363 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2364 = load i8, ptr %2363, align 1, !tbaa !16, !alias.scope !917
+  %2364 = load i8, ptr %2363, align 1, !tbaa !16, !alias.scope !923
   %2365 = zext i8 %2364 to i64
   %2366 = icmp slt i8 %2364, 0
   br i1 %2366, label %2367, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1854, !prof !123
@@ -14944,7 +14946,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1851 = phi i32 [ 7, %2367 ], [ %2378, %2369 ]
   %.1.i.i1852 = phi i64 [ %2368, %2367 ], [ %2377, %2369 ]
   %2371 = getelementptr inbounds nuw i8, ptr %5, i64 %2370
-  %2372 = load i8, ptr %2371, align 1, !tbaa !16, !alias.scope !917
+  %2372 = load i8, ptr %2371, align 1, !tbaa !16, !alias.scope !923
   %2373 = and i8 %2372, 127
   %2374 = zext nneg i8 %2373 to i64
   %2375 = zext nneg i32 %.012.i.i1851 to i64
@@ -14953,14 +14955,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2378 = add i32 %.012.i.i1851, 7
   %2379 = add i64 %2370, 1
   %2380 = icmp slt i8 %2372, 0
-  br i1 %2380, label %2369, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1854, !llvm.loop !762
+  br i1 %2380, label %2369, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1854, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1854: ; preds = %2369, %2361
   %.160 = phi i64 [ %2362, %2361 ], [ %2379, %2369 ]
   %.0.i.i1850 = phi i64 [ %2365, %2361 ], [ %2377, %2369 ]
   %2381 = add i64 %.160, 1
   %2382 = getelementptr inbounds nuw i8, ptr %5, i64 %.160
-  %2383 = load i8, ptr %2382, align 1, !tbaa !16, !alias.scope !920
+  %2383 = load i8, ptr %2382, align 1, !tbaa !16, !alias.scope !926
   %2384 = zext i8 %2383 to i64
   %2385 = icmp slt i8 %2383, 0
   br i1 %2385, label %2386, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1859, !prof !123
@@ -14974,7 +14976,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1856 = phi i32 [ 7, %2386 ], [ %2397, %2388 ]
   %.1.i.i1857 = phi i64 [ %2387, %2386 ], [ %2396, %2388 ]
   %2390 = getelementptr inbounds nuw i8, ptr %5, i64 %2389
-  %2391 = load i8, ptr %2390, align 1, !tbaa !16, !alias.scope !920
+  %2391 = load i8, ptr %2390, align 1, !tbaa !16, !alias.scope !926
   %2392 = and i8 %2391, 127
   %2393 = zext nneg i8 %2392 to i64
   %2394 = zext nneg i32 %.012.i.i1856 to i64
@@ -14983,7 +14985,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2397 = add i32 %.012.i.i1856, 7
   %2398 = add i64 %2389, 1
   %2399 = icmp slt i8 %2391, 0
-  br i1 %2399, label %2388, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1859, !llvm.loop !762
+  br i1 %2399, label %2388, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1859, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1859: ; preds = %2388, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1854
   %.161 = phi i64 [ %2381, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1854 ], [ %2398, %2388 ]
@@ -15051,7 +15053,7 @@ _ZNK4llvm11ConstantInt9equalsIntEm.exit:          ; preds = %2414, %_ZNK4llvm5AP
 2433:                                             ; preds = %105
   %2434 = add i64 %.0303, 2
   %2435 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2436 = load i8, ptr %2435, align 1, !tbaa !16, !alias.scope !923
+  %2436 = load i8, ptr %2435, align 1, !tbaa !16, !alias.scope !929
   %2437 = zext i8 %2436 to i64
   %2438 = icmp slt i8 %2436, 0
   br i1 %2438, label %2439, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1870, !prof !123
@@ -15065,7 +15067,7 @@ _ZNK4llvm11ConstantInt9equalsIntEm.exit:          ; preds = %2414, %_ZNK4llvm5AP
   %.012.i.i1867 = phi i32 [ 7, %2439 ], [ %2450, %2441 ]
   %.1.i.i1868 = phi i64 [ %2440, %2439 ], [ %2449, %2441 ]
   %2443 = getelementptr inbounds nuw i8, ptr %5, i64 %2442
-  %2444 = load i8, ptr %2443, align 1, !tbaa !16, !alias.scope !923
+  %2444 = load i8, ptr %2443, align 1, !tbaa !16, !alias.scope !929
   %2445 = and i8 %2444, 127
   %2446 = zext nneg i8 %2445 to i64
   %2447 = zext nneg i32 %.012.i.i1867 to i64
@@ -15074,14 +15076,14 @@ _ZNK4llvm11ConstantInt9equalsIntEm.exit:          ; preds = %2414, %_ZNK4llvm5AP
   %2450 = add i32 %.012.i.i1867, 7
   %2451 = add i64 %2442, 1
   %2452 = icmp slt i8 %2444, 0
-  br i1 %2452, label %2441, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1870, !llvm.loop !762
+  br i1 %2452, label %2441, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1870, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1870: ; preds = %2441, %2433
   %.164 = phi i64 [ %2434, %2433 ], [ %2451, %2441 ]
   %.0.i.i1866 = phi i64 [ %2437, %2433 ], [ %2449, %2441 ]
   %2453 = add i64 %.164, 1
   %2454 = getelementptr inbounds nuw i8, ptr %5, i64 %.164
-  %2455 = load i8, ptr %2454, align 1, !tbaa !16, !alias.scope !926
+  %2455 = load i8, ptr %2454, align 1, !tbaa !16, !alias.scope !932
   %2456 = zext i8 %2455 to i64
   %2457 = icmp slt i8 %2455, 0
   br i1 %2457, label %2458, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1875, !prof !123
@@ -15095,7 +15097,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1872 = phi i32 [ 7, %2458 ], [ %2469, %2460 ]
   %.1.i.i1873 = phi i64 [ %2459, %2458 ], [ %2468, %2460 ]
   %2462 = getelementptr inbounds nuw i8, ptr %5, i64 %2461
-  %2463 = load i8, ptr %2462, align 1, !tbaa !16, !alias.scope !926
+  %2463 = load i8, ptr %2462, align 1, !tbaa !16, !alias.scope !932
   %2464 = and i8 %2463, 127
   %2465 = zext nneg i8 %2464 to i64
   %2466 = zext nneg i32 %.012.i.i1872 to i64
@@ -15104,7 +15106,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2469 = add i32 %.012.i.i1872, 7
   %2470 = add i64 %2461, 1
   %2471 = icmp slt i8 %2463, 0
-  br i1 %2471, label %2460, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1875, !llvm.loop !762
+  br i1 %2471, label %2460, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1875, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1875: ; preds = %2460, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1870
   %.165 = phi i64 [ %2453, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1870 ], [ %2470, %2460 ]
@@ -15149,7 +15151,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 2496:                                             ; preds = %105
   %2497 = add i64 %.0303, 2
   %2498 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2499 = load i8, ptr %2498, align 1, !tbaa !16, !alias.scope !929
+  %2499 = load i8, ptr %2498, align 1, !tbaa !16, !alias.scope !935
   %2500 = zext i8 %2499 to i64
   %2501 = icmp slt i8 %2499, 0
   br i1 %2501, label %2502, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1884, !prof !123
@@ -15163,7 +15165,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1881 = phi i32 [ 7, %2502 ], [ %2513, %2504 ]
   %.1.i.i1882 = phi i64 [ %2503, %2502 ], [ %2512, %2504 ]
   %2506 = getelementptr inbounds nuw i8, ptr %5, i64 %2505
-  %2507 = load i8, ptr %2506, align 1, !tbaa !16, !alias.scope !929
+  %2507 = load i8, ptr %2506, align 1, !tbaa !16, !alias.scope !935
   %2508 = and i8 %2507, 127
   %2509 = zext nneg i8 %2508 to i64
   %2510 = zext nneg i32 %.012.i.i1881 to i64
@@ -15172,14 +15174,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2513 = add i32 %.012.i.i1881, 7
   %2514 = add i64 %2505, 1
   %2515 = icmp slt i8 %2507, 0
-  br i1 %2515, label %2504, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1884, !llvm.loop !762
+  br i1 %2515, label %2504, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1884, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1884: ; preds = %2504, %2496
   %.169 = phi i64 [ %2497, %2496 ], [ %2514, %2504 ]
   %.0.i.i1880 = phi i64 [ %2500, %2496 ], [ %2512, %2504 ]
   %2516 = add i64 %.169, 1
   %2517 = getelementptr inbounds nuw i8, ptr %5, i64 %.169
-  %2518 = load i8, ptr %2517, align 1, !tbaa !16, !alias.scope !932
+  %2518 = load i8, ptr %2517, align 1, !tbaa !16, !alias.scope !938
   %2519 = zext i8 %2518 to i64
   %2520 = icmp slt i8 %2518, 0
   br i1 %2520, label %2521, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1889, !prof !123
@@ -15193,7 +15195,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1886 = phi i32 [ 7, %2521 ], [ %2532, %2523 ]
   %.1.i.i1887 = phi i64 [ %2522, %2521 ], [ %2531, %2523 ]
   %2525 = getelementptr inbounds nuw i8, ptr %5, i64 %2524
-  %2526 = load i8, ptr %2525, align 1, !tbaa !16, !alias.scope !932
+  %2526 = load i8, ptr %2525, align 1, !tbaa !16, !alias.scope !938
   %2527 = and i8 %2526, 127
   %2528 = zext nneg i8 %2527 to i64
   %2529 = zext nneg i32 %.012.i.i1886 to i64
@@ -15202,7 +15204,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2532 = add i32 %.012.i.i1886, 7
   %2533 = add i64 %2524, 1
   %2534 = icmp slt i8 %2526, 0
-  br i1 %2534, label %2523, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1889, !llvm.loop !762
+  br i1 %2534, label %2523, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1889, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1889: ; preds = %2523, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1884
   %.170 = phi i64 [ %2516, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1884 ], [ %2533, %2523 ]
@@ -15247,7 +15249,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 2559:                                             ; preds = %105
   %2560 = add i64 %.0303, 2
   %2561 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2562 = load i8, ptr %2561, align 1, !tbaa !16, !alias.scope !935
+  %2562 = load i8, ptr %2561, align 1, !tbaa !16, !alias.scope !941
   %2563 = zext i8 %2562 to i64
   %2564 = icmp slt i8 %2562, 0
   br i1 %2564, label %2565, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1898, !prof !123
@@ -15261,7 +15263,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1895 = phi i32 [ 7, %2565 ], [ %2576, %2567 ]
   %.1.i.i1896 = phi i64 [ %2566, %2565 ], [ %2575, %2567 ]
   %2569 = getelementptr inbounds nuw i8, ptr %5, i64 %2568
-  %2570 = load i8, ptr %2569, align 1, !tbaa !16, !alias.scope !935
+  %2570 = load i8, ptr %2569, align 1, !tbaa !16, !alias.scope !941
   %2571 = and i8 %2570, 127
   %2572 = zext nneg i8 %2571 to i64
   %2573 = zext nneg i32 %.012.i.i1895 to i64
@@ -15270,14 +15272,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2576 = add i32 %.012.i.i1895, 7
   %2577 = add i64 %2568, 1
   %2578 = icmp slt i8 %2570, 0
-  br i1 %2578, label %2567, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1898, !llvm.loop !762
+  br i1 %2578, label %2567, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1898, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1898: ; preds = %2567, %2559
   %.174 = phi i64 [ %2560, %2559 ], [ %2577, %2567 ]
   %.0.i.i1894 = phi i64 [ %2563, %2559 ], [ %2575, %2567 ]
   %2579 = add i64 %.174, 1
   %2580 = getelementptr inbounds nuw i8, ptr %5, i64 %.174
-  %2581 = load i8, ptr %2580, align 1, !tbaa !16, !alias.scope !938
+  %2581 = load i8, ptr %2580, align 1, !tbaa !16, !alias.scope !944
   %2582 = zext i8 %2581 to i64
   %2583 = icmp slt i8 %2581, 0
   br i1 %2583, label %2584, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1903, !prof !123
@@ -15291,7 +15293,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1900 = phi i32 [ 7, %2584 ], [ %2595, %2586 ]
   %.1.i.i1901 = phi i64 [ %2585, %2584 ], [ %2594, %2586 ]
   %2588 = getelementptr inbounds nuw i8, ptr %5, i64 %2587
-  %2589 = load i8, ptr %2588, align 1, !tbaa !16, !alias.scope !938
+  %2589 = load i8, ptr %2588, align 1, !tbaa !16, !alias.scope !944
   %2590 = and i8 %2589, 127
   %2591 = zext nneg i8 %2590 to i64
   %2592 = zext nneg i32 %.012.i.i1900 to i64
@@ -15300,7 +15302,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2595 = add i32 %.012.i.i1900, 7
   %2596 = add i64 %2587, 1
   %2597 = icmp slt i8 %2589, 0
-  br i1 %2597, label %2586, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1903, !llvm.loop !762
+  br i1 %2597, label %2586, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1903, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1903: ; preds = %2586, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1898
   %.175 = phi i64 [ %2579, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1898 ], [ %2596, %2586 ]
@@ -15335,7 +15337,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 2616:                                             ; preds = %105
   %2617 = add i64 %.0303, 2
   %2618 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2619 = load i8, ptr %2618, align 1, !tbaa !16, !alias.scope !941
+  %2619 = load i8, ptr %2618, align 1, !tbaa !16, !alias.scope !947
   %2620 = zext i8 %2619 to i64
   %2621 = icmp slt i8 %2619, 0
   br i1 %2621, label %2622, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1911, !prof !123
@@ -15349,7 +15351,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1908 = phi i32 [ 7, %2622 ], [ %2633, %2624 ]
   %.1.i.i1909 = phi i64 [ %2623, %2622 ], [ %2632, %2624 ]
   %2626 = getelementptr inbounds nuw i8, ptr %5, i64 %2625
-  %2627 = load i8, ptr %2626, align 1, !tbaa !16, !alias.scope !941
+  %2627 = load i8, ptr %2626, align 1, !tbaa !16, !alias.scope !947
   %2628 = and i8 %2627, 127
   %2629 = zext nneg i8 %2628 to i64
   %2630 = zext nneg i32 %.012.i.i1908 to i64
@@ -15358,14 +15360,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2633 = add i32 %.012.i.i1908, 7
   %2634 = add i64 %2625, 1
   %2635 = icmp slt i8 %2627, 0
-  br i1 %2635, label %2624, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1911, !llvm.loop !762
+  br i1 %2635, label %2624, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1911, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1911: ; preds = %2624, %2616
   %.179 = phi i64 [ %2617, %2616 ], [ %2634, %2624 ]
   %.0.i.i1907 = phi i64 [ %2620, %2616 ], [ %2632, %2624 ]
   %2636 = add i64 %.179, 1
   %2637 = getelementptr inbounds nuw i8, ptr %5, i64 %.179
-  %2638 = load i8, ptr %2637, align 1, !tbaa !16, !alias.scope !944
+  %2638 = load i8, ptr %2637, align 1, !tbaa !16, !alias.scope !950
   %2639 = zext i8 %2638 to i64
   %2640 = icmp slt i8 %2638, 0
   br i1 %2640, label %2641, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1916, !prof !123
@@ -15379,7 +15381,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1913 = phi i32 [ 7, %2641 ], [ %2652, %2643 ]
   %.1.i.i1914 = phi i64 [ %2642, %2641 ], [ %2651, %2643 ]
   %2645 = getelementptr inbounds nuw i8, ptr %5, i64 %2644
-  %2646 = load i8, ptr %2645, align 1, !tbaa !16, !alias.scope !944
+  %2646 = load i8, ptr %2645, align 1, !tbaa !16, !alias.scope !950
   %2647 = and i8 %2646, 127
   %2648 = zext nneg i8 %2647 to i64
   %2649 = zext nneg i32 %.012.i.i1913 to i64
@@ -15388,7 +15390,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2652 = add i32 %.012.i.i1913, 7
   %2653 = add i64 %2644, 1
   %2654 = icmp slt i8 %2646, 0
-  br i1 %2654, label %2643, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1916, !llvm.loop !762
+  br i1 %2654, label %2643, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1916, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1916: ; preds = %2643, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1911
   %.180 = phi i64 [ %2636, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1911 ], [ %2653, %2643 ]
@@ -15461,12 +15463,12 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.186 = phi i64 [ %.1841019, %.lr.ph1022 ], [ %2690, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1922 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond1343.not = icmp eq i64 %indvars.iv, %2679
-  br i1 %exitcond1343.not, label %.critedge49, label %.lr.ph1022, !llvm.loop !947
+  br i1 %exitcond1343.not, label %.critedge49, label %.lr.ph1022, !llvm.loop !953
 
 2693:                                             ; preds = %105, %105
   %2694 = add i64 %.0303, 2
   %2695 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2696 = load i8, ptr %2695, align 1, !tbaa !16, !alias.scope !948
+  %2696 = load i8, ptr %2695, align 1, !tbaa !16, !alias.scope !954
   %2697 = zext i8 %2696 to i64
   %2698 = icmp slt i8 %2696, 0
   br i1 %2698, label %2699, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1927, !prof !123
@@ -15480,7 +15482,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1924 = phi i32 [ 7, %2699 ], [ %2710, %2701 ]
   %.1.i.i1925 = phi i64 [ %2700, %2699 ], [ %2709, %2701 ]
   %2703 = getelementptr inbounds nuw i8, ptr %5, i64 %2702
-  %2704 = load i8, ptr %2703, align 1, !tbaa !16, !alias.scope !948
+  %2704 = load i8, ptr %2703, align 1, !tbaa !16, !alias.scope !954
   %2705 = and i8 %2704, 127
   %2706 = zext nneg i8 %2705 to i64
   %2707 = zext nneg i32 %.012.i.i1924 to i64
@@ -15489,14 +15491,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2710 = add i32 %.012.i.i1924, 7
   %2711 = add i64 %2702, 1
   %2712 = icmp slt i8 %2704, 0
-  br i1 %2712, label %2701, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1927, !llvm.loop !762
+  br i1 %2712, label %2701, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1927, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1927: ; preds = %2701, %2693
   %.188 = phi i64 [ %2694, %2693 ], [ %2711, %2701 ]
   %.0.i.i1923 = phi i64 [ %2697, %2693 ], [ %2709, %2701 ]
   %2713 = add i64 %.188, 1
   %2714 = getelementptr inbounds nuw i8, ptr %5, i64 %.188
-  %2715 = load i8, ptr %2714, align 1, !tbaa !16, !alias.scope !951
+  %2715 = load i8, ptr %2714, align 1, !tbaa !16, !alias.scope !957
   %2716 = zext i8 %2715 to i64
   %2717 = icmp slt i8 %2715, 0
   br i1 %2717, label %2718, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1932, !prof !123
@@ -15510,7 +15512,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1929 = phi i32 [ 7, %2718 ], [ %2729, %2720 ]
   %.1.i.i1930 = phi i64 [ %2719, %2718 ], [ %2728, %2720 ]
   %2722 = getelementptr inbounds nuw i8, ptr %5, i64 %2721
-  %2723 = load i8, ptr %2722, align 1, !tbaa !16, !alias.scope !951
+  %2723 = load i8, ptr %2722, align 1, !tbaa !16, !alias.scope !957
   %2724 = and i8 %2723, 127
   %2725 = zext nneg i8 %2724 to i64
   %2726 = zext nneg i32 %.012.i.i1929 to i64
@@ -15519,14 +15521,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2729 = add i32 %.012.i.i1929, 7
   %2730 = add i64 %2721, 1
   %2731 = icmp slt i8 %2723, 0
-  br i1 %2731, label %2720, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1932, !llvm.loop !762
+  br i1 %2731, label %2720, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1932, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1932: ; preds = %2720, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1927
   %.189 = phi i64 [ %2713, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1927 ], [ %2730, %2720 ]
   %.0.i.i1928 = phi i64 [ %2716, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1927 ], [ %2728, %2720 ]
   %2732 = add i64 %.189, 1
   %2733 = getelementptr inbounds nuw i8, ptr %5, i64 %.189
-  %2734 = load i8, ptr %2733, align 1, !tbaa !16, !alias.scope !954
+  %2734 = load i8, ptr %2733, align 1, !tbaa !16, !alias.scope !960
   %2735 = zext i8 %2734 to i64
   %2736 = icmp slt i8 %2734, 0
   br i1 %2736, label %2737, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1937, !prof !123
@@ -15540,7 +15542,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1934 = phi i32 [ 7, %2737 ], [ %2748, %2739 ]
   %.1.i.i1935 = phi i64 [ %2738, %2737 ], [ %2747, %2739 ]
   %2741 = getelementptr inbounds nuw i8, ptr %5, i64 %2740
-  %2742 = load i8, ptr %2741, align 1, !tbaa !16, !alias.scope !954
+  %2742 = load i8, ptr %2741, align 1, !tbaa !16, !alias.scope !960
   %2743 = and i8 %2742, 127
   %2744 = zext nneg i8 %2743 to i64
   %2745 = zext nneg i32 %.012.i.i1934 to i64
@@ -15549,14 +15551,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2748 = add i32 %.012.i.i1934, 7
   %2749 = add i64 %2740, 1
   %2750 = icmp slt i8 %2742, 0
-  br i1 %2750, label %2739, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1937, !llvm.loop !762
+  br i1 %2750, label %2739, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1937, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1937: ; preds = %2739, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1932
   %.190 = phi i64 [ %2732, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1932 ], [ %2749, %2739 ]
   %.0.i.i1933 = phi i64 [ %2735, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1932 ], [ %2747, %2739 ]
   %2751 = add i64 %.190, 1
   %2752 = getelementptr inbounds nuw i8, ptr %5, i64 %.190
-  %2753 = load i8, ptr %2752, align 1, !tbaa !16, !alias.scope !957
+  %2753 = load i8, ptr %2752, align 1, !tbaa !16, !alias.scope !963
   %2754 = zext i8 %2753 to i64
   %2755 = icmp slt i8 %2753, 0
   br i1 %2755, label %2756, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1942, !prof !123
@@ -15570,7 +15572,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1939 = phi i32 [ 7, %2756 ], [ %2767, %2758 ]
   %.1.i.i1940 = phi i64 [ %2757, %2756 ], [ %2766, %2758 ]
   %2760 = getelementptr inbounds nuw i8, ptr %5, i64 %2759
-  %2761 = load i8, ptr %2760, align 1, !tbaa !16, !alias.scope !957
+  %2761 = load i8, ptr %2760, align 1, !tbaa !16, !alias.scope !963
   %2762 = and i8 %2761, 127
   %2763 = zext nneg i8 %2762 to i64
   %2764 = zext nneg i32 %.012.i.i1939 to i64
@@ -15579,7 +15581,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2767 = add i32 %.012.i.i1939, 7
   %2768 = add i64 %2759, 1
   %2769 = icmp slt i8 %2761, 0
-  br i1 %2769, label %2758, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1942, !llvm.loop !762
+  br i1 %2769, label %2758, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1942, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1942: ; preds = %2758, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1937
   %.191 = phi i64 [ %2751, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1937 ], [ %2768, %2758 ]
@@ -15644,7 +15646,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 2810:                                             ; preds = %105
   %2811 = add i64 %.0303, 2
   %2812 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2813 = load i8, ptr %2812, align 1, !tbaa !16, !alias.scope !960
+  %2813 = load i8, ptr %2812, align 1, !tbaa !16, !alias.scope !966
   %2814 = zext i8 %2813 to i64
   %2815 = icmp slt i8 %2813, 0
   br i1 %2815, label %2816, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1950, !prof !123
@@ -15658,7 +15660,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1947 = phi i32 [ 7, %2816 ], [ %2827, %2818 ]
   %.1.i.i1948 = phi i64 [ %2817, %2816 ], [ %2826, %2818 ]
   %2820 = getelementptr inbounds nuw i8, ptr %5, i64 %2819
-  %2821 = load i8, ptr %2820, align 1, !tbaa !16, !alias.scope !960
+  %2821 = load i8, ptr %2820, align 1, !tbaa !16, !alias.scope !966
   %2822 = and i8 %2821, 127
   %2823 = zext nneg i8 %2822 to i64
   %2824 = zext nneg i32 %.012.i.i1947 to i64
@@ -15667,14 +15669,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2827 = add i32 %.012.i.i1947, 7
   %2828 = add i64 %2819, 1
   %2829 = icmp slt i8 %2821, 0
-  br i1 %2829, label %2818, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1950, !llvm.loop !762
+  br i1 %2829, label %2818, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1950, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1950: ; preds = %2818, %2810
   %.195 = phi i64 [ %2811, %2810 ], [ %2828, %2818 ]
   %.0.i.i1946 = phi i64 [ %2814, %2810 ], [ %2826, %2818 ]
   %2830 = add i64 %.195, 1
   %2831 = getelementptr inbounds nuw i8, ptr %5, i64 %.195
-  %2832 = load i8, ptr %2831, align 1, !tbaa !16, !alias.scope !963
+  %2832 = load i8, ptr %2831, align 1, !tbaa !16, !alias.scope !969
   %2833 = zext i8 %2832 to i64
   %2834 = icmp slt i8 %2832, 0
   br i1 %2834, label %2835, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1955, !prof !123
@@ -15688,7 +15690,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1952 = phi i32 [ 7, %2835 ], [ %2846, %2837 ]
   %.1.i.i1953 = phi i64 [ %2836, %2835 ], [ %2845, %2837 ]
   %2839 = getelementptr inbounds nuw i8, ptr %5, i64 %2838
-  %2840 = load i8, ptr %2839, align 1, !tbaa !16, !alias.scope !963
+  %2840 = load i8, ptr %2839, align 1, !tbaa !16, !alias.scope !969
   %2841 = and i8 %2840, 127
   %2842 = zext nneg i8 %2841 to i64
   %2843 = zext nneg i32 %.012.i.i1952 to i64
@@ -15697,14 +15699,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2846 = add i32 %.012.i.i1952, 7
   %2847 = add i64 %2838, 1
   %2848 = icmp slt i8 %2840, 0
-  br i1 %2848, label %2837, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1955, !llvm.loop !762
+  br i1 %2848, label %2837, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1955, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1955: ; preds = %2837, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1950
   %.196 = phi i64 [ %2830, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1950 ], [ %2847, %2837 ]
   %.0.i.i1951 = phi i64 [ %2833, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1950 ], [ %2845, %2837 ]
   %2849 = add i64 %.196, 1
   %2850 = getelementptr inbounds nuw i8, ptr %5, i64 %.196
-  %2851 = load i8, ptr %2850, align 1, !tbaa !16, !alias.scope !966
+  %2851 = load i8, ptr %2850, align 1, !tbaa !16, !alias.scope !972
   %2852 = zext i8 %2851 to i64
   %2853 = icmp slt i8 %2851, 0
   br i1 %2853, label %2854, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1960, !prof !123
@@ -15718,7 +15720,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1957 = phi i32 [ 7, %2854 ], [ %2865, %2856 ]
   %.1.i.i1958 = phi i64 [ %2855, %2854 ], [ %2864, %2856 ]
   %2858 = getelementptr inbounds nuw i8, ptr %5, i64 %2857
-  %2859 = load i8, ptr %2858, align 1, !tbaa !16, !alias.scope !966
+  %2859 = load i8, ptr %2858, align 1, !tbaa !16, !alias.scope !972
   %2860 = and i8 %2859, 127
   %2861 = zext nneg i8 %2860 to i64
   %2862 = zext nneg i32 %.012.i.i1957 to i64
@@ -15727,14 +15729,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2865 = add i32 %.012.i.i1957, 7
   %2866 = add i64 %2857, 1
   %2867 = icmp slt i8 %2859, 0
-  br i1 %2867, label %2856, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1960, !llvm.loop !762
+  br i1 %2867, label %2856, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1960, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1960: ; preds = %2856, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1955
   %.197 = phi i64 [ %2849, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1955 ], [ %2866, %2856 ]
   %.0.i.i1956 = phi i64 [ %2852, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1955 ], [ %2864, %2856 ]
   %2868 = add i64 %.197, 1
   %2869 = getelementptr inbounds nuw i8, ptr %5, i64 %.197
-  %2870 = load i8, ptr %2869, align 1, !tbaa !16, !alias.scope !969
+  %2870 = load i8, ptr %2869, align 1, !tbaa !16, !alias.scope !975
   %2871 = zext i8 %2870 to i64
   %2872 = icmp slt i8 %2870, 0
   br i1 %2872, label %2873, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1965, !prof !123
@@ -15748,7 +15750,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1962 = phi i32 [ 7, %2873 ], [ %2884, %2875 ]
   %.1.i.i1963 = phi i64 [ %2874, %2873 ], [ %2883, %2875 ]
   %2877 = getelementptr inbounds nuw i8, ptr %5, i64 %2876
-  %2878 = load i8, ptr %2877, align 1, !tbaa !16, !alias.scope !969
+  %2878 = load i8, ptr %2877, align 1, !tbaa !16, !alias.scope !975
   %2879 = and i8 %2878, 127
   %2880 = zext nneg i8 %2879 to i64
   %2881 = zext nneg i32 %.012.i.i1962 to i64
@@ -15757,7 +15759,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2884 = add i32 %.012.i.i1962, 7
   %2885 = add i64 %2876, 1
   %2886 = icmp slt i8 %2878, 0
-  br i1 %2886, label %2875, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1965, !llvm.loop !762
+  br i1 %2886, label %2875, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1965, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1965: ; preds = %2875, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1960
   %.198 = phi i64 [ %2868, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1960 ], [ %2885, %2875 ]
@@ -15798,7 +15800,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 2911:                                             ; preds = %105
   %2912 = add i64 %.0303, 2
   %2913 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2914 = load i8, ptr %2913, align 1, !tbaa !16, !alias.scope !972
+  %2914 = load i8, ptr %2913, align 1, !tbaa !16, !alias.scope !978
   %2915 = zext i8 %2914 to i64
   %2916 = icmp slt i8 %2914, 0
   br i1 %2916, label %2917, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1973, !prof !123
@@ -15812,7 +15814,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1970 = phi i32 [ 7, %2917 ], [ %2928, %2919 ]
   %.1.i.i1971 = phi i64 [ %2918, %2917 ], [ %2927, %2919 ]
   %2921 = getelementptr inbounds nuw i8, ptr %5, i64 %2920
-  %2922 = load i8, ptr %2921, align 1, !tbaa !16, !alias.scope !972
+  %2922 = load i8, ptr %2921, align 1, !tbaa !16, !alias.scope !978
   %2923 = and i8 %2922, 127
   %2924 = zext nneg i8 %2923 to i64
   %2925 = zext nneg i32 %.012.i.i1970 to i64
@@ -15821,7 +15823,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2928 = add i32 %.012.i.i1970, 7
   %2929 = add i64 %2920, 1
   %2930 = icmp slt i8 %2922, 0
-  br i1 %2930, label %2919, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1973, !llvm.loop !762
+  br i1 %2930, label %2919, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1973, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1973: ; preds = %2919, %2911
   %.202 = phi i64 [ %2912, %2911 ], [ %2929, %2919 ]
@@ -15857,7 +15859,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 2948:                                             ; preds = %105
   %2949 = add i64 %.0303, 2
   %2950 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2951 = load i8, ptr %2950, align 1, !tbaa !16, !alias.scope !975
+  %2951 = load i8, ptr %2950, align 1, !tbaa !16, !alias.scope !981
   %2952 = zext i8 %2951 to i64
   %2953 = icmp slt i8 %2951, 0
   br i1 %2953, label %2954, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1982, !prof !123
@@ -15871,7 +15873,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1979 = phi i32 [ 7, %2954 ], [ %2965, %2956 ]
   %.1.i.i1980 = phi i64 [ %2955, %2954 ], [ %2964, %2956 ]
   %2958 = getelementptr inbounds nuw i8, ptr %5, i64 %2957
-  %2959 = load i8, ptr %2958, align 1, !tbaa !16, !alias.scope !975
+  %2959 = load i8, ptr %2958, align 1, !tbaa !16, !alias.scope !981
   %2960 = and i8 %2959, 127
   %2961 = zext nneg i8 %2960 to i64
   %2962 = zext nneg i32 %.012.i.i1979 to i64
@@ -15880,7 +15882,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %2965 = add i32 %.012.i.i1979, 7
   %2966 = add i64 %2957, 1
   %2967 = icmp slt i8 %2959, 0
-  br i1 %2967, label %2956, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1982, !llvm.loop !762
+  br i1 %2967, label %2956, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1982, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1982: ; preds = %2956, %2948
   %.206 = phi i64 [ %2949, %2948 ], [ %2966, %2956 ]
@@ -15931,7 +15933,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 2993:                                             ; preds = %105
   %2994 = add i64 %.0303, 2
   %2995 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %2996 = load i8, ptr %2995, align 1, !tbaa !16, !alias.scope !978
+  %2996 = load i8, ptr %2995, align 1, !tbaa !16, !alias.scope !984
   %2997 = zext i8 %2996 to i64
   %2998 = icmp slt i8 %2996, 0
   br i1 %2998, label %2999, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1994, !prof !123
@@ -15945,7 +15947,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1991 = phi i32 [ 7, %2999 ], [ %3010, %3001 ]
   %.1.i.i1992 = phi i64 [ %3000, %2999 ], [ %3009, %3001 ]
   %3003 = getelementptr inbounds nuw i8, ptr %5, i64 %3002
-  %3004 = load i8, ptr %3003, align 1, !tbaa !16, !alias.scope !978
+  %3004 = load i8, ptr %3003, align 1, !tbaa !16, !alias.scope !984
   %3005 = and i8 %3004, 127
   %3006 = zext nneg i8 %3005 to i64
   %3007 = zext nneg i32 %.012.i.i1991 to i64
@@ -15954,14 +15956,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3010 = add i32 %.012.i.i1991, 7
   %3011 = add i64 %3002, 1
   %3012 = icmp slt i8 %3004, 0
-  br i1 %3012, label %3001, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1994, !llvm.loop !762
+  br i1 %3012, label %3001, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1994, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1994: ; preds = %3001, %2993
   %.211 = phi i64 [ %2994, %2993 ], [ %3011, %3001 ]
   %.0.i.i1990 = phi i64 [ %2997, %2993 ], [ %3009, %3001 ]
   %3013 = add i64 %.211, 1
   %3014 = getelementptr inbounds nuw i8, ptr %5, i64 %.211
-  %3015 = load i8, ptr %3014, align 1, !tbaa !16, !alias.scope !981
+  %3015 = load i8, ptr %3014, align 1, !tbaa !16, !alias.scope !987
   %3016 = zext i8 %3015 to i64
   %3017 = icmp slt i8 %3015, 0
   br i1 %3017, label %3018, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1999, !prof !123
@@ -15975,7 +15977,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i1996 = phi i32 [ 7, %3018 ], [ %3029, %3020 ]
   %.1.i.i1997 = phi i64 [ %3019, %3018 ], [ %3028, %3020 ]
   %3022 = getelementptr inbounds nuw i8, ptr %5, i64 %3021
-  %3023 = load i8, ptr %3022, align 1, !tbaa !16, !alias.scope !981
+  %3023 = load i8, ptr %3022, align 1, !tbaa !16, !alias.scope !987
   %3024 = and i8 %3023, 127
   %3025 = zext nneg i8 %3024 to i64
   %3026 = zext nneg i32 %.012.i.i1996 to i64
@@ -15984,7 +15986,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3029 = add i32 %.012.i.i1996, 7
   %3030 = add i64 %3021, 1
   %3031 = icmp slt i8 %3023, 0
-  br i1 %3031, label %3020, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1999, !llvm.loop !762
+  br i1 %3031, label %3020, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1999, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1999: ; preds = %3020, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1994
   %.212 = phi i64 [ %3013, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1994 ], [ %3030, %3020 ]
@@ -16056,7 +16058,7 @@ _ZN4llvm15SmallVectorImplINS_19MachineInstrBuilderEE6resizeEm.exit: ; preds = %.
   store ptr %3059, ptr %3061, align 8, !tbaa !454
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3061, i64 8
   store ptr %3053, ptr %.sroa.414.0..sroa_idx, align 8, !tbaa !378
-  %3062 = load ptr, ptr %86, align 8, !tbaa !984
+  %3062 = load ptr, ptr %86, align 8, !tbaa !990
   %3063 = zext i16 %.0.copyload.i.i2000 to i64
   %3064 = sub nsw i64 0, %3063
   %3065 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %3062, i64 %3064
@@ -16077,7 +16079,7 @@ _ZN4llvm15SmallVectorImplINS_19MachineInstrBuilderEE6resizeEm.exit: ; preds = %.
 3072:                                             ; preds = %3070
   %3073 = add i64 %.0303, 2
   %3074 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3075 = load i8, ptr %3074, align 1, !tbaa !16, !alias.scope !985
+  %3075 = load i8, ptr %3074, align 1, !tbaa !16, !alias.scope !991
   %3076 = zext i8 %3075 to i64
   %3077 = icmp slt i8 %3075, 0
   br i1 %3077, label %3078, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2007, !prof !123
@@ -16091,7 +16093,7 @@ _ZN4llvm15SmallVectorImplINS_19MachineInstrBuilderEE6resizeEm.exit: ; preds = %.
   %.012.i.i2004 = phi i32 [ 7, %3078 ], [ %3089, %3080 ]
   %.1.i.i2005 = phi i64 [ %3079, %3078 ], [ %3088, %3080 ]
   %3082 = getelementptr inbounds nuw i8, ptr %5, i64 %3081
-  %3083 = load i8, ptr %3082, align 1, !tbaa !16, !alias.scope !985
+  %3083 = load i8, ptr %3082, align 1, !tbaa !16, !alias.scope !991
   %3084 = and i8 %3083, 127
   %3085 = zext nneg i8 %3084 to i64
   %3086 = zext nneg i32 %.012.i.i2004 to i64
@@ -16100,7 +16102,7 @@ _ZN4llvm15SmallVectorImplINS_19MachineInstrBuilderEE6resizeEm.exit: ; preds = %.
   %3089 = add i32 %.012.i.i2004, 7
   %3090 = add i64 %3081, 1
   %3091 = icmp slt i8 %3083, 0
-  br i1 %3091, label %3080, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2007, !llvm.loop !762
+  br i1 %3091, label %3080, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2007, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2007: ; preds = %3080, %3072, %3070
   %.214 = phi i64 [ %106, %3070 ], [ %3073, %3072 ], [ %3090, %3080 ]
@@ -16170,7 +16172,7 @@ _ZN4llvm15SmallVectorImplINS_19MachineInstrBuilderEE6resizeEm.exit2016: ; preds 
 3121:                                             ; preds = %105
   %3122 = add i64 %.0303, 2
   %3123 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3124 = load i8, ptr %3123, align 1, !tbaa !16, !alias.scope !988
+  %3124 = load i8, ptr %3123, align 1, !tbaa !16, !alias.scope !994
   %3125 = zext i8 %3124 to i64
   %3126 = icmp slt i8 %3124, 0
   br i1 %3126, label %3127, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2021, !prof !123
@@ -16184,7 +16186,7 @@ _ZN4llvm15SmallVectorImplINS_19MachineInstrBuilderEE6resizeEm.exit2016: ; preds 
   %.012.i.i2018 = phi i32 [ 7, %3127 ], [ %3138, %3129 ]
   %.1.i.i2019 = phi i64 [ %3128, %3127 ], [ %3137, %3129 ]
   %3131 = getelementptr inbounds nuw i8, ptr %5, i64 %3130
-  %3132 = load i8, ptr %3131, align 1, !tbaa !16, !alias.scope !988
+  %3132 = load i8, ptr %3131, align 1, !tbaa !16, !alias.scope !994
   %3133 = and i8 %3132, 127
   %3134 = zext nneg i8 %3133 to i64
   %3135 = zext nneg i32 %.012.i.i2018 to i64
@@ -16193,7 +16195,7 @@ _ZN4llvm15SmallVectorImplINS_19MachineInstrBuilderEE6resizeEm.exit2016: ; preds 
   %3138 = add i32 %.012.i.i2018, 7
   %3139 = add i64 %3130, 1
   %3140 = icmp slt i8 %3132, 0
-  br i1 %3140, label %3129, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2021, !llvm.loop !762
+  br i1 %3140, label %3129, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2021, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2021: ; preds = %3129, %3121
   %.215 = phi i64 [ %3122, %3121 ], [ %3139, %3129 ]
@@ -16221,7 +16223,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3149:                                             ; preds = %3147
   %3150 = add i64 %.0303, 2
   %3151 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3152 = load i8, ptr %3151, align 1, !tbaa !16, !alias.scope !991
+  %3152 = load i8, ptr %3151, align 1, !tbaa !16, !alias.scope !997
   %3153 = zext i8 %3152 to i64
   %3154 = icmp slt i8 %3152, 0
   br i1 %3154, label %3155, label %.loopexit, !prof !123
@@ -16235,7 +16237,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2024 = phi i32 [ 7, %3155 ], [ %3166, %3157 ]
   %.1.i.i2025 = phi i64 [ %3156, %3155 ], [ %3165, %3157 ]
   %3159 = getelementptr inbounds nuw i8, ptr %5, i64 %3158
-  %3160 = load i8, ptr %3159, align 1, !tbaa !16, !alias.scope !991
+  %3160 = load i8, ptr %3159, align 1, !tbaa !16, !alias.scope !997
   %3161 = and i8 %3160, 127
   %3162 = zext nneg i8 %3161 to i64
   %3163 = zext nneg i32 %.012.i.i2024 to i64
@@ -16244,14 +16246,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3166 = add i32 %.012.i.i2024, 7
   %3167 = add i64 %3158, 1
   %3168 = icmp slt i8 %3160, 0
-  br i1 %3168, label %3157, label %.loopexit, !llvm.loop !762
+  br i1 %3168, label %3157, label %.loopexit, !llvm.loop !768
 
 .loopexit:                                        ; preds = %3157, %3149
   %.217.ph = phi i64 [ %3150, %3149 ], [ %3167, %3157 ]
   %.ph = phi i64 [ %3153, %3149 ], [ %3165, %3157 ]
   %3169 = add i64 %.217.ph, 1
   %3170 = getelementptr inbounds nuw i8, ptr %5, i64 %.217.ph
-  %3171 = load i8, ptr %3170, align 1, !tbaa !16, !alias.scope !994
+  %3171 = load i8, ptr %3170, align 1, !tbaa !16, !alias.scope !1000
   %3172 = zext i8 %3171 to i64
   %3173 = icmp slt i8 %3171, 0
   br i1 %3173, label %3174, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2027, !prof !123
@@ -16265,7 +16267,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2029 = phi i32 [ 7, %3174 ], [ %3185, %3176 ]
   %.1.i.i2030 = phi i64 [ %3175, %3174 ], [ %3184, %3176 ]
   %3178 = getelementptr inbounds nuw i8, ptr %5, i64 %3177
-  %3179 = load i8, ptr %3178, align 1, !tbaa !16, !alias.scope !994
+  %3179 = load i8, ptr %3178, align 1, !tbaa !16, !alias.scope !1000
   %3180 = and i8 %3179, 127
   %3181 = zext nneg i8 %3180 to i64
   %3182 = zext nneg i32 %.012.i.i2029 to i64
@@ -16274,7 +16276,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3185 = add i32 %.012.i.i2029, 7
   %3186 = add i64 %3177, 1
   %3187 = icmp slt i8 %3179, 0
-  br i1 %3187, label %3176, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2027, !llvm.loop !762
+  br i1 %3187, label %3176, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2027, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2027: ; preds = %3176, %.loopexit, %3147
   %3188 = phi i64 [ 0, %3147 ], [ %.ph, %.loopexit ], [ %.ph, %3176 ]
@@ -16282,7 +16284,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3189 = phi i64 [ 0, %3147 ], [ %3172, %.loopexit ], [ %3184, %3176 ]
   %3190 = add i64 %.219, 1
   %3191 = getelementptr inbounds nuw i8, ptr %5, i64 %.219
-  %3192 = load i8, ptr %3191, align 1, !tbaa !16, !alias.scope !997
+  %3192 = load i8, ptr %3191, align 1, !tbaa !16, !alias.scope !1003
   %3193 = zext i8 %3192 to i64
   %3194 = icmp slt i8 %3192, 0
   br i1 %3194, label %3195, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2037, !prof !123
@@ -16296,7 +16298,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2034 = phi i32 [ 7, %3195 ], [ %3206, %3197 ]
   %.1.i.i2035 = phi i64 [ %3196, %3195 ], [ %3205, %3197 ]
   %3199 = getelementptr inbounds nuw i8, ptr %5, i64 %3198
-  %3200 = load i8, ptr %3199, align 1, !tbaa !16, !alias.scope !997
+  %3200 = load i8, ptr %3199, align 1, !tbaa !16, !alias.scope !1003
   %3201 = and i8 %3200, 127
   %3202 = zext nneg i8 %3201 to i64
   %3203 = zext nneg i32 %.012.i.i2034 to i64
@@ -16305,7 +16307,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3206 = add i32 %.012.i.i2034, 7
   %3207 = add i64 %3198, 1
   %3208 = icmp slt i8 %3200, 0
-  br i1 %3208, label %3197, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2037, !llvm.loop !762
+  br i1 %3208, label %3197, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2037, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2037: ; preds = %3197, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2027
   %.220 = phi i64 [ %3190, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2027 ], [ %3207, %3197 ]
@@ -16320,15 +16322,15 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3216 = and i64 %.0.i.i2033, 4294967295
   %3217 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %3215, i64 %3216
   %3218 = getelementptr inbounds nuw i8, ptr %3210, i64 8
-  %3219 = load ptr, ptr %3218, align 8, !tbaa !1000
-  %3220 = load ptr, ptr %3210, align 8, !tbaa !1002
+  %3219 = load ptr, ptr %3218, align 8, !tbaa !1006
+  %3220 = load ptr, ptr %3210, align 8, !tbaa !1008
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3219, ptr noundef nonnull align 8 dereferenceable(1065) %3220, ptr noundef nonnull align 8 dereferenceable(32) %3217) #25
   br label %.critedge49
 
 3221:                                             ; preds = %105
   %3222 = add i64 %.0303, 2
   %3223 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3224 = load i8, ptr %3223, align 1, !tbaa !16, !alias.scope !1003
+  %3224 = load i8, ptr %3223, align 1, !tbaa !16, !alias.scope !1009
   %3225 = zext i8 %3224 to i64
   %3226 = icmp slt i8 %3224, 0
   br i1 %3226, label %3227, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2042, !prof !123
@@ -16342,7 +16344,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2039 = phi i32 [ 7, %3227 ], [ %3238, %3229 ]
   %.1.i.i2040 = phi i64 [ %3228, %3227 ], [ %3237, %3229 ]
   %3231 = getelementptr inbounds nuw i8, ptr %5, i64 %3230
-  %3232 = load i8, ptr %3231, align 1, !tbaa !16, !alias.scope !1003
+  %3232 = load i8, ptr %3231, align 1, !tbaa !16, !alias.scope !1009
   %3233 = and i8 %3232, 127
   %3234 = zext nneg i8 %3233 to i64
   %3235 = zext nneg i32 %.012.i.i2039 to i64
@@ -16351,14 +16353,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3238 = add i32 %.012.i.i2039, 7
   %3239 = add i64 %3230, 1
   %3240 = icmp slt i8 %3232, 0
-  br i1 %3240, label %3229, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2042, !llvm.loop !762
+  br i1 %3240, label %3229, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2042, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2042: ; preds = %3229, %3221
   %.221 = phi i64 [ %3222, %3221 ], [ %3239, %3229 ]
   %.0.i.i2038 = phi i64 [ %3225, %3221 ], [ %3237, %3229 ]
   %3241 = add i64 %.221, 1
   %3242 = getelementptr inbounds nuw i8, ptr %5, i64 %.221
-  %3243 = load i8, ptr %3242, align 1, !tbaa !16, !alias.scope !1006
+  %3243 = load i8, ptr %3242, align 1, !tbaa !16, !alias.scope !1012
   %3244 = zext i8 %3243 to i64
   %3245 = icmp slt i8 %3243, 0
   br i1 %3245, label %3246, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2047, !prof !123
@@ -16372,7 +16374,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2044 = phi i32 [ 7, %3246 ], [ %3257, %3248 ]
   %.1.i.i2045 = phi i64 [ %3247, %3246 ], [ %3256, %3248 ]
   %3250 = getelementptr inbounds nuw i8, ptr %5, i64 %3249
-  %3251 = load i8, ptr %3250, align 1, !tbaa !16, !alias.scope !1006
+  %3251 = load i8, ptr %3250, align 1, !tbaa !16, !alias.scope !1012
   %3252 = and i8 %3251, 127
   %3253 = zext nneg i8 %3252 to i64
   %3254 = zext nneg i32 %.012.i.i2044 to i64
@@ -16381,14 +16383,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3257 = add i32 %.012.i.i2044, 7
   %3258 = add i64 %3249, 1
   %3259 = icmp slt i8 %3251, 0
-  br i1 %3259, label %3248, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2047, !llvm.loop !762
+  br i1 %3259, label %3248, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2047, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2047: ; preds = %3248, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2042
   %.222 = phi i64 [ %3241, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2042 ], [ %3258, %3248 ]
   %.0.i.i2043 = phi i64 [ %3244, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2042 ], [ %3256, %3248 ]
   %3260 = add i64 %.222, 1
   %3261 = getelementptr inbounds nuw i8, ptr %5, i64 %.222
-  %3262 = load i8, ptr %3261, align 1, !tbaa !16, !alias.scope !1009
+  %3262 = load i8, ptr %3261, align 1, !tbaa !16, !alias.scope !1015
   %3263 = zext i8 %3262 to i64
   %3264 = icmp slt i8 %3262, 0
   br i1 %3264, label %3265, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2052, !prof !123
@@ -16402,7 +16404,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2049 = phi i32 [ 7, %3265 ], [ %3276, %3267 ]
   %.1.i.i2050 = phi i64 [ %3266, %3265 ], [ %3275, %3267 ]
   %3269 = getelementptr inbounds nuw i8, ptr %5, i64 %3268
-  %3270 = load i8, ptr %3269, align 1, !tbaa !16, !alias.scope !1009
+  %3270 = load i8, ptr %3269, align 1, !tbaa !16, !alias.scope !1015
   %3271 = and i8 %3270, 127
   %3272 = zext nneg i8 %3271 to i64
   %3273 = zext nneg i32 %.012.i.i2049 to i64
@@ -16411,7 +16413,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3276 = add i32 %.012.i.i2049, 7
   %3277 = add i64 %3268, 1
   %3278 = icmp slt i8 %3270, 0
-  br i1 %3278, label %3267, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2052, !llvm.loop !762
+  br i1 %3278, label %3267, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2052, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2052: ; preds = %3267, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2047
   %.223 = phi i64 [ %3260, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2047 ], [ %3277, %3267 ]
@@ -16437,8 +16439,8 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 
 3292:                                             ; preds = %.lr.ph1017, %3292
   %.07671016 = phi ptr [ %3290, %.lr.ph1017 ], [ %3295, %3292 ]
-  %3293 = load ptr, ptr %3291, align 8, !tbaa !1000
-  %3294 = load ptr, ptr %3283, align 8, !tbaa !1002
+  %3293 = load ptr, ptr %3291, align 8, !tbaa !1006
+  %3294 = load ptr, ptr %3283, align 8, !tbaa !1008
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3293, ptr noundef nonnull align 8 dereferenceable(1065) %3294, ptr noundef nonnull align 8 dereferenceable(32) %.07671016) #25
   %3295 = getelementptr inbounds nuw i8, ptr %.07671016, i64 32
   %.not805 = icmp eq ptr %3295, %3289
@@ -16447,7 +16449,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3296:                                             ; preds = %105
   %3297 = add i64 %.0303, 2
   %3298 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3299 = load i8, ptr %3298, align 1, !tbaa !16, !alias.scope !1012
+  %3299 = load i8, ptr %3298, align 1, !tbaa !16, !alias.scope !1018
   %3300 = zext i8 %3299 to i64
   %3301 = icmp slt i8 %3299, 0
   br i1 %3301, label %3302, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2061, !prof !123
@@ -16461,7 +16463,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2058 = phi i32 [ 7, %3302 ], [ %3313, %3304 ]
   %.1.i.i2059 = phi i64 [ %3303, %3302 ], [ %3312, %3304 ]
   %3306 = getelementptr inbounds nuw i8, ptr %5, i64 %3305
-  %3307 = load i8, ptr %3306, align 1, !tbaa !16, !alias.scope !1012
+  %3307 = load i8, ptr %3306, align 1, !tbaa !16, !alias.scope !1018
   %3308 = and i8 %3307, 127
   %3309 = zext nneg i8 %3308 to i64
   %3310 = zext nneg i32 %.012.i.i2058 to i64
@@ -16470,14 +16472,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3313 = add i32 %.012.i.i2058, 7
   %3314 = add i64 %3305, 1
   %3315 = icmp slt i8 %3307, 0
-  br i1 %3315, label %3304, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2061, !llvm.loop !762
+  br i1 %3315, label %3304, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2061, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2061: ; preds = %3304, %3296
   %.224 = phi i64 [ %3297, %3296 ], [ %3314, %3304 ]
   %.0.i.i2057 = phi i64 [ %3300, %3296 ], [ %3312, %3304 ]
   %3316 = add i64 %.224, 1
   %3317 = getelementptr inbounds nuw i8, ptr %5, i64 %.224
-  %3318 = load i8, ptr %3317, align 1, !tbaa !16, !alias.scope !1015
+  %3318 = load i8, ptr %3317, align 1, !tbaa !16, !alias.scope !1021
   %3319 = zext i8 %3318 to i64
   %3320 = icmp slt i8 %3318, 0
   br i1 %3320, label %3321, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2066, !prof !123
@@ -16491,7 +16493,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2063 = phi i32 [ 7, %3321 ], [ %3332, %3323 ]
   %.1.i.i2064 = phi i64 [ %3322, %3321 ], [ %3331, %3323 ]
   %3325 = getelementptr inbounds nuw i8, ptr %5, i64 %3324
-  %3326 = load i8, ptr %3325, align 1, !tbaa !16, !alias.scope !1015
+  %3326 = load i8, ptr %3325, align 1, !tbaa !16, !alias.scope !1021
   %3327 = and i8 %3326, 127
   %3328 = zext nneg i8 %3327 to i64
   %3329 = zext nneg i32 %.012.i.i2063 to i64
@@ -16500,14 +16502,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3332 = add i32 %.012.i.i2063, 7
   %3333 = add i64 %3324, 1
   %3334 = icmp slt i8 %3326, 0
-  br i1 %3334, label %3323, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2066, !llvm.loop !762
+  br i1 %3334, label %3323, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2066, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2066: ; preds = %3323, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2061
   %.225 = phi i64 [ %3316, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2061 ], [ %3333, %3323 ]
   %.0.i.i2062 = phi i64 [ %3319, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2061 ], [ %3331, %3323 ]
   %3335 = add i64 %.225, 1
   %3336 = getelementptr inbounds nuw i8, ptr %5, i64 %.225
-  %3337 = load i8, ptr %3336, align 1, !tbaa !16, !alias.scope !1018
+  %3337 = load i8, ptr %3336, align 1, !tbaa !16, !alias.scope !1024
   %3338 = zext i8 %3337 to i64
   %3339 = icmp slt i8 %3337, 0
   br i1 %3339, label %3340, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2071, !prof !123
@@ -16521,7 +16523,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2068 = phi i32 [ 7, %3340 ], [ %3351, %3342 ]
   %.1.i.i2069 = phi i64 [ %3341, %3340 ], [ %3350, %3342 ]
   %3344 = getelementptr inbounds nuw i8, ptr %5, i64 %3343
-  %3345 = load i8, ptr %3344, align 1, !tbaa !16, !alias.scope !1018
+  %3345 = load i8, ptr %3344, align 1, !tbaa !16, !alias.scope !1024
   %3346 = and i8 %3345, 127
   %3347 = zext nneg i8 %3346 to i64
   %3348 = zext nneg i32 %.012.i.i2068 to i64
@@ -16530,7 +16532,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3351 = add i32 %.012.i.i2068, 7
   %3352 = add i64 %3343, 1
   %3353 = icmp slt i8 %3345, 0
-  br i1 %3353, label %3342, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2071, !llvm.loop !762
+  br i1 %3353, label %3342, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2071, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2071: ; preds = %3342, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2066
   %.226 = phi i64 [ %3335, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2066 ], [ %3352, %3342 ]
@@ -16553,28 +16555,28 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3366:                                             ; preds = %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2071
   %3367 = zext i16 %.0.copyload.i.i2072 to i32
   %3368 = getelementptr inbounds nuw i8, ptr %3365, i64 8
-  %3369 = load ptr, ptr %3368, align 8, !tbaa !1000
-  %3370 = load ptr, ptr %3365, align 8, !tbaa !1002
+  %3369 = load ptr, ptr %3368, align 8, !tbaa !1006
+  %3370 = load ptr, ptr %3365, align 8, !tbaa !1008
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #25
-  store ptr null, ptr %82, align 8, !tbaa !1021, !alias.scope !1023
-  store i32 %3367, ptr %83, align 4, !tbaa !16, !alias.scope !1023
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false), !alias.scope !1023
-  store i32 0, ptr %21, align 8, !alias.scope !1023
+  store ptr null, ptr %82, align 8, !tbaa !1027, !alias.scope !1029
+  store i32 %3367, ptr %83, align 4, !tbaa !16, !alias.scope !1029
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false), !alias.scope !1029
+  store i32 0, ptr %21, align 8, !alias.scope !1029
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3369, ptr noundef nonnull align 8 dereferenceable(1065) %3370, ptr noundef nonnull align 8 dereferenceable(32) %21) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #25
   br label %.critedge49
 
 3371:                                             ; preds = %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2071
   %3372 = getelementptr inbounds nuw i8, ptr %3365, i64 8
-  %3373 = load ptr, ptr %3372, align 8, !tbaa !1000
-  %3374 = load ptr, ptr %3365, align 8, !tbaa !1002
+  %3373 = load ptr, ptr %3372, align 8, !tbaa !1006
+  %3374 = load ptr, ptr %3365, align 8, !tbaa !1008
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3373, ptr noundef nonnull align 8 dereferenceable(1065) %3374, ptr noundef nonnull align 8 dereferenceable(32) %3362) #25
   br label %.critedge49
 
 3375:                                             ; preds = %105
   %3376 = add i64 %.0303, 2
   %3377 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3378 = load i8, ptr %3377, align 1, !tbaa !16, !alias.scope !1026
+  %3378 = load i8, ptr %3377, align 1, !tbaa !16, !alias.scope !1032
   %3379 = zext i8 %3378 to i64
   %3380 = icmp slt i8 %3378, 0
   br i1 %3380, label %3381, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2077, !prof !123
@@ -16588,7 +16590,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2074 = phi i32 [ 7, %3381 ], [ %3392, %3383 ]
   %.1.i.i2075 = phi i64 [ %3382, %3381 ], [ %3391, %3383 ]
   %3385 = getelementptr inbounds nuw i8, ptr %5, i64 %3384
-  %3386 = load i8, ptr %3385, align 1, !tbaa !16, !alias.scope !1026
+  %3386 = load i8, ptr %3385, align 1, !tbaa !16, !alias.scope !1032
   %3387 = and i8 %3386, 127
   %3388 = zext nneg i8 %3387 to i64
   %3389 = zext nneg i32 %.012.i.i2074 to i64
@@ -16597,14 +16599,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3392 = add i32 %.012.i.i2074, 7
   %3393 = add i64 %3384, 1
   %3394 = icmp slt i8 %3386, 0
-  br i1 %3394, label %3383, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2077, !llvm.loop !762
+  br i1 %3394, label %3383, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2077, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2077: ; preds = %3383, %3375
   %.227 = phi i64 [ %3376, %3375 ], [ %3393, %3383 ]
   %.0.i.i2073 = phi i64 [ %3379, %3375 ], [ %3391, %3383 ]
   %3395 = add i64 %.227, 1
   %3396 = getelementptr inbounds nuw i8, ptr %5, i64 %.227
-  %3397 = load i8, ptr %3396, align 1, !tbaa !16, !alias.scope !1029
+  %3397 = load i8, ptr %3396, align 1, !tbaa !16, !alias.scope !1035
   %3398 = zext i8 %3397 to i64
   %3399 = icmp slt i8 %3397, 0
   br i1 %3399, label %3400, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2082, !prof !123
@@ -16618,7 +16620,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2079 = phi i32 [ 7, %3400 ], [ %3411, %3402 ]
   %.1.i.i2080 = phi i64 [ %3401, %3400 ], [ %3410, %3402 ]
   %3404 = getelementptr inbounds nuw i8, ptr %5, i64 %3403
-  %3405 = load i8, ptr %3404, align 1, !tbaa !16, !alias.scope !1029
+  %3405 = load i8, ptr %3404, align 1, !tbaa !16, !alias.scope !1035
   %3406 = and i8 %3405, 127
   %3407 = zext nneg i8 %3406 to i64
   %3408 = zext nneg i32 %.012.i.i2079 to i64
@@ -16627,14 +16629,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3411 = add i32 %.012.i.i2079, 7
   %3412 = add i64 %3403, 1
   %3413 = icmp slt i8 %3405, 0
-  br i1 %3413, label %3402, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2082, !llvm.loop !762
+  br i1 %3413, label %3402, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2082, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2082: ; preds = %3402, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2077
   %.228 = phi i64 [ %3395, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2077 ], [ %3412, %3402 ]
   %.0.i.i2078 = phi i64 [ %3398, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2077 ], [ %3410, %3402 ]
   %3414 = add i64 %.228, 1
   %3415 = getelementptr inbounds nuw i8, ptr %5, i64 %.228
-  %3416 = load i8, ptr %3415, align 1, !tbaa !16, !alias.scope !1032
+  %3416 = load i8, ptr %3415, align 1, !tbaa !16, !alias.scope !1038
   %3417 = zext i8 %3416 to i64
   %3418 = icmp slt i8 %3416, 0
   br i1 %3418, label %3419, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2087, !prof !123
@@ -16648,7 +16650,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2084 = phi i32 [ 7, %3419 ], [ %3430, %3421 ]
   %.1.i.i2085 = phi i64 [ %3420, %3419 ], [ %3429, %3421 ]
   %3423 = getelementptr inbounds nuw i8, ptr %5, i64 %3422
-  %3424 = load i8, ptr %3423, align 1, !tbaa !16, !alias.scope !1032
+  %3424 = load i8, ptr %3423, align 1, !tbaa !16, !alias.scope !1038
   %3425 = and i8 %3424, 127
   %3426 = zext nneg i8 %3425 to i64
   %3427 = zext nneg i32 %.012.i.i2084 to i64
@@ -16657,7 +16659,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3430 = add i32 %.012.i.i2084, 7
   %3431 = add i64 %3422, 1
   %3432 = icmp slt i8 %3424, 0
-  br i1 %3432, label %3421, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2087, !llvm.loop !762
+  br i1 %3432, label %3421, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2087, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2087: ; preds = %3421, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2082
   %.229 = phi i64 [ %3414, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2082 ], [ %3431, %3421 ]
@@ -16677,15 +16679,15 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3444 = load i32, ptr %3443, align 4, !tbaa !16
   %3445 = zext i16 %.0.copyload.i.i2088 to i32
   %3446 = getelementptr inbounds nuw i8, ptr %3436, i64 8
-  %3447 = load ptr, ptr %3446, align 8, !tbaa !1000
-  %3448 = load ptr, ptr %3436, align 8, !tbaa !1002
+  %3447 = load ptr, ptr %3446, align 8, !tbaa !1006
+  %3448 = load ptr, ptr %3436, align 8, !tbaa !1008
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #25
-  store ptr null, ptr %79, align 8, !tbaa !1021, !alias.scope !1035
-  store i32 %3444, ptr %80, align 4, !tbaa !16, !alias.scope !1035
+  store ptr null, ptr %79, align 8, !tbaa !1027, !alias.scope !1041
+  store i32 %3444, ptr %80, align 4, !tbaa !16, !alias.scope !1041
   %3449 = shl nuw nsw i32 %3445, 8
   %3450 = and i32 %3449, 1048320
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false), !alias.scope !1035
-  store i32 %3450, ptr %20, align 8, !alias.scope !1035
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false), !alias.scope !1041
+  store i32 %3450, ptr %20, align 8, !alias.scope !1041
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3447, ptr noundef nonnull align 8 dereferenceable(1065) %3448, ptr noundef nonnull align 8 dereferenceable(32) %20) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #25
   br label %.critedge49
@@ -16693,7 +16695,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3451:                                             ; preds = %105
   %3452 = add i64 %.0303, 2
   %3453 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3454 = load i8, ptr %3453, align 1, !tbaa !16, !alias.scope !1038
+  %3454 = load i8, ptr %3453, align 1, !tbaa !16, !alias.scope !1044
   %3455 = zext i8 %3454 to i64
   %3456 = icmp slt i8 %3454, 0
   br i1 %3456, label %3457, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2093, !prof !123
@@ -16707,7 +16709,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2090 = phi i32 [ 7, %3457 ], [ %3468, %3459 ]
   %.1.i.i2091 = phi i64 [ %3458, %3457 ], [ %3467, %3459 ]
   %3461 = getelementptr inbounds nuw i8, ptr %5, i64 %3460
-  %3462 = load i8, ptr %3461, align 1, !tbaa !16, !alias.scope !1038
+  %3462 = load i8, ptr %3461, align 1, !tbaa !16, !alias.scope !1044
   %3463 = and i8 %3462, 127
   %3464 = zext nneg i8 %3463 to i64
   %3465 = zext nneg i32 %.012.i.i2090 to i64
@@ -16716,7 +16718,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3468 = add i32 %.012.i.i2090, 7
   %3469 = add i64 %3460, 1
   %3470 = icmp slt i8 %3462, 0
-  br i1 %3470, label %3459, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2093, !llvm.loop !762
+  br i1 %3470, label %3459, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2093, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2093: ; preds = %3459, %3451
   %.230 = phi i64 [ %3452, %3451 ], [ %3469, %3459 ]
@@ -16732,10 +16734,10 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3476 = zext i16 %.0.copyload.i.i2094 to i32
   %3477 = zext i16 %3473 to i32
   %3478 = getelementptr inbounds nuw i8, ptr %3475, i64 8
-  %3479 = load ptr, ptr %3478, align 8, !tbaa !1000
-  %3480 = load ptr, ptr %3475, align 8, !tbaa !1002
+  %3479 = load ptr, ptr %3478, align 8, !tbaa !1006
+  %3480 = load ptr, ptr %3475, align 8, !tbaa !1008
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #25
-  store ptr null, ptr %76, align 8, !tbaa !1021, !alias.scope !1041
+  store ptr null, ptr %76, align 8, !tbaa !1027, !alias.scope !1047
   %3481 = shl i32 %3477, 23
   %3482 = and i32 %3477, 24
   %.not.i.i2096 = icmp eq i32 %3482, 0
@@ -16745,7 +16747,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3486 = shl i32 %3477, 21
   %3487 = and i32 %3486, 536870912
   %3488 = shl i32 %3477, 24
-  store i32 %3476, ptr %77, align 4, !tbaa !16, !alias.scope !1041
+  store i32 %3476, ptr %77, align 4, !tbaa !16, !alias.scope !1047
   %3489 = and i32 %3481, 301989888
   %3490 = and i32 %3488, -1073741824
   %3491 = or disjoint i32 %3489, %3490
@@ -16753,8 +16755,8 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.masked11.masked.i.i.i = or disjoint i32 %.masked.masked.masked.i.i.i, %3485
   %.masked.i.i.i = or disjoint i32 %.masked11.masked.i.i.i, %3483
   %3492 = or disjoint i32 %.masked.i.i.i, 16777216
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false), !alias.scope !1041
-  store i32 %3492, ptr %19, align 8, !alias.scope !1041
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false), !alias.scope !1047
+  store i32 %3492, ptr %19, align 8, !alias.scope !1047
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3479, ptr noundef nonnull align 8 dereferenceable(1065) %3480, ptr noundef nonnull align 8 dereferenceable(32) %19) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #25
   br label %.critedge49
@@ -16762,7 +16764,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3493:                                             ; preds = %105
   %3494 = add i64 %.0303, 2
   %3495 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3496 = load i8, ptr %3495, align 1, !tbaa !16, !alias.scope !1044
+  %3496 = load i8, ptr %3495, align 1, !tbaa !16, !alias.scope !1050
   %3497 = zext i8 %3496 to i64
   %3498 = icmp slt i8 %3496, 0
   br i1 %3498, label %3499, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2101, !prof !123
@@ -16776,7 +16778,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2098 = phi i32 [ 7, %3499 ], [ %3510, %3501 ]
   %.1.i.i2099 = phi i64 [ %3500, %3499 ], [ %3509, %3501 ]
   %3503 = getelementptr inbounds nuw i8, ptr %5, i64 %3502
-  %3504 = load i8, ptr %3503, align 1, !tbaa !16, !alias.scope !1044
+  %3504 = load i8, ptr %3503, align 1, !tbaa !16, !alias.scope !1050
   %3505 = and i8 %3504, 127
   %3506 = zext nneg i8 %3505 to i64
   %3507 = zext nneg i32 %.012.i.i2098 to i64
@@ -16785,7 +16787,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3510 = add i32 %.012.i.i2098, 7
   %3511 = add i64 %3502, 1
   %3512 = icmp slt i8 %3504, 0
-  br i1 %3512, label %3501, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2101, !llvm.loop !762
+  br i1 %3512, label %3501, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2101, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2101: ; preds = %3501, %3493
   %.231 = phi i64 [ %3494, %3493 ], [ %3511, %3501 ]
@@ -16797,13 +16799,13 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3516 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %3515, i64 %.0.i.i2097
   %3517 = zext i16 %.0.copyload.i.i2102 to i32
   %3518 = getelementptr inbounds nuw i8, ptr %3516, i64 8
-  %3519 = load ptr, ptr %3518, align 8, !tbaa !1000
-  %3520 = load ptr, ptr %3516, align 8, !tbaa !1002
+  %3519 = load ptr, ptr %3518, align 8, !tbaa !1006
+  %3520 = load ptr, ptr %3516, align 8, !tbaa !1008
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #25
-  store ptr null, ptr %73, align 8, !tbaa !1021, !alias.scope !1047
-  store i32 %3517, ptr %74, align 4, !tbaa !16, !alias.scope !1047
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false), !alias.scope !1047
-  store i32 33554432, ptr %18, align 8, !alias.scope !1047
+  store ptr null, ptr %73, align 8, !tbaa !1027, !alias.scope !1053
+  store i32 %3517, ptr %74, align 4, !tbaa !16, !alias.scope !1053
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false), !alias.scope !1053
+  store i32 33554432, ptr %18, align 8, !alias.scope !1053
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3519, ptr noundef nonnull align 8 dereferenceable(1065) %3520, ptr noundef nonnull align 8 dereferenceable(32) %18) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #25
   br label %.critedge49
@@ -16811,7 +16813,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3521:                                             ; preds = %105
   %3522 = add i64 %.0303, 2
   %3523 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3524 = load i8, ptr %3523, align 1, !tbaa !16, !alias.scope !1050
+  %3524 = load i8, ptr %3523, align 1, !tbaa !16, !alias.scope !1056
   %3525 = zext i8 %3524 to i64
   %3526 = icmp slt i8 %3524, 0
   br i1 %3526, label %3527, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2107, !prof !123
@@ -16825,7 +16827,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2104 = phi i32 [ 7, %3527 ], [ %3538, %3529 ]
   %.1.i.i2105 = phi i64 [ %3528, %3527 ], [ %3537, %3529 ]
   %3531 = getelementptr inbounds nuw i8, ptr %5, i64 %3530
-  %3532 = load i8, ptr %3531, align 1, !tbaa !16, !alias.scope !1050
+  %3532 = load i8, ptr %3531, align 1, !tbaa !16, !alias.scope !1056
   %3533 = and i8 %3532, 127
   %3534 = zext nneg i8 %3533 to i64
   %3535 = zext nneg i32 %.012.i.i2104 to i64
@@ -16834,7 +16836,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3538 = add i32 %.012.i.i2104, 7
   %3539 = add i64 %3530, 1
   %3540 = icmp slt i8 %3532, 0
-  br i1 %3540, label %3529, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2107, !llvm.loop !762
+  br i1 %3540, label %3529, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2107, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2107: ; preds = %3529, %3521
   %.232 = phi i64 [ %3522, %3521 ], [ %3539, %3529 ]
@@ -16849,10 +16851,10 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3545 = zext i16 %.0.copyload.i.i2108 to i32
   %3546 = zext i16 %.0.copyload.i.i2109 to i32
   %3547 = getelementptr inbounds nuw i8, ptr %3544, i64 8
-  %3548 = load ptr, ptr %3547, align 8, !tbaa !1000
-  %3549 = load ptr, ptr %3544, align 8, !tbaa !1002
+  %3548 = load ptr, ptr %3547, align 8, !tbaa !1006
+  %3549 = load ptr, ptr %3544, align 8, !tbaa !1008
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #25
-  store ptr null, ptr %70, align 8, !tbaa !1021, !alias.scope !1053
+  store ptr null, ptr %70, align 8, !tbaa !1027, !alias.scope !1059
   %3550 = shl i32 %3546, 23
   %3551 = and i32 %3546, 24
   %.not.i2110 = icmp eq i32 %3551, 0
@@ -16862,15 +16864,15 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3555 = shl i32 %3546, 21
   %3556 = and i32 %3555, 536870912
   %3557 = shl i32 %3546, 24
-  store i32 %3545, ptr %71, align 4, !tbaa !16, !alias.scope !1053
+  store i32 %3545, ptr %71, align 4, !tbaa !16, !alias.scope !1059
   %3558 = and i32 %3550, 318767104
   %3559 = and i32 %3557, -1073741824
   %.masked.masked.masked.i.i = or disjoint i32 %3558, %3559
   %.masked11.masked.i.i = or disjoint i32 %.masked.masked.masked.i.i, %3556
   %.masked.i.i = or disjoint i32 %.masked11.masked.i.i, %3554
   %3560 = or disjoint i32 %.masked.i.i, %3552
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false), !alias.scope !1053
-  store i32 %3560, ptr %17, align 8, !alias.scope !1053
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false), !alias.scope !1059
+  store i32 %3560, ptr %17, align 8, !alias.scope !1059
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3548, ptr noundef nonnull align 8 dereferenceable(1065) %3549, ptr noundef nonnull align 8 dereferenceable(32) %17) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #25
   br label %.critedge49
@@ -16878,7 +16880,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3561:                                             ; preds = %105
   %3562 = add i64 %.0303, 2
   %3563 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3564 = load i8, ptr %3563, align 1, !tbaa !16, !alias.scope !1056
+  %3564 = load i8, ptr %3563, align 1, !tbaa !16, !alias.scope !1062
   %3565 = zext i8 %3564 to i64
   %3566 = icmp slt i8 %3564, 0
   br i1 %3566, label %3567, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2115, !prof !123
@@ -16892,7 +16894,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2112 = phi i32 [ 7, %3567 ], [ %3578, %3569 ]
   %.1.i.i2113 = phi i64 [ %3568, %3567 ], [ %3577, %3569 ]
   %3571 = getelementptr inbounds nuw i8, ptr %5, i64 %3570
-  %3572 = load i8, ptr %3571, align 1, !tbaa !16, !alias.scope !1056
+  %3572 = load i8, ptr %3571, align 1, !tbaa !16, !alias.scope !1062
   %3573 = and i8 %3572, 127
   %3574 = zext nneg i8 %3573 to i64
   %3575 = zext nneg i32 %.012.i.i2112 to i64
@@ -16901,7 +16903,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3578 = add i32 %.012.i.i2112, 7
   %3579 = add i64 %3570, 1
   %3580 = icmp slt i8 %3572, 0
-  br i1 %3580, label %3569, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2115, !llvm.loop !762
+  br i1 %3580, label %3569, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2115, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2115: ; preds = %3569, %3561
   %.233 = phi i64 [ %3562, %3561 ], [ %3579, %3569 ]
@@ -16913,12 +16915,12 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3584 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %3583, i64 %.0.i.i2111
   %3585 = zext i16 %.0.copyload.i.i2116 to i32
   %3586 = getelementptr inbounds nuw i8, ptr %3584, i64 8
-  %3587 = load ptr, ptr %3586, align 8, !tbaa !1000
-  %3588 = load ptr, ptr %3584, align 8, !tbaa !1002
+  %3587 = load ptr, ptr %3586, align 8, !tbaa !1006
+  %3588 = load ptr, ptr %3584, align 8, !tbaa !1008
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #25
-  store i32 17, ptr %16, align 8, !alias.scope !1059
-  store ptr null, ptr %68, align 8, !tbaa !1021, !alias.scope !1059
-  store i32 %3585, ptr %69, align 8, !tbaa !16, !alias.scope !1059
+  store i32 17, ptr %16, align 8, !alias.scope !1065
+  store ptr null, ptr %68, align 8, !tbaa !1027, !alias.scope !1065
+  store i32 %3585, ptr %69, align 8, !tbaa !16, !alias.scope !1065
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3587, ptr noundef nonnull align 8 dereferenceable(1065) %3588, ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #25
   br label %.critedge49
@@ -16926,7 +16928,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3589:                                             ; preds = %105
   %3590 = add i64 %.0303, 2
   %3591 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3592 = load i8, ptr %3591, align 1, !tbaa !16, !alias.scope !1062
+  %3592 = load i8, ptr %3591, align 1, !tbaa !16, !alias.scope !1068
   %3593 = zext i8 %3592 to i64
   %3594 = icmp slt i8 %3592, 0
   br i1 %3594, label %3595, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2121, !prof !123
@@ -16940,7 +16942,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2118 = phi i32 [ 7, %3595 ], [ %3606, %3597 ]
   %.1.i.i2119 = phi i64 [ %3596, %3595 ], [ %3605, %3597 ]
   %3599 = getelementptr inbounds nuw i8, ptr %5, i64 %3598
-  %3600 = load i8, ptr %3599, align 1, !tbaa !16, !alias.scope !1062
+  %3600 = load i8, ptr %3599, align 1, !tbaa !16, !alias.scope !1068
   %3601 = and i8 %3600, 127
   %3602 = zext nneg i8 %3601 to i64
   %3603 = zext nneg i32 %.012.i.i2118 to i64
@@ -16949,14 +16951,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3606 = add i32 %.012.i.i2118, 7
   %3607 = add i64 %3598, 1
   %3608 = icmp slt i8 %3600, 0
-  br i1 %3608, label %3597, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2121, !llvm.loop !762
+  br i1 %3608, label %3597, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2121, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2121: ; preds = %3597, %3589
   %.234 = phi i64 [ %3590, %3589 ], [ %3607, %3597 ]
   %.0.i.i2117 = phi i64 [ %3593, %3589 ], [ %3605, %3597 ]
   %3609 = add i64 %.234, 1
   %3610 = getelementptr inbounds nuw i8, ptr %5, i64 %.234
-  %3611 = load i8, ptr %3610, align 1, !tbaa !16, !alias.scope !1065
+  %3611 = load i8, ptr %3610, align 1, !tbaa !16, !alias.scope !1071
   %3612 = zext i8 %3611 to i64
   %3613 = icmp slt i8 %3611, 0
   br i1 %3613, label %3614, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2126, !prof !123
@@ -16970,7 +16972,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2123 = phi i32 [ 7, %3614 ], [ %3625, %3616 ]
   %.1.i.i2124 = phi i64 [ %3615, %3614 ], [ %3624, %3616 ]
   %3618 = getelementptr inbounds nuw i8, ptr %5, i64 %3617
-  %3619 = load i8, ptr %3618, align 1, !tbaa !16, !alias.scope !1065
+  %3619 = load i8, ptr %3618, align 1, !tbaa !16, !alias.scope !1071
   %3620 = and i8 %3619, 127
   %3621 = zext nneg i8 %3620 to i64
   %3622 = zext nneg i32 %.012.i.i2123 to i64
@@ -16979,14 +16981,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3625 = add i32 %.012.i.i2123, 7
   %3626 = add i64 %3617, 1
   %3627 = icmp slt i8 %3619, 0
-  br i1 %3627, label %3616, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2126, !llvm.loop !762
+  br i1 %3627, label %3616, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2126, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2126: ; preds = %3616, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2121
   %.235 = phi i64 [ %3609, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2121 ], [ %3626, %3616 ]
   %.0.i.i2122 = phi i64 [ %3612, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2121 ], [ %3624, %3616 ]
   %3628 = load ptr, ptr %23, align 8, !tbaa !37
   %3629 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %3628, i64 %.0.i.i2117, i32 1
-  %3630 = load ptr, ptr %3629, align 8, !tbaa !1000
+  %3630 = load ptr, ptr %3629, align 8, !tbaa !1006
   %3631 = call noundef i32 @_ZNK4llvm12MachineInstr22getNumExplicitOperandsEv(ptr noundef nonnull align 8 dereferenceable(70) %3630) #25
   %3632 = trunc i64 %.0.i.i2122 to i32
   %3633 = add i32 %3631, %3632
@@ -17002,7 +17004,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3640:                                             ; preds = %105
   %3641 = add i64 %.0303, 2
   %3642 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3643 = load i8, ptr %3642, align 1, !tbaa !16, !alias.scope !1068
+  %3643 = load i8, ptr %3642, align 1, !tbaa !16, !alias.scope !1074
   %3644 = zext i8 %3643 to i64
   %3645 = icmp slt i8 %3643, 0
   br i1 %3645, label %3646, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2131, !prof !123
@@ -17016,7 +17018,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2128 = phi i32 [ 7, %3646 ], [ %3657, %3648 ]
   %.1.i.i2129 = phi i64 [ %3647, %3646 ], [ %3656, %3648 ]
   %3650 = getelementptr inbounds nuw i8, ptr %5, i64 %3649
-  %3651 = load i8, ptr %3650, align 1, !tbaa !16, !alias.scope !1068
+  %3651 = load i8, ptr %3650, align 1, !tbaa !16, !alias.scope !1074
   %3652 = and i8 %3651, 127
   %3653 = zext nneg i8 %3652 to i64
   %3654 = zext nneg i32 %.012.i.i2128 to i64
@@ -17025,7 +17027,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3657 = add i32 %.012.i.i2128, 7
   %3658 = add i64 %3649, 1
   %3659 = icmp slt i8 %3651, 0
-  br i1 %3659, label %3648, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2131, !llvm.loop !762
+  br i1 %3659, label %3648, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2131, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2131: ; preds = %3648, %3640
   %.236 = phi i64 [ %3641, %3640 ], [ %3658, %3648 ]
@@ -17035,7 +17037,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3661 = add i64 %.236, 4
   %3662 = load ptr, ptr %23, align 8, !tbaa !37
   %3663 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %3662, i64 %.0.i.i2127, i32 1
-  %3664 = load ptr, ptr %3663, align 8, !tbaa !1000
+  %3664 = load ptr, ptr %3663, align 8, !tbaa !1006
   %3665 = getelementptr inbounds nuw i8, ptr %3664, i64 44
   %3666 = load i32, ptr %3665, align 4
   %3667 = and i32 %.0.copyload.i.i2132, 16777203
@@ -17046,7 +17048,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3669:                                             ; preds = %105
   %3670 = add i64 %.0303, 2
   %3671 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3672 = load i8, ptr %3671, align 1, !tbaa !16, !alias.scope !1071
+  %3672 = load i8, ptr %3671, align 1, !tbaa !16, !alias.scope !1077
   %3673 = zext i8 %3672 to i64
   %3674 = icmp slt i8 %3672, 0
   br i1 %3674, label %3675, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2137, !prof !123
@@ -17060,7 +17062,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2134 = phi i32 [ 7, %3675 ], [ %3686, %3677 ]
   %.1.i.i2135 = phi i64 [ %3676, %3675 ], [ %3685, %3677 ]
   %3679 = getelementptr inbounds nuw i8, ptr %5, i64 %3678
-  %3680 = load i8, ptr %3679, align 1, !tbaa !16, !alias.scope !1071
+  %3680 = load i8, ptr %3679, align 1, !tbaa !16, !alias.scope !1077
   %3681 = and i8 %3680, 127
   %3682 = zext nneg i8 %3681 to i64
   %3683 = zext nneg i32 %.012.i.i2134 to i64
@@ -17069,7 +17071,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3686 = add i32 %.012.i.i2134, 7
   %3687 = add i64 %3678, 1
   %3688 = icmp slt i8 %3680, 0
-  br i1 %3688, label %3677, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2137, !llvm.loop !762
+  br i1 %3688, label %3677, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2137, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2137: ; preds = %3677, %3669
   %.237 = phi i64 [ %3670, %3669 ], [ %3687, %3677 ]
@@ -17079,7 +17081,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3690 = add i64 %.237, 4
   %3691 = load ptr, ptr %23, align 8, !tbaa !37
   %3692 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %3691, i64 %.0.i.i2133, i32 1
-  %3693 = load ptr, ptr %3692, align 8, !tbaa !1000
+  %3693 = load ptr, ptr %3692, align 8, !tbaa !1006
   %3694 = getelementptr inbounds nuw i8, ptr %3693, i64 44
   %3695 = load i32, ptr %3694, align 4
   %3696 = xor i32 %.0.copyload.i.i2138, -1
@@ -17091,7 +17093,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3699:                                             ; preds = %105
   %3700 = add i64 %.0303, 2
   %3701 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3702 = load i8, ptr %3701, align 1, !tbaa !16, !alias.scope !1074
+  %3702 = load i8, ptr %3701, align 1, !tbaa !16, !alias.scope !1080
   %3703 = zext i8 %3702 to i64
   %3704 = icmp slt i8 %3702, 0
   br i1 %3704, label %3705, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2143, !prof !123
@@ -17105,7 +17107,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2140 = phi i32 [ 7, %3705 ], [ %3716, %3707 ]
   %.1.i.i2141 = phi i64 [ %3706, %3705 ], [ %3715, %3707 ]
   %3709 = getelementptr inbounds nuw i8, ptr %5, i64 %3708
-  %3710 = load i8, ptr %3709, align 1, !tbaa !16, !alias.scope !1074
+  %3710 = load i8, ptr %3709, align 1, !tbaa !16, !alias.scope !1080
   %3711 = and i8 %3710, 127
   %3712 = zext nneg i8 %3711 to i64
   %3713 = zext nneg i32 %.012.i.i2140 to i64
@@ -17114,14 +17116,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3716 = add i32 %.012.i.i2140, 7
   %3717 = add i64 %3708, 1
   %3718 = icmp slt i8 %3710, 0
-  br i1 %3718, label %3707, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2143, !llvm.loop !762
+  br i1 %3718, label %3707, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2143, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2143: ; preds = %3707, %3699
   %.238 = phi i64 [ %3700, %3699 ], [ %3717, %3707 ]
   %.0.i.i2139 = phi i64 [ %3703, %3699 ], [ %3715, %3707 ]
   %3719 = add i64 %.238, 1
   %3720 = getelementptr inbounds nuw i8, ptr %5, i64 %.238
-  %3721 = load i8, ptr %3720, align 1, !tbaa !16, !alias.scope !1077
+  %3721 = load i8, ptr %3720, align 1, !tbaa !16, !alias.scope !1083
   %3722 = zext i8 %3721 to i64
   %3723 = icmp slt i8 %3721, 0
   br i1 %3723, label %3724, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2148, !prof !123
@@ -17135,7 +17137,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2145 = phi i32 [ 7, %3724 ], [ %3735, %3726 ]
   %.1.i.i2146 = phi i64 [ %3725, %3724 ], [ %3734, %3726 ]
   %3728 = getelementptr inbounds nuw i8, ptr %5, i64 %3727
-  %3729 = load i8, ptr %3728, align 1, !tbaa !16, !alias.scope !1077
+  %3729 = load i8, ptr %3728, align 1, !tbaa !16, !alias.scope !1083
   %3730 = and i8 %3729, 127
   %3731 = zext nneg i8 %3730 to i64
   %3732 = zext nneg i32 %.012.i.i2145 to i64
@@ -17144,14 +17146,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3735 = add i32 %.012.i.i2145, 7
   %3736 = add i64 %3727, 1
   %3737 = icmp slt i8 %3729, 0
-  br i1 %3737, label %3726, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2148, !llvm.loop !762
+  br i1 %3737, label %3726, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2148, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2148: ; preds = %3726, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2143
   %.239 = phi i64 [ %3719, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2143 ], [ %3736, %3726 ]
   %.0.i.i2144 = phi i64 [ %3722, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2143 ], [ %3734, %3726 ]
   %3738 = load ptr, ptr %23, align 8, !tbaa !37
   %3739 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %3738, i64 %.0.i.i2139, i32 1
-  %3740 = load ptr, ptr %3739, align 8, !tbaa !1000
+  %3740 = load ptr, ptr %3739, align 8, !tbaa !1006
   %3741 = getelementptr inbounds nuw i8, ptr %3740, i64 44
   %3742 = load i32, ptr %3741, align 4
   %3743 = load ptr, ptr %39, align 8, !tbaa !37
@@ -17167,7 +17169,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3750:                                             ; preds = %105, %105, %105
   %3751 = add i64 %.0303, 2
   %3752 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3753 = load i8, ptr %3752, align 1, !tbaa !16, !alias.scope !1080
+  %3753 = load i8, ptr %3752, align 1, !tbaa !16, !alias.scope !1086
   %3754 = zext i8 %3753 to i64
   %3755 = icmp slt i8 %3753, 0
   br i1 %3755, label %3756, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2153, !prof !123
@@ -17181,7 +17183,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2150 = phi i32 [ 7, %3756 ], [ %3767, %3758 ]
   %.1.i.i2151 = phi i64 [ %3757, %3756 ], [ %3766, %3758 ]
   %3760 = getelementptr inbounds nuw i8, ptr %5, i64 %3759
-  %3761 = load i8, ptr %3760, align 1, !tbaa !16, !alias.scope !1080
+  %3761 = load i8, ptr %3760, align 1, !tbaa !16, !alias.scope !1086
   %3762 = and i8 %3761, 127
   %3763 = zext nneg i8 %3762 to i64
   %3764 = zext nneg i32 %.012.i.i2150 to i64
@@ -17190,14 +17192,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3767 = add i32 %.012.i.i2150, 7
   %3768 = add i64 %3759, 1
   %3769 = icmp slt i8 %3761, 0
-  br i1 %3769, label %3758, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2153, !llvm.loop !762
+  br i1 %3769, label %3758, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2153, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2153: ; preds = %3758, %3750
   %.240 = phi i64 [ %3751, %3750 ], [ %3768, %3758 ]
   %.0.i.i2149 = phi i64 [ %3754, %3750 ], [ %3766, %3758 ]
   %3770 = add i64 %.240, 1
   %3771 = getelementptr inbounds nuw i8, ptr %5, i64 %.240
-  %3772 = load i8, ptr %3771, align 1, !tbaa !16, !alias.scope !1083
+  %3772 = load i8, ptr %3771, align 1, !tbaa !16, !alias.scope !1089
   %3773 = zext i8 %3772 to i64
   %3774 = icmp slt i8 %3772, 0
   br i1 %3774, label %3775, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2158, !prof !123
@@ -17211,7 +17213,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2155 = phi i32 [ 7, %3775 ], [ %3786, %3777 ]
   %.1.i.i2156 = phi i64 [ %3776, %3775 ], [ %3785, %3777 ]
   %3779 = getelementptr inbounds nuw i8, ptr %5, i64 %3778
-  %3780 = load i8, ptr %3779, align 1, !tbaa !16, !alias.scope !1083
+  %3780 = load i8, ptr %3779, align 1, !tbaa !16, !alias.scope !1089
   %3781 = and i8 %3780, 127
   %3782 = zext nneg i8 %3781 to i64
   %3783 = zext nneg i32 %.012.i.i2155 to i64
@@ -17220,7 +17222,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3786 = add i32 %.012.i.i2155, 7
   %3787 = add i64 %3778, 1
   %3788 = icmp slt i8 %3780, 0
-  br i1 %3788, label %3777, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2158, !llvm.loop !762
+  br i1 %3788, label %3777, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2158, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2158: ; preds = %3777, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2153
   %.241 = phi i64 [ %3770, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2153 ], [ %3787, %3777 ]
@@ -17257,10 +17259,10 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3802 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_EixEOj(ptr noundef nonnull align 1 dereferenceable(1) %50, ptr noundef nonnull align 4 dereferenceable(4) %28)
   %3803 = load i32, ptr %3802, align 4, !tbaa !115
   %3804 = getelementptr inbounds nuw i8, ptr %3800, i64 8
-  %3805 = load ptr, ptr %3804, align 8, !tbaa !1000
-  %3806 = load ptr, ptr %3800, align 8, !tbaa !1002
+  %3805 = load ptr, ptr %3804, align 8, !tbaa !1006
+  %3806 = load ptr, ptr %3800, align 8, !tbaa !1008
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #25
-  store ptr null, ptr %65, align 8, !tbaa !1021, !alias.scope !1086
+  store ptr null, ptr %65, align 8, !tbaa !1027, !alias.scope !1092
   %3807 = shl i32 %.0768689, 23
   %3808 = and i32 %.0768689, 24
   %.not.i2161 = icmp eq i32 %3808, 0
@@ -17270,7 +17272,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3812 = shl i32 %.0768689, 21
   %3813 = and i32 %3812, 536870912
   %3814 = shl i32 %.0768689, 24
-  store i32 %3803, ptr %66, align 4, !tbaa !16, !alias.scope !1086
+  store i32 %3803, ptr %66, align 4, !tbaa !16, !alias.scope !1092
   %3815 = and i32 %3807, 318767104
   %3816 = and i32 %3814, -1073741824
   %.masked.masked.masked.i.i2162 = or disjoint i32 %3816, %.0769
@@ -17278,8 +17280,8 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.masked.i.i2164 = or disjoint i32 %.masked11.masked.i.i2163, %3813
   %3817 = or disjoint i32 %.masked.i.i2164, %3811
   %3818 = or disjoint i32 %3817, %3809
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false), !alias.scope !1086
-  store i32 %3818, ptr %15, align 8, !alias.scope !1086
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false), !alias.scope !1092
+  store i32 %3818, ptr %15, align 8, !alias.scope !1092
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3805, ptr noundef nonnull align 8 dereferenceable(1065) %3806, ptr noundef nonnull align 8 dereferenceable(32) %15) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #25
@@ -17289,7 +17291,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3820 = icmp eq i8 %108, 75
   %3821 = add i64 %.0303, 2
   %3822 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3823 = load i8, ptr %3822, align 1, !tbaa !16, !alias.scope !1089
+  %3823 = load i8, ptr %3822, align 1, !tbaa !16, !alias.scope !1095
   %3824 = zext i8 %3823 to i64
   %3825 = icmp slt i8 %3823, 0
   br i1 %3825, label %3826, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2169, !prof !123
@@ -17303,7 +17305,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2166 = phi i32 [ 7, %3826 ], [ %3837, %3828 ]
   %.1.i.i2167 = phi i64 [ %3827, %3826 ], [ %3836, %3828 ]
   %3830 = getelementptr inbounds nuw i8, ptr %5, i64 %3829
-  %3831 = load i8, ptr %3830, align 1, !tbaa !16, !alias.scope !1089
+  %3831 = load i8, ptr %3830, align 1, !tbaa !16, !alias.scope !1095
   %3832 = and i8 %3831, 127
   %3833 = zext nneg i8 %3832 to i64
   %3834 = zext nneg i32 %.012.i.i2166 to i64
@@ -17312,7 +17314,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3837 = add i32 %.012.i.i2166, 7
   %3838 = add i64 %3829, 1
   %3839 = icmp slt i8 %3831, 0
-  br i1 %3839, label %3828, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2169, !llvm.loop !762
+  br i1 %3839, label %3828, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2169, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2169: ; preds = %3828, %3819
   %.244 = phi i64 [ %3821, %3819 ], [ %3838, %3828 ]
@@ -17338,12 +17340,12 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3850 = load ptr, ptr %23, align 8, !tbaa !37
   %3851 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %3850, i64 %.0.i.i2165
   %3852 = getelementptr inbounds nuw i8, ptr %3851, i64 8
-  %3853 = load ptr, ptr %3852, align 8, !tbaa !1000
-  %3854 = load ptr, ptr %3851, align 8, !tbaa !1002
+  %3853 = load ptr, ptr %3852, align 8, !tbaa !1006
+  %3854 = load ptr, ptr %3851, align 8, !tbaa !1008
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #25
-  store i32 1, ptr %14, align 8, !alias.scope !1092
-  store ptr null, ptr %63, align 8, !tbaa !1021, !alias.scope !1092
-  store i64 %3849, ptr %64, align 8, !tbaa !16, !alias.scope !1092
+  store i32 1, ptr %14, align 8, !alias.scope !1098
+  store ptr null, ptr %63, align 8, !tbaa !1027, !alias.scope !1098
+  store i64 %3849, ptr %64, align 8, !tbaa !16, !alias.scope !1098
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3853, ptr noundef nonnull align 8 dereferenceable(1065) %3854, ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #25
   br label %.critedge49
@@ -17351,7 +17353,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3855:                                             ; preds = %105
   %3856 = add i64 %.0303, 2
   %3857 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3858 = load i8, ptr %3857, align 1, !tbaa !16, !alias.scope !1095
+  %3858 = load i8, ptr %3857, align 1, !tbaa !16, !alias.scope !1101
   %3859 = zext i8 %3858 to i64
   %3860 = icmp slt i8 %3858, 0
   br i1 %3860, label %3861, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2175, !prof !123
@@ -17365,7 +17367,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2172 = phi i32 [ 7, %3861 ], [ %3872, %3863 ]
   %.1.i.i2173 = phi i64 [ %3862, %3861 ], [ %3871, %3863 ]
   %3865 = getelementptr inbounds nuw i8, ptr %5, i64 %3864
-  %3866 = load i8, ptr %3865, align 1, !tbaa !16, !alias.scope !1095
+  %3866 = load i8, ptr %3865, align 1, !tbaa !16, !alias.scope !1101
   %3867 = and i8 %3866, 127
   %3868 = zext nneg i8 %3867 to i64
   %3869 = zext nneg i32 %.012.i.i2172 to i64
@@ -17374,7 +17376,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3872 = add i32 %.012.i.i2172, 7
   %3873 = add i64 %3864, 1
   %3874 = icmp slt i8 %3866, 0
-  br i1 %3874, label %3863, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2175, !llvm.loop !762
+  br i1 %3874, label %3863, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2175, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2175: ; preds = %3863, %3855
   %.246 = phi i64 [ %3856, %3855 ], [ %3873, %3863 ]
@@ -17404,12 +17406,12 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3890 = call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %3887, i32 noundef %.0.i2181) #25
   %3891 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %3890, i64 noundef %.0.copyload.i.i2176, i1 noundef zeroext true) #25
   %3892 = getelementptr inbounds nuw i8, ptr %3889, i64 8
-  %3893 = load ptr, ptr %3892, align 8, !tbaa !1000
-  %3894 = load ptr, ptr %3889, align 8, !tbaa !1002
+  %3893 = load ptr, ptr %3892, align 8, !tbaa !1006
+  %3894 = load ptr, ptr %3889, align 8, !tbaa !1008
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #25
-  store i32 2, ptr %13, align 8, !alias.scope !1098
-  store ptr null, ptr %61, align 8, !tbaa !1021, !alias.scope !1098
-  store ptr %3891, ptr %62, align 8, !tbaa !16, !alias.scope !1098
+  store i32 2, ptr %13, align 8, !alias.scope !1104
+  store ptr null, ptr %61, align 8, !tbaa !1027, !alias.scope !1104
+  store ptr %3891, ptr %62, align 8, !tbaa !16, !alias.scope !1104
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %3893, ptr noundef nonnull align 8 dereferenceable(1065) %3894, ptr noundef nonnull align 8 dereferenceable(32) %13) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #25
   br label %.critedge49
@@ -17417,7 +17419,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 3895:                                             ; preds = %105
   %3896 = add i64 %.0303, 2
   %3897 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3898 = load i8, ptr %3897, align 1, !tbaa !16, !alias.scope !1101
+  %3898 = load i8, ptr %3897, align 1, !tbaa !16, !alias.scope !1107
   %3899 = zext i8 %3898 to i64
   %3900 = icmp slt i8 %3898, 0
   br i1 %3900, label %3901, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2186, !prof !123
@@ -17431,7 +17433,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2183 = phi i32 [ 7, %3901 ], [ %3912, %3903 ]
   %.1.i.i2184 = phi i64 [ %3902, %3901 ], [ %3911, %3903 ]
   %3905 = getelementptr inbounds nuw i8, ptr %5, i64 %3904
-  %3906 = load i8, ptr %3905, align 1, !tbaa !16, !alias.scope !1101
+  %3906 = load i8, ptr %3905, align 1, !tbaa !16, !alias.scope !1107
   %3907 = and i8 %3906, 127
   %3908 = zext nneg i8 %3907 to i64
   %3909 = zext nneg i32 %.012.i.i2183 to i64
@@ -17440,7 +17442,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3912 = add i32 %.012.i.i2183, 7
   %3913 = add i64 %3904, 1
   %3914 = icmp slt i8 %3906, 0
-  br i1 %3914, label %3903, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2186, !llvm.loop !762
+  br i1 %3914, label %3903, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2186, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2186: ; preds = %3903, %3895
   %.247 = phi i64 [ %3896, %3895 ], [ %3913, %3903 ]
@@ -17474,7 +17476,7 @@ _ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit: ; preds = %.lr.ph1
   %3928 = load ptr, ptr %23, align 8, !tbaa !37
   %3929 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %3928, i64 %.0.i.i2182
   %3930 = getelementptr inbounds nuw i8, ptr %.07701013, i64 24
-  %3931 = load ptr, ptr %3930, align 8, !tbaa !1104
+  %3931 = load ptr, ptr %3930, align 8, !tbaa !1110
   call void %3931(ptr noundef nonnull align 8 dereferenceable(32) %.07701013, ptr noundef nonnull align 8 dereferenceable(16) %3929) #25
   %3932 = getelementptr inbounds nuw i8, ptr %.07701013, i64 32
   %.not803 = icmp eq ptr %3932, %3924
@@ -17483,7 +17485,7 @@ _ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit: ; preds = %.lr.ph1
 3933:                                             ; preds = %105
   %3934 = add i64 %.0303, 2
   %3935 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3936 = load i8, ptr %3935, align 1, !tbaa !16, !alias.scope !1106
+  %3936 = load i8, ptr %3935, align 1, !tbaa !16, !alias.scope !1112
   %3937 = zext i8 %3936 to i64
   %3938 = icmp slt i8 %3936, 0
   br i1 %3938, label %3939, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2193, !prof !123
@@ -17497,7 +17499,7 @@ _ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit: ; preds = %.lr.ph1
   %.012.i.i2190 = phi i32 [ 7, %3939 ], [ %3950, %3941 ]
   %.1.i.i2191 = phi i64 [ %3940, %3939 ], [ %3949, %3941 ]
   %3943 = getelementptr inbounds nuw i8, ptr %5, i64 %3942
-  %3944 = load i8, ptr %3943, align 1, !tbaa !16, !alias.scope !1106
+  %3944 = load i8, ptr %3943, align 1, !tbaa !16, !alias.scope !1112
   %3945 = and i8 %3944, 127
   %3946 = zext nneg i8 %3945 to i64
   %3947 = zext nneg i32 %.012.i.i2190 to i64
@@ -17506,7 +17508,7 @@ _ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit: ; preds = %.lr.ph1
   %3950 = add i32 %.012.i.i2190, 7
   %3951 = add i64 %3942, 1
   %3952 = icmp slt i8 %3944, 0
-  br i1 %3952, label %3941, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2193, !llvm.loop !762
+  br i1 %3952, label %3941, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2193, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2193: ; preds = %3941, %3933
   %.248 = phi i64 [ %3934, %3933 ], [ %3951, %3941 ]
@@ -17515,7 +17517,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.0.copyload.i.i2194 = load i16, ptr %3953, align 1
   %3954 = add i64 %.248, 3
   %gep1053 = getelementptr i8, ptr %invariant.gep1050, i64 %.248
-  %3955 = load i8, ptr %gep1053, align 1, !tbaa !16, !alias.scope !1109
+  %3955 = load i8, ptr %gep1053, align 1, !tbaa !16, !alias.scope !1115
   %3956 = zext i8 %3955 to i64
   %3957 = icmp slt i8 %3955, 0
   br i1 %3957, label %3958, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2199, !prof !123
@@ -17529,7 +17531,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2196 = phi i32 [ 7, %3958 ], [ %3969, %3960 ]
   %.1.i.i2197 = phi i64 [ %3959, %3958 ], [ %3968, %3960 ]
   %3962 = getelementptr inbounds nuw i8, ptr %5, i64 %3961
-  %3963 = load i8, ptr %3962, align 1, !tbaa !16, !alias.scope !1109
+  %3963 = load i8, ptr %3962, align 1, !tbaa !16, !alias.scope !1115
   %3964 = and i8 %3963, 127
   %3965 = zext nneg i8 %3964 to i64
   %3966 = zext nneg i32 %.012.i.i2196 to i64
@@ -17538,7 +17540,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %3969 = add i32 %.012.i.i2196, 7
   %3970 = add i64 %3961, 1
   %3971 = icmp slt i8 %3963, 0
-  br i1 %3971, label %3960, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2199, !llvm.loop !762
+  br i1 %3971, label %3960, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2199, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2199: ; preds = %3960, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2193
   %.249 = phi i64 [ %3954, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2193 ], [ %3970, %3960 ]
@@ -17561,14 +17563,14 @@ _ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit2201: ; preds = %_ZZ
   %3980 = load ptr, ptr %23, align 8, !tbaa !37
   %3981 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %3980, i64 %.0.i.i2189
   %3982 = getelementptr inbounds nuw i8, ptr %3976, i64 24
-  %3983 = load ptr, ptr %3982, align 8, !tbaa !1104
+  %3983 = load ptr, ptr %3982, align 8, !tbaa !1110
   call void %3983(ptr noundef nonnull align 8 dereferenceable(32) %3976, ptr noundef nonnull align 8 dereferenceable(16) %3981) #25
   br label %.critedge49
 
 3984:                                             ; preds = %105
   %3985 = add i64 %.0303, 2
   %3986 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %3987 = load i8, ptr %3986, align 1, !tbaa !16, !alias.scope !1112
+  %3987 = load i8, ptr %3986, align 1, !tbaa !16, !alias.scope !1118
   %3988 = zext i8 %3987 to i64
   %3989 = icmp slt i8 %3987, 0
   br i1 %3989, label %3990, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2206, !prof !123
@@ -17582,7 +17584,7 @@ _ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit2201: ; preds = %_ZZ
   %.012.i.i2203 = phi i32 [ 7, %3990 ], [ %4001, %3992 ]
   %.1.i.i2204 = phi i64 [ %3991, %3990 ], [ %4000, %3992 ]
   %3994 = getelementptr inbounds nuw i8, ptr %5, i64 %3993
-  %3995 = load i8, ptr %3994, align 1, !tbaa !16, !alias.scope !1112
+  %3995 = load i8, ptr %3994, align 1, !tbaa !16, !alias.scope !1118
   %3996 = and i8 %3995, 127
   %3997 = zext nneg i8 %3996 to i64
   %3998 = zext nneg i32 %.012.i.i2203 to i64
@@ -17591,7 +17593,7 @@ _ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit2201: ; preds = %_ZZ
   %4001 = add i32 %.012.i.i2203, 7
   %4002 = add i64 %3993, 1
   %4003 = icmp slt i8 %3995, 0
-  br i1 %4003, label %3992, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2206, !llvm.loop !762
+  br i1 %4003, label %3992, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2206, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2206: ; preds = %3992, %3984
   %.250 = phi i64 [ %3985, %3984 ], [ %4002, %3992 ]
@@ -17600,7 +17602,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.0.copyload.i.i2207 = load i16, ptr %4004, align 1
   %4005 = add i64 %.250, 3
   %gep1051 = getelementptr i8, ptr %invariant.gep1050, i64 %.250
-  %4006 = load i8, ptr %gep1051, align 1, !tbaa !16, !alias.scope !1115
+  %4006 = load i8, ptr %gep1051, align 1, !tbaa !16, !alias.scope !1121
   %4007 = zext i8 %4006 to i64
   %4008 = icmp slt i8 %4006, 0
   br i1 %4008, label %4009, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2212, !prof !123
@@ -17614,7 +17616,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2209 = phi i32 [ 7, %4009 ], [ %4020, %4011 ]
   %.1.i.i2210 = phi i64 [ %4010, %4009 ], [ %4019, %4011 ]
   %4013 = getelementptr inbounds nuw i8, ptr %5, i64 %4012
-  %4014 = load i8, ptr %4013, align 1, !tbaa !16, !alias.scope !1115
+  %4014 = load i8, ptr %4013, align 1, !tbaa !16, !alias.scope !1121
   %4015 = and i8 %4014, 127
   %4016 = zext nneg i8 %4015 to i64
   %4017 = zext nneg i32 %.012.i.i2209 to i64
@@ -17623,7 +17625,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4020 = add i32 %.012.i.i2209, 7
   %4021 = add i64 %4012, 1
   %4022 = icmp slt i8 %4014, 0
-  br i1 %4022, label %4011, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2212, !llvm.loop !762
+  br i1 %4022, label %4011, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2212, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2212: ; preds = %4011, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2206
   %.251 = phi i64 [ %4005, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2206 ], [ %4021, %4011 ]
@@ -17649,10 +17651,10 @@ _ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit2215: ; preds = %_ZZ
   %4034 = getelementptr inbounds nuw i8, ptr %5, i64 %.251
   %.0.copyload.i.i2213 = load i16, ptr %4034, align 1
   %4035 = getelementptr inbounds nuw i8, ptr %4027, i64 24
-  %4036 = load ptr, ptr %4035, align 8, !tbaa !1104
+  %4036 = load ptr, ptr %4035, align 8, !tbaa !1110
   call void %4036(ptr noundef nonnull align 8 dereferenceable(32) %4027, ptr noundef nonnull align 8 dereferenceable(16) %4032) #25
   %4037 = getelementptr inbounds nuw i8, ptr %4032, i64 8
-  %4038 = load ptr, ptr %4037, align 8, !tbaa !1000
+  %4038 = load ptr, ptr %4037, align 8, !tbaa !1006
   %4039 = getelementptr inbounds nuw i8, ptr %4038, i64 40
   %4040 = load i24, ptr %4039, align 8
   %4041 = zext i24 %4040 to i64
@@ -17673,7 +17675,7 @@ _ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit2215: ; preds = %_ZZ
 4053:                                             ; preds = %105
   %4054 = add i64 %.0303, 2
   %4055 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %4056 = load i8, ptr %4055, align 1, !tbaa !16, !alias.scope !1118
+  %4056 = load i8, ptr %4055, align 1, !tbaa !16, !alias.scope !1124
   %4057 = zext i8 %4056 to i64
   %4058 = icmp slt i8 %4056, 0
   br i1 %4058, label %4059, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2220, !prof !123
@@ -17687,7 +17689,7 @@ _ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit2215: ; preds = %_ZZ
   %.012.i.i2217 = phi i32 [ 7, %4059 ], [ %4070, %4061 ]
   %.1.i.i2218 = phi i64 [ %4060, %4059 ], [ %4069, %4061 ]
   %4063 = getelementptr inbounds nuw i8, ptr %5, i64 %4062
-  %4064 = load i8, ptr %4063, align 1, !tbaa !16, !alias.scope !1118
+  %4064 = load i8, ptr %4063, align 1, !tbaa !16, !alias.scope !1124
   %4065 = and i8 %4064, 127
   %4066 = zext nneg i8 %4065 to i64
   %4067 = zext nneg i32 %.012.i.i2217 to i64
@@ -17696,14 +17698,14 @@ _ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit2215: ; preds = %_ZZ
   %4070 = add i32 %.012.i.i2217, 7
   %4071 = add i64 %4062, 1
   %4072 = icmp slt i8 %4064, 0
-  br i1 %4072, label %4061, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2220, !llvm.loop !762
+  br i1 %4072, label %4061, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2220, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2220: ; preds = %4061, %4053
   %.252 = phi i64 [ %4054, %4053 ], [ %4071, %4061 ]
   %.0.i.i2216 = phi i64 [ %4057, %4053 ], [ %4069, %4061 ]
   %4073 = add i64 %.252, 1
   %4074 = getelementptr inbounds nuw i8, ptr %5, i64 %.252
-  %4075 = load i8, ptr %4074, align 1, !tbaa !16, !alias.scope !1121
+  %4075 = load i8, ptr %4074, align 1, !tbaa !16, !alias.scope !1127
   %4076 = zext i8 %4075 to i64
   %4077 = icmp slt i8 %4075, 0
   br i1 %4077, label %4078, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2225, !prof !123
@@ -17717,7 +17719,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2222 = phi i32 [ 7, %4078 ], [ %4089, %4080 ]
   %.1.i.i2223 = phi i64 [ %4079, %4078 ], [ %4088, %4080 ]
   %4082 = getelementptr inbounds nuw i8, ptr %5, i64 %4081
-  %4083 = load i8, ptr %4082, align 1, !tbaa !16, !alias.scope !1121
+  %4083 = load i8, ptr %4082, align 1, !tbaa !16, !alias.scope !1127
   %4084 = and i8 %4083, 127
   %4085 = zext nneg i8 %4084 to i64
   %4086 = zext nneg i32 %.012.i.i2222 to i64
@@ -17726,7 +17728,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4089 = add i32 %.012.i.i2222, 7
   %4090 = add i64 %4081, 1
   %4091 = icmp slt i8 %4083, 0
-  br i1 %4091, label %4080, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2225, !llvm.loop !762
+  br i1 %4091, label %4080, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2225, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2225: ; preds = %4080, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2220
   %.253 = phi i64 [ %4073, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2220 ], [ %4090, %4080 ]
@@ -17771,12 +17773,12 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 _ZNK4llvm11ConstantInt12getSExtValueEv.exit2228:  ; preds = %4110, %4117
   %.0.i.i2226 = phi i64 [ %.0.i.i.i2227, %4110 ], [ %4119, %4117 ]
   %4120 = getelementptr inbounds nuw i8, ptr %4103, i64 8
-  %4121 = load ptr, ptr %4120, align 8, !tbaa !1000
-  %4122 = load ptr, ptr %4103, align 8, !tbaa !1002
+  %4121 = load ptr, ptr %4120, align 8, !tbaa !1006
+  %4122 = load ptr, ptr %4103, align 8, !tbaa !1008
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #25
-  store i32 1, ptr %12, align 8, !alias.scope !1124
-  store ptr null, ptr %58, align 8, !tbaa !1021, !alias.scope !1124
-  store i64 %.0.i.i2226, ptr %59, align 8, !tbaa !16, !alias.scope !1124
+  store i32 1, ptr %12, align 8, !alias.scope !1130
+  store ptr null, ptr %58, align 8, !tbaa !1027, !alias.scope !1130
+  store i64 %.0.i.i2226, ptr %59, align 8, !tbaa !16, !alias.scope !1130
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %4121, ptr noundef nonnull align 8 dereferenceable(1065) %4122, ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #25
   br label %.critedge49
@@ -17787,15 +17789,15 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit2228:  ; preds = %4110, %4117
   %4125 = load ptr, ptr %23, align 8, !tbaa !37
   %4126 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %4125, i64 %.0.i.i2216
   %4127 = getelementptr inbounds nuw i8, ptr %4126, i64 8
-  %4128 = load ptr, ptr %4127, align 8, !tbaa !1000
-  %4129 = load ptr, ptr %4126, align 8, !tbaa !1002
+  %4128 = load ptr, ptr %4127, align 8, !tbaa !1006
+  %4129 = load ptr, ptr %4126, align 8, !tbaa !1008
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %4128, ptr noundef nonnull align 8 dereferenceable(1065) %4129, ptr noundef nonnull align 8 dereferenceable(32) %4097) #25
   br label %.critedge49
 
 4130:                                             ; preds = %105
   %4131 = add i64 %.0303, 2
   %4132 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %4133 = load i8, ptr %4132, align 1, !tbaa !16, !alias.scope !1127
+  %4133 = load i8, ptr %4132, align 1, !tbaa !16, !alias.scope !1133
   %4134 = zext i8 %4133 to i64
   %4135 = icmp slt i8 %4133, 0
   br i1 %4135, label %4136, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2233, !prof !123
@@ -17809,7 +17811,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit2228:  ; preds = %4110, %4117
   %.012.i.i2230 = phi i32 [ 7, %4136 ], [ %4147, %4138 ]
   %.1.i.i2231 = phi i64 [ %4137, %4136 ], [ %4146, %4138 ]
   %4140 = getelementptr inbounds nuw i8, ptr %5, i64 %4139
-  %4141 = load i8, ptr %4140, align 1, !tbaa !16, !alias.scope !1127
+  %4141 = load i8, ptr %4140, align 1, !tbaa !16, !alias.scope !1133
   %4142 = and i8 %4141, 127
   %4143 = zext nneg i8 %4142 to i64
   %4144 = zext nneg i32 %.012.i.i2230 to i64
@@ -17818,14 +17820,14 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit2228:  ; preds = %4110, %4117
   %4147 = add i32 %.012.i.i2230, 7
   %4148 = add i64 %4139, 1
   %4149 = icmp slt i8 %4141, 0
-  br i1 %4149, label %4138, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2233, !llvm.loop !762
+  br i1 %4149, label %4138, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2233, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2233: ; preds = %4138, %4130
   %.254 = phi i64 [ %4131, %4130 ], [ %4148, %4138 ]
   %.0.i.i2229 = phi i64 [ %4134, %4130 ], [ %4146, %4138 ]
   %4150 = add i64 %.254, 1
   %4151 = getelementptr inbounds nuw i8, ptr %5, i64 %.254
-  %4152 = load i8, ptr %4151, align 1, !tbaa !16, !alias.scope !1130
+  %4152 = load i8, ptr %4151, align 1, !tbaa !16, !alias.scope !1136
   %4153 = zext i8 %4152 to i64
   %4154 = icmp slt i8 %4152, 0
   br i1 %4154, label %4155, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2238, !prof !123
@@ -17839,7 +17841,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2235 = phi i32 [ 7, %4155 ], [ %4166, %4157 ]
   %.1.i.i2236 = phi i64 [ %4156, %4155 ], [ %4165, %4157 ]
   %4159 = getelementptr inbounds nuw i8, ptr %5, i64 %4158
-  %4160 = load i8, ptr %4159, align 1, !tbaa !16, !alias.scope !1130
+  %4160 = load i8, ptr %4159, align 1, !tbaa !16, !alias.scope !1136
   %4161 = and i8 %4160, 127
   %4162 = zext nneg i8 %4161 to i64
   %4163 = zext nneg i32 %.012.i.i2235 to i64
@@ -17848,7 +17850,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4166 = add i32 %.012.i.i2235, 7
   %4167 = add i64 %4158, 1
   %4168 = icmp slt i8 %4160, 0
-  br i1 %4168, label %4157, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2238, !llvm.loop !762
+  br i1 %4168, label %4157, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2238, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2238: ; preds = %4157, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2233
   %.255 = phi i64 [ %4150, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2233 ], [ %4167, %4157 ]
@@ -17868,12 +17870,12 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4180 = getelementptr inbounds nuw i8, ptr %4173, i64 48
   %4181 = load ptr, ptr %4180, align 8, !tbaa !16
   %4182 = getelementptr inbounds nuw i8, ptr %4179, i64 8
-  %4183 = load ptr, ptr %4182, align 8, !tbaa !1000
-  %4184 = load ptr, ptr %4179, align 8, !tbaa !1002
+  %4183 = load ptr, ptr %4182, align 8, !tbaa !1006
+  %4184 = load ptr, ptr %4179, align 8, !tbaa !1008
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #25
-  store i32 3, ptr %11, align 8, !alias.scope !1133
-  store ptr null, ptr %56, align 8, !tbaa !1021, !alias.scope !1133
-  store ptr %4181, ptr %57, align 8, !tbaa !16, !alias.scope !1133
+  store i32 3, ptr %11, align 8, !alias.scope !1139
+  store ptr null, ptr %56, align 8, !tbaa !1027, !alias.scope !1139
+  store ptr %4181, ptr %57, align 8, !tbaa !16, !alias.scope !1139
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %4183, ptr noundef nonnull align 8 dereferenceable(1065) %4184, ptr noundef nonnull align 8 dereferenceable(32) %11) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #25
   br label %.critedge49
@@ -17881,7 +17883,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 4185:                                             ; preds = %105
   %4186 = add i64 %.0303, 2
   %4187 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %4188 = load i8, ptr %4187, align 1, !tbaa !16, !alias.scope !1136
+  %4188 = load i8, ptr %4187, align 1, !tbaa !16, !alias.scope !1142
   %4189 = zext i8 %4188 to i64
   %4190 = icmp slt i8 %4188, 0
   br i1 %4190, label %4191, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2243, !prof !123
@@ -17895,7 +17897,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2240 = phi i32 [ 7, %4191 ], [ %4202, %4193 ]
   %.1.i.i2241 = phi i64 [ %4192, %4191 ], [ %4201, %4193 ]
   %4195 = getelementptr inbounds nuw i8, ptr %5, i64 %4194
-  %4196 = load i8, ptr %4195, align 1, !tbaa !16, !alias.scope !1136
+  %4196 = load i8, ptr %4195, align 1, !tbaa !16, !alias.scope !1142
   %4197 = and i8 %4196, 127
   %4198 = zext nneg i8 %4197 to i64
   %4199 = zext nneg i32 %.012.i.i2240 to i64
@@ -17904,14 +17906,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4202 = add i32 %.012.i.i2240, 7
   %4203 = add i64 %4194, 1
   %4204 = icmp slt i8 %4196, 0
-  br i1 %4204, label %4193, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2243, !llvm.loop !762
+  br i1 %4204, label %4193, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2243, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2243: ; preds = %4193, %4185
   %.256 = phi i64 [ %4186, %4185 ], [ %4203, %4193 ]
   %.0.i.i2239 = phi i64 [ %4189, %4185 ], [ %4201, %4193 ]
   %4205 = add i64 %.256, 1
   %4206 = getelementptr inbounds nuw i8, ptr %5, i64 %.256
-  %4207 = load i8, ptr %4206, align 1, !tbaa !16, !alias.scope !1139
+  %4207 = load i8, ptr %4206, align 1, !tbaa !16, !alias.scope !1145
   %4208 = zext i8 %4207 to i64
   %4209 = icmp slt i8 %4207, 0
   br i1 %4209, label %4210, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2248, !prof !123
@@ -17925,7 +17927,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2245 = phi i32 [ 7, %4210 ], [ %4221, %4212 ]
   %.1.i.i2246 = phi i64 [ %4211, %4210 ], [ %4220, %4212 ]
   %4214 = getelementptr inbounds nuw i8, ptr %5, i64 %4213
-  %4215 = load i8, ptr %4214, align 1, !tbaa !16, !alias.scope !1139
+  %4215 = load i8, ptr %4214, align 1, !tbaa !16, !alias.scope !1145
   %4216 = and i8 %4215, 127
   %4217 = zext nneg i8 %4216 to i64
   %4218 = zext nneg i32 %.012.i.i2245 to i64
@@ -17934,7 +17936,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4221 = add i32 %.012.i.i2245, 7
   %4222 = add i64 %4213, 1
   %4223 = icmp slt i8 %4215, 0
-  br i1 %4223, label %4212, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2248, !llvm.loop !762
+  br i1 %4223, label %4212, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2248, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2248: ; preds = %4212, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2243
   %.257 = phi i64 [ %4205, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2243 ], [ %4222, %4212 ]
@@ -18010,9 +18012,9 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 
 4264:                                             ; preds = %4257
   %4265 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload.i, i64 16
-  %4266 = load ptr, ptr %4265, align 8, !tbaa !756
+  %4266 = load ptr, ptr %4265, align 8, !tbaa !762
   %4267 = getelementptr inbounds nuw i8, ptr %4266, i64 16
-  %4268 = load i64, ptr %4267, align 8, !tbaa !757
+  %4268 = load i64, ptr %4267, align 8, !tbaa !763
   %4269 = and i64 %4268, 2097152
   %.not.i.i2254 = icmp eq i64 %4269, 0
   br i1 %.not.i.i2254, label %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i, label %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.i
@@ -18089,7 +18091,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 4304:                                             ; preds = %105
   %4305 = add i64 %.0303, 2
   %4306 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %4307 = load i8, ptr %4306, align 1, !tbaa !16, !alias.scope !1142
+  %4307 = load i8, ptr %4306, align 1, !tbaa !16, !alias.scope !1148
   %4308 = zext i8 %4307 to i64
   %4309 = icmp slt i8 %4307, 0
   br i1 %4309, label %4310, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2262, !prof !123
@@ -18103,7 +18105,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2259 = phi i32 [ 7, %4310 ], [ %4321, %4312 ]
   %.1.i.i2260 = phi i64 [ %4311, %4310 ], [ %4320, %4312 ]
   %4314 = getelementptr inbounds nuw i8, ptr %5, i64 %4313
-  %4315 = load i8, ptr %4314, align 1, !tbaa !16, !alias.scope !1142
+  %4315 = load i8, ptr %4314, align 1, !tbaa !16, !alias.scope !1148
   %4316 = and i8 %4315, 127
   %4317 = zext nneg i8 %4316 to i64
   %4318 = zext nneg i32 %.012.i.i2259 to i64
@@ -18112,14 +18114,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4321 = add i32 %.012.i.i2259, 7
   %4322 = add i64 %4313, 1
   %4323 = icmp slt i8 %4315, 0
-  br i1 %4323, label %4312, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2262, !llvm.loop !762
+  br i1 %4323, label %4312, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2262, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2262: ; preds = %4312, %4304
   %.260 = phi i64 [ %4305, %4304 ], [ %4322, %4312 ]
   %.0.i.i2258 = phi i64 [ %4308, %4304 ], [ %4320, %4312 ]
   %4324 = add i64 %.260, 1
   %4325 = getelementptr inbounds nuw i8, ptr %5, i64 %.260
-  %4326 = load i8, ptr %4325, align 1, !tbaa !16, !alias.scope !1145
+  %4326 = load i8, ptr %4325, align 1, !tbaa !16, !alias.scope !1151
   %4327 = zext i8 %4326 to i64
   %4328 = icmp slt i8 %4326, 0
   br i1 %4328, label %4329, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2267, !prof !123
@@ -18133,7 +18135,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2264 = phi i32 [ 7, %4329 ], [ %4340, %4331 ]
   %.1.i.i2265 = phi i64 [ %4330, %4329 ], [ %4339, %4331 ]
   %4333 = getelementptr inbounds nuw i8, ptr %5, i64 %4332
-  %4334 = load i8, ptr %4333, align 1, !tbaa !16, !alias.scope !1145
+  %4334 = load i8, ptr %4333, align 1, !tbaa !16, !alias.scope !1151
   %4335 = and i8 %4334, 127
   %4336 = zext nneg i8 %4335 to i64
   %4337 = zext nneg i32 %.012.i.i2264 to i64
@@ -18142,14 +18144,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4340 = add i32 %.012.i.i2264, 7
   %4341 = add i64 %4332, 1
   %4342 = icmp slt i8 %4334, 0
-  br i1 %4342, label %4331, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2267, !llvm.loop !762
+  br i1 %4342, label %4331, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2267, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2267: ; preds = %4331, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2262
   %.261 = phi i64 [ %4324, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2262 ], [ %4341, %4331 ]
   %.0.i.i2263 = phi i64 [ %4327, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2262 ], [ %4339, %4331 ]
   %4343 = add i64 %.261, 1
   %4344 = getelementptr inbounds nuw i8, ptr %5, i64 %.261
-  %4345 = load i8, ptr %4344, align 1, !tbaa !16, !alias.scope !1148
+  %4345 = load i8, ptr %4344, align 1, !tbaa !16, !alias.scope !1154
   %4346 = zext i8 %4345 to i64
   %4347 = icmp slt i8 %4345, 0
   br i1 %4347, label %4348, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2272, !prof !123
@@ -18163,7 +18165,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2269 = phi i32 [ 7, %4348 ], [ %4359, %4350 ]
   %.1.i.i2270 = phi i64 [ %4349, %4348 ], [ %4358, %4350 ]
   %4352 = getelementptr inbounds nuw i8, ptr %5, i64 %4351
-  %4353 = load i8, ptr %4352, align 1, !tbaa !16, !alias.scope !1148
+  %4353 = load i8, ptr %4352, align 1, !tbaa !16, !alias.scope !1154
   %4354 = and i8 %4353, 127
   %4355 = zext nneg i8 %4354 to i64
   %4356 = zext nneg i32 %.012.i.i2269 to i64
@@ -18172,7 +18174,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4359 = add i32 %.012.i.i2269, 7
   %4360 = add i64 %4351, 1
   %4361 = icmp slt i8 %4353, 0
-  br i1 %4361, label %4350, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2272, !llvm.loop !762
+  br i1 %4361, label %4350, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2272, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2272: ; preds = %4350, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2267
   %.262 = phi i64 [ %4343, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2267 ], [ %4360, %4350 ]
@@ -18216,7 +18218,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 4384:                                             ; preds = %105
   %4385 = add i64 %.0303, 2
   %4386 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %4387 = load i8, ptr %4386, align 1, !tbaa !16, !alias.scope !1151
+  %4387 = load i8, ptr %4386, align 1, !tbaa !16, !alias.scope !1157
   %4388 = zext i8 %4387 to i64
   %4389 = icmp slt i8 %4387, 0
   br i1 %4389, label %4390, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2278, !prof !123
@@ -18230,7 +18232,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2275 = phi i32 [ 7, %4390 ], [ %4401, %4392 ]
   %.1.i.i2276 = phi i64 [ %4391, %4390 ], [ %4400, %4392 ]
   %4394 = getelementptr inbounds nuw i8, ptr %5, i64 %4393
-  %4395 = load i8, ptr %4394, align 1, !tbaa !16, !alias.scope !1151
+  %4395 = load i8, ptr %4394, align 1, !tbaa !16, !alias.scope !1157
   %4396 = and i8 %4395, 127
   %4397 = zext nneg i8 %4396 to i64
   %4398 = zext nneg i32 %.012.i.i2275 to i64
@@ -18239,14 +18241,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4401 = add i32 %.012.i.i2275, 7
   %4402 = add i64 %4393, 1
   %4403 = icmp slt i8 %4395, 0
-  br i1 %4403, label %4392, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2278, !llvm.loop !762
+  br i1 %4403, label %4392, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2278, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2278: ; preds = %4392, %4384
   %.263 = phi i64 [ %4385, %4384 ], [ %4402, %4392 ]
   %.0.i.i2274 = phi i64 [ %4388, %4384 ], [ %4400, %4392 ]
   %4404 = add i64 %.263, 1
   %4405 = getelementptr inbounds nuw i8, ptr %5, i64 %.263
-  %4406 = load i8, ptr %4405, align 1, !tbaa !16, !alias.scope !1154
+  %4406 = load i8, ptr %4405, align 1, !tbaa !16, !alias.scope !1160
   %4407 = zext i8 %4406 to i64
   %4408 = icmp slt i8 %4406, 0
   br i1 %4408, label %4409, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2283, !prof !123
@@ -18260,7 +18262,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2280 = phi i32 [ 7, %4409 ], [ %4420, %4411 ]
   %.1.i.i2281 = phi i64 [ %4410, %4409 ], [ %4419, %4411 ]
   %4413 = getelementptr inbounds nuw i8, ptr %5, i64 %4412
-  %4414 = load i8, ptr %4413, align 1, !tbaa !16, !alias.scope !1154
+  %4414 = load i8, ptr %4413, align 1, !tbaa !16, !alias.scope !1160
   %4415 = and i8 %4414, 127
   %4416 = zext nneg i8 %4415 to i64
   %4417 = zext nneg i32 %.012.i.i2280 to i64
@@ -18269,7 +18271,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4420 = add i32 %.012.i.i2280, 7
   %4421 = add i64 %4412, 1
   %4422 = icmp slt i8 %4414, 0
-  br i1 %4422, label %4411, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2283, !llvm.loop !762
+  br i1 %4422, label %4411, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2283, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2283: ; preds = %4411, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2278
   %.264 = phi i64 [ %4404, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2278 ], [ %4421, %4411 ]
@@ -18279,17 +18281,17 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4424 = add i64 %.264, 2
   %4425 = load ptr, ptr %23, align 8, !tbaa !37
   %4426 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %4425, i64 %.0.i.i2274, i32 1
-  %4427 = load ptr, ptr %4426, align 8, !tbaa !1000
+  %4427 = load ptr, ptr %4426, align 8, !tbaa !1006
   %4428 = getelementptr inbounds nuw i8, ptr %4427, i64 24
-  %4429 = load ptr, ptr %4428, align 8, !tbaa !690
+  %4429 = load ptr, ptr %4428, align 8, !tbaa !696
   %4430 = getelementptr inbounds nuw i8, ptr %4429, i64 32
-  %4431 = load ptr, ptr %4430, align 8, !tbaa !702
+  %4431 = load ptr, ptr %4430, align 8, !tbaa !708
   %4432 = getelementptr inbounds nuw i8, ptr %4431, i64 32
-  %4433 = load ptr, ptr %4432, align 8, !tbaa !1157
-  %4434 = load ptr, ptr %54, align 8, !tbaa !900
+  %4433 = load ptr, ptr %4432, align 8, !tbaa !1163
+  %4434 = load ptr, ptr %54, align 8, !tbaa !906
   %4435 = zext i16 %.0.copyload.i.i2284 to i64
   %4436 = getelementptr inbounds nuw ptr, ptr %4434, i64 %4435
-  %4437 = load ptr, ptr %4436, align 8, !tbaa !901
+  %4437 = load ptr, ptr %4436, align 8, !tbaa !907
   %4438 = getelementptr inbounds nuw i8, ptr %4427, i64 32
   %4439 = load ptr, ptr %4438, align 8, !tbaa !383
   %4440 = and i64 %.0.i.i2279, 4294967295
@@ -18304,7 +18306,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 4445:                                             ; preds = %4443
   %4446 = add i64 %.0303, 2
   %4447 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %4448 = load i8, ptr %4447, align 1, !tbaa !16, !alias.scope !1158
+  %4448 = load i8, ptr %4447, align 1, !tbaa !16, !alias.scope !1164
   %4449 = zext i8 %4448 to i64
   %4450 = icmp slt i8 %4448, 0
   br i1 %4450, label %4451, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2289, !prof !123
@@ -18318,7 +18320,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2286 = phi i32 [ 7, %4451 ], [ %4462, %4453 ]
   %.1.i.i2287 = phi i64 [ %4452, %4451 ], [ %4461, %4453 ]
   %4455 = getelementptr inbounds nuw i8, ptr %5, i64 %4454
-  %4456 = load i8, ptr %4455, align 1, !tbaa !16, !alias.scope !1158
+  %4456 = load i8, ptr %4455, align 1, !tbaa !16, !alias.scope !1164
   %4457 = and i8 %4456, 127
   %4458 = zext nneg i8 %4457 to i64
   %4459 = zext nneg i32 %.012.i.i2286 to i64
@@ -18327,21 +18329,21 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4462 = add i32 %.012.i.i2286, 7
   %4463 = add i64 %4454, 1
   %4464 = icmp slt i8 %4456, 0
-  br i1 %4464, label %4453, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2289, !llvm.loop !762
+  br i1 %4464, label %4453, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2289, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2289: ; preds = %4453, %4445, %4443
   %.266 = phi i64 [ %106, %4443 ], [ %4446, %4445 ], [ %4463, %4453 ]
   %4465 = phi i64 [ 0, %4443 ], [ %4449, %4445 ], [ %4461, %4453 ]
   %4466 = load ptr, ptr %23, align 8, !tbaa !37
   %4467 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %4466, i64 %4465, i32 1
-  %4468 = load ptr, ptr %4467, align 8, !tbaa !1000
+  %4468 = load ptr, ptr %4467, align 8, !tbaa !1006
   %4469 = call noundef zeroext i1 @_ZN4llvm32constrainSelectedInstRegOperandsERNS_12MachineInstrERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoE(ptr noundef nonnull align 8 dereferenceable(70) %4468, ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(308) %8, ptr noundef nonnull align 8 dereferenceable(160) %9) #25
   br label %.critedge49
 
 4470:                                             ; preds = %105
   %4471 = add i64 %.0303, 2
   %4472 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %4473 = load i8, ptr %4472, align 1, !tbaa !16, !alias.scope !1161
+  %4473 = load i8, ptr %4472, align 1, !tbaa !16, !alias.scope !1167
   %4474 = zext i8 %4473 to i64
   %4475 = icmp slt i8 %4473, 0
   br i1 %4475, label %4476, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2294, !prof !123
@@ -18355,7 +18357,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2291 = phi i32 [ 7, %4476 ], [ %4487, %4478 ]
   %.1.i.i2292 = phi i64 [ %4477, %4476 ], [ %4486, %4478 ]
   %4480 = getelementptr inbounds nuw i8, ptr %5, i64 %4479
-  %4481 = load i8, ptr %4480, align 1, !tbaa !16, !alias.scope !1161
+  %4481 = load i8, ptr %4480, align 1, !tbaa !16, !alias.scope !1167
   %4482 = and i8 %4481, 127
   %4483 = zext nneg i8 %4482 to i64
   %4484 = zext nneg i32 %.012.i.i2291 to i64
@@ -18364,7 +18366,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4487 = add i32 %.012.i.i2291, 7
   %4488 = add i64 %4479, 1
   %4489 = icmp slt i8 %4481, 0
-  br i1 %4489, label %4478, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2294, !llvm.loop !762
+  br i1 %4489, label %4478, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2294, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2294: ; preds = %4478, %4470
   %.267 = phi i64 [ %4471, %4470 ], [ %4488, %4478 ]
@@ -18381,7 +18383,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.2681009 = phi i64 [ %.269, %._crit_edge ], [ %4490, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2294 ]
   %4494 = add i64 %.2681009, 1
   %4495 = getelementptr inbounds nuw i8, ptr %5, i64 %.2681009
-  %4496 = load i8, ptr %4495, align 1, !tbaa !16, !alias.scope !1164
+  %4496 = load i8, ptr %4495, align 1, !tbaa !16, !alias.scope !1170
   %4497 = zext i8 %4496 to i64
   %4498 = icmp slt i8 %4496, 0
   br i1 %4498, label %4499, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2299, !prof !123
@@ -18395,7 +18397,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2296 = phi i32 [ 7, %4499 ], [ %4510, %4501 ]
   %.1.i.i2297 = phi i64 [ %4500, %4499 ], [ %4509, %4501 ]
   %4503 = getelementptr inbounds nuw i8, ptr %5, i64 %4502
-  %4504 = load i8, ptr %4503, align 1, !tbaa !16, !alias.scope !1164
+  %4504 = load i8, ptr %4503, align 1, !tbaa !16, !alias.scope !1170
   %4505 = and i8 %4504, 127
   %4506 = zext nneg i8 %4505 to i64
   %4507 = zext nneg i32 %.012.i.i2296 to i64
@@ -18404,7 +18406,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4510 = add i32 %.012.i.i2296, 7
   %4511 = add i64 %4502, 1
   %4512 = icmp slt i8 %4504, 0
-  br i1 %4512, label %4501, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2299, !llvm.loop !762
+  br i1 %4512, label %4501, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2299, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2299: ; preds = %4501, %.lr.ph1011
   %.269 = phi i64 [ %4494, %.lr.ph1011 ], [ %4511, %4501 ]
@@ -18434,7 +18436,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit2305:  ; preds = %4519
   %4523 = and i64 %4517, -8
   %4524 = inttoptr i64 %4523 to ptr
   %4525 = getelementptr inbounds nuw i8, ptr %4524, i64 16
-  %4526 = load i32, ptr %4524, align 8, !tbaa !694
+  %4526 = load i32, ptr %4524, align 8, !tbaa !700
   %4527 = sext i32 %4526 to i64
   %4528 = getelementptr inbounds nuw ptr, ptr %4525, i64 %4527
   %.not7951007 = icmp eq i32 %4526, 0
@@ -18448,16 +18450,16 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit2305:  ; preds = %4519
 ._crit_edge:                                      ; preds = %.lr.ph, %4519, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2299, %_ZNK4llvm12MachineInstr11memoperandsEv.exit2305
   %4530 = add nuw nsw i32 %.07711010, 1
   %exitcond.not = icmp eq i32 %4530, %4493
-  br i1 %exitcond.not, label %.critedge49, label %.lr.ph1011, !llvm.loop !1167
+  br i1 %exitcond.not, label %.critedge49, label %.lr.ph1011, !llvm.loop !1173
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.07721008 = phi ptr [ %4537, %.lr.ph ], [ %.sroa.0.0.i23001423, %.lr.ph.preheader ]
   %4531 = load ptr, ptr %23, align 8, !tbaa !37
   %4532 = getelementptr inbounds nuw %"class.llvm::MachineInstrBuilder", ptr %4531, i64 %.0.i.i2290
-  %4533 = load ptr, ptr %.07721008, align 8, !tbaa !823
+  %4533 = load ptr, ptr %.07721008, align 8, !tbaa !829
   %4534 = getelementptr inbounds nuw i8, ptr %4532, i64 8
-  %4535 = load ptr, ptr %4534, align 8, !tbaa !1000
-  %4536 = load ptr, ptr %4532, align 8, !tbaa !1002
+  %4535 = load ptr, ptr %4534, align 8, !tbaa !1006
+  %4536 = load ptr, ptr %4532, align 8, !tbaa !1008
   call void @_ZN4llvm12MachineInstr13addMemOperandERNS_15MachineFunctionEPNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(70) %4535, ptr noundef nonnull align 8 dereferenceable(1065) %4536, ptr noundef %4533) #25
   %4537 = getelementptr inbounds nuw i8, ptr %.07721008, i64 8
   %.not795 = icmp eq ptr %4537, %4529
@@ -18466,7 +18468,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit2305:  ; preds = %4519
 4538:                                             ; preds = %105
   %4539 = add i64 %.0303, 2
   %4540 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %4541 = load i8, ptr %4540, align 1, !tbaa !16, !alias.scope !1168
+  %4541 = load i8, ptr %4540, align 1, !tbaa !16, !alias.scope !1174
   %4542 = zext i8 %4541 to i64
   %4543 = icmp slt i8 %4541, 0
   br i1 %4543, label %4544, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2310, !prof !123
@@ -18480,7 +18482,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit2305:  ; preds = %4519
   %.012.i.i2307 = phi i32 [ 7, %4544 ], [ %4555, %4546 ]
   %.1.i.i2308 = phi i64 [ %4545, %4544 ], [ %4554, %4546 ]
   %4548 = getelementptr inbounds nuw i8, ptr %5, i64 %4547
-  %4549 = load i8, ptr %4548, align 1, !tbaa !16, !alias.scope !1168
+  %4549 = load i8, ptr %4548, align 1, !tbaa !16, !alias.scope !1174
   %4550 = and i8 %4549, 127
   %4551 = zext nneg i8 %4550 to i64
   %4552 = zext nneg i32 %.012.i.i2307 to i64
@@ -18489,7 +18491,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit2305:  ; preds = %4519
   %4555 = add i32 %.012.i.i2307, 7
   %4556 = add i64 %4547, 1
   %4557 = icmp slt i8 %4549, 0
-  br i1 %4557, label %4546, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2310, !llvm.loop !762
+  br i1 %4557, label %4546, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2310, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2310: ; preds = %4546, %4538
   %.270 = phi i64 [ %4539, %4538 ], [ %4556, %4546 ]
@@ -18503,10 +18505,10 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 
 4562:                                             ; preds = %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2310
   %4563 = getelementptr inbounds nuw i8, ptr %4560, i64 24
-  %4564 = load ptr, ptr %4563, align 8, !tbaa !690
+  %4564 = load ptr, ptr %4563, align 8, !tbaa !696
   %4565 = getelementptr inbounds nuw i8, ptr %4560, i64 8
-  %4566 = load ptr, ptr %4565, align 8, !tbaa !1171
-  store ptr %4564, ptr %53, align 8, !tbaa !691
+  %4566 = load ptr, ptr %4565, align 8, !tbaa !1177
+  store ptr %4564, ptr %53, align 8, !tbaa !697
   store ptr %4566, ptr %52, align 8
   br label %4567
 
@@ -18533,10 +18535,10 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 
 4576:                                             ; preds = %4572
   %4577 = getelementptr inbounds nuw i8, ptr %4574, i64 24
-  %4578 = load ptr, ptr %4577, align 8, !tbaa !690
+  %4578 = load ptr, ptr %4577, align 8, !tbaa !696
   %4579 = getelementptr inbounds nuw i8, ptr %4574, i64 8
-  %4580 = load ptr, ptr %4579, align 8, !tbaa !1171
-  store ptr %4578, ptr %53, align 8, !tbaa !691
+  %4580 = load ptr, ptr %4579, align 8, !tbaa !1177
+  store ptr %4578, ptr %53, align 8, !tbaa !697
   store ptr %4580, ptr %52, align 8
   br label %4581
 
@@ -18577,9 +18579,9 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 
 4597:                                             ; preds = %4590
   %4598 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload.i2319, i64 16
-  %4599 = load ptr, ptr %4598, align 8, !tbaa !756
+  %4599 = load ptr, ptr %4598, align 8, !tbaa !762
   %4600 = getelementptr inbounds nuw i8, ptr %4599, i64 16
-  %4601 = load i64, ptr %4600, align 8, !tbaa !757
+  %4601 = load i64, ptr %4600, align 8, !tbaa !763
   %4602 = and i64 %4601, 2097152
   %.not.i.i2332 = icmp eq i64 %4602, 0
   br i1 %.not.i.i2332, label %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i2320, label %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.i2329
@@ -18641,7 +18643,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i2320: ; preds = %_ZN
 4629:                                             ; preds = %105
   %4630 = add i64 %.0303, 2
   %4631 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %4632 = load i8, ptr %4631, align 1, !tbaa !16, !alias.scope !1172
+  %4632 = load i8, ptr %4631, align 1, !tbaa !16, !alias.scope !1178
   %4633 = zext i8 %4632 to i64
   %4634 = icmp slt i8 %4632, 0
   br i1 %4634, label %4635, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2338, !prof !123
@@ -18655,7 +18657,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i2320: ; preds = %_ZN
   %.012.i.i2335 = phi i32 [ 7, %4635 ], [ %4646, %4637 ]
   %.1.i.i2336 = phi i64 [ %4636, %4635 ], [ %4645, %4637 ]
   %4639 = getelementptr inbounds nuw i8, ptr %5, i64 %4638
-  %4640 = load i8, ptr %4639, align 1, !tbaa !16, !alias.scope !1172
+  %4640 = load i8, ptr %4639, align 1, !tbaa !16, !alias.scope !1178
   %4641 = and i8 %4640, 127
   %4642 = zext nneg i8 %4641 to i64
   %4643 = zext nneg i32 %.012.i.i2335 to i64
@@ -18664,7 +18666,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i2320: ; preds = %_ZN
   %4646 = add i32 %.012.i.i2335, 7
   %4647 = add i64 %4638, 1
   %4648 = icmp slt i8 %4640, 0
-  br i1 %4648, label %4637, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2338, !llvm.loop !762
+  br i1 %4648, label %4637, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2338, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2338: ; preds = %4637, %4629
   %.271 = phi i64 [ %4630, %4629 ], [ %4647, %4637 ]
@@ -18693,7 +18695,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 4662:                                             ; preds = %105
   %4663 = add i64 %.0303, 2
   %4664 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %4665 = load i8, ptr %4664, align 1, !tbaa !16, !alias.scope !1175
+  %4665 = load i8, ptr %4664, align 1, !tbaa !16, !alias.scope !1181
   %4666 = zext i8 %4665 to i64
   %4667 = icmp slt i8 %4665, 0
   br i1 %4667, label %4668, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2346, !prof !123
@@ -18707,7 +18709,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2343 = phi i32 [ 7, %4668 ], [ %4679, %4670 ]
   %.1.i.i2344 = phi i64 [ %4669, %4668 ], [ %4678, %4670 ]
   %4672 = getelementptr inbounds nuw i8, ptr %5, i64 %4671
-  %4673 = load i8, ptr %4672, align 1, !tbaa !16, !alias.scope !1175
+  %4673 = load i8, ptr %4672, align 1, !tbaa !16, !alias.scope !1181
   %4674 = and i8 %4673, 127
   %4675 = zext nneg i8 %4674 to i64
   %4676 = zext nneg i32 %.012.i.i2343 to i64
@@ -18716,14 +18718,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4679 = add i32 %.012.i.i2343, 7
   %4680 = add i64 %4671, 1
   %4681 = icmp slt i8 %4673, 0
-  br i1 %4681, label %4670, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2346, !llvm.loop !762
+  br i1 %4681, label %4670, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2346, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2346: ; preds = %4670, %4662
   %.272 = phi i64 [ %4663, %4662 ], [ %4680, %4670 ]
   %.0.i.i2342 = phi i64 [ %4666, %4662 ], [ %4678, %4670 ]
   %4682 = add i64 %.272, 1
   %4683 = getelementptr inbounds nuw i8, ptr %5, i64 %.272
-  %4684 = load i8, ptr %4683, align 1, !tbaa !16, !alias.scope !1178
+  %4684 = load i8, ptr %4683, align 1, !tbaa !16, !alias.scope !1184
   %4685 = zext i8 %4684 to i64
   %4686 = icmp slt i8 %4684, 0
   br i1 %4686, label %4687, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2351, !prof !123
@@ -18737,7 +18739,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2348 = phi i32 [ 7, %4687 ], [ %4698, %4689 ]
   %.1.i.i2349 = phi i64 [ %4688, %4687 ], [ %4697, %4689 ]
   %4691 = getelementptr inbounds nuw i8, ptr %5, i64 %4690
-  %4692 = load i8, ptr %4691, align 1, !tbaa !16, !alias.scope !1178
+  %4692 = load i8, ptr %4691, align 1, !tbaa !16, !alias.scope !1184
   %4693 = and i8 %4692, 127
   %4694 = zext nneg i8 %4693 to i64
   %4695 = zext nneg i32 %.012.i.i2348 to i64
@@ -18746,14 +18748,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4698 = add i32 %.012.i.i2348, 7
   %4699 = add i64 %4690, 1
   %4700 = icmp slt i8 %4692, 0
-  br i1 %4700, label %4689, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2351, !llvm.loop !762
+  br i1 %4700, label %4689, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2351, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2351: ; preds = %4689, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2346
   %.273 = phi i64 [ %4682, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2346 ], [ %4699, %4689 ]
   %.0.i.i2347 = phi i64 [ %4685, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2346 ], [ %4697, %4689 ]
   %4701 = add i64 %.273, 1
   %4702 = getelementptr inbounds nuw i8, ptr %5, i64 %.273
-  %4703 = load i8, ptr %4702, align 1, !tbaa !16, !alias.scope !1181
+  %4703 = load i8, ptr %4702, align 1, !tbaa !16, !alias.scope !1187
   %4704 = zext i8 %4703 to i64
   %4705 = icmp slt i8 %4703, 0
   br i1 %4705, label %4706, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2356, !prof !123
@@ -18767,7 +18769,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2353 = phi i32 [ 7, %4706 ], [ %4717, %4708 ]
   %.1.i.i2354 = phi i64 [ %4707, %4706 ], [ %4716, %4708 ]
   %4710 = getelementptr inbounds nuw i8, ptr %5, i64 %4709
-  %4711 = load i8, ptr %4710, align 1, !tbaa !16, !alias.scope !1181
+  %4711 = load i8, ptr %4710, align 1, !tbaa !16, !alias.scope !1187
   %4712 = and i8 %4711, 127
   %4713 = zext nneg i8 %4712 to i64
   %4714 = zext nneg i32 %.012.i.i2353 to i64
@@ -18776,14 +18778,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4717 = add i32 %.012.i.i2353, 7
   %4718 = add i64 %4709, 1
   %4719 = icmp slt i8 %4711, 0
-  br i1 %4719, label %4708, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2356, !llvm.loop !762
+  br i1 %4719, label %4708, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2356, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2356: ; preds = %4708, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2351
   %.274 = phi i64 [ %4701, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2351 ], [ %4718, %4708 ]
   %.0.i.i2352 = phi i64 [ %4704, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2351 ], [ %4716, %4708 ]
   %4720 = add i64 %.274, 1
   %4721 = getelementptr inbounds nuw i8, ptr %5, i64 %.274
-  %4722 = load i8, ptr %4721, align 1, !tbaa !16, !alias.scope !1184
+  %4722 = load i8, ptr %4721, align 1, !tbaa !16, !alias.scope !1190
   %4723 = zext i8 %4722 to i64
   %4724 = icmp slt i8 %4722, 0
   br i1 %4724, label %4725, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2361, !prof !123
@@ -18797,7 +18799,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2358 = phi i32 [ 7, %4725 ], [ %4736, %4727 ]
   %.1.i.i2359 = phi i64 [ %4726, %4725 ], [ %4735, %4727 ]
   %4729 = getelementptr inbounds nuw i8, ptr %5, i64 %4728
-  %4730 = load i8, ptr %4729, align 1, !tbaa !16, !alias.scope !1184
+  %4730 = load i8, ptr %4729, align 1, !tbaa !16, !alias.scope !1190
   %4731 = and i8 %4730, 127
   %4732 = zext nneg i8 %4731 to i64
   %4733 = zext nneg i32 %.012.i.i2358 to i64
@@ -18806,7 +18808,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4736 = add i32 %.012.i.i2358, 7
   %4737 = add i64 %4728, 1
   %4738 = icmp slt i8 %4730, 0
-  br i1 %4738, label %4727, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2361, !llvm.loop !762
+  br i1 %4738, label %4727, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2361, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2361: ; preds = %4727, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2356
   %.275 = phi i64 [ %4720, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2356 ], [ %4737, %4727 ]
@@ -18841,7 +18843,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 4755:                                             ; preds = %105
   %4756 = add i64 %.0303, 2
   %4757 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %4758 = load i8, ptr %4757, align 1, !tbaa !16, !alias.scope !1187
+  %4758 = load i8, ptr %4757, align 1, !tbaa !16, !alias.scope !1193
   %4759 = zext i8 %4758 to i64
   %4760 = icmp slt i8 %4758, 0
   br i1 %4760, label %4761, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2366, !prof !123
@@ -18855,7 +18857,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2363 = phi i32 [ 7, %4761 ], [ %4772, %4763 ]
   %.1.i.i2364 = phi i64 [ %4762, %4761 ], [ %4771, %4763 ]
   %4765 = getelementptr inbounds nuw i8, ptr %5, i64 %4764
-  %4766 = load i8, ptr %4765, align 1, !tbaa !16, !alias.scope !1187
+  %4766 = load i8, ptr %4765, align 1, !tbaa !16, !alias.scope !1193
   %4767 = and i8 %4766, 127
   %4768 = zext nneg i8 %4767 to i64
   %4769 = zext nneg i32 %.012.i.i2363 to i64
@@ -18864,14 +18866,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4772 = add i32 %.012.i.i2363, 7
   %4773 = add i64 %4764, 1
   %4774 = icmp slt i8 %4766, 0
-  br i1 %4774, label %4763, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2366, !llvm.loop !762
+  br i1 %4774, label %4763, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2366, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2366: ; preds = %4763, %4755
   %.276 = phi i64 [ %4756, %4755 ], [ %4773, %4763 ]
   %.0.i.i2362 = phi i64 [ %4759, %4755 ], [ %4771, %4763 ]
   %4775 = add i64 %.276, 1
   %4776 = getelementptr inbounds nuw i8, ptr %5, i64 %.276
-  %4777 = load i8, ptr %4776, align 1, !tbaa !16, !alias.scope !1190
+  %4777 = load i8, ptr %4776, align 1, !tbaa !16, !alias.scope !1196
   %4778 = zext i8 %4777 to i64
   %4779 = icmp slt i8 %4777, 0
   br i1 %4779, label %4780, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2371, !prof !123
@@ -18885,7 +18887,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2368 = phi i32 [ 7, %4780 ], [ %4791, %4782 ]
   %.1.i.i2369 = phi i64 [ %4781, %4780 ], [ %4790, %4782 ]
   %4784 = getelementptr inbounds nuw i8, ptr %5, i64 %4783
-  %4785 = load i8, ptr %4784, align 1, !tbaa !16, !alias.scope !1190
+  %4785 = load i8, ptr %4784, align 1, !tbaa !16, !alias.scope !1196
   %4786 = and i8 %4785, 127
   %4787 = zext nneg i8 %4786 to i64
   %4788 = zext nneg i32 %.012.i.i2368 to i64
@@ -18894,14 +18896,14 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4791 = add i32 %.012.i.i2368, 7
   %4792 = add i64 %4783, 1
   %4793 = icmp slt i8 %4785, 0
-  br i1 %4793, label %4782, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2371, !llvm.loop !762
+  br i1 %4793, label %4782, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2371, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2371: ; preds = %4782, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2366
   %.277 = phi i64 [ %4775, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2366 ], [ %4792, %4782 ]
   %.0.i.i2367 = phi i64 [ %4778, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2366 ], [ %4790, %4782 ]
   %4794 = add i64 %.277, 1
   %4795 = getelementptr inbounds nuw i8, ptr %5, i64 %.277
-  %4796 = load i8, ptr %4795, align 1, !tbaa !16, !alias.scope !1193
+  %4796 = load i8, ptr %4795, align 1, !tbaa !16, !alias.scope !1199
   %4797 = zext i8 %4796 to i64
   %4798 = icmp slt i8 %4796, 0
   br i1 %4798, label %4799, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2376, !prof !123
@@ -18915,7 +18917,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %.012.i.i2373 = phi i32 [ 7, %4799 ], [ %4810, %4801 ]
   %.1.i.i2374 = phi i64 [ %4800, %4799 ], [ %4809, %4801 ]
   %4803 = getelementptr inbounds nuw i8, ptr %5, i64 %4802
-  %4804 = load i8, ptr %4803, align 1, !tbaa !16, !alias.scope !1193
+  %4804 = load i8, ptr %4803, align 1, !tbaa !16, !alias.scope !1199
   %4805 = and i8 %4804, 127
   %4806 = zext nneg i8 %4805 to i64
   %4807 = zext nneg i32 %.012.i.i2373 to i64
@@ -18924,7 +18926,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
   %4810 = add i32 %.012.i.i2373, 7
   %4811 = add i64 %4802, 1
   %4812 = icmp slt i8 %4804, 0
-  br i1 %4812, label %4801, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2376, !llvm.loop !762
+  br i1 %4812, label %4801, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2376, !llvm.loop !768
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2376: ; preds = %4801, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2371
   %.278 = phi i64 [ %4794, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2371 ], [ %4811, %4801 ]
@@ -18989,9 +18991,9 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64Pos
 
 4841:                                             ; preds = %4834
   %4842 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload.i2382, i64 16
-  %4843 = load ptr, ptr %4842, align 8, !tbaa !756
+  %4843 = load ptr, ptr %4842, align 8, !tbaa !762
   %4844 = getelementptr inbounds nuw i8, ptr %4843, i64 16
-  %4845 = load i64, ptr %4844, align 8, !tbaa !757
+  %4845 = load i64, ptr %4844, align 8, !tbaa !763
   %4846 = and i64 %4845, 2097152
   %.not.i.i2395 = icmp eq i64 %4846, 0
   br i1 %.not.i.i2395, label %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i2383, label %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.i2392
@@ -19055,7 +19057,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i2383: ; preds = %_ZN
 
 .critedge49:                                      ; preds = %._crit_edge, %_ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit, %3292, %2692, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1577, %1190, %1099, %1008, %.critedge2.i.i.i.i, %308, %.thread1388, %1145, %.thread1373, %1054, %.thread, %967, %_ZNSt14_Optional_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEELb0ELb0EED2Ev.exit.thread1412, %_ZNSt14_Optional_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEELb0ELb0EED2Ev.exit.thread, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2294, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2186, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2052, %2673, %_ZNK4llvm12MachineInstr11memoperandsEv.exit1549, %_ZNK4llvm12MachineInstr11memoperandsEv.exit1525, %_ZNK4llvm12MachineInstr11memoperandsEv.exit, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1982, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1986, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1973, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1977, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1965, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1968, %2800, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1945, %2792, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1916, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1919, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1903, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1906, %2545, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1893, %2482, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1879, %_ZNK4llvm11ConstantInt9equalsIntEm.exit, %2410, %2339, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1846, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1837, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1849, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1799, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1802, %_ZNK4llvm3LLT13getSizeInBitsEv.exit1752, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1755, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1758, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1713, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1717, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1693, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1671, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1657, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1679, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1701, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1639.thread, %_ZNK4llvm17MachineMemOperand7getSizeEv.exit, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1621, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit1597, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1600, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1580, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1492, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1495, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1482, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1487, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1473, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1477, %785, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1468, %765, %775, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1461, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1464, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1449, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1453, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1440, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1444, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1435, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1417, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1420, %497, %499, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1407, %264, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1366, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit, %223, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1773, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1786, %_ZN4llvm15SmallVectorImplINS_19MachineInstrBuilderEE6resizeEm.exit2016, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2021, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2037, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2087, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2093, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2101, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2107, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2115, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2126, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2131, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2137, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2148, %.thread686, %3848, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2175, %_ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit2201, %_ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit2215, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2238, %4238, %4376, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2283, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2289, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlPSK_E_clES1J_.exit, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2338, %4825, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit1377, %306, %3058, %3066, %3366, %3371, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit2228, %4123, %4754, %.thread357, %235, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1387, %434, %427, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit1394, %.thread510, %.thread526, %.thread543, %.critedge49.thread565, %.thread617, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1989, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE0_clEv.exit.thread694, %.thread700, %.thread701, %4824
   %.279 = phi i64 [ %111, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit ], [ %236, %235 ], [ %312, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit1377 ], [ %307, %306 ], [ %.136, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1773 ], [ %2035, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1786 ], [ %2991, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1989 ], [ %3033, %3058 ], [ %3033, %3066 ], [ %3094, %_ZN4llvm15SmallVectorImplINS_19MachineInstrBuilderEE6resizeEm.exit2016 ], [ %3142, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2021 ], [ %.220, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2037 ], [ %3355, %3366 ], [ %3355, %3371 ], [ %3434, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2087 ], [ %3472, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2093 ], [ %3514, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2101 ], [ %3542, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2107 ], [ %3582, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2115 ], [ %.235, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2126 ], [ %3661, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2131 ], [ %3690, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2137 ], [ %.239, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2148 ], [ %.243, %.thread686 ], [ %.245, %3848 ], [ %3877, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2175 ], [ %.249, %_ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit2201 ], [ %4033, %_ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit2215 ], [ %.253, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit2228 ], [ %.253, %4123 ], [ %.255, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2238 ], [ %4225, %4238 ], [ %4363, %4376 ], [ %4424, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2283 ], [ %.266, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2289 ], [ %.270, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlPSK_E_clES1J_.exit ], [ %4649, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2338 ], [ %.275, %4754 ], [ %4827, %4825 ], [ %211, %.thread357 ], [ %366, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1387 ], [ %438, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit1394 ], [ %366, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit ], [ %366, %427 ], [ %366, %434 ], [ %1256, %.thread510 ], [ %1371, %.thread526 ], [ %1464, %.thread543 ], [ %1604, %.critedge49.thread565 ], [ %2431, %.thread617 ], [ %4302, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE0_clEv.exit.thread694 ], [ %.275, %.thread700 ], [ %.278, %.thread701 ], [ %.278, %4824 ], [ %198, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit.thread ], [ %.3306, %223 ], [ %.3306, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit ], [ %277, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1366 ], [ %.11314, %264 ], [ %.20323, %499 ], [ %.20323, %497 ], [ %507, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1407 ], [ %560, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1420 ], [ %.25328, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1417 ], [ %649, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1435 ], [ %607, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ %696, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1444 ], [ %672, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1440 ], [ %739, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1453 ], [ %719, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1449 ], [ %783, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1464 ], [ %.43343, %775 ], [ %773, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1461 ], [ %.43343, %765 ], [ %799, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1468 ], [ %787, %785 ], [ %837, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1477 ], [ %822, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1473 ], [ %885, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1487 ], [ %.55, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1482 ], [ %921, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1495 ], [ %.59, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1492 ], [ %1306, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1580 ], [ %1347, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit1597 ], [ %1400, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1600 ], [ %1442, %_ZNK4llvm17MachineMemOperand7getSizeEv.exit ], [ %1507, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1621 ], [ %1583, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1639.thread ], [ %1730, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1701 ], [ %1704, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1679 ], [ %1677, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1657 ], [ %.112, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit ], [ %.112, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1671 ], [ %.112, %_ZNK4llvm17MachineMemOperand13getSizeInBitsEv.exit1693 ], [ %1774, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1713 ], [ %1812, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1717 ], [ %1928, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1758 ], [ %1920, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1755 ], [ %.129, %_ZNK4llvm3LLT13getSizeInBitsEv.exit1752 ], [ %2162, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1802 ], [ %2121, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit1799 ], [ %2359, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1849 ], [ %2337, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1837 ], [ %2351, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1846 ], [ %.152, %2339 ], [ %2401, %2410 ], [ %2401, %_ZNK4llvm11ConstantInt9equalsIntEm.exit ], [ %2494, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1879 ], [ %2483, %2482 ], [ %2557, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1893 ], [ %2546, %2545 ], [ %2614, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1906 ], [ %.175, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1903 ], [ %2671, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1919 ], [ %.180, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1916 ], [ %2808, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1945 ], [ %.191, %2800 ], [ %.191, %2792 ], [ %2909, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1968 ], [ %.198, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1965 ], [ %2946, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1977 ], [ %2932, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1973 ], [ %2983, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit1986 ], [ %2969, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1982 ], [ %.651361, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ], [ %.741376, %_ZNK4llvm12MachineInstr11memoperandsEv.exit1525 ], [ %.831391, %_ZNK4llvm12MachineInstr11memoperandsEv.exit1549 ], [ %2674, %2673 ], [ %.223, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2052 ], [ %3916, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2186 ], [ %4490, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit2294 ], [ %2204, %_ZNSt14_Optional_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEELb0ELb0EED2Ev.exit.thread ], [ %2234, %_ZNSt14_Optional_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEELb0ELb0EED2Ev.exit.thread1412 ], [ %.651361, %.thread ], [ %.65, %967 ], [ %.741376, %.thread1373 ], [ %.74, %1054 ], [ %.831391, %.thread1388 ], [ %.83, %1145 ], [ %313, %308 ], [ %.55, %.critedge2.i.i.i.i ], [ %.69.ph, %1008 ], [ %.78.ph, %1099 ], [ %.87.ph, %1190 ], [ %1260, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE1_clEv.exit1577 ], [ %.186, %2692 ], [ %.223, %3292 ], [ %3916, %_ZNKSt8functionIFvRN4llvm19MachineInstrBuilderEEEclES2_.exit ], [ %.269, %._crit_edge ]
-  br label %105, !llvm.loop !1196
+  br label %105, !llvm.loop !1202
 
 _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit: ; preds = %2985, %2331, %2353, %2345, %1922, %1914, %1724, %1698, %_ZNK4llvm12LocationSizeneERKNS_8TypeSizeE.exit.thread, %1577, %_ZNK4llvm17MachineMemOperand7getSizeEv.exit.thread, %1394, %.critedge, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit1540.thread, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit1516.thread, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread, %777, %767, %192, %205, %271, %501, %554, %643, %690, %733, %793, %831, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, %915, %1250, %1365, %1458, %1598, %.critedge51, %2156, %.thread611, %2488, %2551, %2608, %2665, %2802, %2903, %2940, %2977, %4296, %2684, %1186, %1095, %1004, %4871, %4627, %4294, %_ZNSt14_Optional_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEELb0ELb0EED2Ev.exit, %4252, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlPSK_E_clES1J_.exit2314, %4829
   %.3.ph = phi i1 [ true, %4829 ], [ true, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_132AArch64PostLegalizerLoweringImplENS_6BitsetILj0EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlPSK_E_clES1J_.exit2314 ], [ true, %4252 ], [ false, %_ZNSt14_Optional_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEELb0ELb0EED2Ev.exit ], [ true, %4294 ], [ true, %4627 ], [ true, %4871 ], [ false, %1004 ], [ false, %1095 ], [ false, %1186 ], [ false, %2684 ], [ false, %4296 ], [ false, %2977 ], [ false, %2940 ], [ false, %2903 ], [ false, %2802 ], [ false, %2665 ], [ false, %2608 ], [ false, %2551 ], [ false, %2488 ], [ false, %.thread611 ], [ false, %2156 ], [ false, %.critedge51 ], [ false, %1598 ], [ false, %1458 ], [ false, %1365 ], [ false, %1250 ], [ false, %915 ], [ false, %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit ], [ false, %831 ], [ false, %793 ], [ false, %733 ], [ false, %690 ], [ false, %643 ], [ false, %554 ], [ false, %501 ], [ false, %271 ], [ false, %205 ], [ false, %192 ], [ false, %767 ], [ false, %777 ], [ false, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit.thread ], [ false, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit1516.thread ], [ false, %_ZNK4llvm12MachineInstr16hasOneMemOperandEv.exit1540.thread ], [ false, %.critedge ], [ false, %1394 ], [ false, %_ZNK4llvm17MachineMemOperand7getSizeEv.exit.thread ], [ false, %1577 ], [ false, %_ZNK4llvm12LocationSizeneERKNS_8TypeSizeE.exit.thread ], [ false, %1698 ], [ false, %1724 ], [ false, %1914 ], [ false, %1922 ], [ false, %2345 ], [ false, %2353 ], [ false, %2331 ], [ false, %2985 ]
@@ -19122,7 +19124,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.703", ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !115
   %15 = icmp eq i32 %9, %14
-  br i1 %15, label %.loopexit, label %.lr.ph.i, !prof !684
+  br i1 %15, label %.loopexit, label %.lr.ph.i, !prof !690
 
 .lr.ph.i:                                         ; preds = %8, %21
   %16 = phi i32 [ %28, %21 ], [ %14, %8 ]
@@ -19150,14 +19152,14 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.703", ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !115
   %29 = icmp eq i32 %9, %28
-  br i1 %29, label %.loopexit, label %.lr.ph.i, !prof !685, !llvm.loop !1197
+  br i1 %29, label %.loopexit, label %.lr.ph.i, !prof !691, !llvm.loop !1203
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit: ; preds = %19, %2
   %.sink.i = phi ptr [ %20, %19 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %.sink.i, ptr %3, align 8, !tbaa !1198
+  store ptr %.sink.i, ptr %3, align 8, !tbaa !1204
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !1199
+  %31 = load i32, ptr %30, align 8, !tbaa !1205
   %32 = shl i32 %31, 2
   %33 = add i32 %32, 4
   %34 = mul i32 %6, 3
@@ -19170,7 +19172,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
 
 37:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %39 = load i32, ptr %38, align 4, !tbaa !1200
+  %39 = load i32, ptr %38, align 4, !tbaa !1206
   %.neg.i.i = xor i32 %31, -1
   %.neg11.i.i = add i32 %6, %.neg.i.i
   %40 = sub i32 %.neg11.i.i, %39
@@ -19182,24 +19184,24 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %.sink.i.i = phi i32 [ %36, %35 ], [ %6, %37 ]
   tail call void @_ZN4llvm8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %.sink.i.i)
   %42 = call noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.pre.i = load i32, ptr %30, align 8, !tbaa !1199
-  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !1198
+  %.pre.i = load i32, ptr %30, align 8, !tbaa !1205
+  %.pre7.i = load ptr, ptr %3, align 8, !tbaa !1204
   br label %43
 
 43:                                               ; preds = %.sink.split.i.i, %37
   %44 = phi ptr [ %.pre7.i, %.sink.split.i.i ], [ %.sink.i, %37 ]
   %45 = phi i32 [ %.pre.i, %.sink.split.i.i ], [ %31, %37 ]
   %46 = add i32 %45, 1
-  store i32 %46, ptr %30, align 8, !tbaa !1199
+  store i32 %46, ptr %30, align 8, !tbaa !1205
   %47 = load i32, ptr %44, align 4, !tbaa !115
   %48 = icmp eq i32 %47, -1
   br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E16InsertIntoBucketIjJEEEPS6_SA_OT_DpOT0_.exit, label %49
 
 49:                                               ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %51 = load i32, ptr %50, align 4, !tbaa !1200
+  %51 = load i32, ptr %50, align 4, !tbaa !1206
   %52 = add i32 %51, -1
-  store i32 %52, ptr %50, align 4, !tbaa !1200
+  store i32 %52, ptr %50, align 4, !tbaa !1206
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E16InsertIntoBucketIjJEEEPS6_SA_OT_DpOT0_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E16InsertIntoBucketIjJEEEPS6_SA_OT_DpOT0_.exit: ; preds = %43, %49
@@ -19285,7 +19287,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
 22:                                               ; preds = %19
   %23 = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i.i, i32 noundef 2) #25
   %24 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !1104
+  %25 = load ptr, ptr %24, align 8, !tbaa !1110
   %26 = load ptr, ptr %20, align 8, !tbaa !49
   br label %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEC2ERKS4_.exit.i.i.i.i.i.i
 
@@ -19293,9 +19295,9 @@ _ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEC2ERKS4_.exit.i.i.i.i.i.i: ; pre
   %27 = phi ptr [ null, %19 ], [ %25, %22 ]
   %28 = phi ptr [ null, %19 ], [ %26, %22 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !1201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1201
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !1207
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1207
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   %29 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !66
@@ -19318,7 +19320,7 @@ _ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i: ; preds
   %36 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 32
   %37 = add nsw i64 %.012.i.i.i.i.i, -1
   %38 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %38, label %19, label %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit.loopexit, !llvm.loop !1202
+  br i1 %38, label %19, label %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit.loopexit, !llvm.loop !1208
 
 _ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit.loopexit: ; preds = %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !37
@@ -19399,8 +19401,8 @@ _ZN4llvm15SmallVectorImplISt8functionIFvRNS_19MachineInstrBuilderEEEE5clearEv.ex
   %64 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 24
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %66 = load ptr, ptr %65, align 8, !tbaa !1104
-  store ptr %66, ptr %64, align 8, !tbaa !1104
+  %66 = load ptr, ptr %65, align 8, !tbaa !1110
+  store ptr %66, ptr %64, align 8, !tbaa !1110
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !49
   %.not.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %68, null
@@ -19408,7 +19410,7 @@ _ZN4llvm15SmallVectorImplISt8functionIFvRNS_19MachineInstrBuilderEEEE5clearEv.ex
 
 69:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %70 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.08.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1201
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.09.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.08.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1207
   %71 = load ptr, ptr %67, align 8, !tbaa !49
   store ptr %71, ptr %70, align 8, !tbaa !49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
@@ -19418,7 +19420,7 @@ _ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJS5_EEvPT_DpOT0_.e
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i31 = icmp eq ptr %72, %63
-  br i1 %.not.i.i.i.i.i.i.i31, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1203
+  br i1 %.not.i.i.i.i.i.i.i31, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1209
 
 _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i.i: ; preds = %_ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !37
@@ -19493,7 +19495,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvRNS_19MachineInstrBuilderEEELb0E
 93:                                               ; preds = %90
   %94 = call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i.i38, i32 noundef 2) #25
   %95 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i38, i64 24
-  %96 = load ptr, ptr %95, align 8, !tbaa !1104
+  %96 = load ptr, ptr %95, align 8, !tbaa !1110
   %97 = load ptr, ptr %91, align 8, !tbaa !49
   br label %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEC2ERKS4_.exit.i.i.i.i.i.i40
 
@@ -19501,9 +19503,9 @@ _ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEC2ERKS4_.exit.i.i.i.i.i.i40: ; p
   %98 = phi ptr [ null, %90 ], [ %96, %93 ]
   %99 = phi ptr [ null, %90 ], [ %97, %93 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i33)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !1201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i37, i64 16, i1 false), !tbaa.struct !1201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i33, i64 16, i1 false), !tbaa.struct !1201
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i33, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !1207
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i37, i64 16, i1 false), !tbaa.struct !1207
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i37, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i33, i64 16, i1 false), !tbaa.struct !1207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i33)
   %100 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !66
@@ -19526,7 +19528,7 @@ _ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i42: ; pre
   %107 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 32
   %108 = add nsw i64 %.012.i.i.i.i.i36, -1
   %109 = icmp sgt i64 %.012.i.i.i.i.i36, 1
-  br i1 %109, label %90, label %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit43.loopexit, !llvm.loop !1202
+  br i1 %109, label %90, label %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit43.loopexit, !llvm.loop !1208
 
 _ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit43.loopexit: ; preds = %_ZNSt8functionIFvRN4llvm19MachineInstrBuilderEEEaSERKS4_.exit.i.i.i.i.i42
   %.pre46 = load ptr, ptr %0, align 8, !tbaa !37
@@ -19561,8 +19563,8 @@ _ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit43
   %121 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 16
   %122 = call noundef zeroext i1 %118(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i, i32 noundef 2) #25
   %123 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
-  %124 = load ptr, ptr %123, align 8, !tbaa !1104
-  store ptr %124, ptr %120, align 8, !tbaa !1104
+  %124 = load ptr, ptr %123, align 8, !tbaa !1110
+  store ptr %124, ptr %120, align 8, !tbaa !1110
   %125 = load ptr, ptr %117, align 8, !tbaa !49
   store ptr %125, ptr %121, align 8, !tbaa !49
   br label %_ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i
@@ -19571,7 +19573,7 @@ _ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJRKS5_EEvPT_DpOT0_
   %126 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
   %127 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 32
   %.not.i.i.i.i44 = icmp eq ptr %126, %114
-  br i1 %.not.i.i.i.i44, label %.sink.split, label %.lr.ph.i.i.i.i, !llvm.loop !1204
+  br i1 %.not.i.i.i.i44, label %.sink.split, label %.lr.ph.i.i.i.i, !llvm.loop !1210
 
 .sink.split:                                      ; preds = %_ZNSt14_Function_baseD2Ev.exit.i, %_ZSt10_ConstructISt8functionIFvRN4llvm19MachineInstrBuilderEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i, %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit43, %_ZSt4copyIPKSt8functionIFvRN4llvm19MachineInstrBuilderEEEPS5_ET0_T_SA_S9_.exit
   store i32 %9, ptr %11, align 8, !tbaa !38
@@ -19604,7 +19606,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.703", ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !115
   %15 = icmp eq i32 %9, %14
-  br i1 %15, label %._crit_edge, label %.lr.ph, !prof !684
+  br i1 %15, label %._crit_edge, label %.lr.ph, !prof !690
 
 .lr.ph:                                           ; preds = %8, %21
   %16 = phi i32 [ %28, %21 ], [ %14, %8 ]
@@ -19632,12 +19634,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.703", ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !115
   %29 = icmp eq i32 %9, %28
-  br i1 %29, label %._crit_edge, label %.lr.ph, !prof !685, !llvm.loop !1197
+  br i1 %29, label %._crit_edge, label %.lr.ph, !prof !691, !llvm.loop !1203
 
 ._crit_edge:                                      ; preds = %21, %8, %3, %19
   %.sink = phi ptr [ %20, %19 ], [ null, %3 ], [ %13, %8 ], [ %27, %21 ]
   %.0 = phi i1 [ false, %19 ], [ false, %3 ], [ true, %8 ], [ true, %21 ]
-  store ptr %.sink, ptr %2, align 8, !tbaa !1198
+  store ptr %.sink, ptr %2, align 8, !tbaa !1204
   ret i1 %.0
 }
 
@@ -19672,9 +19674,9 @@ _ZN4llvm8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEE15alloca
 
 22:                                               ; preds = %_ZN4llvm8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEE15allocateBucketsEj.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %23, align 8, !tbaa !1199
+  store i32 0, ptr %23, align 8, !tbaa !1205
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %24, align 4, !tbaa !1200
+  store i32 0, ptr %24, align 4, !tbaa !1206
   %25 = load i32, ptr %2, align 8, !tbaa !333
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.703", ptr %21, i64 %26
@@ -19686,15 +19688,15 @@ _ZN4llvm8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEE15alloca
   store i32 -1, ptr %.06.i, align 4, !tbaa !115
   %28 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %.not.i = icmp eq ptr %28, %27
-  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !1205
+  br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !1211
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
   %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.703", ptr %4, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %32, align 8, !tbaa !1199
+  store i32 0, ptr %32, align 8, !tbaa !1205
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %33, align 4, !tbaa !1200
+  store i32 0, ptr %33, align 4, !tbaa !1206
   %34 = load i32, ptr %2, align 8, !tbaa !333
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.703", ptr %21, i64 %35
@@ -19706,7 +19708,7 @@ _ZN4llvm8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEE15alloca
   store i32 -1, ptr %.06.i.i, align 4, !tbaa !115
   %37 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %.not.i.i = icmp eq ptr %37, %36
-  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !1205
+  br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !1211
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E9initEmptyEv.exit.i: ; preds = %.lr.ph.i.i, %29
   %.not20.i = icmp eq i32 %3, 0
@@ -19730,7 +19732,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %46 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.703", ptr %21, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !115
   %48 = icmp eq i32 %39, %47
-  br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i, label %.lr.ph.i13.i, !prof !684
+  br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i, label %.lr.ph.i13.i, !prof !690
 
 .lr.ph.i13.i:                                     ; preds = %40, %54
   %49 = phi i32 [ %61, %54 ], [ %47, %40 ]
@@ -19758,7 +19760,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.703", ptr %21, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !115
   %62 = icmp eq i32 %39, %61
-  br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i, label %.lr.ph.i13.i, !prof !685, !llvm.loop !1197
+  br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i, label %.lr.ph.i13.i, !prof !691, !llvm.loop !1203
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i: ; preds = %54, %52, %40
   %.sink.i.i = phi ptr [ %53, %52 ], [ %46, %40 ], [ %60, %54 ]
@@ -19768,14 +19770,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %65 = load i32, ptr %64, align 4, !tbaa !115
   store i32 %65, ptr %63, align 4, !tbaa !115
   %66 = add i32 %38, 1
-  store i32 %66, ptr %32, align 8, !tbaa !1199
+  store i32 %66, ptr %32, align 8, !tbaa !1205
   br label %67
 
 67:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i, %.lr.ph.i7
   %68 = phi i32 [ %66, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i ], [ %38, %.lr.ph.i7 ]
   %69 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %.not.i8 = icmp eq ptr %69, %31
-  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E18moveFromOldBucketsEPS6_S9_.exit, label %.lr.ph.i7, !llvm.loop !1206
+  br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E18moveFromOldBucketsEPS6_S9_.exit, label %.lr.ph.i7, !llvm.loop !1212
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E18moveFromOldBucketsEPS6_S9_.exit: ; preds = %67, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E9initEmptyEv.exit.i
   %70 = shl nuw nsw i64 %30, 3
@@ -20017,7 +20019,7 @@ define linkonce_odr void @_ZN4llvm2cl5applyINS0_4listINSt7__cxx1112basic_stringI
   %.sroa.0.i.i.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %5 = alloca %"class.std::function", align 8
   %6 = alloca %"class.std::function", align 8
-  %7 = load i32, ptr %1, align 4, !tbaa !1207
+  %7 = load i32, ptr %1, align 4, !tbaa !1213
   %8 = trunc i32 %7 to i16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %10 = load i16, ptr %9, align 2
@@ -20026,7 +20028,7 @@ define linkonce_odr void @_ZN4llvm2cl5applyINS0_4listINSt7__cxx1112basic_stringI
   %13 = and i16 %10, -97
   %14 = or disjoint i16 %12, %13
   store i16 %14, ptr %9, align 2
-  %15 = load ptr, ptr %2, align 8, !tbaa !1209
+  %15 = load ptr, ptr %2, align 8, !tbaa !1215
   tail call void @_ZN4llvm2cl6Option11addCategoryERNS0_14OptionCategoryE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %15) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -20065,9 +20067,9 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9
   %29 = phi ptr [ null, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit.i.i.i.i ], [ %26, %24 ], [ null, %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS9_.exit.thread.i.i.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 208
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !1201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 16, i1 false), !tbaa.struct !1201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1201
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 16, i1 false), !tbaa.struct !1207
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 16, i1 false), !tbaa.struct !1207
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !1207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i)
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -20190,7 +20192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   br label %34
 
 34:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
-  %35 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull @.str.18, i64 1, i64 noundef 0) #25, !noalias !1212
+  %35 = call noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull @.str.18, i64 1, i64 noundef 0) #25, !noalias !1218
   %36 = icmp eq i64 %35, -1
   br i1 %36, label %37, label %38
 
@@ -20200,9 +20202,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   br label %_ZNK4llvm9StringRef5splitES0_.exit.i.i.i
 
 38:                                               ; preds = %34
-  %39 = load i64, ptr %8, align 8, !tbaa !347, !noalias !1212
+  %39 = load i64, ptr %8, align 8, !tbaa !347, !noalias !1218
   %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %35, i64 %39)
-  %40 = load ptr, ptr %3, align 8, !tbaa !348, !noalias !1212
+  %40 = load ptr, ptr %3, align 8, !tbaa !348, !noalias !1218
   %41 = add nuw i64 %35, 1
   %.sroa.speculated4.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %39, i64 %41)
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 %.sroa.speculated4.i.i.i.i.i
@@ -20216,11 +20218,11 @@ _ZNK4llvm9StringRef5splitES0_.exit.i.i.i:         ; preds = %38, %37
   %.sroa.7.1.i.i.i = phi ptr [ null, %37 ], [ %42, %38 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #25
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #25
-  store i8 3, ptr %28, align 8, !tbaa !1215, !alias.scope !1218
-  store i8 5, ptr %29, align 1, !tbaa !1221, !alias.scope !1218
-  store ptr @.str.11, ptr %6, align 8, !tbaa !16, !alias.scope !1218
-  store ptr %.sroa.01.0.i.i.i, ptr %30, align 8, !tbaa !16, !alias.scope !1218
-  store i64 %.sroa.5.0.i.i.i, ptr %31, align 8, !tbaa !16, !alias.scope !1218
+  store i8 3, ptr %28, align 8, !tbaa !1221, !alias.scope !1224
+  store i8 5, ptr %29, align 1, !tbaa !1227, !alias.scope !1224
+  store ptr @.str.11, ptr %6, align 8, !tbaa !16, !alias.scope !1224
+  store ptr %.sroa.01.0.i.i.i, ptr %30, align 8, !tbaa !16, !alias.scope !1224
+  store i64 %.sroa.5.0.i.i.i, ptr %31, align 8, !tbaa !16, !alias.scope !1224
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(34) %6) #25
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_134AArch64PostLegalizerLoweringOptionB5cxx11E, i64 8), align 8, !tbaa !9
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_134AArch64PostLegalizerLoweringOptionB5cxx11E, i64 16), align 8, !tbaa !19
@@ -20285,7 +20287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i: ; preds =
   store ptr %.sroa.7.1.i.i.i, ptr %3, align 8, !tbaa !50
   store i64 %.sroa.10.1.i.i.i, ptr %8, align 8, !tbaa !51
   %63 = icmp eq i64 %.sroa.10.1.i.i.i, 0
-  br i1 %63, label %"_ZSt10__invoke_rIvRN12_GLOBAL__N_13$_8EJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %34, !llvm.loop !1222
+  br i1 %63, label %"_ZSt10__invoke_rIvRN12_GLOBAL__N_13$_8EJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit", label %34, !llvm.loop !1228
 
 "_ZSt10__invoke_rIvRN12_GLOBAL__N_13$_8EJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
@@ -20386,40 +20388,40 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
   %.012.i.i.i = phi ptr [ %51, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %22, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %50, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1223)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1226)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1229)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1232)
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  store ptr %37, ptr %.012.i.i.i, align 8, !tbaa !104, !alias.scope !1223, !noalias !1226
-  %38 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !10, !alias.scope !1226, !noalias !1223
+  store ptr %37, ptr %.012.i.i.i, align 8, !tbaa !104, !alias.scope !1229, !noalias !1232
+  %38 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !10, !alias.scope !1232, !noalias !1229
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %40 = icmp eq ptr %38, %39
   br i1 %40, label %41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !15, !alias.scope !1226, !noalias !1223
+  %43 = load i64, ptr %42, align 8, !tbaa !15, !alias.scope !1232, !noalias !1229
   %44 = icmp ult i64 %43, 16
   tail call void @llvm.assume(i1 %44)
   %45 = add nuw nsw i64 %43, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(1) %39, i64 %45, i1 false), !alias.scope !1228
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(1) %39, i64 %45, i1 false), !alias.scope !1234
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  store ptr %38, ptr %.012.i.i.i, align 8, !tbaa !10, !alias.scope !1223, !noalias !1226
-  %46 = load i64, ptr %39, align 8, !tbaa !16, !alias.scope !1226, !noalias !1223
-  store i64 %46, ptr %37, align 8, !tbaa !16, !alias.scope !1223, !noalias !1226
+  store ptr %38, ptr %.012.i.i.i, align 8, !tbaa !10, !alias.scope !1229, !noalias !1232
+  %46 = load i64, ptr %39, align 8, !tbaa !16, !alias.scope !1232, !noalias !1229
+  store i64 %46, ptr %37, align 8, !tbaa !16, !alias.scope !1229, !noalias !1232
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !15, !alias.scope !1226, !noalias !1223
+  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !15, !alias.scope !1232, !noalias !1229
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %41
   %47 = phi i64 [ %43, %41 ], [ %.pre.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  store i64 %47, ptr %49, align 8, !tbaa !15, !alias.scope !1223, !noalias !1226
-  store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !10, !alias.scope !1226, !noalias !1223
-  store i64 0, ptr %48, align 8, !tbaa !15, !alias.scope !1226, !noalias !1223
-  store i8 0, ptr %39, align 1, !tbaa !16, !alias.scope !1226, !noalias !1223
+  store i64 %47, ptr %49, align 8, !tbaa !15, !alias.scope !1229, !noalias !1232
+  store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !10, !alias.scope !1232, !noalias !1229
+  store i64 0, ptr %48, align 8, !tbaa !15, !alias.scope !1232, !noalias !1229
+  store i8 0, ptr %39, align 1, !tbaa !16, !alias.scope !1232, !noalias !1229
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
@@ -20434,40 +20436,40 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23
   %.012.i.i.i18 = phi ptr [ %67, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23 ], [ %52, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   %.0911.i.i.i19 = phi ptr [ %66, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23 ], [ %1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1229)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1232)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1235)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1238)
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
-  store ptr %53, ptr %.012.i.i.i18, align 8, !tbaa !104, !alias.scope !1229, !noalias !1232
-  %54 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !10, !alias.scope !1232, !noalias !1229
+  store ptr %53, ptr %.012.i.i.i18, align 8, !tbaa !104, !alias.scope !1235, !noalias !1238
+  %54 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !10, !alias.scope !1238, !noalias !1235
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   %56 = icmp eq ptr %54, %55
   br i1 %56, label %57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20
 
 57:                                               ; preds = %.lr.ph.i.i.i17
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %59 = load i64, ptr %58, align 8, !tbaa !15, !alias.scope !1232, !noalias !1229
+  %59 = load i64, ptr %58, align 8, !tbaa !15, !alias.scope !1238, !noalias !1235
   %60 = icmp ult i64 %59, 16
   tail call void @llvm.assume(i1 %60)
   %61 = add nuw nsw i64 %59, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, ptr noundef nonnull align 8 dereferenceable(1) %55, i64 %61, i1 false), !alias.scope !1234
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, ptr noundef nonnull align 8 dereferenceable(1) %55, i64 %61, i1 false), !alias.scope !1240
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20: ; preds = %.lr.ph.i.i.i17
-  store ptr %54, ptr %.012.i.i.i18, align 8, !tbaa !10, !alias.scope !1229, !noalias !1232
-  %62 = load i64, ptr %55, align 8, !tbaa !16, !alias.scope !1232, !noalias !1229
-  store i64 %62, ptr %53, align 8, !tbaa !16, !alias.scope !1229, !noalias !1232
+  store ptr %54, ptr %.012.i.i.i18, align 8, !tbaa !10, !alias.scope !1235, !noalias !1238
+  %62 = load i64, ptr %55, align 8, !tbaa !16, !alias.scope !1238, !noalias !1235
+  store i64 %62, ptr %53, align 8, !tbaa !16, !alias.scope !1235, !noalias !1238
   %.phi.trans.insert.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %.pre.i.i.i.i22 = load i64, ptr %.phi.trans.insert.i.i.i.i21, align 8, !tbaa !15, !alias.scope !1232, !noalias !1229
+  %.pre.i.i.i.i22 = load i64, ptr %.phi.trans.insert.i.i.i.i21, align 8, !tbaa !15, !alias.scope !1238, !noalias !1235
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20, %57
   %63 = phi i64 [ %59, %57 ], [ %.pre.i.i.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20 ]
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
-  store i64 %63, ptr %65, align 8, !tbaa !15, !alias.scope !1229, !noalias !1232
-  store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !10, !alias.scope !1232, !noalias !1229
-  store i64 0, ptr %64, align 8, !tbaa !15, !alias.scope !1232, !noalias !1229
-  store i8 0, ptr %55, align 1, !tbaa !16, !alias.scope !1232, !noalias !1229
+  store i64 %63, ptr %65, align 8, !tbaa !15, !alias.scope !1235, !noalias !1238
+  store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !10, !alias.scope !1238, !noalias !1235
+  store i64 0, ptr %64, align 8, !tbaa !15, !alias.scope !1238, !noalias !1235
+  store i8 0, ptr %55, align 1, !tbaa !16, !alias.scope !1238, !noalias !1235
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
@@ -20506,10 +20508,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #16
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #3 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !66
-  %3 = load ptr, ptr %2, align 8, !tbaa !1235
+  %3 = load ptr, ptr %2, align 8, !tbaa !1241
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !1237
-  %6 = load ptr, ptr %5, align 8, !tbaa !1238
+  %5 = load ptr, ptr %4, align 8, !tbaa !1243
+  %6 = load ptr, ptr %5, align 8, !tbaa !1244
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #25
   ret void
 }
@@ -20536,15 +20538,15 @@ define internal void @_GLOBAL__sub_I_AArch64PostLegalizerLowering.cpp() #19 sect
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #25
   store i32 1, ptr %6, align 4, !tbaa !52
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #25
-  store i32 1, ptr %7, align 4, !tbaa !1207
+  store i32 1, ptr %7, align 4, !tbaa !1213
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
-  store ptr @_ZN4llvm24GICombinerOptionCategoryE, ptr %8, align 8, !tbaa !1241
+  store ptr @_ZN4llvm24GICombinerOptionCategoryE, ptr %8, align 8, !tbaa !1247
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false), !alias.scope !1242
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false), !alias.scope !1248
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN12_GLOBAL__N_13$_7EE9_M_invokeERKSt9_Any_dataS7_", ptr %11, align 8, !tbaa !46, !alias.scope !1242
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN12_GLOBAL__N_13$_7EE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %12, align 8, !tbaa !49, !alias.scope !1242
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN12_GLOBAL__N_13$_7EE9_M_invokeERKSt9_Any_dataS7_", ptr %11, align 8, !tbaa !46, !alias.scope !1248
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN12_GLOBAL__N_13$_7EE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %12, align 8, !tbaa !49, !alias.scope !1248
   call void @_ZN4llvm2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEC2IJA42_cNS0_4descENS0_9MiscFlagsENS0_12OptionHiddenENS0_3catENS0_2cbIvRKS7_EEEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(240) @_ZN12_GLOBAL__N_141AArch64PostLegalizerLoweringDisableOptionB5cxx11E, ptr noundef nonnull align 1 dereferenceable(42) @.str, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %13 = load ptr, ptr %12, align 8, !tbaa !49
   %.not.i.i.i = icmp eq ptr %13, null
@@ -20566,15 +20568,15 @@ __cxx_global_var_init.1.exit:                     ; preds = %0, %14
   %.sroa.2.0..sroa_idx.i.i1 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 92, ptr %.sroa.2.0..sroa_idx.i.i1, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #25
-  store i32 1, ptr %2, align 4, !tbaa !1207
+  store i32 1, ptr %2, align 4, !tbaa !1213
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
-  store ptr @_ZN4llvm24GICombinerOptionCategoryE, ptr %3, align 8, !tbaa !1241
+  store ptr @_ZN4llvm24GICombinerOptionCategoryE, ptr %3, align 8, !tbaa !1247
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false), !alias.scope !1245
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false), !alias.scope !1251
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN12_GLOBAL__N_13$_8EE9_M_invokeERKSt9_Any_dataS7_", ptr %17, align 8, !tbaa !46, !alias.scope !1245
-  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN12_GLOBAL__N_13$_8EE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %18, align 8, !tbaa !49, !alias.scope !1245
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN12_GLOBAL__N_13$_8EE9_M_invokeERKSt9_Any_dataS7_", ptr %17, align 8, !tbaa !46, !alias.scope !1251
+  store ptr @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN12_GLOBAL__N_13$_8EE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %18, align 8, !tbaa !49, !alias.scope !1251
   call void @_ZN4llvm2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEC2IJA46_cNS0_4descENS0_12OptionHiddenENS0_3catENS0_2cbIvRKS7_EEEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(240) @_ZN12_GLOBAL__N_144AArch64PostLegalizerLoweringOnlyEnableOptionB5cxx11E, ptr noundef nonnull align 1 dereferenceable(46) @.str.4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %19 = load ptr, ptr %18, align 8, !tbaa !49
   %.not.i.i.i2 = icmp eq ptr %19, null
@@ -21266,158 +21268,158 @@ attributes #28 = { nounwind willreturn memory(read) }
 !614 = !{!36, !36, i64 0}
 !615 = !{!616, !616, i64 0}
 !616 = !{!"_ZTSN4llvm9AArch64CC8CondCodeE", !7, i64 0}
-!617 = !{!618, !6, i64 24}
-!618 = !{!"_ZTSSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEE", !48, i64 0, !6, i64 24}
-!619 = !{!410, !410, i64 0}
-!620 = !{!394, !394, i64 0}
-!621 = distinct !{!621, !18}
-!622 = !{!469, !274, i64 8}
-!623 = distinct !{!623, !18}
-!624 = !{!146, !153, i64 48}
-!625 = !{!270, !274, i64 4248}
-!626 = !{!627, !274, i64 0}
-!627 = !{!"_ZTSN4llvm19MachineRegisterInfoE", !274, i64 0, !628, i64 8, !36, i64 40, !630, i64 48, !643, i64 88, !648, i64 144, !36, i64 168, !652, i64 176, !658, i64 232, !669, i64 296, !511, i64 304, !511, i64 376, !676, i64 448, !679, i64 480}
-!628 = !{!"_ZTSN4llvm11SmallPtrSetIPNS_19MachineRegisterInfo8DelegateELj1EEE", !629, i64 0, !7, i64 24}
-!629 = !{!"_ZTSN4llvm15SmallPtrSetImplIPNS_19MachineRegisterInfo8DelegateEEE", !35, i64 0}
-!630 = !{!"_ZTSN4llvm10IndexedMapISt4pairINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEEPNS_14MachineOperandEENS_20VirtReg2IndexFunctorEEE", !631, i64 0, !635, i64 16, !642, i64 32}
-!631 = !{!"_ZTSN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEEPNS_14MachineOperandEELj0EEE", !632, i64 0}
-!632 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEEPNS_14MachineOperandEEEE", !633, i64 0}
-!633 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEEPNS_14MachineOperandEELb1EEE", !634, i64 0}
-!634 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEEPNS_14MachineOperandEEvEE", !30, i64 0}
-!635 = !{!"_ZTSSt4pairIN4llvm12PointerUnionIJPKNS0_19TargetRegisterClassEPKNS0_12RegisterBankEEEEPNS0_14MachineOperandEE", !636, i64 0, !394, i64 8}
-!636 = !{!"_ZTSN4llvm12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEE", !637, i64 0}
-!637 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !638, i64 0}
-!638 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !639, i64 0}
-!639 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !640, i64 0}
-!640 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !641, i64 0}
-!641 = !{!"_ZTSN4llvm6detail13PunnedPointerIPvEE", !7, i64 0}
-!642 = !{!"_ZTSN4llvm20VirtReg2IndexFunctorE"}
-!643 = !{!"_ZTSN4llvm10IndexedMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20VirtReg2IndexFunctorEEE", !644, i64 0, !11, i64 16, !642, i64 48}
-!644 = !{!"_ZTSN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEE", !645, i64 0}
-!645 = !{!"_ZTSN4llvm15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !646, i64 0}
-!646 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EEE", !647, i64 0}
-!647 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEE", !30, i64 0}
-!648 = !{!"_ZTSN4llvm9StringSetINS_15MallocAllocatorEEE", !649, i64 0}
-!649 = !{!"_ZTSN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEEE", !650, i64 0}
-!650 = !{!"_ZTSN4llvm13StringMapImplE", !651, i64 0, !31, i64 8, !31, i64 12, !31, i64 16, !31, i64 20}
-!651 = !{!"p2 _ZTSN4llvm18StringMapEntryBaseE", !6, i64 0}
-!652 = !{!"_ZTSN4llvm11SmallVectorItLj16EEE", !653, i64 0, !657, i64 24}
-!653 = !{!"_ZTSN4llvm15SmallVectorImplItEE", !654, i64 0}
-!654 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseItLb1EEE", !655, i64 0}
-!655 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonItvEE", !656, i64 0}
-!656 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !6, i64 0, !14, i64 8, !14, i64 16}
-!657 = !{!"_ZTSN4llvm18SmallVectorStorageItLj16EEE", !7, i64 0}
-!658 = !{!"_ZTSN4llvm10IndexedMapISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEENS_20VirtReg2IndexFunctorEEE", !659, i64 0, !663, i64 16, !642, i64 56}
-!659 = !{!"_ZTSN4llvm11SmallVectorISt4pairIjNS0_INS_8RegisterELj4EEEELj0EEE", !660, i64 0}
-!660 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEEEE", !661, i64 0}
-!661 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EEE", !662, i64 0}
-!662 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEEvEE", !30, i64 0}
-!663 = !{!"_ZTSSt4pairIjN4llvm11SmallVectorINS0_8RegisterELj4EEEE", !31, i64 0, !664, i64 8}
-!664 = !{!"_ZTSN4llvm11SmallVectorINS_8RegisterELj4EEE", !665, i64 0, !668, i64 16}
-!665 = !{!"_ZTSN4llvm15SmallVectorImplINS_8RegisterEEE", !666, i64 0}
-!666 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EEE", !667, i64 0}
-!667 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_8RegisterEvEE", !30, i64 0}
-!668 = !{!"_ZTSN4llvm18SmallVectorStorageINS_8RegisterELj4EEE", !7, i64 0}
-!669 = !{!"_ZTSSt10unique_ptrIA_PN4llvm14MachineOperandESt14default_deleteIS3_EE", !670, i64 0}
-!670 = !{!"_ZTSSt15__uniq_ptr_dataIPN4llvm14MachineOperandESt14default_deleteIA_S2_ELb1ELb1EE", !671, i64 0}
-!671 = !{!"_ZTSSt15__uniq_ptr_implIPN4llvm14MachineOperandESt14default_deleteIA_S2_EE", !672, i64 0}
-!672 = !{!"_ZTSSt5tupleIJPPN4llvm14MachineOperandESt14default_deleteIA_S2_EEE", !673, i64 0}
-!673 = !{!"_ZTSSt11_Tuple_implILm0EJPPN4llvm14MachineOperandESt14default_deleteIA_S2_EEE", !674, i64 0}
-!674 = !{!"_ZTSSt10_Head_baseILm0EPPN4llvm14MachineOperandELb0EE", !675, i64 0}
-!675 = !{!"p2 _ZTSN4llvm14MachineOperandE", !6, i64 0}
-!676 = !{!"_ZTSN4llvm10IndexedMapINS_3LLTENS_20VirtReg2IndexFunctorEEE", !677, i64 0, !678, i64 16, !642, i64 24}
-!677 = !{!"_ZTSN4llvm11SmallVectorINS_3LLTELj0EEE", !373, i64 0}
-!678 = !{!"_ZTSN4llvm3LLTE", !14, i64 0, !14, i64 0, !14, i64 0, !14, i64 0}
-!679 = !{!"_ZTSSt6vectorISt4pairIN4llvm10MCRegisterENS1_8RegisterEESaIS4_EE", !680, i64 0}
-!680 = !{!"_ZTSSt12_Vector_baseISt4pairIN4llvm10MCRegisterENS1_8RegisterEESaIS4_EE", !681, i64 0}
-!681 = !{!"_ZTSNSt12_Vector_baseISt4pairIN4llvm10MCRegisterENS1_8RegisterEESaIS4_EE12_Vector_implE", !682, i64 0}
-!682 = !{!"_ZTSNSt12_Vector_baseISt4pairIN4llvm10MCRegisterENS1_8RegisterEESaIS4_EE17_Vector_impl_dataE", !683, i64 0, !683, i64 8, !683, i64 16}
-!683 = !{!"p1 _ZTSSt4pairIN4llvm10MCRegisterENS0_8RegisterEE", !6, i64 0}
-!684 = !{!"branch_weights", i32 1999, i32 1}
-!685 = !{!"branch_weights", i32 1, i32 0}
-!686 = distinct !{!686, !18}
-!687 = !{!328, !328, i64 0}
-!688 = distinct !{!688, !18}
-!689 = distinct !{!689, !18}
-!690 = !{!384, !277, i64 24}
-!691 = !{!469, !277, i64 56}
-!692 = !{!693, !36, i64 7}
-!693 = !{!"_ZTSN4llvm12MachineInstr9ExtraInfoE", !31, i64 0, !36, i64 4, !36, i64 5, !36, i64 6, !36, i64 7, !36, i64 8, !36, i64 9}
-!694 = !{!693, !31, i64 0}
-!695 = !{!693, !36, i64 4}
-!696 = !{!693, !36, i64 5}
-!697 = !{!693, !36, i64 6}
-!698 = !{!472, !472, i64 0}
-!699 = !{!469, !472, i64 40}
-!700 = !{!693, !36, i64 9}
-!701 = !{!469, !472, i64 48}
-!702 = !{!703, !274, i64 32}
-!703 = !{!"_ZTSN4llvm17MachineBasicBlockE", !704, i64 0, !706, i64 16, !31, i64 24, !31, i64 28, !274, i64 32, !707, i64 40, !712, i64 64, !717, i64 112, !719, i64 144, !724, i64 168, !728, i64 184, !192, i64 208, !31, i64 212, !36, i64 216, !36, i64 217, !706, i64 224, !36, i64 232, !36, i64 233, !36, i64 234, !36, i64 235, !36, i64 236, !733, i64 240, !737, i64 252, !36, i64 260, !36, i64 261, !36, i64 262, !739, i64 264, !739, i64 272, !739, i64 280}
-!704 = !{!"_ZTSN4llvm22ilist_node_with_parentINS_17MachineBasicBlockENS_15MachineFunctionEJEEE", !705, i64 0}
-!705 = !{!"_ZTSN4llvm10ilist_nodeINS_17MachineBasicBlockEJEEE", !188, i64 0}
-!706 = !{!"p1 _ZTSN4llvm10BasicBlockE", !6, i64 0}
-!707 = !{!"_ZTSN4llvm6iplistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEE", !708, i64 0}
-!708 = !{!"_ZTSN4llvm11iplist_implINS_12simple_ilistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEENS_12ilist_traitsIS2_EEEE", !709, i64 0, !710, i64 8}
-!709 = !{!"_ZTSN4llvm12ilist_traitsINS_12MachineInstrEEE", !277, i64 0}
-!710 = !{!"_ZTSN4llvm12simple_ilistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEE", !711, i64 0}
-!711 = !{!"_ZTSN4llvm14ilist_sentinelINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEEEE", !387, i64 0}
-!712 = !{!"_ZTSN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EEE", !713, i64 0, !716, i64 16}
-!713 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEEE", !714, i64 0}
-!714 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EEE", !715, i64 0}
-!715 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_17MachineBasicBlockEvEE", !30, i64 0}
-!716 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_17MachineBasicBlockELj4EEE", !7, i64 0}
-!717 = !{!"_ZTSN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EEE", !713, i64 0, !718, i64 16}
-!718 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_17MachineBasicBlockELj2EEE", !7, i64 0}
-!719 = !{!"_ZTSSt6vectorIN4llvm17BranchProbabilityESaIS1_EE", !720, i64 0}
-!720 = !{!"_ZTSSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE", !721, i64 0}
-!721 = !{!"_ZTSNSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE12_Vector_implE", !722, i64 0}
-!722 = !{!"_ZTSNSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE17_Vector_impl_dataE", !723, i64 0, !723, i64 8, !723, i64 16}
-!723 = !{!"p1 _ZTSN4llvm17BranchProbabilityE", !6, i64 0}
-!724 = !{!"_ZTSSt8optionalImE", !725, i64 0}
-!725 = !{!"_ZTSSt14_Optional_baseImLb1ELb1EE", !726, i64 0}
-!726 = !{!"_ZTSSt17_Optional_payloadImLb1ELb1ELb1EE", !727, i64 0}
-!727 = !{!"_ZTSSt22_Optional_payload_baseImE", !7, i64 0, !36, i64 8}
-!728 = !{!"_ZTSSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE", !729, i64 0}
-!729 = !{!"_ZTSSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE", !730, i64 0}
-!730 = !{!"_ZTSNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_Vector_implE", !731, i64 0}
-!731 = !{!"_ZTSNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_Vector_impl_dataE", !732, i64 0, !732, i64 8, !732, i64 16}
-!732 = !{!"p1 _ZTSN4llvm17MachineBasicBlock16RegisterMaskPairE", !6, i64 0}
-!733 = !{!"_ZTSSt8optionalIN4llvm10UniqueBBIDEE", !734, i64 0}
-!734 = !{!"_ZTSSt14_Optional_baseIN4llvm10UniqueBBIDELb1ELb1EE", !735, i64 0}
-!735 = !{!"_ZTSSt17_Optional_payloadIN4llvm10UniqueBBIDELb1ELb1ELb1EE", !736, i64 0}
-!736 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm10UniqueBBIDEE", !7, i64 0, !36, i64 8}
-!737 = !{!"_ZTSN4llvm12MBBSectionIDE", !738, i64 0, !31, i64 4}
-!738 = !{!"_ZTSN4llvm12MBBSectionID11SectionTypeE", !7, i64 0}
-!739 = !{!"p1 _ZTSN4llvm8MCSymbolE", !6, i64 0}
-!740 = !{!741, !36, i64 8}
-!741 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_0", !381, i64 0, !381, i64 4, !36, i64 8, !678, i64 16}
-!742 = !{!743, !743, i64 0}
-!743 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
-!744 = !{i64 0, i64 4, !115, i64 4, i64 4, !115, i64 8, i64 1, !614, i64 16, i64 8, !16}
-!745 = !{!746, !36, i64 8}
-!746 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_1", !381, i64 0, !381, i64 4, !36, i64 8, !678, i64 16}
-!747 = !{!748, !36, i64 8}
-!748 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_2", !381, i64 0, !381, i64 4, !36, i64 8, !678, i64 16}
-!749 = !{!750, !36, i64 8}
-!750 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_3", !381, i64 0, !381, i64 4, !36, i64 8, !678, i64 16}
+!617 = !{!618}
+!618 = distinct !{!618, !619, !"_ZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoE: argument 0"}
+!619 = distinct !{!619, !"_ZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoE"}
+!620 = !{!621, !6, i64 24}
+!621 = !{!"_ZTSSt8functionIFN4llvm8RegisterERNS0_16MachineIRBuilderEEE", !48, i64 0, !6, i64 24}
+!622 = !{!623}
+!623 = distinct !{!623, !624, !"_ZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoE: argument 0"}
+!624 = distinct !{!624, !"_ZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoE"}
+!625 = !{!410, !410, i64 0}
+!626 = !{!394, !394, i64 0}
+!627 = distinct !{!627, !18}
+!628 = !{!469, !274, i64 8}
+!629 = distinct !{!629, !18}
+!630 = !{!146, !153, i64 48}
+!631 = !{!270, !274, i64 4248}
+!632 = !{!633, !274, i64 0}
+!633 = !{!"_ZTSN4llvm19MachineRegisterInfoE", !274, i64 0, !634, i64 8, !36, i64 40, !636, i64 48, !649, i64 88, !654, i64 144, !36, i64 168, !658, i64 176, !664, i64 232, !675, i64 296, !511, i64 304, !511, i64 376, !682, i64 448, !685, i64 480}
+!634 = !{!"_ZTSN4llvm11SmallPtrSetIPNS_19MachineRegisterInfo8DelegateELj1EEE", !635, i64 0, !7, i64 24}
+!635 = !{!"_ZTSN4llvm15SmallPtrSetImplIPNS_19MachineRegisterInfo8DelegateEEE", !35, i64 0}
+!636 = !{!"_ZTSN4llvm10IndexedMapISt4pairINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEEPNS_14MachineOperandEENS_20VirtReg2IndexFunctorEEE", !637, i64 0, !641, i64 16, !648, i64 32}
+!637 = !{!"_ZTSN4llvm11SmallVectorISt4pairINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEEPNS_14MachineOperandEELj0EEE", !638, i64 0}
+!638 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEEPNS_14MachineOperandEEEE", !639, i64 0}
+!639 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEEPNS_14MachineOperandEELb1EEE", !640, i64 0}
+!640 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEEPNS_14MachineOperandEEvEE", !30, i64 0}
+!641 = !{!"_ZTSSt4pairIN4llvm12PointerUnionIJPKNS0_19TargetRegisterClassEPKNS0_12RegisterBankEEEEPNS0_14MachineOperandEE", !642, i64 0, !394, i64 8}
+!642 = !{!"_ZTSN4llvm12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEE", !643, i64 0}
+!643 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !644, i64 0}
+!644 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !645, i64 0}
+!645 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !646, i64 0}
+!646 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPKNS_19TargetRegisterClassEPKNS_12RegisterBankEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !647, i64 0}
+!647 = !{!"_ZTSN4llvm6detail13PunnedPointerIPvEE", !7, i64 0}
+!648 = !{!"_ZTSN4llvm20VirtReg2IndexFunctorE"}
+!649 = !{!"_ZTSN4llvm10IndexedMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20VirtReg2IndexFunctorEEE", !650, i64 0, !11, i64 16, !648, i64 48}
+!650 = !{!"_ZTSN4llvm11SmallVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj0EEE", !651, i64 0}
+!651 = !{!"_ZTSN4llvm15SmallVectorImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !652, i64 0}
+!652 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EEE", !653, i64 0}
+!653 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEE", !30, i64 0}
+!654 = !{!"_ZTSN4llvm9StringSetINS_15MallocAllocatorEEE", !655, i64 0}
+!655 = !{!"_ZTSN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEEE", !656, i64 0}
+!656 = !{!"_ZTSN4llvm13StringMapImplE", !657, i64 0, !31, i64 8, !31, i64 12, !31, i64 16, !31, i64 20}
+!657 = !{!"p2 _ZTSN4llvm18StringMapEntryBaseE", !6, i64 0}
+!658 = !{!"_ZTSN4llvm11SmallVectorItLj16EEE", !659, i64 0, !663, i64 24}
+!659 = !{!"_ZTSN4llvm15SmallVectorImplItEE", !660, i64 0}
+!660 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseItLb1EEE", !661, i64 0}
+!661 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonItvEE", !662, i64 0}
+!662 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !6, i64 0, !14, i64 8, !14, i64 16}
+!663 = !{!"_ZTSN4llvm18SmallVectorStorageItLj16EEE", !7, i64 0}
+!664 = !{!"_ZTSN4llvm10IndexedMapISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEENS_20VirtReg2IndexFunctorEEE", !665, i64 0, !669, i64 16, !648, i64 56}
+!665 = !{!"_ZTSN4llvm11SmallVectorISt4pairIjNS0_INS_8RegisterELj4EEEELj0EEE", !666, i64 0}
+!666 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEEEE", !667, i64 0}
+!667 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEELb0EEE", !668, i64 0}
+!668 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIjNS_11SmallVectorINS_8RegisterELj4EEEEvEE", !30, i64 0}
+!669 = !{!"_ZTSSt4pairIjN4llvm11SmallVectorINS0_8RegisterELj4EEEE", !31, i64 0, !670, i64 8}
+!670 = !{!"_ZTSN4llvm11SmallVectorINS_8RegisterELj4EEE", !671, i64 0, !674, i64 16}
+!671 = !{!"_ZTSN4llvm15SmallVectorImplINS_8RegisterEEE", !672, i64 0}
+!672 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EEE", !673, i64 0}
+!673 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_8RegisterEvEE", !30, i64 0}
+!674 = !{!"_ZTSN4llvm18SmallVectorStorageINS_8RegisterELj4EEE", !7, i64 0}
+!675 = !{!"_ZTSSt10unique_ptrIA_PN4llvm14MachineOperandESt14default_deleteIS3_EE", !676, i64 0}
+!676 = !{!"_ZTSSt15__uniq_ptr_dataIPN4llvm14MachineOperandESt14default_deleteIA_S2_ELb1ELb1EE", !677, i64 0}
+!677 = !{!"_ZTSSt15__uniq_ptr_implIPN4llvm14MachineOperandESt14default_deleteIA_S2_EE", !678, i64 0}
+!678 = !{!"_ZTSSt5tupleIJPPN4llvm14MachineOperandESt14default_deleteIA_S2_EEE", !679, i64 0}
+!679 = !{!"_ZTSSt11_Tuple_implILm0EJPPN4llvm14MachineOperandESt14default_deleteIA_S2_EEE", !680, i64 0}
+!680 = !{!"_ZTSSt10_Head_baseILm0EPPN4llvm14MachineOperandELb0EE", !681, i64 0}
+!681 = !{!"p2 _ZTSN4llvm14MachineOperandE", !6, i64 0}
+!682 = !{!"_ZTSN4llvm10IndexedMapINS_3LLTENS_20VirtReg2IndexFunctorEEE", !683, i64 0, !684, i64 16, !648, i64 24}
+!683 = !{!"_ZTSN4llvm11SmallVectorINS_3LLTELj0EEE", !373, i64 0}
+!684 = !{!"_ZTSN4llvm3LLTE", !14, i64 0, !14, i64 0, !14, i64 0, !14, i64 0}
+!685 = !{!"_ZTSSt6vectorISt4pairIN4llvm10MCRegisterENS1_8RegisterEESaIS4_EE", !686, i64 0}
+!686 = !{!"_ZTSSt12_Vector_baseISt4pairIN4llvm10MCRegisterENS1_8RegisterEESaIS4_EE", !687, i64 0}
+!687 = !{!"_ZTSNSt12_Vector_baseISt4pairIN4llvm10MCRegisterENS1_8RegisterEESaIS4_EE12_Vector_implE", !688, i64 0}
+!688 = !{!"_ZTSNSt12_Vector_baseISt4pairIN4llvm10MCRegisterENS1_8RegisterEESaIS4_EE17_Vector_impl_dataE", !689, i64 0, !689, i64 8, !689, i64 16}
+!689 = !{!"p1 _ZTSSt4pairIN4llvm10MCRegisterENS0_8RegisterEE", !6, i64 0}
+!690 = !{!"branch_weights", i32 1999, i32 1}
+!691 = !{!"branch_weights", i32 1, i32 0}
+!692 = distinct !{!692, !18}
+!693 = !{!328, !328, i64 0}
+!694 = distinct !{!694, !18}
+!695 = distinct !{!695, !18}
+!696 = !{!384, !277, i64 24}
+!697 = !{!469, !277, i64 56}
+!698 = !{!699, !36, i64 7}
+!699 = !{!"_ZTSN4llvm12MachineInstr9ExtraInfoE", !31, i64 0, !36, i64 4, !36, i64 5, !36, i64 6, !36, i64 7, !36, i64 8, !36, i64 9}
+!700 = !{!699, !31, i64 0}
+!701 = !{!699, !36, i64 4}
+!702 = !{!699, !36, i64 5}
+!703 = !{!699, !36, i64 6}
+!704 = !{!472, !472, i64 0}
+!705 = !{!469, !472, i64 40}
+!706 = !{!699, !36, i64 9}
+!707 = !{!469, !472, i64 48}
+!708 = !{!709, !274, i64 32}
+!709 = !{!"_ZTSN4llvm17MachineBasicBlockE", !710, i64 0, !712, i64 16, !31, i64 24, !31, i64 28, !274, i64 32, !713, i64 40, !718, i64 64, !723, i64 112, !725, i64 144, !730, i64 168, !734, i64 184, !192, i64 208, !31, i64 212, !36, i64 216, !36, i64 217, !712, i64 224, !36, i64 232, !36, i64 233, !36, i64 234, !36, i64 235, !36, i64 236, !739, i64 240, !743, i64 252, !36, i64 260, !36, i64 261, !36, i64 262, !745, i64 264, !745, i64 272, !745, i64 280}
+!710 = !{!"_ZTSN4llvm22ilist_node_with_parentINS_17MachineBasicBlockENS_15MachineFunctionEJEEE", !711, i64 0}
+!711 = !{!"_ZTSN4llvm10ilist_nodeINS_17MachineBasicBlockEJEEE", !188, i64 0}
+!712 = !{!"p1 _ZTSN4llvm10BasicBlockE", !6, i64 0}
+!713 = !{!"_ZTSN4llvm6iplistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEE", !714, i64 0}
+!714 = !{!"_ZTSN4llvm11iplist_implINS_12simple_ilistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEENS_12ilist_traitsIS2_EEEE", !715, i64 0, !716, i64 8}
+!715 = !{!"_ZTSN4llvm12ilist_traitsINS_12MachineInstrEEE", !277, i64 0}
+!716 = !{!"_ZTSN4llvm12simple_ilistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEE", !717, i64 0}
+!717 = !{!"_ZTSN4llvm14ilist_sentinelINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEEEE", !387, i64 0}
+!718 = !{!"_ZTSN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EEE", !719, i64 0, !722, i64 16}
+!719 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEEE", !720, i64 0}
+!720 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EEE", !721, i64 0}
+!721 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_17MachineBasicBlockEvEE", !30, i64 0}
+!722 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_17MachineBasicBlockELj4EEE", !7, i64 0}
+!723 = !{!"_ZTSN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EEE", !719, i64 0, !724, i64 16}
+!724 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_17MachineBasicBlockELj2EEE", !7, i64 0}
+!725 = !{!"_ZTSSt6vectorIN4llvm17BranchProbabilityESaIS1_EE", !726, i64 0}
+!726 = !{!"_ZTSSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE", !727, i64 0}
+!727 = !{!"_ZTSNSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE12_Vector_implE", !728, i64 0}
+!728 = !{!"_ZTSNSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE17_Vector_impl_dataE", !729, i64 0, !729, i64 8, !729, i64 16}
+!729 = !{!"p1 _ZTSN4llvm17BranchProbabilityE", !6, i64 0}
+!730 = !{!"_ZTSSt8optionalImE", !731, i64 0}
+!731 = !{!"_ZTSSt14_Optional_baseImLb1ELb1EE", !732, i64 0}
+!732 = !{!"_ZTSSt17_Optional_payloadImLb1ELb1ELb1EE", !733, i64 0}
+!733 = !{!"_ZTSSt22_Optional_payload_baseImE", !7, i64 0, !36, i64 8}
+!734 = !{!"_ZTSSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE", !735, i64 0}
+!735 = !{!"_ZTSSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE", !736, i64 0}
+!736 = !{!"_ZTSNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_Vector_implE", !737, i64 0}
+!737 = !{!"_ZTSNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_Vector_impl_dataE", !738, i64 0, !738, i64 8, !738, i64 16}
+!738 = !{!"p1 _ZTSN4llvm17MachineBasicBlock16RegisterMaskPairE", !6, i64 0}
+!739 = !{!"_ZTSSt8optionalIN4llvm10UniqueBBIDEE", !740, i64 0}
+!740 = !{!"_ZTSSt14_Optional_baseIN4llvm10UniqueBBIDELb1ELb1EE", !741, i64 0}
+!741 = !{!"_ZTSSt17_Optional_payloadIN4llvm10UniqueBBIDELb1ELb1ELb1EE", !742, i64 0}
+!742 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm10UniqueBBIDEE", !7, i64 0, !36, i64 8}
+!743 = !{!"_ZTSN4llvm12MBBSectionIDE", !744, i64 0, !31, i64 4}
+!744 = !{!"_ZTSN4llvm12MBBSectionID11SectionTypeE", !7, i64 0}
+!745 = !{!"p1 _ZTSN4llvm8MCSymbolE", !6, i64 0}
+!746 = !{!747, !36, i64 8}
+!747 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_0", !381, i64 0, !381, i64 4, !36, i64 8, !684, i64 16}
+!748 = !{!749, !749, i64 0}
+!749 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
+!750 = !{i64 0, i64 4, !115, i64 4, i64 4, !115, i64 8, i64 1, !614, i64 16, i64 8, !16}
 !751 = !{!752, !36, i64 8}
-!752 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_4", !381, i64 0, !381, i64 4, !36, i64 8, !678, i64 16}
+!752 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_1", !381, i64 0, !381, i64 4, !36, i64 8, !684, i64 16}
 !753 = !{!754, !36, i64 8}
-!754 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_5", !381, i64 0, !381, i64 4, !36, i64 8, !678, i64 16}
-!755 = !{!469, !239, i64 72}
-!756 = !{!384, !393, i64 16}
-!757 = !{!758, !14, i64 16}
-!758 = !{!"_ZTSN4llvm11MCInstrDescE", !24, i64 0, !24, i64 2, !7, i64 4, !7, i64 5, !24, i64 6, !7, i64 8, !7, i64 9, !24, i64 10, !24, i64 12, !14, i64 16, !14, i64 24}
-!759 = !{!760}
-!760 = distinct !{!760, !761, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!761 = distinct !{!761, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!762 = distinct !{!762, !18}
-!763 = !{!764}
-!764 = distinct !{!764, !765, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!765 = distinct !{!765, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!766 = !{!767}
-!767 = distinct !{!767, !768, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!768 = distinct !{!768, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!754 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_2", !381, i64 0, !381, i64 4, !36, i64 8, !684, i64 16}
+!755 = !{!756, !36, i64 8}
+!756 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_3", !381, i64 0, !381, i64 4, !36, i64 8, !684, i64 16}
+!757 = !{!758, !36, i64 8}
+!758 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_4", !381, i64 0, !381, i64 4, !36, i64 8, !684, i64 16}
+!759 = !{!760, !36, i64 8}
+!760 = !{!"_ZTSZN12_GLOBAL__N_113getVectorFCMPEN4llvm9AArch64CC8CondCodeENS0_8RegisterES3_bbRNS0_19MachineRegisterInfoEE3$_5", !381, i64 0, !381, i64 4, !36, i64 8, !684, i64 16}
+!761 = !{!469, !239, i64 72}
+!762 = !{!384, !393, i64 16}
+!763 = !{!764, !14, i64 16}
+!764 = !{!"_ZTSN4llvm11MCInstrDescE", !24, i64 0, !24, i64 2, !7, i64 4, !7, i64 5, !24, i64 6, !7, i64 8, !7, i64 9, !24, i64 10, !24, i64 12, !14, i64 16, !14, i64 24}
+!765 = !{!766}
+!766 = distinct !{!766, !767, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!767 = distinct !{!767, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!768 = distinct !{!768, !18}
 !769 = !{!770}
 !770 = distinct !{!770, !771, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !771 = distinct !{!771, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21430,15 +21432,15 @@ attributes #28 = { nounwind willreturn memory(read) }
 !778 = !{!779}
 !779 = distinct !{!779, !780, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !780 = distinct !{!780, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!781 = distinct !{!781, !18}
-!782 = !{!783, !31, i64 8}
-!783 = !{!"_ZTSSt4pairIN4llvm3LLTEjE", !678, i64 0, !31, i64 8}
+!781 = !{!782}
+!782 = distinct !{!782, !783, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!783 = distinct !{!783, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !784 = !{!785}
 !785 = distinct !{!785, !786, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !786 = distinct !{!786, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!787 = !{!788}
-!788 = distinct !{!788, !789, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!789 = distinct !{!789, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!787 = distinct !{!787, !18}
+!788 = !{!789, !31, i64 8}
+!789 = !{!"_ZTSSt4pairIN4llvm3LLTEjE", !684, i64 0, !31, i64 8}
 !790 = !{!791}
 !791 = distinct !{!791, !792, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !792 = distinct !{!792, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21472,27 +21474,27 @@ attributes #28 = { nounwind willreturn memory(read) }
 !820 = !{!821}
 !821 = distinct !{!821, !822, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !822 = distinct !{!822, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!823 = !{!824, !824, i64 0}
-!824 = !{!"p1 _ZTSN4llvm17MachineMemOperandE", !6, i64 0}
-!825 = !{!826}
-!826 = distinct !{!826, !827, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!827 = distinct !{!827, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!828 = !{!829}
-!829 = distinct !{!829, !830, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!830 = distinct !{!830, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!823 = !{!824}
+!824 = distinct !{!824, !825, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!825 = distinct !{!825, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!826 = !{!827}
+!827 = distinct !{!827, !828, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!828 = distinct !{!828, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!829 = !{!830, !830, i64 0}
+!830 = !{!"p1 _ZTSN4llvm17MachineMemOperandE", !6, i64 0}
 !831 = !{!832}
 !832 = distinct !{!832, !833, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !833 = distinct !{!833, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !834 = !{!835}
 !835 = distinct !{!835, !836, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !836 = distinct !{!836, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!837 = distinct !{!837, !18}
-!838 = !{!839}
-!839 = distinct !{!839, !840, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!840 = distinct !{!840, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!841 = !{!842}
-!842 = distinct !{!842, !843, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!843 = distinct !{!843, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!837 = !{!838}
+!838 = distinct !{!838, !839, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!839 = distinct !{!839, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!840 = !{!841}
+!841 = distinct !{!841, !842, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!842 = distinct !{!842, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!843 = distinct !{!843, !18}
 !844 = !{!845}
 !845 = distinct !{!845, !846, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !846 = distinct !{!846, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21526,14 +21528,14 @@ attributes #28 = { nounwind willreturn memory(read) }
 !874 = !{!875}
 !875 = distinct !{!875, !876, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !876 = distinct !{!876, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!877 = !{!878, !31, i64 4}
-!878 = !{!"_ZTSN4llvm10DataLayout11PointerSpecE", !31, i64 0, !31, i64 4, !192, i64 8, !192, i64 9, !31, i64 12, !36, i64 16}
-!879 = !{!880}
-!880 = distinct !{!880, !881, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!881 = distinct !{!881, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!882 = !{!883}
-!883 = distinct !{!883, !884, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!884 = distinct !{!884, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!877 = !{!878}
+!878 = distinct !{!878, !879, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!879 = distinct !{!879, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!880 = !{!881}
+!881 = distinct !{!881, !882, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!882 = distinct !{!882, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!883 = !{!884, !31, i64 4}
+!884 = !{!"_ZTSN4llvm10DataLayout11PointerSpecE", !31, i64 0, !31, i64 4, !192, i64 8, !192, i64 9, !31, i64 12, !36, i64 16}
 !885 = !{!886}
 !886 = distinct !{!886, !887, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !887 = distinct !{!887, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21549,23 +21551,23 @@ attributes #28 = { nounwind willreturn memory(read) }
 !897 = !{!898}
 !898 = distinct !{!898, !899, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !899 = distinct !{!899, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!900 = !{!538, !556, i64 264}
-!901 = !{!902, !902, i64 0}
-!902 = !{!"p1 _ZTSN4llvm19TargetRegisterClassE", !6, i64 0}
+!900 = !{!901}
+!901 = distinct !{!901, !902, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!902 = distinct !{!902, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !903 = !{!904}
 !904 = distinct !{!904, !905, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !905 = distinct !{!905, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!906 = !{!907}
-!907 = distinct !{!907, !908, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!908 = distinct !{!908, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!909 = !{!910, !36, i64 144}
-!910 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEEE", !7, i64 0, !36, i64 144}
-!911 = !{!912}
-!912 = distinct !{!912, !913, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!913 = distinct !{!913, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!914 = !{!915}
-!915 = distinct !{!915, !916, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!916 = distinct !{!916, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!906 = !{!538, !556, i64 264}
+!907 = !{!908, !908, i64 0}
+!908 = !{!"p1 _ZTSN4llvm19TargetRegisterClassE", !6, i64 0}
+!909 = !{!910}
+!910 = distinct !{!910, !911, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!911 = distinct !{!911, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!912 = !{!913}
+!913 = distinct !{!913, !914, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!914 = distinct !{!914, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!915 = !{!916, !36, i64 144}
+!916 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm11SmallVectorISt8functionIFvRNS0_19MachineInstrBuilderEEELj4EEEE", !7, i64 0, !36, i64 144}
 !917 = !{!918}
 !918 = distinct !{!918, !919, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !919 = distinct !{!919, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21596,13 +21598,13 @@ attributes #28 = { nounwind willreturn memory(read) }
 !944 = !{!945}
 !945 = distinct !{!945, !946, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !946 = distinct !{!946, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!947 = distinct !{!947, !18}
-!948 = !{!949}
-!949 = distinct !{!949, !950, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!950 = distinct !{!950, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!951 = !{!952}
-!952 = distinct !{!952, !953, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!953 = distinct !{!953, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!947 = !{!948}
+!948 = distinct !{!948, !949, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!949 = distinct !{!949, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!950 = !{!951}
+!951 = distinct !{!951, !952, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!952 = distinct !{!952, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!953 = distinct !{!953, !18}
 !954 = !{!955}
 !955 = distinct !{!955, !956, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !956 = distinct !{!956, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21633,13 +21635,13 @@ attributes #28 = { nounwind willreturn memory(read) }
 !981 = !{!982}
 !982 = distinct !{!982, !983, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !983 = distinct !{!983, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!984 = !{!528, !393, i64 0}
-!985 = !{!986}
-!986 = distinct !{!986, !987, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!987 = distinct !{!987, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!988 = !{!989}
-!989 = distinct !{!989, !990, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!990 = distinct !{!990, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!984 = !{!985}
+!985 = distinct !{!985, !986, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!986 = distinct !{!986, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!987 = !{!988}
+!988 = distinct !{!988, !989, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!989 = distinct !{!989, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!990 = !{!528, !393, i64 0}
 !991 = !{!992}
 !992 = distinct !{!992, !993, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !993 = distinct !{!993, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21649,15 +21651,15 @@ attributes #28 = { nounwind willreturn memory(read) }
 !997 = !{!998}
 !998 = distinct !{!998, !999, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !999 = distinct !{!999, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!1000 = !{!1001, !379, i64 8}
-!1001 = !{!"_ZTSN4llvm19MachineInstrBuilderE", !274, i64 0, !379, i64 8}
-!1002 = !{!1001, !274, i64 0}
+!1000 = !{!1001}
+!1001 = distinct !{!1001, !1002, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1002 = distinct !{!1002, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1003 = !{!1004}
 !1004 = distinct !{!1004, !1005, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1005 = distinct !{!1005, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!1006 = !{!1007}
-!1007 = distinct !{!1007, !1008, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1008 = distinct !{!1008, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1006 = !{!1007, !379, i64 8}
+!1007 = !{!"_ZTSN4llvm19MachineInstrBuilderE", !274, i64 0, !379, i64 8}
+!1008 = !{!1007, !274, i64 0}
 !1009 = !{!1010}
 !1010 = distinct !{!1010, !1011, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1011 = distinct !{!1011, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21670,23 +21672,23 @@ attributes #28 = { nounwind willreturn memory(read) }
 !1018 = !{!1019}
 !1019 = distinct !{!1019, !1020, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1020 = distinct !{!1020, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!1021 = !{!1022, !379, i64 8}
-!1022 = !{!"_ZTSN4llvm14MachineOperandE", !31, i64 0, !31, i64 1, !31, i64 2, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !7, i64 4, !379, i64 8, !7, i64 16}
-!1023 = !{!1024}
-!1024 = distinct !{!1024, !1025, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb: argument 0"}
-!1025 = distinct !{!1025, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb"}
-!1026 = !{!1027}
-!1027 = distinct !{!1027, !1028, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1028 = distinct !{!1028, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1021 = !{!1022}
+!1022 = distinct !{!1022, !1023, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1023 = distinct !{!1023, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1024 = !{!1025}
+!1025 = distinct !{!1025, !1026, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1026 = distinct !{!1026, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1027 = !{!1028, !379, i64 8}
+!1028 = !{!"_ZTSN4llvm14MachineOperandE", !31, i64 0, !31, i64 1, !31, i64 2, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !7, i64 4, !379, i64 8, !7, i64 16}
 !1029 = !{!1030}
-!1030 = distinct !{!1030, !1031, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1031 = distinct !{!1031, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1030 = distinct !{!1030, !1031, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb: argument 0"}
+!1031 = distinct !{!1031, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb"}
 !1032 = !{!1033}
 !1033 = distinct !{!1033, !1034, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1034 = distinct !{!1034, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1035 = !{!1036}
-!1036 = distinct !{!1036, !1037, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb: argument 0"}
-!1037 = distinct !{!1037, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb"}
+!1036 = distinct !{!1036, !1037, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1037 = distinct !{!1037, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1038 = !{!1039}
 !1039 = distinct !{!1039, !1040, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1040 = distinct !{!1040, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21709,14 +21711,14 @@ attributes #28 = { nounwind willreturn memory(read) }
 !1057 = distinct !{!1057, !1058, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1058 = distinct !{!1058, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1059 = !{!1060}
-!1060 = distinct !{!1060, !1061, !"_ZN4llvm14MachineOperand17CreateIntrinsicIDEj: argument 0"}
-!1061 = distinct !{!1061, !"_ZN4llvm14MachineOperand17CreateIntrinsicIDEj"}
+!1060 = distinct !{!1060, !1061, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb: argument 0"}
+!1061 = distinct !{!1061, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb"}
 !1062 = !{!1063}
 !1063 = distinct !{!1063, !1064, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1064 = distinct !{!1064, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1065 = !{!1066}
-!1066 = distinct !{!1066, !1067, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1067 = distinct !{!1067, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1066 = distinct !{!1066, !1067, !"_ZN4llvm14MachineOperand17CreateIntrinsicIDEj: argument 0"}
+!1067 = distinct !{!1067, !"_ZN4llvm14MachineOperand17CreateIntrinsicIDEj"}
 !1068 = !{!1069}
 !1069 = distinct !{!1069, !1070, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1070 = distinct !{!1070, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21736,31 +21738,31 @@ attributes #28 = { nounwind willreturn memory(read) }
 !1084 = distinct !{!1084, !1085, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1085 = distinct !{!1085, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1086 = !{!1087}
-!1087 = distinct !{!1087, !1088, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb: argument 0"}
-!1088 = distinct !{!1088, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb"}
+!1087 = distinct !{!1087, !1088, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1088 = distinct !{!1088, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1089 = !{!1090}
 !1090 = distinct !{!1090, !1091, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1091 = distinct !{!1091, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1092 = !{!1093}
-!1093 = distinct !{!1093, !1094, !"_ZN4llvm14MachineOperand9CreateImmEl: argument 0"}
-!1094 = distinct !{!1094, !"_ZN4llvm14MachineOperand9CreateImmEl"}
+!1093 = distinct !{!1093, !1094, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb: argument 0"}
+!1094 = distinct !{!1094, !"_ZN4llvm14MachineOperand9CreateRegENS_8RegisterEbbbbbbjbbb"}
 !1095 = !{!1096}
 !1096 = distinct !{!1096, !1097, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1097 = distinct !{!1097, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1098 = !{!1099}
-!1099 = distinct !{!1099, !1100, !"_ZN4llvm14MachineOperand10CreateCImmEPKNS_11ConstantIntE: argument 0"}
-!1100 = distinct !{!1100, !"_ZN4llvm14MachineOperand10CreateCImmEPKNS_11ConstantIntE"}
+!1099 = distinct !{!1099, !1100, !"_ZN4llvm14MachineOperand9CreateImmEl: argument 0"}
+!1100 = distinct !{!1100, !"_ZN4llvm14MachineOperand9CreateImmEl"}
 !1101 = !{!1102}
 !1102 = distinct !{!1102, !1103, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1103 = distinct !{!1103, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!1104 = !{!1105, !6, i64 24}
-!1105 = !{!"_ZTSSt8functionIFvRN4llvm19MachineInstrBuilderEEE", !48, i64 0, !6, i64 24}
-!1106 = !{!1107}
-!1107 = distinct !{!1107, !1108, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1108 = distinct !{!1108, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!1109 = !{!1110}
-!1110 = distinct !{!1110, !1111, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1111 = distinct !{!1111, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1104 = !{!1105}
+!1105 = distinct !{!1105, !1106, !"_ZN4llvm14MachineOperand10CreateCImmEPKNS_11ConstantIntE: argument 0"}
+!1106 = distinct !{!1106, !"_ZN4llvm14MachineOperand10CreateCImmEPKNS_11ConstantIntE"}
+!1107 = !{!1108}
+!1108 = distinct !{!1108, !1109, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1109 = distinct !{!1109, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1110 = !{!1111, !6, i64 24}
+!1111 = !{!"_ZTSSt8functionIFvRN4llvm19MachineInstrBuilderEEE", !48, i64 0, !6, i64 24}
 !1112 = !{!1113}
 !1113 = distinct !{!1113, !1114, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1114 = distinct !{!1114, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21774,23 +21776,23 @@ attributes #28 = { nounwind willreturn memory(read) }
 !1122 = distinct !{!1122, !1123, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1123 = distinct !{!1123, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1124 = !{!1125}
-!1125 = distinct !{!1125, !1126, !"_ZN4llvm14MachineOperand9CreateImmEl: argument 0"}
-!1126 = distinct !{!1126, !"_ZN4llvm14MachineOperand9CreateImmEl"}
+!1125 = distinct !{!1125, !1126, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1126 = distinct !{!1126, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1127 = !{!1128}
 !1128 = distinct !{!1128, !1129, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1129 = distinct !{!1129, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1130 = !{!1131}
-!1131 = distinct !{!1131, !1132, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1132 = distinct !{!1132, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1131 = distinct !{!1131, !1132, !"_ZN4llvm14MachineOperand9CreateImmEl: argument 0"}
+!1132 = distinct !{!1132, !"_ZN4llvm14MachineOperand9CreateImmEl"}
 !1133 = !{!1134}
-!1134 = distinct !{!1134, !1135, !"_ZN4llvm14MachineOperand11CreateFPImmEPKNS_10ConstantFPE: argument 0"}
-!1135 = distinct !{!1135, !"_ZN4llvm14MachineOperand11CreateFPImmEPKNS_10ConstantFPE"}
+!1134 = distinct !{!1134, !1135, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1135 = distinct !{!1135, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1136 = !{!1137}
 !1137 = distinct !{!1137, !1138, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1138 = distinct !{!1138, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1139 = !{!1140}
-!1140 = distinct !{!1140, !1141, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1141 = distinct !{!1141, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1140 = distinct !{!1140, !1141, !"_ZN4llvm14MachineOperand11CreateFPImmEPKNS_10ConstantFPE: argument 0"}
+!1141 = distinct !{!1141, !"_ZN4llvm14MachineOperand11CreateFPImmEPKNS_10ConstantFPE"}
 !1142 = !{!1143}
 !1143 = distinct !{!1143, !1144, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1144 = distinct !{!1144, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21806,27 +21808,27 @@ attributes #28 = { nounwind willreturn memory(read) }
 !1154 = !{!1155}
 !1155 = distinct !{!1155, !1156, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1156 = distinct !{!1156, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!1157 = !{!146, !151, i64 32}
-!1158 = !{!1159}
-!1159 = distinct !{!1159, !1160, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1160 = distinct !{!1160, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!1161 = !{!1162}
-!1162 = distinct !{!1162, !1163, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1163 = distinct !{!1163, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1157 = !{!1158}
+!1158 = distinct !{!1158, !1159, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1159 = distinct !{!1159, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1160 = !{!1161}
+!1161 = distinct !{!1161, !1162, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1162 = distinct !{!1162, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1163 = !{!146, !151, i64 32}
 !1164 = !{!1165}
 !1165 = distinct !{!1165, !1166, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1166 = distinct !{!1166, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!1167 = distinct !{!1167, !18}
-!1168 = !{!1169}
-!1169 = distinct !{!1169, !1170, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1170 = distinct !{!1170, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!1171 = !{!389, !392, i64 8}
-!1172 = !{!1173}
-!1173 = distinct !{!1173, !1174, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1174 = distinct !{!1174, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!1175 = !{!1176}
-!1176 = distinct !{!1176, !1177, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
-!1177 = distinct !{!1177, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1167 = !{!1168}
+!1168 = distinct !{!1168, !1169, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1169 = distinct !{!1169, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1170 = !{!1171}
+!1171 = distinct !{!1171, !1172, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1172 = distinct !{!1172, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1173 = distinct !{!1173, !18}
+!1174 = !{!1175}
+!1175 = distinct !{!1175, !1176, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1176 = distinct !{!1176, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1177 = !{!389, !392, i64 8}
 !1178 = !{!1179}
 !1179 = distinct !{!1179, !1180, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1180 = distinct !{!1180, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
@@ -21845,55 +21847,61 @@ attributes #28 = { nounwind willreturn memory(read) }
 !1193 = !{!1194}
 !1194 = distinct !{!1194, !1195, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
 !1195 = distinct !{!1195, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
-!1196 = distinct !{!1196, !18}
-!1197 = distinct !{!1197, !18}
-!1198 = !{!332, !332, i64 0}
-!1199 = !{!331, !31, i64 8}
-!1200 = !{!331, !31, i64 12}
-!1201 = !{i64 0, i64 16, !16}
+!1196 = !{!1197}
+!1197 = distinct !{!1197, !1198, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1198 = distinct !{!1198, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
+!1199 = !{!1200}
+!1200 = distinct !{!1200, !1201, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm: argument 0"}
+!1201 = distinct !{!1201, !"_ZN4llvm20GIMatchTableExecutor17fastDecodeULEB128EPKhRm"}
 !1202 = distinct !{!1202, !18}
 !1203 = distinct !{!1203, !18}
-!1204 = distinct !{!1204, !18}
-!1205 = distinct !{!1205, !18}
-!1206 = distinct !{!1206, !18}
-!1207 = !{!1208, !1208, i64 0}
-!1208 = !{!"_ZTSN4llvm2cl12OptionHiddenE", !7, i64 0}
-!1209 = !{!1210, !1211, i64 0}
-!1210 = !{!"_ZTSN4llvm2cl3catE", !1211, i64 0}
-!1211 = !{!"p1 _ZTSN4llvm2cl14OptionCategoryE", !6, i64 0}
-!1212 = !{!1213}
-!1213 = distinct !{!1213, !1214, !"_ZNK4llvm9StringRef5splitES0_: argument 0"}
-!1214 = distinct !{!1214, !"_ZNK4llvm9StringRef5splitES0_"}
-!1215 = !{!1216, !1217, i64 32}
-!1216 = !{!"_ZTSN4llvm5TwineE", !7, i64 0, !7, i64 16, !1217, i64 32, !1217, i64 33}
-!1217 = !{!"_ZTSN4llvm5Twine8NodeKindE", !7, i64 0}
+!1204 = !{!332, !332, i64 0}
+!1205 = !{!331, !31, i64 8}
+!1206 = !{!331, !31, i64 12}
+!1207 = !{i64 0, i64 16, !16}
+!1208 = distinct !{!1208, !18}
+!1209 = distinct !{!1209, !18}
+!1210 = distinct !{!1210, !18}
+!1211 = distinct !{!1211, !18}
+!1212 = distinct !{!1212, !18}
+!1213 = !{!1214, !1214, i64 0}
+!1214 = !{!"_ZTSN4llvm2cl12OptionHiddenE", !7, i64 0}
+!1215 = !{!1216, !1217, i64 0}
+!1216 = !{!"_ZTSN4llvm2cl3catE", !1217, i64 0}
+!1217 = !{!"p1 _ZTSN4llvm2cl14OptionCategoryE", !6, i64 0}
 !1218 = !{!1219}
-!1219 = distinct !{!1219, !1220, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
-!1220 = distinct !{!1220, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
-!1221 = !{!1216, !1217, i64 33}
-!1222 = distinct !{!1222, !18}
-!1223 = !{!1224}
-!1224 = distinct !{!1224, !1225, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!1225 = distinct !{!1225, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
-!1226 = !{!1227}
-!1227 = distinct !{!1227, !1225, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!1228 = !{!1224, !1227}
+!1219 = distinct !{!1219, !1220, !"_ZNK4llvm9StringRef5splitES0_: argument 0"}
+!1220 = distinct !{!1220, !"_ZNK4llvm9StringRef5splitES0_"}
+!1221 = !{!1222, !1223, i64 32}
+!1222 = !{!"_ZTSN4llvm5TwineE", !7, i64 0, !7, i64 16, !1223, i64 32, !1223, i64 33}
+!1223 = !{!"_ZTSN4llvm5Twine8NodeKindE", !7, i64 0}
+!1224 = !{!1225}
+!1225 = distinct !{!1225, !1226, !"_ZN4llvmplEPKcRKNS_9StringRefE: argument 0"}
+!1226 = distinct !{!1226, !"_ZN4llvmplEPKcRKNS_9StringRefE"}
+!1227 = !{!1222, !1223, i64 33}
+!1228 = distinct !{!1228, !18}
 !1229 = !{!1230}
 !1230 = distinct !{!1230, !1231, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !1231 = distinct !{!1231, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
 !1232 = !{!1233}
 !1233 = distinct !{!1233, !1231, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !1234 = !{!1230, !1233}
-!1235 = !{!1236, !6, i64 0}
-!1236 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0, !68, i64 8}
-!1237 = !{!1236, !68, i64 8}
-!1238 = !{!1239, !1240, i64 0}
-!1239 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !1240, i64 0}
-!1240 = !{!"p1 _ZTSN4llvm12PassRegistryE", !6, i64 0}
-!1241 = !{!1211, !1211, i64 0}
-!1242 = !{!1243}
-!1243 = distinct !{!1243, !1244, !"_ZN4llvm2cl8callbackIN12_GLOBAL__N_13$_7EEENS0_2cbINS0_6detail15callback_traitsIT_E11result_typeENS8_8arg_typeEEES7_: argument 0"}
-!1244 = distinct !{!1244, !"_ZN4llvm2cl8callbackIN12_GLOBAL__N_13$_7EEENS0_2cbINS0_6detail15callback_traitsIT_E11result_typeENS8_8arg_typeEEES7_"}
-!1245 = !{!1246}
-!1246 = distinct !{!1246, !1247, !"_ZN4llvm2cl8callbackIN12_GLOBAL__N_13$_8EEENS0_2cbINS0_6detail15callback_traitsIT_E11result_typeENS8_8arg_typeEEES7_: argument 0"}
-!1247 = distinct !{!1247, !"_ZN4llvm2cl8callbackIN12_GLOBAL__N_13$_8EEENS0_2cbINS0_6detail15callback_traitsIT_E11result_typeENS8_8arg_typeEEES7_"}
+!1235 = !{!1236}
+!1236 = distinct !{!1236, !1237, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!1237 = distinct !{!1237, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
+!1238 = !{!1239}
+!1239 = distinct !{!1239, !1237, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!1240 = !{!1236, !1239}
+!1241 = !{!1242, !6, i64 0}
+!1242 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0, !68, i64 8}
+!1243 = !{!1242, !68, i64 8}
+!1244 = !{!1245, !1246, i64 0}
+!1245 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !1246, i64 0}
+!1246 = !{!"p1 _ZTSN4llvm12PassRegistryE", !6, i64 0}
+!1247 = !{!1217, !1217, i64 0}
+!1248 = !{!1249}
+!1249 = distinct !{!1249, !1250, !"_ZN4llvm2cl8callbackIN12_GLOBAL__N_13$_7EEENS0_2cbINS0_6detail15callback_traitsIT_E11result_typeENS8_8arg_typeEEES7_: argument 0"}
+!1250 = distinct !{!1250, !"_ZN4llvm2cl8callbackIN12_GLOBAL__N_13$_7EEENS0_2cbINS0_6detail15callback_traitsIT_E11result_typeENS8_8arg_typeEEES7_"}
+!1251 = !{!1252}
+!1252 = distinct !{!1252, !1253, !"_ZN4llvm2cl8callbackIN12_GLOBAL__N_13$_8EEENS0_2cbINS0_6detail15callback_traitsIT_E11result_typeENS8_8arg_typeEEES7_: argument 0"}
+!1253 = distinct !{!1253, !"_ZN4llvm2cl8callbackIN12_GLOBAL__N_13$_8EEENS0_2cbINS0_6detail15callback_traitsIT_E11result_typeENS8_8arg_typeEEES7_"}

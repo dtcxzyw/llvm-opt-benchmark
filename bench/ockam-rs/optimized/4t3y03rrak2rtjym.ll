@@ -1228,7 +1228,7 @@ define hidden void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17hc5c
   store i64 %34, ptr %.sroa.3.0..sroa_idx, align 8
   br label %._crit_edge
 
-47:                                               ; preds = %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.i", %20, %31
+47:                                               ; preds = %20, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.i", %31
   %48 = icmp eq ptr %13, %7
   br i1 %48, label %._crit_edge, label %12
 }

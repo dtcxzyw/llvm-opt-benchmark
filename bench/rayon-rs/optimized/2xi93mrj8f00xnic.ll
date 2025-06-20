@@ -404,8 +404,8 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$8new_fifo17h6a53
   store i64 1, ptr %13, align 8, !noalias !22
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i64 %12, ptr %14, align 128
-  %.sroa.5.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.5.0..sroa_idx13, i8 0, i64 16, i1 false)
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 256
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.413.0..sroa_idx, i8 0, i64 16, i1 false)
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !25
   %16 = tail call noundef align 128 dereferenceable_or_null(384) ptr @__rust_alloc(i64 noundef 384, i64 noundef range(i64 1, -9223372036854775807) 128) #14, !noalias !25
   %17 = icmp eq ptr %16, null
@@ -477,8 +477,8 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$8new_lifo17hcacc
   store i64 1, ptr %13, align 8, !noalias !28
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i64 %12, ptr %14, align 128
-  %.sroa.5.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.5.0..sroa_idx13, i8 0, i64 16, i1 false)
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 256
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.413.0..sroa_idx, i8 0, i64 16, i1 false)
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !31
   %16 = tail call noundef align 128 dereferenceable_or_null(384) ptr @__rust_alloc(i64 noundef 384, i64 noundef range(i64 1, -9223372036854775807) 128) #14, !noalias !31
   %17 = icmp eq ptr %16, null

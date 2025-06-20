@@ -9906,7 +9906,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator6reduce17h424f574b6d47
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %14, %33
   %23 = phi ptr [ %36, %33 ], [ %21, %14 ]
   %24 = phi { ptr, i64 } [ %35, %33 ], [ %20, %14 ]
-  %.sroa.02.016.i.i.i.i.i.i.i.i = phi i32 [ %34, %33 ], [ 0, %14 ]
+  %.sroa.02.015.i.i.i.i.i.i.i.i = phi i32 [ %34, %33 ], [ 0, %14 ]
   %25 = extractvalue { ptr, i64 } %24, 1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !1780
   store i64 0, ptr %5, align 8, !noalias !1780
@@ -9945,7 +9945,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator6reduce17h424f574b6d47
 
 33:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h9b1aef8b47b8cab0E.exit.i.i.i.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !1780
-  %34 = add i32 %.sroa.02.016.i.i.i.i.i.i.i.i, 1
+  %34 = add i32 %.sroa.02.015.i.i.i.i.i.i.i.i, 1
   %35 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h3a69977a04f8ecb2E"(ptr noalias noundef align 8 dereferenceable(72) %6), !noalias !1780
   %36 = extractvalue { ptr, i64 } %35, 0
   %37 = icmp eq ptr %36, null
@@ -10026,7 +10026,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator6reduce17h424f574b6d47
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %47, %65
   %55 = phi ptr [ %68, %65 ], [ %53, %47 ]
   %56 = phi { ptr, i64 } [ %67, %65 ], [ %52, %47 ]
-  %.sroa.02.016.i.i.i.i.i.i.i = phi i32 [ %66, %65 ], [ 0, %47 ]
+  %.sroa.02.015.i.i.i.i.i.i.i = phi i32 [ %66, %65 ], [ 0, %47 ]
   %57 = extractvalue { ptr, i64 } %56, 1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3), !noalias !1820
   store i64 0, ptr %3, align 8, !noalias !1820
@@ -10065,7 +10065,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator6reduce17h424f574b6d47
 
 65:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h9b1aef8b47b8cab0E.exit.i.i.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3), !noalias !1820
-  %66 = add i32 %.sroa.02.016.i.i.i.i.i.i.i, 1
+  %66 = add i32 %.sroa.02.015.i.i.i.i.i.i.i, 1
   %67 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h3a69977a04f8ecb2E"(ptr noalias noundef align 8 dereferenceable(72) %4), !noalias !1827
   %68 = extractvalue { ptr, i64 } %67, 0
   %69 = icmp eq ptr %68, null
@@ -11068,21 +11068,21 @@ define hidden void @_ZN4util21log_error_with_caller17h44d1ba3c623ce253E(ptr noal
   %26 = extractvalue { ptr, ptr } %23, 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   %27 = icmp eq ptr %21, null
-  br i1 %27, label %.thread156, label %30
+  br i1 %27, label %.thread155, label %30
 
 .thread:                                          ; preds = %18
   %28 = extractvalue { ptr, ptr } %19, 0
   %29 = extractvalue { ptr, ptr } %19, 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
-  br label %.thread156
+  br label %.thread155
 
-.thread156:                                       ; preds = %24, %.thread
-  %.sroa.0.1155.ph = phi ptr [ %28, %.thread ], [ %25, %24 ]
-  %.sroa.3.1154.ph = phi ptr [ %29, %.thread ], [ %26, %24 ]
+.thread155:                                       ; preds = %24, %.thread
+  %.sroa.0.1154.ph = phi ptr [ %28, %.thread ], [ %25, %24 ]
+  %.sroa.3.1153.ph = phi ptr [ %29, %.thread ], [ %26, %24 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %7, ptr %4, align 8
-  %.sroa.486.0..sroa_idx164 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @"_ZN6anyhow5error60_$LT$impl$u20$core..fmt..Debug$u20$for$u20$anyhow..Error$GT$3fmt17h99a2ef9cf5d496a8E", ptr %.sroa.486.0..sroa_idx164, align 8
+  %.sroa.486.0..sroa_idx163 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @"_ZN6anyhow5error60_$LT$impl$u20$core..fmt..Debug$u20$for$u20$anyhow..Error$GT$3fmt17h99a2ef9cf5d496a8E", ptr %.sroa.486.0..sroa_idx163, align 8
   br label %31
 
 30:                                               ; preds = %24
@@ -11093,22 +11093,22 @@ define hidden void @_ZN4util21log_error_with_caller17h44d1ba3c623ce253E(ptr noal
   call void @llvm.experimental.noalias.scope.decl(metadata !2103)
   br label %31
 
-31:                                               ; preds = %30, %.thread156
-  %.sroa.087.2170 = phi i64 [ 1, %30 ], [ 2, %.thread156 ]
-  %.sroa.081.0151169 = phi ptr [ %21, %30 ], [ inttoptr (i64 1 to ptr), %.thread156 ]
-  %.sroa.382.0152168 = phi i64 [ %22, %30 ], [ 0, %.thread156 ]
-  %.sroa.03.1153167 = phi ptr [ %21, %30 ], [ null, %.thread156 ]
-  %.sroa.3.1154166 = phi ptr [ %26, %30 ], [ %.sroa.3.1154.ph, %.thread156 ]
-  %.sroa.0.1155165 = phi ptr [ %25, %30 ], [ %.sroa.0.1155.ph, %.thread156 ]
-  %.sroa.53.i.sroa.4.0 = phi i64 [ %22, %30 ], [ undef, %.thread156 ]
+31:                                               ; preds = %30, %.thread155
+  %.sroa.087.2169 = phi i64 [ 1, %30 ], [ 2, %.thread155 ]
+  %.sroa.081.0150168 = phi ptr [ %21, %30 ], [ inttoptr (i64 1 to ptr), %.thread155 ]
+  %.sroa.382.0151167 = phi i64 [ %22, %30 ], [ 0, %.thread155 ]
+  %.sroa.03.1152166 = phi ptr [ %21, %30 ], [ null, %.thread155 ]
+  %.sroa.3.1153165 = phi ptr [ %26, %30 ], [ %.sroa.3.1153.ph, %.thread155 ]
+  %.sroa.0.1154164 = phi ptr [ %25, %30 ], [ %.sroa.0.1154.ph, %.thread155 ]
+  %.sroa.53.i.sroa.4.0 = phi i64 [ %22, %30 ], [ undef, %.thread155 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %.in, align 8, !noundef !5
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %2, ptr %33, align 8, !alias.scope !2106, !noalias !2103
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr %.sroa.081.0151169, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2106, !noalias !2103
+  store ptr %.sroa.081.0150168, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2106, !noalias !2103
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %.sroa.382.0152168, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2106, !noalias !2103
+  store i64 %.sroa.382.0151167, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2106, !noalias !2103
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr @anon.879f5d28a4607fba0ebec5e8d3f3ee6e.106, ptr %34, align 8, !alias.scope !2108
   %.sroa.41.80..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -11119,9 +11119,9 @@ define hidden void @_ZN4util21log_error_with_caller17h44d1ba3c623ce253E(ptr noal
   store i64 1, ptr %.sroa.47.80..sroa_idx, align 8, !alias.scope !2108
   %.sroa.50.80..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 112
   store ptr null, ptr %.sroa.50.80..sroa_idx, align 8, !alias.scope !2108
-  store i64 %.sroa.087.2170, ptr %5, align 8, !alias.scope !2106, !noalias !2103
+  store i64 %.sroa.087.2169, ptr %5, align 8, !alias.scope !2106, !noalias !2103
   %.sroa.53.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.sroa.03.1153167, ptr %.sroa.53.0..sroa_idx4.i, align 8, !noalias !2103
+  store ptr %.sroa.03.1152166, ptr %.sroa.53.0..sroa_idx4.i, align 8, !noalias !2103
   %.sroa.53.i.sroa.4.0..sroa.53.0..sroa_idx4.i.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %.sroa.53.i.sroa.4.0, ptr %.sroa.53.i.sroa.4.0..sroa.53.0..sroa_idx4.i.sroa_idx, align 8, !noalias !2103
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -11138,13 +11138,13 @@ define hidden void @_ZN4util21log_error_with_caller17h44d1ba3c623ce253E(ptr noal
   store ptr @anon.879f5d28a4607fba0ebec5e8d3f3ee6e.104, ptr %38, align 8, !alias.scope !2106, !noalias !2103
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store ptr @anon.879f5d28a4607fba0ebec5e8d3f3ee6e.105, ptr %39, align 8, !alias.scope !2106, !noalias !2103
-  %40 = icmp ne ptr %.sroa.0.1155165, null
+  %40 = icmp ne ptr %.sroa.0.1154164, null
   call void @llvm.assume(i1 %40)
-  %41 = icmp ne ptr %.sroa.3.1154166, null
+  %41 = icmp ne ptr %.sroa.3.1153165, null
   call void @llvm.assume(i1 %41)
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.3.1154166, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.3.1153165, i64 32
   %43 = load ptr, ptr %42, align 8, !invariant.load !5, !nonnull !5
-  invoke void %43(ptr noundef nonnull align 1 %.sroa.0.1155165, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %5)
+  invoke void %43(ptr noundef nonnull align 1 %.sroa.0.1154164, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %5)
           to label %44 unwind label %12
 
 44:                                               ; preds = %31
@@ -12337,8 +12337,8 @@ define internal fastcc noundef zeroext i1 @_ZN5regex5regex6string5Regex11is_matc
   store i64 0, ptr %.sroa.7.0..sroa_idx3, align 8
   %.sroa.9.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %1, ptr %.sroa.9.0..sroa_idx4, align 8
-  %.sroa.115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i8 1, ptr %.sroa.115.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i8 1, ptr %.sroa.11.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
@@ -23977,8 +23977,8 @@ define hidden void @_ZN8language6buffer14BufferSnapshot13for_each_line17h0b21749
   %42 = icmp eq i8 %41, 2
   %43 = load i32, ptr %.sroa.6.0..sroa_idx, align 8
   %.not.i.i.i.i.i.i = icmp eq i32 %43, 0
-  %or.cond65 = select i1 %42, i1 true, i1 %.not.i.i.i.i.i.i
-  br i1 %or.cond65, label %"_ZN4core3ptr61drop_in_place$LT$core..option..Option$LT$rope..Chunks$GT$$GT$17h65ca83a620448cabE.exit.i", label %44
+  %or.cond64 = select i1 %42, i1 true, i1 %.not.i.i.i.i.i.i
+  br i1 %or.cond64, label %"_ZN4core3ptr61drop_in_place$LT$core..option..Option$LT$rope..Chunks$GT$$GT$17h65ca83a620448cabE.exit.i", label %44
 
 44:                                               ; preds = %40
   store i32 0, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !4672

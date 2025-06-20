@@ -2322,10 +2322,10 @@ _ZN5uu_dd9parseargs15conversion_mode17hf3a4ad01690de3bbE.exit.i: ; preds = %553,
   %..i86.i = select i1 %brmerge.not.i85.i, i64 1, i64 %576
   br label %578
 
-592:                                              ; preds = %537, %543, %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i, %518, %511, %514
-  %.sink = phi i64 [ 1, %514 ], [ 1, %511 ], [ 2, %518 ], [ 4, %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i ], [ 3, %543 ], [ 9, %537 ]
+592:                                              ; preds = %543, %537, %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i, %518, %514, %511
+  %.sink.sink.i = phi i64 [ 1, %511 ], [ 1, %514 ], [ 2, %518 ], [ 4, %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i ], [ 9, %537 ], [ 3, %543 ]
   %593 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %593, align 8, !alias.scope !492, !noalias !495
+  store i64 %.sink.sink.i, ptr %593, align 8, !alias.scope !492, !noalias !495
   store i64 3, ptr %0, align 8, !alias.scope !492, !noalias !495
   call void @"_ZN4core3ptr45drop_in_place$LT$uu_dd..parseargs..Parser$GT$17h1bae17a1e4d088d9E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %22), !noalias !492
   br label %_ZN5uu_dd9parseargs6Parser8validate17h18ba656e188cacfaE.exit

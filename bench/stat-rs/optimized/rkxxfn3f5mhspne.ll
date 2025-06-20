@@ -1069,8 +1069,8 @@ define void @_ZN6statrs12distribution8binomial8Binomial3new17he24f0cf7b640e9afE(
   store i64 %2, ptr %10, align 8
   br label %_ZN4core3ops5range11RangeBounds8contains17hb4eac75a74a25f7dE.llvm.13986783010576937582.exit.thread
 
-_ZN4core3ops5range11RangeBounds8contains17hb4eac75a74a25f7dE.llvm.13986783010576937582.exit.thread: ; preds = %3, %5, %8
-  %storemerge = phi i64 [ 21, %8 ], [ 0, %5 ], [ 0, %3 ]
+_ZN4core3ops5range11RangeBounds8contains17hb4eac75a74a25f7dE.llvm.13986783010576937582.exit.thread: ; preds = %5, %3, %8
+  %storemerge = phi i64 [ 21, %8 ], [ 0, %3 ], [ 0, %5 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -1646,8 +1646,8 @@ define void @_ZN6statrs12distribution11chi_squared10ChiSquared3new17hc5b23d55317
   br i1 %or.cond, label %5, label %4
 
 4:                                                ; preds = %2
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %1, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double %1, ptr %.sroa.5.0..sroa_idx, align 8
   br label %5
 
 5:                                                ; preds = %2, %4
@@ -1900,8 +1900,8 @@ define void @_ZN6statrs12distribution7poisson7Poisson3new17hc90cee90b2be26c8E(pt
   br label %5
 
 5:                                                ; preds = %2, %3
-  %.sink = phi i64 [ 21, %3 ], [ 0, %2 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 21, %3 ], [ 0, %2 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -2542,9 +2542,9 @@ define void @_ZN6statrs12distribution7uniform7Uniform3new17hecbe25eb1377c32bE(pt
   br i1 %7, label %11, label %12
 
 11:                                               ; preds = %5
+  store i64 1, ptr %0, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %0, align 8
   br i1 %9, label %14, label %13
 
 12:                                               ; preds = %5

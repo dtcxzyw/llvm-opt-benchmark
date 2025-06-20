@@ -1432,8 +1432,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16TsSimplifySplineEPNS_8TsSpli
   %31 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %32 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", align 8
   %33 = alloca %"class.std::vector.19", align 8
-  %.sroa.10 = alloca [11 x i8], align 1
-  %.sroa.6 = alloca [11 x i8], align 1
   %34 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %35 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", align 8
   %36 = load atomic i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_isEnabledE acquire, align 4
@@ -2752,8 +2750,6 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimp
   store i32 %588, ptr %.sroa.6308.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 12
   store i8 0, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.10, i64 11, i1 false)
   %592 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   store ptr %592, ptr %590, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit
@@ -2768,8 +2764,6 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   store i32 %588, ptr %.sroa.6308.0..sroa_idx309, align 8
   %.sroa.8.0..sroa_idx315 = getelementptr inbounds nuw i8, ptr %593, i64 12
   store i8 0, ptr %.sroa.8.0..sroa_idx315, align 4
-  %.sroa.10.0..sroa_idx321 = getelementptr inbounds nuw i8, ptr %593, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.10.0..sroa_idx321, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.10, i64 11, i1 false)
   %594 = getelementptr inbounds nuw i8, ptr %593, i64 24
   %.not.i21.i.i = icmp eq ptr %584, null
   br i1 %.not.i21.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %595
@@ -2840,8 +2834,6 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   store i32 %605, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %599, i64 12
   store i8 %617, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %599, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6, i64 11, i1 false)
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit260
 
 620:                                              ; preds = %.thread372
@@ -2878,8 +2870,6 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKn
   store i32 %605, ptr %.sroa.4.0..sroa_idx299, align 8
   %.sroa.5.0..sroa_idx301 = getelementptr inbounds nuw i8, ptr %634, i64 12
   store i8 %617, ptr %.sroa.5.0..sroa_idx301, align 4
-  %.sroa.6.0..sroa_idx303 = getelementptr inbounds nuw i8, ptr %634, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6.0..sroa_idx303, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6, i64 11, i1 false)
   %635 = icmp sgt i64 %623, 0
   br i1 %635, label %636, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i255
 
@@ -2985,8 +2975,6 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   store i32 %663, ptr %.sroa.6308.0..sroa_idx311, align 8
   %.sroa.8.0..sroa_idx317 = getelementptr inbounds nuw i8, ptr %657, i64 12
   store i8 0, ptr %.sroa.8.0..sroa_idx317, align 4
-  %.sroa.10.0..sroa_idx322 = getelementptr inbounds nuw i8, ptr %657, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.10.0..sroa_idx322, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.10, i64 11, i1 false)
   %666 = getelementptr inbounds nuw i8, ptr %657, i64 24
   store ptr %666, ptr %590, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit272
@@ -3020,8 +3008,6 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKn
   store i32 %663, ptr %.sroa.6308.0..sroa_idx313, align 8
   %.sroa.8.0..sroa_idx319 = getelementptr inbounds nuw i8, ptr %680, i64 12
   store i8 0, ptr %.sroa.8.0..sroa_idx319, align 4
-  %.sroa.10.0..sroa_idx323 = getelementptr inbounds nuw i8, ptr %680, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.10.0..sroa_idx323, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.10, i64 11, i1 false)
   %681 = icmp sgt i64 %670, 0
   br i1 %681, label %682, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i267
 

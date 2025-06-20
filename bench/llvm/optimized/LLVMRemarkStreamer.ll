@@ -171,7 +171,6 @@ $_ZTVN4llvm24LLVMRemarkSetupErrorInfoINS_27LLVMRemarkSetupPatternErrorEEE = comd
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm18LLVMRemarkStreamer8toRemarkERKNS_30DiagnosticInfoOptimizationBaseE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::remarks::Remark") align 8 initializes((8, 56), (80, 81), (96, 97)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(424) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::DiagnosticLocation", align 8
-  %.sroa.8 = alloca [7 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %6, align 8, !tbaa !3
@@ -268,19 +267,19 @@ _ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit: ; preds = %_Z
   br label %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit
 
 _ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit: ; preds = %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit, %34
-  %.sroa.057.0 = phi ptr [ undef, %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit ], [ %36, %34 ]
-  %.sroa.458.0 = phi i64 [ undef, %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit ], [ %37, %34 ]
-  %.sroa.559.0 = phi i32 [ undef, %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit ], [ %38, %34 ]
-  %.sroa.660.0 = phi i32 [ undef, %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit ], [ %40, %34 ]
+  %.sroa.056.0 = phi ptr [ undef, %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit ], [ %36, %34 ]
+  %.sroa.457.0 = phi i64 [ undef, %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit ], [ %37, %34 ]
+  %.sroa.558.0 = phi i32 [ undef, %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit ], [ %38, %34 ]
+  %.sroa.659.0 = phi i32 [ undef, %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit ], [ %40, %34 ]
   %.sink.i = phi i8 [ 0, %_ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit ], [ 1, %34 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sroa.057.0, ptr %41, align 8
-  %.sroa.458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %.sroa.458.0, ptr %.sroa.458.0..sroa_idx, align 8
-  %.sroa.559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %.sroa.559.0, ptr %.sroa.559.0..sroa_idx, align 8
-  %.sroa.660.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %.sroa.660.0, ptr %.sroa.660.0..sroa_idx, align 4
+  store ptr %.sroa.056.0, ptr %41, align 8
+  %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %.sroa.457.0, ptr %.sroa.457.0..sroa_idx, align 8
+  %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %.sroa.558.0, ptr %.sroa.558.0..sroa_idx, align 8
+  %.sroa.659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 %.sroa.659.0, ptr %.sroa.659.0..sroa_idx, align 4
   store i8 %.sink.i, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -296,18 +295,18 @@ _ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit: ; preds = %_ZN4llvm11Gl
   %47 = load i32, ptr %46, align 8, !tbaa !14
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %45, i64 %48
-  %.not63 = icmp eq i32 %47, 0
-  br i1 %.not63, label %._crit_edge, label %.lr.ph
+  %.not62 = icmp eq i32 %47, 0
+  br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit
   ret void
 
 .lr.ph:                                           ; preds = %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47
-  %.068 = phi ptr [ %86, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47 ], [ %45, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit ]
-  %.sroa.0.067 = phi ptr [ %.sroa.0.1, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47 ], [ undef, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit ]
-  %.sroa.4.066 = phi i64 [ %.sroa.4.1, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47 ], [ undef, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit ]
-  %.sroa.549.065 = phi i32 [ %.sroa.549.1, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47 ], [ undef, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit ]
-  %.sroa.6.064 = phi i32 [ %.sroa.6.1, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47 ], [ undef, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit ]
+  %.067 = phi ptr [ %86, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47 ], [ %45, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit ]
+  %.sroa.0.066 = phi ptr [ %.sroa.0.1, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47 ], [ undef, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit ]
+  %.sroa.4.065 = phi i64 [ %.sroa.4.1, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47 ], [ undef, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit ]
+  %.sroa.5.064 = phi i32 [ %.sroa.5.1, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47 ], [ undef, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit ]
+  %.sroa.6.063 = phi i32 [ %.sroa.6.1, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47 ], [ undef, %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit ]
   %50 = load i32, ptr %10, align 8, !tbaa !14
   %51 = load i32, ptr %11, align 4, !tbaa !15
   %.not.i40 = icmp ult i32 %50, %51
@@ -330,26 +329,25 @@ _ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit: ; preds = %_ZN4llvm11Gl
 
 _ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %52, %54
   %60 = phi i32 [ %.pre, %52 ], [ %59, %54 ]
-  %61 = load ptr, ptr %.068, align 8, !tbaa !57
-  %62 = getelementptr inbounds nuw i8, ptr %.068, i64 8
+  %61 = load ptr, ptr %.067, align 8, !tbaa !57
+  %62 = getelementptr inbounds nuw i8, ptr %.067, i64 8
   %63 = load i64, ptr %62, align 8, !tbaa !60
   %64 = load ptr, ptr %8, align 8, !tbaa !10
   %65 = zext i32 %60 to i64
   %66 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %64, i64 %65
   %67 = getelementptr inbounds i8, ptr %66, i64 -64
   store ptr %61, ptr %67, align 8, !tbaa !47
-  %.sroa.453.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 -56
-  store i64 %63, ptr %.sroa.453.0..sroa_idx, align 8, !tbaa !48
-  %68 = getelementptr inbounds nuw i8, ptr %.068, i64 32
+  %.sroa.452.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 -56
+  store i64 %63, ptr %.sroa.452.0..sroa_idx, align 8, !tbaa !48
+  %68 = getelementptr inbounds nuw i8, ptr %.067, i64 32
   %69 = load ptr, ptr %68, align 8, !tbaa !57
-  %70 = getelementptr inbounds nuw i8, ptr %.068, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %.067, i64 40
   %71 = load i64, ptr %70, align 8, !tbaa !60
   %72 = getelementptr inbounds i8, ptr %66, i64 -48
   store ptr %69, ptr %72, align 8, !tbaa !47
-  %.sroa.451.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 -40
-  store i64 %71, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.8)
-  %73 = getelementptr inbounds nuw i8, ptr %.068, i64 64
+  %.sroa.450.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 -40
+  store i64 %71, ptr %.sroa.450.0..sroa_idx, align 8, !tbaa !48
+  %73 = getelementptr inbounds nuw i8, ptr %.067, i64 64
   %74 = load ptr, ptr %73, align 8, !tbaa !61, !noalias !62
   %.not.i42 = icmp eq ptr %74, null
   br i1 %.not.i42, label %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47, label %75
@@ -358,38 +356,35 @@ _ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exi
   %76 = call { ptr, i64 } @_ZNK4llvm18DiagnosticLocation15getRelativePathEv(ptr noundef nonnull align 8 dereferenceable(16) %73) #16, !noalias !62
   %77 = extractvalue { ptr, i64 } %76, 0
   %78 = extractvalue { ptr, i64 } %76, 1
-  %79 = getelementptr inbounds nuw i8, ptr %.068, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %.067, i64 72
   %80 = load i32, ptr %79, align 8, !tbaa !54, !noalias !62
-  %81 = getelementptr inbounds nuw i8, ptr %.068, i64 76
+  %81 = getelementptr inbounds nuw i8, ptr %.067, i64 76
   %82 = load i32, ptr %81, align 4, !tbaa !55, !noalias !62
-  %.pre69 = load ptr, ptr %8, align 8, !tbaa !10
-  %.pre70 = load i32, ptr %10, align 8, !tbaa !14
-  %.pre71 = zext i32 %.pre70 to i64
+  %.pre68 = load ptr, ptr %8, align 8, !tbaa !10
+  %.pre69 = load i32, ptr %10, align 8, !tbaa !14
+  %.pre70 = zext i32 %.pre69 to i64
   br label %_ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47
 
 _ZL16toRemarkLocationRKN4llvm18DiagnosticLocationE.exit47: ; preds = %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit, %75
-  %.pre-phi = phi i64 [ %65, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %.pre71, %75 ]
-  %83 = phi ptr [ %64, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %.pre69, %75 ]
-  %.sroa.6.1 = phi i32 [ %.sroa.6.064, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %82, %75 ]
-  %.sroa.549.1 = phi i32 [ %.sroa.549.065, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %80, %75 ]
-  %.sroa.4.1 = phi i64 [ %.sroa.4.066, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %78, %75 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.067, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %77, %75 ]
+  %.pre-phi = phi i64 [ %65, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %.pre70, %75 ]
+  %83 = phi ptr [ %64, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %.pre68, %75 ]
+  %.sroa.6.1 = phi i32 [ %.sroa.6.063, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %82, %75 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.064, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %80, %75 ]
+  %.sroa.4.1 = phi i64 [ %.sroa.4.065, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %78, %75 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.066, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ %77, %75 ]
   %.sink.i46 = phi i8 [ 0, %_ZN4llvm15SmallVectorImplINS_7remarks8ArgumentEE12emplace_backIJEEERS2_DpOT_.exit ], [ 1, %75 ]
   %84 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %83, i64 %.pre-phi
   %85 = getelementptr inbounds i8, ptr %84, i64 -32
   store ptr %.sroa.0.1, ptr %85, align 8
   %.sroa.4.0..sroa_idx48 = getelementptr inbounds i8, ptr %84, i64 -24
   store i64 %.sroa.4.1, ptr %.sroa.4.0..sroa_idx48, align 8
-  %.sroa.549.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 -16
-  store i32 %.sroa.549.1, ptr %.sroa.549.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 -16
+  store i32 %.sroa.5.1, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 -12
   store i32 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 -8
   store i8 %.sink.i46, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 -7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8, i64 7, i1 false)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.8)
-  %86 = getelementptr inbounds nuw i8, ptr %.068, i64 80
+  %86 = getelementptr inbounds nuw i8, ptr %.067, i64 80
   %.not = icmp eq ptr %86, %49
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }

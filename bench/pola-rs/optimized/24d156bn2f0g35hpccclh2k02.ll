@@ -186,7 +186,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
 
 .lr.ph.preheader.i.i:                             ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 %10
-  %.sroa.018.127.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 1
+  %.sroa.018.126.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 1
   br label %.lr.ph.i.i
 
 33:                                               ; preds = %.lr.ph.i.i.i
@@ -212,8 +212,8 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   br label %"_ZN112_$LT$polars_io..csv..read..splitfields..inner..SplitFields$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h770c4f73544bb716E.exit.i"
 
 45:                                               ; preds = %68, %33
-  %46 = phi i64 [ %.pre36.i.i, %68 ], [ %36, %33 ]
-  %47 = phi ptr [ %.pre35.i.i, %68 ], [ %35, %33 ]
+  %46 = phi i64 [ %.pre35.i.i, %68 ], [ %36, %33 ]
+  %47 = phi ptr [ %.pre34.i.i, %68 ], [ %35, %33 ]
   %.sroa.012.0.i.i = phi i8 [ 1, %68 ], [ 0, %33 ]
   %.sroa.013.0.i.i = phi i64 [ %69, %68 ], [ %.sroa.02.012.i.i.i, %33 ]
   %.sroa.511.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -226,20 +226,20 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   br label %"_ZN112_$LT$polars_io..csv..read..splitfields..inner..SplitFields$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h770c4f73544bb716E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %59, %.lr.ph.preheader.i.i
-  %.sroa.018.131.i.i = phi ptr [ %.sroa.018.1.i.i, %59 ], [ %.sroa.018.127.i.i, %.lr.ph.preheader.i.i ]
-  %.sroa.0.030.i.i = phi i8 [ %spec.select.i.i, %59 ], [ 0, %.lr.ph.preheader.i.i ]
-  %.sroa.04.029.i.i = phi i32 [ %60, %59 ], [ 0, %.lr.ph.preheader.i.i ]
-  %.sroa.018.028.i.i = phi ptr [ %.sroa.018.131.i.i, %59 ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
-  %51 = load i8, ptr %.sroa.018.028.i.i, align 1, !noalias !46, !noundef !12
+  %.sroa.018.130.i.i = phi ptr [ %.sroa.018.1.i.i, %59 ], [ %.sroa.018.126.i.i, %.lr.ph.preheader.i.i ]
+  %.sroa.0.029.i.i = phi i8 [ %spec.select.i.i, %59 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.sroa.04.028.i.i = phi i32 [ %60, %59 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.sroa.018.027.i.i = phi ptr [ %.sroa.018.130.i.i, %59 ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
+  %51 = load i8, ptr %.sroa.018.027.i.i, align 1, !noalias !46, !noundef !12
   %52 = load i8, ptr %29, align 1, !alias.scope !45, !noalias !46, !noundef !12
   %53 = icmp eq i8 %51, %52
   %54 = zext i1 %53 to i8
-  %spec.select.i.i = xor i8 %.sroa.0.030.i.i, %54
-  %.not.i.i = icmp eq i8 %.sroa.0.030.i.i, %54
+  %spec.select.i.i = xor i8 %.sroa.0.029.i.i, %54
+  %.not.i.i = icmp eq i8 %.sroa.0.029.i.i, %54
   br i1 %.not.i.i, label %57, label %59
 
 55:                                               ; preds = %62
-  %56 = icmp eq i32 %.sroa.04.029.i.i, 0
+  %56 = icmp eq i32 %.sroa.04.028.i.i, 0
   br i1 %56, label %.thread.i.i, label %68
 
 57:                                               ; preds = %.lr.ph.i.i
@@ -247,10 +247,10 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %57, %.lr.ph.i.i
-  %60 = add i32 %.sroa.04.029.i.i, 1
-  %61 = icmp ne ptr %.sroa.018.131.i.i, %32
+  %60 = add i32 %.sroa.04.028.i.i, 1
+  %61 = icmp ne ptr %.sroa.018.130.i.i, %32
   %.sroa.018.1.idx.i.i = zext i1 %61 to i64
-  %.sroa.018.1.i.i = getelementptr inbounds nuw i8, ptr %.sroa.018.131.i.i, i64 %.sroa.018.1.idx.i.i
+  %.sroa.018.1.i.i = getelementptr inbounds nuw i8, ptr %.sroa.018.130.i.i, i64 %.sroa.018.1.idx.i.i
   br i1 %61, label %.lr.ph.i.i, label %.thread.i.i
 
 62:                                               ; preds = %57
@@ -260,7 +260,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   br i1 %65, label %66, label %55
 
 66:                                               ; preds = %62
-  %67 = zext i32 %.sroa.04.029.i.i to i64
+  %67 = zext i32 %.sroa.04.028.i.i to i64
   call void @_ZN9polars_io3csv4read11splitfields5inner11SplitFields10finish_eol17ha06ca62e34b6e5b0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext true, i64 noundef %67), !noalias !48
   br label %"_ZN112_$LT$polars_io..csv..read..splitfields..inner..SplitFields$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h770c4f73544bb716E.exit.i"
 
@@ -269,9 +269,9 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   br label %"_ZN112_$LT$polars_io..csv..read..splitfields..inner..SplitFields$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h770c4f73544bb716E.exit.i"
 
 68:                                               ; preds = %55
-  %69 = zext i32 %.sroa.04.029.i.i to i64
-  %.pre35.i.i = load ptr, ptr %4, align 8, !alias.scope !45, !noalias !46
-  %.pre36.i.i = load i64, ptr %9, align 8, !alias.scope !45, !noalias !46
+  %69 = zext i32 %.sroa.04.028.i.i to i64
+  %.pre34.i.i = load ptr, ptr %4, align 8, !alias.scope !45, !noalias !46
+  %.pre35.i.i = load i64, ptr %9, align 8, !alias.scope !45, !noalias !46
   br label %45
 
 "_ZN112_$LT$polars_io..csv..read..splitfields..inner..SplitFields$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h770c4f73544bb716E.exit.i": ; preds = %.thread.i.i, %66, %45, %44, %43, %14, %12

@@ -11941,8 +11941,8 @@ define void @_ZN5theme6styles6syntax11SyntaxTheme3get17h4b3c3f8febd7fa41E(ptr de
 
 27:                                               ; preds = %"_ZN5theme6styles6syntax11SyntaxTheme3get28_$u7b$$u7b$closure$u7d$$u7d$17h129264411db9bda8E.exit.i"
   %.sroa.7.0..sroa_idx5.le.i = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %.sroa.57.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(108) %.sroa.7.0..sroa_idx5.le.i, i64 108, i1 false)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(108) %.sroa.7.0..sroa_idx5.le.i, i64 108, i1 false)
   store i32 %.sroa.03.0.copyload4.i, ptr %0, align 4
   br label %28
 

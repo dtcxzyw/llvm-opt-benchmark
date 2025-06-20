@@ -5109,9 +5109,7 @@ _ZN12clap_builder7builder3arg3Arg2id17h8a4733afa59252a2E.llvm.140881874582127015
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN12clap_builder7builder3arg3Arg5alias17hdc65fb90dd4088d5E(ptr dead_on_unwind noalias noundef writable writeonly sret([672 x i8]) align 8 captures(none) dereferenceable(672) %0, ptr noalias noundef align 8 captures(none) dereferenceable(672) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.sroa.7 = alloca [7 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %7 = load i64, ptr %6, align 8, !alias.scope !955, !noalias !958, !noundef !17
   %8 = load i64, ptr %5, align 8, !range !909, !alias.scope !955, !noalias !958, !noundef !17
@@ -5139,11 +5137,8 @@ define hidden void @_ZN12clap_builder7builder3arg3Arg5alias17hdc65fb90dd4088d5E(
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, i64 7, i1 false)
   %15 = add i64 %7, 1
   store i64 %15, ptr %6, align 8, !alias.scope !955, !noalias !958
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef nonnull align 8 dereferenceable(672) %1, i64 672, i1 false)
   ret void
 

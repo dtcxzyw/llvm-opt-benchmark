@@ -1114,7 +1114,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   br label %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hf8d9c0384429d9d2E.llvm.5331966815222788767.exit"
 
 "_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17hf8d9c0384429d9d2E.llvm.5331966815222788767.exit": ; preds = %3, %5, %11
-  %storemerge.i.i = phi i32 [ 11, %11 ], [ 2, %5 ], [ 2, %3 ]
+  %storemerge.i.i = phi i32 [ 11, %11 ], [ 2, %3 ], [ 2, %5 ]
   store i32 %storemerge.i.i, ptr %0, align 8, !alias.scope !133, !noalias !132
   ret void
 }
@@ -1150,7 +1150,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   br label %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17h0331732a51d5c1c9E.llvm.5331966815222788767.exit"
 
 "_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17h0331732a51d5c1c9E.llvm.5331966815222788767.exit": ; preds = %3, %5, %11
-  %storemerge.i.i = phi i32 [ 11, %11 ], [ 2, %5 ], [ 2, %3 ]
+  %storemerge.i.i = phi i32 [ 11, %11 ], [ 2, %3 ], [ 2, %5 ]
   store i32 %storemerge.i.i, ptr %0, align 8, !alias.scope !145, !noalias !144
   ret void
 }
@@ -1187,7 +1187,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   br label %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17h24811d7946b28201E.llvm.5331966815222788767.exit"
 
 "_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17h24811d7946b28201E.llvm.5331966815222788767.exit": ; preds = %3, %6, %12
-  %storemerge.i.i = phi i32 [ 11, %12 ], [ 2, %6 ], [ 2, %3 ]
+  %storemerge.i.i = phi i32 [ 11, %12 ], [ 2, %3 ], [ 2, %6 ]
   store i32 %storemerge.i.i, ptr %0, align 8, !alias.scope !157, !noalias !156
   ret void
 }
@@ -1224,7 +1224,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   br label %"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17h65b6b3fbc4afc3fbE.llvm.5331966815222788767.exit"
 
 "_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$closure$u7d$$u7d$17h65b6b3fbc4afc3fbE.llvm.5331966815222788767.exit": ; preds = %3, %6, %12
-  %storemerge.i.i = phi i32 [ 11, %12 ], [ 2, %6 ], [ 2, %3 ]
+  %storemerge.i.i = phi i32 [ 11, %12 ], [ 2, %3 ], [ 2, %6 ]
   store i32 %storemerge.i.i, ptr %0, align 8, !alias.scope !169, !noalias !168
   ret void
 }
@@ -3101,7 +3101,7 @@ define hidden noundef zeroext i1 @"_ZN6wiggle17GuestPtr$LT$T$GT$16is_shared_memo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h017aa82969b168b9E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #11 {
   %4 = icmp ugt i32 %2, 536870911
-  br i1 %4, label %select.unfold, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %3
   %6 = shl nuw i32 %2, 3
@@ -3109,7 +3109,7 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h017aa82969b168b9E"(ptr 
   %8 = load i32, ptr %7, align 8, !noundef !7
   %9 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %8, i32 %6)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %select.unfold, label %11
+  br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %5
   %12 = extractvalue { i32, i1 } %9, 0
@@ -3122,10 +3122,10 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h017aa82969b168b9E"(ptr 
   store ptr %15, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %.sroa.55.0..sroa_idx, align 8
-  br label %select.unfold
+  br label %.thread
 
-select.unfold:                                    ; preds = %3, %5, %11
-  %storemerge = phi i32 [ 11, %11 ], [ 2, %5 ], [ 2, %3 ]
+.thread:                                          ; preds = %5, %3, %11
+  %storemerge = phi i32 [ 11, %11 ], [ 2, %3 ], [ 2, %5 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
@@ -3133,7 +3133,7 @@ select.unfold:                                    ; preds = %3, %5, %11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h27228d44af9eb198E.llvm.5331966815222788767"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #11 {
   %4 = icmp ugt i32 %2, 134217727
-  br i1 %4, label %select.unfold, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %3
   %6 = shl nuw i32 %2, 5
@@ -3141,7 +3141,7 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h27228d44af9eb198E.llvm.
   %8 = load i32, ptr %7, align 8, !noundef !7
   %9 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %8, i32 %6)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %select.unfold, label %11
+  br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %5
   %12 = extractvalue { i32, i1 } %9, 0
@@ -3154,10 +3154,10 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h27228d44af9eb198E.llvm.
   store ptr %15, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %.sroa.55.0..sroa_idx, align 8
-  br label %select.unfold
+  br label %.thread
 
-select.unfold:                                    ; preds = %3, %5, %11
-  %storemerge = phi i32 [ 11, %11 ], [ 2, %5 ], [ 2, %3 ]
+.thread:                                          ; preds = %5, %3, %11
+  %storemerge = phi i32 [ 11, %11 ], [ 2, %3 ], [ 2, %5 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
@@ -3165,7 +3165,7 @@ select.unfold:                                    ; preds = %3, %5, %11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h2f2bd8d708a96548E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #11 {
   %4 = icmp ugt i32 %2, 536870911
-  br i1 %4, label %select.unfold, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %3
   %6 = shl nuw i32 %2, 3
@@ -3173,7 +3173,7 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h2f2bd8d708a96548E"(ptr 
   %8 = load i32, ptr %7, align 8, !noundef !7
   %9 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %8, i32 %6)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %select.unfold, label %11
+  br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %5
   %12 = extractvalue { i32, i1 } %9, 0
@@ -3186,10 +3186,10 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h2f2bd8d708a96548E"(ptr 
   store ptr %15, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %.sroa.55.0..sroa_idx, align 8
-  br label %select.unfold
+  br label %.thread
 
-select.unfold:                                    ; preds = %3, %5, %11
-  %storemerge = phi i32 [ 11, %11 ], [ 2, %5 ], [ 2, %3 ]
+.thread:                                          ; preds = %5, %3, %11
+  %storemerge = phi i32 [ 11, %11 ], [ 2, %3 ], [ 2, %5 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
@@ -3197,7 +3197,7 @@ select.unfold:                                    ; preds = %3, %5, %11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h4c93cd789bd81afaE.llvm.5331966815222788767"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #11 {
   %4 = icmp ugt i32 %2, 134217727
-  br i1 %4, label %select.unfold, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %3
   %6 = shl nuw i32 %2, 5
@@ -3205,7 +3205,7 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h4c93cd789bd81afaE.llvm.
   %8 = load i32, ptr %7, align 8, !noundef !7
   %9 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %8, i32 %6)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %select.unfold, label %11
+  br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %5
   %12 = extractvalue { i32, i1 } %9, 0
@@ -3218,10 +3218,10 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h4c93cd789bd81afaE.llvm.
   store ptr %15, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %.sroa.55.0..sroa_idx, align 8
-  br label %select.unfold
+  br label %.thread
 
-select.unfold:                                    ; preds = %3, %5, %11
-  %storemerge = phi i32 [ 11, %11 ], [ 2, %5 ], [ 2, %3 ]
+.thread:                                          ; preds = %5, %3, %11
+  %storemerge = phi i32 [ 11, %11 ], [ 2, %3 ], [ 2, %5 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
@@ -3248,8 +3248,8 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h9ebd5b26c4ffe0b4E"(ptr 
   br label %14
 
 14:                                               ; preds = %3, %8
-  %.sink = phi i32 [ 11, %8 ], [ 2, %3 ]
-  store i32 %.sink, ptr %0, align 8
+  %storemerge = phi i32 [ 11, %8 ], [ 2, %3 ]
+  store i32 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -3257,7 +3257,7 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h9ebd5b26c4ffe0b4E"(ptr 
 define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17ha11c5490ead21b69E.llvm.5331966815222788767"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #11 {
   %4 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %2, i32 56)
   %5 = extractvalue { i32, i1 } %4, 1
-  br i1 %5, label %select.unfold, label %6
+  br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %3
   %7 = extractvalue { i32, i1 } %4, 0
@@ -3265,7 +3265,7 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17ha11c5490ead21b69E.llvm.
   %9 = load i32, ptr %8, align 8, !noundef !7
   %10 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %9, i32 %7)
   %11 = extractvalue { i32, i1 } %10, 1
-  br i1 %11, label %select.unfold, label %12
+  br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %6
   %13 = extractvalue { i32, i1 } %10, 0
@@ -3278,10 +3278,10 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17ha11c5490ead21b69E.llvm.
   store ptr %16, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %13, ptr %.sroa.55.0..sroa_idx, align 8
-  br label %select.unfold
+  br label %.thread
 
-select.unfold:                                    ; preds = %3, %6, %12
-  %storemerge = phi i32 [ 11, %12 ], [ 2, %6 ], [ 2, %3 ]
+.thread:                                          ; preds = %6, %3, %12
+  %storemerge = phi i32 [ 11, %12 ], [ 2, %3 ], [ 2, %6 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
@@ -3290,7 +3290,7 @@ select.unfold:                                    ; preds = %3, %6, %12
 define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17ha304667bb51041abE.llvm.5331966815222788767"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #11 {
   %4 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %2, i32 48)
   %5 = extractvalue { i32, i1 } %4, 1
-  br i1 %5, label %select.unfold, label %6
+  br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %3
   %7 = extractvalue { i32, i1 } %4, 0
@@ -3298,7 +3298,7 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17ha304667bb51041abE.llvm.
   %9 = load i32, ptr %8, align 8, !noundef !7
   %10 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %9, i32 %7)
   %11 = extractvalue { i32, i1 } %10, 1
-  br i1 %11, label %select.unfold, label %12
+  br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %6
   %13 = extractvalue { i32, i1 } %10, 0
@@ -3311,10 +3311,10 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17ha304667bb51041abE.llvm.
   store ptr %16, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %13, ptr %.sroa.55.0..sroa_idx, align 8
-  br label %select.unfold
+  br label %.thread
 
-select.unfold:                                    ; preds = %3, %6, %12
-  %storemerge = phi i32 [ 11, %12 ], [ 2, %6 ], [ 2, %3 ]
+.thread:                                          ; preds = %6, %3, %12
+  %storemerge = phi i32 [ 11, %12 ], [ 2, %3 ], [ 2, %6 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
@@ -3322,7 +3322,7 @@ select.unfold:                                    ; preds = %3, %6, %12
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17hbf019ab4d79525ccE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #11 {
   %4 = icmp ugt i32 %2, 536870911
-  br i1 %4, label %select.unfold, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %3
   %6 = shl nuw i32 %2, 3
@@ -3330,7 +3330,7 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17hbf019ab4d79525ccE"(ptr 
   %8 = load i32, ptr %7, align 8, !noundef !7
   %9 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %8, i32 %6)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %select.unfold, label %11
+  br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %5
   %12 = extractvalue { i32, i1 } %9, 0
@@ -3343,10 +3343,10 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17hbf019ab4d79525ccE"(ptr 
   store ptr %15, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %.sroa.55.0..sroa_idx, align 8
-  br label %select.unfold
+  br label %.thread
 
-select.unfold:                                    ; preds = %3, %5, %11
-  %storemerge = phi i32 [ 11, %11 ], [ 2, %5 ], [ 2, %3 ]
+.thread:                                          ; preds = %5, %3, %11
+  %storemerge = phi i32 [ 11, %11 ], [ 2, %3 ], [ 2, %5 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
@@ -3354,7 +3354,7 @@ select.unfold:                                    ; preds = %3, %5, %11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17hc67dd062795a2c80E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #11 {
   %4 = icmp ugt i32 %2, 1073741823
-  br i1 %4, label %select.unfold, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %3
   %6 = shl nuw i32 %2, 2
@@ -3362,7 +3362,7 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17hc67dd062795a2c80E"(ptr 
   %8 = load i32, ptr %7, align 8, !noundef !7
   %9 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %8, i32 %6)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %select.unfold, label %11
+  br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %5
   %12 = extractvalue { i32, i1 } %9, 0
@@ -3375,10 +3375,10 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17hc67dd062795a2c80E"(ptr 
   store ptr %15, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %.sroa.55.0..sroa_idx, align 8
-  br label %select.unfold
+  br label %.thread
 
-select.unfold:                                    ; preds = %3, %5, %11
-  %storemerge = phi i32 [ 11, %11 ], [ 2, %5 ], [ 2, %3 ]
+.thread:                                          ; preds = %5, %3, %11
+  %storemerge = phi i32 [ 11, %11 ], [ 2, %3 ], [ 2, %5 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
@@ -3386,7 +3386,7 @@ select.unfold:                                    ; preds = %3, %5, %11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17hfd3e5d2b2f72fb1dE"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #11 {
   %4 = icmp ugt i32 %2, 536870911
-  br i1 %4, label %select.unfold, label %5
+  br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %3
   %6 = shl nuw i32 %2, 3
@@ -3394,7 +3394,7 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17hfd3e5d2b2f72fb1dE"(ptr 
   %8 = load i32, ptr %7, align 8, !noundef !7
   %9 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %8, i32 %6)
   %10 = extractvalue { i32, i1 } %9, 1
-  br i1 %10, label %select.unfold, label %11
+  br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %5
   %12 = extractvalue { i32, i1 } %9, 0
@@ -3407,10 +3407,10 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$3add17hfd3e5d2b2f72fb1dE"(ptr 
   store ptr %15, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %.sroa.55.0..sroa_idx, align 8
-  br label %select.unfold
+  br label %.thread
 
-select.unfold:                                    ; preds = %3, %5, %11
-  %storemerge = phi i32 [ 11, %11 ], [ 2, %5 ], [ 2, %3 ]
+.thread:                                          ; preds = %5, %3, %11
+  %storemerge = phi i32 [ 11, %11 ], [ 2, %3 ], [ 2, %5 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
@@ -4214,8 +4214,8 @@ default.unreachable:                              ; preds = %"_ZN6wiggle25Unsafe
 28:                                               ; preds = %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17hb1877215fda606f7E.llvm.5331966815222788767.exit"
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.74.0, ptr %29, align 8
-  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.0, ptr %.sroa.424.0..sroa_idx, align 8
+  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.10.0, ptr %.sroa.423.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.11.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4231,20 +4231,20 @@ default.unreachable:                              ; preds = %"_ZN6wiggle25Unsafe
 
 32:                                               ; preds = %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17hb1877215fda606f7E.llvm.5331966815222788767.exit"
   store i32 %.sroa.0.0, ptr %0, align 8
-  %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.7.0, ptr %.sroa.226.0..sroa_idx, align 4
-  %.sroa.327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.74.0, ptr %.sroa.327.0..sroa_idx, align 8
-  %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.0, ptr %.sroa.428.0..sroa_idx, align 8
-  %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.11.0, ptr %.sroa.529.0..sroa_idx, align 8
-  %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sroa.12.0, ptr %.sroa.630.0..sroa_idx, align 8
-  %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.13.sroa.0.0, ptr %.sroa.731.0..sroa_idx, align 8
-  %.sroa.731.sroa.2.0..sroa.731.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.731.sroa.2.0..sroa.731.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.sroa.5, i64 16, i1 false)
+  %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sroa.7.0, ptr %.sroa.225.0..sroa_idx, align 4
+  %.sroa.326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.74.0, ptr %.sroa.326.0..sroa_idx, align 8
+  %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.10.0, ptr %.sroa.427.0..sroa_idx, align 8
+  %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sroa.11.0, ptr %.sroa.528.0..sroa_idx, align 8
+  %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.sroa.12.0, ptr %.sroa.629.0..sroa_idx, align 8
+  %.sroa.730.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %.sroa.13.sroa.0.0, ptr %.sroa.730.0..sroa_idx, align 8
+  %.sroa.730.sroa.2.0..sroa.730.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.730.sroa.2.0..sroa.730.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.sroa.5, i64 16, i1 false)
   br label %33
 
 33:                                               ; preds = %32, %30, %28
@@ -4357,12 +4357,12 @@ default.unreachable:                              ; preds = %"_ZN6wiggle25Unsafe
   store i32 %.sroa.8.0, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.88.0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.12.0, ptr %.sroa.430.0..sroa_idx, align 8
+  %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.12.0, ptr %.sroa.429.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.14.0, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sroa.15.0, ptr %.sroa.631.0..sroa_idx, align 8
+  %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.sroa.15.0, ptr %.sroa.630.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.16.sroa.0.0, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.7.sroa.2.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4519,8 +4519,8 @@ default.unreachable:                              ; preds = %"_ZN6wiggle25Unsafe
 26:                                               ; preds = %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17hb1877215fda606f7E.llvm.5331966815222788767.exit.i"
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.74.0.i, ptr %27, align 8, !alias.scope !310, !noalias !320
-  %.sroa.424.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.0.i, ptr %.sroa.424.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
+  %.sroa.423.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.10.0.i, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.11.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4536,20 +4536,20 @@ default.unreachable:                              ; preds = %"_ZN6wiggle25Unsafe
 
 30:                                               ; preds = %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17hb1877215fda606f7E.llvm.5331966815222788767.exit.i"
   store i32 %.sroa.0.0.i, ptr %0, align 8, !alias.scope !310, !noalias !320
-  %.sroa.226.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.7.0.i, ptr %.sroa.226.0..sroa_idx.i, align 4, !alias.scope !310, !noalias !320
-  %.sroa.327.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.74.0.i, ptr %.sroa.327.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
-  %.sroa.428.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.10.0.i, ptr %.sroa.428.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
-  %.sroa.529.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.11.0.i, ptr %.sroa.529.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
-  %.sroa.630.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sroa.12.0.i, ptr %.sroa.630.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
-  %.sroa.731.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sroa.13.sroa.0.0.i, ptr %.sroa.731.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
-  %.sroa.731.sroa.2.0..sroa.731.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.731.sroa.2.0..sroa.731.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.sroa.5.i, i64 16, i1 false), !noalias !320
+  %.sroa.225.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sroa.7.0.i, ptr %.sroa.225.0..sroa_idx.i, align 4, !alias.scope !310, !noalias !320
+  %.sroa.326.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.74.0.i, ptr %.sroa.326.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
+  %.sroa.427.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.10.0.i, ptr %.sroa.427.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
+  %.sroa.528.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sroa.11.0.i, ptr %.sroa.528.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
+  %.sroa.629.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.sroa.12.0.i, ptr %.sroa.629.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
+  %.sroa.730.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %.sroa.13.sroa.0.0.i, ptr %.sroa.730.0..sroa_idx.i, align 8, !alias.scope !310, !noalias !320
+  %.sroa.730.sroa.2.0..sroa.730.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.730.sroa.2.0..sroa.730.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.sroa.5.i, i64 16, i1 false), !noalias !320
   br label %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$12as_slice_mut17hcd510f9af026ac31E.llvm.5331966815222788767.exit"
 
 "_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$12as_slice_mut17hcd510f9af026ac31E.llvm.5331966815222788767.exit": ; preds = %26, %28, %30
@@ -5019,7 +5019,7 @@ define hidden void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$cl
   br label %"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h27228d44af9eb198E.llvm.5331966815222788767.exit"
 
 "_ZN6wiggle17GuestPtr$LT$T$GT$3add17h27228d44af9eb198E.llvm.5331966815222788767.exit": ; preds = %3, %5, %11
-  %storemerge.i = phi i32 [ 11, %11 ], [ 2, %5 ], [ 2, %3 ]
+  %storemerge.i = phi i32 [ 11, %11 ], [ 2, %3 ], [ 2, %5 ]
   store i32 %storemerge.i, ptr %0, align 8, !alias.scope !335, !noalias !338
   ret void
 }
@@ -5054,7 +5054,7 @@ define hidden void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$cl
   br label %"_ZN6wiggle17GuestPtr$LT$T$GT$3add17ha11c5490ead21b69E.llvm.5331966815222788767.exit"
 
 "_ZN6wiggle17GuestPtr$LT$T$GT$3add17ha11c5490ead21b69E.llvm.5331966815222788767.exit": ; preds = %3, %6, %12
-  %storemerge.i = phi i32 [ 11, %12 ], [ 2, %6 ], [ 2, %3 ]
+  %storemerge.i = phi i32 [ 11, %12 ], [ 2, %3 ], [ 2, %6 ]
   store i32 %storemerge.i, ptr %0, align 8, !alias.scope !340, !noalias !343
   ret void
 }
@@ -5089,7 +5089,7 @@ define hidden void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$cl
   br label %"_ZN6wiggle17GuestPtr$LT$T$GT$3add17ha304667bb51041abE.llvm.5331966815222788767.exit"
 
 "_ZN6wiggle17GuestPtr$LT$T$GT$3add17ha304667bb51041abE.llvm.5331966815222788767.exit": ; preds = %3, %6, %12
-  %storemerge.i = phi i32 [ 11, %12 ], [ 2, %6 ], [ 2, %3 ]
+  %storemerge.i = phi i32 [ 11, %12 ], [ 2, %3 ], [ 2, %6 ]
   store i32 %storemerge.i, ptr %0, align 8, !alias.scope !345, !noalias !348
   ret void
 }
@@ -5123,7 +5123,7 @@ define hidden void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$4iter28_$u7b$$u7b$cl
   br label %"_ZN6wiggle17GuestPtr$LT$T$GT$3add17h4c93cd789bd81afaE.llvm.5331966815222788767.exit"
 
 "_ZN6wiggle17GuestPtr$LT$T$GT$3add17h4c93cd789bd81afaE.llvm.5331966815222788767.exit": ; preds = %3, %5, %11
-  %storemerge.i = phi i32 [ 11, %11 ], [ 2, %5 ], [ 2, %3 ]
+  %storemerge.i = phi i32 [ 11, %11 ], [ 2, %3 ], [ 2, %5 ]
   store i32 %storemerge.i, ptr %0, align 8, !alias.scope !350, !noalias !353
   ret void
 }

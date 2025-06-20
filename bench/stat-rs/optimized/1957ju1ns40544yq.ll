@@ -149,8 +149,8 @@ define void @_ZN6statrs12distribution5dirac5Dirac3new17hbd0bf98ebf3a1406E(ptr de
   br label %6
 
 6:                                                ; preds = %2, %4
-  %.sink = phi i64 [ 21, %4 ], [ 0, %2 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 21, %4 ], [ 0, %2 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -902,8 +902,8 @@ define void @_ZN6statrs12distribution7laplace7Laplace3new17h40cc8dbaa6e570bdE(pt
   br label %8
 
 8:                                                ; preds = %3, %5
-  %.sink = phi i64 [ 21, %5 ], [ 0, %3 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 21, %5 ], [ 0, %3 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -1127,8 +1127,8 @@ define void @_ZN6statrs12distribution10log_normal9LogNormal3new17hefce19d541c480
   br label %8
 
 8:                                                ; preds = %3, %5
-  %.sink = phi i64 [ 21, %5 ], [ 0, %3 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 21, %5 ], [ 0, %3 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -1449,8 +1449,8 @@ define void @_ZN6statrs12distribution6normal6Normal3new17h40448d97d1b9dc9eE(ptr 
   br label %8
 
 8:                                                ; preds = %3, %5
-  %.sink = phi i64 [ 21, %5 ], [ 0, %3 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 21, %5 ], [ 0, %3 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 

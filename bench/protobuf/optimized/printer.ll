@@ -408,7 +408,6 @@ entry:
   %__begin2 = alloca %"class.absl::lts_20230802::strings_internal::SplitIterator", align 8
   %ref.tmp53 = alloca %"class.absl::lts_20230802::strings_internal::Splitter", align 8
   %__begin3 = alloca %"class.absl::lts_20230802::strings_internal::SplitIterator", align 8
-  %ref.tmp98.sroa.4 = alloca [7 x i8], align 1
   %ref.tmp118 = alloca %class.anon, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %agg.result, i8 0, i64 25, i1 false)
   %strip_raw_string_indentation = getelementptr inbounds nuw i8, ptr %options, i64 7
@@ -820,8 +819,6 @@ if.then.i.i155:                                   ; preds = %if.then96
   store ptr %chunk.sroa.6.0.copyload, ptr %ref.tmp98.sroa.0.sroa.3.0..sroa_idx, align 8
   %ref.tmp98.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i8 %is_var.0306, ptr %ref.tmp98.sroa.3.0..sroa_idx, align 8
-  %ref.tmp98.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp98.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp98.sroa.4, i64 7, i1 false)
   %20 = load ptr, ptr %_M_finish.i.i130, align 8
   %incdec.ptr.i.i156 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %incdec.ptr.i.i156, ptr %_M_finish.i.i130, align 8
@@ -861,8 +858,6 @@ call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorIN6goo
   store ptr %chunk.sroa.6.0.copyload, ptr %ref.tmp98.sroa.0.sroa.3.0.add.ptr.i.i.i158.sroa_idx, align 8
   %ref.tmp98.sroa.3.0.add.ptr.i.i.i158.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i158, i64 16
   store i8 %is_var.0306, ptr %ref.tmp98.sroa.3.0.add.ptr.i.i.i158.sroa_idx, align 8
-  %ref.tmp98.sroa.4.0.add.ptr.i.i.i158.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i158, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp98.sroa.4.0.add.ptr.i.i.i158.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %ref.tmp98.sroa.4, i64 7, i1 false)
   br i1 %cmp.i.i131, label %_ZNSt6vectorIN6google8protobuf2io7Printer6Format5ChunkESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.i.noexc, %for.body.i.i.i.i.i.i

@@ -17443,7 +17443,6 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 ; Function Attrs: mustprogress uwtable
 define dso_local { ptr, i8 } @_ZN4Luau10Normalizer16unionOfTypePacksEPKNS_11TypePackVarES3_(ptr noundef nonnull align 8 dereferenceable(337) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.1", align 8
-  %.sroa.15 = alloca [7 x i8], align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca %"struct.Luau::TypePackIterator", align 8
@@ -17459,7 +17458,6 @@ define dso_local { ptr, i8 } @_ZN4Luau10Normalizer16unionOfTypePacksEPKNS_11Type
 15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.15)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #32
@@ -17672,7 +17670,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
           to label %83 unwind label %84
 
 83:                                               ; preds = %81
-  br i1 %82, label %86, label %_ZN4Luau8TypePackD2Ev.exit
+  br i1 %82, label %86, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 84:                                               ; preds = %86, %81
   %85 = landingpad { ptr, i32 }
@@ -17684,7 +17682,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
           to label %88 unwind label %84
 
 88:                                               ; preds = %86
-  br i1 %87, label %89, label %_ZN4Luau8TypePackD2Ev.exit
+  br i1 %87, label %89, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 89:                                               ; preds = %88
   %90 = invoke { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -17722,7 +17720,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
 
 107:                                              ; preds = %101
   %.not.i.i = icmp eq ptr %92, null
-  br i1 %.not.i.i, label %_ZN4Luau8TypePackD2Ev.exit, label %108
+  br i1 %.not.i.i, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %108
 
 108:                                              ; preds = %107
   %109 = load i32, ptr %92, align 8, !tbaa !375
@@ -17730,13 +17728,13 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
   %111 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %.not.i.i83 = icmp eq ptr %98, null
   %or.cond = select i1 %110, i1 true, i1 %.not.i.i83
-  br i1 %or.cond, label %_ZN4Luau8TypePackD2Ev.exit, label %112
+  br i1 %or.cond, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %112
 
 112:                                              ; preds = %108
   %113 = load i32, ptr %98, align 8, !tbaa !375
   %114 = icmp eq i32 %113, 5
   %115 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  br i1 %114, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84, label %_ZN4Luau8TypePackD2Ev.exit
+  br i1 %114, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %112
   %116 = load ptr, ptr %111, align 8, !tbaa !377
@@ -17785,12 +17783,12 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
 
 138:                                              ; preds = %97
   %.not.i.i85 = icmp eq ptr %92, null
-  br i1 %.not.i.i85, label %_ZN4Luau8TypePackD2Ev.exit, label %139
+  br i1 %.not.i.i85, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %139
 
 139:                                              ; preds = %138
   %140 = load i32, ptr %92, align 8, !tbaa !375
   %141 = icmp eq i32 %140, 5
-  br i1 %141, label %.critedge74.sink.split, label %_ZN4Luau8TypePackD2Ev.exit
+  br i1 %141, label %.critedge74.sink.split, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 142:                                              ; preds = %91
   %143 = invoke { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -17804,12 +17802,12 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
 
 148:                                              ; preds = %144
   %.not.i.i87 = icmp eq ptr %145, null
-  br i1 %.not.i.i87, label %_ZN4Luau8TypePackD2Ev.exit, label %149
+  br i1 %.not.i.i87, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %149
 
 149:                                              ; preds = %148
   %150 = load i32, ptr %145, align 8, !tbaa !375
   %151 = icmp eq i32 %150, 5
-  br i1 %151, label %.critedge74.sink.split, label %_ZN4Luau8TypePackD2Ev.exit
+  br i1 %151, label %.critedge74.sink.split, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 152:                                              ; preds = %142
   %153 = landingpad { ptr, i32 }
@@ -17827,12 +17825,12 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
   %.sroa.9118.2 = phi i8 [ 0, %144 ], [ 1, %101 ], [ 1, %127 ], [ %.sroa.9118.2.ph, %.critedge74.sink.split ]
   %154 = load i8, ptr %5, align 1, !tbaa !32, !range !34, !noundef !35
   %155 = trunc nuw i8 %154 to i1
-  br i1 %155, label %_ZN4Luau8TypePackD2Ev.exit, label %156
+  br i1 %155, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %156
 
 156:                                              ; preds = %.critedge74
   %157 = load i8, ptr %6, align 1, !tbaa !32, !range !34, !noundef !35
   %158 = trunc nuw i8 %157 to i1
-  br i1 %158, label %_ZN4Luau8TypePackD2Ev.exit, label %159
+  br i1 %158, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %159
 
 159:                                              ; preds = %156
   %160 = load ptr, ptr %4, align 8, !tbaa !49
@@ -17851,15 +17849,13 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
   store ptr %.sroa.0117.2, ptr %167, align 8
   %.sroa.9118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 %.sroa.9118.2, ptr %.sroa.9118.0..sroa_idx, align 8
-  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.15.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.15, i64 7, i1 false)
   %168 = invoke noundef ptr @_ZN4Luau9TypeArena11addTypePackENS_8TypePackE(ptr noundef nonnull align 8 dereferenceable(88) %165, ptr noundef nonnull %13)
           to label %169 unwind label %179
 
 169:                                              ; preds = %166
   %170 = load ptr, ptr %13, align 8, !tbaa !21
   %.not.i.i.i.i = icmp eq ptr %170, null
-  br i1 %.not.i.i.i.i, label %_ZN4Luau8TypePackD2Ev.exit, label %171
+  br i1 %.not.i.i.i.i, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %171
 
 171:                                              ; preds = %169
   %172 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -17868,7 +17864,7 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
   %175 = ptrtoint ptr %170 to i64
   %176 = sub i64 %174, %175
   call void @_ZdlPvm(ptr noundef nonnull %170, i64 noundef %176) #31
-  br label %_ZN4Luau8TypePackD2Ev.exit
+  br label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 177:                                              ; preds = %163
   %178 = landingpad { ptr, i32 }
@@ -17899,22 +17895,27 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %192 = load ptr, ptr %191, align 8, !tbaa !214
   %193 = invoke noundef ptr @_ZN4Luau9TypeArena11addTypePackESt16initializer_listIPKNS_4TypeEE(ptr noundef nonnull align 8 dereferenceable(88) %192, ptr null, i64 0)
-          to label %_ZN4Luau8TypePackD2Ev.exit unwind label %194
+          to label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split unwind label %194
 
 194:                                              ; preds = %190
   %195 = landingpad { ptr, i32 }
           cleanup
   br label %202
 
-_ZN4Luau8TypePackD2Ev.exit:                       ; preds = %138, %139, %107, %108, %149, %148, %112, %190, %188, %171, %169, %156, %.critedge74, %88, %83
-  %.sroa.0128.1 = phi ptr [ undef, %83 ], [ undef, %88 ], [ %2, %.critedge74 ], [ %1, %156 ], [ %168, %169 ], [ %168, %171 ], [ %.sroa.0117.2, %188 ], [ %193, %190 ], [ undef, %112 ], [ undef, %148 ], [ undef, %149 ], [ undef, %108 ], [ undef, %107 ], [ undef, %139 ], [ undef, %138 ]
-  %.sroa.7129.1 = phi i8 [ 0, %83 ], [ 0, %88 ], [ 1, %.critedge74 ], [ 1, %156 ], [ 1, %169 ], [ 1, %171 ], [ 1, %188 ], [ 1, %190 ], [ 0, %112 ], [ 0, %148 ], [ 0, %149 ], [ 0, %108 ], [ 0, %107 ], [ 0, %139 ], [ 0, %138 ]
+_ZN4Luau8TypePackD2Ev.exitthread-pre-split:       ; preds = %83, %88, %.critedge74, %156, %169, %171, %190, %112, %148, %149, %108, %107, %139, %138
+  %.sroa.0128.1.ph = phi ptr [ undef, %138 ], [ undef, %139 ], [ undef, %107 ], [ undef, %108 ], [ undef, %149 ], [ undef, %148 ], [ undef, %112 ], [ %193, %190 ], [ %168, %171 ], [ %168, %169 ], [ %1, %156 ], [ %2, %.critedge74 ], [ undef, %88 ], [ undef, %83 ]
+  %.sroa.7129.1.ph = phi i8 [ 0, %138 ], [ 0, %139 ], [ 0, %107 ], [ 0, %108 ], [ 0, %149 ], [ 0, %148 ], [ 0, %112 ], [ 1, %190 ], [ 1, %171 ], [ 1, %169 ], [ 1, %156 ], [ 1, %.critedge74 ], [ 0, %88 ], [ 0, %83 ]
+  %.pr = load ptr, ptr %4, align 8, !tbaa !21
+  br label %_ZN4Luau8TypePackD2Ev.exit
+
+_ZN4Luau8TypePackD2Ev.exit:                       ; preds = %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, %188
+  %196 = phi ptr [ %.pr, %_ZN4Luau8TypePackD2Ev.exitthread-pre-split ], [ %160, %188 ]
+  %.sroa.0128.1 = phi ptr [ %.sroa.0128.1.ph, %_ZN4Luau8TypePackD2Ev.exitthread-pre-split ], [ %.sroa.0117.2, %188 ]
+  %.sroa.7129.1 = phi i8 [ %.sroa.7129.1.ph, %_ZN4Luau8TypePackD2Ev.exitthread-pre-split ], [ 1, %188 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.15)
-  %196 = load ptr, ptr %4, align 8, !tbaa !21
   %.not.i.i.i91 = icmp eq ptr %196, null
   br i1 %.not.i.i.i91, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, label %197
 
@@ -17930,14 +17931,13 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %_ZN4Luau8TypePackD2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
   br label %209
 
-202:                                              ; preds = %103, %152, %122, %136, %105, %40, %46, %49, %47, %79, %77, %177, %179, %182, %194, %84, %.loopexit.split-lp, %.loopexit142
-  %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %41, %40 ], [ %48, %47 ], [ %50, %49 ], [ %80, %79 ], [ %78, %77 ], [ %195, %194 ], [ %85, %84 ], [ %178, %177 ], [ %180, %179 ], [ %180, %182 ], [ %lpad.loopexit, %.loopexit142 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %153, %152 ], [ %104, %103 ], [ %106, %105 ], [ %137, %136 ], [ %123, %122 ]
+202:                                              ; preds = %40, %46, %49, %47, %79, %77, %177, %179, %182, %194, %84, %105, %136, %122, %152, %103, %.loopexit.split-lp, %.loopexit142
+  %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %41, %40 ], [ %48, %47 ], [ %50, %49 ], [ %80, %79 ], [ %78, %77 ], [ %195, %194 ], [ %85, %84 ], [ %178, %177 ], [ %180, %179 ], [ %180, %182 ], [ %153, %152 ], [ %104, %103 ], [ %106, %105 ], [ %137, %136 ], [ %123, %122 ], [ %lpad.loopexit, %.loopexit142 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #32
   %.pre = load ptr, ptr %4, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.15)
   %.not.i.i.i92 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i92, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit93, label %203
 
@@ -18631,7 +18631,6 @@ _ZN4Luau3getINS_9Unifiable5ErrorIPKNS_4TypeEEEEEPKT_S5_.exit: ; preds = %_ZStneI
 ; Function Attrs: mustprogress uwtable
 define dso_local { ptr, i8 } @_ZN4Luau10Normalizer23intersectionOfTypePacksEPKNS_11TypePackVarES3_(ptr noundef nonnull align 8 dereferenceable(337) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.1", align 8
-  %.sroa.11112 = alloca [7 x i8], align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca %"struct.Luau::TypePackIterator", align 8
@@ -18647,7 +18646,6 @@ define dso_local { ptr, i8 } @_ZN4Luau10Normalizer23intersectionOfTypePacksEPKNS
 15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.11112)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #32
@@ -18860,7 +18858,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
           to label %83 unwind label %84
 
 83:                                               ; preds = %81
-  br i1 %82, label %86, label %_ZN4Luau8TypePackD2Ev.exit
+  br i1 %82, label %86, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 84:                                               ; preds = %86, %81
   %85 = landingpad { ptr, i32 }
@@ -18872,7 +18870,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
           to label %88 unwind label %84
 
 88:                                               ; preds = %86
-  br i1 %87, label %89, label %_ZN4Luau8TypePackD2Ev.exit
+  br i1 %87, label %89, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 89:                                               ; preds = %88
   %90 = invoke { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -18910,7 +18908,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
 
 107:                                              ; preds = %101
   %.not.i.i = icmp eq ptr %92, null
-  br i1 %.not.i.i, label %_ZN4Luau8TypePackD2Ev.exit, label %108
+  br i1 %.not.i.i, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %108
 
 108:                                              ; preds = %107
   %109 = load i32, ptr %92, align 8, !tbaa !375
@@ -18918,13 +18916,13 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vecto
   %111 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %.not.i.i83 = icmp eq ptr %98, null
   %or.cond = select i1 %110, i1 true, i1 %.not.i.i83
-  br i1 %or.cond, label %_ZN4Luau8TypePackD2Ev.exit, label %112
+  br i1 %or.cond, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %112
 
 112:                                              ; preds = %108
   %113 = load i32, ptr %98, align 8, !tbaa !375
   %114 = icmp eq i32 %113, 5
   %115 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  br i1 %114, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84, label %_ZN4Luau8TypePackD2Ev.exit
+  br i1 %114, label %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %112
   %116 = load ptr, ptr %111, align 8, !tbaa !377
@@ -18973,12 +18971,12 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
 
 138:                                              ; preds = %97
   %.not.i.i85 = icmp eq ptr %92, null
-  br i1 %.not.i.i85, label %_ZN4Luau8TypePackD2Ev.exit, label %139
+  br i1 %.not.i.i85, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %139
 
 139:                                              ; preds = %138
   %140 = load i32, ptr %92, align 8, !tbaa !375
   %141 = icmp eq i32 %140, 5
-  br i1 %141, label %.critedge74.sink.split, label %_ZN4Luau8TypePackD2Ev.exit
+  br i1 %141, label %.critedge74.sink.split, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 142:                                              ; preds = %91
   %143 = invoke { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -18992,12 +18990,12 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
 
 148:                                              ; preds = %144
   %.not.i.i87 = icmp eq ptr %145, null
-  br i1 %.not.i.i87, label %_ZN4Luau8TypePackD2Ev.exit, label %149
+  br i1 %.not.i.i87, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %149
 
 149:                                              ; preds = %148
   %150 = load i32, ptr %145, align 8, !tbaa !375
   %151 = icmp eq i32 %150, 5
-  br i1 %151, label %.critedge74.sink.split, label %_ZN4Luau8TypePackD2Ev.exit
+  br i1 %151, label %.critedge74.sink.split, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 152:                                              ; preds = %142
   %153 = landingpad { ptr, i32 }
@@ -19014,12 +19012,12 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
   %.sroa.7111.2 = phi i8 [ 0, %144 ], [ 1, %101 ], [ 1, %127 ], [ 0, %.critedge74.sink.split ]
   %154 = load i8, ptr %5, align 1, !tbaa !32, !range !34, !noundef !35
   %155 = trunc nuw i8 %154 to i1
-  br i1 %155, label %_ZN4Luau8TypePackD2Ev.exit, label %156
+  br i1 %155, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %156
 
 156:                                              ; preds = %.critedge74
   %157 = load i8, ptr %6, align 1, !tbaa !32, !range !34, !noundef !35
   %158 = trunc nuw i8 %157 to i1
-  br i1 %158, label %_ZN4Luau8TypePackD2Ev.exit, label %159
+  br i1 %158, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %159
 
 159:                                              ; preds = %156
   %160 = load ptr, ptr %4, align 8, !tbaa !49
@@ -19038,15 +19036,13 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
   store ptr %.sroa.0110.2, ptr %167, align 8
   %.sroa.7111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 %.sroa.7111.2, ptr %.sroa.7111.0..sroa_idx, align 8
-  %.sroa.11112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11112.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11112, i64 7, i1 false)
   %168 = invoke noundef ptr @_ZN4Luau9TypeArena11addTypePackENS_8TypePackE(ptr noundef nonnull align 8 dereferenceable(88) %165, ptr noundef nonnull %13)
           to label %169 unwind label %179
 
 169:                                              ; preds = %166
   %170 = load ptr, ptr %13, align 8, !tbaa !21
   %.not.i.i.i.i = icmp eq ptr %170, null
-  br i1 %.not.i.i.i.i, label %_ZN4Luau8TypePackD2Ev.exit, label %171
+  br i1 %.not.i.i.i.i, label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, label %171
 
 171:                                              ; preds = %169
   %172 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -19055,7 +19051,7 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
   %175 = ptrtoint ptr %170 to i64
   %176 = sub i64 %174, %175
   call void @_ZdlPvm(ptr noundef nonnull %170, i64 noundef %176) #31
-  br label %_ZN4Luau8TypePackD2Ev.exit
+  br label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split
 
 177:                                              ; preds = %163
   %178 = landingpad { ptr, i32 }
@@ -19086,22 +19082,27 @@ _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit84: ; preds = %
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %192 = load ptr, ptr %191, align 8, !tbaa !214
   %193 = invoke noundef ptr @_ZN4Luau9TypeArena11addTypePackESt16initializer_listIPKNS_4TypeEE(ptr noundef nonnull align 8 dereferenceable(88) %192, ptr null, i64 0)
-          to label %_ZN4Luau8TypePackD2Ev.exit unwind label %194
+          to label %_ZN4Luau8TypePackD2Ev.exitthread-pre-split unwind label %194
 
 194:                                              ; preds = %190
   %195 = landingpad { ptr, i32 }
           cleanup
   br label %202
 
-_ZN4Luau8TypePackD2Ev.exit:                       ; preds = %138, %139, %107, %108, %149, %148, %112, %190, %188, %171, %169, %156, %.critedge74, %88, %83
-  %.sroa.0122.1 = phi ptr [ undef, %83 ], [ undef, %88 ], [ %1, %.critedge74 ], [ %2, %156 ], [ %168, %169 ], [ %168, %171 ], [ %.sroa.0110.2, %188 ], [ %193, %190 ], [ undef, %112 ], [ undef, %148 ], [ undef, %149 ], [ undef, %108 ], [ undef, %107 ], [ undef, %139 ], [ undef, %138 ]
-  %.sroa.7123.1 = phi i8 [ 0, %83 ], [ 0, %88 ], [ 1, %.critedge74 ], [ 1, %156 ], [ 1, %169 ], [ 1, %171 ], [ 1, %188 ], [ 1, %190 ], [ 0, %112 ], [ 0, %148 ], [ 0, %149 ], [ 0, %108 ], [ 0, %107 ], [ 0, %139 ], [ 0, %138 ]
+_ZN4Luau8TypePackD2Ev.exitthread-pre-split:       ; preds = %83, %88, %.critedge74, %156, %169, %171, %190, %112, %148, %149, %108, %107, %139, %138
+  %.sroa.0122.1.ph = phi ptr [ undef, %138 ], [ undef, %139 ], [ undef, %107 ], [ undef, %108 ], [ undef, %149 ], [ undef, %148 ], [ undef, %112 ], [ %193, %190 ], [ %168, %171 ], [ %168, %169 ], [ %2, %156 ], [ %1, %.critedge74 ], [ undef, %88 ], [ undef, %83 ]
+  %.sroa.7123.1.ph = phi i8 [ 0, %138 ], [ 0, %139 ], [ 0, %107 ], [ 0, %108 ], [ 0, %149 ], [ 0, %148 ], [ 0, %112 ], [ 1, %190 ], [ 1, %171 ], [ 1, %169 ], [ 1, %156 ], [ 1, %.critedge74 ], [ 0, %88 ], [ 0, %83 ]
+  %.pr = load ptr, ptr %4, align 8, !tbaa !21
+  br label %_ZN4Luau8TypePackD2Ev.exit
+
+_ZN4Luau8TypePackD2Ev.exit:                       ; preds = %_ZN4Luau8TypePackD2Ev.exitthread-pre-split, %188
+  %196 = phi ptr [ %.pr, %_ZN4Luau8TypePackD2Ev.exitthread-pre-split ], [ %160, %188 ]
+  %.sroa.0122.1 = phi ptr [ %.sroa.0122.1.ph, %_ZN4Luau8TypePackD2Ev.exitthread-pre-split ], [ %.sroa.0110.2, %188 ]
+  %.sroa.7123.1 = phi i8 [ %.sroa.7123.1.ph, %_ZN4Luau8TypePackD2Ev.exitthread-pre-split ], [ 1, %188 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11112)
-  %196 = load ptr, ptr %4, align 8, !tbaa !21
   %.not.i.i.i91 = icmp eq ptr %196, null
   br i1 %.not.i.i.i91, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, label %197
 
@@ -19117,14 +19118,13 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit:     ; preds = %_ZN4Luau8TypePackD2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
   br label %209
 
-202:                                              ; preds = %103, %152, %122, %136, %105, %40, %46, %49, %47, %79, %77, %177, %179, %182, %194, %84, %.loopexit.split-lp, %.loopexit136
-  %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %41, %40 ], [ %48, %47 ], [ %50, %49 ], [ %80, %79 ], [ %78, %77 ], [ %195, %194 ], [ %85, %84 ], [ %178, %177 ], [ %180, %179 ], [ %180, %182 ], [ %lpad.loopexit, %.loopexit136 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %153, %152 ], [ %104, %103 ], [ %106, %105 ], [ %137, %136 ], [ %123, %122 ]
+202:                                              ; preds = %40, %46, %49, %47, %79, %77, %177, %179, %182, %194, %84, %105, %136, %122, %152, %103, %.loopexit.split-lp, %.loopexit136
+  %.pn65.pn.pn.pn = phi { ptr, i32 } [ %.pn, %46 ], [ %41, %40 ], [ %48, %47 ], [ %50, %49 ], [ %80, %79 ], [ %78, %77 ], [ %195, %194 ], [ %85, %84 ], [ %178, %177 ], [ %180, %179 ], [ %180, %182 ], [ %153, %152 ], [ %104, %103 ], [ %106, %105 ], [ %137, %136 ], [ %123, %122 ], [ %lpad.loopexit, %.loopexit136 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #32
   %.pre = load ptr, ptr %4, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11112)
   %.not.i.i.i92 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i92, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit93, label %203
 

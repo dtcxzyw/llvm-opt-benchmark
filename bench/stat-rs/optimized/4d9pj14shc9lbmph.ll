@@ -119,8 +119,8 @@ define void @_ZN6statrs12distribution6cauchy6Cauchy3new17h4a497fe6db4b6279E(ptr 
   br label %8
 
 8:                                                ; preds = %3, %5
-  %.sink = phi i64 [ 21, %5 ], [ 0, %3 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 21, %5 ], [ 0, %3 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -605,8 +605,8 @@ define void @_ZN6statrs12distribution9geometric9Geometric3new17h9fd95f9717640e3b
   br label %7
 
 7:                                                ; preds = %2, %5
-  %.sink = phi i64 [ 21, %5 ], [ 0, %2 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 21, %5 ], [ 0, %2 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 

@@ -5817,7 +5817,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -5827,15 +5827,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -5864,24 +5864,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !1422
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -5975,7 +5975,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -6032,10 +6032,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !1438
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -6056,9 +6056,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1446
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1439
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1439
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1439
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1439
@@ -6148,7 +6148,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -6179,11 +6179,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !1475, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -6238,7 +6238,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -6248,15 +6248,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -6285,24 +6285,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !1478
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -6396,7 +6396,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -6453,10 +6453,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !1494
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -6477,9 +6477,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1502
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1495
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1495
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1495
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1495
@@ -6569,7 +6569,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -6600,11 +6600,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !1531, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -6659,7 +6659,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -6669,15 +6669,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -6706,24 +6706,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !1534
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -6817,7 +6817,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -6874,10 +6874,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !1550
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -6898,9 +6898,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1558
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1551
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1551
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1551
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1551
@@ -6990,7 +6990,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -7021,11 +7021,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !1587, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -7080,7 +7080,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -7090,15 +7090,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -7127,24 +7127,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !1590
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -7238,7 +7238,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -7295,10 +7295,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !1606
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -7319,9 +7319,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1614
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1607
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1607
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1607
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1607
@@ -7411,7 +7411,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -7442,11 +7442,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !1643, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -7501,7 +7501,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -7511,15 +7511,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -7548,24 +7548,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !1646
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -7659,7 +7659,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -7716,10 +7716,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !1662
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -7740,9 +7740,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1670
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1663
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1663
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1663
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1663
@@ -7832,7 +7832,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -7863,11 +7863,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !1699, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -7922,7 +7922,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -7932,15 +7932,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -7969,24 +7969,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !1702
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -8080,7 +8080,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -8137,10 +8137,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !1718
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -8161,9 +8161,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1726
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1719
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1719
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1719
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1719
@@ -8253,7 +8253,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -8284,11 +8284,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !1755, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -8343,7 +8343,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -8353,15 +8353,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -8390,24 +8390,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !1758
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -8501,7 +8501,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -8558,10 +8558,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !1774
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -8582,9 +8582,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1782
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1775
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1775
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1775
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1775
@@ -8674,7 +8674,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -8705,11 +8705,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !1811, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -8764,7 +8764,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -8774,15 +8774,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -8811,24 +8811,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !1814
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -8922,7 +8922,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -8979,10 +8979,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !1830
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -9003,9 +9003,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1838
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1831
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1831
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1831
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1831
@@ -9095,7 +9095,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -9126,11 +9126,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !1867, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -9185,7 +9185,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -9195,15 +9195,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -9232,24 +9232,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !1870
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -9343,7 +9343,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -9400,10 +9400,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !1886
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -9424,9 +9424,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1894
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1887
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1887
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1887
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1887
@@ -9516,7 +9516,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -9547,11 +9547,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !1923, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -9606,7 +9606,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -9616,15 +9616,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -9653,24 +9653,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !1926
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -9764,7 +9764,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -9821,10 +9821,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !1942
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -9845,9 +9845,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1950
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1943
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1943
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1943
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1943
@@ -9937,7 +9937,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -9968,11 +9968,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !1979, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -10027,7 +10027,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -10037,15 +10037,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -10074,24 +10074,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !1982
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -10185,7 +10185,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -10242,10 +10242,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !1998
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -10266,9 +10266,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2006
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1999
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1999
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1999
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !1999
@@ -10358,7 +10358,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -10389,11 +10389,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2035, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -10448,7 +10448,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -10458,15 +10458,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -10495,24 +10495,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2038
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -10606,7 +10606,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -10663,10 +10663,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2054
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -10687,9 +10687,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2062
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2055
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2055
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2055
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2055
@@ -10779,7 +10779,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -10810,11 +10810,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2091, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -10869,7 +10869,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -10879,15 +10879,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -10916,24 +10916,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2094
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -11027,7 +11027,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -11084,10 +11084,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2110
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -11108,9 +11108,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2118
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2111
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2111
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2111
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2111
@@ -11200,7 +11200,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -11231,11 +11231,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2147, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -11290,7 +11290,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -11300,15 +11300,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -11337,24 +11337,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2150
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -11448,7 +11448,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -11505,10 +11505,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2166
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -11529,9 +11529,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2174
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2167
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2167
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2167
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2167
@@ -11621,7 +11621,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -11652,11 +11652,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2203, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -11711,7 +11711,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -11721,15 +11721,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -11758,24 +11758,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2206
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -11869,7 +11869,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -11926,10 +11926,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2222
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -11950,9 +11950,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2230
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2223
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2223
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2223
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2223
@@ -12042,7 +12042,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -12073,11 +12073,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2259, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -12132,7 +12132,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -12142,15 +12142,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -12179,24 +12179,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2262
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -12290,7 +12290,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -12347,10 +12347,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2278
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -12371,9 +12371,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2286
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2279
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2279
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2279
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2279
@@ -12463,7 +12463,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -12494,11 +12494,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2315, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -12553,7 +12553,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -12563,15 +12563,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -12600,24 +12600,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2318
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -12711,7 +12711,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -12768,10 +12768,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2334
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -12792,9 +12792,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2342
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2335
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2335
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2335
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2335
@@ -12884,7 +12884,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -12915,11 +12915,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2371, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -12974,7 +12974,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -12984,15 +12984,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -13021,24 +13021,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2374
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -13132,7 +13132,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -13189,10 +13189,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2390
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -13213,9 +13213,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2398
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2391
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2391
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2391
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2391
@@ -13305,7 +13305,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -13336,11 +13336,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2427, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -13395,7 +13395,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -13405,15 +13405,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -13442,24 +13442,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2430
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -13553,7 +13553,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -13610,10 +13610,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2446
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -13634,9 +13634,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2454
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2447
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2447
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2447
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2447
@@ -13726,7 +13726,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -13757,11 +13757,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2483, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -13816,7 +13816,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -13826,15 +13826,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -13863,24 +13863,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2486
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -13974,7 +13974,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -14031,10 +14031,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2502
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -14055,9 +14055,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2510
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2503
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2503
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2503
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2503
@@ -14147,7 +14147,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -14178,11 +14178,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2539, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -14237,7 +14237,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -14247,15 +14247,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -14284,24 +14284,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2542
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -14395,7 +14395,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -14452,10 +14452,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2558
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -14476,9 +14476,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2566
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2559
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2559
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2559
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2559
@@ -14568,7 +14568,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -14599,11 +14599,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2595, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -14658,7 +14658,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -14668,15 +14668,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -14705,24 +14705,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2598
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -14816,7 +14816,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -14873,10 +14873,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2614
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -14897,9 +14897,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2622
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2615
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2615
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2615
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2615
@@ -14989,7 +14989,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -15020,11 +15020,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2651, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -15079,7 +15079,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -15089,15 +15089,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -15126,24 +15126,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2654
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -15237,7 +15237,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -15294,10 +15294,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2670
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -15318,9 +15318,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2678
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2671
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2671
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2671
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2671
@@ -15410,7 +15410,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -15441,11 +15441,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2707, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -15500,7 +15500,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -15510,15 +15510,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -15547,24 +15547,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2710
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -15658,7 +15658,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -15715,10 +15715,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2726
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -15739,9 +15739,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2734
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2727
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2727
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2727
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2727
@@ -15831,7 +15831,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -15862,11 +15862,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2763, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -15921,7 +15921,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -15931,15 +15931,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -15968,24 +15968,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2766
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -16079,7 +16079,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -16136,10 +16136,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2782
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -16160,9 +16160,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2790
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2783
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2783
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2783
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2783
@@ -16252,7 +16252,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -16283,11 +16283,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2819, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -16342,7 +16342,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -16352,15 +16352,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -16389,24 +16389,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2822
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -16500,7 +16500,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -16557,10 +16557,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2838
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -16581,9 +16581,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2846
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2839
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2839
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2839
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2839
@@ -16673,7 +16673,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -16704,11 +16704,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2875, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -16763,7 +16763,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -16773,15 +16773,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -16810,24 +16810,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2878
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -16921,7 +16921,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -16978,10 +16978,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2894
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -17002,9 +17002,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2902
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2895
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2895
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2895
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2895
@@ -17094,7 +17094,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -17125,11 +17125,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2931, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -17184,7 +17184,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -17194,15 +17194,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -17231,24 +17231,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2934
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -17342,7 +17342,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -17399,10 +17399,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !2950
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -17423,9 +17423,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2958
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !2951
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !2951
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !2951
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !2951
@@ -17515,7 +17515,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -17546,11 +17546,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !2987, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -17605,7 +17605,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -17615,15 +17615,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -17652,24 +17652,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !2990
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -17763,7 +17763,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -17820,10 +17820,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !3006
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -17844,9 +17844,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !3014
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !3007
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !3007
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !3007
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !3007
@@ -17936,7 +17936,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -17967,11 +17967,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !3043, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -18026,7 +18026,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -18036,15 +18036,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -18073,24 +18073,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !3046
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -18184,7 +18184,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -18241,10 +18241,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !3062
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -18265,9 +18265,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !3070
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !3063
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !3063
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !3063
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !3063
@@ -18357,7 +18357,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -18388,11 +18388,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !3099, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -18447,7 +18447,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -18457,15 +18457,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -18494,24 +18494,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !3102
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -18605,7 +18605,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -18662,10 +18662,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !3118
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -18686,9 +18686,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !3126
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !3119
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !3119
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !3119
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !3119
@@ -18778,7 +18778,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -18809,11 +18809,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !3155, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -18868,7 +18868,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -18878,15 +18878,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -18915,24 +18915,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !3158
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -19026,7 +19026,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -19083,10 +19083,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !3174
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -19107,9 +19107,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !3182
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !3175
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !3175
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !3175
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !3175
@@ -19199,7 +19199,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -19230,11 +19230,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !3211, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -19289,7 +19289,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -19299,15 +19299,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -19336,24 +19336,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !3214
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -19447,7 +19447,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -19504,10 +19504,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !3230
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -19528,9 +19528,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !3238
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !3231
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !3231
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !3231
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !3231
@@ -19620,7 +19620,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -19651,11 +19651,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !3267, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -19710,7 +19710,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -19720,15 +19720,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -19757,24 +19757,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !3270
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -19868,7 +19868,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -19925,10 +19925,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !3286
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -19949,9 +19949,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !3294
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !3287
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !3287
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !3287
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !3287
@@ -20041,7 +20041,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -20072,11 +20072,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !3323, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129
@@ -20131,7 +20131,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load i8, ptr %34, align 8, !range !197, !noundef !3
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread75.thread, label %41
+  br i1 %36, label %.thread79.thread, label %41
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 72
@@ -20141,15 +20141,15 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
 
 41:                                               ; preds = %33
   invoke void @"_ZN8schemars17json_schema_impls10primitives59_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$$LP$$RP$$GT$11json_schema17h93eb8ec0dc214f58E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %21, ptr noalias noundef nonnull align 8 dereferenceable(248) %1)
-          to label %.thread75 unwind label %.thread72
+          to label %.thread79 unwind label %.thread76
 
-.thread75.thread:                                 ; preds = %33
+.thread79.thread:                                 ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i8 1, ptr %42, align 8
   store i64 -9223372036854775807, ptr %21, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread72:                                        ; preds = %41, %45
+.thread76:                                        ; preds = %41, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %126
@@ -20178,24 +20178,24 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %20)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-.thread75:                                        ; preds = %41
+.thread79:                                        ; preds = %41
   %.pre = load i64, ptr %22, align 8, !range !1421, !alias.scope !3326
   %43 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %43, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit", label %44
 
-44:                                               ; preds = %.thread75
+44:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h9684d64d2553461eE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %22)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread67
+          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit" unwind label %.thread71
 
 45:                                               ; preds = %37
   invoke void @_ZN8schemars17json_schema_impls4core13add_null_type17hcd9ce16f7cd5d326E(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
-          to label %46 unwind label %.thread72
+          to label %46 unwind label %.thread76
 
 46:                                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull align 8 dereferenceable(200) %22, i64 200, i1 false)
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread75.thread, %.thread75, %44, %.noexc42, %46
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit": ; preds = %.thread79.thread, %.thread79, %44, %.noexc42, %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21)
   br label %26
@@ -20289,7 +20289,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h5114c250f4db58e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %60)
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
-.thread67:                                        ; preds = %44
+.thread71:                                        ; preds = %44
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %21, i64 200, i1 false)
@@ -20346,10 +20346,10 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   store i64 7308324465885869422, ptr %89, align 1, !noalias !3342
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 176
   store i64 %82, ptr %12, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %89, ptr %.sroa.462.0..sroa_idx, align 8
-  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 8, ptr %.sroa.563.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %89, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 1, ptr %92, align 1
@@ -20370,9 +20370,9 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !3350
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !3343
   invoke void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$12insert_entry17h6e9038bc9dc312a9E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread82 unwind label %86
+          to label %.thread86 unwind label %86
 
-.thread82:                                        ; preds = %96
+.thread86:                                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !3343
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !3343
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9), !noalias !3343
@@ -20462,7 +20462,7 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17hafc09433dab788a4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %117)
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit" unwind label %86
 
-"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread82, %116
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h0768a709c3268c2cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2dab71695153ef5bE.exit.i.i", %.noexc50, %101, %101, %101, %101, %.thread86, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %15, i64 200, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15)
@@ -20493,11 +20493,11 @@ define hidden void @"_ZN8schemars17json_schema_impls4core80_$LT$impl$u20$schemar
           to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57" unwind label %118
 
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57": ; preds = %.body, %76, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37", %121, %125, %.body47, %126, %129
-  %.pn3366 = phi { ptr, i32 } [ %.pn3370, %129 ], [ %.pn3370, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
-  resume { ptr, i32 } %.pn3366
+  %.pn3370 = phi { ptr, i32 } [ %.pn3374, %129 ], [ %.pn3374, %126 ], [ %eh.lpad-body48, %.body47 ], [ %122, %125 ], [ %122, %121 ], [ %54, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit37" ], [ %71, %76 ], [ %71, %.body ]
+  resume { ptr, i32 } %.pn3370
 
-126:                                              ; preds = %.thread72, %.thread67
-  %.pn3370 = phi { ptr, i32 } [ %77, %.thread67 ], [ %lpad.thr_comm, %.thread72 ]
+126:                                              ; preds = %.thread76, %.thread71
+  %.pn3374 = phi { ptr, i32 } [ %77, %.thread71 ], [ %lpad.thr_comm, %.thread76 ]
   %127 = load i64, ptr %22, align 8, !range !1421, !alias.scope !3379, !noundef !3
   %128 = icmp eq i64 %127, -9223372036854775807
   br i1 %128, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h21eeecc77cce294cE.exit57", label %129

@@ -1332,7 +1332,7 @@ define void @_RNvXNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_extend
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %16 = load ptr, ptr %15, align 8, !nonnull !4
-  %.sroa.4.0..sroa_idx.i2.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.sroa.3.0..sroa_idx.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = ptrtoint ptr %16 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1430,7 +1430,7 @@ _RNvXs1_NtNtNtCs1LoaDTb72WA_4core4iter8adapters7flattenINtB5_7FlatMapINtNtB7_9en
   %.promoted115 = phi i64 [ %.promoted108, %28 ], [ %.promoted116, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i ]
   %.sroa.13.1 = phi ptr [ %.promoted78123, %28 ], [ %22, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i ]
   %.sroa.11.1.in = phi ptr [ %.sroa.528.0..sroa_idx.i.i, %28 ], [ %17, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i ]
-  %.sroa.9.1.in.in = phi ptr [ %.sroa.427.0..sroa_idx.i.i, %28 ], [ %.sroa.4.0..sroa_idx.i2.i.i, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i ]
+  %.sroa.9.1.in.in = phi ptr [ %.sroa.427.0..sroa_idx.i.i, %28 ], [ %.sroa.3.0..sroa_idx.i.i.i.i.i2.i.i, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i ]
   %.sroa.9.1.in = load i64, ptr %.sroa.9.1.in.in, align 8, !alias.scope !199, !noalias !204
   %.sroa.9.1 = add i64 %.sroa.9.1.in, 1
   %.sroa.11.1 = load i64, ptr %.sroa.11.1.in, align 8, !alias.scope !199, !noalias !204, !noundef !4
@@ -1662,7 +1662,7 @@ _RNvXs1_NtNtNtCs1LoaDTb72WA_4core4iter8adapters7flattenINtB5_7FlatMapINtNtB7_9en
   %.promoted46.i.i2283 = phi ptr [ %.promoted46.i.i2285, %106 ], [ %.promoted46.i.i2284, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i32 ]
   %.promoted45.i.i2179 = phi ptr [ %107, %106 ], [ %.promoted45.i.i2180, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i32 ]
   %.sroa.012.0.copyload13.i.i3071 = phi i64 [ %.sroa.012.0.copyload13.i.i3073, %106 ], [ %.sroa.012.0.copyload13.i.i3072, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i32 ]
-  %.sroa.8.2.in.in = phi ptr [ %.sroa.427.0..sroa_idx.i.i, %106 ], [ %.sroa.4.0..sroa_idx.i2.i.i, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i32 ]
+  %.sroa.8.2.in.in = phi ptr [ %.sroa.427.0..sroa_idx.i.i, %106 ], [ %.sroa.3.0..sroa_idx.i.i.i.i.i2.i.i, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i32 ]
   %.sroa.10.2.in = phi ptr [ %.sroa.528.0..sroa_idx.i.i, %106 ], [ %17, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i32 ]
   %.sroa.12.2 = phi ptr [ %.promoted45.i.i2180, %106 ], [ %99, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1m_INtB1m_4WalkuENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1o_.exit.i1.i.i32 ]
   %.sroa.10.2 = load i64, ptr %.sroa.10.2.in, align 8, !alias.scope !333, !noalias !334, !noundef !4
@@ -1721,7 +1721,7 @@ define void @_RNvXNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque11spec_extend
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %16 = load ptr, ptr %15, align 8, !nonnull !4
-  %.sroa.4.0..sroa_idx.i2.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.sroa.3.0..sroa_idx.i.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = ptrtoint ptr %16 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1819,7 +1819,7 @@ _RNvXs1_NtNtNtCs1LoaDTb72WA_4core4iter8adapters7flattenINtB5_7FlatMapINtNtB7_9en
   %.promoted115 = phi i64 [ %.promoted108, %28 ], [ %.promoted116, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i ]
   %.sroa.13.1 = phi ptr [ %.promoted78123, %28 ], [ %22, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i ]
   %.sroa.11.1.in = phi ptr [ %.sroa.528.0..sroa_idx.i.i, %28 ], [ %17, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i ]
-  %.sroa.9.1.in.in = phi ptr [ %.sroa.427.0..sroa_idx.i.i, %28 ], [ %.sroa.4.0..sroa_idx.i2.i.i, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i ]
+  %.sroa.9.1.in.in = phi ptr [ %.sroa.427.0..sroa_idx.i.i, %28 ], [ %.sroa.3.0..sroa_idx.i.i.i.i.i2.i.i, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i ]
   %.sroa.9.1.in = load i64, ptr %.sroa.9.1.in.in, align 8, !alias.scope !335, !noalias !340
   %.sroa.9.1 = add i64 %.sroa.9.1.in, 1
   %.sroa.11.1 = load i64, ptr %.sroa.11.1.in, align 8, !alias.scope !335, !noalias !340, !noundef !4
@@ -2039,7 +2039,7 @@ _RNvXs1_NtNtNtCs1LoaDTb72WA_4core4iter8adapters7flattenINtB5_7FlatMapINtNtB7_9en
   %.promoted46.i.i2283 = phi ptr [ %.promoted46.i.i2285, %104 ], [ %.promoted46.i.i2284, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i32 ]
   %.promoted45.i.i2179 = phi ptr [ %105, %104 ], [ %.promoted45.i.i2180, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i32 ]
   %.sroa.012.0.copyload13.i.i3071 = phi i64 [ %.sroa.012.0.copyload13.i.i3073, %104 ], [ %.sroa.012.0.copyload13.i.i3072, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i32 ]
-  %.sroa.8.2.in.in = phi ptr [ %.sroa.427.0..sroa_idx.i.i, %104 ], [ %.sroa.4.0..sroa_idx.i2.i.i, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i32 ]
+  %.sroa.8.2.in.in = phi ptr [ %.sroa.427.0..sroa_idx.i.i, %104 ], [ %.sroa.3.0..sroa_idx.i.i.i.i.i2.i.i, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i32 ]
   %.sroa.10.2.in = phi ptr [ %.sroa.528.0..sroa_idx.i.i, %104 ], [ %17, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i32 ]
   %.sroa.12.2 = phi ptr [ %.promoted45.i.i2180, %104 ], [ %98, %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtBe_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenENCNCNvXsR_B1l_INtB1l_4WalkTjjEENtNtNtBc_6traits8iterator8Iterator4next00EB2n_4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1n_.exit.i1.i.i32 ]
   %.sroa.10.2 = load i64, ptr %.sroa.10.2.in, align 8, !alias.scope !468, !noalias !469, !noundef !4

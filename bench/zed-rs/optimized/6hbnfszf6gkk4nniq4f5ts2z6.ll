@@ -75,11 +75,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @"_ZN168_$LT$futures_util..future..future..flatten..Flatten$LT$Fut$C$$LT$Fut$u20$as$u20$core..future..future..Future$GT$..Output$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h958cc2a6705ce263E"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.7 = alloca [24 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i64, ptr %0, align 8, !range !4
-  %.sroa.7.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %5
 
 5:                                                ; preds = %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h8b1d0a1ed38f1690E.exit", %2
@@ -125,13 +123,10 @@ define hidden { i64, ptr } @"_ZN168_$LT$futures_util..future..future..flatten..F
   store i64 4, ptr %0, align 8, !noalias !10
   store i64 %14, ptr %3, align 8, !noalias !10
   store ptr %25, ptr %4, align 8, !noalias !10
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false), !noalias !10
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %12
   %25 = extractvalue { i64, ptr } %13, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %26 = load i64, ptr %0, align 8, !range !4, !alias.scope !13, !noalias !10, !noundef !9
   %27 = and i64 %26, 6
@@ -193,8 +188,6 @@ define hidden { i64, ptr } @"_ZN168_$LT$futures_util..future..future..flatten..F
   store i64 4, ptr %0, align 8, !noalias !10
   store i64 %14, ptr %3, align 8, !noalias !10
   store ptr %25, ptr %4, align 8, !noalias !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx44, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false), !noalias !10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7)
   br label %5
 
 48:                                               ; preds = %16
@@ -7648,7 +7641,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h53e03dd4bd88f978E.exit.i: ; pre
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.692.i)
   br label %467
 
-471:                                              ; preds = %421, %.body.i, %423
+471:                                              ; preds = %.body.i, %423, %421
   %.pn16.pn.pn.pn.i = phi { ptr, i32 } [ %.pn16.i, %423 ], [ %422, %421 ], [ %.pn9.i, %.body.i ]
   %472 = getelementptr inbounds nuw i8, ptr %1, i64 569
   %473 = load i8, ptr %472, align 1, !range !222, !noalias !2141, !noundef !9

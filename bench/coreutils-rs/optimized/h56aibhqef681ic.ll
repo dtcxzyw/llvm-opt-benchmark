@@ -2305,9 +2305,9 @@ _ZN3std4path9Component9as_os_str17hf18659d2f1a75094E.exit: ; preds = %"_ZN4core6
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   %.sroa.516.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %.sroa.344.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %_ZN3std4path7PathBuf4push17hde9f6a71c8e18b33E.exit
 
@@ -2358,9 +2358,9 @@ thread-pre-split:                                 ; preds = %14
   ret void
 
 21:                                               ; preds = %17
-  %.sroa.344.0.copyload = load ptr, ptr %.sroa.344.0..sroa_idx, align 8
-  %.sroa.546.0.copyload = load i64, ptr %.sroa.546.0..sroa_idx, align 8
-  %.sroa.748.0.copyload = load ptr, ptr %.sroa.748.0..sroa_idx, align 8
+  %.sroa.343.0.copyload = load ptr, ptr %.sroa.343.0..sroa_idx, align 8
+  %.sroa.545.0.copyload = load i64, ptr %.sroa.545.0..sroa_idx, align 8
+  %.sroa.747.0.copyload = load ptr, ptr %.sroa.747.0..sroa_idx, align 8
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
   %22 = add nsw i8 %18, -6
   %23 = zext i8 %22 to i64
@@ -2395,7 +2395,7 @@ thread-pre-split:                                 ; preds = %14
   unreachable
 
 33:                                               ; preds = %28
-  %34 = icmp ne ptr %.sroa.748.0.copyload, null
+  %34 = icmp ne ptr %.sroa.747.0.copyload, null
   call void @llvm.assume(i1 %34)
   br label %.invoke
 
@@ -2406,7 +2406,7 @@ thread-pre-split:                                 ; preds = %14
   br label %.invoke
 
 37:                                               ; preds = %28
-  %38 = icmp ne ptr %.sroa.344.0.copyload, null
+  %38 = icmp ne ptr %.sroa.343.0.copyload, null
   call void @llvm.assume(i1 %38)
   br label %.invoke
 
@@ -2415,13 +2415,13 @@ thread-pre-split:                                 ; preds = %14
           to label %_ZN3std4path7PathBuf4push17hde9f6a71c8e18b33E.exit.backedge unwind label %.loopexit
 
 41:                                               ; preds = %21
-  %42 = icmp ne ptr %.sroa.344.0.copyload, null
+  %42 = icmp ne ptr %.sroa.343.0.copyload, null
   call void @llvm.assume(i1 %42)
   br label %.invoke
 
 .invoke:                                          ; preds = %28, %33, %35, %36, %37, %41
-  %43 = phi ptr [ %.sroa.344.0.copyload, %41 ], [ %.sroa.748.0.copyload, %33 ], [ @anon.27aa217f45c270b761c4ad406800e76c.2, %35 ], [ @anon.27aa217f45c270b761c4ad406800e76c.3, %36 ], [ %.sroa.344.0.copyload, %37 ], [ @anon.27aa217f45c270b761c4ad406800e76c.1, %28 ]
-  %44 = phi i64 [ %.sroa.546.0.copyload, %41 ], [ %.sroa.8.0.copyload, %33 ], [ 1, %35 ], [ 2, %36 ], [ %.sroa.546.0.copyload, %37 ], [ %31, %28 ]
+  %43 = phi ptr [ %.sroa.343.0.copyload, %41 ], [ %.sroa.747.0.copyload, %33 ], [ @anon.27aa217f45c270b761c4ad406800e76c.2, %35 ], [ @anon.27aa217f45c270b761c4ad406800e76c.3, %36 ], [ %.sroa.343.0.copyload, %37 ], [ @anon.27aa217f45c270b761c4ad406800e76c.1, %28 ]
+  %44 = phi i64 [ %.sroa.545.0.copyload, %41 ], [ %.sroa.8.0.copyload, %33 ], [ 1, %35 ], [ 2, %36 ], [ %.sroa.545.0.copyload, %37 ], [ %31, %28 ]
   invoke void @_ZN3std4path7PathBuf5_push17h98f2c6a7c69395cbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %43, i64 noundef %44)
           to label %_ZN3std4path7PathBuf4push17hde9f6a71c8e18b33E.exit.backedge unwind label %.loopexit
 

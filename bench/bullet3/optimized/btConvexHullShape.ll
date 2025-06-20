@@ -95,13 +95,17 @@ _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %16, %_ZN
   %21 = load i8, ptr %5, align 8, !range !24
   %22 = trunc nuw i8 %21 to i1
   %or.cond.i.i = select i1 %.not.i5.i.i, i1 %22, i1 false
-  br i1 %or.cond.i.i, label %23, label %.lr.ph.i
+  br i1 %or.cond.i.i, label %23, label %.lr.ph
 
 23:                                               ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %20)
-          to label %.lr.ph.i unwind label %25
+          to label %.lr.ph unwind label %25
 
-.lr.ph.i:                                         ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i, %23
+.loopexit:                                        ; preds = %4
+  store i32 %2, ptr %7, align 4, !tbaa !16
+  br label %._crit_edge
+
+.lr.ph:                                           ; preds = %23, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
   store i8 1, ptr %5, align 8, !tbaa !7
   store ptr %14, ptr %6, align 8, !tbaa !15
   store i32 %2, ptr %8, align 8, !tbaa !17
@@ -109,10 +113,6 @@ _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %16, %_ZN
   %24 = sext i32 %3 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %27
-
-.loopexit:                                        ; preds = %4
-  store i32 %2, ptr %7, align 4, !tbaa !16
-  br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %27, %.loopexit
   invoke void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113) %0)
@@ -123,9 +123,9 @@ _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %16, %_ZN
           cleanup
   br label %39
 
-27:                                               ; preds = %.lr.ph.i, %27
-  %indvars.iv = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next, %27 ]
-  %.01522 = phi ptr [ %1, %.lr.ph.i ], [ %35, %27 ]
+27:                                               ; preds = %.lr.ph, %27
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
+  %.01522 = phi ptr [ %1, %.lr.ph ], [ %35, %27 ]
   %28 = getelementptr inbounds nuw i8, ptr %.01522, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %.01522, i64 8
   %30 = load float, ptr %.01522, align 4, !tbaa !25
@@ -630,7 +630,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %35, %_Z
   store i32 0, ptr %28, align 8, !tbaa !17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i, %27, %_ZN20btConvexHullComputer7computeEPKfiiff.exit
+.loopexit:                                        ; preds = %27, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i, %_ZN20btConvexHullComputer7computeEPKfiiff.exit
   store i32 0, ptr %21, align 4, !tbaa !16
   %36 = icmp sgt i32 %24, 0
   br i1 %36, label %.lr.ph, label %._crit_edge

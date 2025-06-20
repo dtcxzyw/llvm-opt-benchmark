@@ -7885,10 +7885,10 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx17, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
   %.sroa.8.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %18, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx18, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
-  %.sroa.919.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store i8 %14, ptr %.sroa.919.0..sroa_idx, align 8
-  %.sroa.1020.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 97
-  store i8 %16, ptr %.sroa.1020.0..sroa_idx, align 1
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 96
+  store i8 %14, ptr %.sroa.9.0..sroa_idx, align 8
+  %.sroa.1019.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 97
+  store i8 %16, ptr %.sroa.1019.0..sroa_idx, align 1
   store ptr %18, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10)
@@ -7945,8 +7945,8 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.75.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %8, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8), !noalias !703
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !703
-  %38 = load i8, ptr %.sroa.919.0..sroa_idx, align 8, !noundef !3
-  %39 = load i8, ptr %.sroa.1020.0..sroa_idx, align 1, !range !405, !noundef !3
+  %38 = load i8, ptr %.sroa.9.0..sroa_idx, align 8, !noundef !3
+  %39 = load i8, ptr %.sroa.1019.0..sroa_idx, align 1, !range !405, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %10, i64 128, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 0, ptr %40, align 8

@@ -6442,7 +6442,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next_message17h884e2cbac61986a6E"(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
-  %.sroa.012 = alloca [32 x i8], align 8
+  %.sroa.011 = alloca [32 x i8], align 8
   %.sroa.3 = alloca [7 x i8], align 1
   %.sroa.0 = alloca [32 x i8], align 8
   %.sroa.6 = alloca [7 x i8], align 1
@@ -6490,8 +6490,8 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
 
 "_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h60bcc2967581264aE.llvm.11704451251615781814.exit": ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %.sroa.6.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx11, i64 7, i1 false)
+  %.sroa.6.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %3, i64 33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx10, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !1508
   %17 = icmp eq i8 %11, 2
   br i1 %17, label %19, label %34
@@ -6544,13 +6544,13 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   br label %18
 
 34:                                               ; preds = %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h60bcc2967581264aE.llvm.11704451251615781814.exit"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.011, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6, i64 7, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %36 = atomicrmw sub ptr %35, i64 1 seq_cst, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012, i64 32, i1 false)
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %11, ptr %.sroa.415.0..sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.011, i64 32, i1 false)
+  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %11, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3, i64 7, i1 false)
   br label %33
@@ -7705,8 +7705,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h16f29be
 
 41:                                               ; preds = %39
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.426.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, i64 32, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, i64 32, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store atomic i8 0, ptr %42 seq_cst, align 8, !noalias !1612
@@ -7803,8 +7803,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h308a1ed
 
 41:                                               ; preds = %39
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.426.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.6.0..sroa_idx, i64 96, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.6.0..sroa_idx, i64 96, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store atomic i8 0, ptr %42 seq_cst, align 8, !noalias !1632
@@ -7901,8 +7901,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h58e8818
 
 41:                                               ; preds = %39
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.426.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store atomic i8 0, ptr %42 seq_cst, align 8, !noalias !1652
@@ -8247,8 +8247,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h980d1cf
 
 41:                                               ; preds = %39
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.426.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store atomic i8 0, ptr %42 seq_cst, align 8, !noalias !1702
@@ -8345,8 +8345,8 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hcca3509
 
 41:                                               ; preds = %39
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.426.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx, i64 40, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx, i64 40, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store atomic i8 0, ptr %42 seq_cst, align 8, !noalias !1722
@@ -13026,11 +13026,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 5:                                                ; preds = %3
   %6 = tail call noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17had7e3e6f37c75443E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !2559
-  %spec.select.i = select i1 %6, i64 -9223372036854775804, i64 -9223372036854775805
+  %spec.select.i.i = select i1 %6, i64 -9223372036854775804, i64 -9223372036854775805
   br label %_ZN4core3ops8function6FnOnce9call_once17hb86f821fd67153eeE.exit
 
 _ZN4core3ops8function6FnOnce9call_once17hb86f821fd67153eeE.exit: ; preds = %3, %5
-  %storemerge.i.i = phi i64 [ -9223372036854775803, %3 ], [ %spec.select.i, %5 ]
+  %storemerge.i.i = phi i64 [ %spec.select.i.i, %5 ], [ -9223372036854775803, %3 ]
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !2562, !noalias !2563
   ret void
 }
@@ -13469,11 +13469,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 5:                                                ; preds = %3
   %6 = tail call noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17had7e3e6f37c75443E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !2825
-  %spec.select.i = select i1 %6, i64 -9223372036854775804, i64 -9223372036854775805
+  %spec.select.i.i = select i1 %6, i64 -9223372036854775804, i64 -9223372036854775805
   br label %_ZN4core3ops8function6FnOnce9call_once17hbb60b90262967b73E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17hbb60b90262967b73E.exit: ; preds = %3, %5
-  %storemerge.i.i = phi i64 [ -9223372036854775803, %3 ], [ %spec.select.i, %5 ]
+  %storemerge.i.i = phi i64 [ %spec.select.i.i, %5 ], [ -9223372036854775803, %3 ]
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !2828, !noalias !2829
   ret void
 }
@@ -13532,11 +13532,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 5:                                                ; preds = %3
   %6 = tail call noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17had7e3e6f37c75443E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !2860
-  %spec.select.i = select i1 %6, i64 -9223372036854775804, i64 -9223372036854775805
+  %spec.select.i.i = select i1 %6, i64 -9223372036854775804, i64 -9223372036854775805
   br label %_ZN4core3ops8function6FnOnce9call_once17he07c5f01e0ef90ccE.exit
 
 _ZN4core3ops8function6FnOnce9call_once17he07c5f01e0ef90ccE.exit: ; preds = %3, %5
-  %storemerge.i.i = phi i64 [ -9223372036854775803, %3 ], [ %spec.select.i, %5 ]
+  %storemerge.i.i = phi i64 [ %spec.select.i.i, %5 ], [ -9223372036854775803, %3 ]
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !2863, !noalias !2864
   ret void
 }
@@ -14279,11 +14279,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 5:                                                ; preds = %3
   %6 = tail call noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17had7e3e6f37c75443E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !3371
-  %spec.select.i = select i1 %6, i64 -9223372036854775802, i64 -9223372036854775803
+  %spec.select.i.i = select i1 %6, i64 -9223372036854775802, i64 -9223372036854775803
   br label %_ZN4core3ops8function6FnOnce9call_once17h10491c9b437912d0E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h10491c9b437912d0E.exit: ; preds = %3, %5
-  %storemerge.i.i = phi i64 [ -9223372036854775801, %3 ], [ %spec.select.i, %5 ]
+  %storemerge.i.i = phi i64 [ %spec.select.i.i, %5 ], [ -9223372036854775801, %3 ]
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !3374, !noalias !3375
   ret void
 }
@@ -14711,11 +14711,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 5:                                                ; preds = %3
   %6 = tail call noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17had7e3e6f37c75443E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !3568
-  %spec.select.i = select i1 %6, i64 -9223372036854775804, i64 -9223372036854775805
+  %spec.select.i.i = select i1 %6, i64 -9223372036854775804, i64 -9223372036854775805
   br label %_ZN4core3ops8function6FnOnce9call_once17h040ab4b9f42eb6bcE.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h040ab4b9f42eb6bcE.exit: ; preds = %3, %5
-  %storemerge.i.i = phi i64 [ -9223372036854775803, %3 ], [ %spec.select.i, %5 ]
+  %storemerge.i.i = phi i64 [ %spec.select.i.i, %5 ], [ -9223372036854775803, %3 ]
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !3571, !noalias !3572
   ret void
 }
@@ -14763,11 +14763,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 5:                                                ; preds = %3
   %6 = tail call noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17had7e3e6f37c75443E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !3620
-  %spec.select.i = select i1 %6, i64 2, i64 0
+  %spec.select.i.i = select i1 %6, i64 2, i64 0
   br label %_ZN4core3ops8function6FnOnce9call_once17hacee8db3e2216d4fE.exit
 
 _ZN4core3ops8function6FnOnce9call_once17hacee8db3e2216d4fE.exit: ; preds = %3, %5
-  %storemerge.i.i = phi i64 [ 3, %3 ], [ %spec.select.i, %5 ]
+  %storemerge.i.i = phi i64 [ %spec.select.i.i, %5 ], [ 3, %3 ]
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !3623, !noalias !3624
   ret void
 }
@@ -36058,12 +36058,12 @@ define hidden void @"_ZN89_$LT$futures_channel..mpsc..BoundedSenderInner$LT$T$GT
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 20
-  store i8 0, ptr %.sroa.626.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr null, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i8 0, ptr %.sroa.11.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 20
+  store i8 0, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.726.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store ptr null, ptr %.sroa.726.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 40
+  store i8 0, ptr %.sroa.10.0..sroa_idx, align 8
   store ptr %4, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %30, align 8
@@ -36299,8 +36299,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 43:                                               ; preds = %41
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.426.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.426.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.6.0..sroa_idx.i, i64 96, i1 false), !noalias !9664
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.6.0..sroa_idx.i, i64 96, i1 false), !noalias !9664
   store i64 %.sroa.0.0.copyload.i, ptr %0, align 8, !alias.scope !9661, !noalias !9664
   store atomic i8 0, ptr %38 seq_cst, align 1, !noalias !9677
   br label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h308a1ede566b8125E.llvm.11704451251615781814.exit"
@@ -36399,8 +36399,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 43:                                               ; preds = %41
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.426.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.426.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i64 16, i1 false), !noalias !9690
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i64 16, i1 false), !noalias !9690
   store i64 %.sroa.0.0.copyload.i, ptr %0, align 8, !alias.scope !9687, !noalias !9690
   store atomic i8 0, ptr %38 seq_cst, align 1, !noalias !9703
   br label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h58e8818058b58608E.llvm.11704451251615781814.exit"
@@ -36674,8 +36674,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 43:                                               ; preds = %41
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.426.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.426.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, i64 32, i1 false), !noalias !9742
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx.i, i64 32, i1 false), !noalias !9742
   store i64 %.sroa.0.0.copyload.i, ptr %0, align 8, !alias.scope !9739, !noalias !9742
   store atomic i8 0, ptr %38 seq_cst, align 1, !noalias !9755
   br label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h16f29be7874b690eE.llvm.11704451251615781814.exit"
@@ -36942,8 +36942,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 43:                                               ; preds = %41
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.426.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.426.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx.i, i64 40, i1 false), !noalias !9794
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx.i, i64 40, i1 false), !noalias !9794
   store i64 %.sroa.0.0.copyload.i, ptr %0, align 8, !alias.scope !9791, !noalias !9794
   store atomic i8 0, ptr %38 seq_cst, align 1, !noalias !9807
   br label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17hcca350938165aeb3E.llvm.11704451251615781814.exit"
@@ -37042,8 +37042,8 @@ define hidden void @"_ZN92_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$a
 
 43:                                               ; preds = %41
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.426.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.426.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i64 16, i1 false), !noalias !9820
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i64 16, i1 false), !noalias !9820
   store i64 %.sroa.0.0.copyload.i, ptr %0, align 8, !alias.scope !9817, !noalias !9820
   store atomic i8 0, ptr %38 seq_cst, align 1, !noalias !9833
   br label %"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h980d1cff882df3bcE.llvm.11704451251615781814.exit"

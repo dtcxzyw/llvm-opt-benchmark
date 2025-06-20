@@ -1362,8 +1362,8 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getE
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !29
-  %.not28.i = icmp eq ptr %5, %7
-  br i1 %.not28.i, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit, label %.lr.ph.i
+  %.not27.i = icmp eq ptr %5, %7
+  br i1 %.not27.i, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %.sroa.22.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1372,9 +1372,9 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getE
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %23, %.lr.ph.i
-  %.030.us.i = phi ptr [ %24, %23 ], [ %5, %.lr.ph.i ]
-  %.02729.us.i = phi ptr [ %.1.us.i, %23 ], [ null, %.lr.ph.i ]
-  %9 = load ptr, ptr %.030.us.i, align 8, !tbaa !27
+  %.029.us.i = phi ptr [ %24, %23 ], [ %5, %.lr.ph.i ]
+  %.02628.us.i = phi ptr [ %.1.us.i, %23 ], [ null, %.lr.ph.i ]
+  %9 = load ptr, ptr %.029.us.i, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -1412,19 +1412,19 @@ _ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8Loop
   br i1 %.not19.us.i, label %23, label %22
 
 22:                                               ; preds = %21
-  %.not20.us.i = icmp eq ptr %.02729.us.i, null
+  %.not20.us.i = icmp eq ptr %.02628.us.i, null
   br i1 %.not20.us.i, label %23, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit
 
 23:                                               ; preds = %22, %21
-  %.1.us.i = phi ptr [ %.02729.us.i, %21 ], [ %.fca.0.extract.us.i, %22 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.030.us.i, i64 8
+  %.1.us.i = phi ptr [ %.02628.us.i, %21 ], [ %.fca.0.extract.us.i, %22 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.029.us.i, i64 8
   %.not.us.i = icmp eq ptr %24, %7
   br i1 %.not.us.i, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit, label %.lr.ph.split.us.i
 
 _ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit: ; preds = %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i, %22, %23, %1
-  %.sroa.026.0.i = phi ptr [ null, %1 ], [ %.1.us.i, %23 ], [ %.fca.0.extract.us.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ null, %22 ]
+  %.sroa.025.1.i = phi ptr [ null, %1 ], [ null, %22 ], [ %.fca.0.extract.us.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ %.1.us.i, %23 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret ptr %.sroa.026.0.i
+  ret ptr %.sroa.025.1.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2104,8 +2104,8 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE18getU
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !29
-  %.not28.i = icmp eq ptr %5, %7
-  br i1 %.not28.i, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit, label %.lr.ph.i
+  %.not27.i = icmp eq ptr %5, %7
+  br i1 %.not27.i, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %.sroa.22.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2114,9 +2114,9 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE18getU
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %24, %.lr.ph.i
-  %.030.i = phi ptr [ %25, %24 ], [ %5, %.lr.ph.i ]
-  %.02729.i = phi ptr [ %.1.i, %24 ], [ null, %.lr.ph.i ]
-  %9 = load ptr, ptr %.030.i, align 8, !tbaa !27
+  %.029.i = phi ptr [ %25, %24 ], [ %5, %.lr.ph.i ]
+  %.02628.i = phi ptr [ %.1.i, %24 ], [ null, %.lr.ph.i ]
+  %9 = load ptr, ptr %.029.i, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !113)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -2154,23 +2154,23 @@ _ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8Loop
   br i1 %.not19.i, label %24, label %22
 
 22:                                               ; preds = %21
-  %.not20.i = icmp eq ptr %.02729.i, null
+  %.not20.i = icmp eq ptr %.02628.i, null
   br i1 %.not20.i, label %24, label %23
 
 23:                                               ; preds = %22
-  %.not21.i = icmp eq ptr %.fca.0.extract.i, %.02729.i
+  %.not21.i = icmp eq ptr %.fca.0.extract.i, %.02628.i
   br i1 %.not21.i, label %24, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit
 
 24:                                               ; preds = %23, %22, %21
-  %.1.i = phi ptr [ %.02729.i, %21 ], [ %.02729.i, %23 ], [ %.fca.0.extract.i, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.030.i, i64 8
+  %.1.i = phi ptr [ %.02628.i, %21 ], [ %.02628.i, %23 ], [ %.fca.0.extract.i, %22 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %.not.i = icmp eq ptr %25, %7
   br i1 %.not.i, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit, label %.lr.ph.split.i
 
 _ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit: ; preds = %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.i, %23, %24, %1
-  %.sroa.026.0.i = phi ptr [ null, %1 ], [ %.1.i, %24 ], [ %.fca.0.extract.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.i ], [ null, %23 ]
+  %.sroa.025.1.i = phi ptr [ null, %1 ], [ null, %23 ], [ %.fca.0.extract.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.i ], [ %.1.i, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret ptr %.sroa.026.0.i
+  ret ptr %.sroa.025.1.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2414,8 +2414,8 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopE
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !29
-  %.not28.i = icmp eq ptr %5, %7
-  br i1 %.not28.i, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit, label %.lr.ph.i
+  %.not27.i = icmp eq ptr %5, %7
+  br i1 %.not27.i, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %.sroa.22.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2424,9 +2424,9 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopE
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %23, %.lr.ph.i
-  %.030.us.i = phi ptr [ %24, %23 ], [ %5, %.lr.ph.i ]
-  %.02729.us.i = phi ptr [ %.1.us.i, %23 ], [ null, %.lr.ph.i ]
-  %9 = load ptr, ptr %.030.us.i, align 8, !tbaa !27
+  %.029.us.i = phi ptr [ %24, %23 ], [ %5, %.lr.ph.i ]
+  %.02628.us.i = phi ptr [ %.1.us.i, %23 ], [ null, %.lr.ph.i ]
+  %9 = load ptr, ptr %.029.us.i, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -2464,28 +2464,28 @@ _ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8Loop
   br i1 %.not19.us.i, label %23, label %22
 
 22:                                               ; preds = %21
-  %.not20.us.i = icmp eq ptr %.02729.us.i, null
+  %.not20.us.i = icmp eq ptr %.02628.us.i, null
   br i1 %.not20.us.i, label %23, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit
 
 23:                                               ; preds = %22, %21
-  %.1.us.i = phi ptr [ %.02729.us.i, %21 ], [ %.fca.0.extract.us.i, %22 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.030.us.i, i64 8
+  %.1.us.i = phi ptr [ %.02628.us.i, %21 ], [ %.fca.0.extract.us.i, %22 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.029.us.i, i64 8
   %.not.us.i = icmp eq ptr %24, %7
   br i1 %.not.us.i, label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit, label %.lr.ph.split.us.i
 
 _ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit: ; preds = %23, %22, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i
-  %.sroa.026.0.i.ph = phi ptr [ null, %22 ], [ %.fca.0.extract.us.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ %.1.us.i, %23 ]
-  %.sroa.4.0.i.ph = phi i8 [ 1, %22 ], [ %.fca.1.extract.us.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ 0, %23 ]
-  %25 = trunc i8 %.sroa.4.0.i.ph to i1
-  %26 = icmp eq ptr %.sroa.026.0.i.ph, null
+  %.sroa.025.1.i.ph = phi ptr [ %.1.us.i, %23 ], [ %.fca.0.extract.us.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ null, %22 ]
+  %.sroa.4.1.i.ph = phi i8 [ 0, %23 ], [ %.fca.1.extract.us.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.us.i ], [ 1, %22 ]
+  %25 = trunc i8 %.sroa.4.1.i.ph to i1
+  %26 = icmp eq ptr %.sroa.025.1.i.ph, null
   %27 = xor i1 %25, true
   %28 = select i1 %27, i1 %26, i1 false
   br label %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit
 
 _ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit: ; preds = %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit, %1
-  %.sroa.4.0.i = phi i1 [ true, %1 ], [ %28, %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit ]
+  %.sroa.4.1.i = phi i1 [ true, %1 ], [ %28, %_ZN4llvm21find_singleton_nestedINS_10BasicBlockENS_14iterator_rangeIPKPS1_EEZNS_18getExitBlockHelperIS1_NS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseISA_T0_EEbEUlS3_bE0_EESC_OSE_T1_b.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret i1 %.sroa.4.0.i
+  ret i1 %.sroa.4.1.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10095,8 +10095,8 @@ _ZNK4llvm4Loop13isRotatedFormEv.exit:             ; preds = %_ZNK4llvm8LoopBaseI
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !29
-  %.not28.i.i = icmp eq ptr %39, %41
-  br i1 %.not28.i.i, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE18getUniqueExitBlockEv.exit.thread, label %.lr.ph.i.i
+  %.not27.i.i = icmp eq ptr %39, %41
+  br i1 %.not27.i.i, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE18getUniqueExitBlockEv.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %37
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10105,9 +10105,9 @@ _ZNK4llvm4Loop13isRotatedFormEv.exit:             ; preds = %_ZNK4llvm8LoopBaseI
   br label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %58, %.lr.ph.i.i
-  %.030.i.i = phi ptr [ %59, %58 ], [ %39, %.lr.ph.i.i ]
-  %.02729.i.i = phi ptr [ %.1.i.i, %58 ], [ null, %.lr.ph.i.i ]
-  %43 = load ptr, ptr %.030.i.i, align 8, !tbaa !27
+  %.029.i.i = phi ptr [ %59, %58 ], [ %39, %.lr.ph.i.i ]
+  %.02628.i.i = phi ptr [ %.1.i.i, %58 ], [ null, %.lr.ph.i.i ]
+  %43 = load ptr, ptr %.029.i.i, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #22
   call void @llvm.experimental.noalias.scope.decl(metadata !534)
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
@@ -10145,16 +10145,16 @@ _ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8Loop
   br i1 %.not19.i.i, label %58, label %56
 
 56:                                               ; preds = %55
-  %.not20.i.i = icmp eq ptr %.02729.i.i, null
+  %.not20.i.i = icmp eq ptr %.02628.i.i, null
   br i1 %.not20.i.i, label %58, label %57
 
 57:                                               ; preds = %56
-  %.not21.i.i = icmp eq ptr %.fca.0.extract.i.i, %.02729.i.i
+  %.not21.i.i = icmp eq ptr %.fca.0.extract.i.i, %.02628.i.i
   br i1 %.not21.i.i, label %58, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE18getUniqueExitBlockEv.exit.thread
 
 58:                                               ; preds = %57, %56, %55
-  %.1.i.i = phi ptr [ %.02729.i.i, %55 ], [ %.02729.i.i, %57 ], [ %.fca.0.extract.i.i, %56 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 8
+  %.1.i.i = phi ptr [ %.02628.i.i, %55 ], [ %.02628.i.i, %57 ], [ %.fca.0.extract.i.i, %56 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 8
   %.not.i.i22 = icmp eq ptr %59, %41
   br i1 %.not.i.i22, label %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE18getUniqueExitBlockEv.exit, label %.lr.ph.split.i.i
 
@@ -10163,9 +10163,9 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE18getUniqueExitBlockEv.exit.thread:
   br label %_ZNK4llvm4Loop18isLoopSimplifyFormEv.exit.thread
 
 _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE18getUniqueExitBlockEv.exit: ; preds = %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.i.i, %58
-  %.sroa.026.0.i.i = phi ptr [ %.1.i.i, %58 ], [ %.fca.0.extract.i.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.i.i ]
+  %.sroa.025.1.i.i = phi ptr [ %.fca.0.extract.i.i, %_ZZN4llvm18getExitBlockHelperINS_10BasicBlockENS_4LoopEEESt4pairIPT_bEPKNS_8LoopBaseIS4_T0_EEbENKUlPS1_bE0_clESC_b.exit.i.i ], [ %.1.i.i, %58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.not = icmp eq ptr %.sroa.026.0.i.i, null
+  %.not = icmp eq ptr %.sroa.025.1.i.i, null
   br i1 %.not, label %_ZNK4llvm4Loop18isLoopSimplifyFormEv.exit.thread, label %60
 
 60:                                               ; preds = %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE18getUniqueExitBlockEv.exit
@@ -10203,7 +10203,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %60
 
 79:                                               ; preds = %72, %76
   %80 = phi ptr [ %78, %76 ], [ %74, %72 ]
-  %81 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm8LoopNest19skipEmptyBlockUntilEPKNS_10BasicBlockES3_b(ptr noundef nonnull %.sroa.026.0.i.i, ptr noundef %80, i1 noundef zeroext true) #22
+  %81 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm8LoopNest19skipEmptyBlockUntilEPKNS_10BasicBlockES3_b(ptr noundef nonnull %.sroa.025.1.i.i, ptr noundef %80, i1 noundef zeroext true) #22
   %82 = icmp eq ptr %81, %80
   %. = select i1 %82, ptr %65, ptr null
   br label %_ZNK4llvm4Loop18isLoopSimplifyFormEv.exit.thread
@@ -18355,10 +18355,10 @@ define linkonce_odr { ptr, i8 } @_ZN4llvm21find_singleton_nestedINS_10BasicBlock
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.2.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.2.0.copyload.i28 = load i32, ptr %.sroa.2.0..sroa_idx.i27, align 8
-  %.not4446 = icmp eq i32 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i28
-  br i1 %.not4446, label %.critedge25, label %.lr.ph
+  %.sroa.2.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.2.0.copyload.i27 = load i32, ptr %.sroa.2.0..sroa_idx.i26, align 8
+  %.not4345 = icmp eq i32 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i27
+  br i1 %.not4345, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %4 = load ptr, ptr %1, align 8, !tbaa !85
@@ -18381,57 +18381,57 @@ define linkonce_odr { ptr, i8 } @_ZN4llvm21find_singleton_nestedINS_10BasicBlock
   br i1 %2, label %.lr.ph.split.us.split.us.split, label %.lr.ph.split.us.split.us.split.us
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.thread.us.us.us
-  %.048.us.us.us = phi ptr [ %.1.us.us.us, %.thread.us.us.us ], [ null, %.lr.ph.split.us.split.us ]
-  %.sroa.5.047.us.us.us = phi i32 [ %16, %.thread.us.us.us ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us.split.us ]
-  %14 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.047.us.us.us) #23
+  %.047.us.us.us = phi ptr [ %.1.us.us.us, %.thread.us.us.us ], [ null, %.lr.ph.split.us.split.us ]
+  %.sroa.5.046.us.us.us = phi i32 [ %16, %.thread.us.us.us ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us.split.us ]
+  %14 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.046.us.us.us) #23
   %.not.old.us.us.us = icmp eq ptr %14, null
   br i1 %.not.old.us.us.us, label %.thread.us.us.us, label %15
 
 15:                                               ; preds = %.lr.ph.split.us.split.us.split.us
-  %.not22.us.us.us = icmp eq ptr %.048.us.us.us, null
-  br i1 %.not22.us.us.us, label %.thread.us.us.us, label %.critedge25
+  %.not22.us.us.us = icmp eq ptr %.047.us.us.us, null
+  br i1 %.not22.us.us.us, label %.thread.us.us.us, label %.critedge
 
 .thread.us.us.us:                                 ; preds = %15, %.lr.ph.split.us.split.us.split.us
-  %.1.us.us.us = phi ptr [ %.048.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %14, %15 ]
-  %16 = add nsw i32 %.sroa.5.047.us.us.us, 1
-  %.not44.us.us.us = icmp eq i32 %16, %.sroa.2.0.copyload.i28
-  br i1 %.not44.us.us.us, label %.critedge25, label %.lr.ph.split.us.split.us.split.us
+  %.1.us.us.us = phi ptr [ %.047.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %14, %15 ]
+  %16 = add nsw i32 %.sroa.5.046.us.us.us, 1
+  %.not43.us.us.us = icmp eq i32 %16, %.sroa.2.0.copyload.i27
+  br i1 %.not43.us.us.us, label %.critedge, label %.lr.ph.split.us.split.us.split.us
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.thread.us.us
-  %.048.us.us = phi ptr [ %.1.us.us, %.thread.us.us ], [ null, %.lr.ph.split.us.split.us ]
-  %.sroa.5.047.us.us = phi i32 [ %20, %.thread.us.us ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us.split.us ]
-  %17 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.047.us.us) #23
+  %.047.us.us = phi ptr [ %.1.us.us, %.thread.us.us ], [ null, %.lr.ph.split.us.split.us ]
+  %.sroa.5.046.us.us = phi i32 [ %20, %.thread.us.us ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us.split.us ]
+  %17 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.046.us.us) #23
   %.not.old.us.us = icmp eq ptr %17, null
   br i1 %.not.old.us.us, label %.thread.us.us, label %18
 
 18:                                               ; preds = %.lr.ph.split.us.split.us.split
-  %.not22.us.us = icmp eq ptr %.048.us.us, null
+  %.not22.us.us = icmp eq ptr %.047.us.us, null
   br i1 %.not22.us.us, label %.thread.us.us, label %19
 
 19:                                               ; preds = %18
-  %.not23.us.us = icmp eq ptr %17, %.048.us.us
-  br i1 %.not23.us.us, label %.thread.us.us, label %.critedge25
+  %.not23.us.us = icmp eq ptr %17, %.047.us.us
+  br i1 %.not23.us.us, label %.thread.us.us, label %.critedge
 
 .thread.us.us:                                    ; preds = %19, %18, %.lr.ph.split.us.split.us.split
-  %.1.us.us = phi ptr [ %.048.us.us, %.lr.ph.split.us.split.us.split ], [ %.048.us.us, %19 ], [ %17, %18 ]
-  %20 = add nsw i32 %.sroa.5.047.us.us, 1
-  %.not44.us.us = icmp eq i32 %20, %.sroa.2.0.copyload.i28
-  br i1 %.not44.us.us, label %.critedge25, label %.lr.ph.split.us.split.us.split
+  %.1.us.us = phi ptr [ %.047.us.us, %.lr.ph.split.us.split.us.split ], [ %.047.us.us, %19 ], [ %17, %18 ]
+  %20 = add nsw i32 %.sroa.5.046.us.us, 1
+  %.not43.us.us = icmp eq i32 %20, %.sroa.2.0.copyload.i27
+  br i1 %.not43.us.us, label %.critedge, label %.lr.ph.split.us.split.us.split
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
   br i1 %2, label %.lr.ph.i.i.i.i.preheader.us, label %.lr.ph.i.i.i.i.preheader.us.us
 
-.lr.ph.i.i.i.i.preheader.us.us:                   ; preds = %.lr.ph.split.us.split, %.thread.us.us66
-  %.048.us.us61 = phi ptr [ %.1.us.us67, %.thread.us.us66 ], [ null, %.lr.ph.split.us.split ]
-  %.sroa.5.047.us.us62 = phi i32 [ %27, %.thread.us.us66 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us.split ]
-  %21 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.047.us.us62) #23
+.lr.ph.i.i.i.i.preheader.us.us:                   ; preds = %.lr.ph.split.us.split, %.thread.us.us65
+  %.047.us.us60 = phi ptr [ %.1.us.us66, %.thread.us.us65 ], [ null, %.lr.ph.split.us.split ]
+  %.sroa.5.046.us.us61 = phi i32 [ %27, %.thread.us.us65 ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us.split ]
+  %21 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.046.us.us61) #23
   br label %.lr.ph.i.i.i.i.us.us
 
 .lr.ph.i.i.i.i.us.us:                             ; preds = %24, %.lr.ph.i.i.i.i.preheader.us.us
   %.0810.i.i.i.i.us.us = phi ptr [ %25, %24 ], [ %9, %.lr.ph.i.i.i.i.preheader.us.us ]
   %22 = load ptr, ptr %.0810.i.i.i.i.us.us, align 8, !tbaa !37
   %23 = icmp eq ptr %22, %21
-  br i1 %23, label %.thread.us.us66, label %24
+  br i1 %23, label %.thread.us.us65, label %24
 
 24:                                               ; preds = %.lr.ph.i.i.i.i.us.us
   %25 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.us.us, i64 8
@@ -18439,23 +18439,23 @@ define linkonce_odr { ptr, i8 } @_ZN4llvm21find_singleton_nestedINS_10BasicBlock
   br i1 %.not.not.i.i.i.i.us.us, label %.loopexit.us.us, label %.lr.ph.i.i.i.i.us.us, !llvm.loop !38
 
 26:                                               ; preds = %.loopexit.us.us
-  %.not22.us.us63 = icmp eq ptr %.048.us.us61, null
-  br i1 %.not22.us.us63, label %.thread.us.us66, label %.critedge25
+  %.not22.us.us62 = icmp eq ptr %.047.us.us60, null
+  br i1 %.not22.us.us62, label %.thread.us.us65, label %.critedge
 
-.thread.us.us66:                                  ; preds = %.lr.ph.i.i.i.i.us.us, %.loopexit.us.us, %26
-  %.1.us.us67 = phi ptr [ %.048.us.us61, %.loopexit.us.us ], [ %21, %26 ], [ %.048.us.us61, %.lr.ph.i.i.i.i.us.us ]
-  %27 = add nsw i32 %.sroa.5.047.us.us62, 1
-  %.not44.us.us68 = icmp eq i32 %27, %.sroa.2.0.copyload.i28
-  br i1 %.not44.us.us68, label %.critedge25, label %.lr.ph.i.i.i.i.preheader.us.us
+.thread.us.us65:                                  ; preds = %.lr.ph.i.i.i.i.us.us, %.loopexit.us.us, %26
+  %.1.us.us66 = phi ptr [ %.047.us.us60, %.loopexit.us.us ], [ %21, %26 ], [ %.047.us.us60, %.lr.ph.i.i.i.i.us.us ]
+  %27 = add nsw i32 %.sroa.5.046.us.us61, 1
+  %.not43.us.us67 = icmp eq i32 %27, %.sroa.2.0.copyload.i27
+  br i1 %.not43.us.us67, label %.critedge, label %.lr.ph.i.i.i.i.preheader.us.us
 
 .loopexit.us.us:                                  ; preds = %24
-  %.not.old.us.us69 = icmp eq ptr %21, null
-  br i1 %.not.old.us.us69, label %.thread.us.us66, label %26
+  %.not.old.us.us68 = icmp eq ptr %21, null
+  br i1 %.not.old.us.us68, label %.thread.us.us65, label %26
 
 .lr.ph.i.i.i.i.preheader.us:                      ; preds = %.lr.ph.split.us.split, %.thread.us
-  %.048.us = phi ptr [ %.1.us, %.thread.us ], [ null, %.lr.ph.split.us.split ]
-  %.sroa.5.047.us = phi i32 [ %35, %.thread.us ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us.split ]
-  %28 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.047.us) #23
+  %.047.us = phi ptr [ %.1.us, %.thread.us ], [ null, %.lr.ph.split.us.split ]
+  %.sroa.5.046.us = phi i32 [ %35, %.thread.us ], [ %.sroa.2.0.copyload.i, %.lr.ph.split.us.split ]
+  %28 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.046.us) #23
   br label %.lr.ph.i.i.i.i.us
 
 .lr.ph.i.i.i.i.us:                                ; preds = %.lr.ph.i.i.i.i.preheader.us, %31
@@ -18470,27 +18470,27 @@ define linkonce_odr { ptr, i8 } @_ZN4llvm21find_singleton_nestedINS_10BasicBlock
   br i1 %.not.not.i.i.i.i.us, label %.loopexit.us, label %.lr.ph.i.i.i.i.us, !llvm.loop !38
 
 33:                                               ; preds = %.loopexit.us
-  %.not22.us = icmp eq ptr %.048.us, null
+  %.not22.us = icmp eq ptr %.047.us, null
   br i1 %.not22.us, label %.thread.us, label %34
 
 34:                                               ; preds = %33
-  %.not23.us = icmp eq ptr %28, %.048.us
-  br i1 %.not23.us, label %.thread.us, label %.critedge25
+  %.not23.us = icmp eq ptr %28, %.047.us
+  br i1 %.not23.us, label %.thread.us, label %.critedge
 
 .thread.us:                                       ; preds = %.lr.ph.i.i.i.i.us, %34, %33, %.loopexit.us
-  %.1.us = phi ptr [ %.048.us, %.loopexit.us ], [ %.048.us, %34 ], [ %28, %33 ], [ %.048.us, %.lr.ph.i.i.i.i.us ]
-  %35 = add nsw i32 %.sroa.5.047.us, 1
-  %.not44.us = icmp eq i32 %35, %.sroa.2.0.copyload.i28
-  br i1 %.not44.us, label %.critedge25, label %.lr.ph.i.i.i.i.preheader.us
+  %.1.us = phi ptr [ %.047.us, %.loopexit.us ], [ %.047.us, %34 ], [ %28, %33 ], [ %.047.us, %.lr.ph.i.i.i.i.us ]
+  %35 = add nsw i32 %.sroa.5.046.us, 1
+  %.not43.us = icmp eq i32 %35, %.sroa.2.0.copyload.i27
+  br i1 %.not43.us, label %.critedge, label %.lr.ph.i.i.i.i.preheader.us
 
 .loopexit.us:                                     ; preds = %31
   %.not.old.us = icmp eq ptr %28, null
   br i1 %.not.old.us, label %.thread.us, label %33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %.048 = phi ptr [ %.1, %.thread ], [ null, %.lr.ph ]
-  %.sroa.5.047 = phi i32 [ %55, %.thread ], [ %.sroa.2.0.copyload.i, %.lr.ph ]
-  %36 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.047) #23
+  %.047 = phi ptr [ %.1, %.thread ], [ null, %.lr.ph ]
+  %.sroa.5.046 = phi i32 [ %55, %.thread ], [ %.sroa.2.0.copyload.i, %.lr.ph ]
+  %36 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, i32 noundef %.sroa.5.046) #23
   %37 = load ptr, ptr %1, align 8, !tbaa !85
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 76
@@ -18522,33 +18522,33 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.i: ; preds = %
   %52 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %38, ptr noundef %36) #22
   %.not.i = icmp ne ptr %52, null
   %.not = icmp eq ptr %36, null
-  %or.cond45 = or i1 %.not, %.not.i
-  br i1 %or.cond45, label %.thread, label %53
+  %or.cond44 = or i1 %.not, %.not.i
+  br i1 %or.cond44, label %.thread, label %53
 
 .loopexit:                                        ; preds = %48, %42
   %.not.old = icmp eq ptr %36, null
   br i1 %.not.old, label %.thread, label %53
 
 53:                                               ; preds = %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.i, %.loopexit
-  %.not22 = icmp eq ptr %.048, null
+  %.not22 = icmp eq ptr %.047, null
   br i1 %.not22, label %.thread, label %54
 
 54:                                               ; preds = %53
-  %.not23 = icmp eq ptr %36, %.048
+  %.not23 = icmp eq ptr %36, %.047
   %or.cond = select i1 %2, i1 %.not23, i1 false
-  br i1 %or.cond, label %.thread, label %.critedge25
+  br i1 %or.cond, label %.thread, label %.critedge
 
-.thread:                                          ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.i, %53, %.loopexit, %54
-  %.1 = phi ptr [ %.048, %.loopexit ], [ %.048, %54 ], [ %36, %53 ], [ %.048, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.i ], [ %.048, %.lr.ph.i.i.i.i ]
-  %55 = add nsw i32 %.sroa.5.047, 1
-  %.not44 = icmp eq i32 %55, %.sroa.2.0.copyload.i28
-  br i1 %.not44, label %.critedge25, label %.lr.ph.split, !llvm.loop !723
+.thread:                                          ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.i, %53, %54, %.loopexit
+  %.1 = phi ptr [ %.047, %.loopexit ], [ %.047, %54 ], [ %36, %53 ], [ %.047, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.i ], [ %.047, %.lr.ph.i.i.i.i ]
+  %55 = add nsw i32 %.sroa.5.046, 1
+  %.not43 = icmp eq i32 %55, %.sroa.2.0.copyload.i27
+  br i1 %.not43, label %.critedge, label %.lr.ph.split, !llvm.loop !723
 
-.critedge25:                                      ; preds = %.thread, %54, %.thread.us.us66, %26, %.thread.us, %34, %.thread.us.us.us, %15, %.thread.us.us, %19, %3
-  %.sroa.039.0 = phi ptr [ null, %3 ], [ null, %19 ], [ %.1.us.us, %.thread.us.us ], [ null, %15 ], [ %.1.us.us.us, %.thread.us.us.us ], [ null, %34 ], [ %.1.us, %.thread.us ], [ null, %26 ], [ %.1.us.us67, %.thread.us.us66 ], [ null, %54 ], [ %.1, %.thread ]
-  %.sroa.440.0 = phi i8 [ 0, %3 ], [ 1, %19 ], [ 0, %.thread.us.us ], [ 1, %15 ], [ 0, %.thread.us.us.us ], [ 1, %34 ], [ 0, %.thread.us ], [ 1, %26 ], [ 0, %.thread.us.us66 ], [ 1, %54 ], [ 0, %.thread ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.039.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.440.0, 1
+.critedge:                                        ; preds = %54, %.thread, %26, %.thread.us.us65, %34, %.thread.us, %15, %.thread.us.us.us, %19, %.thread.us.us, %3
+  %.sroa.038.1 = phi ptr [ null, %3 ], [ %.1.us.us, %.thread.us.us ], [ null, %19 ], [ %.1.us.us.us, %.thread.us.us.us ], [ null, %15 ], [ %.1.us, %.thread.us ], [ null, %34 ], [ %.1.us.us66, %.thread.us.us65 ], [ null, %26 ], [ %.1, %.thread ], [ null, %54 ]
+  %.sroa.439.1 = phi i8 [ 0, %3 ], [ 0, %.thread.us.us ], [ 1, %19 ], [ 0, %.thread.us.us.us ], [ 1, %15 ], [ 0, %.thread.us ], [ 1, %34 ], [ 0, %.thread.us.us65 ], [ 1, %26 ], [ 0, %.thread ], [ 1, %54 ]
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.038.1, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.439.1, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 

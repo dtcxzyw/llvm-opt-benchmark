@@ -3744,24 +3744,24 @@ define noalias noundef nonnull ptr @_ZN15live_kit_client4test4Room3new17hd1549a4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %.sroa.03.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 896
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1), !noalias !947
+  %.sroa.5.0..sroa.03.sroa.9.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 936
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.03.sroa.9.0..sroa_idx.i, i8 0, i64 16, i1 false)
-  %.sroa.530.0..sroa.03.sroa.9.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 936
-  store i64 -9223372036854775808, ptr %.sroa.530.0..sroa.03.sroa.9.0..sroa_idx.i.sroa_idx, align 8
+  store i64 -9223372036854775808, ptr %.sroa.5.0..sroa.03.sroa.9.0..sroa_idx.i.sroa_idx, align 8
   store i64 1, ptr %1, align 128, !noalias !947
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 1, ptr %8, align 8, !noalias !947
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %9, i8 0, i64 16, i1 false), !noalias !947
   %.sroa.03.sroa.0.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 256
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.03.sroa.0.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !947
   %.sroa.03.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 384
   store i64 0, ptr %.sroa.03.sroa.4.0..sroa_idx.i, align 128, !noalias !947
   %.sroa.03.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 512
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.03.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !947
   %.sroa.03.sroa.6.sroa.6.0..sroa.03.sroa.6.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 640
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.03.sroa.6.sroa.6.0..sroa.03.sroa.6.0..sroa_idx.sroa_idx.i, i8 0, i64 16, i1 false), !noalias !947
   %.sroa.03.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 768
   store i64 0, ptr %.sroa.03.sroa.7.0..sroa_idx.i, align 128, !noalias !947
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %9, i8 0, i64 16, i1 false), !noalias !947
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.03.sroa.0.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !947
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.03.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !947
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.03.sroa.6.sroa.6.0..sroa.03.sroa.6.0..sroa_idx.sroa_idx.i, i8 0, i64 16, i1 false), !noalias !947
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 960
   store i64 1, ptr %.sroa.6.0..sroa_idx.i, align 64, !noalias !947
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 968
@@ -3785,7 +3785,7 @@ define noalias noundef nonnull ptr @_ZN15live_kit_client4test4Room3new17hd1549a4
   %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr130drop_in_place$LT$postage..sync..Shared$LT$postage..channels..watch..StateExtension$LT$live_kit_client..ConnectionState$GT$$GT$$GT$17h396edc246d58f3edE"(ptr noalias noundef nonnull align 128 dereferenceable(896) %9)
-          to label %.thread36 unwind label %16, !noalias !947
+          to label %.thread34 unwind label %16, !noalias !947
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
@@ -3860,21 +3860,21 @@ define noalias noundef nonnull ptr @_ZN15live_kit_client4test4Room3new17hd1549a4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret ptr %25
 
-33:                                               ; preds = %35, %.thread36
+33:                                               ; preds = %35, %.thread34
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #24
   unreachable
 
-.thread36:                                        ; preds = %14
+.thread34:                                        ; preds = %14
   invoke void @"_ZN4core3ptr81drop_in_place$LT$async_broadcast..Receiver$LT$live_kit_client..RoomUpdate$GT$$GT$17h5abe301102bfb607E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #23
           to label %35 unwind label %33
 
 .critedge:                                        ; preds = %28, %35
-  %.pn34 = phi { ptr, i32 } [ %15, %35 ], [ %29, %28 ]
-  resume { ptr, i32 } %.pn34
+  %.pn32 = phi { ptr, i32 } [ %15, %35 ], [ %29, %28 ]
+  resume { ptr, i32 } %.pn32
 
-35:                                               ; preds = %.thread36
+35:                                               ; preds = %.thread34
   invoke void @"_ZN4core3ptr79drop_in_place$LT$async_broadcast..Sender$LT$live_kit_client..RoomUpdate$GT$$GT$17h79c20d4edd1cc7f0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #23
           to label %.critedge unwind label %33
 }

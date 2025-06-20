@@ -609,7 +609,6 @@ define void @_ZN5quinn11recv_stream10RecvStream10read_exact17h45286b296de5a609E(
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5quinn11recv_stream10RecvStream9poll_read17haf640961e48c8912E(ptr dead_on_unwind noalias noundef writable writeonly sret([56 x i8]) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(32) %2, ptr noalias noundef nonnull align 1 %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca [56 x i8], align 8
-  %.sroa.5 = alloca [40 x i8], align 8
   %7 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store ptr %3, ptr %7, align 8
@@ -620,11 +619,7 @@ define void @_ZN5quinn11recv_stream10RecvStream9poll_read17haf640961e48c8912E(pt
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %4, ptr %10, align 8
   %11 = icmp eq i64 %4, 0
-  br i1 %11, label %.thread24, label %12
-
-.thread24:                                        ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5)
-  br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa4c47ae4b638afE.exit"
+  br i1 %11, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa4c47ae4b638afE.exit", label %12
 
 12:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6), !noalias !42
@@ -645,7 +640,6 @@ define void @_ZN5quinn11recv_stream10RecvStream9poll_read17haf640961e48c8912E(pt
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !42
   %.pre = load i64, ptr %8, align 8
   %.pre23 = load i64, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5)
   %16 = icmp ugt i64 %.pre23, %.pre
   br i1 %16, label %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa4c47ae4b638afE.exit", !prof !50
 
@@ -653,14 +647,11 @@ define void @_ZN5quinn11recv_stream10RecvStream9poll_read17haf640961e48c8912E(pt
   call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %.pre23, i64 noundef %.pre, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bf2b533bfd639f2c31bd918c52d87b60.41) #17, !noalias !51
   unreachable
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa4c47ae4b638afE.exit": ; preds = %.thread24, %15
-  %18 = phi i64 [ 0, %.thread24 ], [ %.pre23, %15 ]
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa4c47ae4b638afE.exit": ; preds = %5, %15
+  %18 = phi i64 [ %.pre23, %15 ], [ 0, %5 ]
   store i64 15, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %18, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.5)
   br label %19
 
 19:                                               ; preds = %20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa4c47ae4b638afE.exit"
@@ -953,13 +944,13 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
 
 27:                                               ; preds = %25
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.570.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, i64 32, i1 false)
+  %.sroa.569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.569.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, i64 32, i1 false)
   store i64 %26, ptr %0, align 8
-  %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.3.sroa.0.0.copyload, ptr %.sroa.469.0..sroa_idx, align 8
-  %.sroa.671.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.671.0..sroa_idx, align 8
+  %.sroa.468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.3.sroa.0.0.copyload, ptr %.sroa.468.0..sroa_idx, align 8
+  %.sroa.670.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %.sroa.4.0.copyload, ptr %.sroa.670.0..sroa_idx, align 8
   br label %46
 
 28:                                               ; preds = %25
@@ -1020,7 +1011,7 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h741546456d46718aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #18
           to label %.body unwind label %87
 
-48:                                               ; preds = %._crit_edge95, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h7194b102a7b493b8E.exit"
+48:                                               ; preds = %._crit_edge94, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h7194b102a7b493b8E.exit"
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %47
@@ -1033,16 +1024,16 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
   %52 = load ptr, ptr %7, align 8, !nonnull !8, !noundef !8
   %53 = load ptr, ptr %51, align 8, !nonnull !8, !noundef !8
   %54 = icmp eq ptr %52, %53
-  br i1 %54, label %._crit_edge95, label %.lr.ph94
+  br i1 %54, label %._crit_edge94, label %.lr.ph93
 
-.lr.ph94:                                         ; preds = %50
+.lr.ph93:                                         ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %58
 
-58:                                               ; preds = %.lr.ph94, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit56"
-  %59 = phi ptr [ %52, %.lr.ph94 ], [ %84, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit56" ]
+58:                                               ; preds = %.lr.ph93, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit56"
+  %59 = phi ptr [ %52, %.lr.ph93 ], [ %84, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit56" ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store ptr %60, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.026, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 32, i1 false)
@@ -1074,7 +1065,7 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
 .noexc52:                                         ; preds = %68
   unreachable
 
-._crit_edge95:                                    ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit56", %50
+._crit_edge94:                                    ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit56", %50
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.026)
   invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$bytes..bytes..Bytes$C$u64$RP$$GT$$GT$17h5bc8bcd2bf1c004aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %89 unwind label %48
@@ -1121,7 +1112,7 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
   %84 = load ptr, ptr %7, align 8, !nonnull !8, !noundef !8
   %85 = load ptr, ptr %51, align 8, !nonnull !8, !noundef !8
   %86 = icmp eq ptr %84, %85
-  br i1 %86, label %._crit_edge95, label %58
+  br i1 %86, label %._crit_edge94, label %58
 
 87:                                               ; preds = %69, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit", %47
   %88 = landingpad { ptr, i32 }
@@ -1129,7 +1120,7 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16
   unreachable
 
-89:                                               ; preds = %._crit_edge95
+89:                                               ; preds = %._crit_edge94
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.429.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
@@ -1341,8 +1332,8 @@ define void @"_ZN73_$LT$quinn..recv_stream..Read$u20$as$u20$core..future..future
   %20 = icmp ne i64 %19, 0
   %21 = icmp eq i64 %18, 0
   %or.cond = or i1 %21, %20
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 15, ptr %0, align 8
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %or.cond, label %22, label %23
 
 22:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa4c47ae4b638afE.exit"

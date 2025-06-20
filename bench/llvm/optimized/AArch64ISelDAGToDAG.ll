@@ -5752,7 +5752,7 @@ _ZNK4llvm3EVTneES0_.exit.i3401:                   ; preds = %1647
   br label %1699
 
 1699:                                             ; preds = %1694, %1678
-  %.sroa.07699.0 = phi i16 [ %.sroa.0.0.copyload.i3435, %1694 ], [ %.sroa.0.0.copyload.i, %1678 ]
+  %.sroa.07698.0 = phi i16 [ %.sroa.0.0.copyload.i3435, %1694 ], [ %.sroa.0.0.copyload.i, %1678 ]
   switch i32 %1690, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i32 697, label %1700
     i32 698, label %1703
@@ -5772,7 +5772,7 @@ _ZNK4llvm3EVTneES0_.exit.i3401:                   ; preds = %1647
   ]
 
 1700:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 38, label %1701
     i16 39, label %1702
     i16 49, label %_ZNK4llvm3EVTeqES0_.exit3451.thread
@@ -5824,7 +5824,7 @@ _ZNK4llvm3EVTeqES0_.exit3499.thread:              ; preds = %1700, %1700
   br label %.critedge
 
 1703:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 38, label %1704
     i16 39, label %1705
     i16 49, label %_ZNK4llvm3EVTeqES0_.exit3515.thread
@@ -5876,7 +5876,7 @@ _ZNK4llvm3EVTeqES0_.exit3563.thread:              ; preds = %1703, %1703
   br label %.critedge
 
 1706:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 38, label %1707
     i16 39, label %1708
     i16 49, label %_ZNK4llvm3EVTeqES0_.exit3579.thread
@@ -5928,7 +5928,7 @@ _ZNK4llvm3EVTeqES0_.exit3627.thread:              ; preds = %1706, %1706
   br label %.critedge
 
 1709:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 38, label %1710
     i16 39, label %1711
     i16 49, label %_ZNK4llvm3EVTeqES0_.exit3643.thread
@@ -5980,7 +5980,7 @@ _ZNK4llvm3EVTeqES0_.exit3691.thread:              ; preds = %1709, %1709
   br label %.critedge
 
 1712:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 38, label %1713
     i16 39, label %1714
     i16 49, label %_ZNK4llvm3EVTeqES0_.exit3707.thread
@@ -6032,7 +6032,7 @@ _ZNK4llvm3EVTeqES0_.exit3755.thread:              ; preds = %1712, %1712
   br label %.critedge
 
 1715:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 38, label %1716
     i16 39, label %1717
     i16 49, label %_ZNK4llvm3EVTeqES0_.exit3771.thread
@@ -6084,7 +6084,7 @@ _ZNK4llvm3EVTeqES0_.exit3819.thread:              ; preds = %1715, %1715
   br label %.critedge
 
 1718:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 39, label %_ZNK4llvm3EVTeqES0_.exit3827.thread
     i16 38, label %_ZNK4llvm3EVTeqES0_.exit3827.thread
     i16 50, label %_ZNK4llvm3EVTeqES0_.exit3835.thread
@@ -6120,7 +6120,7 @@ _ZNK4llvm3EVTeqES0_.exit3875.thread:              ; preds = %1718, %1718, %1718,
   br label %.critedge
 
 1719:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 39, label %_ZNK4llvm3EVTeqES0_.exit3891.thread
     i16 38, label %_ZNK4llvm3EVTeqES0_.exit3891.thread
     i16 50, label %_ZNK4llvm3EVTeqES0_.exit3899.thread
@@ -6156,7 +6156,7 @@ _ZNK4llvm3EVTeqES0_.exit3939.thread:              ; preds = %1719, %1719, %1719,
   br label %.critedge
 
 1720:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 39, label %_ZNK4llvm3EVTeqES0_.exit3955.thread
     i16 38, label %_ZNK4llvm3EVTeqES0_.exit3955.thread
     i16 50, label %_ZNK4llvm3EVTeqES0_.exit3963.thread
@@ -6204,7 +6204,7 @@ _ZNK4llvm3EVTeqES0_.exit4003.thread:              ; preds = %1720, %1720, %1720,
   br label %.critedge
 
 1724:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 149, label %1725
     i16 155, label %_ZNK4llvm3EVTeqES0_.exit4023.thread
     i16 173, label %_ZNK4llvm3EVTeqES0_.exit4023.thread
@@ -6232,7 +6232,7 @@ _ZNK4llvm3EVTeqES0_.exit4043.thread:              ; preds = %1724, %1724
   br label %.critedge
 
 1726:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 149, label %1727
     i16 155, label %_ZNK4llvm3EVTeqES0_.exit4055.thread
     i16 173, label %_ZNK4llvm3EVTeqES0_.exit4055.thread
@@ -6260,7 +6260,7 @@ _ZNK4llvm3EVTeqES0_.exit4075.thread:              ; preds = %1726, %1726
   br label %.critedge
 
 1728:                                             ; preds = %1699
-  switch i16 %.sroa.07699.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
+  switch i16 %.sroa.07698.0, label %_ZNK4llvm3EVTeqES0_.exit1575 [
     i16 149, label %1729
     i16 155, label %_ZNK4llvm3EVTeqES0_.exit4087.thread
     i16 173, label %_ZNK4llvm3EVTeqES0_.exit4087.thread
@@ -27381,7 +27381,7 @@ _ZNK4llvm3EVTeqES0_.exit.i:                       ; preds = %222, %221
 
 thread-pre-split.i.thread:                        ; preds = %_ZNK4llvm3EVTeqES0_.exit.i, %213
   %.sink = phi ptr [ %208, %213 ], [ %201, %_ZNK4llvm3EVTeqES0_.exit.i ]
-  %.0118122.i.ph = phi i64 [ %.0.i.i.i.i.i.i55, %213 ], [ 0, %_ZNK4llvm3EVTeqES0_.exit.i ]
+  %.0117121.i.ph = phi i64 [ %.0.i.i.i.i.i.i55, %213 ], [ 0, %_ZNK4llvm3EVTeqES0_.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %.sink, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #23
   br label %249
@@ -27413,7 +27413,7 @@ thread-pre-split.i:                               ; preds = %233, %237
 
 249:                                              ; preds = %thread-pre-split.i.thread, %thread-pre-split.i
   %.053.i95 = phi i64 [ 0, %thread-pre-split.i.thread ], [ %241, %thread-pre-split.i ]
-  %.0118122.i93 = phi i64 [ %.0118122.i.ph, %thread-pre-split.i.thread ], [ 0, %thread-pre-split.i ]
+  %.0117121.i93 = phi i64 [ %.0117121.i.ph, %thread-pre-split.i.thread ], [ 0, %thread-pre-split.i ]
   %250 = phi i16 [ %.sroa.0.0.copyload.i, %thread-pre-split.i.thread ], [ %.sroa.0.0.copyload.i.i76.i, %thread-pre-split.i ]
   %251 = zext i16 %250 to i64
   %252 = add nsw i64 %251, -1
@@ -27431,7 +27431,7 @@ thread-pre-split.i:                               ; preds = %233, %237
 
 _ZNK4llvm3EVT13getSizeInBitsEv.exit86.i:          ; preds = %254, %249
   %.053.i94 = phi i64 [ %.053.i95, %249 ], [ %241, %254 ]
-  %.0118122.i92 = phi i64 [ %.0118122.i93, %249 ], [ 0, %254 ]
+  %.0117121.i92 = phi i64 [ %.0117121.i93, %249 ], [ 0, %254 ]
   %.pn.i85.i = phi { i64, i8 } [ %.fca.1.insert.i.i84.i, %249 ], [ %255, %254 ]
   %.fca.0.extract9.i = extractvalue { i64, i8 } %.pn.i85.i, 0
   %.fca.1.extract10.i = extractvalue { i64, i8 } %.pn.i85.i, 1
@@ -27439,7 +27439,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit86.i:          ; preds = %254, %249
   %.sroa.212.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 %.fca.1.extract10.i, ptr %.sroa.212.0..sroa_idx.i, align 8
   %256 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %17) #23
-  %.not.i48 = icmp ult i64 %.0118122.i92, %256
+  %.not.i48 = icmp ult i64 %.0117121.i92, %256
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #23
   br i1 %.not.i48, label %257, label %_ZL26isBitfieldExtractOpFromShrPN4llvm6SDNodeERjRNS_7SDValueES2_S2_b.exit
 
@@ -27464,7 +27464,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit86.i:          ; preds = %254, %249
   %269 = load ptr, ptr %265, align 8
   %.0.in.i.i.i.i.i87.i = select i1 %268, ptr %265, ptr %269
   %.0.i.i.i.i.i88.i = load i64, ptr %.0.in.i.i.i.i.i87.i, align 8, !tbaa !233
-  %270 = sub i64 %.0.i.i.i.i.i88.i, %.0118122.i92
+  %270 = sub i64 %.0.i.i.i.i.i88.i, %.0117121.i92
   %271 = and i64 %270, 2147483648
   %.not56.i = icmp eq i64 %271, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #23
@@ -27540,7 +27540,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit104.i:         ; preds = %293, %289
   %.sroa.2.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 %.fca.1.extract.i50, ptr %.sroa.2.0..sroa_idx.i51, align 8
   %295 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %19) #23
-  %296 = add i64 %.053.i94, %.0118122.i92
+  %296 = add i64 %.053.i94, %.0117121.i92
   %297 = xor i64 %296, -1
   %298 = add i64 %295, %297
   %299 = trunc i64 %298 to i32
@@ -38681,7 +38681,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit.thread: ; preds
 define internal fastcc noundef range(i32 -1, 12) i32 @_ZL20getExtendTypeForNodeN4llvm7SDValueEb(ptr readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !190
-  switch i32 %4, label %_ZNK4llvm3EVTeqES0_.exit36 [
+  switch i32 %4, label %_ZNK4llvm3EVTeqES0_.exit22 [
     i32 213, label %11
     i32 222, label %5
     i32 214, label %24
@@ -38717,14 +38717,11 @@ define internal fastcc noundef range(i32 -1, 12) i32 @_ZL20getExtendTypeForNodeN
 22:                                               ; preds = %21
   %switch.tableidx = add i16 %.sroa.054.0, -5
   %23 = icmp ult i16 %switch.tableidx, 3
-  br i1 %23, label %switch.lookup, label %_ZNK4llvm3EVTeqES0_.exit22.fold.split77
+  br i1 %23, label %switch.lookup, label %_ZNK4llvm3EVTeqES0_.exit22.fold.split78
 
 .critedge:                                        ; preds = %21
   %.not.i.i20 = icmp eq i16 %.sroa.054.0, 7
-  br i1 %.not.i.i20, label %_ZNK4llvm3EVTeqES0_.exit36, label %_ZNK4llvm3EVTeqES0_.exit22.fold.split77
-
-_ZNK4llvm3EVTeqES0_.exit22.fold.split77:          ; preds = %22, %.critedge
-  br label %_ZNK4llvm3EVTeqES0_.exit36
+  br i1 %.not.i.i20, label %_ZNK4llvm3EVTeqES0_.exit22, label %_ZNK4llvm3EVTeqES0_.exit22.fold.split78
 
 24:                                               ; preds = %2, %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -38742,11 +38739,11 @@ _ZNK4llvm3EVTeqES0_.exit22.fold.split77:          ; preds = %22, %.critedge
 34:                                               ; preds = %24
   %switch.tableidx2 = add i16 %.sroa.0.0.copyload.i.i23, -5
   %35 = icmp ult i16 %switch.tableidx2, 3
-  br i1 %35, label %switch.lookup1, label %_ZNK4llvm3EVTeqES0_.exit36.fold.split78
+  br i1 %35, label %switch.lookup1, label %_ZNK4llvm3EVTeqES0_.exit22.fold.split80
 
 .critedge15:                                      ; preds = %24
   %.not.i.i34 = icmp eq i16 %.sroa.0.0.copyload.i.i23, 7
-  br i1 %.not.i.i34, label %_ZNK4llvm3EVTeqES0_.exit36, label %_ZNK4llvm3EVTeqES0_.exit36.fold.split78
+  br i1 %.not.i.i34, label %_ZNK4llvm3EVTeqES0_.exit22, label %_ZNK4llvm3EVTeqES0_.exit22.fold.split80
 
 36:                                               ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -38755,7 +38752,7 @@ _ZNK4llvm3EVTeqES0_.exit22.fold.split77:          ; preds = %22, %.critedge
   %40 = load ptr, ptr %39, align 8, !tbaa !210
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i32, ptr %41, align 8, !tbaa !190
-  switch i32 %42, label %_ZNK4llvm3EVTeqES0_.exit36 [
+  switch i32 %42, label %_ZNK4llvm3EVTeqES0_.exit22 [
     i32 35, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
     i32 11, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
   ]
@@ -38770,7 +38767,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %36,
   %49 = load ptr, ptr %45, align 8
   %.0.in.i.i.i = select i1 %48, ptr %45, ptr %49
   %.0.i.i.i37 = load i64, ptr %.0.in.i.i.i, align 8, !tbaa !233
-  switch i64 %.0.i.i.i37, label %_ZNK4llvm3EVTeqES0_.exit36 [
+  switch i64 %.0.i.i.i37, label %_ZNK4llvm3EVTeqES0_.exit22 [
     i64 255, label %50
     i64 65535, label %52
     i64 4294967295, label %54
@@ -38778,29 +38775,32 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %36,
 
 50:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
   %51 = select i1 %1, i32 -1, i32 5
-  br label %_ZNK4llvm3EVTeqES0_.exit36
+  br label %_ZNK4llvm3EVTeqES0_.exit22
 
 52:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
   %53 = select i1 %1, i32 -1, i32 6
-  br label %_ZNK4llvm3EVTeqES0_.exit36
+  br label %_ZNK4llvm3EVTeqES0_.exit22
 
 54:                                               ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit
-  br label %_ZNK4llvm3EVTeqES0_.exit36
+  br label %_ZNK4llvm3EVTeqES0_.exit22
 
-_ZNK4llvm3EVTeqES0_.exit36.fold.split78:          ; preds = %34, %.critedge15
-  br label %_ZNK4llvm3EVTeqES0_.exit36
+_ZNK4llvm3EVTeqES0_.exit22.fold.split78:          ; preds = %22, %.critedge
+  br label %_ZNK4llvm3EVTeqES0_.exit22
+
+_ZNK4llvm3EVTeqES0_.exit22.fold.split80:          ; preds = %34, %.critedge15
+  br label %_ZNK4llvm3EVTeqES0_.exit22
 
 switch.lookup:                                    ; preds = %22
   %narrow = add nuw nsw i16 %.sroa.054.0, 4
   %switch.offset = zext nneg i16 %narrow to i32
-  br label %_ZNK4llvm3EVTeqES0_.exit36
+  br label %_ZNK4llvm3EVTeqES0_.exit22
 
 switch.lookup1:                                   ; preds = %34
   %switch.offset4 = zext nneg i16 %.sroa.0.0.copyload.i.i23 to i32
-  br label %_ZNK4llvm3EVTeqES0_.exit36
+  br label %_ZNK4llvm3EVTeqES0_.exit22
 
-_ZNK4llvm3EVTeqES0_.exit36:                       ; preds = %.critedge15, %switch.lookup1, %.critedge, %switch.lookup, %_ZNK4llvm3EVTeqES0_.exit22.fold.split77, %2, %_ZNK4llvm3EVTeqES0_.exit36.fold.split78, %36, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit, %54, %52, %50
-  %.1 = phi i32 [ %51, %50 ], [ %53, %52 ], [ 7, %54 ], [ -1, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ -1, %36 ], [ -1, %_ZNK4llvm3EVTeqES0_.exit36.fold.split78 ], [ -1, %2 ], [ -1, %_ZNK4llvm3EVTeqES0_.exit22.fold.split77 ], [ %switch.offset, %switch.lookup ], [ 11, %.critedge ], [ %switch.offset4, %switch.lookup1 ], [ 7, %.critedge15 ]
+_ZNK4llvm3EVTeqES0_.exit22:                       ; preds = %.critedge15, %switch.lookup1, %.critedge, %switch.lookup, %2, %_ZNK4llvm3EVTeqES0_.exit22.fold.split80, %_ZNK4llvm3EVTeqES0_.exit22.fold.split78, %36, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit, %54, %52, %50
+  %.1 = phi i32 [ %51, %50 ], [ %53, %52 ], [ 7, %54 ], [ -1, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit ], [ -1, %36 ], [ -1, %_ZNK4llvm3EVTeqES0_.exit22.fold.split78 ], [ -1, %_ZNK4llvm3EVTeqES0_.exit22.fold.split80 ], [ -1, %2 ], [ %switch.offset, %switch.lookup ], [ 11, %.critedge ], [ %switch.offset4, %switch.lookup1 ], [ 7, %.critedge15 ]
   ret i32 %.1
 }
 

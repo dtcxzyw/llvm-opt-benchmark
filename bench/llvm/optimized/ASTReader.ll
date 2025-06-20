@@ -32453,10 +32453,10 @@ _ZNK5clang9ASTReader30shouldDisableValidationForFileERKNS_13serialization10Modul
   %46 = load ptr, ptr %45, align 8, !tbaa !2124
   %47 = load i64, ptr %46, align 8, !tbaa !704
   %.not1 = icmp eq i64 %47, 0
-  br i1 %.not1, label %67, label %.preheader
+  br i1 %.not1, label %67, label %.preheader39
 
-.preheader:                                       ; preds = %_ZNK5clang9ASTReader30shouldDisableValidationForFileERKNS_13serialization10ModuleFileE.exit.thread, %.preheader
-  %.05.i.i.i9 = phi ptr [ %51, %.preheader ], [ %10, %_ZNK5clang9ASTReader30shouldDisableValidationForFileERKNS_13serialization10ModuleFileE.exit.thread ]
+.preheader39:                                     ; preds = %_ZNK5clang9ASTReader30shouldDisableValidationForFileERKNS_13serialization10ModuleFileE.exit.thread, %.preheader39
+  %.05.i.i.i9 = phi ptr [ %51, %.preheader39 ], [ %10, %_ZNK5clang9ASTReader30shouldDisableValidationForFileERKNS_13serialization10ModuleFileE.exit.thread ]
   %48 = getelementptr inbounds nuw i8, ptr %.05.i.i.i9, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i10 = load i64, ptr %48, align 8
   %49 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i10, 4
@@ -32465,16 +32465,16 @@ _ZNK5clang9ASTReader30shouldDisableValidationForFileERKNS_13serialization10Modul
   %51 = inttoptr i64 %50 to ptr
   %.not7.i.i.i12 = icmp eq i64 %50, 0
   %.not.i.i.i13 = or i1 %.not.i.i.i.i.i.i.i11, %.not7.i.i.i12
-  br i1 %.not.i.i.i13, label %_ZNK5clang12FileEntryRef19getModificationTimeEv.exit, label %.preheader
+  br i1 %.not.i.i.i13, label %_ZNK5clang12FileEntryRef19getModificationTimeEv.exit, label %.preheader39
 
-_ZNK5clang12FileEntryRef19getModificationTimeEv.exit: ; preds = %.preheader
+_ZNK5clang12FileEntryRef19getModificationTimeEv.exit: ; preds = %.preheader39
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i64, ptr %52, align 8, !tbaa !1935
   %.not2 = icmp eq i64 %47, %53
-  br i1 %.not2, label %67, label %.preheader51
+  br i1 %.not2, label %67, label %.preheader
 
-.preheader51:                                     ; preds = %_ZNK5clang12FileEntryRef19getModificationTimeEv.exit, %.preheader51
-  %.05.i.i.i14 = phi ptr [ %57, %.preheader51 ], [ %10, %_ZNK5clang12FileEntryRef19getModificationTimeEv.exit ]
+.preheader:                                       ; preds = %_ZNK5clang12FileEntryRef19getModificationTimeEv.exit, %.preheader
+  %.05.i.i.i14 = phi ptr [ %57, %.preheader ], [ %10, %_ZNK5clang12FileEntryRef19getModificationTimeEv.exit ]
   %54 = getelementptr inbounds nuw i8, ptr %.05.i.i.i14, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i15 = load i64, ptr %54, align 8
   %55 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i15, 4
@@ -32483,9 +32483,9 @@ _ZNK5clang12FileEntryRef19getModificationTimeEv.exit: ; preds = %.preheader
   %57 = inttoptr i64 %56 to ptr
   %.not7.i.i.i17 = icmp eq i64 %56, 0
   %.not.i.i.i18 = or i1 %.not.i.i.i.i.i.i.i16, %.not7.i.i.i17
-  br i1 %.not.i.i.i18, label %_ZNK5clang12FileEntryRef19getModificationTimeEv.exit19, label %.preheader51
+  br i1 %.not.i.i.i18, label %_ZNK5clang12FileEntryRef19getModificationTimeEv.exit19, label %.preheader
 
-_ZNK5clang12FileEntryRef19getModificationTimeEv.exit19: ; preds = %.preheader51
+_ZNK5clang12FileEntryRef19getModificationTimeEv.exit19: ; preds = %.preheader
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i64, ptr %58, align 8, !tbaa !1935
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 9263

@@ -5625,8 +5625,8 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
   br i1 %92, label %.loopexit.i.i.i, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19f486dd4858c57bE.exit.i.i.i.lr.ph.i.i.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19f486dd4858c57bE.exit.i.i.i.lr.ph.i.i.i": ; preds = %85
-  %.sroa.521.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %.sroa.4.0..sroa_idx20.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.520.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 25
+  %.sroa.4.0..sroa_idx19.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.9.8..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   %.sroa.12102.8..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 25
   %93 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -5659,8 +5659,8 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
 107:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19f486dd4858c57bE.exit.i.i.i.i.i.i"
   %.sroa.7.0..sroa_idx12.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %105, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %105, i64 24, i1 false), !noalias !509
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.521.0..sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx12.i.i.i.i.i.i, i64 7, i1 false), !noalias !509
-  store i8 %.sroa.5.0.copyload11.i.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx20.i.i.i.i.i.i, align 8, !noalias !510
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.520.0..sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx12.i.i.i.i.i.i, i64 7, i1 false), !noalias !509
+  store i8 %.sroa.5.0.copyload11.i.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx19.i.i.i.i.i.i, align 8, !noalias !510
   call void @llvm.experimental.noalias.scope.decl(metadata !511)
   %108 = load ptr, ptr %.sroa.04.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !514, !noalias !515, !nonnull !3, !noundef !3
   %109 = load ptr, ptr %.sroa.04.sroa.3.0..sroa_idx.i.i.i, align 8, !alias.scope !514, !noalias !515, !nonnull !3, !noundef !3

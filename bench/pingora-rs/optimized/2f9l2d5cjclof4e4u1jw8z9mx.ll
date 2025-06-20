@@ -7416,8 +7416,8 @@ define hidden void @"_ZN3lru25LruCache$LT$K$C$V$C$S$GT$9construct17hec094bc29904
           to label %21 unwind label %19
 
 10:                                               ; preds = %3
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i8 0, i64 16, i1 false)
   %11 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %12 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 48, 345) 48, i64 noundef 8) #27
   %13 = icmp eq ptr %12, null
@@ -7431,8 +7431,8 @@ define hidden void @"_ZN3lru25LruCache$LT$K$C$V$C$S$GT$9construct17hec094bc29904
   unreachable
 
 14:                                               ; preds = %10
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sroa.37.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 0, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
@@ -7443,8 +7443,8 @@ define hidden void @"_ZN3lru25LruCache$LT$K$C$V$C$S$GT$9construct17hec094bc29904
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %12, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  store ptr %12, ptr %.sroa.5.0..sroa_idx, align 8
-  store ptr %6, ptr %.sroa.47.0..sroa_idx, align 8
+  store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %6, ptr %.sroa.37.0..sroa_idx, align 8
   ret void
 
 19:                                               ; preds = %8
@@ -8302,18 +8302,18 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %2
   store i32 0, ptr %.sroa.7.0..sroa_idx45, align 8
   %.sroa.8.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %4, i64 284
   store i8 0, ptr %.sroa.8.0..sroa_idx46, align 4
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 288
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 312
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.0..sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.947.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 288
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 312
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.947.0..sroa_idx, i8 0, i64 24, i1 false)
+  store i64 1, ptr %.sroa.12.0..sroa_idx, align 8
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 320
   store i64 1, ptr %.sroa.13.0..sroa_idx, align 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 320
-  store i64 1, ptr %.sroa.14.0..sroa_idx, align 8
-  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 328
-  store i64 0, ptr %.sroa.15.0..sroa_idx, align 8
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 336
-  store i8 0, ptr %.sroa.16.0..sroa_idx, align 8
-  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 337
-  store i8 %7, ptr %.sroa.17.0..sroa_idx, align 1
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 328
+  store i64 0, ptr %.sroa.14.0..sroa_idx, align 8
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 336
+  store i8 0, ptr %.sroa.15.0..sroa_idx, align 8
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 337
+  store i8 %7, ptr %.sroa.16.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %.sroa.5)
   %8 = atomicrmw add ptr %4, i64 1 monotonic, align 8
   %9 = icmp slt i64 %8, 0

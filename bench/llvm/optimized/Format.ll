@@ -18944,11 +18944,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZNK4llvm7ErrorOrIS
 
 _ZN4llvm5ErrorD2Ev.exit94:                        ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %180, %179
   %.014.i.i82.sink = phi i8 [ %.014.i.i82, %180 ], [ 4, %179 ], [ %178, %_ZN4llvmplERKNS_5TwineES2_.exit ]
-  %.sink373 = phi i8 [ 4, %180 ], [ 1, %179 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
+  %.sink = phi i8 [ 4, %180 ], [ 1, %179 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit ]
   %184 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i8 %.014.i.i82.sink, ptr %184, align 8, !tbaa !672
   %185 = getelementptr inbounds nuw i8, ptr %26, i64 33
-  store i8 %.sink373, ptr %185, align 1, !tbaa !672
+  store i8 %.sink, ptr %185, align 1, !tbaa !672
   %186 = call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #30, !noalias !673
   %187 = extractvalue { i32, ptr } %186, 0
   %188 = extractvalue { i32, ptr } %186, 1
@@ -19517,9 +19517,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit155:               ; preds = %_ZNSt10error_codeC2
 
 _ZN4llvm5ErrorD2Ev.exit171:                       ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit155, %403, %402
   %.014.i.i159.sink = phi i8 [ %.014.i.i159, %403 ], [ 4, %402 ], [ %401, %_ZN4llvmplERKNS_5TwineES2_.exit155 ]
-  %.sink = phi i8 [ 4, %403 ], [ 1, %402 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit155 ]
+  %.sink374 = phi i8 [ 4, %403 ], [ 1, %402 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit155 ]
   store i8 %.014.i.i159.sink, ptr %326, align 8, !tbaa !672
-  store i8 %.sink, ptr %327, align 1, !tbaa !672
+  store i8 %.sink374, ptr %327, align 1, !tbaa !672
   %406 = call { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() #30, !noalias !735
   %407 = extractvalue { i32, ptr } %406, 0
   %408 = extractvalue { i32, ptr } %406, 1

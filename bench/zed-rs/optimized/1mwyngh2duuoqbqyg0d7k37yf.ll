@@ -602,7 +602,6 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4522c2844a52a0b2E.llvm.2061910352662810519"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
-  %.sroa.10.i.i = alloca [7 x i8], align 1
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -657,7 +656,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 0, ptr %30, align 8
   br label %31
 
-31:                                               ; preds = %.loopexit, %28
+31:                                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h1f5b79fc88266e8bE.exit", %28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   ret void
 
@@ -720,16 +719,14 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.10.i.i)
   %51 = load i64, ptr %50, align 8, !alias.scope !226, !noalias !233, !noundef !11
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %.loopexit, label %.lr.ph.i.i
+  br i1 %52, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h1f5b79fc88266e8bE.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %48
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 25
   br label %53
 
 53:                                               ; preds = %76, %.lr.ph.i.i
@@ -741,7 +738,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %56 = add i64 %55, -1
   store i64 %56, ptr %50, align 8, !alias.scope !235, !noalias !237
   %57 = icmp eq ptr %54, null
-  br i1 %57, label %.loopexit, label %"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a832c480d5cb93bE.exit.i.i.i"
+  br i1 %57, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h1f5b79fc88266e8bE.exit", label %"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a832c480d5cb93bE.exit.i.i.i"
 
 "_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a832c480d5cb93bE.exit.i.i.i": ; preds = %.noexc5
   %58 = getelementptr inbounds i8, ptr %54, i64 -8
@@ -776,7 +773,6 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store ptr %63, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !noalias !256
   store i64 %65, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !noalias !256
   store i8 %72, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !noalias !256
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.i.i, i64 7, i1 false), !noalias !256
   %73 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !257, !noalias !258, !noundef !11
   %74 = load i64, ptr %7, align 8, !alias.scope !257, !noalias !258, !noundef !11
   %75 = icmp eq i64 %73, %74
@@ -789,11 +785,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %79 = add i64 %73, 1
   store i64 %79, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !257, !noalias !258
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !256
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10.i.i)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.10.i.i)
   %80 = load i64, ptr %50, align 8, !alias.scope !259, !noalias !261, !noundef !11
   %81 = icmp eq i64 %80, 0
-  br i1 %81, label %.loopexit, label %53
+  br i1 %81, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h1f5b79fc88266e8bE.exit", label %53
 
 82:                                               ; preds = %88
   %83 = landingpad { ptr, i32 }
@@ -837,8 +831,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$theme..registry..ThemeMeta$GT$$GT$17h6863dce17602bf91E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #28
           to label %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit" unwind label %96
 
-.loopexit:                                        ; preds = %76, %.noexc5, %48
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10.i.i)
+"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h1f5b79fc88266e8bE.exit": ; preds = %76, %.noexc5, %48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %31

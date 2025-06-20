@@ -6549,11 +6549,11 @@ _ZN6chrono5naive9internals3Mdf7from_of17h58b7e93657e8e992E.exit5: ; preds = %3, 
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %.0.i4, ptr %.sroa.5.0..sroa_idx, align 1, !noalias !1386
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %.sroa.6.0..sroa_idx, i8 0, i64 21, i1 false)
   %.sroa.116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 36
   store i32 0, ptr %.sroa.116.0..sroa_idx, align 1, !noalias !1386
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 40
   store i32 0, ptr %.sroa.12.0..sroa_idx, align 1, !noalias !1386
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %.sroa.6.0..sroa_idx, i8 0, i64 21, i1 false)
   %32 = load i64, ptr %21, align 8, !alias.scope !1385, !noalias !1381, !noundef !16
   %33 = add i64 %32, 48
   store i64 %33, ptr %21, align 8, !alias.scope !1385, !noalias !1381

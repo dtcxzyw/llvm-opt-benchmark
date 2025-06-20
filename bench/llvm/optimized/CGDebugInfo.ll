@@ -857,7 +857,6 @@ define dso_local void @_ZN5clang7CodeGen11CGDebugInfo17CreateCompileUnitEv(ptr n
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca %"class.llvm::SmallString.1260", align 8
-  %.sroa.8 = alloca [7 x i8], align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -891,7 +890,6 @@ define dso_local void @_ZN5clang7CodeGen11CGDebugInfo17CreateCompileUnitEv(ptr n
   store i64 0, ptr %39, align 8, !tbaa !458
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 64, ptr %40, align 8, !tbaa !459
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.8)
   %41 = load ptr, ptr %0, align 8, !tbaa !460
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 144
   %43 = load ptr, ptr %42, align 8, !tbaa !461
@@ -1780,8 +1778,6 @@ switch.lookup196:                                 ; preds = %_ZNK5clang11ObjCRun
   store i64 %.sroa.5180.0, ptr %.sroa.5180.0..sroa_idx, align 8
   %.sroa.6181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i8 %.sroa.6181.0, ptr %.sroa.6181.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8, i64 7, i1 false)
   %.sroa.0.0.copyload.i119 = load i32, ptr %74, align 8, !tbaa !800
   call void @llvm.experimental.noalias.scope.decl(metadata !863)
   %395 = load ptr, ptr %0, align 8, !tbaa !460, !noalias !863
@@ -2167,7 +2163,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i144, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i143
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #26
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.8)
   %563 = load ptr, ptr %11, align 8, !tbaa !456
   %564 = icmp eq ptr %563, %38
   br i1 %564, label %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit, label %565
@@ -36569,11 +36564,11 @@ define dso_local noundef ptr @_ZN5clang7CodeGen11CGDebugInfo29createConstantValu
   %14 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %9, ptr noundef %13) #26
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = icmp ugt i64 %15, 64
-  br i1 %16, label %.thread31, label %17
+  br i1 %16, label %.thread30, label %17
 
 17:                                               ; preds = %3
   %18 = load i32, ptr %2, align 8, !tbaa !1687
-  switch i32 %18, label %.thread31 [
+  switch i32 %18, label %.thread30 [
     i32 3, label %19
     i32 2, label %40
   ]
@@ -36626,7 +36621,7 @@ _ZNK4llvm7APFloat14bitcastToAPIntEv.exit:         ; preds = %23, %24
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm7APFloat14bitcastToAPIntEv.exit, %36, %39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
-  br label %.thread31
+  br label %.thread30
 
 40:                                               ; preds = %17
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -36657,9 +36652,9 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %54, %49
   %.0.i.i.i = phi i32 [ %53, %49 ], [ %55, %54 ]
   %56 = sub i32 %46, %.0.i.i.i
   %57 = icmp ult i32 %56, 65
-  br i1 %57, label %.thread34, label %.thread31
+  br i1 %57, label %.thread33, label %.thread30
 
-.thread34:                                        ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
+.thread33:                                        ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
   %58 = load ptr, ptr %41, align 8
   %.0.in.i.i = select i1 %48, ptr %41, ptr %58
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !445
@@ -36721,7 +36716,7 @@ _ZNK4llvm5APInt18getSignificantBitsEv.exit.i:     ; preds = %89, %85, %82, %75, 
   %92 = add i32 %46, 1
   %93 = sub i32 %92, %91
   %94 = icmp ult i32 %93, 65
-  br i1 %94, label %95, label %.thread31
+  br i1 %94, label %95, label %.thread30
 
 95:                                               ; preds = %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i
   br i1 %64, label %96, label %102
@@ -36739,21 +36734,21 @@ _ZNK4llvm5APInt18getSignificantBitsEv.exit.i:     ; preds = %89, %85, %82, %75, 
   %103 = load i64, ptr %65, align 8, !tbaa !799
   br label %_ZNRSt8optionalImE5valueEv.exit
 
-_ZNRSt8optionalImE5valueEv.exit:                  ; preds = %96, %102, %.thread34
-  %.sroa.020.030 = phi i64 [ %.0.i.i, %.thread34 ], [ %103, %102 ], [ %.0.i.i.i15, %96 ]
+_ZNRSt8optionalImE5valueEv.exit:                  ; preds = %96, %102, %.thread33
+  %.sroa.019.029 = phi i64 [ %.0.i.i, %.thread33 ], [ %103, %102 ], [ %.0.i.i.i15, %96 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %105 = load ptr, ptr %104, align 8, !tbaa !2219
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
   store i64 16, ptr %4, align 8, !tbaa !799
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.020.030, ptr %106, align 8, !tbaa !799
+  store i64 %.sroa.019.029, ptr %106, align 8, !tbaa !799
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 159, ptr %107, align 8, !tbaa !799
   %108 = call noundef ptr @_ZN4llvm12DIExpression7getImplERNS_11LLVMContextENS_8ArrayRefImEENS_8Metadata11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %105, ptr nonnull %4, i64 3, i32 noundef 0, i1 noundef zeroext true) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
-  br label %.thread31
+  br label %.thread30
 
-.thread31:                                        ; preds = %_ZNRSt8optionalImE5valueEv.exit, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i, %17, %3, %_ZN4llvm5APIntD2Ev.exit
+.thread30:                                        ; preds = %_ZNRSt8optionalImE5valueEv.exit, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i, %17, %3, %_ZN4llvm5APIntD2Ev.exit
   %.0 = phi ptr [ %33, %_ZN4llvm5APIntD2Ev.exit ], [ null, %3 ], [ null, %17 ], [ %108, %_ZNRSt8optionalImE5valueEv.exit ], [ null, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i ], [ null, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i ]
   ret ptr %.0
 }

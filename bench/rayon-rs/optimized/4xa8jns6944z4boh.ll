@@ -1795,8 +1795,8 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:
   store i64 1, ptr %.sroa.8.0..sroa_idx12, align 8, !noalias !599
   %.sroa.10.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %8, ptr %.sroa.10.0..sroa_idx13, align 8, !noalias !599
-  %.sroa.1114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 1, ptr %.sroa.1114.0..sroa_idx, align 8, !noalias !599
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 1, ptr %.sroa.11.0..sroa_idx, align 8, !noalias !599
   call void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !588
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)

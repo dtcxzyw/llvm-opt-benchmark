@@ -54350,7 +54350,6 @@ _ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEENS_6Point3IfEEED2Ev.ex
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri15UpdateCurvatureI6CMeshOE19PrincipalDirectionsERS2_(ptr noundef nonnull align 8 dereferenceable(1196) %0) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.5370 = alloca [3 x i8], align 1
   %2 = alloca %"class.vcg::Matrix33", align 4
   %3 = alloca %"class.vcg::Matrix33", align 4
   %4 = alloca %"class.vcg::Matrix33", align 4
@@ -54639,8 +54638,6 @@ _ZN3vcg4face10JumpingPosI6CFaceOEC2EPS2_P8CVertexO.exit: ; preds = %94, %90
   store float %sqrt.i.i.i, ptr %.sroa.3364.0..sroa_idx, align 8
   %.sroa.4367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.13.1, i64 12
   store i8 %152, ptr %.sroa.4367.0..sroa_idx, align 4
-  %.sroa.5370.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.13.1, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5370.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5370, i64 3, i1 false)
   br label %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EE9push_backERKS5_.exit
 
 196:                                              ; preds = %150
@@ -54677,8 +54674,6 @@ _ZNKSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EE12_M_check_l
   store float %sqrt.i.i.i, ptr %.sroa.3364.0..sroa_idx365, align 8
   %.sroa.4367.0..sroa_idx368 = getelementptr inbounds nuw i8, ptr %209, i64 12
   store i8 %152, ptr %.sroa.4367.0..sroa_idx368, align 4
-  %.sroa.5370.0..sroa_idx371 = getelementptr inbounds nuw i8, ptr %209, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5370.0..sroa_idx371, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5370, i64 3, i1 false)
   %210 = icmp sgt i64 %199, 0
   br i1 %210, label %211, label %_ZNSt6vectorIN3vcg3tri15UpdateCurvatureI6CMeshOE9AdjVertexESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i
 

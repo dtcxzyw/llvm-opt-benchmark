@@ -4027,9 +4027,9 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %38 = ptrtoint ptr %.sroa.04.0.copyload.i.i to i64
   br label %39
 
-39:                                               ; preds = %14, %35
-  %.sroa.0.sroa.7.0.ph = phi i64 [ %37, %35 ], [ %.sroa.0.sroa.7.0.extract.trunc, %14 ]
+39:                                               ; preds = %35, %14
   %.sroa.0.sroa.0.0.ph = phi i64 [ %36, %35 ], [ %.sroa.0.sroa.0.0.extract.trunc, %14 ]
+  %.sroa.0.sroa.7.0.ph = phi i64 [ %37, %35 ], [ %.sroa.0.sroa.7.0.extract.trunc, %14 ]
   %.sroa.14.0.ph = phi i64 [ %.sroa.56.0.copyload.i.i, %35 ], [ undef, %14 ]
   %.sroa.12.0.ph = phi i64 [ %.sroa.45.0.copyload.i.i, %35 ], [ undef, %14 ]
   %.sroa.9.0.ph = phi i64 [ %38, %35 ], [ 0, %14 ]

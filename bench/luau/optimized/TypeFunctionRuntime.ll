@@ -4524,8 +4524,8 @@ _ZN4Luau7VariantIJNS_25TypeFunctionPrimitiveTypeENS_19TypeFunctionAnyTypeENS_23T
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8) #27
   br label %240
 
-240:                                              ; preds = %139, %143, %141, %239, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122, %164, %84, %.loopexit.split-lp176, %.loopexit175, %.loopexit180, %.loopexit.split-lp181, %104, %98, %.loopexit170, %.loopexit.split-lp171, %.loopexit165, %.loopexit.split-lp166, %.loopexit, %.loopexit.split-lp, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95, %113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn86.pn.pn.pn = phi { ptr, i32 } [ %.pn76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %56, %55 ], [ %.pn79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ], [ %114, %113 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit167, %.loopexit165 ], [ %lpad.loopexit.split-lp168, %.loopexit.split-lp166 ], [ %lpad.loopexit172, %.loopexit170 ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp171 ], [ %85, %84 ], [ %lpad.loopexit177, %.loopexit175 ], [ %lpad.loopexit.split-lp178, %.loopexit.split-lp176 ], [ %105, %104 ], [ %99, %98 ], [ %lpad.loopexit182, %.loopexit180 ], [ %lpad.loopexit.split-lp183, %.loopexit.split-lp181 ], [ %140, %139 ], [ %144, %143 ], [ %142, %141 ], [ %.pn71, %239 ], [ %.pn69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ], [ %165, %164 ]
+240:                                              ; preds = %.loopexit170, %.loopexit.split-lp171, %.loopexit180, %.loopexit.split-lp181, %.loopexit175, %.loopexit.split-lp176, %.loopexit165, %.loopexit.split-lp166, %.loopexit, %.loopexit.split-lp, %139, %143, %141, %239, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122, %164, %84, %104, %98, %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95, %113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn86.pn.pn.pn = phi { ptr, i32 } [ %.pn76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %56, %55 ], [ %.pn79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ], [ %114, %113 ], [ %85, %84 ], [ %105, %104 ], [ %99, %98 ], [ %140, %139 ], [ %144, %143 ], [ %142, %141 ], [ %.pn71, %239 ], [ %.pn69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122 ], [ %165, %164 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit167, %.loopexit165 ], [ %lpad.loopexit.split-lp168, %.loopexit.split-lp166 ], [ %lpad.loopexit177, %.loopexit175 ], [ %lpad.loopexit.split-lp178, %.loopexit.split-lp176 ], [ %lpad.loopexit182, %.loopexit180 ], [ %lpad.loopexit.split-lp183, %.loopexit.split-lp181 ], [ %lpad.loopexit172, %.loopexit170 ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp171 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau20TypeFunctionPropertyESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #27
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #27
   resume { ptr, i32 } %.pn86.pn.pn.pn
@@ -14146,7 +14146,6 @@ define internal fastcc noundef ptr @_ZN4LuauL11getTypePackEP9lua_Stateii(ptr nou
   %7 = alloca %"struct.Luau::TypeFunctionGenericTypePack", align 8
   %8 = alloca %"class.Luau::Variant.19", align 8
   %9 = alloca %"class.Luau::Variant.19", align 8
-  %.sroa.16.sroa.6 = alloca [7 x i8], align 1
   store i32 0, ptr %5, align 8, !tbaa !44
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.14.24..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -14365,7 +14364,6 @@ _ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS
   %75 = ptrtoint ptr %.sroa.096.1 to i64
   %76 = sub i64 %74, %75
   %77 = icmp eq ptr %.sroa.11.0, %.sroa.096.1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.16.sroa.6)
   br i1 %77, label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EEC2ERKS5_.exit, label %179
 
 78:                                               ; preds = %.noexc56
@@ -14615,12 +14613,11 @@ _ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS
   %.sroa.091.0 = phi ptr [ %122, %_ZN4Luau27TypeFunctionGenericTypePackD2Ev.exit ], [ %157, %_ZNSt8optionalIPKN4Luau23TypeFunctionTypePackVarEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit66 ]
   %174 = ptrtoint ptr %.sroa.096.1 to i64
   %175 = icmp eq ptr %.sroa.11.0, %.sroa.096.1
-  br i1 %175, label %213, label %176
+  br i1 %175, label %_ZN4Luau20TypeFunctionTypePackD2Ev.exit74, label %176
 
 176:                                              ; preds = %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit67
   %177 = ptrtoint ptr %.sroa.11.0 to i64
   %178 = sub i64 %177, %174
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.16.sroa.6)
   br label %179
 
 179:                                              ; preds = %176, %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit67.thread
@@ -14664,8 +14661,6 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EEC2ERKS5_.exit: ; preds = %_ZN4Lu
   store ptr %.sroa.091.0178179, ptr %192, align 8
   %.sroa.16.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i8 %.sroa.7.0177182, ptr %.sroa.16.sroa.5.0..sroa_idx, align 8
-  %.sroa.16.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.sroa.6, i64 7, i1 false)
   %193 = invoke noundef ptr @_ZN4Luau28allocateTypeFunctionTypePackEP9lua_StateNS_7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEEE(ptr noundef %0, ptr noundef nonnull %9)
           to label %194 unwind label %204
 
@@ -14684,14 +14679,10 @@ _ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EEC2ERKS5_.exit: ; preds = %_ZN4Lu
   call void @__clang_call_terminate(ptr %201) #28
   unreachable
 
-_ZN4Luau20TypeFunctionTypePackD2Ev.exit74:        ; preds = %194
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.16.sroa.6)
-  br label %213
-
 202:                                              ; preds = %_ZNSt16allocator_traitsISaIPKN4Luau16TypeFunctionTypeEEE8allocateERS4_m.exit.i.i.i.i, %.noexc.i.i
   %203 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN4Luau20TypeFunctionTypePackD2Ev.exit77
+  br label %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68
 
 204:                                              ; preds = %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EEC2ERKS5_.exit
   %205 = landingpad { ptr, i32 }
@@ -14701,7 +14692,7 @@ _ZN4Luau20TypeFunctionTypePackD2Ev.exit74:        ; preds = %194
   %208 = getelementptr inbounds [3 x ptr], ptr @_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEE9tableDtorE, i64 0, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !33
   invoke void %209(ptr noundef nonnull %189)
-          to label %_ZN4Luau20TypeFunctionTypePackD2Ev.exit77 unwind label %210
+          to label %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68 unwind label %210
 
 210:                                              ; preds = %204
   %211 = landingpad { ptr, i32 }
@@ -14710,42 +14701,37 @@ _ZN4Luau20TypeFunctionTypePackD2Ev.exit74:        ; preds = %194
   call void @__clang_call_terminate(ptr %212) #28
   unreachable
 
-_ZN4Luau20TypeFunctionTypePackD2Ev.exit77:        ; preds = %204, %202
-  %.pn44 = phi { ptr, i32 } [ %203, %202 ], [ %205, %204 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.16.sroa.6)
-  br label %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68
-
-213:                                              ; preds = %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit67, %_ZN4Luau20TypeFunctionTypePackD2Ev.exit74
-  %214 = phi i64 [ %186, %_ZN4Luau20TypeFunctionTypePackD2Ev.exit74 ], [ %174, %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit67 ]
-  %.0 = phi ptr [ %193, %_ZN4Luau20TypeFunctionTypePackD2Ev.exit74 ], [ %.sroa.091.0, %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit67 ]
+_ZN4Luau20TypeFunctionTypePackD2Ev.exit74:        ; preds = %194, %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit67
+  %213 = phi i64 [ %174, %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit67 ], [ %186, %194 ]
+  %.0 = phi ptr [ %.sroa.091.0, %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit67 ], [ %193, %194 ]
   %.not.i.i.i = icmp eq ptr %.sroa.096.1, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit, label %215
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit, label %214
 
-215:                                              ; preds = %213
-  %216 = ptrtoint ptr %.sroa.17.1 to i64
-  %217 = sub i64 %216, %214
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.096.1, i64 noundef %217) #30
+214:                                              ; preds = %_ZN4Luau20TypeFunctionTypePackD2Ev.exit74
+  %215 = ptrtoint ptr %.sroa.17.1 to i64
+  %216 = sub i64 %215, %213
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.096.1, i64 noundef %216) #30
   br label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit: ; preds = %213, %215
+_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit: ; preds = %_ZN4Luau20TypeFunctionTypePackD2Ev.exit74, %214
   ret ptr %.0
 
-_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68: ; preds = %_ZN4Luau20TypeFunctionTypePackD2Ev.exit77, %165, %_ZN4Luau27TypeFunctionGenericTypePackD2Ev.exit65, %136, %.loopexit127, %.loopexit.split-lp128, %.loopexit, %.loopexit.split-lp, %35
-  %.sroa.17.4 = phi ptr [ %.sroa.17.0, %35 ], [ %.sroa.17.3.ph, %.loopexit ], [ %.sroa.17.2, %.loopexit.split-lp ], [ %.sroa.17.2, %.loopexit127 ], [ %.sroa.17.2, %.loopexit.split-lp128 ], [ %.sroa.17.1, %136 ], [ %.sroa.17.1, %_ZN4Luau27TypeFunctionGenericTypePackD2Ev.exit65 ], [ %.sroa.17.1, %165 ], [ %.sroa.17.1, %_ZN4Luau20TypeFunctionTypePackD2Ev.exit77 ]
-  %.sroa.096.4 = phi ptr [ %.sroa.096.0, %35 ], [ %.sroa.096.3.ph, %.loopexit ], [ %.sroa.096.2, %.loopexit.split-lp ], [ %.sroa.096.2, %.loopexit127 ], [ %.sroa.096.2, %.loopexit.split-lp128 ], [ %.sroa.096.1, %136 ], [ %.sroa.096.1, %_ZN4Luau27TypeFunctionGenericTypePackD2Ev.exit65 ], [ %.sroa.096.1, %165 ], [ %.sroa.096.1, %_ZN4Luau20TypeFunctionTypePackD2Ev.exit77 ]
-  %.pn44.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit129, %.loopexit127 ], [ %lpad.loopexit.split-lp130, %.loopexit.split-lp128 ], [ %137, %136 ], [ %.pn40, %_ZN4Luau27TypeFunctionGenericTypePackD2Ev.exit65 ], [ %166, %165 ], [ %.pn44, %_ZN4Luau20TypeFunctionTypePackD2Ev.exit77 ]
+_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68: ; preds = %.loopexit127, %.loopexit.split-lp128, %.loopexit, %.loopexit.split-lp, %165, %_ZN4Luau27TypeFunctionGenericTypePackD2Ev.exit65, %136, %204, %202, %35
+  %.sroa.17.4 = phi ptr [ %.sroa.17.0, %35 ], [ %.sroa.17.1, %202 ], [ %.sroa.17.1, %204 ], [ %.sroa.17.1, %136 ], [ %.sroa.17.1, %_ZN4Luau27TypeFunctionGenericTypePackD2Ev.exit65 ], [ %.sroa.17.1, %165 ], [ %.sroa.17.3.ph, %.loopexit ], [ %.sroa.17.2, %.loopexit.split-lp ], [ %.sroa.17.2, %.loopexit127 ], [ %.sroa.17.2, %.loopexit.split-lp128 ]
+  %.sroa.096.4 = phi ptr [ %.sroa.096.0, %35 ], [ %.sroa.096.1, %202 ], [ %.sroa.096.1, %204 ], [ %.sroa.096.1, %136 ], [ %.sroa.096.1, %_ZN4Luau27TypeFunctionGenericTypePackD2Ev.exit65 ], [ %.sroa.096.1, %165 ], [ %.sroa.096.3.ph, %.loopexit ], [ %.sroa.096.2, %.loopexit.split-lp ], [ %.sroa.096.2, %.loopexit127 ], [ %.sroa.096.2, %.loopexit.split-lp128 ]
+  %.pn44.pn.pn = phi { ptr, i32 } [ %36, %35 ], [ %203, %202 ], [ %205, %204 ], [ %137, %136 ], [ %.pn40, %_ZN4Luau27TypeFunctionGenericTypePackD2Ev.exit65 ], [ %166, %165 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit129, %.loopexit127 ], [ %lpad.loopexit.split-lp130, %.loopexit.split-lp128 ]
   %.not.i.i.i78 = icmp eq ptr %.sroa.096.4, null
-  br i1 %.not.i.i.i78, label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit79, label %218
+  br i1 %.not.i.i.i78, label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit79, label %217
 
-218:                                              ; preds = %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68
-  %219 = ptrtoint ptr %.sroa.17.4 to i64
-  %220 = ptrtoint ptr %.sroa.096.4 to i64
-  %221 = sub i64 %219, %220
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.096.4, i64 noundef %221) #30
+217:                                              ; preds = %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68
+  %218 = ptrtoint ptr %.sroa.17.4 to i64
+  %219 = ptrtoint ptr %.sroa.096.4 to i64
+  %220 = sub i64 %218, %219
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.096.4, i64 noundef %220) #30
   br label %_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit79
 
-_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit79: ; preds = %26, %218, %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68
-  %.pn44.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn.pn, %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68 ], [ %.pn44.pn.pn, %218 ], [ %27, %26 ]
+_ZNSt6vectorIPKN4Luau16TypeFunctionTypeESaIS3_EED2Ev.exit79: ; preds = %26, %217, %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68
+  %.pn44.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn.pn, %_ZN4Luau7VariantIJNS_20TypeFunctionTypePackENS_28TypeFunctionVariadicTypePackENS_27TypeFunctionGenericTypePackEEED2Ev.exit68 ], [ %.pn44.pn.pn, %217 ], [ %27, %26 ]
   resume { ptr, i32 } %.pn44.pn.pn.pn
 }
 

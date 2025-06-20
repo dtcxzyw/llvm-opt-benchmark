@@ -1384,9 +1384,9 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %11
-  %.not28 = icmp eq i64 %.sroa.0.0.i12, 0
+  %.not27 = icmp eq i64 %.sroa.0.0.i12, 0
   %19 = add nsw i32 %3, 1000000000
-  br i1 %.not28, label %44, label %46
+  br i1 %.not27, label %44, label %46
 
 20:                                               ; preds = %46, %44, %11
   %.sroa.011.0.i = phi i32 [ %19, %46 ], [ %19, %44 ], [ %3, %11 ]
@@ -1443,10 +1443,10 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   br i1 %53, label %59, label %54
 
 54:                                               ; preds = %48
-  %.lhs.trunc24 = trunc nuw nsw i32 %52 to i16
-  %55 = udiv i16 %.lhs.trunc24, 60
+  %.lhs.trunc23 = trunc nuw nsw i32 %52 to i16
+  %55 = udiv i16 %.lhs.trunc23, 60
   %56 = trunc nuw nsw i16 %55 to i8
-  %57 = urem i16 %.lhs.trunc24, 60
+  %57 = urem i16 %.lhs.trunc23, 60
   %58 = trunc nuw nsw i16 %57 to i8
   br label %59
 
@@ -1455,16 +1455,16 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   %.sroa.4.0.i = phi i8 [ 0, %20 ], [ 0, %48 ], [ %56, %54 ]
   %.sroa.3.0.i = phi i8 [ 0, %20 ], [ %51, %48 ], [ %51, %54 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %.sroa.718.8.extract.trunc = trunc i32 %40 to i16
+  %.sroa.717.8.extract.trunc = trunc i32 %40 to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   %60 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !noalias !155
   %.sroa.4.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i16 noundef %.sroa.718.8.extract.trunc, i32 noundef %60)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i13, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i16 noundef %.sroa.717.8.extract.trunc, i32 noundef %60)
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %63 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %62), !noalias !155
   %.sroa.5.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i14, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %61, i16 noundef %.sroa.718.8.extract.trunc, i32 noundef %63)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i14, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %61, i16 noundef %.sroa.717.8.extract.trunc, i32 noundef %63)
   store ptr %1, ptr %7, align 8, !alias.scope !155, !noalias !158
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !165
@@ -1476,13 +1476,13 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store i8 %.sroa.4.0.i, ptr %.sroa.5.0..sroa_idx, align 1, !noalias !170
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i8 %.sroa.5.0.i, ptr %.sroa.6.0..sroa_idx, align 2, !noalias !170
-  %.sroa.718.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.718.0..sroa_idx, align 4, !noalias !170
+  %.sroa.717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.717.0..sroa_idx, align 4, !noalias !170
   %64 = call noundef zeroext i1 @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$6in_dst17h192251df3c0918cdE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %5), !noalias !171
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !166
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !160
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br i1 %64, label %70, label %72
+  br i1 %64, label %70, label %74
 
 65:                                               ; preds = %4
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1494,32 +1494,37 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store ptr %.val10, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.val11, ptr %69, align 8
-  br label %77
+  br label %79
 
 70:                                               ; preds = %59
   %71 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %62)
-  br label %72
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val8 = load ptr, ptr %72, align 8, !nonnull !3, !align !4, !noundef !3
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val9 = load i64, ptr %73, align 8, !noundef !3
+  store ptr %.val8, ptr %0, align 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.val9, ptr %.sroa.42.0..sroa_idx, align 8
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %71, ptr %.sroa.53.0..sroa_idx, align 8
+  br label %79
 
-72:                                               ; preds = %59, %70
-  %.sink31 = phi i64 [ 16, %70 ], [ 40, %59 ]
-  %.sink30 = phi i64 [ 24, %70 ], [ 48, %59 ]
-  %.sink29 = phi i32 [ %71, %70 ], [ %9, %59 ]
-  %.sink = phi i8 [ 1, %70 ], [ 0, %59 ]
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink31
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink30
-  %.val7.sink = load i64, ptr %74, align 8, !noundef !3
-  %.val.sink = load ptr, ptr %73, align 8, !nonnull !3, !align !4, !noundef !3
-  store ptr %.val.sink, ptr %0, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.val7.sink, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink29, ptr %76, align 8
-  br label %77
+74:                                               ; preds = %59
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val = load ptr, ptr %75, align 8, !nonnull !3, !align !4, !noundef !3
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.val7 = load i64, ptr %76, align 8, !noundef !3
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %9, ptr %77, align 8
+  store ptr %.val, ptr %0, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.val7, ptr %78, align 8
+  br label %79
 
-77:                                               ; preds = %72, %65
-  %.sink.sink = phi i8 [ %.sink, %72 ], [ 0, %65 ]
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 %.sink.sink, ptr %78, align 4
+79:                                               ; preds = %70, %74, %65
+  %.sink = phi i8 [ 1, %70 ], [ 0, %74 ], [ 0, %65 ]
+  %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 %.sink, ptr %.sroa.64.0..sroa_idx, align 4
   ret void
 }
 
@@ -1547,9 +1552,9 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %11
-  %.not23 = icmp eq i64 %.sroa.0.0.i7, 0
+  %.not22 = icmp eq i64 %.sroa.0.0.i7, 0
   %19 = add nsw i32 %3, 1000000000
-  br i1 %.not23, label %44, label %46
+  br i1 %.not22, label %44, label %46
 
 20:                                               ; preds = %46, %44, %11
   %.sroa.011.0.i = phi i32 [ %19, %46 ], [ %19, %44 ], [ %3, %11 ]
@@ -1606,10 +1611,10 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   br i1 %53, label %59, label %54
 
 54:                                               ; preds = %48
-  %.lhs.trunc19 = trunc nuw nsw i32 %52 to i16
-  %55 = udiv i16 %.lhs.trunc19, 60
+  %.lhs.trunc18 = trunc nuw nsw i32 %52 to i16
+  %55 = udiv i16 %.lhs.trunc18, 60
   %56 = trunc nuw nsw i16 %55 to i8
-  %57 = urem i16 %.lhs.trunc19, 60
+  %57 = urem i16 %.lhs.trunc18, 60
   %58 = trunc nuw nsw i16 %57 to i8
   br label %59
 
@@ -1618,16 +1623,16 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   %.sroa.4.0.i = phi i8 [ 0, %20 ], [ 0, %48 ], [ %56, %54 ]
   %.sroa.3.0.i = phi i8 [ 0, %20 ], [ %51, %48 ], [ %51, %54 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %.sroa.713.8.extract.trunc = trunc i32 %40 to i16
+  %.sroa.712.8.extract.trunc = trunc i32 %40 to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %60 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !noalias !172
   %.sroa.4.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i8, ptr noalias noundef nonnull readonly align 4 dereferenceable(88) %1, i16 noundef %.sroa.713.8.extract.trunc, i32 noundef %60)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i8, ptr noalias noundef nonnull readonly align 4 dereferenceable(88) %1, i16 noundef %.sroa.712.8.extract.trunc, i32 noundef %60)
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %63 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %62), !noalias !172
   %.sroa.5.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i9, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %61, i16 noundef %.sroa.713.8.extract.trunc, i32 noundef %63)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i9, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %61, i16 noundef %.sroa.712.8.extract.trunc, i32 noundef %63)
   store ptr %1, ptr %7, align 8, !alias.scope !172, !noalias !175
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !177
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !182
@@ -1639,13 +1644,13 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store i8 %.sroa.4.0.i, ptr %.sroa.5.0..sroa_idx, align 1, !noalias !187
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i8 %.sroa.5.0.i, ptr %.sroa.6.0..sroa_idx, align 2, !noalias !187
-  %.sroa.713.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.713.0..sroa_idx, align 4, !noalias !187
+  %.sroa.712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %.sroa.0.0.insert.insert.i, ptr %.sroa.712.0..sroa_idx, align 4, !noalias !187
   %64 = call noundef zeroext i1 @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$6in_dst17h1328c7b19c684d42E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %5), !noalias !188
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !183
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !177
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br i1 %64, label %72, label %74
+  br i1 %64, label %72, label %78
 
 65:                                               ; preds = %4
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1657,31 +1662,37 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   store ptr %68, ptr %0, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %69, ptr %71, align 8
-  br label %79
+  br label %85
 
 72:                                               ; preds = %59
   %73 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %62)
-  br label %74
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %75 = call { ptr, i64 } @"_ZN100_$LT$jiff..shared..util..array_str..ArrayStr$LT$_$GT$$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h0bfc697eb4a8e8d2E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(31) %74)
+  %76 = extractvalue { ptr, i64 } %75, 0
+  %77 = extractvalue { ptr, i64 } %75, 1
+  store ptr %76, ptr %0, align 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %77, ptr %.sroa.42.0..sroa_idx, align 8
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %73, ptr %.sroa.53.0..sroa_idx, align 8
+  br label %85
 
-74:                                               ; preds = %59, %72
-  %.sink29 = phi i64 [ 20, %72 ], [ 56, %59 ]
-  %.sink24 = phi i32 [ %73, %72 ], [ %9, %59 ]
-  %.sink = phi i8 [ 1, %72 ], [ 0, %59 ]
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink29
-  %76 = call { ptr, i64 } @"_ZN100_$LT$jiff..shared..util..array_str..ArrayStr$LT$_$GT$$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h0bfc697eb4a8e8d2E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(31) %75)
-  %.sink25 = extractvalue { ptr, i64 } %76, 1
-  %.sink26 = extractvalue { ptr, i64 } %76, 0
-  store ptr %.sink26, ptr %0, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink25, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink24, ptr %78, align 8
-  br label %79
+78:                                               ; preds = %59
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %80 = call { ptr, i64 } @"_ZN100_$LT$jiff..shared..util..array_str..ArrayStr$LT$_$GT$$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h0bfc697eb4a8e8d2E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(31) %79)
+  %81 = extractvalue { ptr, i64 } %80, 0
+  %82 = extractvalue { ptr, i64 } %80, 1
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %9, ptr %83, align 8
+  store ptr %81, ptr %0, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %82, ptr %84, align 8
+  br label %85
 
-79:                                               ; preds = %74, %65
-  %.sink.sink = phi i8 [ %.sink, %74 ], [ 0, %65 ]
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 %.sink.sink, ptr %80, align 4
+85:                                               ; preds = %72, %78, %65
+  %.sink = phi i8 [ 1, %72 ], [ 0, %78 ], [ 0, %65 ]
+  %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 %.sink, ptr %.sroa.64.0..sroa_idx, align 4
   ret void
 }
 
@@ -3951,10 +3962,10 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   br i1 %60, label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit, label %61
 
 61:                                               ; preds = %55
-  %.lhs.trunc159 = trunc nuw nsw i32 %59 to i16
-  %62 = udiv i16 %.lhs.trunc159, 60
+  %.lhs.trunc158 = trunc nuw nsw i32 %59 to i16
+  %62 = udiv i16 %.lhs.trunc158, 60
   %63 = trunc nuw nsw i16 %62 to i8
-  %64 = urem i16 %.lhs.trunc159, 60
+  %64 = urem i16 %.lhs.trunc158, 60
   %65 = trunc nuw nsw i16 %64 to i8
   br label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit
 
@@ -3964,7 +3975,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   %.sroa.3.0.i = phi i8 [ 0, %26 ], [ %58, %55 ], [ %58, %61 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  %.sroa.1572.8.extract.trunc = trunc i32 %46 to i16
+  %.sroa.1571.8.extract.trunc = trunc i32 %46 to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !328)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
   %66 = load i8, ptr %1, align 4, !range !120, !alias.scope !331, !noalias !328, !noundef !3
@@ -3975,48 +3986,48 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %69 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %68), !noalias !328
   %.sroa.4.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i52, ptr noalias noundef nonnull readonly align 4 dereferenceable(88) %1, i16 noundef %.sroa.1572.8.extract.trunc, i32 noundef %69)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i52, ptr noalias noundef nonnull readonly align 4 dereferenceable(88) %1, i16 noundef %.sroa.1571.8.extract.trunc, i32 noundef %69)
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %71), !noalias !328
   %.sroa.5.0..sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i53, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.1572.8.extract.trunc, i32 noundef %72)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i53, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.1571.8.extract.trunc, i32 noundef %72)
   store ptr %1, ptr %16, align 8, !alias.scope !328, !noalias !331
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$7ordered17h17e98fd75376dd0cE"(ptr noalias noundef nonnull sret([24 x i8]) align 4 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17)
-  %.sroa.080.0.copyload = load i32, ptr %15, align 4
+  %.sroa.079.0.copyload = load i32, ptr %15, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 5
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx86, align 2
-  %.sroa.692.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.692.0.copyload = load i16, ptr %.sroa.692.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %15, i64 6
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx85, align 2
+  %.sroa.691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.691.0.copyload = load i16, ptr %.sroa.691.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 10
   %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 2
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 11
   %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..sroa_idx, align 1
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %.sroa.099.0.copyload = load i32, ptr %73, align 4
-  %.sroa.3101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.3101.0.copyload = load i8, ptr %.sroa.3101.0..sroa_idx, align 4
-  %.sroa.4104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 17
-  %.sroa.4104.0.copyload = load i8, ptr %.sroa.4104.0..sroa_idx, align 1
-  %.sroa.5107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 18
-  %.sroa.5107.0.copyload = load i8, ptr %.sroa.5107.0..sroa_idx, align 2
-  %.sroa.6113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 20
-  %.sroa.6113.0.copyload = load i16, ptr %.sroa.6113.0..sroa_idx, align 4
-  %.sroa.7116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 22
-  %.sroa.7116.0.copyload = load i8, ptr %.sroa.7116.0..sroa_idx, align 2
-  %.sroa.8119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 23
-  %.sroa.8119.0.copyload = load i8, ptr %.sroa.8119.0..sroa_idx, align 1
+  %.sroa.098.0.copyload = load i32, ptr %73, align 4
+  %.sroa.3100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.3100.0.copyload = load i8, ptr %.sroa.3100.0..sroa_idx, align 4
+  %.sroa.4103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 17
+  %.sroa.4103.0.copyload = load i8, ptr %.sroa.4103.0..sroa_idx, align 1
+  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 18
+  %.sroa.5106.0.copyload = load i8, ptr %.sroa.5106.0..sroa_idx, align 2
+  %.sroa.6112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %.sroa.6112.0.copyload = load i16, ptr %.sroa.6112.0..sroa_idx, align 4
+  %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 22
+  %.sroa.7115.0.copyload = load i8, ptr %.sroa.7115.0..sroa_idx, align 2
+  %.sroa.8118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 23
+  %.sroa.8118.0.copyload = load i8, ptr %.sroa.8118.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  %74 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1572.8.extract.trunc, i16 %.sroa.6113.0.copyload)
-  %75 = icmp eq i16 %.sroa.6113.0.copyload, %.sroa.1572.8.extract.trunc
+  %74 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1571.8.extract.trunc, i16 %.sroa.6112.0.copyload)
+  %75 = icmp eq i16 %.sroa.6112.0.copyload, %.sroa.1571.8.extract.trunc
   br i1 %75, label %78, label %81
 
 76:                                               ; preds = %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit
@@ -4026,10 +4037,10 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br label %246
 
 78:                                               ; preds = %67
-  %.sroa.1572.10.extract.shift = lshr i32 %.sroa.2.0.insert.ext.i45, 16
-  %.sroa.1572.10.extract.trunc = trunc i32 %.sroa.1572.10.extract.shift to i8
-  %79 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1572.10.extract.trunc, i8 %.sroa.7116.0.copyload)
-  %80 = icmp eq i8 %.sroa.7116.0.copyload, %.sroa.1572.10.extract.trunc
+  %.sroa.1571.10.extract.shift = lshr i32 %.sroa.2.0.insert.ext.i45, 16
+  %.sroa.1571.10.extract.trunc = trunc i32 %.sroa.1571.10.extract.shift to i8
+  %79 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1571.10.extract.trunc, i8 %.sroa.7115.0.copyload)
+  %80 = icmp eq i8 %.sroa.7115.0.copyload, %.sroa.1571.10.extract.trunc
   br i1 %80, label %83, label %81
 
 81:                                               ; preds = %83, %78, %67
@@ -4038,28 +4049,28 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %82, label %85, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 83:                                               ; preds = %78
-  %.sroa.1572.11.extract.shift = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
-  %.sroa.1572.11.extract.trunc = trunc nuw nsw i32 %.sroa.1572.11.extract.shift to i8
-  %84 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1572.11.extract.trunc, i8 %.sroa.8119.0.copyload)
+  %.sroa.1571.11.extract.shift = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
+  %.sroa.1571.11.extract.trunc = trunc nuw nsw i32 %.sroa.1571.11.extract.shift to i8
+  %84 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1571.11.extract.trunc, i8 %.sroa.8118.0.copyload)
   br label %81
 
 85:                                               ; preds = %81
-  %86 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.3.0.i, i8 %.sroa.3101.0.copyload)
-  %87 = icmp eq i8 %.sroa.3.0.i, %.sroa.3101.0.copyload
+  %86 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.3.0.i, i8 %.sroa.3100.0.copyload)
+  %87 = icmp eq i8 %.sroa.3.0.i, %.sroa.3100.0.copyload
   br i1 %87, label %88, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 88:                                               ; preds = %85
-  %89 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.4.0.i, i8 %.sroa.4104.0.copyload)
-  %90 = icmp eq i8 %.sroa.4.0.i, %.sroa.4104.0.copyload
+  %89 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.4.0.i, i8 %.sroa.4103.0.copyload)
+  %90 = icmp eq i8 %.sroa.4.0.i, %.sroa.4103.0.copyload
   br i1 %90, label %91, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 91:                                               ; preds = %88
-  %92 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.5.0.i, i8 %.sroa.5107.0.copyload)
-  %93 = icmp eq i8 %.sroa.5.0.i, %.sroa.5107.0.copyload
+  %92 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.5.0.i, i8 %.sroa.5106.0.copyload)
+  %93 = icmp eq i8 %.sroa.5.0.i, %.sroa.5106.0.copyload
   br i1 %93, label %94, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 94:                                               ; preds = %91
-  %95 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.099.0.copyload)
+  %95 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.098.0.copyload)
   br label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit": ; preds = %94, %91, %88, %85, %81
@@ -4068,15 +4079,15 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %96, label %142, label %97
 
 97:                                               ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
-  %98 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1572.8.extract.trunc, i16 %.sroa.692.0.copyload)
-  %99 = icmp eq i16 %.sroa.692.0.copyload, %.sroa.1572.8.extract.trunc
+  %98 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1571.8.extract.trunc, i16 %.sroa.691.0.copyload)
+  %99 = icmp eq i16 %.sroa.691.0.copyload, %.sroa.1571.8.extract.trunc
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %97
-  %.sroa.1572.10.extract.shift75 = lshr i32 %.sroa.2.0.insert.ext.i45, 16
-  %.sroa.1572.10.extract.trunc76 = trunc i32 %.sroa.1572.10.extract.shift75 to i8
-  %101 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1572.10.extract.trunc76, i8 %.sroa.7.0.copyload)
-  %102 = icmp eq i8 %.sroa.7.0.copyload, %.sroa.1572.10.extract.trunc76
+  %.sroa.1571.10.extract.shift74 = lshr i32 %.sroa.2.0.insert.ext.i45, 16
+  %.sroa.1571.10.extract.trunc75 = trunc i32 %.sroa.1571.10.extract.shift74 to i8
+  %101 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1571.10.extract.trunc75, i8 %.sroa.7.0.copyload)
+  %102 = icmp eq i8 %.sroa.7.0.copyload, %.sroa.1571.10.extract.trunc75
   br i1 %102, label %105, label %103
 
 103:                                              ; preds = %105, %100, %97
@@ -4085,9 +4096,9 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %104, label %107, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56"
 
 105:                                              ; preds = %100
-  %.sroa.1572.11.extract.shift78 = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
-  %.sroa.1572.11.extract.trunc79 = trunc nuw nsw i32 %.sroa.1572.11.extract.shift78 to i8
-  %106 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1572.11.extract.trunc79, i8 %.sroa.8.0.copyload)
+  %.sroa.1571.11.extract.shift77 = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
+  %.sroa.1571.11.extract.trunc78 = trunc nuw nsw i32 %.sroa.1571.11.extract.shift77 to i8
+  %106 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1571.11.extract.trunc78, i8 %.sroa.8.0.copyload)
   br label %103
 
 107:                                              ; preds = %103
@@ -4106,7 +4117,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %115, label %116, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56"
 
 116:                                              ; preds = %113
-  %117 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.080.0.copyload)
+  %117 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.079.0.copyload)
   br label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56"
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56": ; preds = %116, %113, %110, %107, %103
@@ -4119,7 +4130,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   call void @llvm.experimental.noalias.scope.decl(metadata !333)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %.sroa.0.0.insert.insert.i49, ptr %7, align 4, !noalias !333
-  %120 = add i16 %.sroa.1572.8.extract.trunc, -1
+  %120 = add i16 %.sroa.1571.8.extract.trunc, -1
   %121 = icmp slt i16 %120, -9999
   br i1 %121, label %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit, label %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit.thread
 
@@ -4175,28 +4186,28 @@ _ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit: ; preds = %
   br label %246
 
 138:                                              ; preds = %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit, %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit.thread
-  %.sroa.6.0148.ph = phi i16 [ %135, %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit ], [ %120, %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit.thread ]
+  %.sroa.6.0147.ph = phi i16 [ %135, %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit ], [ %120, %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %139 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %68), !noalias !336
   %.sroa.4.0..sroa_idx.i59 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i59, ptr noalias noundef nonnull readonly align 4 dereferenceable(88) %1, i16 noundef %.sroa.6.0148.ph, i32 noundef %139)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i59, ptr noalias noundef nonnull readonly align 4 dereferenceable(88) %1, i16 noundef %.sroa.6.0147.ph, i32 noundef %139)
   %140 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %71), !noalias !336
   %.sroa.5.0..sroa_idx.i60 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i60, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.6.0148.ph, i32 noundef %140)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i60, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.6.0147.ph, i32 noundef %140)
   store ptr %1, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$7ordered17h17e98fd75376dd0cE"(ptr noalias noundef nonnull sret([24 x i8]) align 4 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12)
   %141 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %.sroa.0136.0.copyload = load i32, ptr %141, align 4
-  %.sroa.4137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.4137.0.copyload = load i8, ptr %.sroa.4137.0..sroa_idx, align 4
-  %.sroa.7138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 17
-  %.sroa.7138.0.copyload = load i8, ptr %.sroa.7138.0..sroa_idx, align 1
-  %.sroa.10139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 18
-  %.sroa.10139.0.copyload = load i8, ptr %.sroa.10139.0..sroa_idx, align 2
+  %.sroa.0135.0.copyload = load i32, ptr %141, align 4
+  %.sroa.4136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.4136.0.copyload = load i8, ptr %.sroa.4136.0..sroa_idx, align 4
+  %.sroa.7137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 17
+  %.sroa.7137.0.copyload = load i8, ptr %.sroa.7137.0..sroa_idx, align 1
+  %.sroa.10138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 18
+  %.sroa.10138.0.copyload = load i8, ptr %.sroa.10138.0..sroa_idx, align 2
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 20
   %.sroa.16.0.copyload = load i16, ptr %.sroa.16.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 22
@@ -4208,13 +4219,13 @@ _ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit: ; preds = %
   br label %142
 
 142:                                              ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit", %138
-  %.sroa.0136.0 = phi i32 [ %.sroa.0136.0.copyload, %138 ], [ %.sroa.099.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.080.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.4137.0 = phi i8 [ %.sroa.4137.0.copyload, %138 ], [ %.sroa.3101.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.3.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.7138.0 = phi i8 [ %.sroa.7138.0.copyload, %138 ], [ %.sroa.4104.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.4.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.10139.0 = phi i8 [ %.sroa.10139.0.copyload, %138 ], [ %.sroa.5107.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.5.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.16.0 = phi i16 [ %.sroa.16.0.copyload, %138 ], [ %.sroa.6113.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.692.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.19.0 = phi i8 [ %.sroa.19.0.copyload, %138 ], [ %.sroa.7116.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.7.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.22.0 = phi i8 [ %.sroa.22.0.copyload, %138 ], [ %.sroa.8119.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.8.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.0135.0 = phi i32 [ %.sroa.0135.0.copyload, %138 ], [ %.sroa.098.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.079.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.4136.0 = phi i8 [ %.sroa.4136.0.copyload, %138 ], [ %.sroa.3100.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.3.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.7137.0 = phi i8 [ %.sroa.7137.0.copyload, %138 ], [ %.sroa.4103.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.4.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.10138.0 = phi i8 [ %.sroa.10138.0.copyload, %138 ], [ %.sroa.5106.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.5.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.16.0 = phi i16 [ %.sroa.16.0.copyload, %138 ], [ %.sroa.6112.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.691.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.19.0 = phi i8 [ %.sroa.19.0.copyload, %138 ], [ %.sroa.7115.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.7.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.22.0 = phi i8 [ %.sroa.22.0.copyload, %138 ], [ %.sroa.8118.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.8.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %143 = sext i8 %.sroa.19.0 to i32
@@ -4241,19 +4252,19 @@ _ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit: ; preds = %
   %162 = add nsw i32 %161, -12699422
   %163 = sext i32 %162 to i64
   %164 = mul nsw i64 %163, 86400
-  %165 = sext i8 %.sroa.4137.0 to i64
+  %165 = sext i8 %.sroa.4136.0 to i64
   %166 = mul nsw i64 %165, 3600
-  %167 = sext i8 %.sroa.7138.0 to i64
+  %167 = sext i8 %.sroa.7137.0 to i64
   %168 = mul nsw i64 %167, 60
   %169 = add nsw i64 %168, %166
-  %170 = sext i8 %.sroa.10139.0 to i64
+  %170 = sext i8 %.sroa.10138.0 to i64
   %171 = add nsw i64 %169, %170
   %172 = add nsw i64 %171, %164
   %173 = icmp samesign ult i32 %161, 12699422
-  %174 = icmp ne i32 %.sroa.0136.0, 0
+  %174 = icmp ne i32 %.sroa.0135.0, 0
   %or.cond.i.i.not = and i1 %174, %173
-  %175 = add i32 %.sroa.0136.0, -1000000000
-  %.sroa.04.0.i.i = select i1 %or.cond.i.i.not, i32 %175, i32 %.sroa.0136.0
+  %175 = add i32 %.sroa.0135.0, -1000000000
+  %.sroa.04.0.i.i = select i1 %or.cond.i.i.not, i32 %175, i32 %.sroa.0135.0
   %176 = zext i1 %or.cond.i.i.not to i64
   %.sroa.0.0.i.i = add nsw i64 %172, %176
   %177 = icmp eq i64 %.sroa.0.0.i.i, -377705023201
@@ -4309,10 +4320,10 @@ _ZN4jiff6shared4util5itime9IDateTime20to_timestamp_checked17h8dce5c6eecfb981aE.e
   %210 = add nuw nsw i32 %206, 32736
   %211 = add nuw nsw i32 %210, %208
   %212 = add nuw nsw i32 %211, %209
-  %.lhs.trunc154 = trunc i32 %202 to i16
-  %213 = udiv i16 %.lhs.trunc154, 2141
-  %.zext155 = zext nneg i16 %213 to i32
-  %.sroa.3.0.insert.ext.i = shl nuw nsw i32 %.zext155, 24
+  %.lhs.trunc153 = trunc i32 %202 to i16
+  %213 = udiv i16 %.lhs.trunc153, 2141
+  %.zext154 = zext nneg i16 %213 to i32
+  %.sroa.3.0.insert.ext.i = shl nuw nsw i32 %.zext154, 24
   %.sroa.3.0.insert.shift.i = add nuw nsw i32 %.sroa.3.0.insert.ext.i, 16777216
   %214 = add nuw nsw i32 %203, 15990784
   %.sroa.2.0.insert.ext.i = select i1 %204, i32 %214, i32 %202
@@ -4343,10 +4354,10 @@ _ZN4jiff6shared4util5itime9IDateTime20to_timestamp_checked17h8dce5c6eecfb981aE.e
   br i1 %228, label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit41, label %229
 
 229:                                              ; preds = %223
-  %.lhs.trunc156 = trunc nsw i32 %227 to i16
-  %230 = sdiv i16 %.lhs.trunc156, 60
+  %.lhs.trunc155 = trunc nsw i32 %227 to i16
+  %230 = sdiv i16 %.lhs.trunc155, 60
   %231 = trunc nsw i16 %230 to i8
-  %232 = srem i16 %.lhs.trunc156, 60
+  %232 = srem i16 %.lhs.trunc155, 60
   %233 = trunc nsw i16 %232 to i8
   br label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit41
 
@@ -4488,10 +4499,10 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   br i1 %60, label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit, label %61
 
 61:                                               ; preds = %55
-  %.lhs.trunc162 = trunc nuw nsw i32 %59 to i16
-  %62 = udiv i16 %.lhs.trunc162, 60
+  %.lhs.trunc161 = trunc nuw nsw i32 %59 to i16
+  %62 = udiv i16 %.lhs.trunc161, 60
   %63 = trunc nuw nsw i16 %62 to i8
-  %64 = urem i16 %.lhs.trunc162, 60
+  %64 = urem i16 %.lhs.trunc161, 60
   %65 = trunc nuw nsw i16 %64 to i8
   br label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit
 
@@ -4501,7 +4512,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   %.sroa.3.0.i = phi i8 [ 0, %26 ], [ %58, %55 ], [ %58, %61 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  %.sroa.1575.8.extract.trunc = trunc i32 %46 to i16
+  %.sroa.1574.8.extract.trunc = trunc i32 %46 to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !344)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !347)
   %66 = load i8, ptr %1, align 8, !range !120, !alias.scope !347, !noalias !344, !noundef !3
@@ -4512,48 +4523,48 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %69 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %68), !noalias !344
   %.sroa.4.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i16 noundef %.sroa.1575.8.extract.trunc, i32 noundef %69)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i16 noundef %.sroa.1574.8.extract.trunc, i32 noundef %69)
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %72 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %71), !noalias !344
   %.sroa.5.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i56, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.1575.8.extract.trunc, i32 noundef %72)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i56, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.1574.8.extract.trunc, i32 noundef %72)
   store ptr %1, ptr %16, align 8, !alias.scope !344, !noalias !347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$7ordered17ha181a377f0d36ebeE"(ptr noalias noundef nonnull sret([24 x i8]) align 4 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17)
-  %.sroa.083.0.copyload = load i32, ptr %15, align 4
+  %.sroa.082.0.copyload = load i32, ptr %15, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 5
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx89, align 2
-  %.sroa.695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.695.0.copyload = load i16, ptr %.sroa.695.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %15, i64 6
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx88, align 2
+  %.sroa.694.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.694.0.copyload = load i16, ptr %.sroa.694.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 10
   %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 2
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 11
   %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..sroa_idx, align 1
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %.sroa.0102.0.copyload = load i32, ptr %73, align 4
-  %.sroa.3104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.3104.0.copyload = load i8, ptr %.sroa.3104.0..sroa_idx, align 4
-  %.sroa.4107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 17
-  %.sroa.4107.0.copyload = load i8, ptr %.sroa.4107.0..sroa_idx, align 1
-  %.sroa.5110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 18
-  %.sroa.5110.0.copyload = load i8, ptr %.sroa.5110.0..sroa_idx, align 2
-  %.sroa.6116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 20
-  %.sroa.6116.0.copyload = load i16, ptr %.sroa.6116.0..sroa_idx, align 4
-  %.sroa.7119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 22
-  %.sroa.7119.0.copyload = load i8, ptr %.sroa.7119.0..sroa_idx, align 2
-  %.sroa.8122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 23
-  %.sroa.8122.0.copyload = load i8, ptr %.sroa.8122.0..sroa_idx, align 1
+  %.sroa.0101.0.copyload = load i32, ptr %73, align 4
+  %.sroa.3103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.3103.0.copyload = load i8, ptr %.sroa.3103.0..sroa_idx, align 4
+  %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 17
+  %.sroa.4106.0.copyload = load i8, ptr %.sroa.4106.0..sroa_idx, align 1
+  %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 18
+  %.sroa.5109.0.copyload = load i8, ptr %.sroa.5109.0..sroa_idx, align 2
+  %.sroa.6115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %.sroa.6115.0.copyload = load i16, ptr %.sroa.6115.0..sroa_idx, align 4
+  %.sroa.7118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 22
+  %.sroa.7118.0.copyload = load i8, ptr %.sroa.7118.0..sroa_idx, align 2
+  %.sroa.8121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 23
+  %.sroa.8121.0.copyload = load i8, ptr %.sroa.8121.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  %74 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1575.8.extract.trunc, i16 %.sroa.6116.0.copyload)
-  %75 = icmp eq i16 %.sroa.6116.0.copyload, %.sroa.1575.8.extract.trunc
+  %74 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1574.8.extract.trunc, i16 %.sroa.6115.0.copyload)
+  %75 = icmp eq i16 %.sroa.6115.0.copyload, %.sroa.1574.8.extract.trunc
   br i1 %75, label %78, label %81
 
 76:                                               ; preds = %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit
@@ -4563,10 +4574,10 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br label %246
 
 78:                                               ; preds = %67
-  %.sroa.1575.10.extract.shift = lshr i32 %.sroa.2.0.insert.ext.i45, 16
-  %.sroa.1575.10.extract.trunc = trunc i32 %.sroa.1575.10.extract.shift to i8
-  %79 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1575.10.extract.trunc, i8 %.sroa.7119.0.copyload)
-  %80 = icmp eq i8 %.sroa.7119.0.copyload, %.sroa.1575.10.extract.trunc
+  %.sroa.1574.10.extract.shift = lshr i32 %.sroa.2.0.insert.ext.i45, 16
+  %.sroa.1574.10.extract.trunc = trunc i32 %.sroa.1574.10.extract.shift to i8
+  %79 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1574.10.extract.trunc, i8 %.sroa.7118.0.copyload)
+  %80 = icmp eq i8 %.sroa.7118.0.copyload, %.sroa.1574.10.extract.trunc
   br i1 %80, label %83, label %81
 
 81:                                               ; preds = %83, %78, %67
@@ -4575,28 +4586,28 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %82, label %85, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 83:                                               ; preds = %78
-  %.sroa.1575.11.extract.shift = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
-  %.sroa.1575.11.extract.trunc = trunc nuw nsw i32 %.sroa.1575.11.extract.shift to i8
-  %84 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1575.11.extract.trunc, i8 %.sroa.8122.0.copyload)
+  %.sroa.1574.11.extract.shift = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
+  %.sroa.1574.11.extract.trunc = trunc nuw nsw i32 %.sroa.1574.11.extract.shift to i8
+  %84 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1574.11.extract.trunc, i8 %.sroa.8121.0.copyload)
   br label %81
 
 85:                                               ; preds = %81
-  %86 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.3.0.i, i8 %.sroa.3104.0.copyload)
-  %87 = icmp eq i8 %.sroa.3.0.i, %.sroa.3104.0.copyload
+  %86 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.3.0.i, i8 %.sroa.3103.0.copyload)
+  %87 = icmp eq i8 %.sroa.3.0.i, %.sroa.3103.0.copyload
   br i1 %87, label %88, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 88:                                               ; preds = %85
-  %89 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.4.0.i, i8 %.sroa.4107.0.copyload)
-  %90 = icmp eq i8 %.sroa.4.0.i, %.sroa.4107.0.copyload
+  %89 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.4.0.i, i8 %.sroa.4106.0.copyload)
+  %90 = icmp eq i8 %.sroa.4.0.i, %.sroa.4106.0.copyload
   br i1 %90, label %91, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 91:                                               ; preds = %88
-  %92 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.5.0.i, i8 %.sroa.5110.0.copyload)
-  %93 = icmp eq i8 %.sroa.5.0.i, %.sroa.5110.0.copyload
+  %92 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.5.0.i, i8 %.sroa.5109.0.copyload)
+  %93 = icmp eq i8 %.sroa.5.0.i, %.sroa.5109.0.copyload
   br i1 %93, label %94, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 94:                                               ; preds = %91
-  %95 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.0102.0.copyload)
+  %95 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.0101.0.copyload)
   br label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit": ; preds = %94, %91, %88, %85, %81
@@ -4605,15 +4616,15 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %96, label %142, label %97
 
 97:                                               ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
-  %98 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1575.8.extract.trunc, i16 %.sroa.695.0.copyload)
-  %99 = icmp eq i16 %.sroa.695.0.copyload, %.sroa.1575.8.extract.trunc
+  %98 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1574.8.extract.trunc, i16 %.sroa.694.0.copyload)
+  %99 = icmp eq i16 %.sroa.694.0.copyload, %.sroa.1574.8.extract.trunc
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %97
-  %.sroa.1575.10.extract.shift78 = lshr i32 %.sroa.2.0.insert.ext.i45, 16
-  %.sroa.1575.10.extract.trunc79 = trunc i32 %.sroa.1575.10.extract.shift78 to i8
-  %101 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1575.10.extract.trunc79, i8 %.sroa.7.0.copyload)
-  %102 = icmp eq i8 %.sroa.7.0.copyload, %.sroa.1575.10.extract.trunc79
+  %.sroa.1574.10.extract.shift77 = lshr i32 %.sroa.2.0.insert.ext.i45, 16
+  %.sroa.1574.10.extract.trunc78 = trunc i32 %.sroa.1574.10.extract.shift77 to i8
+  %101 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1574.10.extract.trunc78, i8 %.sroa.7.0.copyload)
+  %102 = icmp eq i8 %.sroa.7.0.copyload, %.sroa.1574.10.extract.trunc78
   br i1 %102, label %105, label %103
 
 103:                                              ; preds = %105, %100, %97
@@ -4622,9 +4633,9 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %104, label %107, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59"
 
 105:                                              ; preds = %100
-  %.sroa.1575.11.extract.shift81 = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
-  %.sroa.1575.11.extract.trunc82 = trunc nuw nsw i32 %.sroa.1575.11.extract.shift81 to i8
-  %106 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1575.11.extract.trunc82, i8 %.sroa.8.0.copyload)
+  %.sroa.1574.11.extract.shift80 = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
+  %.sroa.1574.11.extract.trunc81 = trunc nuw nsw i32 %.sroa.1574.11.extract.shift80 to i8
+  %106 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1574.11.extract.trunc81, i8 %.sroa.8.0.copyload)
   br label %103
 
 107:                                              ; preds = %103
@@ -4643,7 +4654,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %115, label %116, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59"
 
 116:                                              ; preds = %113
-  %117 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.083.0.copyload)
+  %117 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.082.0.copyload)
   br label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59"
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59": ; preds = %116, %113, %110, %107, %103
@@ -4656,7 +4667,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   call void @llvm.experimental.noalias.scope.decl(metadata !349)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %.sroa.0.0.insert.insert.i49, ptr %7, align 4, !noalias !349
-  %120 = add i16 %.sroa.1575.8.extract.trunc, -1
+  %120 = add i16 %.sroa.1574.8.extract.trunc, -1
   %121 = icmp slt i16 %120, -9999
   br i1 %121, label %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit, label %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit.thread
 
@@ -4712,28 +4723,28 @@ _ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit: ; preds = %
   br label %246
 
 138:                                              ; preds = %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit, %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit.thread
-  %.sroa.6.0151.ph = phi i16 [ %135, %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit ], [ %120, %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit.thread ]
+  %.sroa.6.0150.ph = phi i16 [ %135, %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit ], [ %120, %_ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %139 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %68), !noalias !352
   %.sroa.4.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i62, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i16 noundef %.sroa.6.0151.ph, i32 noundef %139)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i62, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i16 noundef %.sroa.6.0150.ph, i32 noundef %139)
   %140 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %71), !noalias !352
   %.sroa.5.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i63, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.6.0151.ph, i32 noundef %140)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i63, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.6.0150.ph, i32 noundef %140)
   store ptr %1, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$7ordered17ha181a377f0d36ebeE"(ptr noalias noundef nonnull sret([24 x i8]) align 4 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12)
   %141 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %.sroa.0139.0.copyload = load i32, ptr %141, align 4
-  %.sroa.4140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.4140.0.copyload = load i8, ptr %.sroa.4140.0..sroa_idx, align 4
-  %.sroa.7141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 17
-  %.sroa.7141.0.copyload = load i8, ptr %.sroa.7141.0..sroa_idx, align 1
-  %.sroa.10142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 18
-  %.sroa.10142.0.copyload = load i8, ptr %.sroa.10142.0..sroa_idx, align 2
+  %.sroa.0138.0.copyload = load i32, ptr %141, align 4
+  %.sroa.4139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.4139.0.copyload = load i8, ptr %.sroa.4139.0..sroa_idx, align 4
+  %.sroa.7140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 17
+  %.sroa.7140.0.copyload = load i8, ptr %.sroa.7140.0..sroa_idx, align 1
+  %.sroa.10141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 18
+  %.sroa.10141.0.copyload = load i8, ptr %.sroa.10141.0..sroa_idx, align 2
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 20
   %.sroa.16.0.copyload = load i16, ptr %.sroa.16.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 22
@@ -4745,13 +4756,13 @@ _ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit: ; preds = %
   br label %142
 
 142:                                              ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit", %138
-  %.sroa.0139.0 = phi i32 [ %.sroa.0139.0.copyload, %138 ], [ %.sroa.0102.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.083.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.4140.0 = phi i8 [ %.sroa.4140.0.copyload, %138 ], [ %.sroa.3104.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.3.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.7141.0 = phi i8 [ %.sroa.7141.0.copyload, %138 ], [ %.sroa.4107.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.4.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.10142.0 = phi i8 [ %.sroa.10142.0.copyload, %138 ], [ %.sroa.5110.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.5.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.16.0 = phi i16 [ %.sroa.16.0.copyload, %138 ], [ %.sroa.6116.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.695.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.19.0 = phi i8 [ %.sroa.19.0.copyload, %138 ], [ %.sroa.7119.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.7.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.22.0 = phi i8 [ %.sroa.22.0.copyload, %138 ], [ %.sroa.8122.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.8.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.0138.0 = phi i32 [ %.sroa.0138.0.copyload, %138 ], [ %.sroa.0101.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.082.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.4139.0 = phi i8 [ %.sroa.4139.0.copyload, %138 ], [ %.sroa.3103.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.3.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.7140.0 = phi i8 [ %.sroa.7140.0.copyload, %138 ], [ %.sroa.4106.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.4.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.10141.0 = phi i8 [ %.sroa.10141.0.copyload, %138 ], [ %.sroa.5109.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.5.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.16.0 = phi i16 [ %.sroa.16.0.copyload, %138 ], [ %.sroa.6115.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.694.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.19.0 = phi i8 [ %.sroa.19.0.copyload, %138 ], [ %.sroa.7118.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.7.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.22.0 = phi i8 [ %.sroa.22.0.copyload, %138 ], [ %.sroa.8121.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.8.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %143 = sext i8 %.sroa.19.0 to i32
@@ -4778,19 +4789,19 @@ _ZN4jiff6shared4util5itime5IDate9prev_year17h3fac449556fd52cbE.exit: ; preds = %
   %162 = add nsw i32 %161, -12699422
   %163 = sext i32 %162 to i64
   %164 = mul nsw i64 %163, 86400
-  %165 = sext i8 %.sroa.4140.0 to i64
+  %165 = sext i8 %.sroa.4139.0 to i64
   %166 = mul nsw i64 %165, 3600
-  %167 = sext i8 %.sroa.7141.0 to i64
+  %167 = sext i8 %.sroa.7140.0 to i64
   %168 = mul nsw i64 %167, 60
   %169 = add nsw i64 %168, %166
-  %170 = sext i8 %.sroa.10142.0 to i64
+  %170 = sext i8 %.sroa.10141.0 to i64
   %171 = add nsw i64 %169, %170
   %172 = add nsw i64 %171, %164
   %173 = icmp samesign ult i32 %161, 12699422
-  %174 = icmp ne i32 %.sroa.0139.0, 0
+  %174 = icmp ne i32 %.sroa.0138.0, 0
   %or.cond.i.i.not = and i1 %174, %173
-  %175 = add i32 %.sroa.0139.0, -1000000000
-  %.sroa.04.0.i.i = select i1 %or.cond.i.i.not, i32 %175, i32 %.sroa.0139.0
+  %175 = add i32 %.sroa.0138.0, -1000000000
+  %.sroa.04.0.i.i = select i1 %or.cond.i.i.not, i32 %175, i32 %.sroa.0138.0
   %176 = zext i1 %or.cond.i.i.not to i64
   %.sroa.0.0.i.i = add nsw i64 %172, %176
   %177 = icmp eq i64 %.sroa.0.0.i.i, -377705023201
@@ -4846,10 +4857,10 @@ _ZN4jiff6shared4util5itime9IDateTime20to_timestamp_checked17h8dce5c6eecfb981aE.e
   %210 = add nuw nsw i32 %206, 32736
   %211 = add nuw nsw i32 %210, %208
   %212 = add nuw nsw i32 %211, %209
-  %.lhs.trunc157 = trunc i32 %202 to i16
-  %213 = udiv i16 %.lhs.trunc157, 2141
-  %.zext158 = zext nneg i16 %213 to i32
-  %.sroa.3.0.insert.ext.i = shl nuw nsw i32 %.zext158, 24
+  %.lhs.trunc156 = trunc i32 %202 to i16
+  %213 = udiv i16 %.lhs.trunc156, 2141
+  %.zext157 = zext nneg i16 %213 to i32
+  %.sroa.3.0.insert.ext.i = shl nuw nsw i32 %.zext157, 24
   %.sroa.3.0.insert.shift.i = add nuw nsw i32 %.sroa.3.0.insert.ext.i, 16777216
   %214 = add nuw nsw i32 %203, 15990784
   %.sroa.2.0.insert.ext.i = select i1 %204, i32 %214, i32 %202
@@ -4880,10 +4891,10 @@ _ZN4jiff6shared4util5itime9IDateTime20to_timestamp_checked17h8dce5c6eecfb981aE.e
   br i1 %228, label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit41, label %229
 
 229:                                              ; preds = %223
-  %.lhs.trunc159 = trunc nsw i32 %227 to i16
-  %230 = sdiv i16 %.lhs.trunc159, 60
+  %.lhs.trunc158 = trunc nsw i32 %227 to i16
+  %230 = sdiv i16 %.lhs.trunc158, 60
   %231 = trunc nsw i16 %230 to i8
-  %232 = srem i16 %.lhs.trunc159, 60
+  %232 = srem i16 %.lhs.trunc158, 60
   %233 = trunc nsw i16 %232 to i8
   br label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit41
 
@@ -5025,10 +5036,10 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   br i1 %60, label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit, label %61
 
 61:                                               ; preds = %55
-  %.lhs.trunc162 = trunc nuw nsw i32 %59 to i16
-  %62 = udiv i16 %.lhs.trunc162, 60
+  %.lhs.trunc161 = trunc nuw nsw i32 %59 to i16
+  %62 = udiv i16 %.lhs.trunc161, 60
   %63 = trunc nuw nsw i16 %62 to i8
-  %64 = urem i16 %.lhs.trunc162, 60
+  %64 = urem i16 %.lhs.trunc161, 60
   %65 = trunc nuw nsw i16 %64 to i8
   br label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit
 
@@ -5038,7 +5049,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   %.sroa.3.0.i = phi i8 [ 0, %26 ], [ %58, %55 ], [ %58, %61 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  %.sroa.1575.8.extract.trunc = trunc i32 %46 to i16
+  %.sroa.1574.8.extract.trunc = trunc i32 %46 to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !360)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !363)
   %66 = load i8, ptr %1, align 8, !range !120, !alias.scope !363, !noalias !360, !noundef !3
@@ -5049,48 +5060,48 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %69 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %68), !noalias !360
   %.sroa.4.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i16 noundef %.sroa.1575.8.extract.trunc, i32 noundef %69)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i55, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i16 noundef %.sroa.1574.8.extract.trunc, i32 noundef %69)
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %72 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %71), !noalias !360
   %.sroa.5.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i56, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.1575.8.extract.trunc, i32 noundef %72)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i56, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.1574.8.extract.trunc, i32 noundef %72)
   store ptr %1, ptr %16, align 8, !alias.scope !360, !noalias !363
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$7ordered17ha181a377f0d36ebeE"(ptr noalias noundef nonnull sret([24 x i8]) align 4 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17)
-  %.sroa.083.0.copyload = load i32, ptr %15, align 4
+  %.sroa.082.0.copyload = load i32, ptr %15, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 5
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx89, align 2
-  %.sroa.695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.695.0.copyload = load i16, ptr %.sroa.695.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %15, i64 6
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx88, align 2
+  %.sroa.694.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.694.0.copyload = load i16, ptr %.sroa.694.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 10
   %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 2
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 11
   %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..sroa_idx, align 1
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %.sroa.0102.0.copyload = load i32, ptr %73, align 4
-  %.sroa.3104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.3104.0.copyload = load i8, ptr %.sroa.3104.0..sroa_idx, align 4
-  %.sroa.4107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 17
-  %.sroa.4107.0.copyload = load i8, ptr %.sroa.4107.0..sroa_idx, align 1
-  %.sroa.5110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 18
-  %.sroa.5110.0.copyload = load i8, ptr %.sroa.5110.0..sroa_idx, align 2
-  %.sroa.6116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 20
-  %.sroa.6116.0.copyload = load i16, ptr %.sroa.6116.0..sroa_idx, align 4
-  %.sroa.7119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 22
-  %.sroa.7119.0.copyload = load i8, ptr %.sroa.7119.0..sroa_idx, align 2
-  %.sroa.8122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 23
-  %.sroa.8122.0.copyload = load i8, ptr %.sroa.8122.0..sroa_idx, align 1
+  %.sroa.0101.0.copyload = load i32, ptr %73, align 4
+  %.sroa.3103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.3103.0.copyload = load i8, ptr %.sroa.3103.0..sroa_idx, align 4
+  %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 17
+  %.sroa.4106.0.copyload = load i8, ptr %.sroa.4106.0..sroa_idx, align 1
+  %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 18
+  %.sroa.5109.0.copyload = load i8, ptr %.sroa.5109.0..sroa_idx, align 2
+  %.sroa.6115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %.sroa.6115.0.copyload = load i16, ptr %.sroa.6115.0..sroa_idx, align 4
+  %.sroa.7118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 22
+  %.sroa.7118.0.copyload = load i8, ptr %.sroa.7118.0..sroa_idx, align 2
+  %.sroa.8121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 23
+  %.sroa.8121.0.copyload = load i8, ptr %.sroa.8121.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  %74 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1575.8.extract.trunc, i16 %.sroa.695.0.copyload)
-  %75 = icmp eq i16 %.sroa.695.0.copyload, %.sroa.1575.8.extract.trunc
+  %74 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1574.8.extract.trunc, i16 %.sroa.694.0.copyload)
+  %75 = icmp eq i16 %.sroa.694.0.copyload, %.sroa.1574.8.extract.trunc
   br i1 %75, label %78, label %81
 
 76:                                               ; preds = %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit
@@ -5100,10 +5111,10 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br label %245
 
 78:                                               ; preds = %67
-  %.sroa.1575.10.extract.shift = lshr i32 %.sroa.2.0.insert.ext.i45, 16
-  %.sroa.1575.10.extract.trunc = trunc i32 %.sroa.1575.10.extract.shift to i8
-  %79 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1575.10.extract.trunc, i8 %.sroa.7.0.copyload)
-  %80 = icmp eq i8 %.sroa.7.0.copyload, %.sroa.1575.10.extract.trunc
+  %.sroa.1574.10.extract.shift = lshr i32 %.sroa.2.0.insert.ext.i45, 16
+  %.sroa.1574.10.extract.trunc = trunc i32 %.sroa.1574.10.extract.shift to i8
+  %79 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1574.10.extract.trunc, i8 %.sroa.7.0.copyload)
+  %80 = icmp eq i8 %.sroa.7.0.copyload, %.sroa.1574.10.extract.trunc
   br i1 %80, label %83, label %81
 
 81:                                               ; preds = %83, %78, %67
@@ -5112,9 +5123,9 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %82, label %85, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 83:                                               ; preds = %78
-  %.sroa.1575.11.extract.shift = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
-  %.sroa.1575.11.extract.trunc = trunc nuw nsw i32 %.sroa.1575.11.extract.shift to i8
-  %84 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1575.11.extract.trunc, i8 %.sroa.8.0.copyload)
+  %.sroa.1574.11.extract.shift = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
+  %.sroa.1574.11.extract.trunc = trunc nuw nsw i32 %.sroa.1574.11.extract.shift to i8
+  %84 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1574.11.extract.trunc, i8 %.sroa.8.0.copyload)
   br label %81
 
 85:                                               ; preds = %81
@@ -5133,7 +5144,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %93, label %94, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 94:                                               ; preds = %91
-  %95 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.083.0.copyload)
+  %95 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.082.0.copyload)
   br label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit": ; preds = %94, %91, %88, %85, %81
@@ -5142,15 +5153,15 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %96, label %141, label %97
 
 97:                                               ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
-  %98 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1575.8.extract.trunc, i16 %.sroa.6116.0.copyload)
-  %99 = icmp eq i16 %.sroa.6116.0.copyload, %.sroa.1575.8.extract.trunc
+  %98 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1574.8.extract.trunc, i16 %.sroa.6115.0.copyload)
+  %99 = icmp eq i16 %.sroa.6115.0.copyload, %.sroa.1574.8.extract.trunc
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %97
-  %.sroa.1575.10.extract.shift78 = lshr i32 %.sroa.2.0.insert.ext.i45, 16
-  %.sroa.1575.10.extract.trunc79 = trunc i32 %.sroa.1575.10.extract.shift78 to i8
-  %101 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1575.10.extract.trunc79, i8 %.sroa.7119.0.copyload)
-  %102 = icmp eq i8 %.sroa.7119.0.copyload, %.sroa.1575.10.extract.trunc79
+  %.sroa.1574.10.extract.shift77 = lshr i32 %.sroa.2.0.insert.ext.i45, 16
+  %.sroa.1574.10.extract.trunc78 = trunc i32 %.sroa.1574.10.extract.shift77 to i8
+  %101 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1574.10.extract.trunc78, i8 %.sroa.7118.0.copyload)
+  %102 = icmp eq i8 %.sroa.7118.0.copyload, %.sroa.1574.10.extract.trunc78
   br i1 %102, label %105, label %103
 
 103:                                              ; preds = %105, %100, %97
@@ -5159,28 +5170,28 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %104, label %107, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59"
 
 105:                                              ; preds = %100
-  %.sroa.1575.11.extract.shift81 = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
-  %.sroa.1575.11.extract.trunc82 = trunc nuw nsw i32 %.sroa.1575.11.extract.shift81 to i8
-  %106 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1575.11.extract.trunc82, i8 %.sroa.8122.0.copyload)
+  %.sroa.1574.11.extract.shift80 = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
+  %.sroa.1574.11.extract.trunc81 = trunc nuw nsw i32 %.sroa.1574.11.extract.shift80 to i8
+  %106 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1574.11.extract.trunc81, i8 %.sroa.8121.0.copyload)
   br label %103
 
 107:                                              ; preds = %103
-  %108 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.3.0.i, i8 %.sroa.3104.0.copyload)
-  %109 = icmp eq i8 %.sroa.3.0.i, %.sroa.3104.0.copyload
+  %108 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.3.0.i, i8 %.sroa.3103.0.copyload)
+  %109 = icmp eq i8 %.sroa.3.0.i, %.sroa.3103.0.copyload
   br i1 %109, label %110, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59"
 
 110:                                              ; preds = %107
-  %111 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.4.0.i, i8 %.sroa.4107.0.copyload)
-  %112 = icmp eq i8 %.sroa.4.0.i, %.sroa.4107.0.copyload
+  %111 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.4.0.i, i8 %.sroa.4106.0.copyload)
+  %112 = icmp eq i8 %.sroa.4.0.i, %.sroa.4106.0.copyload
   br i1 %112, label %113, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59"
 
 113:                                              ; preds = %110
-  %114 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.5.0.i, i8 %.sroa.5110.0.copyload)
-  %115 = icmp eq i8 %.sroa.5.0.i, %.sroa.5110.0.copyload
+  %114 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.5.0.i, i8 %.sroa.5109.0.copyload)
+  %115 = icmp eq i8 %.sroa.5.0.i, %.sroa.5109.0.copyload
   br i1 %115, label %116, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59"
 
 116:                                              ; preds = %113
-  %117 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.0102.0.copyload)
+  %117 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.0101.0.copyload)
   br label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59"
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59": ; preds = %116, %113, %110, %107, %103
@@ -5193,7 +5204,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   call void @llvm.experimental.noalias.scope.decl(metadata !365)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %.sroa.0.0.insert.insert.i49, ptr %7, align 4, !noalias !365
-  %120 = add i16 %.sroa.1575.8.extract.trunc, 1
+  %120 = add i16 %.sroa.1574.8.extract.trunc, 1
   %121 = icmp sgt i16 %120, 9999
   br i1 %121, label %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit, label %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit.thread
 
@@ -5249,27 +5260,27 @@ _ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit: ; preds = %
   br label %245
 
 138:                                              ; preds = %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit, %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit.thread
-  %.sroa.6.0151.ph = phi i16 [ %135, %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit ], [ %120, %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit.thread ]
+  %.sroa.6.0150.ph = phi i16 [ %135, %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit ], [ %120, %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %139 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %68), !noalias !368
   %.sroa.4.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i62, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i16 noundef %.sroa.6.0151.ph, i32 noundef %139)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i62, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1, i16 noundef %.sroa.6.0150.ph, i32 noundef %139)
   %140 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %71), !noalias !368
   %.sroa.5.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i63, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.6.0151.ph, i32 noundef %140)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i63, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.6.0150.ph, i32 noundef %140)
   store ptr %1, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$7ordered17ha181a377f0d36ebeE"(ptr noalias noundef nonnull sret([24 x i8]) align 4 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12)
-  %.sroa.0139.0.copyload = load i32, ptr %10, align 4
-  %.sroa.4140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.sroa.4140.0.copyload = load i8, ptr %.sroa.4140.0..sroa_idx, align 4
-  %.sroa.7141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 5
-  %.sroa.7141.0.copyload = load i8, ptr %.sroa.7141.0..sroa_idx, align 1
-  %.sroa.10142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 6
-  %.sroa.10142.0.copyload = load i8, ptr %.sroa.10142.0..sroa_idx, align 2
+  %.sroa.0138.0.copyload = load i32, ptr %10, align 4
+  %.sroa.4139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sroa.4139.0.copyload = load i8, ptr %.sroa.4139.0..sroa_idx, align 4
+  %.sroa.7140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 5
+  %.sroa.7140.0.copyload = load i8, ptr %.sroa.7140.0..sroa_idx, align 1
+  %.sroa.10141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 6
+  %.sroa.10141.0.copyload = load i8, ptr %.sroa.10141.0..sroa_idx, align 2
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.16.0.copyload = load i16, ptr %.sroa.16.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 10
@@ -5281,13 +5292,13 @@ _ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit: ; preds = %
   br label %141
 
 141:                                              ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit", %138
-  %.sroa.0139.0 = phi i32 [ %.sroa.0139.0.copyload, %138 ], [ %.sroa.083.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.0102.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.4140.0 = phi i8 [ %.sroa.4140.0.copyload, %138 ], [ %.sroa.3.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.3104.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.7141.0 = phi i8 [ %.sroa.7141.0.copyload, %138 ], [ %.sroa.4.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.4107.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.10142.0 = phi i8 [ %.sroa.10142.0.copyload, %138 ], [ %.sroa.5.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.5110.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.16.0 = phi i16 [ %.sroa.16.0.copyload, %138 ], [ %.sroa.695.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.6116.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.19.0 = phi i8 [ %.sroa.19.0.copyload, %138 ], [ %.sroa.7.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.7119.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
-  %.sroa.22.0 = phi i8 [ %.sroa.22.0.copyload, %138 ], [ %.sroa.8.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.8122.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.0138.0 = phi i32 [ %.sroa.0138.0.copyload, %138 ], [ %.sroa.082.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.0101.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.4139.0 = phi i8 [ %.sroa.4139.0.copyload, %138 ], [ %.sroa.3.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.3103.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.7140.0 = phi i8 [ %.sroa.7140.0.copyload, %138 ], [ %.sroa.4.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.4106.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.10141.0 = phi i8 [ %.sroa.10141.0.copyload, %138 ], [ %.sroa.5.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.5109.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.16.0 = phi i16 [ %.sroa.16.0.copyload, %138 ], [ %.sroa.694.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.6115.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.19.0 = phi i8 [ %.sroa.19.0.copyload, %138 ], [ %.sroa.7.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.7118.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
+  %.sroa.22.0 = phi i8 [ %.sroa.22.0.copyload, %138 ], [ %.sroa.8.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.8121.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit59" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %142 = sext i8 %.sroa.19.0 to i32
@@ -5314,19 +5325,19 @@ _ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit: ; preds = %
   %161 = add nsw i32 %160, -12699422
   %162 = sext i32 %161 to i64
   %163 = mul nsw i64 %162, 86400
-  %164 = sext i8 %.sroa.4140.0 to i64
+  %164 = sext i8 %.sroa.4139.0 to i64
   %165 = mul nsw i64 %164, 3600
-  %166 = sext i8 %.sroa.7141.0 to i64
+  %166 = sext i8 %.sroa.7140.0 to i64
   %167 = mul nsw i64 %166, 60
   %168 = add nsw i64 %167, %165
-  %169 = sext i8 %.sroa.10142.0 to i64
+  %169 = sext i8 %.sroa.10141.0 to i64
   %170 = add nsw i64 %168, %169
   %171 = add nsw i64 %170, %163
   %172 = icmp samesign ult i32 %160, 12699422
-  %173 = icmp ne i32 %.sroa.0139.0, 0
+  %173 = icmp ne i32 %.sroa.0138.0, 0
   %or.cond.i.i.not = and i1 %173, %172
-  %174 = add i32 %.sroa.0139.0, -1000000000
-  %.sroa.04.0.i.i = select i1 %or.cond.i.i.not, i32 %174, i32 %.sroa.0139.0
+  %174 = add i32 %.sroa.0138.0, -1000000000
+  %.sroa.04.0.i.i = select i1 %or.cond.i.i.not, i32 %174, i32 %.sroa.0138.0
   %175 = zext i1 %or.cond.i.i.not to i64
   %.sroa.0.0.i.i = add nsw i64 %171, %175
   %176 = icmp eq i64 %.sroa.0.0.i.i, -377705023201
@@ -5382,10 +5393,10 @@ _ZN4jiff6shared4util5itime9IDateTime20to_timestamp_checked17h8dce5c6eecfb981aE.e
   %209 = add nuw nsw i32 %205, 32736
   %210 = add nuw nsw i32 %209, %207
   %211 = add nuw nsw i32 %210, %208
-  %.lhs.trunc157 = trunc i32 %201 to i16
-  %212 = udiv i16 %.lhs.trunc157, 2141
-  %.zext158 = zext nneg i16 %212 to i32
-  %.sroa.3.0.insert.ext.i = shl nuw nsw i32 %.zext158, 24
+  %.lhs.trunc156 = trunc i32 %201 to i16
+  %212 = udiv i16 %.lhs.trunc156, 2141
+  %.zext157 = zext nneg i16 %212 to i32
+  %.sroa.3.0.insert.ext.i = shl nuw nsw i32 %.zext157, 24
   %.sroa.3.0.insert.shift.i = add nuw nsw i32 %.sroa.3.0.insert.ext.i, 16777216
   %213 = add nuw nsw i32 %202, 15990784
   %.sroa.2.0.insert.ext.i = select i1 %203, i32 %213, i32 %201
@@ -5416,10 +5427,10 @@ _ZN4jiff6shared4util5itime9IDateTime20to_timestamp_checked17h8dce5c6eecfb981aE.e
   br i1 %227, label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit41, label %228
 
 228:                                              ; preds = %222
-  %.lhs.trunc159 = trunc nsw i32 %226 to i16
-  %229 = sdiv i16 %.lhs.trunc159, 60
+  %.lhs.trunc158 = trunc nsw i32 %226 to i16
+  %229 = sdiv i16 %.lhs.trunc158, 60
   %230 = trunc nsw i16 %229 to i8
-  %231 = srem i16 %.lhs.trunc159, 60
+  %231 = srem i16 %.lhs.trunc158, 60
   %232 = trunc nsw i16 %231 to i8
   br label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit41
 
@@ -5561,10 +5572,10 @@ define hidden void @"_ZN4jiff6shared5posix59_$LT$impl$u20$jiff..shared..PosixTim
   br i1 %60, label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit, label %61
 
 61:                                               ; preds = %55
-  %.lhs.trunc159 = trunc nuw nsw i32 %59 to i16
-  %62 = udiv i16 %.lhs.trunc159, 60
+  %.lhs.trunc158 = trunc nuw nsw i32 %59 to i16
+  %62 = udiv i16 %.lhs.trunc158, 60
   %63 = trunc nuw nsw i16 %62 to i8
-  %64 = urem i16 %.lhs.trunc159, 60
+  %64 = urem i16 %.lhs.trunc158, 60
   %65 = trunc nuw nsw i16 %64 to i8
   br label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit
 
@@ -5574,7 +5585,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   %.sroa.3.0.i = phi i8 [ 0, %26 ], [ %58, %55 ], [ %58, %61 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  %.sroa.1572.8.extract.trunc = trunc i32 %46 to i16
+  %.sroa.1571.8.extract.trunc = trunc i32 %46 to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !376)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !379)
   %66 = load i8, ptr %1, align 4, !range !120, !alias.scope !379, !noalias !376, !noundef !3
@@ -5585,48 +5596,48 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %69 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %68), !noalias !376
   %.sroa.4.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i52, ptr noalias noundef nonnull readonly align 4 dereferenceable(88) %1, i16 noundef %.sroa.1572.8.extract.trunc, i32 noundef %69)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i52, ptr noalias noundef nonnull readonly align 4 dereferenceable(88) %1, i16 noundef %.sroa.1571.8.extract.trunc, i32 noundef %69)
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = tail call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %71), !noalias !376
   %.sroa.5.0..sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i53, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.1572.8.extract.trunc, i32 noundef %72)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i53, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.1571.8.extract.trunc, i32 noundef %72)
   store ptr %1, ptr %16, align 8, !alias.scope !376, !noalias !379
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$7ordered17h17e98fd75376dd0cE"(ptr noalias noundef nonnull sret([24 x i8]) align 4 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %17)
-  %.sroa.080.0.copyload = load i32, ptr %15, align 4
+  %.sroa.079.0.copyload = load i32, ptr %15, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 5
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx86, align 2
-  %.sroa.692.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.692.0.copyload = load i16, ptr %.sroa.692.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %15, i64 6
+  %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx85, align 2
+  %.sroa.691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.691.0.copyload = load i16, ptr %.sroa.691.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 10
   %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 2
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 11
   %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..sroa_idx, align 1
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %.sroa.099.0.copyload = load i32, ptr %73, align 4
-  %.sroa.3101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.3101.0.copyload = load i8, ptr %.sroa.3101.0..sroa_idx, align 4
-  %.sroa.4104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 17
-  %.sroa.4104.0.copyload = load i8, ptr %.sroa.4104.0..sroa_idx, align 1
-  %.sroa.5107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 18
-  %.sroa.5107.0.copyload = load i8, ptr %.sroa.5107.0..sroa_idx, align 2
-  %.sroa.6113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 20
-  %.sroa.6113.0.copyload = load i16, ptr %.sroa.6113.0..sroa_idx, align 4
-  %.sroa.7116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 22
-  %.sroa.7116.0.copyload = load i8, ptr %.sroa.7116.0..sroa_idx, align 2
-  %.sroa.8119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 23
-  %.sroa.8119.0.copyload = load i8, ptr %.sroa.8119.0..sroa_idx, align 1
+  %.sroa.098.0.copyload = load i32, ptr %73, align 4
+  %.sroa.3100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.3100.0.copyload = load i8, ptr %.sroa.3100.0..sroa_idx, align 4
+  %.sroa.4103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 17
+  %.sroa.4103.0.copyload = load i8, ptr %.sroa.4103.0..sroa_idx, align 1
+  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 18
+  %.sroa.5106.0.copyload = load i8, ptr %.sroa.5106.0..sroa_idx, align 2
+  %.sroa.6112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %.sroa.6112.0.copyload = load i16, ptr %.sroa.6112.0..sroa_idx, align 4
+  %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 22
+  %.sroa.7115.0.copyload = load i8, ptr %.sroa.7115.0..sroa_idx, align 2
+  %.sroa.8118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 23
+  %.sroa.8118.0.copyload = load i8, ptr %.sroa.8118.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  %74 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1572.8.extract.trunc, i16 %.sroa.692.0.copyload)
-  %75 = icmp eq i16 %.sroa.692.0.copyload, %.sroa.1572.8.extract.trunc
+  %74 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1571.8.extract.trunc, i16 %.sroa.691.0.copyload)
+  %75 = icmp eq i16 %.sroa.691.0.copyload, %.sroa.1571.8.extract.trunc
   br i1 %75, label %78, label %81
 
 76:                                               ; preds = %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit
@@ -5636,10 +5647,10 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br label %245
 
 78:                                               ; preds = %67
-  %.sroa.1572.10.extract.shift = lshr i32 %.sroa.2.0.insert.ext.i45, 16
-  %.sroa.1572.10.extract.trunc = trunc i32 %.sroa.1572.10.extract.shift to i8
-  %79 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1572.10.extract.trunc, i8 %.sroa.7.0.copyload)
-  %80 = icmp eq i8 %.sroa.7.0.copyload, %.sroa.1572.10.extract.trunc
+  %.sroa.1571.10.extract.shift = lshr i32 %.sroa.2.0.insert.ext.i45, 16
+  %.sroa.1571.10.extract.trunc = trunc i32 %.sroa.1571.10.extract.shift to i8
+  %79 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1571.10.extract.trunc, i8 %.sroa.7.0.copyload)
+  %80 = icmp eq i8 %.sroa.7.0.copyload, %.sroa.1571.10.extract.trunc
   br i1 %80, label %83, label %81
 
 81:                                               ; preds = %83, %78, %67
@@ -5648,9 +5659,9 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %82, label %85, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 83:                                               ; preds = %78
-  %.sroa.1572.11.extract.shift = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
-  %.sroa.1572.11.extract.trunc = trunc nuw nsw i32 %.sroa.1572.11.extract.shift to i8
-  %84 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1572.11.extract.trunc, i8 %.sroa.8.0.copyload)
+  %.sroa.1571.11.extract.shift = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
+  %.sroa.1571.11.extract.trunc = trunc nuw nsw i32 %.sroa.1571.11.extract.shift to i8
+  %84 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1571.11.extract.trunc, i8 %.sroa.8.0.copyload)
   br label %81
 
 85:                                               ; preds = %81
@@ -5669,7 +5680,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %93, label %94, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 94:                                               ; preds = %91
-  %95 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.080.0.copyload)
+  %95 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.079.0.copyload)
   br label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit": ; preds = %94, %91, %88, %85, %81
@@ -5678,15 +5689,15 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %96, label %141, label %97
 
 97:                                               ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit"
-  %98 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1572.8.extract.trunc, i16 %.sroa.6113.0.copyload)
-  %99 = icmp eq i16 %.sroa.6113.0.copyload, %.sroa.1572.8.extract.trunc
+  %98 = call i8 @llvm.scmp.i8.i16(i16 %.sroa.1571.8.extract.trunc, i16 %.sroa.6112.0.copyload)
+  %99 = icmp eq i16 %.sroa.6112.0.copyload, %.sroa.1571.8.extract.trunc
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %97
-  %.sroa.1572.10.extract.shift75 = lshr i32 %.sroa.2.0.insert.ext.i45, 16
-  %.sroa.1572.10.extract.trunc76 = trunc i32 %.sroa.1572.10.extract.shift75 to i8
-  %101 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1572.10.extract.trunc76, i8 %.sroa.7116.0.copyload)
-  %102 = icmp eq i8 %.sroa.7116.0.copyload, %.sroa.1572.10.extract.trunc76
+  %.sroa.1571.10.extract.shift74 = lshr i32 %.sroa.2.0.insert.ext.i45, 16
+  %.sroa.1571.10.extract.trunc75 = trunc i32 %.sroa.1571.10.extract.shift74 to i8
+  %101 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1571.10.extract.trunc75, i8 %.sroa.7115.0.copyload)
+  %102 = icmp eq i8 %.sroa.7115.0.copyload, %.sroa.1571.10.extract.trunc75
   br i1 %102, label %105, label %103
 
 103:                                              ; preds = %105, %100, %97
@@ -5695,28 +5706,28 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   br i1 %104, label %107, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56"
 
 105:                                              ; preds = %100
-  %.sroa.1572.11.extract.shift78 = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
-  %.sroa.1572.11.extract.trunc79 = trunc nuw nsw i32 %.sroa.1572.11.extract.shift78 to i8
-  %106 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1572.11.extract.trunc79, i8 %.sroa.8119.0.copyload)
+  %.sroa.1571.11.extract.shift77 = lshr exact i32 %.sroa.3.0.insert.shift.i44, 24
+  %.sroa.1571.11.extract.trunc78 = trunc nuw nsw i32 %.sroa.1571.11.extract.shift77 to i8
+  %106 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.1571.11.extract.trunc78, i8 %.sroa.8118.0.copyload)
   br label %103
 
 107:                                              ; preds = %103
-  %108 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.3.0.i, i8 %.sroa.3101.0.copyload)
-  %109 = icmp eq i8 %.sroa.3.0.i, %.sroa.3101.0.copyload
+  %108 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.3.0.i, i8 %.sroa.3100.0.copyload)
+  %109 = icmp eq i8 %.sroa.3.0.i, %.sroa.3100.0.copyload
   br i1 %109, label %110, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56"
 
 110:                                              ; preds = %107
-  %111 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.4.0.i, i8 %.sroa.4104.0.copyload)
-  %112 = icmp eq i8 %.sroa.4.0.i, %.sroa.4104.0.copyload
+  %111 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.4.0.i, i8 %.sroa.4103.0.copyload)
+  %112 = icmp eq i8 %.sroa.4.0.i, %.sroa.4103.0.copyload
   br i1 %112, label %113, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56"
 
 113:                                              ; preds = %110
-  %114 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.5.0.i, i8 %.sroa.5107.0.copyload)
-  %115 = icmp eq i8 %.sroa.5.0.i, %.sroa.5107.0.copyload
+  %114 = call i8 @llvm.scmp.i8.i8(i8 %.sroa.5.0.i, i8 %.sroa.5106.0.copyload)
+  %115 = icmp eq i8 %.sroa.5.0.i, %.sroa.5106.0.copyload
   br i1 %115, label %116, label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56"
 
 116:                                              ; preds = %113
-  %117 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.099.0.copyload)
+  %117 = call i8 @llvm.scmp.i8.i32(i32 %.sroa.011.0.i, i32 %.sroa.098.0.copyload)
   br label %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56"
 
 "_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56": ; preds = %116, %113, %110, %107, %103
@@ -5729,7 +5740,7 @@ _ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit: ; 
   call void @llvm.experimental.noalias.scope.decl(metadata !381)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %.sroa.0.0.insert.insert.i49, ptr %7, align 4, !noalias !381
-  %120 = add i16 %.sroa.1572.8.extract.trunc, 1
+  %120 = add i16 %.sroa.1571.8.extract.trunc, 1
   %121 = icmp sgt i16 %120, 9999
   br i1 %121, label %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit, label %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit.thread
 
@@ -5785,27 +5796,27 @@ _ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit: ; preds = %
   br label %245
 
 138:                                              ; preds = %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit, %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit.thread
-  %.sroa.6.0148.ph = phi i16 [ %135, %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit ], [ %120, %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit.thread ]
+  %.sroa.6.0147.ph = phi i16 [ %135, %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit ], [ %120, %_ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %139 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %68), !noalias !384
   %.sroa.4.0..sroa_idx.i59 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i59, ptr noalias noundef nonnull readonly align 4 dereferenceable(88) %1, i16 noundef %.sroa.6.0148.ph, i32 noundef %139)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.4.0..sroa_idx.i59, ptr noalias noundef nonnull readonly align 4 dereferenceable(88) %1, i16 noundef %.sroa.6.0147.ph, i32 noundef %139)
   %140 = call noundef i32 @"_ZN4jiff6shared5posix43_$LT$impl$u20$jiff..shared..PosixOffset$GT$10to_ioffset17h4aa43f77612cdfa2E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %71), !noalias !384
   %.sroa.5.0..sroa_idx.i60 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i60, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.6.0148.ph, i32 noundef %140)
+  call void @"_ZN4jiff6shared5posix44_$LT$impl$u20$jiff..shared..PosixDayTime$GT$11to_datetime17hc98beed6c3c01bd9E"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %.sroa.5.0..sroa_idx.i60, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %70, i16 noundef %.sroa.6.0147.ph, i32 noundef %140)
   store ptr %1, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @"_ZN4jiff6shared5posix21DstInfo$LT$ABBREV$GT$7ordered17h17e98fd75376dd0cE"(ptr noalias noundef nonnull sret([24 x i8]) align 4 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12)
-  %.sroa.0136.0.copyload = load i32, ptr %10, align 4
-  %.sroa.4137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.sroa.4137.0.copyload = load i8, ptr %.sroa.4137.0..sroa_idx, align 4
-  %.sroa.7138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 5
-  %.sroa.7138.0.copyload = load i8, ptr %.sroa.7138.0..sroa_idx, align 1
-  %.sroa.10139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 6
-  %.sroa.10139.0.copyload = load i8, ptr %.sroa.10139.0..sroa_idx, align 2
+  %.sroa.0135.0.copyload = load i32, ptr %10, align 4
+  %.sroa.4136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sroa.4136.0.copyload = load i8, ptr %.sroa.4136.0..sroa_idx, align 4
+  %.sroa.7137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 5
+  %.sroa.7137.0.copyload = load i8, ptr %.sroa.7137.0..sroa_idx, align 1
+  %.sroa.10138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 6
+  %.sroa.10138.0.copyload = load i8, ptr %.sroa.10138.0..sroa_idx, align 2
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.16.0.copyload = load i16, ptr %.sroa.16.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 10
@@ -5817,13 +5828,13 @@ _ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit: ; preds = %
   br label %141
 
 141:                                              ; preds = %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56", %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit", %138
-  %.sroa.0136.0 = phi i32 [ %.sroa.0136.0.copyload, %138 ], [ %.sroa.080.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.099.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.4137.0 = phi i8 [ %.sroa.4137.0.copyload, %138 ], [ %.sroa.3.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.3101.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.7138.0 = phi i8 [ %.sroa.7138.0.copyload, %138 ], [ %.sroa.4.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.4104.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.10139.0 = phi i8 [ %.sroa.10139.0.copyload, %138 ], [ %.sroa.5.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.5107.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.16.0 = phi i16 [ %.sroa.16.0.copyload, %138 ], [ %.sroa.692.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.6113.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.19.0 = phi i8 [ %.sroa.19.0.copyload, %138 ], [ %.sroa.7.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.7116.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
-  %.sroa.22.0 = phi i8 [ %.sroa.22.0.copyload, %138 ], [ %.sroa.8.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.8119.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.0135.0 = phi i32 [ %.sroa.0135.0.copyload, %138 ], [ %.sroa.079.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.098.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.4136.0 = phi i8 [ %.sroa.4136.0.copyload, %138 ], [ %.sroa.3.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.3100.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.7137.0 = phi i8 [ %.sroa.7137.0.copyload, %138 ], [ %.sroa.4.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.4103.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.10138.0 = phi i8 [ %.sroa.10138.0.copyload, %138 ], [ %.sroa.5.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.5106.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.16.0 = phi i16 [ %.sroa.16.0.copyload, %138 ], [ %.sroa.691.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.6112.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.19.0 = phi i8 [ %.sroa.19.0.copyload, %138 ], [ %.sroa.7.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.7115.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
+  %.sroa.22.0 = phi i8 [ %.sroa.22.0.copyload, %138 ], [ %.sroa.8.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit" ], [ %.sroa.8118.0.copyload, %"_ZN74_$LT$jiff..shared..util..itime..ITime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha0100ce0e156d34dE.exit56" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %142 = sext i8 %.sroa.19.0 to i32
@@ -5850,19 +5861,19 @@ _ZN4jiff6shared4util5itime5IDate9next_year17hf43726db81bfa537E.exit: ; preds = %
   %161 = add nsw i32 %160, -12699422
   %162 = sext i32 %161 to i64
   %163 = mul nsw i64 %162, 86400
-  %164 = sext i8 %.sroa.4137.0 to i64
+  %164 = sext i8 %.sroa.4136.0 to i64
   %165 = mul nsw i64 %164, 3600
-  %166 = sext i8 %.sroa.7138.0 to i64
+  %166 = sext i8 %.sroa.7137.0 to i64
   %167 = mul nsw i64 %166, 60
   %168 = add nsw i64 %167, %165
-  %169 = sext i8 %.sroa.10139.0 to i64
+  %169 = sext i8 %.sroa.10138.0 to i64
   %170 = add nsw i64 %168, %169
   %171 = add nsw i64 %170, %163
   %172 = icmp samesign ult i32 %160, 12699422
-  %173 = icmp ne i32 %.sroa.0136.0, 0
+  %173 = icmp ne i32 %.sroa.0135.0, 0
   %or.cond.i.i.not = and i1 %173, %172
-  %174 = add i32 %.sroa.0136.0, -1000000000
-  %.sroa.04.0.i.i = select i1 %or.cond.i.i.not, i32 %174, i32 %.sroa.0136.0
+  %174 = add i32 %.sroa.0135.0, -1000000000
+  %.sroa.04.0.i.i = select i1 %or.cond.i.i.not, i32 %174, i32 %.sroa.0135.0
   %175 = zext i1 %or.cond.i.i.not to i64
   %.sroa.0.0.i.i = add nsw i64 %171, %175
   %176 = icmp eq i64 %.sroa.0.0.i.i, -377705023201
@@ -5918,10 +5929,10 @@ _ZN4jiff6shared4util5itime9IDateTime20to_timestamp_checked17h8dce5c6eecfb981aE.e
   %209 = add nuw nsw i32 %205, 32736
   %210 = add nuw nsw i32 %209, %207
   %211 = add nuw nsw i32 %210, %208
-  %.lhs.trunc154 = trunc i32 %201 to i16
-  %212 = udiv i16 %.lhs.trunc154, 2141
-  %.zext155 = zext nneg i16 %212 to i32
-  %.sroa.3.0.insert.ext.i = shl nuw nsw i32 %.zext155, 24
+  %.lhs.trunc153 = trunc i32 %201 to i16
+  %212 = udiv i16 %.lhs.trunc153, 2141
+  %.zext154 = zext nneg i16 %212 to i32
+  %.sroa.3.0.insert.ext.i = shl nuw nsw i32 %.zext154, 24
   %.sroa.3.0.insert.shift.i = add nuw nsw i32 %.sroa.3.0.insert.ext.i, 16777216
   %213 = add nuw nsw i32 %202, 15990784
   %.sroa.2.0.insert.ext.i = select i1 %203, i32 %213, i32 %201
@@ -5952,10 +5963,10 @@ _ZN4jiff6shared4util5itime9IDateTime20to_timestamp_checked17h8dce5c6eecfb981aE.e
   br i1 %227, label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit41, label %228
 
 228:                                              ; preds = %222
-  %.lhs.trunc156 = trunc nsw i32 %226 to i16
-  %229 = sdiv i16 %.lhs.trunc156, 60
+  %.lhs.trunc155 = trunc nsw i32 %226 to i16
+  %229 = sdiv i16 %.lhs.trunc155, 60
   %230 = trunc nsw i16 %229 to i8
-  %231 = srem i16 %.lhs.trunc156, 60
+  %231 = srem i16 %.lhs.trunc155, 60
   %232 = trunc nsw i16 %231 to i8
   br label %_ZN4jiff6shared4util5itime10ITimestamp11to_datetime17h69881aa9af4066caE.exit41
 

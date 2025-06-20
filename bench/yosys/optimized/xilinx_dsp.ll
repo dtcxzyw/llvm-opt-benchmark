@@ -16874,11 +16874,11 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i323: ; preds = %305, %301
   unreachable
 
 .sink.split:                                      ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i323, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i316
-  %.sink824 = phi ptr [ %253, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i316 ], [ %307, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i323 ]
+  %.sink823 = phi ptr [ %253, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i316 ], [ %307, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i323 ]
   %.sink = phi i8 [ 0, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i316 ], [ 1, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i323 ]
-  %313 = getelementptr inbounds nuw i8, ptr %.sink824, i64 96
+  %313 = getelementptr inbounds nuw i8, ptr %.sink823, i64 96
   store ptr null, ptr %313, align 8, !tbaa !85
-  %.sroa.4794.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink824, i64 104
+  %.sroa.4794.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink823, i64 104
   store i8 %.sink, ptr %.sroa.4794.0..sroa_idx, align 8
   br label %314
 

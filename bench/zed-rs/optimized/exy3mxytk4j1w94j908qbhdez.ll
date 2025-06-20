@@ -21869,8 +21869,8 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot6chunks17h03b87ed5c7a7
   store i64 %10, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 736
   store i32 0, ptr %23, align 8
-  %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1128
-  store i64 %12, ptr %.sroa.47.0..sroa_idx, align 8
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1128
+  store i64 %12, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1136
   store ptr %11, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1144
@@ -21950,8 +21950,8 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot6chunks17h836951930b45
   store i64 %8, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 736
   store i32 0, ptr %21, align 8
-  %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1128
-  store i64 %10, ptr %.sroa.47.0..sroa_idx, align 8
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1128
+  store i64 %10, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1136
   store ptr %9, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1144
@@ -22031,8 +22031,8 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot6chunks17h9a2155e43247
   store i64 %8, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 736
   store i32 0, ptr %21, align 8
-  %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1128
-  store i64 %10, ptr %.sroa.47.0..sroa_idx, align 8
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1128
+  store i64 %10, ptr %.sroa.46.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1136
   store ptr %9, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1144

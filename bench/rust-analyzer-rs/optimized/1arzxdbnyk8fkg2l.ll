@@ -6905,8 +6905,8 @@ define hidden void @"_ZN79_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %13 = load i64, ptr %1, align 8, !noundef !9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !9
@@ -15614,12 +15614,12 @@ define void @_ZN13project_model15ProjectManifest12discover_all17hc5c1040e65d949e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) @anon.161371c9b38554f2a24dcdfa991db8bf.9, i64 32, i1 false), !noalias !4152
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6), !noalias !4156
   store ptr null, ptr %6, align 8, !noalias !4160
-  %.sroa.5.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %.sroa.5.0..sroa_idx21, align 8, !noalias !4160
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr %1, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !4160
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr %10, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !4160
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %.sroa.421.0..sroa_idx, align 8, !noalias !4160
+  %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store ptr %1, ptr %.sroa.523.0..sroa_idx, align 8, !noalias !4160
+  %.sroa.6.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store ptr %10, ptr %.sroa.6.0..sroa_idx24, align 8, !noalias !4160
   invoke void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17h619e16618dff40f2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %6)
           to label %"_ZN120_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hd21bdaa1982308cdE.exit" unwind label %11, !noalias !4152
 

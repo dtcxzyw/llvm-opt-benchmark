@@ -14804,28 +14804,34 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i: ; preds = %27
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %41, ptr %.sroa.410.0..sroa_idx, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.511.0..sroa_idx, i8 0, i64 33, i1 false)
-  br label %.critedge13
+  store i8 1, ptr %42, align 8, !tbaa !430
+  br label %47
 
 _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit: ; preds = %2, %2, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i, %18, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i, %4, %7, %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i.i, %35
-  %42 = tail call noundef ptr @_ZN4llvm15getFreedOperandEPKNS_8CallBaseEPKNS_17TargetLibraryInfoE(ptr noundef nonnull %1, ptr noundef %.768.val) #19
-  %.not11 = icmp eq ptr %42, null
-  br i1 %.not11, label %.critedge13, label %43
+  %43 = tail call noundef ptr @_ZN4llvm15getFreedOperandEPKNS_8CallBaseEPKNS_17TargetLibraryInfoE(ptr noundef nonnull %1, ptr noundef %.768.val) #19
+  %.not11 = icmp eq ptr %43, null
+  br i1 %.not11, label %.critedge13, label %44
 
-43:                                               ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit
-  store ptr %42, ptr %0, align 8
+44:                                               ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit
+  store ptr %43, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -4611686018427387906, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.53.0..sroa_idx, i8 0, i64 32, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %.sroa.6.0..sroa_idx, align 8
-  br label %.critedge13
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 1, ptr %45, align 8, !tbaa !430
+  br label %47
 
-.critedge13:                                      ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit, %2, %43, %38
-  %.sink = phi i8 [ 1, %43 ], [ 1, %38 ], [ 0, %2 ], [ 0, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 %.sink, ptr %44, align 8, !tbaa !430
+.critedge13:                                      ; preds = %2, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 0, ptr %46, align 8, !tbaa !430
+  br label %47
+
+47:                                               ; preds = %44, %.critedge13, %38
   ret void
 }
 

@@ -9531,7 +9531,7 @@ _ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8da
   br label %108
 
 108:                                              ; preds = %109, %106
-  %storemerge = phi i32 [ 1, %109 ], [ 0, %106 ]
+  %storemerge = phi i32 [ 0, %106 ], [ 1, %109 ]
   store i32 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %116

@@ -425,7 +425,12 @@ define dso_local void @_ZN9btBvhTree10build_treeER18GIM_BVH_DATA_ARRAY(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !41
   %12 = icmp slt i32 %11, %5
-  br i1 %12, label %13, label %.lr.ph.i
+  br i1 %12, label %13, label %..lr.ph.i_crit_edge
+
+..lr.ph.i_crit_edge:                              ; preds = %9
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !34
+  br label %.lr.ph.i
 
 13:                                               ; preds = %9
   %.not.i.i.i = icmp eq i32 %4, 0
@@ -486,28 +491,26 @@ _ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE10deallocateEv.exit.i.i: ; preds =
   store i32 %5, ptr %10, align 8, !tbaa !41
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE10deallocateEv.exit.i.i, %9
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+.lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE10deallocateEv.exit.i.i
+  %36 = phi ptr [ %.pre, %..lr.ph.i_crit_edge ], [ %.0.i.i.i, %_ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE10deallocateEv.exit.i.i ]
   %37 = sext i32 %7 to i64
   %wide.trip.count.i = sext i32 %5 to i64
-  %38 = load ptr, ptr %36, align 8, !tbaa !34
-  %invariant.gep = getelementptr i8, ptr %38, i64 32
-  br label %39
+  br label %38
 
-39:                                               ; preds = %39, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %37, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
-  %gep = getelementptr %class.GIM_BVH_TREE_NODE, ptr %invariant.gep, i64 %indvars.iv.i
-  store i32 0, ptr %gep, align 4, !tbaa !36
+38:                                               ; preds = %38, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %37, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
+  %39 = getelementptr inbounds %class.GIM_BVH_TREE_NODE, ptr %36, i64 %indvars.iv.i, i32 1
+  store i32 0, ptr %39, align 4, !tbaa !36
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE6resizeEiRKS0_.exit.loopexit, label %39, !llvm.loop !45
+  br i1 %exitcond.not.i, label %_ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE6resizeEiRKS0_.exit.loopexit, label %38, !llvm.loop !45
 
-_ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE6resizeEiRKS0_.exit.loopexit: ; preds = %39
-  %.pre = load i32, ptr %3, align 4, !tbaa !39
+_ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE6resizeEiRKS0_.exit.loopexit: ; preds = %38
+  %.pre4 = load i32, ptr %3, align 4, !tbaa !39
   br label %_ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE6resizeEiRKS0_.exit
 
 _ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE6resizeEiRKS0_.exit: ; preds = %_ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE6resizeEiRKS0_.exit.loopexit, %2
-  %40 = phi i32 [ %.pre, %_ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE6resizeEiRKS0_.exit.loopexit ], [ %4, %2 ]
+  %40 = phi i32 [ %.pre4, %_ZN20btAlignedObjectArrayI17GIM_BVH_TREE_NODEE6resizeEiRKS0_.exit.loopexit ], [ %4, %2 ]
   store i32 %5, ptr %6, align 4, !tbaa !40
   tail call void @_ZN9btBvhTree15_build_sub_treeER18GIM_BVH_DATA_ARRAYii(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i32 noundef 0, i32 noundef %40)
   ret void

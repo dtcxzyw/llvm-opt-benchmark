@@ -145526,7 +145526,6 @@ _ZN5boost8geometry6detail7overlay15ring_propertiesINS0_5model2d28point_xyIdNS0_2
 define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay8dispatch12select_ringsINS0_8ring_tagENS0_5model4ringINS6_2d28point_xyIdNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEEE5applyINS6_7polygonISC_Lb1ELb1ESD_SD_SaSaEESt3mapINS0_15ring_identifierENS2_15ring_propertiesISC_dEESt4lessISK_ESaISt4pairIKSK_SM_EEENS0_10strategies6relate9cartesianIvEEEEvRKSE_RKT_RSQ_RT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.1065", align 8
   %7 = alloca %"class.std::tuple.355", align 1
-  %.sroa.5 = alloca [7 x i8], align 1
   %.sroa.10 = alloca [30 x i8], align 2
   %8 = load ptr, ptr %0, align 8, !tbaa !174
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -145538,7 +145537,6 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay8dispatch12sel
   %12 = ptrtoint ptr %8 to i64
   %13 = ptrtoint ptr %10 to i64
   %14 = sub i64 %13, %12
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %.sroa.10)
   %.sroa.10.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.10, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %.sroa.10.6..sroa_idx, i8 -1, i64 24, i1 false)
@@ -145672,8 +145670,6 @@ _ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i: ; preds = %60
   %.sroa.06.0.i = phi ptr [ %68, %.critedge.i ], [ %.19.i.i.i.i, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i ], [ %.19.i.i.i.i, %58 ], [ %.19.i.i.i.i, %63 ]
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 56
   store i8 1, ptr %70, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5, i64 7, i1 false)
   %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 64
   store double %27, ptr %.sroa.510.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 72
@@ -145704,7 +145700,6 @@ _ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i: ; preds = %60
   br label %_ZN5boost8geometry6detail7overlay15ring_propertiesINS0_5model2d28point_xyIdNS0_2cs9cartesianEEEdED2Ev.exit
 
 _ZN5boost8geometry6detail7overlay15ring_propertiesINS0_5model2d28point_xyIdNS0_2cs9cartesianEEEdED2Ev.exit: ; preds = %75, %69
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %.sroa.10)
   br label %79
 

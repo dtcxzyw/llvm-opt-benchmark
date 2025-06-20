@@ -2413,7 +2413,6 @@ define void @"_ZN72_$LT$quiche_apps..args..CommonArgs$u20$as$u20$core..default..
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  %.sroa.4 = alloca [16 x i8], align 8
   %6 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
@@ -2442,7 +2441,6 @@ define void @"_ZN72_$LT$quiche_apps..args..CommonArgs$u20$as$u20$core..default..
   store ptr %14, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !173, !noalias !178
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 1, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !173, !noalias !178
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !179
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hee8f8d38eac8eb59E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef 5, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
@@ -2532,8 +2530,6 @@ define void @"_ZN72_$LT$quiche_apps..args..CommonArgs$u20$as$u20$core..default..
   store i8 0, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 -9223372036854775808, ptr %49, align 8
-  %.sroa.4.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx17, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 225
   store i8 0, ptr %50, align 1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2562,7 +2558,6 @@ define void @"_ZN72_$LT$quiche_apps..args..CommonArgs$u20$as$u20$core..default..
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 10, ptr %60, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   ret void
 
@@ -3600,12 +3595,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr70drop
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN72_$LT$quiche_apps..args..ClientArgs$u20$as$u20$core..default..Default$GT$7default17h684f1f513356efceE"(ptr dead_on_unwind noalias noundef writable writeonly sret([232 x i8]) align 8 captures(none) dereferenceable(232) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
-  %.sroa.415 = alloca [16 x i8], align 8
-  %.sroa.413 = alloca [16 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %.sroa.4 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3618,8 +3609,6 @@ define void @"_ZN72_$LT$quiche_apps..args..ClientArgs$u20$as$u20$core..default..
   store ptr inttoptr (i64 8 to ptr), ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.413)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.415)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !274
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hee8f8d38eac8eb59E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, i64 noundef 3, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
           to label %.noexc unwind label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2365a66d75297bcbE.exit"
@@ -3650,8 +3639,6 @@ define void @"_ZN72_$LT$quiche_apps..args..ClientArgs$u20$as$u20$core..default..
   store i32 -1162167622, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 -9223372036854775808, ptr %20, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   store i64 0, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -3663,12 +3650,8 @@ define void @"_ZN72_$LT$quiche_apps..args..ClientArgs$u20$as$u20$core..default..
   store i8 0, ptr %24, align 2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 -9223372036854775808, ptr %25, align 8
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.413.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.413, i64 16, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 -9223372036854775808, ptr %26, align 8
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.415.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.415, i64 16, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %12, ptr %27, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3685,11 +3668,8 @@ define void @"_ZN72_$LT$quiche_apps..args..ClientArgs$u20$as$u20$core..default..
   store i8 0, ptr %31, align 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i8 0, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.415)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.413)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4)
   ret void
 
 33:                                               ; preds = %36, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2365a66d75297bcbE.exit"

@@ -7223,7 +7223,6 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN106_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$Q$GT$$GT$3set17h4dabb8da57942a0dE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, ptr noundef nonnull %3, i8 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
-  %.sroa.6.i.i = alloca [3 x i8], align 1
   %7 = alloca { { ptr, i64 }, ptr }, align 8
   %8 = alloca { { ptr, i64 }, ptr }, align 8
   %9 = alloca { ptr, ptr, ptr }, align 8
@@ -7559,7 +7558,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !1016
   %126 = load i32, ptr %14, align 4, !range !38, !noalias !1021, !noundef !29
   call void @llvm.experimental.noalias.scope.decl(metadata !1037)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.6.i.i)
   %127 = load ptr, ptr %9, align 8, !alias.scope !1037, !noalias !1021, !nonnull !29, !align !30, !noundef !29
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = cmpxchg weak ptr %128, i64 0, i64 8 acquire monotonic, align 8, !noalias !1040
@@ -7610,8 +7608,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 
 148:                                              ; preds = %"_ZN4core3ptr345drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$std..collections..hash..map..HashMap$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$hir_expand..proc_macro..ProcMacro$GT$$C$alloc..string..String$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17hef303d71cb698906E.exit.i.i", %147
   %.sroa.3.0.i.i = phi i8 [ undef, %147 ], [ %141, %"_ZN4core3ptr345drop_in_place$LT$salsa..runtime..StampedValue$LT$triomphe..arc..Arc$LT$std..collections..hash..map..HashMap$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$C$core..result..Result$LT$alloc..vec..Vec$LT$hir_expand..proc_macro..ProcMacro$GT$$C$alloc..string..String$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17hef303d71cb698906E.exit.i.i" ]
-  %.sroa.6.0..sroa_idx13.i.i = getelementptr inbounds nuw i8, ptr %127, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx13.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.i.i, i64 3, i1 false), !noalias !1040
   %149 = cmpxchg ptr %128, i64 8, i64 0 release monotonic, align 8, !noalias !1040
   %150 = extractvalue { i64, i1 } %149, 1
   br i1 %150, label %186, label %151
@@ -7627,8 +7623,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
   %.sroa.4.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %127, i64 24
   store i32 %126, ptr %.sroa.4.0..sroa_idx4.i.i, align 8, !noalias !1040
   store i8 %136, ptr %140, align 4, !noalias !1040
-  %.sroa.6.0..sroa_idx12.i.i = getelementptr inbounds nuw i8, ptr %127, i64 29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx12.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.i.i, i64 3, i1 false), !noalias !1040
   %154 = cmpxchg ptr %128, i64 8, i64 0 release monotonic, align 8, !noalias !1040
   %155 = extractvalue { i64, i1 } %154, 1
   br i1 %155, label %.body.i, label %156
@@ -7733,7 +7727,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
   br label %.critedge69.i
 
 186:                                              ; preds = %151, %148
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.6.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1021
   br i1 %.not136.i, label %.loopexit.i, label %187
 

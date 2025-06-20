@@ -3206,7 +3206,7 @@ define noundef i16 @_ZN12typst_syntax4file6FileId8new_fake17h38edf6ff2d9e9c3fE(p
 
 8:                                                ; preds = %2
   invoke void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h5ba3689d4f4b62c1E"(ptr noundef nonnull align 8 @_ZN12typst_syntax4file8INTERNER17h3aec9575b041bec8E, ptr noundef nonnull align 8 @_ZN12typst_syntax4file8INTERNER17h3aec9575b041bec8E)
-          to label %.noexc unwind label %.body.thread28
+          to label %.noexc unwind label %.body.thread27
 
 .noexc:                                           ; preds = %8
   %9 = load i64, ptr @_ZN12typst_syntax4file8INTERNER17h3aec9575b041bec8E, align 8, !range !11, !noundef !12
@@ -3217,7 +3217,7 @@ define noundef i16 @_ZN12typst_syntax4file6FileId8new_fake17h38edf6ff2d9e9c3fE(p
 10:                                               ; preds = %.body7
   br i1 %34, label %.body.thread, label %"_ZN4core3ptr52drop_in_place$LT$typst_syntax..path..VirtualPath$GT$17h05005c8848abcd76E.exit"
 
-.body.thread28:                                   ; preds = %8, %13, %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h01ce5007a136bf6dE.exit, %17
+.body.thread27:                                   ; preds = %8, %13, %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h01ce5007a136bf6dE.exit, %17
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -3229,11 +3229,11 @@ define noundef i16 @_ZN12typst_syntax4file6FileId8new_fake17h38edf6ff2d9e9c3fE(p
 
 13:                                               ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h089116d06667ceb6E.exit"
   invoke void @_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock15write_contended17h33a1ca06fb2cb72dE(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN12typst_syntax4file8INTERNER17h3aec9575b041bec8E, i64 8))
-          to label %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h01ce5007a136bf6dE.exit unwind label %.body.thread28
+          to label %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h01ce5007a136bf6dE.exit unwind label %.body.thread27
 
 _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h01ce5007a136bf6dE.exit: ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h089116d06667ceb6E.exit", %13
   %14 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h9199869020a41f22E.llvm.10859166595437567863(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h72be44b885da97c6E, i8 noundef 0)
-          to label %.noexc10 unwind label %.body.thread28
+          to label %.noexc10 unwind label %.body.thread27
 
 .noexc10:                                         ; preds = %_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h01ce5007a136bf6dE.exit
   %15 = and i64 %14, 9223372036854775807
@@ -3242,7 +3242,7 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h01ce5007a136bf6dE.exit: 
 
 17:                                               ; preds = %.noexc10
   %18 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hb3ffe8b1ee267d74E()
-          to label %.noexc11 unwind label %.body.thread28
+          to label %.noexc11 unwind label %.body.thread27
 
 .noexc11:                                         ; preds = %17
   %19 = xor i1 %18, true
@@ -3397,11 +3397,11 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.18157932453617260866.exit
   unreachable
 
 "_ZN4core3ptr52drop_in_place$LT$typst_syntax..path..VirtualPath$GT$17h05005c8848abcd76E.exit": ; preds = %.body.thread, %10
-  %.pn24 = phi { ptr, i32 } [ %eh.lpad-body8, %10 ], [ %.pn25, %.body.thread ]
-  resume { ptr, i32 } %.pn24
+  %.pn23 = phi { ptr, i32 } [ %eh.lpad-body8, %10 ], [ %.pn24, %.body.thread ]
+  resume { ptr, i32 } %.pn23
 
-.body.thread:                                     ; preds = %26, %.body.thread28, %10
-  %.pn25 = phi { ptr, i32 } [ %eh.lpad-body8, %10 ], [ %lpad.thr_comm, %.body.thread28 ], [ %27, %26 ]
+.body.thread:                                     ; preds = %26, %.body.thread27, %10
+  %.pn24 = phi { ptr, i32 } [ %eh.lpad-body8, %10 ], [ %lpad.thr_comm, %.body.thread27 ], [ %27, %26 ]
   invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04e7f7f737f63d8aE.llvm.18157932453617260866"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
           to label %"_ZN4core3ptr52drop_in_place$LT$typst_syntax..path..VirtualPath$GT$17h05005c8848abcd76E.exit" unwind label %69
 }

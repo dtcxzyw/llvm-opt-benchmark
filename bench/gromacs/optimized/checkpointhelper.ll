@@ -782,7 +782,6 @@ _ZNK3gmx17CheckpointHandler9setSignalEP23gmx_walltime_accounting.exit: ; preds =
 define void @_ZN3gmx16CheckpointHelper15writeCheckpointEld(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i64 noundef %1, double noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::WriteCheckpointDataHolder", align 8
   %5 = alloca %"class.std::optional.95", align 8
-  %.sroa.6 = alloca [7 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #28
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %6, align 8, !tbaa !88
@@ -805,7 +804,6 @@ define void @_ZN3gmx16CheckpointHelper15writeCheckpointEld(ptr noundef nonnull r
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
   br label %22
 
 ._crit_edge:                                      ; preds = %44, %3
@@ -824,7 +822,6 @@ define void @_ZN3gmx16CheckpointHelper15writeCheckpointEld(ptr noundef nonnull r
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 60
   %27 = load i32, ptr %26, align 4, !tbaa !97
   %28 = icmp eq i32 %27, 0
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6)
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %22
@@ -842,7 +839,6 @@ define void @_ZN3gmx16CheckpointHelper15writeCheckpointEld(ptr noundef nonnull r
   %37 = extractvalue { ptr, i8 } %34, 1
   store ptr %36, ptr %5, align 8
   store i8 %37, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6, i64 7, i1 false)
   store i8 1, ptr %16, align 8, !tbaa !118, !alias.scope !120
   %.pre = load ptr, ptr %15, align 8, !tbaa !66
   br label %39
@@ -860,7 +856,6 @@ define void @_ZN3gmx16CheckpointHelper15writeCheckpointEld(ptr noundef nonnull r
           to label %44 unwind label %46
 
 44:                                               ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6)
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 40
   %.not = icmp eq ptr %45, %14
   br i1 %.not, label %._crit_edge, label %22
@@ -868,7 +863,6 @@ define void @_ZN3gmx16CheckpointHelper15writeCheckpointEld(ptr noundef nonnull r
 46:                                               ; preds = %39, %33
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6)
   br label %78
 
 48:                                               ; preds = %._crit_edge

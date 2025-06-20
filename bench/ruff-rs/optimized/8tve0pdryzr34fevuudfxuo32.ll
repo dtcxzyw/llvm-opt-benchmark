@@ -3769,7 +3769,7 @@ _ZN5serde2de9MapAccess10next_value17h7e04543a0a4d2cdeE.exit.i: ; preds = %"_ZN77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.670.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.830.0..sroa_idx31.i, i64 12, i1 false), !noalias !269
   br label %104
 
-104:                                              ; preds = %.thread113.i, %103
+104:                                              ; preds = %103, %.thread113.i
   %.sroa.065.0.i = phi i64 [ %.sroa.075.0.copyload.i, %103 ], [ undef, %.thread113.i ]
   %.sroa.567.0.i = phi i32 [ %.pr, %103 ], [ 2, %.thread113.i ]
   %.not89.i = icmp eq i8 %.sroa.032.0154.i.ph.fr, 3
@@ -3777,12 +3777,12 @@ _ZN5serde2de9MapAccess10next_value17h7e04543a0a4d2cdeE.exit.i: ; preds = %"_ZN77
   br label %.thread
 
 .thread:                                          ; preds = %104, %14
-  %.sroa.567.0.i13 = phi i32 [ 2, %14 ], [ %.sroa.567.0.i, %104 ]
-  %.sroa.065.0.i11 = phi i64 [ undef, %14 ], [ %.sroa.065.0.i, %104 ]
+  %.sroa.567.0.i12 = phi i32 [ 2, %14 ], [ %.sroa.567.0.i, %104 ]
+  %.sroa.065.0.i10 = phi i64 [ undef, %14 ], [ %.sroa.065.0.i, %104 ]
   %105 = phi i8 [ 2, %14 ], [ %spec.select, %104 ]
-  store i64 %.sroa.065.0.i11, ptr %0, align 8, !alias.scope !264, !noalias !267
+  store i64 %.sroa.065.0.i10, ptr %0, align 8, !alias.scope !264, !noalias !267
   %.sroa.044.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.567.0.i13, ptr %.sroa.044.sroa.4.0..sroa_idx.i, align 8, !alias.scope !264, !noalias !267
+  store i32 %.sroa.567.0.i12, ptr %.sroa.044.sroa.4.0..sroa_idx.i, align 8, !alias.scope !264, !noalias !267
   %.sroa.044.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.044.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.670.i, i64 12, i1 false), !noalias !267
   %.sroa.445.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4495,7 +4495,7 @@ _ZN5serde2de9MapAccess10next_value17h7e04543a0a4d2cdeE.exit.i: ; preds = %"_ZN77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.4255.0..sroa_idx.i, i64 184, i1 false), !noalias !315
   br label %176
 
-176:                                              ; preds = %.thread294.i, %175
+176:                                              ; preds = %175, %.thread294.i
   %.sroa.0.0.i = phi i64 [ %73, %175 ], [ -9223372036854775807, %.thread294.i ]
   %177 = load i64, ptr %15, align 8, !range !327, !noalias !315, !noundef !6
   %.not196.i = icmp eq i64 %177, -9223372036854775806
@@ -4506,7 +4506,7 @@ _ZN5serde2de9MapAccess10next_value17h7e04543a0a4d2cdeE.exit.i: ; preds = %"_ZN77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5258.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4261.0..sroa_idx.i, i64 40, i1 false), !noalias !315
   br label %179
 
-179:                                              ; preds = %176, %178
+179:                                              ; preds = %178, %176
   %.sroa.0256.0.i = phi i64 [ %177, %178 ], [ -9223372036854775807, %176 ]
   %180 = load i64, ptr %14, align 8, !range !328, !noalias !315, !noundef !6
   %181 = trunc nuw i64 %180 to i1
@@ -4519,7 +4519,7 @@ _ZN5serde2de9MapAccess10next_value17h7e04543a0a4d2cdeE.exit.i: ; preds = %"_ZN77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5264.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4267.0..sroa_idx.i, i64 24, i1 false), !noalias !315
   br label %184
 
-184:                                              ; preds = %179, %182
+184:                                              ; preds = %182, %179
   %.sroa.0262.0.i = phi ptr [ %.sroa.0266.0.copyload.i, %182 ], [ null, %179 ]
   %185 = load i32, ptr %25, align 8, !range !329, !noalias !315, !noundef !6
   %.not197.i = icmp eq i32 %185, 4
@@ -4531,7 +4531,7 @@ _ZN5serde2de9MapAccess10next_value17h7e04543a0a4d2cdeE.exit.i: ; preds = %"_ZN77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5273.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5277.0..sroa_idx.i, i64 20, i1 false), !noalias !315
   br label %187
 
-187:                                              ; preds = %184, %186
+187:                                              ; preds = %186, %184
   %.sroa.0268.0.i = phi i64 [ %.sroa.0275.0.copyload.i, %186 ], [ undef, %184 ]
   %.sroa.4270.0.i = phi i32 [ %185, %186 ], [ 3, %184 ]
   %.not198.i = icmp eq i8 %.sroa.087.0383.i, 3
@@ -5000,7 +5000,7 @@ _ZN5serde2de9MapAccess10next_value17hf062433b8857c7c8E.exit.i: ; preds = %"_ZN77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.331.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.617.0..sroa_idx18.i, i64 40, i1 false), !noalias !392
   br label %.thread61.thread.i
 
-.thread61.thread.i:                               ; preds = %14, %.thread61.i, %.thread61.thread118.i
+.thread61.thread.i:                               ; preds = %.thread61.thread118.i, %.thread61.i, %14
   %.sroa.029.0.i = phi i64 [ %86, %.thread61.thread118.i ], [ -9223372036854775808, %.thread61.i ], [ -9223372036854775808, %14 ]
   store i64 %.sroa.029.0.i, ptr %0, align 8, !alias.scope !387, !noalias !390
   %.sroa.434.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5695,7 +5695,7 @@ _ZN5serde2de9MapAccess10next_value17hf062433b8857c7c8E.exit290.i: ; preds = %"_Z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5317.0..sroa_idx.i, i64 12, i1 false), !noalias !428
   br label %179
 
-179:                                              ; preds = %.thread352.i, %178
+179:                                              ; preds = %178, %.thread352.i
   %.sroa.4311.0.i = phi i32 [ %73, %178 ], [ 2, %.thread352.i ]
   %.sroa.0.0.i = phi i64 [ %.sroa.0315.0.copyload.i, %178 ], [ undef, %.thread352.i ]
   %180 = load i64, ptr %17, align 8, !range !327, !noalias !428, !noundef !6
@@ -5707,7 +5707,7 @@ _ZN5serde2de9MapAccess10next_value17hf062433b8857c7c8E.exit290.i: ; preds = %"_Z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5320.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4323.0..sroa_idx.i, i64 40, i1 false), !noalias !428
   br label %182
 
-182:                                              ; preds = %179, %181
+182:                                              ; preds = %181, %179
   %.sroa.0318.0.i = phi i64 [ %180, %181 ], [ -9223372036854775807, %179 ]
   %183 = load i64, ptr %16, align 8, !range !161, !noalias !428, !noundef !6
   %.not242.i = icmp eq i64 %183, -9223372036854775807
@@ -5718,7 +5718,7 @@ _ZN5serde2de9MapAccess10next_value17hf062433b8857c7c8E.exit290.i: ; preds = %"_Z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5326.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4329.0..sroa_idx.i, i64 16, i1 false), !noalias !428
   br label %185
 
-185:                                              ; preds = %182, %184
+185:                                              ; preds = %184, %182
   %.sroa.0324.0.i = phi i64 [ %183, %184 ], [ -9223372036854775808, %182 ]
   %186 = load i64, ptr %15, align 8, !range !161, !noalias !428, !noundef !6
   %.not243.i = icmp eq i64 %186, -9223372036854775807
@@ -5729,7 +5729,7 @@ _ZN5serde2de9MapAccess10next_value17hf062433b8857c7c8E.exit290.i: ; preds = %"_Z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5332.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4335.0..sroa_idx.i, i64 40, i1 false), !noalias !428
   br label %188
 
-188:                                              ; preds = %185, %187
+188:                                              ; preds = %187, %185
   %.sroa.0330.0.i = phi i64 [ %186, %187 ], [ -9223372036854775808, %185 ]
   %189 = load i64, ptr %14, align 8, !range !161, !noalias !428, !noundef !6
   %.not244.i = icmp eq i64 %189, -9223372036854775807
@@ -5742,7 +5742,7 @@ _ZN5serde2de9MapAccess10next_value17hf062433b8857c7c8E.exit290.i: ; preds = %"_Z
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.4180.i, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.4180.0..sroa_idx.i, i64 36, i1 false), !noalias !428
   br label %191
 
-191:                                              ; preds = %188, %190
+191:                                              ; preds = %190, %188
   %.sroa.0175.0.i = phi i64 [ %189, %190 ], [ -9223372036854775808, %188 ]
   %.sroa.3177.0.i = phi i32 [ %.sroa.3177.0.copyload.i, %190 ], [ undef, %188 ]
   store i64 %.sroa.0324.0.i, ptr %0, align 8, !alias.scope !423, !noalias !426

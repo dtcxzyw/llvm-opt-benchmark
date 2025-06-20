@@ -19138,47 +19138,47 @@ define void @"_ZN94_$LT$foundations..telemetry..settings..TelemetrySettings$u20$
   store i32 16777343, ptr %.sroa.4.0..sroa_idx10, align 2
   %.sroa.5.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %0, i64 102
   store i16 6831, ptr %.sroa.5.0..sroa_idx11, align 2
-  %.sroa.613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 0, ptr %.sroa.613.0..sroa_idx, align 4
-  %.sroa.7.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 0, ptr %.sroa.7.0..sroa_idx14, align 8
-  %.sroa.8.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i16 6831, ptr %.sroa.8.0..sroa_idx15, align 4
-  %.sroa.916.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i16 2, ptr %.sroa.916.0..sroa_idx, align 8
-  %.sroa.1018.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store double 1.000000e+00, ptr %.sroa.1018.0..sroa_idx, align 8
+  %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store i32 0, ptr %.sroa.612.0..sroa_idx, align 4
+  %.sroa.7.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 0, ptr %.sroa.7.0..sroa_idx13, align 8
+  %.sroa.8.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  store i16 6831, ptr %.sroa.8.0..sroa_idx14, align 4
+  %.sroa.915.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i16 2, ptr %.sroa.915.0..sroa_idx, align 8
+  %.sroa.1016.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store double 1.000000e+00, ptr %.sroa.1016.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i8 0, ptr %.sroa.12.0..sroa_idx, align 4
-  %.sroa.1319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 0, ptr %.sroa.1319.0..sroa_idx, align 8
+  %.sroa.1317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i8 0, ptr %.sroa.1317.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 177
   store i8 0, ptr %.sroa.14.0..sroa_idx, align 1
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 178
   store i8 1, ptr %.sroa.15.0..sroa_idx, align 2
   store i64 0, ptr %0, align 8
-  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.421.0..sroa_idx, align 8
-  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %.sroa.522.0..sroa_idx, align 8
-  %.sroa.623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 -9223372036854775808, ptr %.sroa.623.0..sroa_idx, align 8
-  %.sroa.725.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %.sroa.725.0..sroa_idx, align 8
-  %.sroa.826.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i8 0, ptr %.sroa.826.0..sroa_idx, align 4
-  %.sroa.928.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 0, ptr %.sroa.928.0..sroa_idx, align 8
-  %.sroa.1029.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 57
-  store i8 0, ptr %.sroa.1029.0..sroa_idx, align 1
-  %.sroa.1130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 58
-  store i8 3, ptr %.sroa.1130.0..sroa_idx, align 2
+  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.419.0..sroa_idx, align 8
+  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %.sroa.520.0..sroa_idx, align 8
+  %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 -9223372036854775808, ptr %.sroa.621.0..sroa_idx, align 8
+  %.sroa.723.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 0, ptr %.sroa.723.0..sroa_idx, align 8
+  %.sroa.824.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i8 0, ptr %.sroa.824.0..sroa_idx, align 4
+  %.sroa.926.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 0, ptr %.sroa.926.0..sroa_idx, align 8
+  %.sroa.1027.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 57
+  store i8 0, ptr %.sroa.1027.0..sroa_idx, align 1
+  %.sroa.1128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 58
+  store i8 3, ptr %.sroa.1128.0..sroa_idx, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 -9223372036854775808, ptr %3, align 8
-  %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 0, ptr %.sroa.434.0..sroa_idx, align 8
+  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i8 0, ptr %.sroa.432.0..sroa_idx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i8 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 221
@@ -21633,12 +21633,12 @@ common.resume:                                    ; preds = %.thread33, %89, %.b
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN115_$LT$foundations..telemetry..settings..tracing..JaegerThriftUdpOutputSettings$u20$as$u20$core..default..Default$GT$7default17hc739eb4c12ffa1bdE"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 4 captures(none) dereferenceable(64) initializes((0, 8), (20, 30), (32, 34)) %0) unnamed_addr #9 {
   store i16 0, ptr %0, align 4
-  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i32 16777343, ptr %.sroa.41.0..sroa_idx, align 2
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i32 16777343, ptr %.sroa.4.0..sroa_idx, align 2
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 6831, ptr %.sroa.5.0..sroa_idx, align 2
-  %.sroa.62.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %.sroa.62.0..sroa_idx, align 4
+  %.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %.sroa.61.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -22306,14 +22306,14 @@ define void @"_ZN101_$LT$foundations..telemetry..settings..tracing..TracingSetti
   store i32 16777343, ptr %.sroa.4.0..sroa_idx3, align 2
   %.sroa.5.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 6831, ptr %.sroa.5.0..sroa_idx4, align 2
-  %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %.sroa.66.0..sroa_idx, align 4
+  %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 0, ptr %.sroa.65.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i16 6831, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.97.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 2, ptr %.sroa.97.0..sroa_idx, align 8
+  %.sroa.96.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i16 2, ptr %.sroa.96.0..sroa_idx, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 1.000000e+00, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72

@@ -2951,10 +2951,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %25, label %.invoke.i, label %42
 
 30:                                               ; preds = %6
-  %.sroa.459.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.459.0.copyload.i = load i64, ptr %.sroa.459.0..sroa_idx.i, align 8, !alias.scope !109, !noalias !112
-  %.sroa.5.0..sroa_idx60.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx60.i, align 8, !alias.scope !109, !noalias !112
+  %.sroa.457.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.457.0.copyload.i = load i64, ptr %.sroa.457.0..sroa_idx.i, align 8, !alias.scope !109, !noalias !112
+  %.sroa.5.0..sroa_idx58.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx58.i, align 8, !alias.scope !109, !noalias !112
   %31 = zext nneg i16 %20 to i64
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %33 = add i64 %.sroa.5.0.copyload.i, 1
@@ -3136,7 +3136,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hf9ef8bae5224aae8E.exit.i48.i: 
 
 87:                                               ; preds = %.thread, %77
   %.sroa.1129.070 = phi ptr [ %18, %.thread ], [ %.sroa.021.0.i, %77 ]
-  %.sroa.15.069 = phi i64 [ %.sroa.459.0.copyload.i, %.thread ], [ %.sroa.8.0.i, %77 ]
+  %.sroa.15.069 = phi i64 [ %.sroa.457.0.copyload.i, %.thread ], [ %.sroa.8.0.i, %77 ]
   %.sroa.19.068 = phi i64 [ %.sroa.5.0.copyload.i, %.thread ], [ %.sroa.10.0.i, %77 ]
   store ptr %.sroa.1129.070, ptr %0, align 8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8

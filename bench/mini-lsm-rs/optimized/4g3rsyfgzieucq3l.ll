@@ -6434,8 +6434,8 @@ define void @"_ZN13mini_lsm_mvcc7compact61_$LT$impl$u20$mini_lsm_mvcc..lsm_stora
   store i64 0, ptr %8, align 8, !noalias !1853
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1853
   store i64 %2, ptr %7, align 8, !noalias !1857
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %3, ptr %.sroa.44.0..sroa_idx, align 8, !noalias !1857
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %3, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !1857
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !1857
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1858
@@ -6477,10 +6477,10 @@ define void @"_ZN13mini_lsm_mvcc7compact61_$LT$impl$u20$mini_lsm_mvcc..lsm_stora
 _ZN3std6thread5spawn17h601308ffe7ea6105E.exit:    ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h605514ec1f2becfbE.exit"
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %22, ptr %33, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %25, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.57.0..sroa_idx, align 8
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %25, ptr %.sroa.45.0..sroa_idx, align 8
+  %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.56.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   br label %34
 
@@ -6821,14 +6821,14 @@ define void @_ZN13mini_lsm_mvcc11lsm_storage15LsmStorageState6create17h6ded4ecc8
   %11 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %12 = load i64, ptr %1, align 8, !range !305, !noundef !13
-  switch i64 %12, label %default.unreachable26 [
+  switch i64 %12, label %default.unreachable25 [
     i64 0, label %23
     i64 1, label %13
     i64 2, label %23
     i64 3, label %16
   ]
 
-default.unreachable26:                            ; preds = %2
+default.unreachable25:                            ; preds = %2
   unreachable
 
 13:                                               ; preds = %2
@@ -7014,8 +7014,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
           to label %.noexc16 unwind label %59
 
 .noexc16:                                         ; preds = %66, %63, %.thread
-  %.pn20 = phi { ptr, i32 } [ %eh.lpad-body, %.thread ], [ %48, %63 ], [ %48, %66 ]
-  resume { ptr, i32 } %.pn20
+  %.pn19 = phi { ptr, i32 } [ %eh.lpad-body, %.thread ], [ %48, %63 ], [ %48, %66 ]
+  resume { ptr, i32 } %.pn19
 
 .thread:                                          ; preds = %35, %26
   %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %36, %35 ]

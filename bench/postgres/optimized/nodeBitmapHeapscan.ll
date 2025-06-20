@@ -565,8 +565,6 @@ declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @BitmapHeapNext(ptr noundef %0) #0 {
   %2 = alloca i8, align 1
-  %.sroa.5.i = alloca [7 x i8], align 1
-  %.sroa.43.i = alloca [7 x i8], align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -581,7 +579,6 @@ define internal ptr @BitmapHeapNext(ptr noundef %0) #0 {
   br i1 %13, label %BitmapAdjustPrefetchTarget.exit, label %14
 
 14:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5.i)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 296
@@ -601,7 +598,7 @@ define internal ptr @BitmapHeapNext(ptr noundef %0) #0 {
 24:                                               ; preds = %19
   %25 = load i32, ptr %22, align 4
   %26 = icmp eq i32 %25, 477
-  br i1 %26, label %69, label %27
+  br i1 %26, label %71, label %27
 
 27:                                               ; preds = %24, %19
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -642,7 +639,7 @@ define internal ptr @BitmapHeapNext(ptr noundef %0) #0 {
 
 BitmapShouldInitializeSharedState.exit.i:         ; preds = %41
   %43 = tail call zeroext i1 @ConditionVariableCancelSleep() #7
-  br label %70
+  br label %69
 
 44:                                               ; preds = %38
   store i32 1, ptr %32, align 4
@@ -698,644 +695,636 @@ BitmapDoneInitializingSharedState.exit.i:         ; preds = %67, %65
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   store i8 0, ptr %31, align 8
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %33) #7
-  br label %70
+  br label %69
 
-69:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.43.i)
-  br label %72
-
-70:                                               ; preds = %BitmapDoneInitializingSharedState.exit.i, %BitmapShouldInitializeSharedState.exit.i
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.43.i)
-  %71 = load i64, ptr %4, align 8
+69:                                               ; preds = %BitmapDoneInitializingSharedState.exit.i, %BitmapShouldInitializeSharedState.exit.i
+  %70 = load i64, ptr %4, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 232
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %72
+  br label %71
 
-72:                                               ; preds = %70, %69
-  %73 = phi ptr [ %.pre.i, %70 ], [ %22, %69 ]
-  %74 = phi i64 [ %71, %70 ], [ 0, %69 ]
-  %75 = tail call { i8, ptr } @tbm_begin_iterate(ptr noundef %73, ptr noundef %18, i64 noundef %74) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.43.i, i64 7, i1 false)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.43.i)
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %77 = load i32, ptr %76, align 8
-  %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %79, label %91
+71:                                               ; preds = %69, %24
+  %72 = phi ptr [ %.pre.i, %69 ], [ %22, %24 ]
+  %73 = phi i64 [ %70, %69 ], [ 0, %24 ]
+  %74 = tail call { i8, ptr } @tbm_begin_iterate(ptr noundef %72, ptr noundef %18, i64 noundef %73) #7
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %78, label %90
 
-79:                                               ; preds = %72
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %82 = load ptr, ptr %80, align 8
-  br i1 %.not.i, label %86, label %83
+78:                                               ; preds = %71
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %81 = load ptr, ptr %79, align 8
+  br i1 %.not.i, label %85, label %82
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %85 = load i64, ptr %84, align 8
-  br label %86
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %84 = load i64, ptr %83, align 8
+  br label %85
 
-86:                                               ; preds = %83, %79
-  %87 = phi i64 [ %85, %83 ], [ 0, %79 ]
-  %88 = tail call { i8, ptr } @tbm_begin_iterate(ptr noundef %82, ptr noundef %18, i64 noundef %87) #7
-  %89 = extractvalue { i8, ptr } %88, 0
-  %90 = extractvalue { i8, ptr } %88, 1
-  store i8 %89, ptr %81, align 8
+85:                                               ; preds = %82, %78
+  %86 = phi i64 [ %84, %82 ], [ 0, %78 ]
+  %87 = tail call { i8, ptr } @tbm_begin_iterate(ptr noundef %81, ptr noundef %18, i64 noundef %86) #7
+  %88 = extractvalue { i8, ptr } %87, 0
+  %89 = extractvalue { i8, ptr } %87, 1
+  store i8 %88, ptr %80, align 8
   %.sroa.41.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %90, ptr %.sroa.41.0..sroa_idx.i, align 8
-  br label %91
+  store ptr %89, ptr %.sroa.41.0..sroa_idx.i, align 8
+  br label %90
 
-91:                                               ; preds = %86, %72
-  %92 = load ptr, ptr %9, align 8
-  %.not45.i = icmp eq ptr %92, null
-  br i1 %.not45.i, label %93, label %BitmapTableScanSetup.exit
+90:                                               ; preds = %85, %71
+  %91 = load ptr, ptr %9, align 8
+  %.not45.i = icmp eq ptr %91, null
+  br i1 %.not45.i, label %92, label %BitmapTableScanSetup.exit
 
-93:                                               ; preds = %91
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
-  %97 = load ptr, ptr %96, align 8
-  %.not46.i = icmp eq ptr %97, null
-  br i1 %.not46.i, label %98, label %.thread48.i
+92:                                               ; preds = %90
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
+  %96 = load ptr, ptr %95, align 8
+  %.not46.i = icmp eq ptr %96, null
+  br i1 %.not46.i, label %97, label %.thread48.i
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 48
-  %100 = load ptr, ptr %99, align 8
-  %.fr.i = freeze ptr %100
+97:                                               ; preds = %92
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 48
+  %99 = load ptr, ptr %98, align 8
+  %.fr.i = freeze ptr %99
   %.not50.i = icmp eq ptr %.fr.i, null
   %spec.select.i = select i1 %.not50.i, i32 258, i32 1282
   br label %.thread48.i
 
-.thread48.i:                                      ; preds = %98, %93
-  %101 = phi i32 [ %spec.select.i, %98 ], [ 1282, %93 ]
+.thread48.i:                                      ; preds = %97, %92
+  %100 = phi i32 [ %spec.select.i, %97 ], [ 1282, %92 ]
   %.in51.i = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %102 = load ptr, ptr %.in51.i, align 8
+  %101 = load ptr, ptr %.in51.i, align 8
   %.pn.i = load ptr, ptr %15, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
-  %103 = load ptr, ptr %.in.i, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 320
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = load ptr, ptr %106, align 8
-  %108 = tail call ptr %107(ptr noundef %102, ptr noundef %103, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %101) #7
-  store ptr %108, ptr %9, align 8
+  %102 = load ptr, ptr %.in.i, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 320
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %106 = load ptr, ptr %105, align 8
+  %107 = tail call ptr %106(ptr noundef %101, ptr noundef %102, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %100) #7
+  store ptr %107, ptr %9, align 8
   br label %BitmapTableScanSetup.exit
 
-BitmapTableScanSetup.exit:                        ; preds = %91, %.thread48.i
-  %109 = phi ptr [ %108, %.thread48.i ], [ %92, %91 ]
-  %110 = extractvalue { i8, ptr } %75, 1
-  %111 = extractvalue { i8, ptr } %75, 0
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 32
-  store i8 %111, ptr %112, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %109, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.i, i64 7, i1 false)
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %109, i64 40
-  store ptr %110, ptr %.sroa.6.0..sroa_idx.i, align 8
+BitmapTableScanSetup.exit:                        ; preds = %90, %.thread48.i
+  %108 = phi ptr [ %107, %.thread48.i ], [ %91, %90 ]
+  %109 = extractvalue { i8, ptr } %74, 1
+  %110 = extractvalue { i8, ptr } %74, 0
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  store i8 %110, ptr %111, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %108, i64 33
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx.i, i8 0, i64 7, i1 false)
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %108, i64 40
+  store ptr %109, ptr %.sroa.6.0..sroa_idx.i, align 8
   store i8 1, ptr %11, align 4
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i)
-  %113 = load ptr, ptr %9, align 8
+  %112 = load ptr, ptr %9, align 8
   br label %.loopexit
 
-BitmapAdjustPrefetchTarget.exit:                  ; preds = %370, %348, %346, %344, %341, %334, %1
-  %.1 = phi ptr [ %10, %1 ], [ %.047, %334 ], [ %.047, %341 ], [ %.047, %344 ], [ %.047, %346 ], [ %.047, %348 ], [ %.047, %370 ]
-  %114 = load i32, ptr @CheckXidAlive, align 4
-  %115 = icmp eq i32 %114, 0
-  %116 = load i8, ptr @bsysscan, align 1, !range !5
-  %117 = trunc nuw i8 %116 to i1
-  %.not3.i66 = select i1 %115, i1 true, i1 %117
+BitmapAdjustPrefetchTarget.exit:                  ; preds = %369, %347, %345, %343, %340, %333, %1
+  %.1 = phi ptr [ %10, %1 ], [ %.047, %333 ], [ %.047, %340 ], [ %.047, %343 ], [ %.047, %345 ], [ %.047, %347 ], [ %.047, %369 ]
+  %113 = load i32, ptr @CheckXidAlive, align 4
+  %114 = icmp eq i32 %113, 0
+  %115 = load i8, ptr @bsysscan, align 1, !range !5
+  %116 = trunc nuw i8 %115 to i1
+  %.not3.i66 = select i1 %114, i1 true, i1 %116
   br i1 %.not3.i66, label %table_scan_bitmap_next_tuple.exit.lr.ph, label %._crit_edge, !prof !10
 
 table_scan_bitmap_next_tuple.exit.lr.ph:          ; preds = %BitmapAdjustPrefetchTarget.exit
   %.not52 = icmp eq ptr %4, null
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %120 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %123 = getelementptr i8, ptr %0, i64 272
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %125 = getelementptr inbounds nuw i8, ptr %.1, i64 48
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %132 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %134 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %122 = getelementptr i8, ptr %0, i64 272
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %124 = getelementptr inbounds nuw i8, ptr %.1, i64 48
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %129 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %131 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %table_scan_bitmap_next_tuple.exit
 
-._crit_edge:                                      ; preds = %251, %BitmapAdjustPrefetchTarget.exit
-  %135 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %135)
-  %136 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
+._crit_edge:                                      ; preds = %250, %BitmapAdjustPrefetchTarget.exit
+  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %134)
+  %135 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2015, ptr noundef nonnull @__func__.table_scan_bitmap_next_tuple) #7
   unreachable
 
-table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_next_tuple.exit.lr.ph, %251
-  %137 = load ptr, ptr %.1, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 320
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 344
-  %141 = load ptr, ptr %140, align 8
-  %142 = call zeroext i1 %141(ptr noundef nonnull %.1, ptr noundef %8) #7
-  br i1 %142, label %143, label %.loopexit
+table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_next_tuple.exit.lr.ph, %250
+  %136 = load ptr, ptr %.1, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 320
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 344
+  %140 = load ptr, ptr %139, align 8
+  %141 = call zeroext i1 %140(ptr noundef nonnull %.1, ptr noundef %8) #7
+  br i1 %141, label %142, label %.loopexit
 
-143:                                              ; preds = %table_scan_bitmap_next_tuple.exit
-  %144 = load volatile i32, ptr @InterruptPending, align 4
-  %.not = icmp eq i32 %144, 0
-  br i1 %.not, label %146, label %145, !prof !11
+142:                                              ; preds = %table_scan_bitmap_next_tuple.exit
+  %143 = load volatile i32, ptr @InterruptPending, align 4
+  %.not = icmp eq i32 %143, 0
+  br i1 %.not, label %145, label %144, !prof !11
 
-145:                                              ; preds = %143
+144:                                              ; preds = %142
   call void @ProcessInterrupts() #7
-  br label %146
+  br label %145
 
-146:                                              ; preds = %145, %143
-  %147 = load i32, ptr %119, align 8
-  br i1 %.not52, label %148, label %153
+145:                                              ; preds = %144, %142
+  %146 = load i32, ptr %118, align 8
+  br i1 %.not52, label %147, label %152
 
-148:                                              ; preds = %146
-  %149 = load i32, ptr %121, align 4
-  %150 = icmp slt i32 %149, %147
-  br i1 %150, label %151, label %167
+147:                                              ; preds = %145
+  %148 = load i32, ptr %120, align 4
+  %149 = icmp slt i32 %148, %146
+  br i1 %149, label %150, label %166
 
-151:                                              ; preds = %148
-  %152 = add nsw i32 %149, 1
-  store i32 %152, ptr %121, align 4
-  br label %167
-
-153:                                              ; preds = %146
-  %154 = load i32, ptr %118, align 8
-  %155 = icmp slt i32 %154, %147
-  br i1 %155, label %156, label %167
-
-156:                                              ; preds = %153
-  %157 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %120, i8 1, ptr nonnull elementtype(i8) %120) #7, !srcloc !7
-  %.not53 = icmp eq i8 %157, 0
-  br i1 %.not53, label %160, label %158
-
-158:                                              ; preds = %156
-  %159 = call i32 @s_lock(ptr noundef nonnull %120, ptr noundef nonnull @.str, i32 noundef 221, ptr noundef nonnull @__func__.BitmapHeapNext) #7
-  br label %160
-
-160:                                              ; preds = %156, %158
-  %161 = load i32, ptr %118, align 8
-  %162 = load i32, ptr %119, align 8
-  %163 = icmp slt i32 %161, %162
-  br i1 %163, label %164, label %166
-
-164:                                              ; preds = %160
-  %165 = add nsw i32 %161, 1
-  store i32 %165, ptr %118, align 8
+150:                                              ; preds = %147
+  %151 = add nsw i32 %148, 1
+  store i32 %151, ptr %120, align 4
   br label %166
 
-166:                                              ; preds = %160, %164
+152:                                              ; preds = %145
+  %153 = load i32, ptr %117, align 8
+  %154 = icmp slt i32 %153, %146
+  br i1 %154, label %155, label %166
+
+155:                                              ; preds = %152
+  %156 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %119, i8 1, ptr nonnull elementtype(i8) %119) #7, !srcloc !7
+  %.not53 = icmp eq i8 %156, 0
+  br i1 %.not53, label %159, label %157
+
+157:                                              ; preds = %155
+  %158 = call i32 @s_lock(ptr noundef nonnull %119, ptr noundef nonnull @.str, i32 noundef 221, ptr noundef nonnull @__func__.BitmapHeapNext) #7
+  br label %159
+
+159:                                              ; preds = %155, %157
+  %160 = load i32, ptr %117, align 8
+  %161 = load i32, ptr %118, align 8
+  %162 = icmp slt i32 %160, %161
+  br i1 %162, label %163, label %165
+
+163:                                              ; preds = %159
+  %164 = add nsw i32 %160, 1
+  store i32 %164, ptr %117, align 8
+  br label %165
+
+165:                                              ; preds = %159, %163
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
-  store i8 0, ptr %120, align 8
-  br label %167
+  store i8 0, ptr %119, align 8
+  br label %166
 
-167:                                              ; preds = %153, %166, %148, %151
-  %168 = load ptr, ptr %3, align 8
-  %169 = icmp eq ptr %168, null
-  br i1 %169, label %170, label %197
+166:                                              ; preds = %152, %165, %147, %150
+  %167 = load ptr, ptr %3, align 8
+  %168 = icmp eq ptr %167, null
+  br i1 %168, label %169, label %196
 
-170:                                              ; preds = %167
-  %.val58.i = load ptr, ptr %123, align 8
+169:                                              ; preds = %166
+  %.val58.i = load ptr, ptr %122, align 8
   %.not.i.i57 = icmp eq ptr %.val58.i, null
   br i1 %.not.i.i57, label %BitmapPrefetch.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %170
-  %171 = load i32, ptr %128, align 8
-  %172 = load i32, ptr %121, align 4
-  %173 = icmp slt i32 %171, %172
-  br i1 %173, label %.lr.ph.i, label %BitmapPrefetch.exit
+.preheader.i:                                     ; preds = %169
+  %170 = load i32, ptr %127, align 8
+  %171 = load i32, ptr %120, align 4
+  %172 = icmp slt i32 %170, %171
+  br i1 %172, label %.lr.ph.i, label %BitmapPrefetch.exit
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %193
-  %174 = call ptr @tbm_iterate(ptr noundef nonnull %122) #7
-  %175 = icmp eq ptr %174, null
-  br i1 %175, label %.thread.i, label %176
+.lr.ph.i:                                         ; preds = %.preheader.i, %192
+  %173 = call ptr @tbm_iterate(ptr noundef nonnull %121) #7
+  %174 = icmp eq ptr %173, null
+  br i1 %174, label %.thread.i, label %175
 
 .thread.i:                                        ; preds = %.lr.ph.i
-  call void @tbm_end_iterate(ptr noundef nonnull %122) #7
+  call void @tbm_end_iterate(ptr noundef nonnull %121) #7
   br label %BitmapPrefetch.exit
 
-176:                                              ; preds = %.lr.ph.i
-  %177 = load i32, ptr %128, align 8
-  %178 = add i32 %177, 1
-  store i32 %178, ptr %128, align 8
-  %179 = load i32, ptr %174, align 4
-  store i32 %179, ptr %124, align 8
-  %180 = load i32, ptr %125, align 8
-  %181 = and i32 %180, 1024
-  %.not53.i = icmp eq i32 %181, 0
-  br i1 %.not53.i, label %182, label %.critedge.i
+175:                                              ; preds = %.lr.ph.i
+  %176 = load i32, ptr %127, align 8
+  %177 = add i32 %176, 1
+  store i32 %177, ptr %127, align 8
+  %178 = load i32, ptr %173, align 4
+  store i32 %178, ptr %123, align 8
+  %179 = load i32, ptr %124, align 8
+  %180 = and i32 %179, 1024
+  %.not53.i = icmp eq i32 %180, 0
+  br i1 %.not53.i, label %181, label %.critedge.i
 
-182:                                              ; preds = %176
-  %183 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  %184 = load i8, ptr %183, align 4, !range !5, !noundef !6
-  %185 = trunc nuw i8 %184 to i1
-  br i1 %185, label %.critedge.i, label %186
+181:                                              ; preds = %175
+  %182 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %183 = load i8, ptr %182, align 4, !range !5, !noundef !6
+  %184 = trunc nuw i8 %183 to i1
+  br i1 %184, label %.critedge.i, label %185
 
-186:                                              ; preds = %182
-  %187 = load ptr, ptr %126, align 8
-  %188 = call zeroext i8 @visibilitymap_get_status(ptr noundef %187, i32 noundef %179, ptr noundef nonnull %127) #7
-  %189 = and i8 %188, 1
-  %.not66.i = icmp eq i8 %189, 0
-  br i1 %.not66.i, label %..critedge_crit_edge.i, label %193
+185:                                              ; preds = %181
+  %186 = load ptr, ptr %125, align 8
+  %187 = call zeroext i8 @visibilitymap_get_status(ptr noundef %186, i32 noundef %178, ptr noundef nonnull %126) #7
+  %188 = and i8 %187, 1
+  %.not66.i = icmp eq i8 %188, 0
+  br i1 %.not66.i, label %..critedge_crit_edge.i, label %192
 
-..critedge_crit_edge.i:                           ; preds = %186
-  %.pre69.i = load i32, ptr %174, align 4
+..critedge_crit_edge.i:                           ; preds = %185
+  %.pre69.i = load i32, ptr %173, align 4
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %..critedge_crit_edge.i, %182, %176
-  %190 = phi i32 [ %.pre69.i, %..critedge_crit_edge.i ], [ %179, %182 ], [ %179, %176 ]
-  %191 = load ptr, ptr %.1, align 8
-  %192 = call i64 @PrefetchBuffer(ptr noundef %191, i32 noundef 0, i32 noundef %190) #7
-  br label %193
+.critedge.i:                                      ; preds = %..critedge_crit_edge.i, %181, %175
+  %189 = phi i32 [ %.pre69.i, %..critedge_crit_edge.i ], [ %178, %181 ], [ %178, %175 ]
+  %190 = load ptr, ptr %.1, align 8
+  %191 = call i64 @PrefetchBuffer(ptr noundef %190, i32 noundef 0, i32 noundef %189) #7
+  br label %192
 
-193:                                              ; preds = %.critedge.i, %186
-  %194 = load i32, ptr %128, align 8
-  %195 = load i32, ptr %121, align 4
-  %196 = icmp slt i32 %194, %195
-  br i1 %196, label %.lr.ph.i, label %BitmapPrefetch.exit
+192:                                              ; preds = %.critedge.i, %185
+  %193 = load i32, ptr %127, align 8
+  %194 = load i32, ptr %120, align 4
+  %195 = icmp slt i32 %193, %194
+  br i1 %195, label %.lr.ph.i, label %BitmapPrefetch.exit
 
-197:                                              ; preds = %167
-  %198 = getelementptr inbounds nuw i8, ptr %168, i64 20
-  %199 = load i32, ptr %198, align 4
-  %200 = getelementptr inbounds nuw i8, ptr %168, i64 24
-  %201 = load i32, ptr %200, align 8
-  %202 = icmp slt i32 %199, %201
-  br i1 %202, label %203, label %BitmapPrefetch.exit
+196:                                              ; preds = %166
+  %197 = getelementptr inbounds nuw i8, ptr %167, i64 20
+  %198 = load i32, ptr %197, align 4
+  %199 = getelementptr inbounds nuw i8, ptr %167, i64 24
+  %200 = load i32, ptr %199, align 8
+  %201 = icmp slt i32 %198, %200
+  br i1 %201, label %202, label %BitmapPrefetch.exit
 
-203:                                              ; preds = %197
-  %.val.i = load ptr, ptr %123, align 8
+202:                                              ; preds = %196
+  %.val.i = load ptr, ptr %122, align 8
   %.not.i59.i = icmp eq ptr %.val.i, null
   br i1 %.not.i59.i, label %BitmapPrefetch.exit, label %.preheader67.i
 
-.preheader67.i:                                   ; preds = %203
-  %204 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  br label %205
+.preheader67.i:                                   ; preds = %202
+  %203 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  br label %204
 
-205:                                              ; preds = %.backedge, %.preheader67.i
-  %206 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %204, i8 1, ptr nonnull elementtype(i8) %204) #7, !srcloc !7
-  %.not.i55 = icmp eq i8 %206, 0
-  br i1 %.not.i55, label %209, label %207
+204:                                              ; preds = %.backedge, %.preheader67.i
+  %205 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %203, i8 1, ptr nonnull elementtype(i8) %203) #7, !srcloc !7
+  %.not.i55 = icmp eq i8 %205, 0
+  br i1 %.not.i55, label %208, label %206
 
-207:                                              ; preds = %205
-  %208 = call i32 @s_lock(ptr noundef nonnull %204, ptr noundef nonnull @.str, i32 noundef 492, ptr noundef nonnull @__func__.BitmapPrefetch) #7
-  br label %209
+206:                                              ; preds = %204
+  %207 = call i32 @s_lock(ptr noundef nonnull %203, ptr noundef nonnull @.str, i32 noundef 492, ptr noundef nonnull @__func__.BitmapPrefetch) #7
+  br label %208
 
-209:                                              ; preds = %207, %205
-  %210 = load i32, ptr %198, align 4
-  %211 = load i32, ptr %200, align 8
-  %212 = icmp slt i32 %210, %211
-  br i1 %212, label %213, label %.critedge55.i
+208:                                              ; preds = %206, %204
+  %209 = load i32, ptr %197, align 4
+  %210 = load i32, ptr %199, align 8
+  %211 = icmp slt i32 %209, %210
+  br i1 %211, label %212, label %.critedge55.i
 
-213:                                              ; preds = %209
-  %214 = add nsw i32 %210, 1
-  store i32 %214, ptr %198, align 4
+212:                                              ; preds = %208
+  %213 = add nsw i32 %209, 1
+  store i32 %213, ptr %197, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
-  store i8 0, ptr %204, align 8
-  %215 = call ptr @tbm_iterate(ptr noundef nonnull %122) #7
-  %216 = icmp eq ptr %215, null
-  br i1 %216, label %217, label %218
+  store i8 0, ptr %203, align 8
+  %214 = call ptr @tbm_iterate(ptr noundef nonnull %121) #7
+  %215 = icmp eq ptr %214, null
+  br i1 %215, label %216, label %217
 
-.critedge55.i:                                    ; preds = %209
+.critedge55.i:                                    ; preds = %208
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
-  store i8 0, ptr %204, align 8
+  store i8 0, ptr %203, align 8
   br label %BitmapPrefetch.exit
 
-217:                                              ; preds = %213
-  call void @tbm_end_iterate(ptr noundef nonnull %122) #7
+216:                                              ; preds = %212
+  call void @tbm_end_iterate(ptr noundef nonnull %121) #7
   br label %BitmapPrefetch.exit
 
-218:                                              ; preds = %213
-  %219 = load i32, ptr %215, align 4
-  store i32 %219, ptr %124, align 8
-  %220 = load i32, ptr %125, align 8
-  %221 = and i32 %220, 1024
-  %.not52.i = icmp eq i32 %221, 0
-  br i1 %.not52.i, label %222, label %.critedge57.i
+217:                                              ; preds = %212
+  %218 = load i32, ptr %214, align 4
+  store i32 %218, ptr %123, align 8
+  %219 = load i32, ptr %124, align 8
+  %220 = and i32 %219, 1024
+  %.not52.i = icmp eq i32 %220, 0
+  br i1 %.not52.i, label %221, label %.critedge57.i
 
-222:                                              ; preds = %218
-  %223 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %224 = load i8, ptr %223, align 4, !range !5, !noundef !6
-  %225 = trunc nuw i8 %224 to i1
-  br i1 %225, label %.critedge57.i, label %226
+221:                                              ; preds = %217
+  %222 = getelementptr inbounds nuw i8, ptr %214, i64 8
+  %223 = load i8, ptr %222, align 4, !range !5, !noundef !6
+  %224 = trunc nuw i8 %223 to i1
+  br i1 %224, label %.critedge57.i, label %225
 
-226:                                              ; preds = %222
-  %227 = load ptr, ptr %126, align 8
-  %228 = call zeroext i8 @visibilitymap_get_status(ptr noundef %227, i32 noundef %219, ptr noundef nonnull %127) #7
-  %229 = and i8 %228, 1
-  %.not65.i = icmp eq i8 %229, 0
+225:                                              ; preds = %221
+  %226 = load ptr, ptr %125, align 8
+  %227 = call zeroext i8 @visibilitymap_get_status(ptr noundef %226, i32 noundef %218, ptr noundef nonnull %126) #7
+  %228 = and i8 %227, 1
+  %.not65.i = icmp eq i8 %228, 0
   br i1 %.not65.i, label %..critedge57_crit_edge.i, label %.backedge
 
-..critedge57_crit_edge.i:                         ; preds = %226
-  %.pre.i56 = load i32, ptr %215, align 4
+..critedge57_crit_edge.i:                         ; preds = %225
+  %.pre.i56 = load i32, ptr %214, align 4
   br label %.critedge57.i
 
-.critedge57.i:                                    ; preds = %..critedge57_crit_edge.i, %222, %218
-  %230 = phi i32 [ %.pre.i56, %..critedge57_crit_edge.i ], [ %219, %222 ], [ %219, %218 ]
-  %231 = load ptr, ptr %.1, align 8
-  %232 = call i64 @PrefetchBuffer(ptr noundef %231, i32 noundef 0, i32 noundef %230) #7
+.critedge57.i:                                    ; preds = %..critedge57_crit_edge.i, %221, %217
+  %229 = phi i32 [ %.pre.i56, %..critedge57_crit_edge.i ], [ %218, %221 ], [ %218, %217 ]
+  %230 = load ptr, ptr %.1, align 8
+  %231 = call i64 @PrefetchBuffer(ptr noundef %230, i32 noundef 0, i32 noundef %229) #7
   br label %.backedge
 
-.backedge:                                        ; preds = %.critedge57.i, %226
-  br label %205
+.backedge:                                        ; preds = %.critedge57.i, %225
+  br label %204
 
-BitmapPrefetch.exit:                              ; preds = %193, %170, %.preheader.i, %.thread.i, %197, %203, %.critedge55.i, %217
-  %233 = load i8, ptr %129, align 8, !range !5, !noundef !6
-  %234 = trunc nuw i8 %233 to i1
-  br i1 %234, label %235, label %.loopexit65
+BitmapPrefetch.exit:                              ; preds = %192, %169, %.preheader.i, %.thread.i, %196, %202, %.critedge55.i, %216
+  %232 = load i8, ptr %128, align 8, !range !5, !noundef !6
+  %233 = trunc nuw i8 %232 to i1
+  br i1 %233, label %234, label %.loopexit65
 
-235:                                              ; preds = %BitmapPrefetch.exit
-  store ptr %8, ptr %130, align 8
-  %236 = load ptr, ptr %131, align 8
+234:                                              ; preds = %BitmapPrefetch.exit
+  store ptr %8, ptr %129, align 8
+  %235 = load ptr, ptr %130, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #7
-  %237 = icmp eq ptr %236, null
-  br i1 %237, label %ExecQualAndReset.exit.thread, label %ExecQualAndReset.exit
+  %236 = icmp eq ptr %235, null
+  br i1 %236, label %ExecQualAndReset.exit.thread, label %ExecQualAndReset.exit
 
-ExecQualAndReset.exit.thread:                     ; preds = %235
+ExecQualAndReset.exit.thread:                     ; preds = %234
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #7
-  %238 = load ptr, ptr %132, align 8
-  call void @MemoryContextReset(ptr noundef %238) #7
+  %237 = load ptr, ptr %131, align 8
+  call void @MemoryContextReset(ptr noundef %237) #7
   br label %.loopexit65
 
-ExecQualAndReset.exit:                            ; preds = %235
-  %239 = load ptr, ptr %132, align 8
-  %240 = load ptr, ptr @CurrentMemoryContext, align 8
+ExecQualAndReset.exit:                            ; preds = %234
+  %238 = load ptr, ptr %131, align 8
+  %239 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %238, ptr @CurrentMemoryContext, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %235, i64 32
+  %241 = load ptr, ptr %240, align 8
+  %242 = call i64 %241(ptr noundef nonnull %235, ptr noundef nonnull %6, ptr noundef nonnull %2) #7
   store ptr %239, ptr @CurrentMemoryContext, align 8
-  %241 = getelementptr inbounds nuw i8, ptr %236, i64 32
-  %242 = load ptr, ptr %241, align 8
-  %243 = call i64 %242(ptr noundef nonnull %236, ptr noundef nonnull %6, ptr noundef nonnull %2) #7
-  store ptr %240, ptr @CurrentMemoryContext, align 8
-  %.not64 = icmp eq i64 %243, 0
+  %.not64 = icmp eq i64 %242, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #7
-  %244 = load ptr, ptr %132, align 8
-  call void @MemoryContextReset(ptr noundef %244) #7
-  br i1 %.not64, label %245, label %.loopexit65
+  %243 = load ptr, ptr %131, align 8
+  call void @MemoryContextReset(ptr noundef %243) #7
+  br i1 %.not64, label %244, label %.loopexit65
 
-245:                                              ; preds = %ExecQualAndReset.exit
-  %246 = load ptr, ptr %133, align 8
-  %.not54 = icmp eq ptr %246, null
-  br i1 %.not54, label %251, label %247
+244:                                              ; preds = %ExecQualAndReset.exit
+  %245 = load ptr, ptr %132, align 8
+  %.not54 = icmp eq ptr %245, null
+  br i1 %.not54, label %250, label %246
 
-247:                                              ; preds = %245
-  %248 = getelementptr inbounds nuw i8, ptr %246, i64 248
-  %249 = load double, ptr %248, align 8
-  %250 = fadd double %249, 1.000000e+00
-  store double %250, ptr %248, align 8
-  br label %251
+246:                                              ; preds = %244
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 248
+  %248 = load double, ptr %247, align 8
+  %249 = fadd double %248, 1.000000e+00
+  store double %249, ptr %247, align 8
+  br label %250
 
-251:                                              ; preds = %247, %245
-  %252 = load ptr, ptr %134, align 8
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 24
-  %254 = load ptr, ptr %253, align 8
-  call void %254(ptr noundef %8) #7
-  %255 = load i32, ptr @CheckXidAlive, align 4
-  %256 = icmp eq i32 %255, 0
-  %257 = load i8, ptr @bsysscan, align 1, !range !5
-  %258 = trunc nuw i8 %257 to i1
-  %.not3.i = select i1 %256, i1 true, i1 %258
+250:                                              ; preds = %246, %244
+  %251 = load ptr, ptr %133, align 8
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
+  %253 = load ptr, ptr %252, align 8
+  call void %253(ptr noundef %8) #7
+  %254 = load i32, ptr @CheckXidAlive, align 4
+  %255 = icmp eq i32 %254, 0
+  %256 = load i8, ptr @bsysscan, align 1, !range !5
+  %257 = trunc nuw i8 %256 to i1
+  %.not3.i = select i1 %255, i1 true, i1 %257
   br i1 %.not3.i, label %table_scan_bitmap_next_tuple.exit, label %._crit_edge, !prof !14, !llvm.loop !15
 
 .loopexit:                                        ; preds = %table_scan_bitmap_next_tuple.exit, %BitmapTableScanSetup.exit
-  %.047 = phi ptr [ %113, %BitmapTableScanSetup.exit ], [ %.1, %table_scan_bitmap_next_tuple.exit ]
-  %259 = load ptr, ptr %3, align 8
-  %260 = icmp eq ptr %259, null
-  br i1 %260, label %261, label %277
+  %.047 = phi ptr [ %112, %BitmapTableScanSetup.exit ], [ %.1, %table_scan_bitmap_next_tuple.exit ]
+  %258 = load ptr, ptr %3, align 8
+  %259 = icmp eq ptr %258, null
+  br i1 %259, label %260, label %276
 
-261:                                              ; preds = %.loopexit
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %264 = load i32, ptr %263, align 8
-  %265 = icmp sgt i32 %264, 0
-  br i1 %265, label %266, label %268
+260:                                              ; preds = %.loopexit
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %263 = load i32, ptr %262, align 8
+  %264 = icmp sgt i32 %263, 0
+  br i1 %264, label %265, label %267
 
-266:                                              ; preds = %261
-  %267 = add nsw i32 %264, -1
-  store i32 %267, ptr %263, align 8
+265:                                              ; preds = %260
+  %266 = add nsw i32 %263, -1
+  store i32 %266, ptr %262, align 8
   br label %BitmapAdjustPrefetchIterator.exit
 
-268:                                              ; preds = %261
-  %269 = getelementptr i8, ptr %0, i64 272
-  %.val29.i = load ptr, ptr %269, align 8
+267:                                              ; preds = %260
+  %268 = getelementptr i8, ptr %0, i64 272
+  %.val29.i = load ptr, ptr %268, align 8
   %.not.i.i60 = icmp eq ptr %.val29.i, null
-  br i1 %.not.i.i60, label %BitmapAdjustPrefetchIterator.exit, label %270
+  br i1 %.not.i.i60, label %BitmapAdjustPrefetchIterator.exit, label %269
 
-270:                                              ; preds = %268
-  %271 = call ptr @tbm_iterate(ptr noundef nonnull %262) #7
-  %.not28.i = icmp eq ptr %271, null
-  br i1 %.not28.i, label %274, label %272
+269:                                              ; preds = %267
+  %270 = call ptr @tbm_iterate(ptr noundef nonnull %261) #7
+  %.not28.i = icmp eq ptr %270, null
+  br i1 %.not28.i, label %273, label %271
 
-272:                                              ; preds = %270
-  %273 = load i32, ptr %271, align 4
-  br label %274
+271:                                              ; preds = %269
+  %272 = load i32, ptr %270, align 4
+  br label %273
 
-274:                                              ; preds = %272, %270
-  %275 = phi i32 [ %273, %272 ], [ -1, %270 ]
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i32 %275, ptr %276, align 8
+273:                                              ; preds = %271, %269
+  %274 = phi i32 [ %272, %271 ], [ -1, %269 ]
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i32 %274, ptr %275, align 8
   br label %BitmapAdjustPrefetchIterator.exit
 
-277:                                              ; preds = %.loopexit
-  %278 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %279 = load i32, ptr %278, align 8
-  %280 = icmp sgt i32 %279, 0
-  br i1 %280, label %281, label %BitmapAdjustPrefetchIterator.exit
+276:                                              ; preds = %.loopexit
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %278 = load i32, ptr %277, align 8
+  %279 = icmp sgt i32 %278, 0
+  br i1 %279, label %280, label %BitmapAdjustPrefetchIterator.exit
 
-281:                                              ; preds = %277
-  %282 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %283 = getelementptr inbounds nuw i8, ptr %259, i64 16
-  %284 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %283, i8 1, ptr nonnull elementtype(i8) %283) #7, !srcloc !7
-  %.not.i58 = icmp eq i8 %284, 0
-  br i1 %.not.i58, label %287, label %285
+280:                                              ; preds = %276
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %282 = getelementptr inbounds nuw i8, ptr %258, i64 16
+  %283 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %282, i8 1, ptr nonnull elementtype(i8) %282) #7, !srcloc !7
+  %.not.i58 = icmp eq i8 %283, 0
+  br i1 %.not.i58, label %286, label %284
 
-285:                                              ; preds = %281
-  %286 = call i32 @s_lock(ptr noundef nonnull %283, ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @__func__.BitmapAdjustPrefetchIterator) #7
-  br label %287
+284:                                              ; preds = %280
+  %285 = call i32 @s_lock(ptr noundef nonnull %282, ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @__func__.BitmapAdjustPrefetchIterator) #7
+  br label %286
 
-287:                                              ; preds = %285, %281
-  %288 = getelementptr inbounds nuw i8, ptr %259, i64 20
-  %289 = load i32, ptr %288, align 4
-  %290 = icmp sgt i32 %289, 0
-  br i1 %290, label %291, label %293
+286:                                              ; preds = %284, %280
+  %287 = getelementptr inbounds nuw i8, ptr %258, i64 20
+  %288 = load i32, ptr %287, align 4
+  %289 = icmp sgt i32 %288, 0
+  br i1 %289, label %290, label %292
 
-291:                                              ; preds = %287
-  %292 = add nsw i32 %289, -1
-  store i32 %292, ptr %288, align 4
+290:                                              ; preds = %286
+  %291 = add nsw i32 %288, -1
+  store i32 %291, ptr %287, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
-  store i8 0, ptr %283, align 8
+  store i8 0, ptr %282, align 8
   br label %BitmapAdjustPrefetchIterator.exit
 
-293:                                              ; preds = %287
+292:                                              ; preds = %286
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !18
-  store i8 0, ptr %283, align 8
-  %294 = getelementptr i8, ptr %0, i64 272
-  %.val.i59 = load ptr, ptr %294, align 8
+  store i8 0, ptr %282, align 8
+  %293 = getelementptr i8, ptr %0, i64 272
+  %.val.i59 = load ptr, ptr %293, align 8
   %.not.i30.i = icmp eq ptr %.val.i59, null
-  br i1 %.not.i30.i, label %BitmapAdjustPrefetchIterator.exit, label %295
+  br i1 %.not.i30.i, label %BitmapAdjustPrefetchIterator.exit, label %294
 
-295:                                              ; preds = %293
-  %296 = call ptr @tbm_iterate(ptr noundef nonnull %282) #7
-  %.not27.i = icmp eq ptr %296, null
-  br i1 %.not27.i, label %299, label %297
+294:                                              ; preds = %292
+  %295 = call ptr @tbm_iterate(ptr noundef nonnull %281) #7
+  %.not27.i = icmp eq ptr %295, null
+  br i1 %.not27.i, label %298, label %296
 
-297:                                              ; preds = %295
-  %298 = load i32, ptr %296, align 4
-  br label %299
+296:                                              ; preds = %294
+  %297 = load i32, ptr %295, align 4
+  br label %298
 
-299:                                              ; preds = %297, %295
-  %300 = phi i32 [ %298, %297 ], [ -1, %295 ]
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i32 %300, ptr %301, align 8
+298:                                              ; preds = %296, %294
+  %299 = phi i32 [ %297, %296 ], [ -1, %294 ]
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i32 %299, ptr %300, align 8
   br label %BitmapAdjustPrefetchIterator.exit
 
-BitmapAdjustPrefetchIterator.exit:                ; preds = %266, %268, %274, %277, %291, %293, %299
-  %302 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %303 = load i32, ptr @CheckXidAlive, align 4
-  %304 = icmp eq i32 %303, 0
-  %305 = load i8, ptr @bsysscan, align 1, !range !5
-  %306 = trunc nuw i8 %305 to i1
-  %.not6.i = select i1 %304, i1 true, i1 %306
-  br i1 %.not6.i, label %table_scan_bitmap_next_block.exit, label %307, !prof !11
+BitmapAdjustPrefetchIterator.exit:                ; preds = %265, %267, %273, %276, %290, %292, %298
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 316
+  %302 = load i32, ptr @CheckXidAlive, align 4
+  %303 = icmp eq i32 %302, 0
+  %304 = load i8, ptr @bsysscan, align 1, !range !5
+  %305 = trunc nuw i8 %304 to i1
+  %.not6.i = select i1 %303, i1 true, i1 %305
+  br i1 %.not6.i, label %table_scan_bitmap_next_block.exit, label %306, !prof !11
 
-307:                                              ; preds = %BitmapAdjustPrefetchIterator.exit
-  %308 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %308)
-  %309 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #7
+306:                                              ; preds = %BitmapAdjustPrefetchIterator.exit
+  %307 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %307)
+  %308 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #7
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1989, ptr noundef nonnull @__func__.table_scan_bitmap_next_block) #7
   unreachable
 
 table_scan_bitmap_next_block.exit:                ; preds = %BitmapAdjustPrefetchIterator.exit
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %312 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %313 = load ptr, ptr %.047, align 8
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 320
-  %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 336
-  %317 = load ptr, ptr %316, align 8
-  %318 = call zeroext i1 %317(ptr noundef nonnull %.047, ptr noundef nonnull %302, ptr noundef nonnull %312, ptr noundef nonnull %310, ptr noundef nonnull %311) #7
-  br i1 %318, label %319, label %371
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %312 = load ptr, ptr %.047, align 8
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 320
+  %314 = load ptr, ptr %313, align 8
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 336
+  %316 = load ptr, ptr %315, align 8
+  %317 = call zeroext i1 %316(ptr noundef nonnull %.047, ptr noundef nonnull %301, ptr noundef nonnull %311, ptr noundef nonnull %309, ptr noundef nonnull %310) #7
+  br i1 %317, label %318, label %370
 
-319:                                              ; preds = %table_scan_bitmap_next_block.exit
-  %320 = load ptr, ptr %3, align 8
-  %321 = icmp eq ptr %320, null
-  br i1 %321, label %322, label %348
+318:                                              ; preds = %table_scan_bitmap_next_block.exit
+  %319 = load ptr, ptr %3, align 8
+  %320 = icmp eq ptr %319, null
+  br i1 %320, label %321, label %347
 
-322:                                              ; preds = %319
-  %323 = getelementptr i8, ptr %0, i64 272
-  %.val = load ptr, ptr %323, align 8
+321:                                              ; preds = %318
+  %322 = getelementptr i8, ptr %0, i64 272
+  %.val = load ptr, ptr %322, align 8
   %.not.i61 = icmp eq ptr %.val, null
-  br i1 %.not.i61, label %334, label %324
+  br i1 %.not.i61, label %333, label %323
 
-324:                                              ; preds = %322
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %326 = load i32, ptr %325, align 8
-  %327 = load i32, ptr %302, align 4
-  %328 = icmp ult i32 %326, %327
-  br i1 %328, label %329, label %334
+323:                                              ; preds = %321
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %325 = load i32, ptr %324, align 8
+  %326 = load i32, ptr %301, align 4
+  %327 = icmp ult i32 %325, %326
+  br i1 %327, label %328, label %333
 
-329:                                              ; preds = %324
-  %330 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %330)
-  %331 = load i32, ptr %325, align 8
-  %332 = load i32, ptr %302, align 4
-  %333 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %331, i32 noundef %332) #7
+328:                                              ; preds = %323
+  %329 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %329)
+  %330 = load i32, ptr %324, align 8
+  %331 = load i32, ptr %301, align 4
+  %332 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %330, i32 noundef %331) #7
   call void @errfinish(ptr noundef nonnull @.str, i32 noundef 281, ptr noundef nonnull @__func__.BitmapHeapNext) #7
   unreachable
 
-334:                                              ; preds = %324, %322
-  %335 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %336 = load i32, ptr %335, align 8
-  %337 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  %338 = load i32, ptr %337, align 4
-  %.not31.i = icmp slt i32 %338, %336
-  br i1 %.not31.i, label %339, label %BitmapAdjustPrefetchTarget.exit
+333:                                              ; preds = %323, %321
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %335 = load i32, ptr %334, align 8
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %337 = load i32, ptr %336, align 4
+  %.not31.i = icmp slt i32 %337, %335
+  br i1 %.not31.i, label %338, label %BitmapAdjustPrefetchTarget.exit
 
-339:                                              ; preds = %334
-  %340 = sdiv i32 %336, 2
-  %.not32.i = icmp slt i32 %338, %340
-  br i1 %.not32.i, label %342, label %341
+338:                                              ; preds = %333
+  %339 = sdiv i32 %335, 2
+  %.not32.i = icmp slt i32 %337, %339
+  br i1 %.not32.i, label %341, label %340
 
-341:                                              ; preds = %339
-  store i32 %336, ptr %337, align 4
+340:                                              ; preds = %338
+  store i32 %335, ptr %336, align 4
   br label %BitmapAdjustPrefetchTarget.exit
 
-342:                                              ; preds = %339
-  %343 = icmp sgt i32 %338, 0
-  br i1 %343, label %344, label %346
+341:                                              ; preds = %338
+  %342 = icmp sgt i32 %337, 0
+  br i1 %342, label %343, label %345
 
-344:                                              ; preds = %342
-  %345 = shl nuw nsw i32 %338, 1
-  store i32 %345, ptr %337, align 4
+343:                                              ; preds = %341
+  %344 = shl nuw nsw i32 %337, 1
+  store i32 %344, ptr %336, align 4
   br label %BitmapAdjustPrefetchTarget.exit
 
-346:                                              ; preds = %342
-  %347 = add nsw i32 %338, 1
-  store i32 %347, ptr %337, align 4
+345:                                              ; preds = %341
+  %346 = add nsw i32 %337, 1
+  store i32 %346, ptr %336, align 4
   br label %BitmapAdjustPrefetchTarget.exit
 
-348:                                              ; preds = %319
-  %349 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %350 = load i32, ptr %349, align 8
-  %351 = getelementptr inbounds nuw i8, ptr %320, i64 24
-  %352 = load i32, ptr %351, align 8
-  %353 = icmp slt i32 %352, %350
-  br i1 %353, label %354, label %BitmapAdjustPrefetchTarget.exit
+347:                                              ; preds = %318
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %349 = load i32, ptr %348, align 8
+  %350 = getelementptr inbounds nuw i8, ptr %319, i64 24
+  %351 = load i32, ptr %350, align 8
+  %352 = icmp slt i32 %351, %349
+  br i1 %352, label %353, label %BitmapAdjustPrefetchTarget.exit
 
-354:                                              ; preds = %348
-  %355 = getelementptr inbounds nuw i8, ptr %320, i64 16
-  %356 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %355, i8 1, ptr nonnull elementtype(i8) %355) #7, !srcloc !7
-  %.not.i62 = icmp eq i8 %356, 0
-  br i1 %.not.i62, label %359, label %357
+353:                                              ; preds = %347
+  %354 = getelementptr inbounds nuw i8, ptr %319, i64 16
+  %355 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %354, i8 1, ptr nonnull elementtype(i8) %354) #7, !srcloc !7
+  %.not.i62 = icmp eq i8 %355, 0
+  br i1 %.not.i62, label %358, label %356
 
-357:                                              ; preds = %354
-  %358 = call i32 @s_lock(ptr noundef nonnull %355, ptr noundef nonnull @.str, i32 noundef 413, ptr noundef nonnull @__func__.BitmapAdjustPrefetchTarget) #7
-  br label %359
+356:                                              ; preds = %353
+  %357 = call i32 @s_lock(ptr noundef nonnull %354, ptr noundef nonnull @.str, i32 noundef 413, ptr noundef nonnull @__func__.BitmapAdjustPrefetchTarget) #7
+  br label %358
 
-359:                                              ; preds = %357, %354
-  %360 = load i32, ptr %351, align 8
-  %361 = load i32, ptr %349, align 8
-  %.not29.i = icmp slt i32 %360, %361
-  br i1 %.not29.i, label %362, label %370
+358:                                              ; preds = %356, %353
+  %359 = load i32, ptr %350, align 8
+  %360 = load i32, ptr %348, align 8
+  %.not29.i = icmp slt i32 %359, %360
+  br i1 %.not29.i, label %361, label %369
 
-362:                                              ; preds = %359
-  %363 = sdiv i32 %361, 2
-  %.not30.i = icmp slt i32 %360, %363
-  br i1 %.not30.i, label %364, label %.sink.split.i
+361:                                              ; preds = %358
+  %362 = sdiv i32 %360, 2
+  %.not30.i = icmp slt i32 %359, %362
+  br i1 %.not30.i, label %363, label %.sink.split.i
 
-364:                                              ; preds = %362
-  %365 = icmp sgt i32 %360, 0
-  br i1 %365, label %366, label %368
+363:                                              ; preds = %361
+  %364 = icmp sgt i32 %359, 0
+  br i1 %364, label %365, label %367
 
-366:                                              ; preds = %364
-  %367 = shl nuw nsw i32 %360, 1
+365:                                              ; preds = %363
+  %366 = shl nuw nsw i32 %359, 1
   br label %.sink.split.i
 
-368:                                              ; preds = %364
-  %369 = add nsw i32 %360, 1
+367:                                              ; preds = %363
+  %368 = add nsw i32 %359, 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %368, %366, %362
-  %.sink.i = phi i32 [ %367, %366 ], [ %369, %368 ], [ %361, %362 ]
-  store i32 %.sink.i, ptr %351, align 8
-  br label %370
+.sink.split.i:                                    ; preds = %367, %365, %361
+  %.sink.i = phi i32 [ %366, %365 ], [ %368, %367 ], [ %360, %361 ]
+  store i32 %.sink.i, ptr %350, align 8
+  br label %369
 
-370:                                              ; preds = %.sink.split.i, %359
+369:                                              ; preds = %.sink.split.i, %358
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
-  store i8 0, ptr %355, align 8
+  store i8 0, ptr %354, align 8
   br label %BitmapAdjustPrefetchTarget.exit
 
-371:                                              ; preds = %table_scan_bitmap_next_block.exit
-  %372 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds nuw i8, ptr %373, i64 24
-  %375 = load ptr, ptr %374, align 8
-  call void %375(ptr noundef %8) #7
+370:                                              ; preds = %table_scan_bitmap_next_block.exit
+  %371 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %372 = load ptr, ptr %371, align 8
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 24
+  %374 = load ptr, ptr %373, align 8
+  call void %374(ptr noundef %8) #7
   br label %.loopexit65
 
-.loopexit65:                                      ; preds = %BitmapPrefetch.exit, %ExecQualAndReset.exit, %ExecQualAndReset.exit.thread, %371
+.loopexit65:                                      ; preds = %BitmapPrefetch.exit, %ExecQualAndReset.exit, %ExecQualAndReset.exit.thread, %370
   ret ptr %8
 }
 

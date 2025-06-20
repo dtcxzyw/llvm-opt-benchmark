@@ -582,8 +582,8 @@ define hidden void @"_ZN105_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..path..GenericArgument$GT$$GT$$GT$17h73965c0e30a8608bE.exit.i.i": ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %.sroa.5.0..sroa_idx2.i, ptr noundef nonnull align 8 dereferenceable(320) %.sroa.5.0..sroa_idx.i, i64 320, i1 false), !noalias !215
   %.not.i.i = icmp eq i64 %9, 23
-  %spec.store.select.i = select i1 %.not.i.i, i64 24, i64 23
-  store i64 %spec.store.select.i, ptr %6, align 8, !alias.scope !203, !noalias !215
+  %spec.store.select.i.i = select i1 %.not.i.i, i64 24, i64 23
+  store i64 %spec.store.select.i.i, ptr %6, align 8, !alias.scope !212, !noalias !213
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h3fa060a44e77c93bE.llvm.5761680391814234304.exit.i
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h3fa060a44e77c93bE.llvm.5761680391814234304.exit.i: ; preds = %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..path..GenericArgument$GT$$GT$$GT$17h73965c0e30a8608bE.exit.i.i", %8
@@ -755,8 +755,8 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(320) %.sroa.5.0..sroa_idx, i64 320, i1 false), !noalias !7
   %.not.i = icmp eq i64 %4, 23
-  %spec.store.select = select i1 %.not.i, i64 24, i64 23
-  store i64 %spec.store.select, ptr %1, align 8
+  %spec.store.select.i = select i1 %.not.i, i64 24, i64 23
+  store i64 %spec.store.select.i, ptr %1, align 8, !alias.scope !248, !noalias !251
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h3fa060a44e77c93bE.llvm.5761680391814234304.exit
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h3fa060a44e77c93bE.llvm.5761680391814234304.exit: ; preds = %2, %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..path..GenericArgument$GT$$GT$$GT$17h73965c0e30a8608bE.exit.i"

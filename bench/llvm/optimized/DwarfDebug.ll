@@ -2650,7 +2650,7 @@ define dso_local void @_ZN4llvm23DebugLocDwarfExpression6emitOpEhPKc(ptr noundef
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #29
   %.not = icmp eq ptr %2, null
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #29
-  br i1 %.not, label %26, label %12
+  br i1 %.not, label %27, label %12
 
 12:                                               ; preds = %3
   %13 = load i8, ptr %2, align 1, !tbaa !131
@@ -2659,58 +2659,58 @@ define dso_local void @_ZN4llvm23DebugLocDwarfExpression6emitOpEhPKc(ptr noundef
 
 14:                                               ; preds = %12
   store ptr @.str.66, ptr %5, align 8
-  br label %16
+  br label %17
 
 15:                                               ; preds = %12
-  %.sroa.627.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %5, align 8, !alias.scope !132
-  store ptr @.str.66, ptr %.sroa.627.0..sroa_idx, align 8, !alias.scope !132
-  br label %16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @.str.66, ptr %16, align 8, !alias.scope !132
+  br label %17
 
-16:                                               ; preds = %15, %14
-  %.sink = phi i8 [ 3, %15 ], [ 1, %14 ]
+17:                                               ; preds = %15, %14
   %.014.i.i9 = phi i8 [ 2, %15 ], [ 3, %14 ]
+  %.sink = phi i8 [ 3, %15 ], [ 1, %14 ]
   %.sroa.05.0.i.i10 = phi ptr [ %5, %15 ], [ @.str.66, %14 ]
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 3, ptr %17, align 8, !tbaa !137
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 %.sink, ptr %18, align 1, !tbaa !137
-  %19 = zext i8 %1 to i32
-  %20 = tail call { ptr, i64 } @_ZN4llvm5dwarf23OperationEncodingStringEj(i32 noundef %19) #29
-  %21 = extractvalue { ptr, i64 } %20, 1
-  %22 = extractvalue { ptr, i64 } %20, 0
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i8 3, ptr %18, align 8, !tbaa !137
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 %.sink, ptr %19, align 1, !tbaa !137
+  %20 = zext i8 %1 to i32
+  %21 = tail call { ptr, i64 } @_ZN4llvm5dwarf23OperationEncodingStringEj(i32 noundef %20) #29
+  %22 = extractvalue { ptr, i64 } %21, 1
+  %23 = extractvalue { ptr, i64 } %21, 0
   store ptr %.sroa.05.0.i.i10, ptr %4, align 8, !alias.scope !139
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %22, ptr %23, align 8, !alias.scope !139
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %23, ptr %24, align 8, !alias.scope !139
   %.sroa.2.0..sroa_idx.i.i.i19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %21, ptr %.sroa.2.0..sroa_idx.i.i.i19, align 8, !tbaa !131, !alias.scope !139
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 %.014.i.i9, ptr %24, align 8, !tbaa !144, !alias.scope !139
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 5, ptr %25, align 1, !tbaa !146, !alias.scope !139
+  store i64 %22, ptr %.sroa.2.0..sroa_idx.i.i.i19, align 8, !tbaa !131, !alias.scope !139
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 %.014.i.i9, ptr %25, align 8, !tbaa !144, !alias.scope !139
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 5, ptr %26, align 1, !tbaa !146, !alias.scope !139
   br label %_ZN4llvmplERKNS_5TwineES2_.exit20
 
-26:                                               ; preds = %3
-  %27 = zext i8 %1 to i32
-  %28 = tail call { ptr, i64 } @_ZN4llvm5dwarf23OperationEncodingStringEj(i32 noundef %27) #29
-  %29 = extractvalue { ptr, i64 } %28, 0
-  %30 = extractvalue { ptr, i64 } %28, 1
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 5, ptr %31, align 8, !tbaa !144
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 1, ptr %32, align 1, !tbaa !146
-  store ptr %29, ptr %4, align 8, !tbaa !131
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %30, ptr %33, align 8, !tbaa !131
+27:                                               ; preds = %3
+  %28 = zext i8 %1 to i32
+  %29 = tail call { ptr, i64 } @_ZN4llvm5dwarf23OperationEncodingStringEj(i32 noundef %28) #29
+  %30 = extractvalue { ptr, i64 } %29, 0
+  %31 = extractvalue { ptr, i64 } %29, 1
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 5, ptr %32, align 8, !tbaa !144
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 1, ptr %33, align 1, !tbaa !146
+  store ptr %30, ptr %4, align 8, !tbaa !131
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %31, ptr %34, align 8, !tbaa !131
   br label %_ZN4llvmplERKNS_5TwineES2_.exit20
 
-_ZN4llvmplERKNS_5TwineES2_.exit20:                ; preds = %16, %26
-  %34 = trunc nuw i8 %7 to i1
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %36 = select i1 %34, ptr %35, ptr %11
-  %37 = load ptr, ptr %36, align 8, !tbaa !3
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %36, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(34) %4) #29
+_ZN4llvmplERKNS_5TwineES2_.exit20:                ; preds = %17, %27
+  %35 = trunc nuw i8 %7 to i1
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %37 = select i1 %35, ptr %36, ptr %11
+  %38 = load ptr, ptr %37, align 8, !tbaa !3
+  %39 = load ptr, ptr %38, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %37, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(34) %4) #29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #29
   ret void
@@ -18311,8 +18311,8 @@ define dso_local noundef ptr @_ZN4llvm10DwarfDebug23emitInitialLocDirectiveERKNS
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %24 = load i16, ptr %23, align 2, !tbaa !1625
   %25 = and i16 %24, 4
-  %.not70.i = icmp eq i16 %25, 0
-  br i1 %.not70.i, label %26, label %_ZNK4llvm5Value11getMetadataEj.exit.i
+  %.not71.i = icmp eq i16 %25, 0
+  br i1 %.not71.i, label %26, label %_ZNK4llvm5Value11getMetadataEj.exit.i
 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -18331,14 +18331,14 @@ _ZNK4llvm5Value11getMetadataEj.exit.i:            ; preds = %30, %26, %15
   br label %34
 
 34:                                               ; preds = %34, %_ZNK4llvm5Value11getMetadataEj.exit.i
-  %.sroa.042.0.in.i = phi ptr [ %5, %_ZNK4llvm5Value11getMetadataEj.exit.i ], [ %39, %34 ]
-  %.sroa.042.0.i = load ptr, ptr %.sroa.042.0.in.i, align 8, !tbaa !1156
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.042.0.i, i64 48
+  %.sroa.043.0.in.i = phi ptr [ %5, %_ZNK4llvm5Value11getMetadataEj.exit.i ], [ %39, %34 ]
+  %.sroa.043.0.i = load ptr, ptr %.sroa.043.0.in.i, align 8, !tbaa !1156
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.043.0.i, i64 48
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %35, align 8
   %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %37 = inttoptr i64 %36 to ptr
   %38 = icmp eq ptr %35, %37
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.042.0.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.043.0.i, i64 8
   br i1 %38, label %34, label %.preheader.i, !llvm.loop !1626
 
 .preheader.i:                                     ; preds = %34
@@ -18346,24 +18346,24 @@ _ZNK4llvm5Value11getMetadataEj.exit.i:            ; preds = %30, %26, %15
   br label %.outer
 
 .outer:                                           ; preds = %115, %.preheader.i
-  %.sroa.042.1.i.ph = phi ptr [ %.sroa.042.0.i, %.preheader.i ], [ %113, %115 ]
-  %.048.i.ph = phi i1 [ %33, %.preheader.i ], [ %.149.i, %115 ]
-  %.0.i.ph = phi ptr [ null, %.preheader.i ], [ %.147.i, %115 ]
-  %.sroa.0.0.i.ph.in = getelementptr inbounds nuw i8, ptr %.sroa.042.1.i.ph, i64 56
+  %.sroa.043.1.i.ph = phi ptr [ %.sroa.043.0.i, %.preheader.i ], [ %113, %115 ]
+  %.049.i.ph = phi i1 [ %33, %.preheader.i ], [ %.150.i, %115 ]
+  %.0.i.ph = phi ptr [ null, %.preheader.i ], [ %.148.i, %115 ]
+  %.sroa.0.0.i.ph.in = getelementptr inbounds nuw i8, ptr %.sroa.043.1.i.ph, i64 56
   %.sroa.0.0.i.ph = load ptr, ptr %.sroa.0.0.i.ph.in, align 8, !tbaa !1157
   br label %40
 
 40:                                               ; preds = %.outer, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i.i.i.i
   %.sroa.0.0.i = phi ptr [ %90, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ %.sroa.0.0.i.ph, %.outer ]
-  %.048.i = phi i1 [ %.149.i, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ %.048.i.ph, %.outer ]
-  %.0.i = phi ptr [ %.147.i, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ %.0.i.ph, %.outer ]
+  %.049.i = phi i1 [ %.150.i, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ %.049.i.ph, %.outer ]
+  %.0.i = phi ptr [ %.148.i, %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i.i.i.i ], [ %.0.i.ph, %.outer ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !1158
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i64, ptr %43, align 8, !tbaa !1159
   %45 = and i64 %44, 16
-  %.not71.i = icmp eq i64 %45, 0
-  br i1 %.not71.i, label %46, label %.critedge13.i
+  %.not72.i = icmp eq i64 %45, 0
+  br i1 %.not72.i, label %46, label %.critedge13.i
 
 46:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #29, !noalias !1627
@@ -18436,8 +18436,8 @@ _ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exi
   br label %.critedge13.i
 
 .critedge13.i:                                    ; preds = %79, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.i.i, %40
-  %.149.i = phi i1 [ %.048.i, %40 ], [ false, %79 ], [ false, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.i.i ]
-  %.147.i = phi ptr [ %.0.i, %40 ], [ %spec.select.i, %79 ], [ %.0.i, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.i.i ]
+  %.150.i = phi i1 [ %.049.i, %40 ], [ false, %79 ], [ false, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.i.i ]
+  %.148.i = phi ptr [ %.0.i, %40 ], [ %spec.select.i, %79 ], [ %.0.i, %_ZNK4llvm15TargetInstrInfo27isTriviallyReMaterializableERKNS_12MachineInstrE.exit.i.i ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.0.i, align 8
   %80 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %80, 0
@@ -18467,8 +18467,8 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i.i.i.i: 
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 24
   %92 = load ptr, ptr %91, align 8, !tbaa !1169
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
-  %.not72.i = icmp eq ptr %90, %93
-  br i1 %.not72.i, label %94, label %40, !llvm.loop !1636
+  %.not73.i = icmp eq ptr %90, %93
+  br i1 %.not73.i, label %94, label %40, !llvm.loop !1636
 
 94:                                               ; preds = %_ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit.i.i.i.i
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 44
@@ -18493,13 +18493,13 @@ _ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit.i.i: ; preds = %94
   br i1 %106, label %.loopexit.i, label %107
 
 107:                                              ; preds = %_ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit.i.i, %101
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.042.1.i.ph, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.043.1.i.ph, i64 72
   %109 = load i32, ptr %108, align 8, !tbaa !26
   %110 = icmp ugt i32 %109, 1
   br i1 %110, label %.loopexit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %107, %115
-  %111 = phi ptr [ %113, %115 ], [ %.sroa.042.1.i.ph, %107 ]
+  %111 = phi ptr [ %113, %115 ], [ %.sroa.043.1.i.ph, %107 ]
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !1156
   %114 = icmp eq ptr %113, %7
@@ -18514,11 +18514,11 @@ _ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit.i.i: ; preds = %94
   br i1 %119, label %.preheader.i.i, label %.outer, !llvm.loop !1637
 
 .loopexit.i:                                      ; preds = %107, %_ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit.i.i, %101, %.preheader.i.i
-  %.not.i = icmp eq ptr %.147.i, null
+  %.not.i = icmp eq ptr %.148.i, null
   br i1 %.not.i, label %_ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit.thread, label %120
 
 120:                                              ; preds = %.loopexit.i
-  %121 = getelementptr inbounds nuw i8, ptr %.147.i, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %.148.i, i64 24
   %122 = load ptr, ptr %121, align 8, !tbaa !1169
   %123 = load ptr, ptr %5, align 8, !tbaa !1156
   %124 = icmp eq ptr %122, %123
@@ -18527,15 +18527,15 @@ _ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit.i.i: ; preds = %94
 125:                                              ; preds = %120
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 56
   %127 = load ptr, ptr %126, align 8, !tbaa !1157
-  %128 = icmp eq ptr %.147.i, %127
+  %128 = icmp eq ptr %.148.i, %127
   br i1 %128, label %129, label %_ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit.thread
 
 _ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit: ; preds = %77
-  br i1 %.048.i, label %129, label %_ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit.thread
+  br i1 %.049.i, label %129, label %_ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit.thread
 
 129:                                              ; preds = %125, %_ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit
-  %.sroa.030.0.i50 = phi ptr [ %.147.i, %125 ], [ %.sroa.0.0.i, %_ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit ]
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.i50, i64 56
+  %.sroa.031.0.i50 = phi ptr [ %.148.i, %125 ], [ %.sroa.0.0.i, %_ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit ]
+  %130 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.i50, i64 56
   %131 = load ptr, ptr %130, align 8, !tbaa !1542
   %.not29 = icmp eq ptr %131, null
   br i1 %.not29, label %"_ZN4llvm6all_ofIRKNS_15MachineFunctionEZNS_10DwarfDebug23emitInitialLocDirectiveES3_jE3$_0EEbOT_T0_.exit.thread", label %132
@@ -18548,7 +18548,7 @@ _ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit: ; preds = %77
   br i1 %.not, label %_ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit.thread, label %"_ZN4llvm6all_ofIRKNS_15MachineFunctionEZNS_10DwarfDebug23emitInitialLocDirectiveES3_jE3$_0EEbOT_T0_.exit.thread"
 
 _ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit.thread: ; preds = %125, %120, %.loopexit.i, %132, %_ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit
-  %.019 = phi ptr [ %.sroa.0.0.i, %_ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit ], [ null, %132 ], [ null, %.loopexit.i ], [ null, %120 ], [ %.147.i, %125 ]
+  %.019 = phi ptr [ %.sroa.0.0.i, %_ZL18findPrologueEndLocPKN4llvm15MachineFunctionE.exit ], [ null, %132 ], [ null, %.loopexit.i ], [ null, %120 ], [ %.148.i, %125 ]
   %136 = load ptr, ptr %1, align 8, !tbaa !1170
   %137 = call noundef ptr @_ZNK4llvm8Function13getSubprogramEv(ptr noundef nonnull align 8 dereferenceable(136) %136) #29
   %138 = getelementptr inbounds i8, ptr %137, i64 -16
@@ -18590,7 +18590,7 @@ _ZNK4llvm12DISubprogram7getUnitEv.exit:           ; preds = %141, %144
   br label %"_ZN4llvm6all_ofIRKNS_15MachineFunctionEZNS_10DwarfDebug23emitInitialLocDirectiveES3_jE3$_0EEbOT_T0_.exit.thread"
 
 "_ZN4llvm6all_ofIRKNS_15MachineFunctionEZNS_10DwarfDebug23emitInitialLocDirectiveES3_jE3$_0EEbOT_T0_.exit.thread": ; preds = %11, %129, %132, %_ZNK4llvm12DISubprogram7getUnitEv.exit, %"_ZN4llvm6all_ofIRKNS_15MachineFunctionEZNS_10DwarfDebug23emitInitialLocDirectiveES3_jE3$_0EEbOT_T0_.exit"
-  %.0 = phi ptr [ null, %"_ZN4llvm6all_ofIRKNS_15MachineFunctionEZNS_10DwarfDebug23emitInitialLocDirectiveES3_jE3$_0EEbOT_T0_.exit" ], [ %.019, %_ZNK4llvm12DISubprogram7getUnitEv.exit ], [ %.sroa.030.0.i50, %132 ], [ %.sroa.030.0.i50, %129 ], [ null, %11 ]
+  %.0 = phi ptr [ null, %"_ZN4llvm6all_ofIRKNS_15MachineFunctionEZNS_10DwarfDebug23emitInitialLocDirectiveES3_jE3$_0EEbOT_T0_.exit" ], [ %.019, %_ZNK4llvm12DISubprogram7getUnitEv.exit ], [ %.sroa.031.0.i50, %132 ], [ %.sroa.031.0.i50, %129 ], [ null, %11 ]
   ret ptr %.0
 }
 

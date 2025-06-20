@@ -8117,7 +8117,6 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_116SmartPtrModeling8
   %46 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %47 = alloca %"class.clang::ProgramPoint", align 8
   %48 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
-  %.sroa.6.i = alloca [7 x i8], align 1
   %49 = alloca %"struct.std::pair.825", align 8
   %50 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %51 = alloca %"struct.std::pair.825", align 8
@@ -8291,13 +8290,11 @@ _ZL30isPotentiallyComparisionOpCallRKN5clang4ento9CallEventE.exit.thread284: ; p
   br i1 %.not.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i, label %159
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i: ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49) #19
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit101.i
 
 159:                                              ; preds = %130
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %158) #19
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49) #19
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %158) #19
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit101.i
@@ -8358,8 +8355,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit113.i: ; 
   store ptr %.sroa.0191.0.copyload192.i, ptr %54, align 8, !tbaa !29
   %.sroa.5193.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i8 %.sroa.5193.0.copyload195.i, ptr %.sroa.5193.0..sroa_idx.i, align 8, !tbaa !358
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %54, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.i, i64 7, i1 false), !tbaa.struct !533
   %169 = tail call i64 @_ZNK5clang4ento9CallEvent13getResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #19
   %170 = call { ptr, i8 } @_ZN5clang4ento11SValBuilder9evalBinOpEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS_18BinaryOperatorKindENS0_4SValES8_NS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(412) %156, ptr noundef nonnull %53, i32 noundef %.sroa.0177.0.extract.trunc.i, ptr %.sroa.0.0.copyload.i, i8 %.sroa.5.0.copyload.i, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %54, i64 %169) #19
   %.fca.0.extract31.i = extractvalue { ptr, i8 } %170, 0
@@ -8647,7 +8642,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit157.sink.spli
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit157.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit157.i.thread: ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit153.i, %253
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6.i)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %165) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
@@ -8659,7 +8653,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit157.i.thread:
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit157.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit157.sink.split.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit143.i
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6.i)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %165) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)

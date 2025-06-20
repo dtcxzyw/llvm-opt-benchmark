@@ -1770,8 +1770,8 @@ define void @_ZN7uv_auth11credentials11Credentials11as_username17h0752b88917b60f
   br label %7
 
 7:                                                ; preds = %2, %5
-  %.sink = phi i64 [ -9223372036854775807, %5 ], [ -9223372036854775808, %2 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ -9223372036854775807, %5 ], [ -9223372036854775808, %2 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 

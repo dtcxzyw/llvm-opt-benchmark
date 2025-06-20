@@ -3076,7 +3076,7 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i: ; preds = %30
   call fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker22verifyRandomIncrOrDecrERN5clang4ento14CheckerContextENS1_22OverloadedOperatorKindENS2_4SValES6_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(81) %2, i32 noundef %69, ptr %.fca.0.extract7.i, i8 %.fca.1.extract8.i, ptr noundef nonnull byval(%"class.clang::ento::SVal") align 8 %6)
   br label %_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit
 
-_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit: ; preds = %54, %62, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i, %27, %28, %68
+_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreStmtEPKN5clang14BinaryOperatorERNS1_4ento14CheckerContextE.exit: ; preds = %27, %28, %54, %62, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i, %68
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void

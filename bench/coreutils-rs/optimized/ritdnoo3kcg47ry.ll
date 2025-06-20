@@ -767,8 +767,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %131
   br label %253
 
 253:                                              ; preds = %251, %248
-  %.sink.i = phi i64 [ -9223372036854775806, %251 ], [ -9223372036854775807, %248 ]
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !177, !noalias !180
+  %storemerge.i = phi i64 [ -9223372036854775806, %251 ], [ -9223372036854775807, %248 ]
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !177, !noalias !180
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !183
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb5f7d20832603a2eE.llvm.9471485992091193625"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %35)

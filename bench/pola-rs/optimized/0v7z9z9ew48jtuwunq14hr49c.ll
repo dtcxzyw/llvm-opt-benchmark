@@ -63286,8 +63286,8 @@ define hidden noundef zeroext i1 @_ZN9polars_io10path_utils12is_cloud_url17h825b
   store i64 0, ptr %.sroa.7.0..sroa_idx11, align 8
   %.sroa.9.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %19, ptr %.sroa.9.0..sroa_idx12, align 8
-  %.sroa.1113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i8 1, ptr %.sroa.1113.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i8 1, ptr %.sroa.11.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %23 = load ptr, ptr @_ZN9polars_io10path_utils9CLOUD_URL17hb5054338374e7b50E, align 8, !noalias !10573, !nonnull !9, !noundef !9
@@ -63463,8 +63463,8 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
 
 111:                                              ; preds = %.noexc5.i, %.noexc3.i, %104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !10573
-  %.pre14 = load i64, ptr %7, align 8, !range !89
-  %112 = trunc nuw i64 %.pre14 to i1
+  %.pre13 = load i64, ptr %7, align 8, !range !89
+  %112 = trunc nuw i64 %.pre13 to i1
   br label %_ZN14regex_automata4meta5regex5Regex11search_half17h35827b129516fecaE.exit
 
 113:                                              ; preds = %114, %.body.thread.i

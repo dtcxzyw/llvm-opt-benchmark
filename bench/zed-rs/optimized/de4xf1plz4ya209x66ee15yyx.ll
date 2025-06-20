@@ -16445,8 +16445,8 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
 
 115:                                              ; preds = %102
   store i64 1, ptr %110, align 8, !noalias !4427
-  %.sroa.47.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store i64 1, ptr %.sroa.47.0..sroa_idx.i.i.i.i, align 8, !noalias !4427
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %110, i64 8
+  store i64 1, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !noalias !4427
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %110, i64 16
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !noalias !4427
   %116 = getelementptr inbounds nuw i8, ptr %28, i64 48
@@ -26910,8 +26910,8 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
           to label %103 unwind label %.thread.i.i.i, !noalias !6540
 
 101:                                              ; preds = %189, %104
-  %.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.pn21.i.i.i, %189 ], [ %.pn.i.i.i, %104 ]
-  %.sroa.02.0.i.i.i = phi i1 [ %.sroa.02.122.i.i.i, %189 ], [ %.sroa.02.3.i.i.i, %104 ]
+  %.pn.pn.pn.i.i.i = phi { ptr, i32 } [ %.pn.pn20.i.i.i, %189 ], [ %.pn.i.i.i, %104 ]
+  %.sroa.02.0.i.i.i = phi i1 [ %.sroa.02.121.i.i.i, %189 ], [ %.sroa.02.3.i.i.i, %104 ]
   br i1 %.sroa.02.0.i.i.i, label %190, label %370
 
 .thread.i.i.i:                                    ; preds = %95
@@ -26923,12 +26923,12 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39), !noalias !6536
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32), !noalias !6536
   invoke void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %40)
-          to label %106 unwind label %.thread17.i.i.i, !noalias !6540
+          to label %106 unwind label %.thread16.i.i.i, !noalias !6540
 
 104:                                              ; preds = %.body.i.i.i
   br i1 %.sroa.01.1.i.i.i, label %189, label %101
 
-.thread17.i.i.i:                                  ; preds = %103
+.thread16.i.i.i:                                  ; preds = %103
   %105 = landingpad { ptr, i32 }
           cleanup
   br label %189
@@ -26941,10 +26941,10 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %108 = invoke { ptr, ptr } @_ZN4gpui6window13WindowContext3new17h8380c92dfb0b5e46E(ptr noalias noundef nonnull align 8 dereferenceable(1176) %99, ptr noalias noundef nonnull align 8 dereferenceable(3920) %107)
           to label %111 unwind label %109, !noalias !6540
 
-.body.i.i.i:                                      ; preds = %186, %177, %.body9.thread25.i.i.i, %169, %154, %147, %130, %109
-  %.pn.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i, %186 ], [ %110, %109 ], [ %155, %154 ], [ %170, %169 ], [ %.pn.i.i.i.i, %130 ], [ %148, %147 ], [ %lpad.thr_comm.i.i.i, %.body9.thread25.i.i.i ], [ %178, %177 ]
-  %.sroa.02.3.i.i.i = phi i1 [ false, %186 ], [ %.sroa.02.2.i.i.i, %109 ], [ false, %154 ], [ false, %169 ], [ false, %130 ], [ false, %147 ], [ false, %.body9.thread25.i.i.i ], [ false, %177 ]
-  %.sroa.01.1.i.i.i = phi i1 [ true, %186 ], [ true, %109 ], [ true, %154 ], [ true, %169 ], [ true, %130 ], [ true, %147 ], [ false, %.body9.thread25.i.i.i ], [ false, %177 ]
+.body.i.i.i:                                      ; preds = %186, %177, %.body9.thread24.i.i.i, %169, %154, %147, %130, %109
+  %.pn.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i, %186 ], [ %110, %109 ], [ %155, %154 ], [ %170, %169 ], [ %.pn.i.i.i.i, %130 ], [ %148, %147 ], [ %lpad.thr_comm.i.i.i, %.body9.thread24.i.i.i ], [ %178, %177 ]
+  %.sroa.02.3.i.i.i = phi i1 [ false, %186 ], [ %.sroa.02.2.i.i.i, %109 ], [ false, %154 ], [ false, %169 ], [ false, %130 ], [ false, %147 ], [ false, %.body9.thread24.i.i.i ], [ false, %177 ]
+  %.sroa.01.1.i.i.i = phi i1 [ true, %186 ], [ true, %109 ], [ true, %154 ], [ true, %169 ], [ true, %130 ], [ true, %147 ], [ false, %.body9.thread24.i.i.i ], [ false, %177 ]
   invoke void @"_ZN4core3ptr114drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$file_finder..open_path_prompt..OpenPathDelegate$GT$$GT$$GT$17hbbc8cbff9c1f782cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %39) #32
           to label %104 unwind label %187, !noalias !6541
 
@@ -27148,7 +27148,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %173 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %38)
           to label %174 unwind label %186, !noalias !6540
 
-.body9.thread25.i.i.i:                            ; preds = %183, %"_ZN4core3ptr126drop_in_place$LT$gpui..app..entity_map..Model$LT$picker..Picker$LT$file_finder..open_path_prompt..OpenPathDelegate$GT$$GT$$GT$17h08a55c53d6909b48E.exit.i.i.i", %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17h66d62a34f135de9fE.exit.i.i.i.i", %174
+.body9.thread24.i.i.i:                            ; preds = %183, %"_ZN4core3ptr126drop_in_place$LT$gpui..app..entity_map..Model$LT$picker..Picker$LT$file_finder..open_path_prompt..OpenPathDelegate$GT$$GT$$GT$17h08a55c53d6909b48E.exit.i.i.i", %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17h66d62a34f135de9fE.exit.i.i.i.i", %174
   %lpad.thr_comm.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
@@ -27160,7 +27160,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %34), !noalias !6536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %34, ptr noundef nonnull align 8 dereferenceable(272) %37, i64 272, i1 false), !noalias !6536
   invoke void @_ZN4gpui3app10entity_map9EntityMap6insert17he00a1775043e9c7dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %36, ptr noalias noundef nonnull align 8 dereferenceable(40) %175, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %35, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(272) %34)
-          to label %176 unwind label %.body9.thread25.i.i.i, !noalias !6540
+          to label %176 unwind label %.body9.thread24.i.i.i, !noalias !6540
 
 176:                                              ; preds = %174
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %34), !noalias !6536
@@ -27184,13 +27184,13 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
 "_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17h66d62a34f135de9fE.exit.i.i.i.i": ; preds = %176
   %182 = getelementptr inbounds nuw i8, ptr %36, i64 8
   invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43360f061b028c36E.llvm.67540068259918629"(ptr noalias noundef nonnull align 8 dereferenceable(8) %182)
-          to label %"_ZN4core3ptr126drop_in_place$LT$gpui..app..entity_map..Model$LT$picker..Picker$LT$file_finder..open_path_prompt..OpenPathDelegate$GT$$GT$$GT$17h08a55c53d6909b48E.exit.i.i.i" unwind label %.body9.thread25.i.i.i, !noalias !6540
+          to label %"_ZN4core3ptr126drop_in_place$LT$gpui..app..entity_map..Model$LT$picker..Picker$LT$file_finder..open_path_prompt..OpenPathDelegate$GT$$GT$$GT$17h08a55c53d6909b48E.exit.i.i.i" unwind label %.body9.thread24.i.i.i, !noalias !6540
 
 "_ZN4core3ptr126drop_in_place$LT$gpui..app..entity_map..Model$LT$picker..Picker$LT$file_finder..open_path_prompt..OpenPathDelegate$GT$$GT$$GT$17h08a55c53d6909b48E.exit.i.i.i": ; preds = %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17h66d62a34f135de9fE.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36), !noalias !6536
   call void @llvm.lifetime.start.p0(i64 608, ptr nonnull %33), !noalias !6536
   invoke void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %39)
-          to label %183 unwind label %.body9.thread25.i.i.i, !noalias !6540
+          to label %183 unwind label %.body9.thread24.i.i.i, !noalias !6540
 
 183:                                              ; preds = %"_ZN4core3ptr126drop_in_place$LT$gpui..app..entity_map..Model$LT$picker..Picker$LT$file_finder..open_path_prompt..OpenPathDelegate$GT$$GT$$GT$17h08a55c53d6909b48E.exit.i.i.i"
   %184 = getelementptr inbounds nuw i8, ptr %33, i64 568
@@ -27199,7 +27199,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   store ptr @_ZN4gpui4view8any_view6render17ha535990cb92658b4E, ptr %185, align 8, !noalias !6536
   store i64 2, ptr %33, align 8, !noalias !6536
   invoke void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$8new_view16notify_observers17h7fd8554589957462E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48, i64 noundef -5396573432734125068, i64 noundef 3269666068955331934, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(608) %33)
-          to label %241 unwind label %.body9.thread25.i.i.i, !noalias !6541
+          to label %241 unwind label %.body9.thread24.i.i.i, !noalias !6541
 
 186:                                              ; preds = %172
   %lpad.thr_comm.split-lp.i.i.i = landingpad { ptr, i32 }
@@ -27213,14 +27213,14 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31, !noalias !6541
   unreachable
 
-189:                                              ; preds = %.thread17.i.i.i, %104
-  %.sroa.02.122.i.i.i = phi i1 [ true, %.thread17.i.i.i ], [ %.sroa.02.3.i.i.i, %104 ]
-  %.pn.pn21.i.i.i = phi { ptr, i32 } [ %105, %.thread17.i.i.i ], [ %.pn.i.i.i, %104 ]
+189:                                              ; preds = %.thread16.i.i.i, %104
+  %.sroa.02.121.i.i.i = phi i1 [ true, %.thread16.i.i.i ], [ %.sroa.02.3.i.i.i, %104 ]
+  %.pn.pn20.i.i.i = phi { ptr, i32 } [ %105, %.thread16.i.i.i ], [ %.pn.i.i.i, %104 ]
   invoke void @"_ZN4core3ptr125drop_in_place$LT$gpui..app..entity_map..Slot$LT$picker..Picker$LT$file_finder..open_path_prompt..OpenPathDelegate$GT$$GT$$GT$17hc8a82d4dfa94e088E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %40) #32
           to label %101 unwind label %187, !noalias !6541
 
 190:                                              ; preds = %.thread.i.i.i, %101
-  %.pn.pn.pn16.i.i.i = phi { ptr, i32 } [ %102, %.thread.i.i.i ], [ %.pn.pn.pn.i.i.i, %101 ]
+  %.pn.pn.pn15.i.i.i = phi { ptr, i32 } [ %102, %.thread.i.i.i ], [ %.pn.pn.pn.i.i.i, %101 ]
   invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$file_finder..open_path_prompt..OpenPathPrompt..prompt_for_open_path..$u7b$$u7b$closure$u7d$$u7d$$GT$17hae609c96e6fa300fE"(ptr noalias noundef align 8 dereferenceable(16) %41) #32
           to label %370 unwind label %187, !noalias !6541
 
@@ -27874,7 +27874,7 @@ _ZN4gpui4view7AnyView8downcast17h7cb6a035fbe6d6a3E.exit.i.i: ; preds = %212, %20
   unreachable
 
 370:                                              ; preds = %367, %71, %.body, %101, %190, %229, %233, %346, %356, %.thread54.i.i.i, %.body.thread.i.i
-  %.pn.ph = phi { ptr, i32 } [ %72, %71 ], [ %lpad.thr_comm.split-lp, %.body ], [ %lpad.thr_comm, %367 ], [ %230, %233 ], [ %230, %229 ], [ %eh.lpad-body32.i.i, %.body.thread.i.i ], [ %.pn.pn.pn.i.i.i, %101 ], [ %.pn.pn.pn16.i.i.i, %190 ], [ %.pn15.pn40.i.i.i, %.thread54.i.i.i ], [ %347, %346 ], [ %357, %356 ]
+  %.pn.ph = phi { ptr, i32 } [ %72, %71 ], [ %lpad.thr_comm.split-lp, %.body ], [ %lpad.thr_comm, %367 ], [ %230, %233 ], [ %230, %229 ], [ %eh.lpad-body32.i.i, %.body.thread.i.i ], [ %.pn.pn.pn.i.i.i, %101 ], [ %.pn.pn.pn15.i.i.i, %190 ], [ %.pn15.pn40.i.i.i, %.thread54.i.i.i ], [ %347, %346 ], [ %357, %356 ]
   %.sroa.02.1.ph = phi i1 [ true, %71 ], [ false, %.body ], [ false, %367 ], [ false, %233 ], [ false, %229 ], [ false, %.body.thread.i.i ], [ false, %101 ], [ false, %190 ], [ false, %.thread54.i.i.i ], [ false, %346 ], [ false, %356 ]
   invoke void @"_ZN4core3ptr91drop_in_place$LT$gpui..app..entity_map..Lease$LT$workspace..modal_layer..ModalLayer$GT$$GT$17h82a6e6f737d0a7c7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %49) #32
           to label %61 unwind label %368

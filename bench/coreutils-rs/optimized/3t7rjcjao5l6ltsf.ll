@@ -231,10 +231,10 @@ switch.lookup:                                    ; preds = %33
   %76 = shl i64 %71, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %74, ptr nonnull readonly align 8 %70, i64 %76, i1 false), !noalias !63
   store i64 %73, ptr %0, align 8
-  %.sroa.0.sroa.4.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %74, ptr %.sroa.0.sroa.4.0..sroa_idx18, align 8
-  %.sroa.0.sroa.5.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %71, ptr %.sroa.0.sroa.5.0..sroa_idx19, align 8
+  %.sroa.0.sroa.4.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %74, ptr %.sroa.0.sroa.4.0..sroa_idx17, align 8
+  %.sroa.0.sroa.5.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %71, ptr %.sroa.0.sroa.5.0..sroa_idx18, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %19, ptr %.sroa.411.0..sroa_idx, align 8
   br label %25

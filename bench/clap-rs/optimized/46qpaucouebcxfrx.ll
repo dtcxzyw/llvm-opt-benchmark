@@ -6994,8 +6994,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %.0 = phi i1 [ true, %49 ], [ true, %12 ], [ false, %23 ]
   %.pn = phi { ptr, i32 } [ %50, %49 ], [ %13, %12 ], [ %24, %23 ]
   %11 = load i64, ptr %3, align 8, !range !118, !noundef !7
-  %.not59 = icmp eq i64 %11, -9223372036854775808
-  br i1 %.not59, label %.body.thread.thread, label %53
+  %.not58 = icmp eq i64 %11, -9223372036854775808
+  br i1 %.not58, label %.body.thread.thread, label %53
 
 12:                                               ; preds = %14, %4
   %13 = landingpad { ptr, i32 }
@@ -7188,8 +7188,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %.0 = phi i1 [ true, %49 ], [ true, %12 ], [ false, %23 ]
   %.pn = phi { ptr, i32 } [ %50, %49 ], [ %13, %12 ], [ %24, %23 ]
   %11 = load i64, ptr %3, align 8, !range !118, !noundef !7
-  %.not59 = icmp eq i64 %11, -9223372036854775808
-  br i1 %.not59, label %.body.thread.thread, label %53
+  %.not58 = icmp eq i64 %11, -9223372036854775808
+  br i1 %.not58, label %.body.thread.thread, label %53
 
 12:                                               ; preds = %14, %4
   %13 = landingpad { ptr, i32 }
@@ -7950,14 +7950,14 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %.sroa.0.0.copyload = load i8, ptr %44, align 2
   %.sroa.7.0..sroa_idx189 = getelementptr inbounds nuw i8, ptr %.0, i64 88
   %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx189, align 2
-  %.sroa.11193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 92
-  %.sroa.11193.0.copyload = load i8, ptr %.sroa.11193.0..sroa_idx, align 2
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 92
+  %.sroa.11.0.copyload = load i8, ptr %.sroa.11.0..sroa_idx, align 2
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 96
   %.sroa.15.0.copyload = load i16, ptr %.sroa.15.0..sroa_idx, align 2
   %61 = icmp eq i8 %.sroa.0.0.copyload, 3
   %62 = icmp eq i8 %.sroa.7.0.copyload, 3
   %or.cond263 = select i1 %61, i1 %62, i1 false
-  %63 = icmp eq i8 %.sroa.11193.0.copyload, 3
+  %63 = icmp eq i8 %.sroa.11.0.copyload, 3
   %or.cond264 = select i1 %or.cond263, i1 %63, i1 false
   %64 = icmp eq i16 %.sroa.15.0.copyload, 0
   %or.cond265 = select i1 %or.cond264, i1 %64, i1 false
@@ -7969,19 +7969,19 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %16, ptr noundef nonnull align 2 dereferenceable(14) %45, i64 14, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  %.sroa.0194.0.copyload = load i8, ptr %45, align 2
-  %.sroa.7198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 74
-  %.sroa.7198.0.copyload = load i8, ptr %.sroa.7198.0..sroa_idx, align 2
-  %.sroa.11202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 78
-  %.sroa.11202.0.copyload = load i8, ptr %.sroa.11202.0..sroa_idx, align 2
-  %.sroa.15206.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 82
-  %.sroa.15206.0.copyload = load i16, ptr %.sroa.15206.0..sroa_idx, align 2
-  %66 = icmp eq i8 %.sroa.0194.0.copyload, 3
-  %67 = icmp eq i8 %.sroa.7198.0.copyload, 3
+  %.sroa.0193.0.copyload = load i8, ptr %45, align 2
+  %.sroa.7197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 74
+  %.sroa.7197.0.copyload = load i8, ptr %.sroa.7197.0..sroa_idx, align 2
+  %.sroa.11201.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 78
+  %.sroa.11201.0.copyload = load i8, ptr %.sroa.11201.0..sroa_idx, align 2
+  %.sroa.15205.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 82
+  %.sroa.15205.0.copyload = load i16, ptr %.sroa.15205.0..sroa_idx, align 2
+  %66 = icmp eq i8 %.sroa.0193.0.copyload, 3
+  %67 = icmp eq i8 %.sroa.7197.0.copyload, 3
   %or.cond266 = select i1 %66, i1 %67, i1 false
-  %68 = icmp eq i8 %.sroa.11202.0.copyload, 3
+  %68 = icmp eq i8 %.sroa.11201.0.copyload, 3
   %or.cond267 = select i1 %or.cond266, i1 %68, i1 false
-  %69 = icmp eq i16 %.sroa.15206.0.copyload, 0
+  %69 = icmp eq i16 %.sroa.15205.0.copyload, 0
   %or.cond268 = select i1 %or.cond267, i1 %69, i1 false
   %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink272 = select i1 %or.cond268, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
   %.sink271 = select i1 %or.cond268, i64 0, i64 4
@@ -9362,14 +9362,14 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %.sroa.0.0.copyload = load i8, ptr %59, align 2
   %.sroa.7.0..sroa_idx250 = getelementptr inbounds nuw i8, ptr %.0, i64 88
   %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx250, align 2
-  %.sroa.11254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 92
-  %.sroa.11254.0.copyload = load i8, ptr %.sroa.11254.0..sroa_idx, align 2
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 92
+  %.sroa.11.0.copyload = load i8, ptr %.sroa.11.0..sroa_idx, align 2
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 96
   %.sroa.15.0.copyload = load i16, ptr %.sroa.15.0..sroa_idx, align 2
   %75 = icmp eq i8 %.sroa.0.0.copyload, 3
   %76 = icmp eq i8 %.sroa.7.0.copyload, 3
   %or.cond385 = select i1 %75, i1 %76, i1 false
-  %77 = icmp eq i8 %.sroa.11254.0.copyload, 3
+  %77 = icmp eq i8 %.sroa.11.0.copyload, 3
   %or.cond386 = select i1 %or.cond385, i1 %77, i1 false
   %78 = icmp eq i16 %.sroa.15.0.copyload, 0
   %or.cond387 = select i1 %or.cond386, i1 %78, i1 false
@@ -9381,19 +9381,19 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %29)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %29, ptr noundef nonnull align 2 dereferenceable(14) %60, i64 14, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
-  %.sroa.0255.0.copyload = load i8, ptr %60, align 2
-  %.sroa.7259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 74
-  %.sroa.7259.0.copyload = load i8, ptr %.sroa.7259.0..sroa_idx, align 2
-  %.sroa.11263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 78
-  %.sroa.11263.0.copyload = load i8, ptr %.sroa.11263.0..sroa_idx, align 2
-  %.sroa.15267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 82
-  %.sroa.15267.0.copyload = load i16, ptr %.sroa.15267.0..sroa_idx, align 2
-  %80 = icmp eq i8 %.sroa.0255.0.copyload, 3
-  %81 = icmp eq i8 %.sroa.7259.0.copyload, 3
+  %.sroa.0254.0.copyload = load i8, ptr %60, align 2
+  %.sroa.7258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 74
+  %.sroa.7258.0.copyload = load i8, ptr %.sroa.7258.0..sroa_idx, align 2
+  %.sroa.11262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 78
+  %.sroa.11262.0.copyload = load i8, ptr %.sroa.11262.0..sroa_idx, align 2
+  %.sroa.15266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 82
+  %.sroa.15266.0.copyload = load i16, ptr %.sroa.15266.0..sroa_idx, align 2
+  %80 = icmp eq i8 %.sroa.0254.0.copyload, 3
+  %81 = icmp eq i8 %.sroa.7258.0.copyload, 3
   %or.cond388 = select i1 %80, i1 %81, i1 false
-  %82 = icmp eq i8 %.sroa.11263.0.copyload, 3
+  %82 = icmp eq i8 %.sroa.11262.0.copyload, 3
   %or.cond389 = select i1 %or.cond388, i1 %82, i1 false
-  %83 = icmp eq i16 %.sroa.15267.0.copyload, 0
+  %83 = icmp eq i16 %.sroa.15266.0.copyload, 0
   %or.cond390 = select i1 %or.cond389, i1 %83, i1 false
   %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink395 = select i1 %or.cond390, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
   %.sink394 = select i1 %or.cond390, i64 0, i64 4
@@ -9656,19 +9656,19 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %18, ptr noundef nonnull align 2 dereferenceable(14) %60, i64 14, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
-  %.sroa.0268.0.copyload = load i8, ptr %60, align 2
-  %.sroa.7272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 74
-  %.sroa.7272.0.copyload = load i8, ptr %.sroa.7272.0..sroa_idx, align 2
-  %.sroa.11276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 78
-  %.sroa.11276.0.copyload = load i8, ptr %.sroa.11276.0..sroa_idx, align 2
-  %.sroa.15280.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 82
-  %.sroa.15280.0.copyload = load i16, ptr %.sroa.15280.0..sroa_idx, align 2
-  %146 = icmp eq i8 %.sroa.0268.0.copyload, 3
-  %147 = icmp eq i8 %.sroa.7272.0.copyload, 3
+  %.sroa.0267.0.copyload = load i8, ptr %60, align 2
+  %.sroa.7271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 74
+  %.sroa.7271.0.copyload = load i8, ptr %.sroa.7271.0..sroa_idx, align 2
+  %.sroa.11275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 78
+  %.sroa.11275.0.copyload = load i8, ptr %.sroa.11275.0..sroa_idx, align 2
+  %.sroa.15279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0, i64 82
+  %.sroa.15279.0.copyload = load i16, ptr %.sroa.15279.0..sroa_idx, align 2
+  %146 = icmp eq i8 %.sroa.0267.0.copyload, 3
+  %147 = icmp eq i8 %.sroa.7271.0.copyload, 3
   %or.cond391 = select i1 %146, i1 %147, i1 false
-  %148 = icmp eq i8 %.sroa.11276.0.copyload, 3
+  %148 = icmp eq i8 %.sroa.11275.0.copyload, 3
   %or.cond392 = select i1 %or.cond391, i1 %148, i1 false
-  %149 = icmp eq i16 %.sroa.15280.0.copyload, 0
+  %149 = icmp eq i16 %.sroa.15279.0.copyload, 0
   %or.cond393 = select i1 %or.cond392, i1 %149, i1 false
   %spec.select399 = select i1 %or.cond393, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
   %spec.select400 = select i1 %or.cond393, i64 0, i64 4
@@ -10013,17 +10013,17 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
 .noexc69:                                         ; preds = %34
   unreachable
 
-.thread155:                                       ; preds = %82, %.thread130, %44, %36
-  %.046 = phi i1 [ true, %.thread130 ], [ false, %44 ], [ true, %36 ], [ false, %82 ]
-  %.pn61.pn.pn = phi { ptr, i32 } [ %.pn61, %.thread130 ], [ %.pn61, %44 ], [ %37, %36 ], [ %83, %82 ]
+.thread156:                                       ; preds = %82, %.thread131, %44, %36
+  %.046 = phi i1 [ true, %.thread131 ], [ false, %44 ], [ true, %36 ], [ false, %82 ]
+  %.pn61.pn.pn = phi { ptr, i32 } [ %.pn61, %.thread131 ], [ %.pn61, %44 ], [ %37, %36 ], [ %83, %82 ]
   %35 = load i64, ptr %2, align 8, !range !118, !noundef !7
-  %.not172 = icmp eq i64 %35, -9223372036854775808
-  br i1 %.not172, label %.thread155.thread, label %98
+  %.not173 = icmp eq i64 %35, -9223372036854775808
+  br i1 %.not173, label %.thread156.thread, label %98
 
 36:                                               ; preds = %34, %.noexc67, %22, %3, %42, %38
   %37 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread155
+  br label %.thread156
 
 38:                                               ; preds = %.noexc, %.noexc68
   %.0 = phi ptr [ %29, %.noexc68 ], [ @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189, %.noexc ]
@@ -10039,7 +10039,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
           to label %"_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31e4c80078394956E.exit.thread" unwind label %36
 
 44:                                               ; preds = %.body87
-  br i1 %.4, label %.thread130, label %.thread155
+  br i1 %.4, label %.thread131, label %.thread156
 
 "_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31e4c80078394956E.exit.thread": ; preds = %42
   store ptr %41, ptr %18, align 8
@@ -10063,16 +10063,16 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %.sroa.15.0.copyload = load i16, ptr %.sroa.15.0..sroa_idx, align 2
   %45 = icmp eq i8 %.sroa.0.0.copyload, 3
   %46 = icmp eq i8 %.sroa.7.0.copyload, 3
-  %or.cond165 = select i1 %45, i1 %46, i1 false
+  %or.cond166 = select i1 %45, i1 %46, i1 false
   %47 = icmp eq i8 %.sroa.11.0.copyload, 3
-  %or.cond166 = select i1 %or.cond165, i1 %47, i1 false
+  %or.cond167 = select i1 %or.cond166, i1 %47, i1 false
   %48 = icmp eq i16 %.sroa.15.0.copyload, 0
-  %or.cond167 = select i1 %or.cond166, i1 %48, i1 false
-  %spec.select = select i1 %or.cond167, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
-  %spec.select175 = select i1 %or.cond167, i64 0, i64 4
+  %or.cond168 = select i1 %or.cond167, i1 %48, i1 false
+  %spec.select = select i1 %or.cond168, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
+  %spec.select176 = select i1 %or.cond168, i64 0, i64 4
   store ptr %spec.select, ptr %13, align 8
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %spec.select175, ptr %49, align 8
+  store i64 %spec.select176, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %12, ptr noundef nonnull align 2 dereferenceable(14) %39, i64 14, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
@@ -10085,16 +10085,16 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %.sroa.15103.0.copyload = load i16, ptr %.sroa.15103.0..sroa_idx, align 2
   %50 = icmp eq i8 %.sroa.091.0.copyload, 3
   %51 = icmp eq i8 %.sroa.795.0.copyload, 3
-  %or.cond168 = select i1 %50, i1 %51, i1 false
+  %or.cond169 = select i1 %50, i1 %51, i1 false
   %52 = icmp eq i8 %.sroa.1199.0.copyload, 3
-  %or.cond169 = select i1 %or.cond168, i1 %52, i1 false
+  %or.cond170 = select i1 %or.cond169, i1 %52, i1 false
   %53 = icmp eq i16 %.sroa.15103.0.copyload, 0
-  %or.cond170 = select i1 %or.cond169, i1 %53, i1 false
-  %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink174 = select i1 %or.cond170, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
-  %.sink173 = select i1 %or.cond170, i64 0, i64 4
-  store ptr %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink174, ptr %11, align 8
+  %or.cond171 = select i1 %or.cond170, i1 %53, i1 false
+  %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink175 = select i1 %or.cond171, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.9.llvm.4786290445112235611, ptr @anon.eab39818d4b18baaa8ef384a74ffd2e4.67
+  %.sink174 = select i1 %or.cond171, i64 0, i64 4
+  store ptr %anon.eab39818d4b18baaa8ef384a74ffd2e4.67.sink175, ptr %11, align 8
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.sink173, ptr %54, align 8
+  store i64 %.sink174, ptr %54, align 8
   store ptr %14, ptr %15, align 8
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @"_ZN67_$LT$anstyle..style..StyleDisplay$u20$as$u20$core..fmt..Display$GT$3fmt17h03d73b021db15f45E", ptr %55, align 8
@@ -10193,7 +10193,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %83 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$clap_builder..error..Error$GT$17h8e1410913de6326cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #42
-          to label %.thread155 unwind label %84, !noalias !2354
+          to label %.thread156 unwind label %84, !noalias !2354
 
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
@@ -10217,13 +10217,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %41, ptr %4, align 8, !noalias !2355
   invoke void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$16insert_unchecked17ha119cb6fb66027d0E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %81, i8 noundef 15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
-          to label %.thread145 unwind label %90
+          to label %.thread146 unwind label %90
 
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$clap_builder..error..Error$GT$17h8e1410913de6326cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #42
-          to label %.thread155.thread.thread unwind label %92, !noalias !2359
+          to label %.thread156.thread.thread unwind label %92, !noalias !2359
 
 92:                                               ; preds = %90
   %93 = landingpad { ptr, i32 }
@@ -10231,20 +10231,20 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #43, !noalias !2359
   unreachable
 
-.thread145:                                       ; preds = %88
+.thread146:                                       ; preds = %88
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %94
 
-94:                                               ; preds = %86, %.thread145
+94:                                               ; preds = %86, %.thread146
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   ret ptr %41
 
-.thread155.thread:                                ; preds = %98, %.thread155
-  br i1 %.046, label %99, label %.thread155.thread.thread
+.thread156.thread:                                ; preds = %98, %.thread156
+  br i1 %.046, label %99, label %.thread156.thread.thread
 
-95:                                               ; preds = %99, %98, %.thread130, %.body87, %97, %77
+95:                                               ; preds = %99, %98, %.thread131, %.body87, %97, %77
   %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #43
@@ -10260,21 +10260,21 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   invoke void @"_ZN4core3ptr65drop_in_place$LT$clap_builder..builder..styled_str..StyledStr$GT$17hbb8b221fb765b0c8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #42
           to label %44 unwind label %95
 
-.thread130:                                       ; preds = %44
+.thread131:                                       ; preds = %44
   invoke void @"_ZN4core3ptr47drop_in_place$LT$clap_builder..error..Error$GT$17h8e1410913de6326cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18) #42
-          to label %.thread155 unwind label %95
+          to label %.thread156 unwind label %95
 
-98:                                               ; preds = %.thread155
+98:                                               ; preds = %.thread156
   invoke void @"_ZN4core3ptr65drop_in_place$LT$clap_builder..builder..styled_str..StyledStr$GT$17hbb8b221fb765b0c8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #42
-          to label %.thread155.thread unwind label %95
+          to label %.thread156.thread unwind label %95
 
-.thread155.thread.thread:                         ; preds = %90, %99, %.thread155.thread
-  %.pn65150 = phi { ptr, i32 } [ %.pn61.pn.pn, %99 ], [ %.pn61.pn.pn, %.thread155.thread ], [ %91, %90 ]
-  resume { ptr, i32 } %.pn65150
+.thread156.thread.thread:                         ; preds = %90, %99, %.thread156.thread
+  %.pn65151 = phi { ptr, i32 } [ %.pn61.pn.pn, %99 ], [ %.pn61.pn.pn, %.thread156.thread ], [ %91, %90 ]
+  resume { ptr, i32 } %.pn65151
 
-99:                                               ; preds = %.thread155.thread
+99:                                               ; preds = %.thread156.thread
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he11f50f4ada41903E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #42
-          to label %.thread155.thread.thread unwind label %95
+          to label %.thread156.thread.thread unwind label %95
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

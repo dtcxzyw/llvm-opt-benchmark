@@ -774,27 +774,27 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %11 = load i64, ptr %10, align 8, !alias.scope !230, !noalias !235
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !230, !noalias !235
-  %.sroa.15.0.i = select i1 %9, i64 %13, i64 0
-  %.sroa.14.0.i = select i1 %9, i64 %11, i64 undef
-  %.sroa.9.0.i = zext i1 %9 to i64
+  %.sroa.12.0.i = select i1 %9, i64 %11, i64 undef
+  %.sroa.8.0.i = zext i1 %9 to i64
+  %.sroa.13.0.i = select i1 %9, i64 %13, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !236
-  store i64 %.sroa.9.0.i, ptr %5, align 8, !noalias !240
-  %.sroa.518.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %.sroa.518.0..sroa_idx.i, align 8, !noalias !240
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %8, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !240
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %.sroa.14.0.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !240
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !240
-  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !240
-  %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %8, ptr %.sroa.13.0..sroa_idx.i, align 8, !noalias !240
-  %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 %.sroa.14.0.i, ptr %.sroa.14.0..sroa_idx.i, align 8, !noalias !240
-  %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %.sroa.15.0.i, ptr %.sroa.15.0..sroa_idx.i, align 8, !noalias !240
+  store i64 %.sroa.8.0.i, ptr %5, align 8, !noalias !240
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !240
+  %.sroa.6.0..sroa_idx18.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %8, ptr %.sroa.6.0..sroa_idx18.i, align 8, !noalias !240
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %.sroa.12.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !240
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %.sroa.8.0.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !240
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr null, ptr %.sroa.10.0..sroa_idx.i, align 8, !noalias !240
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store ptr %8, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !240
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 %.sroa.12.0.i, ptr %.sroa.12.0..sroa_idx.i, align 8, !noalias !240
+  %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 %.sroa.13.0.i, ptr %.sroa.13.0..sroa_idx.i, align 8, !noalias !240
   %14 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4df0e4c137ff8a22E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5), !noalias !241
   %15 = extractvalue { ptr, ptr } %14, 0
   %16 = icmp eq ptr %15, null
@@ -841,27 +841,27 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %11 = load i64, ptr %10, align 8, !alias.scope !243, !noalias !248
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !243, !noalias !248
-  %.sroa.15.0.i = select i1 %9, i64 %13, i64 0
-  %.sroa.14.0.i = select i1 %9, i64 %11, i64 undef
-  %.sroa.9.0.i = zext i1 %9 to i64
+  %.sroa.12.0.i = select i1 %9, i64 %11, i64 undef
+  %.sroa.8.0.i = zext i1 %9 to i64
+  %.sroa.13.0.i = select i1 %9, i64 %13, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !249
-  store i64 %.sroa.9.0.i, ptr %5, align 8, !noalias !253
-  %.sroa.518.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %.sroa.518.0..sroa_idx.i, align 8, !noalias !253
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %8, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !253
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %.sroa.14.0.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !253
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %.sroa.9.0.i, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !253
-  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !253
-  %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %8, ptr %.sroa.13.0..sroa_idx.i, align 8, !noalias !253
-  %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 %.sroa.14.0.i, ptr %.sroa.14.0..sroa_idx.i, align 8, !noalias !253
-  %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %.sroa.15.0.i, ptr %.sroa.15.0..sroa_idx.i, align 8, !noalias !253
+  store i64 %.sroa.8.0.i, ptr %5, align 8, !noalias !253
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !253
+  %.sroa.6.0..sroa_idx18.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %8, ptr %.sroa.6.0..sroa_idx18.i, align 8, !noalias !253
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %.sroa.12.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !253
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %.sroa.8.0.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !253
+  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr null, ptr %.sroa.10.0..sroa_idx.i, align 8, !noalias !253
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store ptr %8, ptr %.sroa.11.0..sroa_idx.i, align 8, !noalias !253
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 %.sroa.12.0.i, ptr %.sroa.12.0..sroa_idx.i, align 8, !noalias !253
+  %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 %.sroa.13.0.i, ptr %.sroa.13.0..sroa_idx.i, align 8, !noalias !253
   %14 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a5db85bee3897e9E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5), !noalias !254
   %15 = extractvalue { ptr, ptr } %14, 0
   %16 = icmp eq ptr %15, null
@@ -5269,27 +5269,27 @@ define internal noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..map..B
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
-  %.sroa.15.0 = select i1 %8, i64 %12, i64 0
-  %.sroa.14.0 = select i1 %8, i64 %10, i64 undef
-  %.sroa.9.0 = zext i1 %8 to i64
+  %.sroa.12.0 = select i1 %8, i64 %10, i64 undef
+  %.sroa.8.0 = zext i1 %8 to i64
+  %.sroa.13.0 = select i1 %8, i64 %12, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !1239
-  store i64 %.sroa.9.0, ptr %5, align 8, !noalias !1243
-  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %.sroa.518.0..sroa_idx, align 8, !noalias !1243
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %7, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !1243
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %.sroa.14.0, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !1243
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8, !noalias !1243
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %.sroa.11.0..sroa_idx, align 8, !noalias !1243
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %7, ptr %.sroa.13.0..sroa_idx, align 8, !noalias !1243
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 %.sroa.14.0, ptr %.sroa.14.0..sroa_idx, align 8, !noalias !1243
-  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx, align 8, !noalias !1243
+  store i64 %.sroa.8.0, ptr %5, align 8, !noalias !1243
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !1243
+  %.sroa.6.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %7, ptr %.sroa.6.0..sroa_idx18, align 8, !noalias !1243
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 %.sroa.12.0, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !1243
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !1243
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !1243
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store ptr %7, ptr %.sroa.11.0..sroa_idx, align 8, !noalias !1243
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 8, !noalias !1243
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 8, !noalias !1243
   %13 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h14a50b02c6c905dbE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5), !noalias !1239
   %14 = extractvalue { ptr, ptr } %13, 0
   %15 = icmp eq ptr %14, null

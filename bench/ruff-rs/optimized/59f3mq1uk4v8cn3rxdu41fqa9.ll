@@ -25809,15 +25809,15 @@ define hidden noundef ptr @_ZN4ruff8commands13show_settings13show_settings17haa8
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45bf54617f5289c6E.exit": ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %40, ptr %37, align 8, !alias.scope !2084, !noalias !2087
-  %.sroa.0.0.copyload93 = load i64, ptr %38, align 8, !noalias !2084
-  %.not = icmp eq i64 %.sroa.0.0.copyload93, -9223372036854775808
+  %.sroa.0.0.copyload92 = load i64, ptr %38, align 8, !noalias !2084
+  %.not = icmp eq i64 %.sroa.0.0.copyload92, -9223372036854775808
   br i1 %.not, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45bf54617f5289c6E.exit.thread", label %41
 
 41:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h45bf54617f5289c6E.exit"
-  %.sroa.7.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i64 %.sroa.0.0.copyload93, ptr %17, align 8
+  %.sroa.7.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i64 %.sroa.0.0.copyload92, ptr %17, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx94, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx93, i64 16, i1 false)
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h1d18aea459f870bcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16)
           to label %44 unwind label %42
 

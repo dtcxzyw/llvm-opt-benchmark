@@ -3887,12 +3887,10 @@ define hidden noundef nonnull ptr @"_ZN5typst4util8deferred17Deferred$LT$T$GT$3n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN5typst4util8deferred17Deferred$LT$T$GT$3new17h9ebd8e5e7bfb9264E"(ptr noundef nonnull %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.sroa.6 = alloca [11 x i64], align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.6)
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !479
   %5 = tail call noundef align 8 dereferenceable_or_null(120) ptr @__rust_alloc(i64 noundef 120, i64 noundef 8) #28, !noalias !479
   %6 = icmp eq ptr %5, null
@@ -3911,11 +3909,8 @@ define hidden noundef nonnull ptr @"_ZN5typst4util8deferred17Deferred$LT$T$GT$3n
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 -9223372036854775807, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.6, i64 88, i1 false)
   %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 112
   store ptr null, ptr %.sroa.620.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.6)
   store ptr %5, ptr %2, align 8
   %9 = atomicrmw add ptr %5, i64 1 monotonic, align 8, !noalias !482
   %10 = icmp slt i64 %9, 0
@@ -4686,7 +4681,6 @@ define hidden noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initial
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %.sroa.5.i = alloca [5 x i64], align 8
-  %.sroa.13.i = alloca [6 x i8], align 2
   %.sroa.515 = alloca [5 x i64], align 8
   %.sroa.720 = alloca [3 x i64], align 8
   %13 = load ptr, ptr %0, align 8, !nonnull !4, !align !121, !noundef !4
@@ -5086,8 +5080,6 @@ common.resume:                                    ; preds = %.body.i.i, %.body
   store i8 %.sroa.11.0.i, ptr %.sroa.1028.0..sroa_idx, align 8
   %.sroa.1131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 89
   store i8 %.sroa.12.0.i, ptr %.sroa.1131.0..sroa_idx, align 1
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %126, i64 90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.13.i, i64 6, i1 false)
   br label %common.resume
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$typst_pdf..image..EncodedImage$GT$$GT$17h5b40ff7c8d776941E.exit": ; preds = %"_ZN4core3ptr83drop_in_place$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$pdf_writer..object..Filter$RP$$GT$17hff1038942fe047b7E.exit.i.i.i", %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h8fbbca9b2d397d11E.exit.i.i", %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h34b8f3e684971b52E.exit", %88
@@ -5107,8 +5099,6 @@ common.resume:                                    ; preds = %.body.i.i, %.body
   store i8 %.sroa.11.0.i, ptr %.sroa.1028.0..sroa_idx29, align 8
   %.sroa.1131.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %127, i64 89
   store i8 %.sroa.12.0.i, ptr %.sroa.1131.0..sroa_idx32, align 1
-  %.sroa.12.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %127, i64 90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.12.0..sroa_idx34, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.13.i, i64 6, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.515)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.720)
   ret i1 true

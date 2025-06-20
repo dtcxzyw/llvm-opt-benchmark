@@ -5726,8 +5726,8 @@ define hidden void @_ZN21polars_parquet_format6thrift8protocol28verify_required_
   store ptr @anon.c67a6a2634d0458665f4a31f543faa7f.89, ptr %5, align 8, !noalias !719
   %.sroa.4.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx7, align 8, !noalias !719
-  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %6, ptr %.sroa.58.0..sroa_idx, align 8, !noalias !719
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %6, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !719
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !719
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -5767,8 +5767,8 @@ define hidden void @_ZN21polars_parquet_format6thrift8protocol28verify_required_
   store ptr @anon.c67a6a2634d0458665f4a31f543faa7f.89, ptr %5, align 8, !noalias !728
   %.sroa.4.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx7, align 8, !noalias !728
-  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %6, ptr %.sroa.58.0..sroa_idx, align 8, !noalias !728
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %6, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !728
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !728
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -5808,8 +5808,8 @@ define hidden void @_ZN21polars_parquet_format6thrift8protocol28verify_required_
   store ptr @anon.c67a6a2634d0458665f4a31f543faa7f.89, ptr %5, align 8, !noalias !737
   %.sroa.4.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx7, align 8, !noalias !737
-  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %6, ptr %.sroa.58.0..sroa_idx, align 8, !noalias !737
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %6, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !737
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !737
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32

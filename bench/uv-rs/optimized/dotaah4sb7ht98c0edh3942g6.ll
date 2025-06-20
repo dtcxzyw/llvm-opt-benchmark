@@ -5982,6 +5982,7 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %.sroa.9.sroa.0.sroa.0 = alloca [80 x i8], align 8
+  %.sroa.17 = alloca [16 x i8], align 8
   %13 = alloca [96 x i8], align 8
   %14 = alloca [8 x i8], align 8
   %15 = alloca [160 x i8], align 8
@@ -5992,7 +5993,6 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
   %.sroa.615.sroa.7 = alloca [80 x i8], align 8
   %19 = alloca [176 x i8], align 8
   %20 = alloca [8 x i8], align 8
-  %.sroa.58 = alloca [16 x i8], align 8
   %21 = alloca [88 x i8], align 8
   %22 = alloca [96 x i8], align 8
   %23 = alloca [8 x i8], align 8
@@ -6389,7 +6389,7 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
 
 222:                                              ; preds = %219
   %223 = atomicrmw or ptr %216, i64 1 release, align 8, !noalias !2077
-  %.pre211 = load ptr, ptr %17, align 8
+  %.pre210 = load ptr, ptr %17, align 8
   br label %448
 
 224:                                              ; preds = %2
@@ -6650,7 +6650,7 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
   %.sroa.1171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 136
   %.sroa.1171.0.copyload = load i64, ptr %.sroa.1171.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.17, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.9.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.7, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.6.sroa.7)
@@ -6693,7 +6693,7 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %.sroa.16.0, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.17, i64 16, i1 false)
   br label %484
 
 356:                                              ; preds = %346, %336
@@ -6873,7 +6873,7 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
 
 431:                                              ; preds = %428
   %432 = atomicrmw or ptr %425, i64 1 release, align 8, !noalias !2130
-  %.pre212 = load ptr, ptr %20, align 8
+  %.pre211 = load ptr, ptr %20, align 8
   br label %446
 
 "_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h804367870c524991E.exit": ; preds = %445, %441, %433
@@ -6914,7 +6914,7 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
   br label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$$GT$17h804367870c524991E.exit"
 
 446:                                              ; preds = %431, %428, %424, %420, %.noexc175
-  %447 = phi ptr [ %.pre212, %431 ], [ %.val118, %428 ], [ %.val118, %424 ], [ %.val118, %420 ], [ %.val118, %.noexc175 ]
+  %447 = phi ptr [ %.pre211, %431 ], [ %.val118, %428 ], [ %.val118, %424 ], [ %.val118, %420 ], [ %.val118, %.noexc175 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.9.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
   %.sroa.0185.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.sroa.0185.sroa.4.0.copyload = load i64, ptr %.sroa.0185.sroa.4.0..sroa_idx, align 8, !noalias !2117
@@ -6923,7 +6923,7 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
   br label %355
 
 448:                                              ; preds = %222, %219, %215, %211, %.noexc146
-  %449 = phi ptr [ %.pre211, %222 ], [ %.val117, %219 ], [ %.val117, %215 ], [ %.val117, %211 ], [ %.val117, %.noexc146 ]
+  %449 = phi ptr [ %.pre210, %222 ], [ %.val117, %219 ], [ %.val117, %215 ], [ %.val117, %211 ], [ %.val117, %.noexc146 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 88, i1 false), !noalias !2080
   %450 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store ptr %209, ptr %450, align 8, !alias.scope !2077, !noalias !2080
@@ -6959,7 +6959,7 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
   %.sroa.1185.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 136
   %.sroa.1185.0.copyload = load i64, ptr %.sroa.1185.0..sroa_idx, align 8
   %.sroa.1286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1286.0..sroa_idx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.17, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1286.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.9.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.615.sroa.7, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.615.sroa.7)
@@ -7022,7 +7022,7 @@ define void @_ZN15uv_requirements13required_dist17h49785dba53a6104aE(ptr dead_on
   %.sroa.11100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 136
   %.sroa.11100.0.copyload = load i64, ptr %.sroa.11100.0..sroa_idx, align 8
   %.sroa.12101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12101.0..sroa_idx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.17, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12101.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.9.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.621.sroa.7, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.621.sroa.7)

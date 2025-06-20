@@ -61,11 +61,9 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilderC2ERKNS0_11HostIrHooksE(ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store i32 -1, ptr %11, align 8, !tbaa !100
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 24, i1 false)
-  store i8 3, ptr %14, align 8, !tbaa !101
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, i8 0, i64 72, i1 false)
+  store i8 3, ptr %13, align 8, !tbaa !101
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 736
   store i64 -1, ptr %.sroa.54.0..sroa_idx, align 8, !tbaa !102
   ret void

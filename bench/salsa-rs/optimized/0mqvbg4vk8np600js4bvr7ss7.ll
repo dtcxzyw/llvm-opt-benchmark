@@ -351,13 +351,13 @@ _ZN8smallvec12layout_array17h1f803d8d8e5032b4E.exit.i: ; preds = %35
 42:                                               ; preds = %_ZN8smallvec12layout_array17h1f803d8d8e5032b4E.exit.i
   %43 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !32
   %44 = tail call noundef align 8 ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef %33, i64 noundef 8) #20, !noalias !32
-  %.not96.i = icmp eq ptr %44, null
-  br i1 %.not96.i, label %57, label %47
+  %.not95.i = icmp eq ptr %44, null
+  br i1 %.not95.i, label %57, label %47
 
 _ZN8smallvec12layout_array17h1f803d8d8e5032b4E.exit80.i: ; preds = %40
   %45 = tail call noundef align 8 ptr @_RNvCshjvJWTf7CV5_7___rustc14___rust_realloc(ptr noundef nonnull %.sink12.i.i, i64 noundef %38, i64 noundef 8, i64 noundef %33) #20
-  %.not95.i = icmp eq ptr %45, null
-  br i1 %.not95.i, label %57, label %46
+  %.not94.i = icmp eq ptr %45, null
+  br i1 %.not94.i, label %57, label %46
 
 46:                                               ; preds = %_ZN8smallvec12layout_array17h1f803d8d8e5032b4E.exit80.i, %47
   %.sroa.056.0.i = phi ptr [ %44, %47 ], [ %45, %_ZN8smallvec12layout_array17h1f803d8d8e5032b4E.exit80.i ]
@@ -752,7 +752,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edg
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unblock_runtimes_blocked_on17h2ab288033f5e0704E(ptr noalias noundef align 8 dereferenceable(96) %0, i32 noundef range(i32 1, 0) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [8 x i8], align 8
-  %.sroa.7 = alloca [24 x i8], align 8
+  %.sroa.6 = alloca [24 x i8], align 8
   %6 = alloca [64 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [8 x i8], align 4
@@ -771,14 +771,14 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
   br label %.cont
 
 12:                                               ; preds = %4
-  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.412.0.copyload = load i64, ptr %.sroa.412.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, i64 24, i1 false)
-  %.sroa.714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %.sroa.714.0.copyload = load i64, ptr %.sroa.714.0..sroa_idx, align 8
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.411.0.copyload = load i64, ptr %.sroa.411.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, i64 24, i1 false)
+  %.sroa.613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %.sroa.613.0.copyload = load i64, ptr %.sroa.613.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  %13 = icmp ugt i64 %.sroa.714.0.copyload, 4
+  %13 = icmp ugt i64 %.sroa.613.0.copyload, 4
   %14 = icmp eq i64 %11, 0
   %.sink.i = xor i1 %14, %13
   call void @llvm.assume(i1 %.sink.i)
@@ -788,23 +788,23 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
   br label %.cont
 
 .cont:                                            ; preds = %.thread, %12, %.else
-  %.sink12.i7.i28 = phi i64 [ %.sroa.412.0.copyload, %12 ], [ 0, %.thread ], [ %.sroa.714.0.copyload, %.else ]
-  %.sroa.010.025 = phi i64 [ %11, %12 ], [ 0, %.thread ], [ %11, %.else ]
-  %.sroa.714.1 = phi i64 [ %.sroa.714.0.copyload, %12 ], [ 0, %.thread ], [ 0, %.else ]
-  %.sroa.412.1 = phi i64 [ 0, %12 ], [ undef, %.thread ], [ %.sroa.412.0.copyload, %.else ]
+  %.sink12.i7.i27 = phi i64 [ %.sroa.411.0.copyload, %12 ], [ 0, %.thread ], [ %.sroa.613.0.copyload, %.else ]
+  %.sroa.09.024 = phi i64 [ %11, %12 ], [ 0, %.thread ], [ %11, %.else ]
+  %.sroa.613.1 = phi i64 [ %.sroa.613.0.copyload, %12 ], [ 0, %.thread ], [ 0, %.else ]
+  %.sroa.411.1 = phi i64 [ 0, %12 ], [ undef, %.thread ], [ %.sroa.411.0.copyload, %.else ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  store i64 %.sroa.010.025, ptr %6, align 8
+  store i64 %.sroa.09.024, ptr %6, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.412.1, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.411.1, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 %.sroa.714.1, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i64 0, ptr %.sroa.49.0..sroa_idx, align 8
+  store i64 %.sroa.613.1, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i64 %.sink12.i7.i28, ptr %.sroa.5.0..sroa_idx, align 8
-  %15 = icmp eq i64 %.sink12.i7.i28, 0
+  store i64 %.sink12.i7.i27, ptr %.sroa.5.0..sroa_idx, align 8
+  %15 = icmp eq i64 %.sink12.i7.i27, 0
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.cont
@@ -814,7 +814,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
 17:                                               ; preds = %.lr.ph, %_ZN5salsa7runtime16dependency_graph15DependencyGraph15unblock_runtime17h162932157fe97798E.exit
   %18 = phi i64 [ 0, %.lr.ph ], [ %38, %_ZN5salsa7runtime16dependency_graph15DependencyGraph15unblock_runtime17h162932157fe97798E.exit ]
   %19 = add i64 %18, 1
-  store i64 %19, ptr %.sroa.49.0..sroa_idx, align 8
+  store i64 %19, ptr %.sroa.4.0..sroa_idx, align 8
   %20 = load i64, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8, !alias.scope !100, !noalias !103, !noundef !6
   %21 = icmp ugt i64 %20, 4
   %22 = load i64, ptr %6, align 8, !range !5, !alias.scope !100, !noalias !103, !noundef !6
@@ -885,7 +885,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
 
 _ZN5salsa7runtime16dependency_graph15DependencyGraph15unblock_runtime17h162932157fe97798E.exit: ; preds = %.noexc6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %38 = load i64, ptr %.sroa.49.0..sroa_idx, align 8, !noundef !6
+  %38 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !noundef !6
   %39 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !noundef !6
   %40 = icmp eq i64 %38, %39
   br i1 %40, label %._crit_edge, label %17

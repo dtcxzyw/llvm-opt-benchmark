@@ -366,7 +366,7 @@ define hidden void @_ZN8async_io6driver8block_on17hd98293694af0ada8E(ptr noalias
   %48 = icmp eq i64 %47, 5
   br i1 %48, label %.thread, label %50
 
-.thread:                                          ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit, %59, %50, %1, %53
+.thread:                                          ; preds = %53, %_ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit, %59, %50, %1
   store i64 2, ptr %46, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 32
   store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
@@ -425,8 +425,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
 
 65:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
-  %.pre = load i64, ptr %46, align 8, !range !52, !alias.scope !92
-  %66 = icmp eq i64 %.pre, 2
+  %.pr = load i64, ptr %46, align 8, !alias.scope !92
+  %66 = icmp eq i64 %.pr, 2
   br i1 %66, label %_ZN7tracing4span4Span8do_enter17hbc9c1a32e0d90029E.exit, label %67
 
 67:                                               ; preds = %65
@@ -446,7 +446,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
           cleanup
   br label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h9d67df26919f87a1E.exit"
 
-_ZN7tracing4span4Span8do_enter17hbc9c1a32e0d90029E.exit: ; preds = %.thread, %65, %67
+_ZN7tracing4span4Span8do_enter17hbc9c1a32e0d90029E.exit: ; preds = %65, %.thread, %67
   %70 = atomicrmw add ptr @_ZN8async_io6driver14BLOCK_ON_COUNT17ha4c66b7e5ff821edE, i64 1 seq_cst, align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %44)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %44, ptr noundef nonnull align 8 dereferenceable(192) %0, i64 192, i1 false)
@@ -2008,8 +2008,8 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.14408593437386099104.exit
           to label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h9d67df26919f87a1E.exit30" unwind label %68
 
 "_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h9d67df26919f87a1E.exit30": ; preds = %521
-  %.pr = load i64, ptr %46, align 8, !alias.scope !262
-  %.not.i.i31 = icmp eq i64 %.pr, 2
+  %.pr49 = load i64, ptr %46, align 8, !alias.scope !262
+  %.not.i.i31 = icmp eq i64 %.pr49, 2
   br i1 %.not.i.i31, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h69eb9e1cbda42f23E.exit", label %523
 
 523:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h9d67df26919f87a1E.exit30"
@@ -2028,7 +2028,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.14408593437386099104.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !271)
   call void @llvm.experimental.noalias.scope.decl(metadata !274)
   call void @llvm.experimental.noalias.scope.decl(metadata !277)
-  %529 = icmp eq i64 %.pr, 0
+  %529 = icmp eq i64 %.pr49, 0
   br i1 %529, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h69eb9e1cbda42f23E.exit", label %530
 
 530:                                              ; preds = %528

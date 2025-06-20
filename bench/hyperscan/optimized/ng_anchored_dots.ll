@@ -2522,8 +2522,8 @@ _ZNSt14priority_queueIN3ue212_GLOBAL__N_17DotInfoESt6vectorIS2_SaIS2_EESt4lessIS
   ret { ptr, i64 } %.fca.1.insert.merged25
 
 83:                                               ; preds = %.loopexit28, %.loopexit.split-lp, %79
-  %.sroa.019.031 = phi ptr [ %.sroa.019.2, %79 ], [ %.sroa.019.039, %.loopexit.split-lp ], [ %.sroa.019.039, %.loopexit28 ]
-  %.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit28 ]
+  %.sroa.019.031 = phi ptr [ %.sroa.019.2, %79 ], [ %.sroa.019.039, %.loopexit28 ], [ %.sroa.019.039, %.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %80, %79 ], [ %lpad.loopexit, %.loopexit28 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i.i29 = icmp eq ptr %.sroa.019.031, null
   br i1 %.not.i.i.i.i29, label %_ZNSt14priority_queueIN3ue212_GLOBAL__N_17DotInfoESt6vectorIS2_SaIS2_EESt4lessIS2_EED2Ev.exit30, label %84
 

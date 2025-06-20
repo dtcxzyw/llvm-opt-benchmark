@@ -31,14 +31,14 @@ define internal void @"_ZN10tokio_util4sync4mpsc19make_acquire_future28_$u7b$$u7
   %5 = alloca [48 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i8, ptr %6, align 8, !range !3, !noundef !4
-  switch i8 %7, label %default.unreachable15 [
+  switch i8 %7, label %default.unreachable16 [
     i8 0, label %8
     i8 1, label %23
     i8 2, label %24
     i8 3, label %25
   ]
 
-default.unreachable15:                            ; preds = %37, %25, %3
+default.unreachable16:                            ; preds = %37, %25, %3
   unreachable
 
 8:                                                ; preds = %3
@@ -98,7 +98,7 @@ default.unreachable15:                            ; preds = %37, %25, %3
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !3, !noalias !10
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  switch i8 %.pre, label %default.unreachable15 [
+  switch i8 %.pre, label %default.unreachable16 [
     i8 0, label %.thread.i
     i8 1, label %35
     i8 2, label %36
@@ -144,18 +144,18 @@ default.unreachable15:                            ; preds = %37, %25, %3
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !13, !noalias !14
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.6.i.i)
-  switch i8 %.pre.i, label %default.unreachable15 [
-    i8 0, label %._crit_edge
+  switch i8 %.pre.i, label %default.unreachable16 [
+    i8 0, label %._crit_edge12
     i8 1, label %48
     i8 2, label %49
     i8 3, label %._crit_edge.i.i
     i8 4, label %63
   ]
 
-._crit_edge:                                      ; preds = %37
-  %.pre12 = load ptr, ptr %38, align 8, !noalias !14
-  %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.pre14 = load i64, ptr %.phi.trans.insert13, align 8, !noalias !14
+._crit_edge12:                                    ; preds = %37
+  %.pre13 = load ptr, ptr %38, align 8, !noalias !14
+  %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.pre15 = load i64, ptr %.phi.trans.insert14, align 8, !noalias !14
   br label %39
 
 ._crit_edge.i.i:                                  ; preds = %37
@@ -165,13 +165,13 @@ default.unreachable15:                            ; preds = %37, %25, %3
   %.pre21.i.i = load ptr, ptr %.phi.trans.insert20.i.i, align 8, !noalias !14
   br label %50
 
-39:                                               ; preds = %._crit_edge, %.thread.i
-  %40 = phi ptr [ %28, %.thread.i ], [ %27, %._crit_edge ]
-  %41 = phi ptr [ %29, %.thread.i ], [ %26, %._crit_edge ]
-  %42 = phi i64 [ 1, %.thread.i ], [ %.pre14, %._crit_edge ]
-  %43 = phi ptr [ %30, %.thread.i ], [ %.pre12, %._crit_edge ]
-  %44 = phi ptr [ %.sroa.10.0..sroa_idx.i, %.thread.i ], [ %.phi.trans.insert.i, %._crit_edge ]
-  %45 = phi ptr [ %32, %.thread.i ], [ %38, %._crit_edge ]
+39:                                               ; preds = %._crit_edge12, %.thread.i
+  %40 = phi ptr [ %28, %.thread.i ], [ %27, %._crit_edge12 ]
+  %41 = phi ptr [ %29, %.thread.i ], [ %26, %._crit_edge12 ]
+  %42 = phi i64 [ 1, %.thread.i ], [ %.pre15, %._crit_edge12 ]
+  %43 = phi ptr [ %30, %.thread.i ], [ %.pre13, %._crit_edge12 ]
+  %44 = phi ptr [ %.sroa.10.0..sroa_idx.i, %.thread.i ], [ %.phi.trans.insert.i, %._crit_edge12 ]
+  %45 = phi ptr [ %32, %.thread.i ], [ %38, %._crit_edge12 ]
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %43, ptr %46, align 8, !noalias !14
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -234,10 +234,10 @@ default.unreachable15:                            ; preds = %37, %25, %3
   br label %.body.i
 
 63:                                               ; preds = %60, %37
-  %64 = phi ptr [ %27, %37 ], [ %51, %60 ]
-  %65 = phi ptr [ %26, %37 ], [ %52, %60 ]
-  %66 = phi ptr [ %.phi.trans.insert.i, %37 ], [ %53, %60 ]
-  %67 = phi ptr [ %38, %37 ], [ %54, %60 ]
+  %64 = phi ptr [ %51, %60 ], [ %27, %37 ]
+  %65 = phi ptr [ %52, %60 ], [ %26, %37 ]
+  %66 = phi ptr [ %53, %60 ], [ %.phi.trans.insert.i, %37 ]
+  %67 = phi ptr [ %54, %60 ], [ %38, %37 ]
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %69 = invoke noundef i8 @"_ZN86_$LT$tokio..sync..batch_semaphore..Acquire$u20$as$u20$core..future..future..Future$GT$4poll17hcd079ca654a7ff13E"(ptr noundef nonnull align 8 %68, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %72 unwind label %70
@@ -3732,8 +3732,8 @@ define internal fastcc void @"_ZN4core3ptr156drop_in_place$LT$alloc..collections
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !660
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !660
-  %.sroa.4.0..sroa_idx19.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i.i, align 8, !alias.scope !663, !noalias !666
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !663, !noalias !666
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !663, !noalias !666
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -6937,8 +6937,8 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$quiche..path..PathM
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !1241
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !1241
-  %.sroa.4.0..sroa_idx19.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i.i.i, align 8, !alias.scope !1242, !noalias !1245
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1242, !noalias !1245
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !1242, !noalias !1245
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7401,8 +7401,8 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$quiche..ranges..Ran
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !1315
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !1315
-  %.sroa.4.0..sroa_idx19.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i.i.i.i, align 8, !alias.scope !1316, !noalias !1319
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !alias.scope !1316, !noalias !1319
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i, align 8, !alias.scope !1316, !noalias !1319
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -9572,8 +9572,8 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$quiche..stream..recv_buf..Re
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !1792
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !1792
-  %.sroa.4.0..sroa_idx19.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i.i.i, align 8, !alias.scope !1793, !noalias !1796
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !1793, !noalias !1796
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !1793, !noalias !1796
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24

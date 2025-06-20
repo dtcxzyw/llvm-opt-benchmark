@@ -7777,7 +7777,6 @@ define void @_ZN18FilterMutualGlobal9CalcPairsER12MeshDocumentb(ptr dead_on_unwi
   %8 = alloca [4096 x i8], align 16
   %9 = alloca %class.Solver, align 8
   %10 = alloca %class.MutualInfo, align 8
-  %.sroa.19 = alloca [3 x i8], align 1
   %11 = alloca %class.QImage, align 8
   %12 = alloca %class.QColor, align 4
   %13 = alloca %class.QColor, align 4
@@ -8309,8 +8308,6 @@ _ZNSt6vectorI9AlignPairSaIS0_EED2Ev.exit:         ; preds = %.thread284, %.loope
   store float %228, ptr %.sroa.16.0..sroa.13.0..sroa.13.8..sroa_idx, align 4
   %.sroa.18.0..sroa.13.0..sroa.13.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.13.2380, i64 24
   store i8 0, ptr %.sroa.18.0..sroa.13.0..sroa.13.8..sroa_idx, align 4
-  %.sroa.19.0..sroa.13.0..sroa.13.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.13.2380, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19.0..sroa.13.0..sroa.13.8..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19, i64 3, i1 false)
   %230 = getelementptr inbounds nuw i8, ptr %.sroa.13.2380, i64 28
   br label %_ZNSt6vectorI9AlignPairSaIS0_EE9push_backERKS0_.exit
 
@@ -8356,8 +8353,6 @@ _ZNKSt6vectorI9AlignPairSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %231
   store float %228, ptr %.sroa.16.0..sroa_idx, align 4
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %244, i64 24
   store i8 0, ptr %.sroa.18.0..sroa_idx, align 4
-  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %244, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19, i64 3, i1 false)
   %.not10.i.i.i.i.i.i = icmp eq ptr %.sroa.0200.3378, %.sroa.20.2381
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorI9AlignPairSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -8724,8 +8719,6 @@ _ZNSt6vectorI9AlignPairSaIS0_EE9push_backERKS0_.exit163: ; preds = %_ZNSt6vector
   store float %368, ptr %.sroa.16.0..sroa_idx242, align 4
   %.sroa.18.0..sroa_idx247 = getelementptr inbounds nuw i8, ptr %369, i64 24
   store i8 0, ptr %.sroa.18.0..sroa_idx247, align 4
-  %.sroa.19.0..sroa_idx251 = getelementptr inbounds nuw i8, ptr %369, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19.0..sroa_idx251, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19, i64 3, i1 false)
   %372 = getelementptr inbounds nuw i8, ptr %369, i64 28
   store ptr %372, ptr %138, align 8
   br label %_ZNSt6vectorI9AlignPairSaIS0_EE9push_backERKS0_.exit181
@@ -8772,8 +8765,6 @@ _ZNKSt6vectorI9AlignPairSaIS0_EE12_M_check_lenEmPKc.exit.i.i167: ; preds = %373
   store float %368, ptr %.sroa.16.0..sroa_idx244, align 4
   %.sroa.18.0..sroa_idx249 = getelementptr inbounds nuw i8, ptr %386, i64 24
   store i8 0, ptr %.sroa.18.0..sroa_idx249, align 4
-  %.sroa.19.0..sroa_idx252 = getelementptr inbounds nuw i8, ptr %386, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19.0..sroa_idx252, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.19, i64 3, i1 false)
   %.not10.i.i.i.i.i.i170 = icmp eq ptr %318, %369
   br i1 %.not10.i.i.i.i.i.i170, label %_ZNSt6vectorI9AlignPairSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i175, label %.lr.ph.i.i.i.i.i.i171
 

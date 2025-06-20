@@ -10183,15 +10183,15 @@ default.unreachable:                              ; preds = %1
 
 21:                                               ; preds = %11
   invoke void @"_ZN4core3ptr69drop_in_place$LT$polars_core..frame..column..scalar..ScalarColumn$GT$17he83dffb4bae0b442E"(ptr noalias noundef nonnull align 16 dereferenceable(160) %0)
-          to label %42 unwind label %40
+          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit" unwind label %40
 
 22:                                               ; preds = %11
   invoke void @"_ZN4core3ptr69drop_in_place$LT$polars_core..frame..column..series..SeriesColumn$GT$17hf6b5133ebcc0e8e2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
-          to label %42 unwind label %40
+          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit" unwind label %40
 
 23:                                               ; preds = %11
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_core..frame..column..partitioned..PartitionedColumn$GT$17h3ffe55cf616b1175E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %12)
-          to label %42 unwind label %40
+          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit" unwind label %40
 
 24:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
@@ -10214,28 +10214,28 @@ default.unreachable:                              ; preds = %1
   %30 = extractvalue { ptr, ptr } %28, 1
   %31 = load i8, ptr %0, align 16, !range !846, !alias.scope !850, !noundef !3
   %32 = add nsw i8 %31, -28
-  %narrow.i47 = tail call i8 @llvm.umin.i8(i8 %32, i8 2)
-  switch i8 %narrow.i47, label %33 [
+  %narrow.i45 = tail call i8 @llvm.umin.i8(i8 %32, i8 2)
+  switch i8 %narrow.i45, label %33 [
     i8 0, label %34
     i8 1, label %36
   ]
 
 33:                                               ; preds = %24
   invoke void @"_ZN4core3ptr69drop_in_place$LT$polars_core..frame..column..scalar..ScalarColumn$GT$17he83dffb4bae0b442E"(ptr noalias noundef nonnull align 16 dereferenceable(160) %0)
-          to label %46 unwind label %44
+          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit49" unwind label %43
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @"_ZN4core3ptr69drop_in_place$LT$polars_core..frame..column..series..SeriesColumn$GT$17hf6b5133ebcc0e8e2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %35)
-          to label %46 unwind label %44
+          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit49" unwind label %43
 
 36:                                               ; preds = %24
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @"_ZN4core3ptr79drop_in_place$LT$polars_core..frame..column..partitioned..PartitionedColumn$GT$17h3ffe55cf616b1175E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %37)
-          to label %46 unwind label %44
+          to label %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit49" unwind label %43
 
-38:                                               ; preds = %46, %42, %9
-  %.sroa.519.0..sroa_idx20.sink = phi ptr [ %.sroa.519.0..sroa_idx20, %46 ], [ %12, %42 ], [ %10, %9 ]
+38:                                               ; preds = %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit49", %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit", %9
+  %.sroa.519.0..sroa_idx20.sink = phi ptr [ %.sroa.519.0..sroa_idx20, %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit49" ], [ %12, %"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit" ], [ %10, %9 ]
   %39 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN95_$LT$polars_core..frame..column..series..SeriesColumn$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h24ba6b73b7b7e0feE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.519.0..sroa_idx20.sink)
   ret ptr %39
 
@@ -10244,31 +10244,31 @@ default.unreachable:                              ; preds = %1
           cleanup
   store i8 28, ptr %0, align 16
   store ptr %17, ptr %12, align 8
-  br label %43
+  br label %42
 
-42:                                               ; preds = %23, %22, %21
+"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit": ; preds = %21, %22, %23
   store i8 28, ptr %0, align 16
   store ptr %17, ptr %12, align 8
   %.sroa.6.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %.sroa.6.0..sroa_idx7, align 16
   br label %38
 
-43:                                               ; preds = %44, %40
-  %.sink = phi ptr [ %30, %44 ], [ %18, %40 ]
-  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %41, %40 ]
+42:                                               ; preds = %43, %40
+  %.sink = phi ptr [ %30, %43 ], [ %18, %40 ]
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %41, %40 ]
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %.sroa.622.0..sroa_idx, align 16
   resume { ptr, i32 } %.pn
 
-44:                                               ; preds = %36, %34, %33
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %36, %34, %33
+  %44 = landingpad { ptr, i32 }
           cleanup
   store i8 28, ptr %0, align 16
   %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %29, ptr %.sroa.519.0..sroa_idx, align 8
-  br label %43
+  br label %42
 
-46:                                               ; preds = %36, %34, %33
+"_ZN4core3ptr55drop_in_place$LT$polars_core..frame..column..Column$GT$17h7956c44b724cd104E.exit49": ; preds = %33, %34, %36
   store i8 28, ptr %0, align 16
   %.sroa.519.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %29, ptr %.sroa.519.0..sroa_idx20, align 8

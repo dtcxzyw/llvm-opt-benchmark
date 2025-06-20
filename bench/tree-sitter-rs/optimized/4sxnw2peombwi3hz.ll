@@ -72280,13 +72280,13 @@ common.resume:                                    ; preds = %.body, %35
 
 48:                                               ; preds = %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %.sroa.626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %.sroa.626.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.626.0..sroa_idx27, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.626.0..sroa_idx, i64 12, i1 false)
+  %.sroa.625.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 44
+  %.sroa.625.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.625.0..sroa_idx26, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.625.0..sroa_idx, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !30581
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  %.sroa.423.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 %26, ptr %.sroa.423.0..sroa_idx24, align 8, !alias.scope !30624
+  %.sroa.4.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i32 %26, ptr %.sroa.4.0..sroa_idx23, align 8, !alias.scope !30624
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   invoke void @"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send17h4747b5a1540b3d8aE"(ptr noalias noundef nonnull sret({ [10 x i32], i32, [3 x i32] }) align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %5)

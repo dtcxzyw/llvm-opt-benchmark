@@ -2490,10 +2490,10 @@ define hidden void @_ZN12clap_builder7builder14possible_value13PossibleValue3new
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i8 0, ptr %7, align 8
   store i64 0, ptr %0, align 8
-  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.49.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %.sroa.5.0..sroa_idx10, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %2, ptr %.sroa.5.0..sroa_idx9, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8833,7 +8833,6 @@ define void @"_ZN175_$LT$ruff_python_formatter..statement..stmt_assign..FormatSt
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
-  %.sroa.5293 = alloca [24 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = alloca [24 x i8], align 8
   %16 = alloca [96 x i8], align 8
@@ -10082,8 +10081,6 @@ _ZN21ruff_python_formatter9statement11stmt_assign34OptionalParenthesesInlinedCom
   store ptr %449, ptr %51, align 8
   %450 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 2, ptr %450, align 8
-  %.sroa.5293.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5293.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5293, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50)
   invoke void @"_ZN14ruff_formatter17format_extensions27Memoized$LT$F$C$Context$GT$7inspect17hcdca420f4ef93663E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %50, ptr noundef nonnull align 8 %51, ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %452 unwind label %.loopexit.split-lp561
@@ -10148,8 +10145,6 @@ _ZN21ruff_python_formatter9statement11stmt_assign34OptionalParenthesesInlinedCom
   store ptr %101, ptr %.sroa.5135.0..sroa_idx, align 8
   %464 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 2, ptr %464, align 8
-  %.sroa.5293.0..sroa_idx294 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5293.0..sroa_idx294, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5293, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46)
   store ptr %51, ptr %46, align 8
   %.sroa.4137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -10386,8 +10381,6 @@ _ZN21ruff_python_formatter9statement11stmt_assign34OptionalParenthesesInlinedCom
   store ptr %101, ptr %522, align 8
   %523 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 2, ptr %523, align 8
-  %.sroa.5293.0..sroa_idx295 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5293.0..sroa_idx295, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5293, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
   store ptr %51, ptr %33, align 8
   %.sroa.4169.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -10647,8 +10640,6 @@ _ZN21ruff_python_formatter9statement11stmt_assign34OptionalParenthesesInlinedCom
   store ptr %52, ptr %590, align 8
   %591 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 2, ptr %591, align 8
-  %.sroa.5293.0..sroa_idx296 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5293.0..sroa_idx296, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5293, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   store ptr %51, ptr %22, align 8
   %.sroa.4206.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -11981,9 +11972,9 @@ define void @"_ZN164_$LT$ruff_python_formatter..statement..stmt_class_def..Forma
   br label %.lr.ph.i17
 
 51:                                               ; preds = %.lr.ph.i
-  %.sroa.423.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.238.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.423.0..sroa_idx24, i64 20, i1 false)
+  %.sroa.4.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.237.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx23, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !762
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   store i32 %29, ptr %0, align 8
@@ -12010,9 +12001,9 @@ define void @"_ZN164_$LT$ruff_python_formatter..statement..stmt_class_def..Forma
   br i1 %59, label %61, label %.lr.ph.i17
 
 60:                                               ; preds = %.lr.ph.i17
-  %.sroa.427.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.sroa.248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.248.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.427.0..sroa_idx28, i64 20, i1 false)
+  %.sroa.426.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.247.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.426.0..sroa_idx27, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !771
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)

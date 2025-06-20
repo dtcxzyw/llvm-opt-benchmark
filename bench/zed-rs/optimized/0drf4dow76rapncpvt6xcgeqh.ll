@@ -11416,10 +11416,10 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4), !noalias !1855
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1860)
   store i64 7, ptr %4, align 8, !alias.scope !1863, !noalias !1865
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 6650876141560854223, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !1863, !noalias !1865
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i64 -2609083934714227564, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !1863, !noalias !1865
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i64 6650876141560854223, ptr %.sroa.22.0..sroa_idx.i, align 8, !alias.scope !1863, !noalias !1865
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i64 -2609083934714227564, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !1863, !noalias !1865
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -16505,7 +16505,7 @@ _ZN4gpui8executor5Scope5spawn17h2dc78530f6f74742E.exit.i.i.i: ; preds = %333, %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.695.i)
   br label %452
 
-456:                                              ; preds = %406, %.body.i, %408
+456:                                              ; preds = %.body.i, %408, %406
   %.pn16.pn.pn.pn.i = phi { ptr, i32 } [ %.pn16.i, %408 ], [ %407, %406 ], [ %.pn9.i, %.body.i ]
   %457 = getelementptr inbounds nuw i8, ptr %0, i64 585
   %458 = load i8, ptr %457, align 1, !range !76, !noalias !2485, !noundef !4

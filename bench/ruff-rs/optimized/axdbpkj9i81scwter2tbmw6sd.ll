@@ -597,7 +597,7 @@ define hidden void @"_ZN11ruff_linter5rules5isort10categorize1_105_$LT$impl$u20$
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %12, ptr %13, align 8
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %37
+  br label %38
 
 14:                                               ; preds = %2
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -616,26 +616,26 @@ define hidden void @"_ZN11ruff_linter5rules5isort10categorize1_105_$LT$impl$u20$
   %15 = invoke i64 @"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hbd11e0bedf057371E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 @anon.3f6e8a3dfced991c0ea629775af13ead.34, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 @anon.3f6e8a3dfced991c0ea629775af13ead.40, i64 noundef 5)
           to label %18 unwind label %16
 
-16:                                               ; preds = %31, %.thread, %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34", %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit", %14
+16:                                               ; preds = %32, %20, %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34", %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit", %14
   %17 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17had29e2920bd6fce6E"(ptr noalias noundef align 8 dereferenceable(32) %7) #13
-          to label %40 unwind label %38
+          to label %41 unwind label %39
 
 18:                                               ; preds = %14
   %19 = trunc i64 %15 to i1
-  br i1 %19, label %.thread, label %21
+  br i1 %19, label %20, label %22
 
-.thread:                                          ; preds = %18
+20:                                               ; preds = %18
   %.sroa.627.0.extract.shift = lshr i64 %15, 32
   %.sroa.627.0.extract.trunc = trunc nuw i64 %.sroa.627.0.extract.shift to i32
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.sroa.627.0.extract.trunc, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %.sroa.627.0.extract.trunc, ptr %21, align 8
   store i64 -9223372036854775807, ptr %5, align 8
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$serde_wasm_bindgen..error..Error$GT$17he809c0270c749ec7E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %20)
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$serde_wasm_bindgen..error..Error$GT$17he809c0270c749ec7E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %21)
           to label %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit" unwind label %16
 
-21:                                               ; preds = %18
+22:                                               ; preds = %18
   %.sroa.425.0.extract.shift = lshr i64 %15, 8
   %.sroa.425.0.extract.trunc = trunc i64 %.sroa.425.0.extract.shift to i8
   store i64 -9223372036854775808, ptr %5, align 8
@@ -643,73 +643,73 @@ define hidden void @"_ZN11ruff_linter5rules5isort10categorize1_105_$LT$impl$u20$
   store i8 %.sroa.425.0.extract.trunc, ptr %.sroa.419.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %33, %21
+23:                                               ; preds = %34, %22
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17had29e2920bd6fce6E"(ptr noalias noundef align 8 dereferenceable(32) %7)
-  br label %37
+  br label %38
 
-"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit": ; preds = %.thread
+"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit": ; preds = %20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_str17h66431b9ee80bf97aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
-          to label %23 unwind label %16
+          to label %24 unwind label %16
 
-23:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit"
-  %24 = load i64, ptr %3, align 8, !range !6, !noundef !4
-  %25 = icmp eq i64 %24, -9223372036854775808
-  br i1 %25, label %.thread39, label %29
+24:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit"
+  %25 = load i64, ptr %3, align 8, !range !6, !noundef !4
+  %26 = icmp eq i64 %25, -9223372036854775808
+  br i1 %26, label %.thread38, label %30
 
-.thread39:                                        ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = load i32, ptr %26, align 8, !noundef !4
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %27, ptr %28, align 8
+.thread38:                                        ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %28 = load i32, ptr %27, align 8, !noundef !4
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %28, ptr %29, align 8
   store i64 -9223372036854775807, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %31
+  br label %32
 
-29:                                               ; preds = %23
+30:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %.pr38 = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %30 = icmp eq i64 %.pr38, -9223372036854775807
-  br i1 %30, label %31, label %33
+  %31 = icmp eq i64 %.pr, -9223372036854775807
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %29, %.thread39
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$serde_wasm_bindgen..error..Error$GT$17he809c0270c749ec7E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %32)
+32:                                               ; preds = %30, %.thread38
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$serde_wasm_bindgen..error..Error$GT$17he809c0270c749ec7E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %33)
           to label %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34" unwind label %16
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %22
+  br label %23
 
-"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34": ; preds = %31
+"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34": ; preds = %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %34 = invoke noundef i32 @"_ZN69_$LT$serde_wasm_bindgen..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h84c46daa08191e37E"(ptr noalias noundef nonnull readonly align 1 @anon.3f6e8a3dfced991c0ea629775af13ead.41, i64 noundef 61)
-          to label %35 unwind label %16
+  %35 = invoke noundef i32 @"_ZN69_$LT$serde_wasm_bindgen..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h84c46daa08191e37E"(ptr noalias noundef nonnull readonly align 1 @anon.3f6e8a3dfced991c0ea629775af13ead.41, i64 noundef 61)
+          to label %36 unwind label %16
 
-35:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34"
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %34, ptr %36, align 8
+36:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34"
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %35, ptr %37, align 8
   store i64 -9223372036854775807, ptr %0, align 8
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17had29e2920bd6fce6E"(ptr noalias noundef align 8 dereferenceable(32) %7)
-  br label %37
+  br label %38
 
-37:                                               ; preds = %10, %22, %35
+38:                                               ; preds = %10, %23, %36
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void
 
-38:                                               ; preds = %16
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %16
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #14
   unreachable
 
-40:                                               ; preds = %16
+41:                                               ; preds = %16
   resume { ptr, i32 } %17
 }
 
@@ -734,7 +734,7 @@ define hidden void @"_ZN11ruff_linter5rules5isort10categorize1_105_$LT$impl$u20$
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %12, ptr %13, align 8
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %37
+  br label %38
 
 14:                                               ; preds = %2
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -753,26 +753,26 @@ define hidden void @"_ZN11ruff_linter5rules5isort10categorize1_105_$LT$impl$u20$
   %15 = invoke i64 @"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_enum17hbd11e0bedf057371E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 @anon.3f6e8a3dfced991c0ea629775af13ead.34, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 @anon.3f6e8a3dfced991c0ea629775af13ead.40, i64 noundef 5)
           to label %18 unwind label %16
 
-16:                                               ; preds = %31, %.thread, %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34", %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit", %14
+16:                                               ; preds = %32, %20, %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34", %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit", %14
   %17 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17had29e2920bd6fce6E"(ptr noalias noundef align 8 dereferenceable(32) %7) #13
-          to label %40 unwind label %38
+          to label %41 unwind label %39
 
 18:                                               ; preds = %14
   %19 = trunc i64 %15 to i1
-  br i1 %19, label %.thread, label %21
+  br i1 %19, label %20, label %22
 
-.thread:                                          ; preds = %18
+20:                                               ; preds = %18
   %.sroa.627.0.extract.shift = lshr i64 %15, 32
   %.sroa.627.0.extract.trunc = trunc nuw i64 %.sroa.627.0.extract.shift to i32
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %.sroa.627.0.extract.trunc, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %.sroa.627.0.extract.trunc, ptr %21, align 8
   store i64 -9223372036854775807, ptr %5, align 8
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$serde_wasm_bindgen..error..Error$GT$17he809c0270c749ec7E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %20)
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$serde_wasm_bindgen..error..Error$GT$17he809c0270c749ec7E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %21)
           to label %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit" unwind label %16
 
-21:                                               ; preds = %18
+22:                                               ; preds = %18
   %.sroa.425.0.extract.shift = lshr i64 %15, 8
   %.sroa.425.0.extract.trunc = trunc i64 %.sroa.425.0.extract.shift to i8
   store i64 -9223372036854775808, ptr %5, align 8
@@ -780,73 +780,73 @@ define hidden void @"_ZN11ruff_linter5rules5isort10categorize1_105_$LT$impl$u20$
   store i8 %.sroa.425.0.extract.trunc, ptr %.sroa.419.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  br label %22
+  br label %23
 
-22:                                               ; preds = %33, %21
+23:                                               ; preds = %34, %22
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17had29e2920bd6fce6E"(ptr noalias noundef align 8 dereferenceable(32) %7)
-  br label %37
+  br label %38
 
-"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit": ; preds = %.thread
+"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit": ; preds = %20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_str17h66431b9ee80bf97aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
-          to label %23 unwind label %16
+          to label %24 unwind label %16
 
-23:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit"
-  %24 = load i64, ptr %3, align 8, !range !6, !noundef !4
-  %25 = icmp eq i64 %24, -9223372036854775808
-  br i1 %25, label %.thread39, label %29
+24:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit"
+  %25 = load i64, ptr %3, align 8, !range !6, !noundef !4
+  %26 = icmp eq i64 %25, -9223372036854775808
+  br i1 %26, label %.thread38, label %30
 
-.thread39:                                        ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = load i32, ptr %26, align 8, !noundef !4
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %27, ptr %28, align 8
+.thread38:                                        ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %28 = load i32, ptr %27, align 8, !noundef !4
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %28, ptr %29, align 8
   store i64 -9223372036854775807, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %31
+  br label %32
 
-29:                                               ; preds = %23
+30:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %.pr38 = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %30 = icmp eq i64 %.pr38, -9223372036854775807
-  br i1 %30, label %31, label %33
+  %31 = icmp eq i64 %.pr, -9223372036854775807
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %29, %.thread39
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$serde_wasm_bindgen..error..Error$GT$17he809c0270c749ec7E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %32)
+32:                                               ; preds = %30, %.thread38
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$serde_wasm_bindgen..error..Error$GT$17he809c0270c749ec7E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %33)
           to label %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34" unwind label %16
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br label %22
+  br label %23
 
-"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34": ; preds = %31
+"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34": ; preds = %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %34 = invoke noundef i32 @"_ZN69_$LT$serde_wasm_bindgen..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h84c46daa08191e37E"(ptr noalias noundef nonnull readonly align 1 @anon.3f6e8a3dfced991c0ea629775af13ead.41, i64 noundef 61)
-          to label %35 unwind label %16
+  %35 = invoke noundef i32 @"_ZN69_$LT$serde_wasm_bindgen..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h84c46daa08191e37E"(ptr noalias noundef nonnull readonly align 1 @anon.3f6e8a3dfced991c0ea629775af13ead.41, i64 noundef 61)
+          to label %36 unwind label %16
 
-35:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34"
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %34, ptr %36, align 8
+36:                                               ; preds = %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$ruff_linter..rules..isort..categorize..ImportSection$C$serde_wasm_bindgen..error..Error$GT$$GT$17hfa19c1279a06bdd4E.exit34"
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %35, ptr %37, align 8
   store i64 -9223372036854775807, ptr %0, align 8
   call fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17had29e2920bd6fce6E"(ptr noalias noundef align 8 dereferenceable(32) %7)
-  br label %37
+  br label %38
 
-37:                                               ; preds = %10, %22, %35
+38:                                               ; preds = %10, %23, %36
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void
 
-38:                                               ; preds = %16
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %16
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #14
   unreachable
 
-40:                                               ; preds = %16
+41:                                               ; preds = %16
   resume { ptr, i32 } %17
 }
 

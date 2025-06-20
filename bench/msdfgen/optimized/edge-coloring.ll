@@ -659,7 +659,6 @@ declare void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %shape, double noundef %angleThreshold, i64 noundef %seed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %corner.sroa.5 = alloca [3 x i8], align 1
   %colors = alloca [3 x i32], align 4
   %parts = alloca [7 x ptr], align 16
   %ref.tmp208 = alloca %"class.msdfgen::EdgeHolder", align 8
@@ -771,8 +770,6 @@ if.then.i:                                        ; preds = %if.then43
   store double %splineLength.1298, ptr %corner.sroa.3179.0..sroa_idx, align 8
   %corner.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %corners.sroa.26.2295, i64 16
   store i8 0, ptr %corner.sroa.4.0..sroa_idx, align 8
-  %corner.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %corners.sroa.26.2295, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %corner.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %corner.sroa.5, i64 3, i1 false)
   %corner.sroa.5182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %corners.sroa.26.2295, i64 20
   store i32 0, ptr %corner.sroa.5182.0..sroa_idx, align 4
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %corners.sroa.26.2295, i64 24
@@ -812,8 +809,6 @@ call5.i.i.i.i.i.noexc:                            ; preds = %_ZNKSt6vectorIN7msd
   store double %splineLength.1298, ptr %corner.sroa.3179.0.add.ptr.i.i69.sroa_idx, align 8
   %corner.sroa.4.0.add.ptr.i.i69.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i69, i64 16
   store i8 0, ptr %corner.sroa.4.0.add.ptr.i.i69.sroa_idx, align 8
-  %corner.sroa.5.0.add.ptr.i.i69.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i69, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %corner.sroa.5.0.add.ptr.i.i69.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %corner.sroa.5, i64 3, i1 false)
   %corner.sroa.5182.0.add.ptr.i.i69.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i69, i64 20
   store i32 0, ptr %corner.sroa.5182.0.add.ptr.i.i69.sroa_idx, align 4
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0

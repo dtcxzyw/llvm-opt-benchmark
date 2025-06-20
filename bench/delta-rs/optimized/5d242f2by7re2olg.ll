@@ -9542,7 +9542,7 @@ define hidden void @_ZN3std6thread6scoped5scope17h5a7c27575d1100fbE(ptr noalias 
 8:                                                ; preds = %2
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread27
+  br label %.thread26
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -9571,7 +9571,7 @@ define hidden void @_ZN3std6thread6scoped5scope17h5a7c27575d1100fbE(ptr noalias 
   %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..ArcInner$LT$std..thread..scoped..ScopeData$GT$$GT$17h6a34ee0957a75e73E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #33
-          to label %.thread27 unwind label %18
+          to label %.thread26 unwind label %18
 
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
@@ -9585,8 +9585,8 @@ define hidden void @_ZN3std6thread6scoped5scope17h5a7c27575d1100fbE(ptr noalias 
   store ptr %13, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 7168, ptr nonnull %3), !noalias !1105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7160) %3, ptr noundef nonnull align 8 dereferenceable(7160) %0, i64 7160, i1 false)
-  %.sroa.4.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %3, i64 7160
-  store ptr %6, ptr %.sroa.4.0..sroa_idx23, align 8
+  %.sroa.4.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %3, i64 7160
+  store ptr %6, ptr %.sroa.4.0..sroa_idx22, align 8
   invoke void @_ZN3std9panicking3try7do_call17h2cd73c6094e10653E.llvm.2348384389168151573(ptr nonnull %3)
           to label %28 unwind label %21, !noalias !1105
 
@@ -9601,8 +9601,8 @@ define hidden void @_ZN3std6thread6scoped5scope17h5a7c27575d1100fbE(ptr noalias 
   %26 = load ptr, ptr %25, align 8, !noalias !1105, !nonnull !5, !align !6
   br label %28
 
-27:                                               ; preds = %.thread38, %56, %31
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp37, %56 ], [ %lpad.thr_comm.split-lp37, %31 ], [ %lpad.thr_comm36, %.thread38 ]
+27:                                               ; preds = %.thread37, %56, %31
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp36, %56 ], [ %lpad.thr_comm.split-lp36, %31 ], [ %lpad.thr_comm35, %.thread37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$std..thread..scoped..Scope$GT$17hf89c3040824e4344E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #33
           to label %.thread unwind label %58
 
@@ -9612,13 +9612,13 @@ define hidden void @_ZN3std6thread6scoped5scope17h5a7c27575d1100fbE(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 7168, ptr nonnull %3), !noalias !1105
   br label %32
 
-.thread38:                                        ; preds = %50, %40
-  %lpad.thr_comm36 = landingpad { ptr, i32 }
+.thread37:                                        ; preds = %50, %40
+  %lpad.thr_comm35 = landingpad { ptr, i32 }
           cleanup
   br label %27
 
 31:                                               ; preds = %39
-  %lpad.thr_comm.split-lp37 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp36 = landingpad { ptr, i32 }
           cleanup
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %27, label %56
@@ -9642,7 +9642,7 @@ define hidden void @_ZN3std6thread6scoped5scope17h5a7c27575d1100fbE(ptr noalias 
   %41 = icmp ne ptr %29, null
   call void @llvm.assume(i1 %41)
   invoke void @_ZN3std5panic13resume_unwind17h9069d5fb4eed56f5E(ptr noundef nonnull align 1 %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29) #36
-          to label %55 unwind label %.thread38
+          to label %55 unwind label %.thread37
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
@@ -9673,7 +9673,7 @@ define hidden void @_ZN3std6thread6scoped5scope17h5a7c27575d1100fbE(ptr noalias 
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %54, align 8
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #36
-          to label %55 unwind label %.thread38
+          to label %55 unwind label %.thread37
 
 "_ZN4core3ptr47drop_in_place$LT$std..thread..scoped..Scope$GT$17hf89c3040824e4344E.exit": ; preds = %.noexc17, %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -9688,18 +9688,18 @@ define hidden void @_ZN3std6thread6scoped5scope17h5a7c27575d1100fbE(ptr noalias 
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h265371d359f89646E"(ptr nonnull %30, ptr nonnull %29) #33
           to label %27 unwind label %58
 
-58:                                               ; preds = %.thread27, %56, %27
+58:                                               ; preds = %.thread26, %56, %27
   %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34
   unreachable
 
-.thread:                                          ; preds = %.thread27, %27
-  %.pn1426 = phi { ptr, i32 } [ %.pn, %27 ], [ %eh.lpad-body30, %.thread27 ]
-  resume { ptr, i32 } %.pn1426
+.thread:                                          ; preds = %.thread26, %27
+  %.pn1425 = phi { ptr, i32 } [ %.pn, %27 ], [ %eh.lpad-body29, %.thread26 ]
+  resume { ptr, i32 } %.pn1425
 
-.thread27:                                        ; preds = %16, %8
-  %eh.lpad-body30 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %8 ], [ %17, %16 ]
+.thread26:                                        ; preds = %16, %8
+  %eh.lpad-body29 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %8 ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfa71595f5e0115aeE.llvm.11792392190407745568"(ptr noundef nonnull align 8 %0)
           to label %.thread unwind label %58
 }
@@ -26276,12 +26276,12 @@ define hidden void @_ZN13deltalake_aws11credentials19new_region_provider17hd48a8
   store i64 %29, ptr %.sroa.0.sroa.11.0..sroa_idx, align 8
   %.sroa.0.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 336
   store i32 %32, ptr %.sroa.0.sroa.12.0..sroa_idx, align 8
-  %.sroa.470.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  store i64 %29, ptr %.sroa.470.0..sroa_idx71, align 8
-  %.sroa.5.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  store i32 %32, ptr %.sroa.5.0..sroa_idx73, align 8
-  %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx75.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 360
-  store i8 2, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx75.sroa_idx, align 8
+  %.sroa.4.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %5, i64 344
+  store i64 %29, ptr %.sroa.4.0..sroa_idx70, align 8
+  %.sroa.5.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %5, i64 352
+  store i32 %32, ptr %.sroa.5.0..sroa_idx72, align 8
+  %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx74.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 360
+  store i8 2, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx74.sroa_idx, align 8
   invoke void @_ZN10aws_config4imds6client7Builder5build17h76caaf9443097e25E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, {} } }) align 8 captures(none) dereferenceable(96) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(368) %5)
           to label %36 unwind label %.thread68
 
@@ -26416,14 +26416,14 @@ define void @_ZN13deltalake_aws11credentials25ConfiguredCredentialChain3new17h06
   store i64 %35, ptr %.sroa.0.sroa.11.0..sroa_idx.i, align 8, !noalias !3760
   %.sroa.0.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 336
   store i32 %38, ptr %.sroa.0.sroa.12.0..sroa_idx.i, align 8, !noalias !3760
-  %.sroa.438.0..sroa_idx39.i = getelementptr inbounds nuw i8, ptr %6, i64 344
-  store i64 %35, ptr %.sroa.438.0..sroa_idx39.i, align 8, !noalias !3760
-  %.sroa.5.0..sroa_idx41.i = getelementptr inbounds nuw i8, ptr %6, i64 352
-  store i32 %38, ptr %.sroa.5.0..sroa_idx41.i, align 8, !noalias !3760
-  %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx43.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 360
-  store i8 2, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx43.sroa_idx.i, align 8, !noalias !3760
+  %.sroa.4.0..sroa_idx38.i = getelementptr inbounds nuw i8, ptr %6, i64 344
+  store i64 %35, ptr %.sroa.4.0..sroa_idx38.i, align 8, !noalias !3760
+  %.sroa.5.0..sroa_idx40.i = getelementptr inbounds nuw i8, ptr %6, i64 352
+  store i32 %38, ptr %.sroa.5.0..sroa_idx40.i, align 8, !noalias !3760
+  %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx42.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 360
+  store i8 2, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx42.sroa_idx.i, align 8, !noalias !3760
   invoke void @_ZN10aws_config4imds6client7Builder5build17h76caaf9443097e25E(ptr noalias noundef nonnull sret({ { { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, {} } }) align 8 captures(none) dereferenceable(96) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(368) %6)
-          to label %45 unwind label %.thread36.i
+          to label %45 unwind label %.thread35.i
 
 39:                                               ; preds = %4
   %40 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3763
@@ -26437,11 +26437,11 @@ define void @_ZN13deltalake_aws11credentials25ConfiguredCredentialChain3new17h06
 
 _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.11792392190407745568.exit.i: ; preds = %39
   store i64 1, ptr %41, align 8, !noalias !3760
-  %.sroa.431.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 1, ptr %.sroa.431.0..sroa_idx.i, align 8, !noalias !3760
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i64 1, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !3760
   br label %_ZN13deltalake_aws11credentials25ConfiguredCredentialChain19build_imds_provider17h4964de89fff905f7E.exit
 
-.thread36.i:                                      ; preds = %31
+.thread35.i:                                      ; preds = %31
   %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr59drop_in_place$LT$aws_config..imds..credentials..Builder$GT$17h38068360cc459d74E"(ptr noalias noundef nonnull align 8 dereferenceable(280) %9) #33
@@ -26483,8 +26483,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.11792392190407745568.e
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34
   unreachable
 
-common.resume:                                    ; preds = %99, %.thread79, %.thread36.i, %52
-  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %44, %.thread36.i ], [ %.pn.pn.pn3182, %.thread79 ], [ %.pn.pn.pn3182, %99 ]
+common.resume:                                    ; preds = %99, %.thread79, %.thread35.i, %52
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %44, %.thread35.i ], [ %.pn.pn.pn3182, %.thread79 ], [ %.pn.pn.pn3182, %99 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h047765e420b149c7E.exit.i": ; preds = %45
@@ -26492,7 +26492,7 @@ common.resume:                                    ; preds = %99, %.thread79, %.t
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5), !noalias !3760
   br label %_ZN13deltalake_aws11credentials25ConfiguredCredentialChain19build_imds_provider17h4964de89fff905f7E.exit
 
-56:                                               ; preds = %.thread36.i
+56:                                               ; preds = %.thread35.i
   %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34

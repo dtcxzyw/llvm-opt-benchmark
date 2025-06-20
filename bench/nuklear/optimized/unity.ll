@@ -33391,9 +33391,9 @@ nk_zero.exit917:                                  ; preds = %.loopexit46.i.i911.
   store float 5.000000e-01, ptr %235, align 8, !tbaa !762
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 2784
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 2336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %236, i8 0, i64 16, i1 false)
   store i32 0, ptr %237, align 8, !tbaa !7
   %.sroa.41275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2344
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %236, i8 0, i64 16, i1 false)
   store i32 -14145496, ptr %.sroa.41275.0..sroa_idx, align 8
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   store i32 0, ptr %238, align 8, !tbaa !7
@@ -34165,8 +34165,8 @@ nk_zero.exit1007:                                 ; preds = %.loopexit46.i.i1001
   store float 5.000000e-01, ptr %572, align 8, !tbaa !748
   %573 = getelementptr inbounds nuw i8, ptr %0, i64 8784
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 7472
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %573, i8 0, i64 16, i1 false)
   %575 = getelementptr inbounds nuw i8, ptr %4, i64 108
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %573, i8 0, i64 16, i1 false)
   %576 = load i32, ptr %575, align 1
   store i32 0, ptr %574, align 8, !tbaa !7
   %.sroa.41115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 7480

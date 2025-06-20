@@ -10563,19 +10563,19 @@ _ZN4llvh15SmallVectorImplIZN6hermes6parser6detail12JSParserImpl25parseAssignment
   store i32 1, ptr %Size.i.i.i.i.i, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %stack, i64 16
   %call3 = call fastcc { i64, i8 } @"_ZZN6hermes6parser6detail12JSParserImpl25parseAssignmentExpressionENS1_5ParamENS2_23AllowTypedArrowFunctionENS2_20CoverTypedParametersEPNS_6ESTree4NodeEENK3$_0clERZNS2_25parseAssignmentExpressionES3_S4_S5_S8_E5StateS3_S4_S5_S8_"(ptr noundef nonnull align 8 dereferenceable(8) %parseHelper, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i, i32 %param.coerce, i32 noundef %allowTypedArrowFunction, i32 noundef %coverTypedParameters, ptr noundef %typeParams)
-  %storemerge56 = extractvalue { i64, i8 } %call3, 1
-  %tobool.i57 = trunc i8 %storemerge56 to i1
-  br i1 %tobool.i57, label %if.end.preheader, label %cleanup
+  %storemerge57 = extractvalue { i64, i8 } %call3, 1
+  %tobool.i58 = trunc i8 %storemerge57 to i1
+  br i1 %tobool.i58, label %if.end.preheader, label %cleanup
 
 if.end.preheader:                                 ; preds = %_ZN4llvh15SmallVectorImplIZN6hermes6parser6detail12JSParserImpl25parseAssignmentExpressionENS3_5ParamENS4_23AllowTypedArrowFunctionENS4_20CoverTypedParametersEPNS1_6ESTree4NodeEE5StateE12emplace_backIJEEEvDpOT_.exit
-  %stack.val683 = load ptr, ptr %stack, align 8
-  %stack.val784 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %conv.i.i1385 = zext i32 %stack.val784 to i64
-  %add.ptr.i.i1486 = getelementptr inbounds nuw %struct.State, ptr %stack.val683, i64 %conv.i.i1385
-  %op87 = getelementptr inbounds i8, ptr %add.ptr.i.i1486, i64 -16
-  %0 = load ptr, ptr %op87, align 8
-  %tobool.not88 = icmp eq ptr %0, null
-  br i1 %tobool.not88, label %while.cond.preheader, label %if.end8
+  %stack.val684 = load ptr, ptr %stack, align 8
+  %stack.val785 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %conv.i.i1386 = zext i32 %stack.val785 to i64
+  %add.ptr.i.i1487 = getelementptr inbounds nuw %struct.State, ptr %stack.val684, i64 %conv.i.i1386
+  %op88 = getelementptr inbounds i8, ptr %add.ptr.i.i1487, i64 -16
+  %0 = load ptr, ptr %op88, align 8
+  %tobool.not89 = icmp eq ptr %0, null
+  br i1 %tobool.not89, label %while.cond.preheader, label %if.end8
 
 if.end:                                           ; preds = %_ZN4llvh15SmallVectorImplIZN6hermes6parser6detail12JSParserImpl25parseAssignmentExpressionENS3_5ParamENS4_23AllowTypedArrowFunctionENS4_20CoverTypedParametersEPNS1_6ESTree4NodeEE5StateE12emplace_backIJEEEvDpOT_.exit30
   %stack.val6 = load ptr, ptr %stack, align 8
@@ -10588,13 +10588,13 @@ if.end:                                           ; preds = %_ZN4llvh15SmallVect
   br i1 %tobool.not, label %while.cond.preheader, label %if.end8, !llvm.loop !26
 
 while.cond.preheader:                             ; preds = %if.end, %if.end.preheader
-  %call3.pn58.lcssa = phi { i64, i8 } [ %call3, %if.end.preheader ], [ %call16, %if.end ]
-  %stack.val7.lcssa = phi i32 [ %stack.val784, %if.end.preheader ], [ %stack.val7, %if.end ]
-  %optRes.sroa.0.0.le = extractvalue { i64, i8 } %call3.pn58.lcssa, 0
-  %storemerge4859 = add i32 %stack.val7.lcssa, -1
-  store i32 %storemerge4859, ptr %Size.i.i.i.i.i, align 8
-  %tobool.not.i60 = icmp eq i32 %storemerge4859, 0
-  br i1 %tobool.not.i60, label %cleanup, label %while.body.lr.ph
+  %call3.pn59.lcssa = phi { i64, i8 } [ %call3, %if.end.preheader ], [ %call16, %if.end ]
+  %stack.val7.lcssa = phi i32 [ %stack.val785, %if.end.preheader ], [ %stack.val7, %if.end ]
+  %optRes.sroa.0.0.le = extractvalue { i64, i8 } %call3.pn59.lcssa, 0
+  %storemerge4960 = add i32 %stack.val7.lcssa, -1
+  store i32 %storemerge4960, ptr %Size.i.i.i.i.i, align 8
+  %tobool.not.i61 = icmp eq i32 %storemerge4960, 0
+  br i1 %tobool.not.i61, label %cleanup, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %tok_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1144
@@ -10605,10 +10605,10 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 if.end8:                                          ; preds = %if.end.preheader, %if.end
-  %conv.i.i1391 = phi i64 [ %conv.i.i13, %if.end ], [ %conv.i.i1385, %if.end.preheader ]
-  %stack.val790 = phi i32 [ %stack.val7, %if.end ], [ %stack.val784, %if.end.preheader ]
-  %stack.val689 = phi ptr [ %stack.val6, %if.end ], [ %stack.val683, %if.end.preheader ]
-  %cmp = icmp ugt i32 %stack.val790, 30000
+  %conv.i.i1392 = phi i64 [ %conv.i.i13, %if.end ], [ %conv.i.i1386, %if.end.preheader ]
+  %stack.val791 = phi i32 [ %stack.val7, %if.end ], [ %stack.val785, %if.end.preheader ]
+  %stack.val690 = phi ptr [ %stack.val6, %if.end ], [ %stack.val684, %if.end.preheader ]
+  %cmp = icmp ugt i32 %stack.val791, 30000
   br i1 %cmp, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end8
@@ -10630,19 +10630,19 @@ if.then10:                                        ; preds = %if.end8
 
 if.end12:                                         ; preds = %if.end8
   %5 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp.not.i20 = icmp ult i32 %stack.val790, %5
+  %cmp.not.i20 = icmp ult i32 %stack.val791, %5
   br i1 %cmp.not.i20, label %_ZN4llvh15SmallVectorImplIZN6hermes6parser6detail12JSParserImpl25parseAssignmentExpressionENS3_5ParamENS4_23AllowTypedArrowFunctionENS4_20CoverTypedParametersEPNS1_6ESTree4NodeEE5StateE12emplace_backIJEEEvDpOT_.exit30, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.end12
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %stack, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 48) #16
   %.pre.i23 = load i32, ptr %Size.i.i.i.i.i, align 8
   %.pre = load ptr, ptr %stack, align 8
-  %.pre70 = zext i32 %.pre.i23 to i64
+  %.pre71 = zext i32 %.pre.i23 to i64
   br label %_ZN4llvh15SmallVectorImplIZN6hermes6parser6detail12JSParserImpl25parseAssignmentExpressionENS3_5ParamENS4_23AllowTypedArrowFunctionENS4_20CoverTypedParametersEPNS1_6ESTree4NodeEE5StateE12emplace_backIJEEEvDpOT_.exit30
 
 _ZN4llvh15SmallVectorImplIZN6hermes6parser6detail12JSParserImpl25parseAssignmentExpressionENS3_5ParamENS4_23AllowTypedArrowFunctionENS4_20CoverTypedParametersEPNS1_6ESTree4NodeEE5StateE12emplace_backIJEEEvDpOT_.exit30: ; preds = %if.end12, %if.then.i21
-  %conv.i3.i24.pre-phi = phi i64 [ %conv.i.i1391, %if.end12 ], [ %.pre70, %if.then.i21 ]
-  %6 = phi ptr [ %stack.val689, %if.end12 ], [ %.pre, %if.then.i21 ]
+  %conv.i3.i24.pre-phi = phi i64 [ %conv.i.i1392, %if.end12 ], [ %.pre71, %if.then.i21 ]
+  %6 = phi ptr [ %stack.val690, %if.end12 ], [ %.pre, %if.then.i21 ]
   %add.ptr.i.i25 = getelementptr inbounds nuw %struct.State, ptr %6, i64 %conv.i3.i24.pre-phi
   store ptr null, ptr %add.ptr.i.i25, align 8
   %hasVal.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i25, i64 16
@@ -10664,8 +10664,8 @@ _ZN4llvh15SmallVectorImplIZN6hermes6parser6detail12JSParserImpl25parseAssignment
   br i1 %tobool.i, label %if.end, label %cleanup, !llvm.loop !26
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %storemerge4862 = phi i32 [ %storemerge4859, %while.body.lr.ph ], [ %storemerge48, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
-  %optRes.sroa.0.161 = phi ptr [ %2, %while.body.lr.ph ], [ %retval.0.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
+  %storemerge4963 = phi i32 [ %storemerge4960, %while.body.lr.ph ], [ %storemerge49, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
+  %optRes.sroa.0.162 = phi ptr [ %2, %while.body.lr.ph ], [ %retval.0.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
   %8 = load ptr, ptr %tok_.i.i.i, align 8
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %_ZNK6hermes6parser6detail12JSParserImpl28checkEndAssignmentExpressionENS2_16OfEndsAssignmentE.exit [
@@ -10710,7 +10710,7 @@ if.then20:                                        ; preds = %_ZNK6hermes6parser6
 
 if.end26:                                         ; preds = %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i, %_ZNK6hermes6parser6detail12JSParserImpl28checkEndAssignmentExpressionENS2_16OfEndsAssignmentE.exit
   %stack.val10 = load ptr, ptr %stack, align 8
-  %conv.i.i37 = zext i32 %storemerge4862 to i64
+  %conv.i.i37 = zext i32 %storemerge4963 to i64
   %add.ptr.i.i38 = getelementptr inbounds nuw %struct.State, ptr %stack.val10, i64 %conv.i.i37
   %arrayidx.i39 = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 -48
   %agg.tmp29.sroa.0.0.copyload = load ptr, ptr %arrayidx.i39, align 8
@@ -10731,8 +10731,8 @@ if.end26:                                         ; preds = %while.body, %while.
   %add.i.i.i.i.i = add i64 %19, 7
   %sub1.i.i.i.i.i = add i64 %add.i.i.i.i.i, %20
   %21 = and i64 %sub1.i.i.i.i.i, 7
-  %.neg50 = add i64 %20, 7
-  %sub.i.i.i.i = sub i64 %.neg50, %21
+  %.neg51 = add i64 %20, 7
+  %sub.i.i.i.i = sub i64 %.neg51, %21
   store i64 %sub.i.i.i.i, ptr %offset.i.i.i, align 8
   %22 = load ptr, ptr %state_.i.i.i, align 8
   %offset8.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -10767,7 +10767,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %_left.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 56
   store ptr %26, ptr %_left.i, align 8
   %_right.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 64
-  store ptr %optRes.sroa.0.161, ptr %_right.i, align 8
+  store ptr %optRes.sroa.0.162, ptr %_right.i, align 8
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 24
   store ptr %agg.tmp29.sroa.0.0.copyload, ptr %sourceRange_.i.i, align 8
   %End.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 32
@@ -10775,9 +10775,9 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %debugLoc_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 40
   store ptr %agg.tmp33.sroa.0.0.copyload, ptr %debugLoc_.i.i, align 8
   %27 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %storemerge48 = add i32 %27, -1
-  store i32 %storemerge48, ptr %Size.i.i.i.i.i, align 8
-  %tobool.not.i = icmp eq i32 %storemerge48, 0
+  %storemerge49 = add i32 %27, -1
+  store i32 %storemerge49, ptr %Size.i.i.i.i.i, align 8
+  %tobool.not.i = icmp eq i32 %storemerge49, 0
   br i1 %tobool.not.i, label %cleanup.loopexit, label %while.body, !llvm.loop !27
 
 cleanup.loopexit:                                 ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit

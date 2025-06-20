@@ -244,10 +244,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %.sink67.i.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 144
-  %.sink67.i.sroa.gep64 = getelementptr inbounds nuw i8, ptr %13, i64 160
-  %.sink66.i.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 152
-  %.sink66.i.sroa.gep66 = getelementptr inbounds nuw i8, ptr %13, i64 168
+  %.sink65.i.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 144
+  %.sink65.i.sroa.gep64 = getelementptr inbounds nuw i8, ptr %13, i64 160
+  %.sink64.i.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 152
+  %.sink64.i.sroa.gep66 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %.sink78.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 144
   %.sink78.i.sroa.gep68 = getelementptr inbounds nuw i8, ptr %8, i64 160
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
@@ -271,10 +271,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %25, label %.invoke.i, label %43
 
 30:                                               ; preds = %6
-  %.sroa.459.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.459.0.copyload.i = load i64, ptr %.sroa.459.0..sroa_idx.i, align 8, !alias.scope !20, !noalias !23
-  %.sroa.5.0..sroa_idx60.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx60.i, align 8, !alias.scope !20, !noalias !23
+  %.sroa.457.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.457.0.copyload.i = load i64, ptr %.sroa.457.0..sroa_idx.i, align 8, !alias.scope !20, !noalias !23
+  %.sroa.5.0..sroa_idx58.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx58.i, align 8, !alias.scope !20, !noalias !23
   %31 = zext nneg i16 %20 to i64
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %33 = add i64 %.sroa.5.0.copyload.i, 1
@@ -334,11 +334,11 @@ _ZN5alloc11collections5btree4node12slice_insert17hcc1a1b28896866b6E.exit.i.i: ; 
   br label %48
 
 48:                                               ; preds = %46, %45, %.invoke.i
-  %.sink67.i.sroa.phi = phi ptr [ %.sink67.i.sroa.gep, %.invoke.i ], [ %.sink67.i.sroa.gep64, %45 ], [ %.sink67.i.sroa.gep64, %46 ]
-  %.sink66.i.sroa.phi = phi ptr [ %.sink66.i.sroa.gep, %.invoke.i ], [ %.sink66.i.sroa.gep66, %45 ], [ %.sink66.i.sroa.gep66, %46 ]
+  %.sink65.i.sroa.phi = phi ptr [ %.sink65.i.sroa.gep, %.invoke.i ], [ %.sink65.i.sroa.gep64, %45 ], [ %.sink65.i.sroa.gep64, %46 ]
+  %.sink64.i.sroa.phi = phi ptr [ %.sink64.i.sroa.gep, %.invoke.i ], [ %.sink64.i.sroa.gep66, %45 ], [ %.sink64.i.sroa.gep66, %46 ]
   %.sroa.10.0.i = phi i64 [ %24, %.invoke.i ], [ 0, %45 ], [ %47, %46 ]
-  %49 = load i64, ptr %.sink66.i.sroa.phi, align 8, !noalias !27, !noundef !3
-  %50 = load ptr, ptr %.sink67.i.sroa.phi, align 8, !noalias !27, !nonnull !3, !noundef !3
+  %49 = load i64, ptr %.sink64.i.sroa.phi, align 8, !noalias !27, !noundef !3
+  %50 = load ptr, ptr %.sink65.i.sroa.phi, align 8, !noalias !27, !nonnull !3, !noundef !3
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1594
   %52 = load i16, ptr %51, align 2, !noalias !45, !noundef !3
   %53 = zext i16 %52 to i64
@@ -405,10 +405,10 @@ _ZN5alloc11collections5btree4node12slice_insert17hcc1a1b28896866b6E.exit.i48.i: 
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx27, align 8, !noalias !67
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.7.0..sroa_idx, i64 112, i1 false), !noalias !67
-  %.sroa.731.0.copyload = load ptr, ptr %.sink67.i.sroa.gep, align 8, !noalias !67
-  %.sroa.8.0.copyload = load i64, ptr %.sink66.i.sroa.gep, align 8, !noalias !67
-  %.sroa.9.0.copyload = load ptr, ptr %.sink67.i.sroa.gep64, align 8, !noalias !67
-  %.sroa.10.0.copyload = load i64, ptr %.sink66.i.sroa.gep66, align 8, !noalias !67
+  %.sroa.731.0.copyload = load ptr, ptr %.sink65.i.sroa.gep, align 8, !noalias !67
+  %.sroa.8.0.copyload = load i64, ptr %.sink64.i.sroa.gep, align 8, !noalias !67
+  %.sroa.9.0.copyload = load ptr, ptr %.sink65.i.sroa.gep64, align 8, !noalias !67
+  %.sroa.10.0.copyload = load i64, ptr %.sink64.i.sroa.gep66, align 8, !noalias !67
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %13), !noalias !27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
@@ -440,7 +440,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hcc1a1b28896866b6E.exit.i48.i: 
 
 82:                                               ; preds = %.thread, %72
   %.sroa.11.081 = phi ptr [ %18, %.thread ], [ %50, %72 ]
-  %.sroa.15.080 = phi i64 [ %.sroa.459.0.copyload.i, %.thread ], [ %49, %72 ]
+  %.sroa.15.080 = phi i64 [ %.sroa.457.0.copyload.i, %.thread ], [ %49, %72 ]
   %.sroa.19.079 = phi i64 [ %.sroa.5.0.copyload.i, %.thread ], [ %.sroa.10.0.i, %72 ]
   store ptr %.sroa.11.081, ptr %0, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8

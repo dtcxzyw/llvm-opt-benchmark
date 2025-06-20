@@ -4896,7 +4896,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i: ; preds = 
   store i32 %.0.i.i123, ptr %158, align 16, !tbaa !37
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit
 
-_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i, %157, %.loopexit132
+_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %157, %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i, %.loopexit132
   store i32 %153, ptr %154, align 4, !tbaa !36
   %179 = icmp sgt i32 %153, 0
   br i1 %179, label %.lr.ph141, label %.loopexit
@@ -5379,7 +5379,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i: ; preds = 
   store i32 %.0.i.i123, ptr %163, align 16, !tbaa !37
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit
 
-_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i, %162, %.loopexit132
+_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %162, %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i, %.loopexit132
   store i32 %158, ptr %159, align 4, !tbaa !36
   %184 = icmp sgt i32 %158, 0
   br i1 %184, label %.lr.ph141, label %.loopexit

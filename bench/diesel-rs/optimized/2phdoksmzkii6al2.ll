@@ -6866,14 +6866,14 @@ define { ptr, i64 } @_ZN6diesel6sqlite10connection9functions11FunctionRow3new17h
 
 25:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1969
-  %.sroa.022.0.copyload = load i64, ptr %8, align 8, !noalias !1974
-  %.sroa.423.0.copyload = load ptr, ptr %15, align 8, !noalias !1974, !nonnull !11, !noundef !11
-  %.sroa.524.0.copyload = load i64, ptr %16, align 8, !noalias !1974
+  %.sroa.021.0.copyload = load i64, ptr %8, align 8, !noalias !1974
+  %.sroa.422.0.copyload = load ptr, ptr %15, align 8, !noalias !1974, !nonnull !11, !noundef !11
+  %.sroa.523.0.copyload = load i64, ptr %16, align 8, !noalias !1974
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1969
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !1975
-  store i64 %.sroa.524.0.copyload, ptr %5, align 8, !noalias !1978
-  %26 = icmp ugt i64 %.sroa.524.0.copyload, 384307168202282325
+  store i64 %.sroa.523.0.copyload, ptr %5, align 8, !noalias !1978
+  %26 = icmp ugt i64 %.sroa.523.0.copyload, 384307168202282325
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !1978
   br i1 %26, label %27, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf817b15d2a95b850E.exit.i.i"
 
@@ -6885,7 +6885,7 @@ define { ptr, i64 } @_ZN6diesel6sqlite10connection9functions11FunctionRow3new17h
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf817b15d2a95b850E.exit.i.i": ; preds = %25
-  %28 = mul nuw nsw i64 %.sroa.524.0.copyload, 24
+  %28 = mul nuw nsw i64 %.sroa.523.0.copyload, 24
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !1978
   %29 = invoke { i64, i64 } @_ZN5alloc2rc29rcbox_layout_for_value_layout17he99c661209423369E(i64 noundef 8, i64 noundef %28)
           to label %.noexc17 unwind label %23
@@ -6917,11 +6917,11 @@ define { ptr, i64 } @_ZN6diesel6sqlite10connection9functions11FunctionRow3new17h
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1981
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !1975
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 8 %.sroa.423.0.copyload, i64 %28, i1 false), !noalias !1975
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull align 8 %.sroa.422.0.copyload, i64 %28, i1 false), !noalias !1975
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1975
-  store i64 %.sroa.022.0.copyload, ptr %6, align 8, !noalias !1975
+  store i64 %.sroa.021.0.copyload, ptr %6, align 8, !noalias !1975
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %.sroa.423.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1975
+  store ptr %.sroa.422.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1975
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !1975
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -6956,8 +6956,8 @@ define { ptr, i64 } @_ZN6diesel6sqlite10connection9functions11FunctionRow3new17h
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
   %.sroa.6.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 56
   store ptr %33, ptr %.sroa.6.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx, align 8
-  %.sroa.721.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 64
-  store i64 %35, ptr %.sroa.721.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx, align 8
+  %.sroa.7.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 64
+  store i64 %35, ptr %.sroa.7.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.5)
   %43 = insertvalue { ptr, i64 } %40, i64 %1, 1
   ret { ptr, i64 } %43

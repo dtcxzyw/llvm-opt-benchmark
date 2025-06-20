@@ -10603,7 +10603,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h326bd9c63305a868E.llvm.20
   %10 = alloca [32 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
-  %.sroa.4 = alloca [24 x i8], align 8
   %13 = alloca [16 x i8], align 8
   %14 = alloca [40 x i8], align 8
   %15 = alloca [280 x i8], align 8
@@ -10671,7 +10670,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h326bd9c63305a868E.llvm.20
   store i64 %33, ptr %13, align 8
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %32, ptr %34, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4)
   %35 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %36 unwind label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17hca98c79a1846ab98E.llvm.2083375501543074820.exit"
 
@@ -10689,8 +10687,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h326bd9c63305a868E.llvm.20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 336
   store i64 3, ptr %42, align 8
-  %.sroa.4.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %16, i64 344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx24, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, i64 24, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 385
   store i8 2, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %16, i64 368
@@ -10699,7 +10695,6 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$3new17h326bd9c63305a868E.llvm.20
   store i64 %37, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 384
   store i8 1, ptr %46, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %15)

@@ -121139,7 +121139,6 @@ declare noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctyp
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost9algorithm10iter_splitISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKPKcNS0_6detail13token_finderFIZNKS_7process2v16detail11const_entryIcKNSI_22basic_environment_implIcNSJ_5posix23native_environment_implEEEE9to_vectorEvE8splitterEEEERT_SU_OT0_T1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::iterators::transform_iterator.899", align 8
-  %.sroa.4 = alloca [16 x i8], align 8
   %5 = alloca %"class.boost::iterators::transform_iterator.899", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.boost::iterators::transform_iterator.899", align 8
@@ -121279,8 +121278,6 @@ _ZN5boost9algorithm14split_iteratorIPKcE9incrementEv.exit.i: ; preds = %._crit_e
   store ptr %14, ptr %4, align 8, !tbaa !303, !alias.scope !2112
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %65, align 8
-  %.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %10, ptr %66, align 8
   %.sroa.7.32..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -121301,8 +121298,6 @@ _ZN5boost9algorithm14split_iteratorIPKcE9incrementEv.exit.i: ; preds = %._crit_e
   store ptr %14, ptr %7, align 8, !tbaa !303
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %72, align 8
-  %.sroa.4.8..sroa_idx83 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.8..sroa_idx83, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %10, ptr %73, align 8
   %.sroa.7.32..sroa_idx86 = getelementptr inbounds nuw i8, ptr %7, i64 40

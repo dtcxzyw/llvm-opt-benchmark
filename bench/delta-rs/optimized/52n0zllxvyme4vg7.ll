@@ -2330,11 +2330,11 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.i.i: ; preds = %_ZN3
   ret void
 
 116:                                              ; preds = %117, %113
-  %.pn17 = phi { ptr, i32 } [ %114, %113 ], [ %.pn45, %117 ]
+  %.pn17 = phi { ptr, i32 } [ %114, %113 ], [ %.pn44, %117 ]
   resume { ptr, i32 } %.pn17
 
 117:                                              ; preds = %.body, %.thread
-  %.pn45 = phi { ptr, i32 } [ %eh.lpad-body33, %.thread ], [ %eh.lpad-body, %.body ]
+  %.pn44 = phi { ptr, i32 } [ %eh.lpad-body33, %.thread ], [ %eh.lpad-body, %.body ]
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h3b9ee244134b8beeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %118) #17
           to label %116 unwind label %43

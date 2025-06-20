@@ -14137,7 +14137,6 @@ define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h7
 define hidden void @_ZN6editor6Editor14highlight_rows17h7b99fa4662fb0236E.llvm.307468510663036300(ptr noalias noundef align 8 dereferenceable(5472) %0, ptr noalias noundef align 8 captures(none) dereferenceable(96) %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %2, i1 noundef zeroext %3, ptr noalias noundef align 8 dereferenceable(24) %4) unnamed_addr #9 personality ptr @rust_eh_personality {
   %6 = alloca [96 x i8], align 8
   %.sroa.040 = alloca [16 x i8], align 8
-  %.sroa.744 = alloca [7 x i8], align 1
   %7 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %8 = tail call noundef align 8 dereferenceable(32) ptr @_ZN6editor6Editor6buffer17hb6e1640a43abe99bE(ptr noundef nonnull align 8 %0)
@@ -14460,7 +14459,6 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   %148 = phi i64 [ %93, %.thread94 ], [ %133, %144 ], [ %133, %130 ]
   %.sroa.03.0.lcssa.i97 = phi i64 [ 0, %.thread94 ], [ %.sroa.013.0.i, %144 ], [ 0, %130 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.040)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.744)
   %149 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %149, ptr noundef nonnull readonly align 8 dereferenceable(48) %91, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull readonly align 8 dereferenceable(96) %1, i64 48, i1 false)
@@ -14507,12 +14505,9 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.542.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
   %.sroa.643.0..sroa_idx = getelementptr inbounds nuw i8, ptr %159, i64 120
   store i8 %150, ptr %.sroa.643.0..sroa_idx, align 8
-  %.sroa.744.0..sroa_idx = getelementptr inbounds nuw i8, ptr %159, i64 121
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.744.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.744, i64 7, i1 false)
   %166 = add i64 %151, 1
   store i64 %166, ptr %89, align 8, !alias.scope !3143, !noalias !3146
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.040)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.744)
   br label %.preheader
 
 167:                                              ; preds = %145

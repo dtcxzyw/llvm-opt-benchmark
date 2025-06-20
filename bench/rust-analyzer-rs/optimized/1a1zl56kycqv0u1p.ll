@@ -3186,8 +3186,8 @@ define hidden void @_ZN10lsp_server5stdio15stdio_transport17h5bc7c2ad76683e68E(p
   store ptr %73, ptr %89, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %76, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.sroa.5.0.copyload.i32, ptr %.sroa.341.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %.sroa.5.0.copyload.i32, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -3223,7 +3223,7 @@ define hidden void @_ZN10lsp_server5stdio15stdio_transport17h5bc7c2ad76683e68E(p
           to label %98 unwind label %92
 
 .body27:                                          ; preds = %51, %45, %41, %98
-  %.pn.pn.pn46 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %98 ], [ %42, %41 ], [ %46, %45 ], [ %.pn.pn, %51 ]
+  %.pn.pn.pn45 = phi { ptr, i32 } [ %.pn.pn.pn.ph, %98 ], [ %42, %41 ], [ %46, %45 ], [ %.pn.pn, %51 ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$crossbeam_channel..channel..Sender$LT$lsp_server..msg..Message$GT$$GT$17h44ad5bd3fcf02e0eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18) #23
           to label %99 unwind label %92
 
@@ -3233,7 +3233,7 @@ define hidden void @_ZN10lsp_server5stdio15stdio_transport17h5bc7c2ad76683e68E(p
           to label %.body27 unwind label %92
 
 99:                                               ; preds = %.body27
-  resume { ptr, i32 } %.pn.pn.pn46
+  resume { ptr, i32 } %.pn.pn.pn45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

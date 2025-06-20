@@ -5238,7 +5238,6 @@ define internal fastcc noundef ptr @_ZL16simplifyICmpInstN4llvm12CmpPredicateEPN
   %20 = alloca %"struct.llvm::PatternMatch::OverflowingBinaryOp_match.245", align 8
   %21 = alloca %"class.llvm::APInt", align 8
   %22 = alloca %"struct.llvm::PatternMatch::OverflowingBinaryOp_match.246", align 8
-  %.sroa.5.i = alloca [7 x i8], align 1
   %23 = alloca %"class.llvm::APInt", align 8
   %24 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty.174", align 8
   %25 = alloca %"struct.llvm::KnownBits", align 8
@@ -6336,7 +6335,6 @@ _ZN4llvm13ConstantRangeD2Ev.exit.i:               ; preds = %527, %524, %_ZN4llv
   %532 = trunc nuw i8 %531 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #20
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5.i)
   %533 = and i32 %.sroa.0573.0.ph, -2
   %534 = icmp eq i32 %533, 32
   %or.cond.i = select i1 %532, i1 %534, i1 false
@@ -6363,7 +6361,6 @@ _ZN4llvm13ConstantRangeD2Ev.exit.i:               ; preds = %527, %524, %_ZN4llv
   br i1 %543, label %.thread70.thread76.i, label %544
 
 .thread70.thread76.i:                             ; preds = %541
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #20
   br label %560
 
@@ -6373,8 +6370,6 @@ _ZN4llvm13ConstantRangeD2Ev.exit.i:               ; preds = %527, %524, %_ZN4llv
   store ptr %19, ptr %545, align 8, !tbaa !61
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 1, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !63
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.i, i64 7, i1 false), !tbaa.struct !24
   %546 = call noundef zeroext i1 @_ZN4llvm12PatternMatch5matchINS_5ValueENS0_25OverflowingBinaryOp_matchINS0_11class_matchIS2_EENS0_11apint_matchELj17ELj2ELb0EEEEEbPT_RKT0_(ptr noundef nonnull %.0.ph, ptr noundef nonnull align 8 dereferenceable(24) %22)
   br i1 %546, label %547, label %.thread70.i
 
@@ -6384,12 +6379,10 @@ _ZN4llvm13ConstantRangeD2Ev.exit.i:               ; preds = %527, %524, %_ZN4llv
   br i1 %549, label %550, label %.thread70.i
 
 .thread70.thread.i:                               ; preds = %530
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #20
   br label %.critedge35.thread.i
 
 .thread70.i:                                      ; preds = %547, %544
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #20
   br i1 %.131.i, label %560, label %.critedge35.thread.i
 
@@ -6414,7 +6407,6 @@ _ZN4llvm13ConstantRangeD2Ev.exit.i:               ; preds = %527, %524, %_ZN4llv
 
 .critedge.i:                                      ; preds = %559, %556, %550
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #20
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #20
   br i1 %.131.i, label %560, label %.critedge35.i
 
@@ -35421,8 +35413,6 @@ define internal fastcc noundef ptr @_ZL26simplifyICmpWithBinOpOnLHSN4llvm12CmpPr
   %13 = alloca %"class.llvm::APInt", align 8
   %14 = alloca %"class.llvm::APInt", align 8
   %15 = alloca %"struct.llvm::PatternMatch::BinaryOp_match.267", align 8
-  %.sroa.5178 = alloca [7 x i8], align 1
-  %.sroa.5175 = alloca [7 x i8], align 1
   %16 = alloca %"class.llvm::APInt", align 8
   %17 = alloca %"class.llvm::APInt", align 8
   %18 = alloca %"class.llvm::APInt", align 8
@@ -35956,8 +35946,6 @@ _ZNK4llvm5APIntneEm.exit143.thread:               ; preds = %_ZNK4llvm5APIntneEm
   %280 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14BinaryOp_matchINS1_INS0_14specificval_tyENS0_11apint_matchELj17ELb0EEES3_Lj19ELb0EE5matchINS_14BinaryOperatorEEEbPT_(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull %1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #20
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5178)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5175)
   br i1 %280, label %281, label %286
 
 281:                                              ; preds = %.critedge2
@@ -35968,8 +35956,6 @@ _ZNK4llvm5APIntneEm.exit143.thread:               ; preds = %_ZNK4llvm5APIntneEm
   br i1 %285, label %.critedge112.thread, label %286
 
 .critedge112.thread:                              ; preds = %281
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5175)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5178)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #20
@@ -36039,14 +36025,10 @@ _ZNK4llvm5APIntlsERKS0_.exit:                     ; preds = %300, %303
   br i1 %307, label %.thread.thread, label %308
 
 .thread.thread:                                   ; preds = %_ZNK4llvm5APIntlsERKS0_.exit
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5175)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5178)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #20
   br label %.critedge110
 
 308:                                              ; preds = %_ZNK4llvm5APIntlsERKS0_.exit, %286
-  %.sroa.6183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6183.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5178, i64 7, i1 false)
   store i64 %34, ptr %15, align 8, !tbaa !31
   %.sroa.4181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %9, ptr %.sroa.4181.0..sroa_idx, align 8, !tbaa !61
@@ -36056,8 +36038,6 @@ _ZNK4llvm5APIntlsERKS0_.exit:                     ; preds = %300, %303
   store ptr %10, ptr %309, align 8, !tbaa !61
   %.sroa.4174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 0, ptr %.sroa.4174.0..sroa_idx, align 8, !tbaa !63
-  %.sroa.5175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5175.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5175, i64 7, i1 false), !tbaa.struct !24
   %310 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14BinaryOp_matchINS1_INS0_14specificval_tyENS0_11apint_matchELj25ELb0EEES3_Lj19ELb0EE5matchINS_14BinaryOperatorEEEbPT_(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull %1)
   br i1 %310, label %311, label %.thread
 
@@ -36104,8 +36084,6 @@ _ZN4llvm5APIntC2Ejmbb.exit156._crit_edge:         ; preds = %_ZN4llvm5APIntC2Ejm
   br label %.critedge106
 
 .thread:                                          ; preds = %308
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5175)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5178)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #20
   br i1 %288, label %.critedge110, label %.critedge112.thread262
 
@@ -36151,8 +36129,6 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.critedge106, %333,
 .critedge108:                                     ; preds = %342, %339, %_ZN4llvm5APIntD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #20
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5175)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5178)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #20
   br i1 %288, label %.critedge110, label %.critedge112
 

@@ -7465,20 +7465,20 @@ define hidden void @"_ZN7project14worktree_store13WorktreeStore19create_ssh_work
   %15 = alloca [32 x i8], align 8
   %16 = alloca [32 x i8], align 8
   %17 = alloca [40 x i8], align 8
-  %.sroa.793 = alloca [24 x i8], align 8
+  %.sroa.7 = alloca [24 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [32 x i8], align 8
   %20 = alloca [8 x i8], align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 177
   %22 = load i8, ptr %21, align 1, !range !21, !noundef !5
-  switch i8 %22, label %default.unreachable95 [
+  switch i8 %22, label %default.unreachable94 [
     i8 0, label %23
     i8 1, label %52
     i8 2, label %53
     i8 3, label %54
   ]
 
-default.unreachable95:                            ; preds = %54, %3
+default.unreachable94:                            ; preds = %54, %3
   unreachable
 
 23:                                               ; preds = %3
@@ -7572,7 +7572,7 @@ default.unreachable95:                            ; preds = %54, %3
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %.sroa.5.i)
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  switch i8 %.pre, label %default.unreachable95 [
+  switch i8 %.pre, label %default.unreachable94 [
     i8 0, label %58
     i8 1, label %66
     i8 2, label %67
@@ -7802,7 +7802,7 @@ common.ret:                                       ; preds = %211, %130
 135:                                              ; preds = %133
   %136 = ptrtoint ptr %134 to i64
   store i64 %136, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.793)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -7860,7 +7860,7 @@ common.ret:                                       ; preds = %211, %130
 
 156:                                              ; preds = %152
   %.sroa.1067.8..sroa_idx68 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.793, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.1067.8..sroa_idx68, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.1067.8..sroa_idx68, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   %157 = ptrtoint ptr %155 to i64
   %158 = and i64 %157, 4294967295
@@ -7913,21 +7913,21 @@ common.ret:                                       ; preds = %211, %130
 
 172:                                              ; preds = %156
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.793, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   store ptr %155, ptr %13, align 8
   br label %173
 
 173:                                              ; preds = %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hb57afade011579b4E.exit45", %172
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.793)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7)
   br label %225
 
 .body43:                                          ; preds = %167, %150
   %.pn15 = phi { ptr, i32 } [ %151, %150 ], [ %168, %167 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.793)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7)
   br label %.body38
 
 174:                                              ; preds = %156
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.793)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14)
@@ -8321,14 +8321,14 @@ define hidden void @"_ZN7project14worktree_store13WorktreeStore21create_local_wo
   %.sroa.862.sroa.8 = alloca [16 x i8], align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 274
   %20 = load i8, ptr %19, align 2, !range !21, !noundef !5
-  switch i8 %20, label %default.unreachable99 [
+  switch i8 %20, label %default.unreachable100 [
     i8 0, label %21
     i8 1, label %39
     i8 2, label %40
     i8 3, label %41
   ]
 
-default.unreachable99:                            ; preds = %41, %3
+default.unreachable100:                           ; preds = %41, %3
   unreachable
 
 21:                                               ; preds = %3
@@ -8397,7 +8397,7 @@ default.unreachable99:                            ; preds = %41, %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.5.i)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  switch i8 %.pre, label %default.unreachable99 [
+  switch i8 %.pre, label %default.unreachable100 [
     i8 0, label %51
     i8 1, label %93
     i8 2, label %94
@@ -9033,9 +9033,9 @@ default.unreachable99:                            ; preds = %41, %3
           to label %299 unwind label %297
 
 common.ret:                                       ; preds = %"_ZN4core3ptr99drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$project..worktree_store..WorktreeStore$GT$$GT$17h90bd44182259d2d9E.exit35", %295
-  %storemerge100 = phi i64 [ 0, %"_ZN4core3ptr99drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$project..worktree_store..WorktreeStore$GT$$GT$17h90bd44182259d2d9E.exit35" ], [ 1, %295 ]
+  %storemerge99 = phi i64 [ 0, %"_ZN4core3ptr99drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$project..worktree_store..WorktreeStore$GT$$GT$17h90bd44182259d2d9E.exit35" ], [ 1, %295 ]
   %storemerge = phi i8 [ 1, %"_ZN4core3ptr99drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$project..worktree_store..WorktreeStore$GT$$GT$17h90bd44182259d2d9E.exit35" ], [ 3, %295 ]
-  store i64 %storemerge100, ptr %0, align 8
+  store i64 %storemerge99, ptr %0, align 8
   store i8 %storemerge, ptr %19, align 2
   ret void
 

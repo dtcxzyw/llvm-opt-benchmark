@@ -10335,10 +10335,10 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit: ; preds = %._crit_edge, %38
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %57, %58
-  %.sink124 = phi i8 [ 5, %57 ], [ 3, %58 ]
-  %.sink123 = phi i8 [ 1, %57 ], [ 5, %58 ]
-  store i8 %.sink124, ptr %29, align 8, !tbaa !103
-  store i8 %.sink123, ptr %30, align 1, !tbaa !103
+  %storemerge116 = phi i8 [ 3, %58 ], [ 5, %57 ]
+  %storemerge = phi i8 [ 5, %58 ], [ 1, %57 ]
+  store i8 %storemerge116, ptr %29, align 8, !tbaa !103
+  store i8 %storemerge, ptr %30, align 1, !tbaa !103
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(34) %9) #19
   %59 = load ptr, ptr %8, align 8, !tbaa !80
   %60 = load i64, ptr %31, align 8, !tbaa !3

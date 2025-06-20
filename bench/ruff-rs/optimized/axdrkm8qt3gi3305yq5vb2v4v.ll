@@ -468,9 +468,9 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   br i1 %36, label %38, label %.lr.ph.i.i
 
 37:                                               ; preds = %.lr.ph.i.i
-  %.sroa.410.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.223.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.223.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.410.0..sroa_idx11.i, i64 20, i1 false), !noalias !62
+  %.sroa.4.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.222.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.222.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx10.i, i64 20, i1 false), !noalias !62
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !52
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !52
@@ -568,9 +568,9 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   br label %52
 
 73:                                               ; preds = %.lr.ph.i4.i
-  %.sroa.414.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.sroa.233.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.233.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.414.0..sroa_idx15.i, i64 20, i1 false), !noalias !62
+  %.sroa.413.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.sroa.232.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.232.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.413.0..sroa_idx14.i, i64 20, i1 false), !noalias !62
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !67
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8), !noalias !52
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !52

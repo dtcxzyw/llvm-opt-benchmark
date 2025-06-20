@@ -237,8 +237,8 @@ define internal fastcc void @"_ZN106_$LT$parquet..file..writer..SerializedPageWr
   store i16 0, ptr %9, align 8
   store ptr inttoptr (i64 2 to ptr), ptr %8, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
   store i16 2, ptr %.sroa.3.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %1, ptr %10, align 8
@@ -6750,9 +6750,9 @@ define hidden { ptr, ptr } @_ZN5tokio4sync4mpsc4chan7channel17h77da3e2a0a0cd73aE
           to label %_ZN5tokio4sync4mpsc4list7channel17h6d8f7e916cd71601E.exit unwind label %22
 
 _ZN5tokio4sync4mpsc4list7channel17h6d8f7e916cd71601E.exit: ; preds = %1
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 456
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 456
   call void @llvm.lifetime.start.p0(i64 640, ptr nonnull %2), !noalias !1163
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.16.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.13.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %0, i64 88, i1 false)
   store i64 1, ptr %2, align 128, !noalias !1163
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %4, align 8, !noalias !1163
@@ -6764,22 +6764,22 @@ _ZN5tokio4sync4mpsc4list7channel17h6d8f7e916cd71601E.exit: ; preds = %1
   store ptr null, ptr %.sroa.446.0..sroa_idx, align 128
   %.sroa.548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 272
   store i64 0, ptr %.sroa.548.0..sroa_idx, align 16
-  %.sroa.750.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 384
-  store i64 0, ptr %.sroa.750.0..sroa_idx, align 128
-  %.sroa.851.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 392
-  store i8 0, ptr %.sroa.851.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 400
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 416
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.10.0..sroa_idx, i8 0, i64 16, i1 false)
-  store ptr %3, ptr %.sroa.12.0..sroa_idx, align 32
-  %.sroa.12.sroa.4.0..sroa.12.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 424
-  store ptr %3, ptr %.sroa.12.sroa.4.0..sroa.12.0..sroa_idx.sroa_idx, align 8
-  %.sroa.12.sroa.5.0..sroa.12.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 432
-  store i64 0, ptr %.sroa.12.sroa.5.0..sroa.12.0..sroa_idx.sroa_idx, align 16
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 440
-  store i8 0, ptr %.sroa.13.0..sroa_idx, align 8
-  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 448
-  store i64 1, ptr %.sroa.15.0..sroa_idx, align 64
+  %.sroa.649.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 384
+  store i64 0, ptr %.sroa.649.0..sroa_idx, align 128
+  %.sroa.750.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 392
+  store i8 0, ptr %.sroa.750.0..sroa_idx, align 8
+  %.sroa.852.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 400
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 416
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.852.0..sroa_idx, i8 0, i64 16, i1 false)
+  store ptr %3, ptr %.sroa.10.0..sroa_idx, align 32
+  %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 424
+  store ptr %3, ptr %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx, align 8
+  %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 432
+  store i64 0, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx, align 16
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 440
+  store i8 0, ptr %.sroa.11.0..sroa_idx, align 8
+  %.sroa.1253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 448
+  store i64 1, ptr %.sroa.1253.0..sroa_idx, align 64
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1166
   %7 = tail call noundef align 128 dereferenceable_or_null(640) ptr @__rust_alloc(i64 noundef 640, i64 noundef 128) #25, !noalias !1166
   %8 = icmp eq ptr %7, null
@@ -6827,8 +6827,8 @@ _ZN5tokio4sync4mpsc4list7channel17h6d8f7e916cd71601E.exit: ; preds = %1
   unreachable
 
 .thread:                                          ; preds = %22, %10
-  %.pn57 = phi { ptr, i32 } [ %11, %10 ], [ %23, %22 ]
-  resume { ptr, i32 } %.pn57
+  %.pn59 = phi { ptr, i32 } [ %11, %10 ], [ %23, %22 ]
+  resume { ptr, i32 } %.pn59
 
 22:                                               ; preds = %1
   %23 = landingpad { ptr, i32 }
@@ -12894,8 +12894,8 @@ define hidden void @"_ZN7parquet4file6writer29SerializedFileWriter$LT$W$GT$5clos
   store i16 0, ptr %260, align 8, !noalias !2028
   store ptr inttoptr (i64 2 to ptr), ptr %22, align 8, !noalias !2028
   %.sroa.4119.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4119.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !2028
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4119.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !2028
   store i16 2, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !2028
   %261 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %258, ptr %261, align 8, !noalias !2028

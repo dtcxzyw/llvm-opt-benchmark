@@ -501,9 +501,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %50 = load ptr, ptr %37, align 8, !noalias !51, !noundef !13
   %51 = icmp eq ptr %50, null
   %.sink74.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sink74.i.sroa.gep114.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink74.i.sroa.gep115.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink74.i.sroa.gep116.i = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sink74.i.sroa.gep113.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink74.i.sroa.gep114.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink74.i.sroa.gep115.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %53 = load ptr, ptr %52, align 8, !noalias !51
   br i1 %51, label %54, label %88
@@ -678,7 +678,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i36.i.i": ; preds = %76
-  %.val30.i.i = load ptr, ptr %.sink74.i.sroa.gep116.i, align 8, !noalias !56, !nonnull !13, !noundef !13
+  %.val30.i.i = load ptr, ptr %.sink74.i.sroa.gep115.i, align 8, !noalias !56, !nonnull !13, !noundef !13
   call void @__rust_dealloc(ptr noundef nonnull %.val30.i.i, i64 noundef %.val29.i.i, i64 noundef 1) #20, !noalias !97
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit37.i.i"
 
@@ -690,7 +690,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.invoke.i"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit.sink.split.i.i": ; preds = %83, %80, %77, %74
-  %.sink74.i.sroa.phi.i = phi ptr [ %.sink74.i.sroa.gep.i, %77 ], [ %.sink74.i.sroa.gep114.i, %80 ], [ %.sink74.i.sroa.gep115.i, %83 ], [ %.sink74.i.sroa.gep116.i, %74 ]
+  %.sink74.i.sroa.phi.i = phi ptr [ %.sink74.i.sroa.gep.i, %77 ], [ %.sink74.i.sroa.gep113.i, %80 ], [ %.sink74.i.sroa.gep114.i, %83 ], [ %.sink74.i.sroa.gep115.i, %74 ]
   %.val19.sink.i.i = phi i64 [ %.val27.i.i, %77 ], [ %.val23.i.i, %80 ], [ %.val19.i.i, %83 ], [ %.val31.i.i, %74 ]
   %.pn.ph.i.i = phi { ptr, i32 } [ %78, %77 ], [ %81, %80 ], [ %84, %83 ], [ %75, %74 ]
   %.val20.i.i = load ptr, ptr %.sink74.i.sroa.phi.i, align 8, !noalias !56, !nonnull !13, !noundef !13
@@ -744,7 +744,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i46.i.i": ; preds = %82
-  %.val22.i.i = load ptr, ptr %.sink74.i.sroa.gep114.i, align 8, !noalias !56, !nonnull !13, !noundef !13
+  %.val22.i.i = load ptr, ptr %.sink74.i.sroa.gep113.i, align 8, !noalias !56, !nonnull !13, !noundef !13
   call void @__rust_dealloc(ptr noundef nonnull %.val22.i.i, i64 noundef %.val21.i.i, i64 noundef 1) #20, !noalias !115
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit47.i.i"
 
@@ -773,7 +773,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i52.i.i": ; preds = %85
-  %.val18.i.i = load ptr, ptr %.sink74.i.sroa.gep115.i, align 8, !noalias !56, !nonnull !13, !noundef !13
+  %.val18.i.i = load ptr, ptr %.sink74.i.sroa.gep114.i, align 8, !noalias !56, !nonnull !13, !noundef !13
   call void @__rust_dealloc(ptr noundef nonnull %.val18.i.i, i64 noundef %.val.i.i, i64 noundef 1) #20, !noalias !124
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.i"
 
@@ -859,17 +859,17 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$git2..index..IndexEntry$GT$$GT$17h6f23f1bfa52603b8E.exit.i"
 
 102:                                              ; preds = %94
-  %.sroa.483.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %.sroa.483.0.copyload.i = load ptr, ptr %.sroa.483.0..sroa_idx.i, align 8, !noalias !51
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !51
   %103 = getelementptr inbounds nuw i8, ptr %35, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %36, ptr noundef nonnull align 8 dereferenceable(20) %103, i64 20, i1 false), !noalias !51
   %104 = icmp eq i64 %95, 0
   br i1 %104, label %"_ZN4core3ptr44drop_in_place$LT$git2..index..IndexEntry$GT$17hc84d5c7032e4cb78E.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i": ; preds = %102
-  %105 = icmp ne ptr %.sroa.483.0.copyload.i, null
+  %105 = icmp ne ptr %.sroa.4.0.copyload.i, null
   call void @llvm.assume(i1 %105)
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.483.0.copyload.i, i64 noundef %95, i64 noundef 1) #20, !noalias !142
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.4.0.copyload.i, i64 noundef %95, i64 noundef 1) #20, !noalias !142
   br label %"_ZN4core3ptr44drop_in_place$LT$git2..index..IndexEntry$GT$17hc84d5c7032e4cb78E.exit.i"
 
 "_ZN4core3ptr44drop_in_place$LT$git2..index..IndexEntry$GT$17hc84d5c7032e4cb78E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i", %102
@@ -960,15 +960,15 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 131:                                              ; preds = %"_ZN4core3ptr37drop_in_place$LT$git2..blob..Blob$GT$17hab4650122b428a9eE.exit76.i"
   %132 = load i64, ptr %5, align 8, !range !155, !noalias !157, !noundef !13
   %trunc.i78.i = trunc nuw i64 %132 to i1
-  br i1 %trunc.i78.i, label %133, label %.thread126.i
+  br i1 %trunc.i78.i, label %133, label %.thread125.i
 
-.thread126.i:                                     ; preds = %131
+.thread125.i:                                     ; preds = %131
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !157
   br label %138
 
 133:                                              ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.8120.24.copyload.i = load i64, ptr %134, align 8, !noalias !157
+  %.sroa.8119.24.copyload.i = load i64, ptr %134, align 8, !noalias !157
   %.sroa.10.24..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.10.24.copyload.i = load i64, ptr %.sroa.10.24..sroa_idx.i, align 8, !noalias !157
   %135 = ptrtoint ptr %127 to i64
@@ -977,10 +977,10 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %137 = icmp eq i64 %122, -9223372036854775808
   br i1 %137, label %138, label %139
 
-138:                                              ; preds = %133, %.thread126.i
-  %.sroa.686.sroa.8.0134.i = phi i64 [ %119, %.thread126.i ], [ %.sroa.8120.24.copyload.i, %133 ]
-  %.sroa.686.sroa.7.0133.i = phi ptr [ %127, %.thread126.i ], [ %136, %133 ]
-  %.sroa.686.sroa.0.0132.i = phi i64 [ %122, %.thread126.i ], [ %135, %133 ]
+138:                                              ; preds = %133, %.thread125.i
+  %.sroa.685.sroa.8.0133.i = phi i64 [ %119, %.thread125.i ], [ %.sroa.8119.24.copyload.i, %133 ]
+  %.sroa.685.sroa.7.0132.i = phi ptr [ %127, %.thread125.i ], [ %136, %133 ]
+  %.sroa.685.sroa.0.0131.i = phi i64 [ %122, %.thread125.i ], [ %135, %133 ]
   invoke void @"_ZN60_$LT$git2..index..Index$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9afc4069dc9643dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
           to label %156 unwind label %154
 
@@ -992,7 +992,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %.sroa.233.sroa.2.0..sroa.233.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %136, ptr %.sroa.233.sroa.2.0..sroa.233.0..sroa_idx.sroa_idx.i, align 8, !noalias !51
   %.sroa.233.sroa.3.0..sroa.233.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store i64 %.sroa.8120.24.copyload.i, ptr %.sroa.233.sroa.3.0..sroa.233.0..sroa_idx.sroa_idx.i, align 8, !noalias !51
+  store i64 %.sroa.8119.24.copyload.i, ptr %.sroa.233.sroa.3.0..sroa.233.0..sroa_idx.sroa_idx.i, align 8, !noalias !51
   %.sroa.334.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i64 %.sroa.10.24.copyload.i, ptr %.sroa.334.0..sroa_idx.i, align 8, !noalias !51
   %140 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h3db59cace7e94071E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %30)
@@ -1062,9 +1062,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %164
 
 156:                                              ; preds = %138, %150
-  %.sroa.17.0 = phi i64 [ %.sroa.686.sroa.8.0134.i, %138 ], [ undef, %150 ]
-  %.sroa.11.1 = phi ptr [ %.sroa.686.sroa.7.0133.i, %138 ], [ %.sroa.11.0, %150 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.686.sroa.0.0132.i, %138 ], [ %.sroa.0.0, %150 ]
+  %.sroa.17.0 = phi i64 [ %.sroa.685.sroa.8.0133.i, %138 ], [ undef, %150 ]
+  %.sroa.11.1 = phi ptr [ %.sroa.685.sroa.7.0132.i, %138 ], [ %.sroa.11.0, %150 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.685.sroa.0.0131.i, %138 ], [ %.sroa.0.0, %150 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38), !noalias !51
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %36)
   %157 = icmp eq i64 %.sroa.0.1, -9223372036854775807

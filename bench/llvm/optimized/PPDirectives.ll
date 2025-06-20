@@ -16424,7 +16424,6 @@ define dso_local { i32, ptr } @_ZN5clang12Preprocessor27HandleHeaderIncludeOrImp
   %11 = alloca i64, align 8
   %12 = alloca %"class.llvm::SmallString.585", align 8
   %13 = alloca %"class.llvm::StringRef", align 8
-  %.sroa.9 = alloca [3 x i8], align 1
   %14 = alloca %"class.clang::DiagnosticBuilder", align 8
   %15 = alloca %"class.clang::DiagnosticBuilder", align 8
   %16 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -16495,7 +16494,6 @@ define dso_local { i32, ptr } @_ZN5clang12Preprocessor27HandleHeaderIncludeOrImp
 _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %57, %62
   %67 = phi i32 [ %60, %57 ], [ %63, %62 ]
   %.sroa.0.0.i = phi i32 [ %61, %57 ], [ %66, %62 ]
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.9)
   %.sroa.2.0.insert.ext.i = zext i32 %.sroa.0.0.i to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %67 to i64
@@ -18084,8 +18082,6 @@ _ZNK5clang12FileEntryRef12getFileEntryEv.exit270: ; preds = %782
   store i64 %.sroa.0.0.insert.insert.i, ptr %32, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !310
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.9, i64 3, i1 false), !tbaa.struct !270
   %795 = load ptr, ptr %21, align 8, !tbaa !541
   %796 = load i64, ptr %324, align 8, !tbaa !543
   store ptr %795, ptr %33, align 8
@@ -18722,7 +18718,6 @@ _ZN4llvm11SmallVectorIcLj1024EED2Ev.exit332:      ; preds = %_ZN4llvm11SmallVect
 1058:                                             ; preds = %_ZNK5clang5Token9getEndLocEv.exit, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit332
   %.sroa.0420.0 = phi i32 [ %.sroa.0420.1, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit332 ], [ 0, %_ZNK5clang5Token9getEndLocEv.exit ]
   %.sroa.20.0 = phi ptr [ %.sroa.20.1, %_ZN4llvm11SmallVectorIcLj1024EED2Ev.exit332 ], [ null, %_ZNK5clang5Token9getEndLocEv.exit ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #18
   %1059 = load ptr, ptr %12, align 8, !tbaa !541
   %1060 = icmp eq ptr %1059, %47

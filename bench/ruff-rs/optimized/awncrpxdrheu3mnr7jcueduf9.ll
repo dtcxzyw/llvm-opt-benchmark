@@ -5766,214 +5766,238 @@ define hidden void @"_ZN180_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN180_$LT$ruff_workspace..options.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_workspace..options..Options$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$18visit_borrowed_str17h6b738b34f8ee571eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.274, i64 noundef 9)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %4, label %8, label %6
+  br i1 %4, label %7, label %5
 
-6:                                                ; preds = %3
-  %7 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.275, i64 noundef 6)
-  br i1 %7, label %11, label %9
+5:                                                ; preds = %3
+  %6 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.275, i64 noundef 6)
+  br i1 %6, label %11, label %9
 
-8:                                                ; preds = %3
-  store i8 22, ptr %5, align 8
-  br label %80
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 22, ptr %8, align 8
+  br label %104
 
-9:                                                ; preds = %6
+9:                                                ; preds = %5
   %10 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.276, i64 noundef 13)
-  br i1 %10, label %14, label %12
+  br i1 %10, label %15, label %13
 
-11:                                               ; preds = %6
-  store i8 23, ptr %5, align 8
-  br label %80
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 23, ptr %12, align 8
+  br label %104
 
-12:                                               ; preds = %9
-  %13 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.277, i64 noundef 3)
-  br i1 %13, label %17, label %15
+13:                                               ; preds = %9
+  %14 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.277, i64 noundef 3)
+  br i1 %14, label %19, label %17
 
-14:                                               ; preds = %9
-  store i8 24, ptr %5, align 8
-  br label %80
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 24, ptr %16, align 8
+  br label %104
 
-15:                                               ; preds = %12
-  %16 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.278, i64 noundef 12)
-  br i1 %16, label %20, label %18
+17:                                               ; preds = %13
+  %18 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.278, i64 noundef 12)
+  br i1 %18, label %23, label %21
 
-17:                                               ; preds = %12
-  store i8 25, ptr %5, align 8
-  br label %80
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 25, ptr %20, align 8
+  br label %104
 
-18:                                               ; preds = %15
-  %19 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.279, i64 noundef 8)
-  br i1 %19, label %23, label %21
+21:                                               ; preds = %17
+  %22 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.279, i64 noundef 8)
+  br i1 %22, label %27, label %25
 
-20:                                               ; preds = %15
-  store i8 26, ptr %5, align 8
-  br label %80
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 26, ptr %24, align 8
+  br label %104
 
-21:                                               ; preds = %18
-  %22 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.280, i64 noundef 10)
-  br i1 %22, label %26, label %24
+25:                                               ; preds = %21
+  %26 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.280, i64 noundef 10)
+  br i1 %26, label %31, label %29
 
-23:                                               ; preds = %18
-  store i8 27, ptr %5, align 8
-  br label %80
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 27, ptr %28, align 8
+  br label %104
 
-24:                                               ; preds = %21
-  %25 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.281, i64 noundef 16)
-  br i1 %25, label %29, label %27
+29:                                               ; preds = %25
+  %30 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.281, i64 noundef 16)
+  br i1 %30, label %35, label %33
 
-26:                                               ; preds = %21
-  store i8 28, ptr %5, align 8
-  br label %80
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 28, ptr %32, align 8
+  br label %104
 
-27:                                               ; preds = %24
-  %28 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.142, i64 noundef 7)
-  br i1 %28, label %32, label %30
+33:                                               ; preds = %29
+  %34 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.142, i64 noundef 7)
+  br i1 %34, label %39, label %37
 
-29:                                               ; preds = %24
-  store i8 29, ptr %5, align 8
-  br label %80
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 29, ptr %36, align 8
+  br label %104
 
-30:                                               ; preds = %27
-  %31 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.139, i64 noundef 7)
-  br i1 %31, label %35, label %33
+37:                                               ; preds = %33
+  %38 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.139, i64 noundef 7)
+  br i1 %38, label %43, label %41
 
-32:                                               ; preds = %27
-  store i8 30, ptr %5, align 8
-  br label %80
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 30, ptr %40, align 8
+  br label %104
 
-33:                                               ; preds = %30
-  %34 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.282, i64 noundef 14)
-  br i1 %34, label %38, label %36
+41:                                               ; preds = %37
+  %42 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.282, i64 noundef 14)
+  br i1 %42, label %47, label %45
 
-35:                                               ; preds = %30
-  store i8 31, ptr %5, align 8
-  br label %80
+43:                                               ; preds = %37
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 31, ptr %44, align 8
+  br label %104
 
-36:                                               ; preds = %33
-  %37 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.283, i64 noundef 14)
-  br i1 %37, label %41, label %39
+45:                                               ; preds = %41
+  %46 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.283, i64 noundef 14)
+  br i1 %46, label %51, label %49
 
-38:                                               ; preds = %33
-  store i8 32, ptr %5, align 8
-  br label %80
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 32, ptr %48, align 8
+  br label %104
 
-39:                                               ; preds = %36
-  %40 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.284, i64 noundef 13)
-  br i1 %40, label %44, label %42
+49:                                               ; preds = %45
+  %50 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.284, i64 noundef 13)
+  br i1 %50, label %55, label %53
 
-41:                                               ; preds = %36
-  store i8 33, ptr %5, align 8
-  br label %80
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 33, ptr %52, align 8
+  br label %104
 
-42:                                               ; preds = %39
-  %43 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.285, i64 noundef 7)
-  br i1 %43, label %47, label %45
+53:                                               ; preds = %49
+  %54 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.285, i64 noundef 7)
+  br i1 %54, label %59, label %57
 
-44:                                               ; preds = %39
-  store i8 34, ptr %5, align 8
-  br label %80
+55:                                               ; preds = %49
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 34, ptr %56, align 8
+  br label %104
 
-45:                                               ; preds = %42
-  %46 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.286, i64 noundef 17)
-  br i1 %46, label %50, label %48
+57:                                               ; preds = %53
+  %58 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.286, i64 noundef 17)
+  br i1 %58, label %63, label %61
 
-47:                                               ; preds = %42
-  store i8 35, ptr %5, align 8
-  br label %80
+59:                                               ; preds = %53
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 35, ptr %60, align 8
+  br label %104
 
-48:                                               ; preds = %45
-  %49 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.287, i64 noundef 8)
-  br i1 %49, label %53, label %51
+61:                                               ; preds = %57
+  %62 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.287, i64 noundef 8)
+  br i1 %62, label %67, label %65
 
-50:                                               ; preds = %45
-  store i8 36, ptr %5, align 8
-  br label %80
+63:                                               ; preds = %57
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 36, ptr %64, align 8
+  br label %104
 
-51:                                               ; preds = %48
-  %52 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.288, i64 noundef 18)
-  br i1 %52, label %56, label %54
+65:                                               ; preds = %61
+  %66 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.288, i64 noundef 18)
+  br i1 %66, label %71, label %69
 
-53:                                               ; preds = %48
-  store i8 37, ptr %5, align 8
-  br label %80
+67:                                               ; preds = %61
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 37, ptr %68, align 8
+  br label %104
 
-54:                                               ; preds = %51
-  %55 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.289, i64 noundef 14)
-  br i1 %55, label %59, label %57
+69:                                               ; preds = %65
+  %70 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.289, i64 noundef 14)
+  br i1 %70, label %75, label %73
 
-56:                                               ; preds = %51
-  store i8 38, ptr %5, align 8
-  br label %80
+71:                                               ; preds = %65
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 38, ptr %72, align 8
+  br label %104
 
-57:                                               ; preds = %54
-  %58 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.290, i64 noundef 23)
-  br i1 %58, label %62, label %60
+73:                                               ; preds = %69
+  %74 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.290, i64 noundef 23)
+  br i1 %74, label %79, label %77
 
-59:                                               ; preds = %54
-  store i8 39, ptr %5, align 8
-  br label %80
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 39, ptr %76, align 8
+  br label %104
 
-60:                                               ; preds = %57
-  %61 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.291, i64 noundef 3)
-  br i1 %61, label %65, label %63
+77:                                               ; preds = %73
+  %78 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.291, i64 noundef 3)
+  br i1 %78, label %83, label %81
 
-62:                                               ; preds = %57
-  store i8 40, ptr %5, align 8
-  br label %80
+79:                                               ; preds = %73
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 40, ptr %80, align 8
+  br label %104
 
-63:                                               ; preds = %60
-  %64 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.292, i64 noundef 11)
-  br i1 %64, label %68, label %66
+81:                                               ; preds = %77
+  %82 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.292, i64 noundef 11)
+  br i1 %82, label %87, label %85
 
-65:                                               ; preds = %60
-  store i8 41, ptr %5, align 8
-  br label %80
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 41, ptr %84, align 8
+  br label %104
 
-66:                                               ; preds = %63
-  %67 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.293, i64 noundef 12)
-  br i1 %67, label %71, label %69
+85:                                               ; preds = %81
+  %86 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.293, i64 noundef 12)
+  br i1 %86, label %91, label %89
 
-68:                                               ; preds = %63
-  store i8 42, ptr %5, align 8
-  br label %80
+87:                                               ; preds = %81
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 42, ptr %88, align 8
+  br label %104
 
-69:                                               ; preds = %66
-  %70 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.294, i64 noundef 4)
-  br i1 %70, label %74, label %72
+89:                                               ; preds = %85
+  %90 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.294, i64 noundef 4)
+  br i1 %90, label %95, label %93
 
-71:                                               ; preds = %66
-  store i8 43, ptr %5, align 8
-  br label %80
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 43, ptr %92, align 8
+  br label %104
 
-72:                                               ; preds = %69
-  %73 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.295, i64 noundef 6)
-  br i1 %73, label %77, label %75
+93:                                               ; preds = %89
+  %94 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.295, i64 noundef 6)
+  br i1 %94, label %100, label %97
 
-74:                                               ; preds = %69
-  store i8 44, ptr %5, align 8
-  br label %80
+95:                                               ; preds = %89
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 44, ptr %96, align 8
+  br label %104
 
-75:                                               ; preds = %72
-  %76 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.296, i64 noundef 7)
-  br i1 %76, label %79, label %78
+97:                                               ; preds = %93
+  %98 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbc54954acb3841dbE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.39b4bef0baa28d3d57d7a4b875dc438e.296, i64 noundef 7)
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %98, label %103, label %102
 
-77:                                               ; preds = %72
-  store i8 45, ptr %5, align 8
-  br label %80
+100:                                              ; preds = %93
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 45, ptr %101, align 8
+  br label %104
 
-78:                                               ; preds = %75
-  store i8 13, ptr %5, align 8
+102:                                              ; preds = %97
+  store i8 13, ptr %99, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
-  br label %80
+  br label %104
 
-79:                                               ; preds = %75
-  store i8 46, ptr %5, align 8
-  br label %80
+103:                                              ; preds = %97
+  store i8 46, ptr %99, align 8
+  br label %104
 
-80:                                               ; preds = %79, %78, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %8
+104:                                              ; preds = %103, %102, %100, %95, %91, %87, %83, %79, %75, %71, %67, %63, %59, %55, %51, %47, %43, %39, %35, %31, %27, %23, %19, %15, %11, %7
   store i64 2, ptr %0, align 8
   ret void
 }
@@ -72379,10 +72403,10 @@ common.resume:                                    ; preds = %72, %.body.i, %36
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %110, ptr nonnull readonly align 1 %43, i64 %45, i1 false), !noalias !1873
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %91, ptr %112, align 8, !noalias !1855
-  %.sroa.468.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %110, ptr %.sroa.468.0..sroa_idx.i, align 8, !noalias !1855
-  %.sroa.569.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 %45, ptr %.sroa.569.0..sroa_idx.i, align 8, !noalias !1855
+  %.sroa.467.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %110, ptr %.sroa.467.0..sroa_idx.i, align 8, !noalias !1855
+  %.sroa.568.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i64 %45, ptr %.sroa.568.0..sroa_idx.i, align 8, !noalias !1855
   store i8 2, ptr %12, align 8, !noalias !1855
   invoke void @"_ZN12clap_builder5error14Error$LT$F$GT$6insert17h676a8134cedd94feE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(8) %16, i8 noundef 5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %12)
           to label %113 unwind label %95, !noalias !1855
@@ -72434,8 +72458,8 @@ common.resume:                                    ; preds = %72, %.body.i, %36
 
 127:                                              ; preds = %"_ZN96_$LT$ruff..commands..completions..config..OptionString$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hcc43227a503a7ad6E.exit"
   store i64 %52, ptr %0, align 8
-  %.sroa.464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %56, ptr %.sroa.464.0..sroa_idx, align 8
+  %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %56, ptr %.sroa.463.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %45, ptr %.sroa.5.0..sroa_idx, align 8
   br label %128

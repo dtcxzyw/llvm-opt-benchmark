@@ -43433,6 +43433,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction29EmitOMPAtomicSimpleUp
 .critedge.i:                                      ; preds = %32, %29, %9
   store i8 0, ptr %0, align 8, !tbaa !2939, !alias.scope !2941
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.539.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 0, ptr %.sroa.539.0..sroa_idx.i, align 8, !tbaa !613, !alias.scope !2936
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false), !alias.scope !2936
   br label %142
 
@@ -43560,6 +43562,8 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i:   ; preds = %77, %_ZNK4llvm4Type
 "_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit53.thread51.i": ; preds = %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit53.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit53.thread53.i", %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i, %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit.thread49.i", %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i
   store i8 0, ptr %0, align 8, !tbaa !2939, !alias.scope !2944
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.529.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 0, ptr %.sroa.529.0..sroa_idx.i, align 8, !tbaa !613, !alias.scope !2936
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, i8 0, i64 16, i1 false), !alias.scope !2936
   br label %142
 
@@ -43594,6 +43598,8 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i:   ; preds = %77, %_ZNK4llvm4Type
 101:                                              ; preds = %100
   store i8 0, ptr %0, align 8, !tbaa !2939, !alias.scope !2947
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.520.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 0, ptr %.sroa.520.0..sroa_idx.i, align 8, !tbaa !613, !alias.scope !2936
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false), !alias.scope !2936
   br label %142
 
@@ -43643,6 +43649,8 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i42.i:   ; preds = %77, %_ZNK4llvm4Type
 126:                                              ; preds = %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit53.thread.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit53.thread.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit53.thread.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit53.thread.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit53.thread.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit53.thread.i", %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit53.thread.i"
   store i8 0, ptr %0, align 8, !tbaa !2939, !alias.scope !2950
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.512.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 0, ptr %.sroa.512.0..sroa_idx.i, align 8, !tbaa !613, !alias.scope !2936
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %127, i8 0, i64 16, i1 false), !alias.scope !2936
   br label %142
 
@@ -43688,8 +43696,6 @@ _ZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueEN
   br label %159
 
 142:                                              ; preds = %.critedge.i, %"_ZZL16emitOMPAtomicRMWRN5clang7CodeGen15CodeGenFunctionENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEN4llvm14AtomicOrderingEbENK3$_0clEPNS6_4TypeES5_.exit53.thread51.i", %101, %126
-  %.sroa.539.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 0, ptr %.sroa.539.0..sroa_idx.i, align 8, !tbaa !613, !alias.scope !2936
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %14)
   %143 = load i32, ptr %2, align 8, !tbaa !1423
   %144 = icmp eq i32 %143, 4

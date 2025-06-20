@@ -410,11 +410,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 5:                                                ; preds = %3
   %6 = tail call noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h26ccc37d47da8d92E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !129
-  %spec.select.i = select i1 %6, i64 -9223372036854775804, i64 -9223372036854775805
+  %spec.select.i.i = select i1 %6, i64 -9223372036854775804, i64 -9223372036854775805
   br label %_ZN4core3ops8function6FnOnce9call_once17h3c30832c504c1094E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h3c30832c504c1094E.exit: ; preds = %3, %5
-  %storemerge.i.i = phi i64 [ -9223372036854775803, %3 ], [ %spec.select.i, %5 ]
+  %storemerge.i.i = phi i64 [ %spec.select.i.i, %5 ], [ -9223372036854775803, %3 ]
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !132, !noalias !133
   ret void
 }
@@ -7660,14 +7660,14 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   br i1 %27, label %28, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit.thread"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit.thread": ; preds = %11, %11, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit"
-  %.sroa.0.230 = phi i64 [ %.sroa.0.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit" ], [ -9223372036854775808, %11 ], [ -9223372036854775808, %11 ]
-  %.sroa.11.229 = phi ptr [ %.sroa.11.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit" ], [ undef, %11 ], [ undef, %11 ]
-  %.sroa.14.228 = phi i64 [ %.sroa.14.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit" ], [ undef, %11 ], [ undef, %11 ]
-  store i64 %.sroa.0.230, ptr %0, align 8
-  %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.11.229, ptr %.sroa.422.0..sroa_idx, align 8
-  %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.14.228, ptr %.sroa.523.0..sroa_idx, align 8
+  %.sroa.0.229 = phi i64 [ %.sroa.0.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit" ], [ -9223372036854775808, %11 ], [ -9223372036854775808, %11 ]
+  %.sroa.11.228 = phi ptr [ %.sroa.11.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit" ], [ undef, %11 ], [ undef, %11 ]
+  %.sroa.14.227 = phi i64 [ %.sroa.14.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit" ], [ undef, %11 ], [ undef, %11 ]
+  store i64 %.sroa.0.229, ptr %0, align 8
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.11.228, ptr %.sroa.421.0..sroa_idx, align 8
+  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.14.227, ptr %.sroa.522.0..sroa_idx, align 8
   br label %31
 
 28:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17haacfb0117b8c20aeE.llvm.7360853864331016088.exit"
@@ -7962,14 +7962,14 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   br i1 %27, label %28, label %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit.thread"
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit.thread": ; preds = %11, %11, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit"
-  %.sroa.0.230 = phi i64 [ %.sroa.0.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit" ], [ -9223372036854775808, %11 ], [ -9223372036854775808, %11 ]
-  %.sroa.11.229 = phi ptr [ %.sroa.11.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit" ], [ undef, %11 ], [ undef, %11 ]
-  %.sroa.14.228 = phi i64 [ %.sroa.14.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit" ], [ undef, %11 ], [ undef, %11 ]
-  store i64 %.sroa.0.230, ptr %0, align 8
-  %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.11.229, ptr %.sroa.422.0..sroa_idx, align 8
-  %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.14.228, ptr %.sroa.523.0..sroa_idx, align 8
+  %.sroa.0.229 = phi i64 [ %.sroa.0.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit" ], [ -9223372036854775808, %11 ], [ -9223372036854775808, %11 ]
+  %.sroa.11.228 = phi ptr [ %.sroa.11.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit" ], [ undef, %11 ], [ undef, %11 ]
+  %.sroa.14.227 = phi i64 [ %.sroa.14.2, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit" ], [ undef, %11 ], [ undef, %11 ]
+  store i64 %.sroa.0.229, ptr %0, align 8
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.11.228, ptr %.sroa.421.0..sroa_idx, align 8
+  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.14.227, ptr %.sroa.522.0..sroa_idx, align 8
   br label %31
 
 28:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6db0fdcf15ecc2f2E.llvm.7360853864331016088.exit"

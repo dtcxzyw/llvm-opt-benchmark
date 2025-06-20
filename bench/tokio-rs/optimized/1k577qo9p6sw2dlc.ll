@@ -5230,18 +5230,18 @@ define hidden noalias noundef nonnull align 128 ptr @"_ZN5tokio7runtime4task4cor
   store i64 %3, ptr %6, align 128
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.b5a3c8cd17d91072910360124f8e4f8c.37, ptr %.sroa.514.0..sroa_idx, align 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.b5a3c8cd17d91072910360124f8e4f8c.37, ptr %.sroa.5.0..sroa_idx, align 16
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %1, ptr %8, align 32
-  %.sroa.4.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %2, ptr %.sroa.4.0..sroa_idx23, align 8
-  %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i64 %4, ptr %.sroa.524.0..sroa_idx, align 16
-  %.sroa.6.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i64 2, ptr %.sroa.6.0..sroa_idx25, align 8
+  %.sroa.4.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %2, ptr %.sroa.4.0..sroa_idx22, align 8
+  %.sroa.5.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 %4, ptr %.sroa.5.0..sroa_idx23, align 16
+  %.sroa.6.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store i64 2, ptr %.sroa.6.0..sroa_idx24, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr %0, ptr %.sroa.7.0..sroa_idx, align 64
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !997

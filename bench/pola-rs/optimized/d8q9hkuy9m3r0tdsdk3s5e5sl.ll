@@ -8982,7 +8982,6 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   %18 = alloca [32 x i8], align 8
   %19 = alloca [64 x i8], align 8
   %20 = alloca [112 x i8], align 8
-  %.sroa.4 = alloca [16 x i8], align 8
   %21 = alloca [24 x i8], align 8
   %22 = alloca [88 x i8], align 8
   %23 = alloca [24 x i8], align 8
@@ -9097,7 +9096,6 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %20)
   invoke void @_ZN11polars_pipe9executors5sinks5joins10row_values9RowValues3new17h4c66c78754ac4684E(ptr noalias noundef nonnull sret([112 x i8]) align 8 captures(none) dereferenceable(112) %20, ptr noundef nonnull %8, i1 noundef zeroext false)
           to label %60 unwind label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$$GT$17h48e27f506a22a978E.exit"
@@ -9129,8 +9127,6 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   store i8 %72, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 -9223372036854775808, ptr %73, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 433
   %75 = zext i1 %11 to i8
   store i8 %75, ptr %74, align 1
@@ -9150,7 +9146,6 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 %16, ptr %83, align 8
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
@@ -9283,7 +9278,6 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   %18 = alloca [32 x i8], align 8
   %19 = alloca [64 x i8], align 8
   %20 = alloca [112 x i8], align 8
-  %.sroa.4 = alloca [16 x i8], align 8
   %21 = alloca [24 x i8], align 8
   %22 = alloca [88 x i8], align 8
   %23 = alloca [24 x i8], align 8
@@ -9398,7 +9392,6 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %20)
   invoke void @_ZN11polars_pipe9executors5sinks5joins10row_values9RowValues3new17h4c66c78754ac4684E(ptr noalias noundef nonnull sret([112 x i8]) align 8 captures(none) dereferenceable(112) %20, ptr noundef nonnull %8, i1 noundef zeroext false)
           to label %60 unwind label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$$GT$17h48e27f506a22a978E.exit"
@@ -9430,8 +9423,6 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   store i8 %72, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 -9223372036854775808, ptr %73, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 433
   %75 = zext i1 %11 to i8
   store i8 %75, ptr %74, align 1
@@ -9451,7 +9442,6 @@ define hidden void @"_ZN11polars_pipe9executors5sinks5joins19generic_probe_outer
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i64 %16, ptr %83, align 8
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)

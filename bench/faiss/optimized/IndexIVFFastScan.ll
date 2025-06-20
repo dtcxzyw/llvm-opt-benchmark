@@ -18298,7 +18298,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers12RangeHandlerINS_4CMax
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8, !tbaa !283, !range !13, !noundef !14
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %187, label %16
+  br i1 %15, label %186, label %16
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -18448,7 +18448,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %187
+  br label %186
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %66, %76
   %.0.i = phi i32 [ %80, %76 ], [ %64, %66 ]
@@ -18456,7 +18456,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %.not = icmp eq i32 %.0.i, 0
-  br i1 %.not, label %187, label %81
+  br i1 %.not, label %186, label %81
 
 81:                                               ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #25
@@ -18485,7 +18485,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.idx.i31 = shl i64 %2, 8
   %.pre = load ptr, ptr %85, align 8, !tbaa !629
-  br label %143
+  %.pre71 = load ptr, ptr %86, align 8, !tbaa !579
+  br label %142
 
 95:                                               ; preds = %.preheader66, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit
   %.068 = phi i32 [ %.0.i, %.preheader66 ], [ %97, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit ]
@@ -18518,7 +18519,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   %118 = load ptr, ptr %85, align 8, !tbaa !629
   %119 = load ptr, ptr %86, align 8, !tbaa !579
   %.not.i.i30 = icmp eq ptr %118, %119
-  br i1 %.not.i.i30, label %123, label %120
+  br i1 %.not.i.i30, label %122, label %120
 
 120:                                              ; preds = %109
   store i64 %117, ptr %118, align 8, !tbaa !54
@@ -18526,69 +18527,69 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   store i64 %104, ptr %.sroa.548.0..sroa_idx, align 8, !tbaa !54
   %.sroa.651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %118, i64 16
   store i16 %111, ptr %.sroa.651.0..sroa_idx, align 8, !tbaa !175
-  %121 = load ptr, ptr %85, align 8, !tbaa !629
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  store ptr %122, ptr %85, align 8, !tbaa !629
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  store ptr %121, ptr %85, align 8, !tbaa !629
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit
 
-123:                                              ; preds = %109
-  %124 = load ptr, ptr %89, align 8, !tbaa !578
-  %125 = ptrtoint ptr %118 to i64
-  %126 = ptrtoint ptr %124 to i64
-  %127 = sub i64 %125, %126
-  %128 = icmp eq i64 %127, 9223372036854775800
-  br i1 %128, label %129, label %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
+122:                                              ; preds = %109
+  %123 = load ptr, ptr %89, align 8, !tbaa !578
+  %124 = ptrtoint ptr %118 to i64
+  %125 = ptrtoint ptr %123 to i64
+  %126 = sub i64 %124, %125
+  %127 = icmp eq i64 %126, 9223372036854775800
+  br i1 %127, label %128, label %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
 
-129:                                              ; preds = %123
+128:                                              ; preds = %122
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #38
   unreachable
 
-_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %123
-  %130 = sdiv exact i64 %127, 24
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %130, i64 1)
-  %131 = add nsw i64 %.sroa.speculated.i.i.i.i, %130
-  %132 = icmp ult i64 %131, %130
-  %133 = tail call i64 @llvm.umin.i64(i64 %131, i64 384307168202282325)
-  %134 = select i1 %132, i64 384307168202282325, i64 %133
-  %.not.i.i.i.i = icmp ne i64 %134, 0
+_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %122
+  %129 = sdiv exact i64 %126, 24
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %129, i64 1)
+  %130 = add nsw i64 %.sroa.speculated.i.i.i.i, %129
+  %131 = icmp ult i64 %130, %129
+  %132 = tail call i64 @llvm.umin.i64(i64 %130, i64 384307168202282325)
+  %133 = select i1 %131, i64 384307168202282325, i64 %132
+  %.not.i.i.i.i = icmp ne i64 %133, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %135 = mul nuw nsw i64 %134, 24
-  %136 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %135) #40
-  %137 = getelementptr inbounds i8, ptr %136, i64 %127
-  store i64 %117, ptr %137, align 8, !tbaa !54
-  %.sroa.548.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %134 = mul nuw nsw i64 %133, 24
+  %135 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %134) #40
+  %136 = getelementptr inbounds i8, ptr %135, i64 %126
+  store i64 %117, ptr %136, align 8, !tbaa !54
+  %.sroa.548.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i64 %104, ptr %.sroa.548.0..sroa_idx49, align 8, !tbaa !54
-  %.sroa.651.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %.sroa.651.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store i16 %111, ptr %.sroa.651.0..sroa_idx52, align 8, !tbaa !175
-  %138 = icmp sgt i64 %127, 0
-  br i1 %138, label %139, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
+  %137 = icmp sgt i64 %126, 0
+  br i1 %137, label %138, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
 
-139:                                              ; preds = %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %136, ptr align 8 %124, i64 %127, i1 false)
+138:                                              ; preds = %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %135, ptr align 8 %123, i64 %126, i1 false)
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
 
-_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i: ; preds = %139, %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
-  %140 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  %.not.i17.i.i.i = icmp eq ptr %124, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, label %141
+_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i: ; preds = %138, %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 24
+  %.not.i17.i.i.i = icmp eq ptr %123, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, label %140
 
-141:                                              ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %124, i64 noundef %127) #39
+140:                                              ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %123, i64 noundef %126) #39
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %141, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
-  store ptr %136, ptr %89, align 8, !tbaa !578
-  store ptr %140, ptr %85, align 8, !tbaa !629
-  %142 = getelementptr inbounds nuw %"struct.faiss::simd_result_handlers::RangeHandler<faiss::CMax<unsigned short, long>, true>::Triplet", ptr %136, i64 %134
-  store ptr %142, ptr %86, align 8, !tbaa !579
+_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %140, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
+  store ptr %135, ptr %89, align 8, !tbaa !578
+  store ptr %139, ptr %85, align 8, !tbaa !629
+  %141 = getelementptr inbounds nuw %"struct.faiss::simd_result_handlers::RangeHandler<faiss::CMax<unsigned short, long>, true>::Triplet", ptr %135, i64 %133
+  store ptr %141, ptr %86, align 8, !tbaa !579
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit
 
 _ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, %120, %95
   %.not23 = icmp eq i32 %97, 0
   br i1 %.not23, label %.loopexit, label %95, !llvm.loop !631
 
-143:                                              ; preds = %.preheader, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39
-  %144 = phi ptr [ %.pre, %.preheader ], [ %186, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39 ]
+142:                                              ; preds = %.preheader, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39
+  %143 = phi ptr [ %.pre71, %.preheader ], [ %184, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39 ]
+  %144 = phi ptr [ %.pre, %.preheader ], [ %185, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39 ]
   %.169 = phi i32 [ %.0.i, %.preheader ], [ %146, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39 ]
   %145 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.169, i1 true)
   %.neg = shl nsw i32 -1, %145
@@ -18609,83 +18610,82 @@ _ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7Tri
   %159 = getelementptr i8, ptr %158, i64 %.idx.i31
   %160 = getelementptr i64, ptr %159, i64 %147
   %161 = load i64, ptr %160, align 8, !tbaa !54
-  %162 = load ptr, ptr %86, align 8, !tbaa !579
-  %.not.i.i32 = icmp eq ptr %144, %162
-  br i1 %.not.i.i32, label %166, label %163
+  %.not.i.i32 = icmp eq ptr %144, %143
+  br i1 %.not.i.i32, label %164, label %162
 
-163:                                              ; preds = %143
+162:                                              ; preds = %142
   store i64 %155, ptr %144, align 8, !tbaa !54
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %144, i64 8
   store i64 %161, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !54
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %144, i64 16
   store i16 %149, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !175
-  %164 = load ptr, ptr %85, align 8, !tbaa !629
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
-  store ptr %165, ptr %85, align 8, !tbaa !629
+  %163 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  store ptr %163, ptr %85, align 8, !tbaa !629
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39
 
-166:                                              ; preds = %143
-  %167 = load ptr, ptr %92, align 8, !tbaa !578
-  %168 = ptrtoint ptr %144 to i64
-  %169 = ptrtoint ptr %167 to i64
-  %170 = sub i64 %168, %169
-  %171 = icmp eq i64 %170, 9223372036854775800
-  br i1 %171, label %172, label %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
+164:                                              ; preds = %142
+  %165 = load ptr, ptr %92, align 8, !tbaa !578
+  %166 = ptrtoint ptr %143 to i64
+  %167 = ptrtoint ptr %165 to i64
+  %168 = sub i64 %166, %167
+  %169 = icmp eq i64 %168, 9223372036854775800
+  br i1 %169, label %170, label %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
 
-172:                                              ; preds = %166
+170:                                              ; preds = %164
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #38
   unreachable
 
-_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33: ; preds = %166
-  %173 = sdiv exact i64 %170, 24
-  %.sroa.speculated.i.i.i.i34 = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
-  %174 = add nsw i64 %.sroa.speculated.i.i.i.i34, %173
-  %175 = icmp ult i64 %174, %173
-  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 384307168202282325)
-  %177 = select i1 %175, i64 384307168202282325, i64 %176
-  %.not.i.i.i.i35 = icmp ne i64 %177, 0
+_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33: ; preds = %164
+  %171 = sdiv exact i64 %168, 24
+  %.sroa.speculated.i.i.i.i34 = tail call i64 @llvm.umax.i64(i64 %171, i64 1)
+  %172 = add nsw i64 %.sroa.speculated.i.i.i.i34, %171
+  %173 = icmp ult i64 %172, %171
+  %174 = tail call i64 @llvm.umin.i64(i64 %172, i64 384307168202282325)
+  %175 = select i1 %173, i64 384307168202282325, i64 %174
+  %.not.i.i.i.i35 = icmp ne i64 %175, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i35)
-  %178 = mul nuw nsw i64 %177, 24
-  %179 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %178) #40
-  %180 = getelementptr inbounds i8, ptr %179, i64 %170
-  store i64 %155, ptr %180, align 8, !tbaa !54
-  %.sroa.5.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  %176 = mul nuw nsw i64 %175, 24
+  %177 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %176) #40
+  %178 = getelementptr inbounds i8, ptr %177, i64 %168
+  store i64 %155, ptr %178, align 8, !tbaa !54
+  %.sroa.5.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i64 %161, ptr %.sroa.5.0..sroa_idx41, align 8, !tbaa !54
-  %.sroa.6.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  %.sroa.6.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store i16 %149, ptr %.sroa.6.0..sroa_idx43, align 8, !tbaa !175
-  %181 = icmp sgt i64 %170, 0
-  br i1 %181, label %182, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
+  %179 = icmp sgt i64 %168, 0
+  br i1 %179, label %180, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
 
-182:                                              ; preds = %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr align 8 %167, i64 %170, i1 false)
+180:                                              ; preds = %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr align 8 %165, i64 %168, i1 false)
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
 
-_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36: ; preds = %182, %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
-  %183 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %.not.i17.i.i.i37 = icmp eq ptr %167, null
-  br i1 %.not.i17.i.i.i37, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38, label %184
+_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36: ; preds = %180, %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 24
+  %.not.i17.i.i.i37 = icmp eq ptr %165, null
+  br i1 %.not.i17.i.i.i37, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38, label %182
 
-184:                                              ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
-  tail call void @_ZdlPvm(ptr noundef nonnull %167, i64 noundef %170) #39
+182:                                              ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
+  tail call void @_ZdlPvm(ptr noundef nonnull %165, i64 noundef %168) #39
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38
 
-_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38: ; preds = %184, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
-  store ptr %179, ptr %92, align 8, !tbaa !578
-  store ptr %183, ptr %85, align 8, !tbaa !629
-  %185 = getelementptr inbounds nuw %"struct.faiss::simd_result_handlers::RangeHandler<faiss::CMax<unsigned short, long>, true>::Triplet", ptr %179, i64 %177
-  store ptr %185, ptr %86, align 8, !tbaa !579
+_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38: ; preds = %182, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
+  store ptr %177, ptr %92, align 8, !tbaa !578
+  store ptr %181, ptr %85, align 8, !tbaa !629
+  %183 = getelementptr inbounds nuw %"struct.faiss::simd_result_handlers::RangeHandler<faiss::CMax<unsigned short, long>, true>::Triplet", ptr %177, i64 %175
+  store ptr %183, ptr %86, align 8, !tbaa !579
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39
 
-_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39: ; preds = %163, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38
-  %186 = phi ptr [ %165, %163 ], [ %183, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38 ]
+_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39: ; preds = %162, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38
+  %184 = phi ptr [ %143, %162 ], [ %183, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38 ]
+  %185 = phi ptr [ %163, %162 ], [ %181, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38 ]
   %.not22 = icmp eq i32 %146, 0
-  br i1 %.not22, label %.loopexit, label %143, !llvm.loop !632
+  br i1 %.not22, label %.loopexit, label %142, !llvm.loop !632
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMaxItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #25
-  br label %187
+  br label %186
 
-187:                                              ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, %.loopexit, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit, %5
+186:                                              ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, %.loopexit, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit, %5
   ret void
 }
 
@@ -19098,7 +19098,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers12RangeHandlerINS_4CMin
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8, !tbaa !427, !range !13, !noundef !14
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %187, label %16
+  br i1 %15, label %186, label %16
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -19248,7 +19248,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %187
+  br label %186
 
 _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit: ; preds = %66, %76
   %.0.i = phi i32 [ %80, %76 ], [ %64, %66 ]
@@ -19256,7 +19256,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %.not = icmp eq i32 %.0.i, 0
-  br i1 %.not, label %187, label %81
+  br i1 %.not, label %186, label %81
 
 81:                                               ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #25
@@ -19285,7 +19285,8 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.idx.i31 = shl i64 %2, 8
   %.pre = load ptr, ptr %85, align 8, !tbaa !668
-  br label %143
+  %.pre71 = load ptr, ptr %86, align 8, !tbaa !589
+  br label %142
 
 95:                                               ; preds = %.preheader66, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit
   %.068 = phi i32 [ %.0.i, %.preheader66 ], [ %97, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit ]
@@ -19318,7 +19319,7 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   %118 = load ptr, ptr %85, align 8, !tbaa !668
   %119 = load ptr, ptr %86, align 8, !tbaa !589
   %.not.i.i30 = icmp eq ptr %118, %119
-  br i1 %.not.i.i30, label %123, label %120
+  br i1 %.not.i.i30, label %122, label %120
 
 120:                                              ; preds = %109
   store i64 %117, ptr %118, align 8, !tbaa !54
@@ -19326,69 +19327,69 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   store i64 %104, ptr %.sroa.548.0..sroa_idx, align 8, !tbaa !54
   %.sroa.651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %118, i64 16
   store i16 %111, ptr %.sroa.651.0..sroa_idx, align 8, !tbaa !175
-  %121 = load ptr, ptr %85, align 8, !tbaa !668
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  store ptr %122, ptr %85, align 8, !tbaa !668
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  store ptr %121, ptr %85, align 8, !tbaa !668
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit
 
-123:                                              ; preds = %109
-  %124 = load ptr, ptr %89, align 8, !tbaa !588
-  %125 = ptrtoint ptr %118 to i64
-  %126 = ptrtoint ptr %124 to i64
-  %127 = sub i64 %125, %126
-  %128 = icmp eq i64 %127, 9223372036854775800
-  br i1 %128, label %129, label %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
+122:                                              ; preds = %109
+  %123 = load ptr, ptr %89, align 8, !tbaa !588
+  %124 = ptrtoint ptr %118 to i64
+  %125 = ptrtoint ptr %123 to i64
+  %126 = sub i64 %124, %125
+  %127 = icmp eq i64 %126, 9223372036854775800
+  br i1 %127, label %128, label %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
 
-129:                                              ; preds = %123
+128:                                              ; preds = %122
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #38
   unreachable
 
-_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %123
-  %130 = sdiv exact i64 %127, 24
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %130, i64 1)
-  %131 = add nsw i64 %.sroa.speculated.i.i.i.i, %130
-  %132 = icmp ult i64 %131, %130
-  %133 = tail call i64 @llvm.umin.i64(i64 %131, i64 384307168202282325)
-  %134 = select i1 %132, i64 384307168202282325, i64 %133
-  %.not.i.i.i.i = icmp ne i64 %134, 0
+_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %122
+  %129 = sdiv exact i64 %126, 24
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %129, i64 1)
+  %130 = add nsw i64 %.sroa.speculated.i.i.i.i, %129
+  %131 = icmp ult i64 %130, %129
+  %132 = tail call i64 @llvm.umin.i64(i64 %130, i64 384307168202282325)
+  %133 = select i1 %131, i64 384307168202282325, i64 %132
+  %.not.i.i.i.i = icmp ne i64 %133, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %135 = mul nuw nsw i64 %134, 24
-  %136 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %135) #40
-  %137 = getelementptr inbounds i8, ptr %136, i64 %127
-  store i64 %117, ptr %137, align 8, !tbaa !54
-  %.sroa.548.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %134 = mul nuw nsw i64 %133, 24
+  %135 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %134) #40
+  %136 = getelementptr inbounds i8, ptr %135, i64 %126
+  store i64 %117, ptr %136, align 8, !tbaa !54
+  %.sroa.548.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store i64 %104, ptr %.sroa.548.0..sroa_idx49, align 8, !tbaa !54
-  %.sroa.651.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %.sroa.651.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store i16 %111, ptr %.sroa.651.0..sroa_idx52, align 8, !tbaa !175
-  %138 = icmp sgt i64 %127, 0
-  br i1 %138, label %139, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
+  %137 = icmp sgt i64 %126, 0
+  br i1 %137, label %138, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
 
-139:                                              ; preds = %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %136, ptr align 8 %124, i64 %127, i1 false)
+138:                                              ; preds = %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %135, ptr align 8 %123, i64 %126, i1 false)
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
 
-_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i: ; preds = %139, %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
-  %140 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  %.not.i17.i.i.i = icmp eq ptr %124, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, label %141
+_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i: ; preds = %138, %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 24
+  %.not.i17.i.i.i = icmp eq ptr %123, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, label %140
 
-141:                                              ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %124, i64 noundef %127) #39
+140:                                              ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %123, i64 noundef %126) #39
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %141, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
-  store ptr %136, ptr %89, align 8, !tbaa !588
-  store ptr %140, ptr %85, align 8, !tbaa !668
-  %142 = getelementptr inbounds nuw %"struct.faiss::simd_result_handlers::RangeHandler<faiss::CMin<unsigned short, long>, true>::Triplet", ptr %136, i64 %134
-  store ptr %142, ptr %86, align 8, !tbaa !589
+_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %140, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i
+  store ptr %135, ptr %89, align 8, !tbaa !588
+  store ptr %139, ptr %85, align 8, !tbaa !668
+  %141 = getelementptr inbounds nuw %"struct.faiss::simd_result_handlers::RangeHandler<faiss::CMin<unsigned short, long>, true>::Triplet", ptr %135, i64 %133
+  store ptr %141, ptr %86, align 8, !tbaa !589
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit
 
 _ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, %120, %95
   %.not23 = icmp eq i32 %97, 0
   br i1 %.not23, label %.loopexit, label %95, !llvm.loop !670
 
-143:                                              ; preds = %.preheader, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39
-  %144 = phi ptr [ %.pre, %.preheader ], [ %186, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39 ]
+142:                                              ; preds = %.preheader, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39
+  %143 = phi ptr [ %.pre71, %.preheader ], [ %184, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39 ]
+  %144 = phi ptr [ %.pre, %.preheader ], [ %185, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39 ]
   %.169 = phi i32 [ %.0.i, %.preheader ], [ %146, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39 ]
   %145 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.169, i1 true)
   %.neg = shl nsw i32 -1, %145
@@ -19409,83 +19410,82 @@ _ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7Tri
   %159 = getelementptr i8, ptr %158, i64 %.idx.i31
   %160 = getelementptr i64, ptr %159, i64 %147
   %161 = load i64, ptr %160, align 8, !tbaa !54
-  %162 = load ptr, ptr %86, align 8, !tbaa !589
-  %.not.i.i32 = icmp eq ptr %144, %162
-  br i1 %.not.i.i32, label %166, label %163
+  %.not.i.i32 = icmp eq ptr %144, %143
+  br i1 %.not.i.i32, label %164, label %162
 
-163:                                              ; preds = %143
+162:                                              ; preds = %142
   store i64 %155, ptr %144, align 8, !tbaa !54
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %144, i64 8
   store i64 %161, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !54
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %144, i64 16
   store i16 %149, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !175
-  %164 = load ptr, ptr %85, align 8, !tbaa !668
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
-  store ptr %165, ptr %85, align 8, !tbaa !668
+  %163 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  store ptr %163, ptr %85, align 8, !tbaa !668
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39
 
-166:                                              ; preds = %143
-  %167 = load ptr, ptr %92, align 8, !tbaa !588
-  %168 = ptrtoint ptr %144 to i64
-  %169 = ptrtoint ptr %167 to i64
-  %170 = sub i64 %168, %169
-  %171 = icmp eq i64 %170, 9223372036854775800
-  br i1 %171, label %172, label %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
+164:                                              ; preds = %142
+  %165 = load ptr, ptr %92, align 8, !tbaa !588
+  %166 = ptrtoint ptr %143 to i64
+  %167 = ptrtoint ptr %165 to i64
+  %168 = sub i64 %166, %167
+  %169 = icmp eq i64 %168, 9223372036854775800
+  br i1 %169, label %170, label %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
 
-172:                                              ; preds = %166
+170:                                              ; preds = %164
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #38
   unreachable
 
-_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33: ; preds = %166
-  %173 = sdiv exact i64 %170, 24
-  %.sroa.speculated.i.i.i.i34 = tail call i64 @llvm.umax.i64(i64 %173, i64 1)
-  %174 = add nsw i64 %.sroa.speculated.i.i.i.i34, %173
-  %175 = icmp ult i64 %174, %173
-  %176 = tail call i64 @llvm.umin.i64(i64 %174, i64 384307168202282325)
-  %177 = select i1 %175, i64 384307168202282325, i64 %176
-  %.not.i.i.i.i35 = icmp ne i64 %177, 0
+_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33: ; preds = %164
+  %171 = sdiv exact i64 %168, 24
+  %.sroa.speculated.i.i.i.i34 = tail call i64 @llvm.umax.i64(i64 %171, i64 1)
+  %172 = add nsw i64 %.sroa.speculated.i.i.i.i34, %171
+  %173 = icmp ult i64 %172, %171
+  %174 = tail call i64 @llvm.umin.i64(i64 %172, i64 384307168202282325)
+  %175 = select i1 %173, i64 384307168202282325, i64 %174
+  %.not.i.i.i.i35 = icmp ne i64 %175, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i35)
-  %178 = mul nuw nsw i64 %177, 24
-  %179 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %178) #40
-  %180 = getelementptr inbounds i8, ptr %179, i64 %170
-  store i64 %155, ptr %180, align 8, !tbaa !54
-  %.sroa.5.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  %176 = mul nuw nsw i64 %175, 24
+  %177 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %176) #40
+  %178 = getelementptr inbounds i8, ptr %177, i64 %168
+  store i64 %155, ptr %178, align 8, !tbaa !54
+  %.sroa.5.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i64 %161, ptr %.sroa.5.0..sroa_idx41, align 8, !tbaa !54
-  %.sroa.6.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  %.sroa.6.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store i16 %149, ptr %.sroa.6.0..sroa_idx43, align 8, !tbaa !175
-  %181 = icmp sgt i64 %170, 0
-  br i1 %181, label %182, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
+  %179 = icmp sgt i64 %168, 0
+  br i1 %179, label %180, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
 
-182:                                              ; preds = %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr align 8 %167, i64 %170, i1 false)
+180:                                              ; preds = %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr align 8 %165, i64 %168, i1 false)
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
 
-_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36: ; preds = %182, %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
-  %183 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %.not.i17.i.i.i37 = icmp eq ptr %167, null
-  br i1 %.not.i17.i.i.i37, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38, label %184
+_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36: ; preds = %180, %_ZNKSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i33
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 24
+  %.not.i17.i.i.i37 = icmp eq ptr %165, null
+  br i1 %.not.i17.i.i.i37, label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38, label %182
 
-184:                                              ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
-  tail call void @_ZdlPvm(ptr noundef nonnull %167, i64 noundef %170) #39
+182:                                              ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
+  tail call void @_ZdlPvm(ptr noundef nonnull %165, i64 noundef %168) #39
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38
 
-_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38: ; preds = %184, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
-  store ptr %179, ptr %92, align 8, !tbaa !588
-  store ptr %183, ptr %85, align 8, !tbaa !668
-  %185 = getelementptr inbounds nuw %"struct.faiss::simd_result_handlers::RangeHandler<faiss::CMin<unsigned short, long>, true>::Triplet", ptr %179, i64 %177
-  store ptr %185, ptr %86, align 8, !tbaa !589
+_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38: ; preds = %182, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i36
+  store ptr %177, ptr %92, align 8, !tbaa !588
+  store ptr %181, ptr %85, align 8, !tbaa !668
+  %183 = getelementptr inbounds nuw %"struct.faiss::simd_result_handlers::RangeHandler<faiss::CMin<unsigned short, long>, true>::Triplet", ptr %177, i64 %175
+  store ptr %183, ptr %86, align 8, !tbaa !589
   br label %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39
 
-_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39: ; preds = %163, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38
-  %186 = phi ptr [ %165, %163 ], [ %183, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38 ]
+_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39: ; preds = %162, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38
+  %184 = phi ptr [ %143, %162 ], [ %183, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38 ]
+  %185 = phi ptr [ %163, %162 ], [ %181, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i38 ]
   %.not22 = icmp eq i32 %146, 0
-  br i1 %.not22, label %.loopexit, label %143, !llvm.loop !671
+  br i1 %.not22, label %.loopexit, label %142, !llvm.loop !671
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit, %_ZNSt6vectorIN5faiss20simd_result_handlers12RangeHandlerINS0_4CMinItlEELb1EE7TripletESaIS6_EE9push_backEOS6_.exit39
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #25
-  br label %187
+  br label %186
 
-187:                                              ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, %.loopexit, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit, %5
+186:                                              ; preds = %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit.thread, %.loopexit, %_ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt_maskEtmNS_12simd16uint16ES5_.exit, %5
   ret void
 }
 

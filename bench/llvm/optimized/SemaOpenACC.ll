@@ -426,7 +426,7 @@ _ZN5clang11SemaOpenACC19LoopInConstructRAIIC2ERS0_b.exit: ; preds = %_ZN4llvm11S
     i8 9, label %106
     i8 10, label %106
     i8 11, label %106
-    i8 7, label %442
+    i8 7, label %440
   ]
 
 72:                                               ; preds = %_ZN5clang11SemaOpenACC19LoopInConstructRAIIC2ERS0_b.exit, %_ZN5clang11SemaOpenACC19LoopInConstructRAIIC2ERS0_b.exit, %_ZN5clang11SemaOpenACC19LoopInConstructRAIIC2ERS0_b.exit
@@ -489,11 +489,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang22OpenACCReductionClauseELb1EE9push_ba
   br i1 %.not.i, label %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit.loopexit, label %76
 
 _ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit.loopexit: ; preds = %.critedge.i
-  %.pre410 = load i8, ptr %10, align 8, !tbaa !51
+  %.pre412 = load i8, ptr %10, align 8, !tbaa !51
   br label %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit
 
 _ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit: ; preds = %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit.loopexit, %72
-  %97 = phi i8 [ %.pre410, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit.loopexit ], [ %65, %72 ]
+  %97 = phi i8 [ %.pre412, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit.loopexit ], [ %65, %72 ]
   %98 = load ptr, ptr %0, align 8, !tbaa !61
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i8 %97, ptr %99, align 8, !tbaa !77
@@ -582,8 +582,8 @@ _ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22
   br i1 %.not.i81, label %134, label %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit80._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit_crit_edge
 
 _ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit80._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit_crit_edge: ; preds = %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit80
-  %.pre408 = load ptr, ptr %0, align 8, !tbaa !61
-  %.pre412 = shl nuw nsw i64 %.sroa.241.0.copyload, 3
+  %.pre409 = load ptr, ptr %0, align 8, !tbaa !61
+  %.pre414 = shl nuw nsw i64 %.sroa.241.0.copyload, 3
   br label %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit
 
 134:                                              ; preds = %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit80
@@ -621,7 +621,7 @@ _ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load i8, ptr %151, align 8, !tbaa !72
   %153 = icmp eq i8 %152, 47
-  br i1 %153, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit454, label %154
+  br i1 %153, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit456, label %154
 
 154:                                              ; preds = %148
   %155 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i, i64 24
@@ -629,7 +629,7 @@ _ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load i8, ptr %157, align 8, !tbaa !72
   %159 = icmp eq i8 %158, 47
-  br i1 %159, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit456, label %160
+  br i1 %159, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit458, label %160
 
 160:                                              ; preds = %154
   %161 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i, i64 32
@@ -692,30 +692,30 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   %185 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i, i64 8
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit454: ; preds = %148
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit456: ; preds = %148
   %186 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i, i64 16
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit456: ; preds = %154
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit458: ; preds = %154
   %187 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i, i64 24
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit454, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit456, %184, %179, %172, %165
-  %.028.i.i.i.i.i = phi ptr [ %135, %184 ], [ %.029.lcssa.i.i.i.i.i, %165 ], [ %.1.i.i.i.i.i, %172 ], [ %.2.i.i.i.i.i, %179 ], [ %185, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit ], [ %186, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit454 ], [ %187, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit456 ], [ %.02940.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit456, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit458, %184, %179, %172, %165
+  %.028.i.i.i.i.i = phi ptr [ %135, %184 ], [ %.029.lcssa.i.i.i.i.i, %165 ], [ %.1.i.i.i.i.i, %172 ], [ %.2.i.i.i.i.i, %179 ], [ %185, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit ], [ %186, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit456 ], [ %187, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i.loopexit.split.loop.exit458 ], [ %.02940.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %188 = icmp eq ptr %110, %.028.i.i.i.i.i
-  %.pre409 = load ptr, ptr %0, align 8, !tbaa !61
+  %.pre410 = load ptr, ptr %0, align 8, !tbaa !61
   br i1 %188, label %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit, label %189
 
 189:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i
   %190 = load ptr, ptr %.028.i.i.i.i.i, align 8, !tbaa !70
-  %191 = getelementptr inbounds nuw i8, ptr %.pre409, i64 80
+  %191 = getelementptr inbounds nuw i8, ptr %.pre410, i64 80
   store ptr %190, ptr %191, align 8, !tbaa !84
-  %192 = getelementptr inbounds nuw i8, ptr %.pre409, i64 96
+  %192 = getelementptr inbounds nuw i8, ptr %.pre410, i64 96
   store i8 0, ptr %192, align 8, !tbaa !85
   %.sroa.2.0..sroa_idx.i.i.i83 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %.sroa.2.0.copyload.i.i.i84 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i83, align 8, !tbaa !50
-  %193 = getelementptr inbounds nuw i8, ptr %.pre409, i64 88
-  %194 = getelementptr inbounds nuw i8, ptr %.pre409, i64 92
+  %193 = getelementptr inbounds nuw i8, ptr %.pre410, i64 88
+  %194 = getelementptr inbounds nuw i8, ptr %.pre410, i64 92
   %195 = load i8, ptr %194, align 4, !tbaa !31, !range !62, !noundef !63
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i, label %197
@@ -728,13 +728,13 @@ _ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   %.sink.i.i = trunc i64 %.sroa.2.0.copyload.i.i.i84 to i32
   store i32 %.sink.i.i, ptr %193, align 4, !tbaa !60
   %198 = load i8, ptr %10, align 8, !tbaa !51
-  %199 = getelementptr inbounds nuw i8, ptr %.pre409, i64 97
+  %199 = getelementptr inbounds nuw i8, ptr %.pre410, i64 97
   store i8 %198, ptr %199, align 1, !tbaa !86
   br label %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit
 
 _ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit: ; preds = %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit80._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit_crit_edge, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i
-  %.idx2.i.pre-phi = phi i64 [ %.pre412, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit80._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit_crit_edge ], [ %.idx2.i.i, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i ], [ %.idx2.i.i, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i ]
-  %200 = phi ptr [ %.pre408, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit80._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit_crit_edge ], [ %.pre409, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i ], [ %.pre409, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i ]
+  %.idx2.i.pre-phi = phi i64 [ %.pre414, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit80._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit_crit_edge ], [ %.idx2.i.i, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i ], [ %.idx2.i.i, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i ]
+  %200 = phi ptr [ %.pre409, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit80._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit_crit_edge ], [ %.pre410, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i ], [ %.pre410, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i ]
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 168
   store i32 0, ptr %201, align 8, !tbaa !60
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %200, i64 172
@@ -778,7 +778,7 @@ _ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4ll
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %222 = load i8, ptr %221, align 8, !tbaa !72
   %223 = icmp eq i8 %222, 2
-  br i1 %223, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit462, label %224
+  br i1 %223, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit464, label %224
 
 224:                                              ; preds = %218
   %225 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 24
@@ -786,7 +786,7 @@ _ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4ll
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load i8, ptr %227, align 8, !tbaa !72
   %229 = icmp eq i8 %228, 2
-  br i1 %229, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit464, label %230
+  br i1 %229, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit466, label %230
 
 230:                                              ; preds = %224
   %231 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 32
@@ -849,1150 +849,1148 @@ _ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPre
   %255 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 8
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit462: ; preds = %218
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit464: ; preds = %218
   %256 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 16
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit464: ; preds = %224
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit466: ; preds = %224
   %257 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i, i64 24
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit462, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit464, %235, %242, %249, %254
-  %.028.i.i.i.i = phi ptr [ %205, %254 ], [ %.029.lcssa.i.i.i.i, %235 ], [ %.1.i.i.i.i, %242 ], [ %.2.i.i.i.i, %249 ], [ %255, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %256, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit462 ], [ %257, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit464 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit464, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit466, %235, %242, %249, %254
+  %.028.i.i.i.i = phi ptr [ %205, %254 ], [ %.029.lcssa.i.i.i.i, %235 ], [ %.1.i.i.i.i, %242 ], [ %.2.i.i.i.i, %249 ], [ %255, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %256, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit464 ], [ %257, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit466 ], [ %.02940.i.i.i.i, %.lr.ph.i.i.i.i ]
   %258 = icmp eq ptr %110, %.028.i.i.i.i
-  br i1 %258, label %259, label %263
+  %.pre411 = load i8, ptr %10, align 8, !tbaa !51
+  br i1 %258, label %259, label %262
 
 259:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit
-  %260 = load i8, ptr %10, align 8, !tbaa !51
-  %261 = load ptr, ptr %0, align 8, !tbaa !61
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 184
-  store i8 %260, ptr %262, align 8, !tbaa !48
-  %.sroa.431.sroa.3.0..sroa.431.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %261, i64 188
+  %260 = load ptr, ptr %0, align 8, !tbaa !61
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 184
+  store i8 %.pre411, ptr %261, align 8, !tbaa !48
+  %.sroa.431.sroa.3.0..sroa.431.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %260, i64 188
   store i32 %3, ptr %.sroa.431.sroa.3.0..sroa.431.0..sroa_idx.sroa_idx, align 1, !tbaa !60
-  br label %263
+  br label %262
 
-263:                                              ; preds = %259, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit
-  %264 = load i8, ptr %10, align 8, !tbaa !51
-  %265 = icmp eq i8 %264, 11
-  br i1 %265, label %266, label %325
+262:                                              ; preds = %259, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit
+  %263 = icmp eq i8 %.pre411, 11
+  br i1 %263, label %264, label %323
 
-266:                                              ; preds = %263
-  br i1 %.not.i81, label %267, label %.thread
+264:                                              ; preds = %262
+  br i1 %.not.i81, label %265, label %.thread
 
-267:                                              ; preds = %266
+265:                                              ; preds = %264
   br i1 %.not.i85, label %._crit_edge.i.i.i.i94, label %.lr.ph.preheader.i.i.i.i88
 
-.lr.ph.preheader.i.i.i.i88:                       ; preds = %267
-  %268 = lshr i64 %.sroa.241.0.copyload, 2
-  %269 = and i64 %.idx2.i.pre-phi, 9223372036854775776
-  %scevgep.i.i.i.i89 = getelementptr i8, ptr %.sroa.040.0.copyload, i64 %269
+.lr.ph.preheader.i.i.i.i88:                       ; preds = %265
+  %266 = lshr i64 %.sroa.241.0.copyload, 2
+  %267 = and i64 %.idx2.i.pre-phi, 9223372036854775776
+  %scevgep.i.i.i.i89 = getelementptr i8, ptr %.sroa.040.0.copyload, i64 %267
   br label %.lr.ph.i.i.i.i90
 
-.lr.ph.i.i.i.i90:                                 ; preds = %292, %.lr.ph.preheader.i.i.i.i88
-  %.041.i.i.i.i91 = phi i64 [ %294, %292 ], [ %268, %.lr.ph.preheader.i.i.i.i88 ]
-  %.02940.i.i.i.i92 = phi ptr [ %293, %292 ], [ %.sroa.040.0.copyload, %.lr.ph.preheader.i.i.i.i88 ]
-  %270 = load ptr, ptr %.02940.i.i.i.i92, align 8, !tbaa !70
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  %272 = load i8, ptr %271, align 8, !tbaa !72
-  %273 = icmp eq i8 %272, 48
-  br i1 %273, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit, label %274
+.lr.ph.i.i.i.i90:                                 ; preds = %290, %.lr.ph.preheader.i.i.i.i88
+  %.041.i.i.i.i91 = phi i64 [ %292, %290 ], [ %266, %.lr.ph.preheader.i.i.i.i88 ]
+  %.02940.i.i.i.i92 = phi ptr [ %291, %290 ], [ %.sroa.040.0.copyload, %.lr.ph.preheader.i.i.i.i88 ]
+  %268 = load ptr, ptr %.02940.i.i.i.i92, align 8, !tbaa !70
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %270 = load i8, ptr %269, align 8, !tbaa !72
+  %271 = icmp eq i8 %270, 48
+  br i1 %271, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit, label %272
 
-274:                                              ; preds = %.lr.ph.i.i.i.i90
-  %275 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 8
-  %276 = load ptr, ptr %275, align 8, !tbaa !70
-  %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  %278 = load i8, ptr %277, align 8, !tbaa !72
-  %279 = icmp eq i8 %278, 48
-  br i1 %279, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, label %280
+272:                                              ; preds = %.lr.ph.i.i.i.i90
+  %273 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 8
+  %274 = load ptr, ptr %273, align 8, !tbaa !70
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
+  %276 = load i8, ptr %275, align 8, !tbaa !72
+  %277 = icmp eq i8 %276, 48
+  br i1 %277, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, label %278
 
-280:                                              ; preds = %274
-  %281 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 16
-  %282 = load ptr, ptr %281, align 8, !tbaa !70
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
-  %284 = load i8, ptr %283, align 8, !tbaa !72
-  %285 = icmp eq i8 %284, 48
-  br i1 %285, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit470, label %286
+278:                                              ; preds = %272
+  %279 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 16
+  %280 = load ptr, ptr %279, align 8, !tbaa !70
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
+  %282 = load i8, ptr %281, align 8, !tbaa !72
+  %283 = icmp eq i8 %282, 48
+  br i1 %283, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit472, label %284
 
-286:                                              ; preds = %280
-  %287 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 24
-  %288 = load ptr, ptr %287, align 8, !tbaa !70
-  %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
-  %290 = load i8, ptr %289, align 8, !tbaa !72
-  %291 = icmp eq i8 %290, 48
-  br i1 %291, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit472, label %292
+284:                                              ; preds = %278
+  %285 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 24
+  %286 = load ptr, ptr %285, align 8, !tbaa !70
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  %288 = load i8, ptr %287, align 8, !tbaa !72
+  %289 = icmp eq i8 %288, 48
+  br i1 %289, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit474, label %290
 
-292:                                              ; preds = %286
-  %293 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 32
-  %294 = add nsw i64 %.041.i.i.i.i91, -1
-  %295 = icmp sgt i64 %.041.i.i.i.i91, 1
-  br i1 %295, label %.lr.ph.i.i.i.i90, label %._crit_edge.loopexit.i.i.i.i93, !llvm.loop !88
+290:                                              ; preds = %284
+  %291 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 32
+  %292 = add nsw i64 %.041.i.i.i.i91, -1
+  %293 = icmp sgt i64 %.041.i.i.i.i91, 1
+  br i1 %293, label %.lr.ph.i.i.i.i90, label %._crit_edge.loopexit.i.i.i.i93, !llvm.loop !88
 
-._crit_edge.loopexit.i.i.i.i93:                   ; preds = %292
-  %296 = and i64 %.sroa.241.0.copyload, 3
+._crit_edge.loopexit.i.i.i.i93:                   ; preds = %290
+  %294 = and i64 %.sroa.241.0.copyload, 3
   br label %._crit_edge.i.i.i.i94
 
-._crit_edge.i.i.i.i94:                            ; preds = %._crit_edge.loopexit.i.i.i.i93, %267
-  %.pre-phi47.i.i.i.i95 = phi i64 [ %296, %._crit_edge.loopexit.i.i.i.i93 ], [ %.sroa.241.0.copyload, %267 ]
-  %.029.lcssa.i.i.i.i96 = phi ptr [ %scevgep.i.i.i.i89, %._crit_edge.loopexit.i.i.i.i93 ], [ %.sroa.040.0.copyload, %267 ]
+._crit_edge.i.i.i.i94:                            ; preds = %._crit_edge.loopexit.i.i.i.i93, %265
+  %.pre-phi47.i.i.i.i95 = phi i64 [ %294, %._crit_edge.loopexit.i.i.i.i93 ], [ %.sroa.241.0.copyload, %265 ]
+  %.029.lcssa.i.i.i.i96 = phi ptr [ %scevgep.i.i.i.i89, %._crit_edge.loopexit.i.i.i.i93 ], [ %.sroa.040.0.copyload, %265 ]
   switch i64 %.pre-phi47.i.i.i.i95, label %._crit_edge.i.i.i.unreachabledefault.i100 [
-    i64 3, label %297
-    i64 2, label %304
-    i64 1, label %311
-    i64 0, label %316
+    i64 3, label %295
+    i64 2, label %302
+    i64 1, label %309
+    i64 0, label %314
   ]
 
-297:                                              ; preds = %._crit_edge.i.i.i.i94
-  %298 = load ptr, ptr %.029.lcssa.i.i.i.i96, align 8, !tbaa !70
-  %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  %300 = load i8, ptr %299, align 8, !tbaa !72
-  %301 = icmp eq i8 %300, 48
-  br i1 %301, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit, label %302
+295:                                              ; preds = %._crit_edge.i.i.i.i94
+  %296 = load ptr, ptr %.029.lcssa.i.i.i.i96, align 8, !tbaa !70
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
+  %298 = load i8, ptr %297, align 8, !tbaa !72
+  %299 = icmp eq i8 %298, 48
+  br i1 %299, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit, label %300
 
-302:                                              ; preds = %297
-  %303 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i96, i64 8
-  br label %304
+300:                                              ; preds = %295
+  %301 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i96, i64 8
+  br label %302
 
-304:                                              ; preds = %302, %._crit_edge.i.i.i.i94
-  %.1.i.i.i.i99 = phi ptr [ %303, %302 ], [ %.029.lcssa.i.i.i.i96, %._crit_edge.i.i.i.i94 ]
-  %305 = load ptr, ptr %.1.i.i.i.i99, align 8, !tbaa !70
-  %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
-  %307 = load i8, ptr %306, align 8, !tbaa !72
-  %308 = icmp eq i8 %307, 48
-  br i1 %308, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit, label %309
+302:                                              ; preds = %300, %._crit_edge.i.i.i.i94
+  %.1.i.i.i.i99 = phi ptr [ %301, %300 ], [ %.029.lcssa.i.i.i.i96, %._crit_edge.i.i.i.i94 ]
+  %303 = load ptr, ptr %.1.i.i.i.i99, align 8, !tbaa !70
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
+  %305 = load i8, ptr %304, align 8, !tbaa !72
+  %306 = icmp eq i8 %305, 48
+  br i1 %306, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit, label %307
 
-309:                                              ; preds = %304
-  %310 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i99, i64 8
-  br label %311
+307:                                              ; preds = %302
+  %308 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i99, i64 8
+  br label %309
 
-311:                                              ; preds = %309, %._crit_edge.i.i.i.i94
-  %.2.i.i.i.i98 = phi ptr [ %310, %309 ], [ %.029.lcssa.i.i.i.i96, %._crit_edge.i.i.i.i94 ]
-  %312 = load ptr, ptr %.2.i.i.i.i98, align 8, !tbaa !70
-  %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
-  %314 = load i8, ptr %313, align 8, !tbaa !72
-  %315 = icmp eq i8 %314, 48
-  br i1 %315, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit, label %316
+309:                                              ; preds = %307, %._crit_edge.i.i.i.i94
+  %.2.i.i.i.i98 = phi ptr [ %308, %307 ], [ %.029.lcssa.i.i.i.i96, %._crit_edge.i.i.i.i94 ]
+  %310 = load ptr, ptr %.2.i.i.i.i98, align 8, !tbaa !70
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
+  %312 = load i8, ptr %311, align 8, !tbaa !72
+  %313 = icmp eq i8 %312, 48
+  br i1 %313, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit, label %314
 
 ._crit_edge.i.i.i.unreachabledefault.i100:        ; preds = %._crit_edge.i.i.i.i94
   unreachable
 
-316:                                              ; preds = %311, %._crit_edge.i.i.i.i94
+314:                                              ; preds = %309, %._crit_edge.i.i.i.i94
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit: ; preds = %274
-  %317 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 8
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit: ; preds = %272
+  %315 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 8
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit470: ; preds = %280
-  %318 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 16
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit472: ; preds = %278
+  %316 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 16
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit472: ; preds = %286
-  %319 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 24
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit474: ; preds = %284
+  %317 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i92, i64 24
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i90, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit470, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit472, %297, %304, %311, %316
-  %.028.i.i.i.i97 = phi ptr [ %205, %316 ], [ %.029.lcssa.i.i.i.i96, %297 ], [ %.1.i.i.i.i99, %304 ], [ %.2.i.i.i.i98, %311 ], [ %317, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %318, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit470 ], [ %319, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit472 ], [ %.02940.i.i.i.i92, %.lr.ph.i.i.i.i90 ]
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i90, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit472, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit474, %295, %302, %309, %314
+  %.028.i.i.i.i97 = phi ptr [ %205, %314 ], [ %.029.lcssa.i.i.i.i96, %295 ], [ %.1.i.i.i.i99, %302 ], [ %.2.i.i.i.i98, %309 ], [ %315, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %316, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit472 ], [ %317, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit474 ], [ %.02940.i.i.i.i92, %.lr.ph.i.i.i.i90 ]
   %.not65 = icmp eq ptr %.028.i.i.i.i97, %110
-  br i1 %.not65, label %325, label %320
+  br i1 %.not65, label %323, label %318
 
-320:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit
-  %321 = load ptr, ptr %.028.i.i.i.i97, align 8, !tbaa !70
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 12
-  %.sroa.0.0.copyload.i.i = load i32, ptr %322, align 4, !tbaa !60
-  %323 = load ptr, ptr %0, align 8, !tbaa !61
-  %324 = getelementptr inbounds nuw i8, ptr %323, i64 168
-  store i32 %.sroa.0.0.copyload.i.i, ptr %324, align 8, !tbaa !60
-  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %323, i64 172
+318:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit
+  %319 = load ptr, ptr %.028.i.i.i.i97, align 8, !tbaa !70
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 12
+  %.sroa.0.0.copyload.i.i = load i32, ptr %320, align 4, !tbaa !60
+  %321 = load ptr, ptr %0, align 8, !tbaa !61
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 168
+  store i32 %.sroa.0.0.copyload.i.i, ptr %322, align 8, !tbaa !60
+  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %321, i64 172
   store i8 11, ptr %.sroa.426.0..sroa_idx, align 4, !tbaa !48
-  br label %325
+  br label %323
 
-325:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit, %320, %263
-  br i1 %.not.i81, label %326, label %.thread
+323:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit, %318, %262
+  br i1 %.not.i81, label %324, label %.thread
 
-326:                                              ; preds = %325
+324:                                              ; preds = %323
   br i1 %.not.i85, label %._crit_edge.i.i.i.i109, label %.lr.ph.preheader.i.i.i.i103
 
-.lr.ph.preheader.i.i.i.i103:                      ; preds = %326
-  %327 = lshr i64 %.sroa.241.0.copyload, 2
-  %328 = and i64 %.idx2.i.pre-phi, 9223372036854775776
-  %scevgep.i.i.i.i104 = getelementptr i8, ptr %.sroa.040.0.copyload, i64 %328
+.lr.ph.preheader.i.i.i.i103:                      ; preds = %324
+  %325 = lshr i64 %.sroa.241.0.copyload, 2
+  %326 = and i64 %.idx2.i.pre-phi, 9223372036854775776
+  %scevgep.i.i.i.i104 = getelementptr i8, ptr %.sroa.040.0.copyload, i64 %326
   br label %.lr.ph.i.i.i.i105
 
-.lr.ph.i.i.i.i105:                                ; preds = %351, %.lr.ph.preheader.i.i.i.i103
-  %.041.i.i.i.i106 = phi i64 [ %353, %351 ], [ %327, %.lr.ph.preheader.i.i.i.i103 ]
-  %.02940.i.i.i.i107 = phi ptr [ %352, %351 ], [ %.sroa.040.0.copyload, %.lr.ph.preheader.i.i.i.i103 ]
-  %329 = load ptr, ptr %.02940.i.i.i.i107, align 8, !tbaa !70
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
-  %331 = load i8, ptr %330, align 8, !tbaa !72
-  %332 = icmp eq i8 %331, 5
-  br i1 %332, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit, label %333
+.lr.ph.i.i.i.i105:                                ; preds = %349, %.lr.ph.preheader.i.i.i.i103
+  %.041.i.i.i.i106 = phi i64 [ %351, %349 ], [ %325, %.lr.ph.preheader.i.i.i.i103 ]
+  %.02940.i.i.i.i107 = phi ptr [ %350, %349 ], [ %.sroa.040.0.copyload, %.lr.ph.preheader.i.i.i.i103 ]
+  %327 = load ptr, ptr %.02940.i.i.i.i107, align 8, !tbaa !70
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
+  %329 = load i8, ptr %328, align 8, !tbaa !72
+  %330 = icmp eq i8 %329, 5
+  br i1 %330, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit, label %331
 
-333:                                              ; preds = %.lr.ph.i.i.i.i105
-  %334 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 8
-  %335 = load ptr, ptr %334, align 8, !tbaa !70
-  %336 = getelementptr inbounds nuw i8, ptr %335, i64 8
-  %337 = load i8, ptr %336, align 8, !tbaa !72
-  %338 = icmp eq i8 %337, 5
-  br i1 %338, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, label %339
+331:                                              ; preds = %.lr.ph.i.i.i.i105
+  %332 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 8
+  %333 = load ptr, ptr %332, align 8, !tbaa !70
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
+  %335 = load i8, ptr %334, align 8, !tbaa !72
+  %336 = icmp eq i8 %335, 5
+  br i1 %336, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, label %337
 
-339:                                              ; preds = %333
-  %340 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 16
-  %341 = load ptr, ptr %340, align 8, !tbaa !70
-  %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
-  %343 = load i8, ptr %342, align 8, !tbaa !72
-  %344 = icmp eq i8 %343, 5
-  br i1 %344, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit478, label %345
+337:                                              ; preds = %331
+  %338 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 16
+  %339 = load ptr, ptr %338, align 8, !tbaa !70
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 8
+  %341 = load i8, ptr %340, align 8, !tbaa !72
+  %342 = icmp eq i8 %341, 5
+  br i1 %342, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit480, label %343
 
-345:                                              ; preds = %339
-  %346 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 24
-  %347 = load ptr, ptr %346, align 8, !tbaa !70
-  %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
-  %349 = load i8, ptr %348, align 8, !tbaa !72
-  %350 = icmp eq i8 %349, 5
-  br i1 %350, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit480, label %351
+343:                                              ; preds = %337
+  %344 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 24
+  %345 = load ptr, ptr %344, align 8, !tbaa !70
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
+  %347 = load i8, ptr %346, align 8, !tbaa !72
+  %348 = icmp eq i8 %347, 5
+  br i1 %348, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit482, label %349
 
-351:                                              ; preds = %345
-  %352 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 32
-  %353 = add nsw i64 %.041.i.i.i.i106, -1
-  %354 = icmp sgt i64 %.041.i.i.i.i106, 1
-  br i1 %354, label %.lr.ph.i.i.i.i105, label %._crit_edge.loopexit.i.i.i.i108, !llvm.loop !89
+349:                                              ; preds = %343
+  %350 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 32
+  %351 = add nsw i64 %.041.i.i.i.i106, -1
+  %352 = icmp sgt i64 %.041.i.i.i.i106, 1
+  br i1 %352, label %.lr.ph.i.i.i.i105, label %._crit_edge.loopexit.i.i.i.i108, !llvm.loop !89
 
-._crit_edge.loopexit.i.i.i.i108:                  ; preds = %351
-  %355 = and i64 %.sroa.241.0.copyload, 3
+._crit_edge.loopexit.i.i.i.i108:                  ; preds = %349
+  %353 = and i64 %.sroa.241.0.copyload, 3
   br label %._crit_edge.i.i.i.i109
 
-._crit_edge.i.i.i.i109:                           ; preds = %._crit_edge.loopexit.i.i.i.i108, %326
-  %.pre-phi47.i.i.i.i110 = phi i64 [ %355, %._crit_edge.loopexit.i.i.i.i108 ], [ %.sroa.241.0.copyload, %326 ]
-  %.029.lcssa.i.i.i.i111 = phi ptr [ %scevgep.i.i.i.i104, %._crit_edge.loopexit.i.i.i.i108 ], [ %.sroa.040.0.copyload, %326 ]
+._crit_edge.i.i.i.i109:                           ; preds = %._crit_edge.loopexit.i.i.i.i108, %324
+  %.pre-phi47.i.i.i.i110 = phi i64 [ %353, %._crit_edge.loopexit.i.i.i.i108 ], [ %.sroa.241.0.copyload, %324 ]
+  %.029.lcssa.i.i.i.i111 = phi ptr [ %scevgep.i.i.i.i104, %._crit_edge.loopexit.i.i.i.i108 ], [ %.sroa.040.0.copyload, %324 ]
   switch i64 %.pre-phi47.i.i.i.i110, label %._crit_edge.i.i.i.unreachabledefault.i115 [
-    i64 3, label %356
-    i64 2, label %363
-    i64 1, label %370
-    i64 0, label %375
+    i64 3, label %354
+    i64 2, label %361
+    i64 1, label %368
+    i64 0, label %373
   ]
 
-356:                                              ; preds = %._crit_edge.i.i.i.i109
-  %357 = load ptr, ptr %.029.lcssa.i.i.i.i111, align 8, !tbaa !70
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
-  %359 = load i8, ptr %358, align 8, !tbaa !72
-  %360 = icmp eq i8 %359, 5
-  br i1 %360, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit, label %361
+354:                                              ; preds = %._crit_edge.i.i.i.i109
+  %355 = load ptr, ptr %.029.lcssa.i.i.i.i111, align 8, !tbaa !70
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
+  %357 = load i8, ptr %356, align 8, !tbaa !72
+  %358 = icmp eq i8 %357, 5
+  br i1 %358, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit, label %359
 
-361:                                              ; preds = %356
-  %362 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i111, i64 8
-  br label %363
+359:                                              ; preds = %354
+  %360 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i111, i64 8
+  br label %361
 
-363:                                              ; preds = %361, %._crit_edge.i.i.i.i109
-  %.1.i.i.i.i114 = phi ptr [ %362, %361 ], [ %.029.lcssa.i.i.i.i111, %._crit_edge.i.i.i.i109 ]
-  %364 = load ptr, ptr %.1.i.i.i.i114, align 8, !tbaa !70
-  %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
-  %366 = load i8, ptr %365, align 8, !tbaa !72
-  %367 = icmp eq i8 %366, 5
-  br i1 %367, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit, label %368
+361:                                              ; preds = %359, %._crit_edge.i.i.i.i109
+  %.1.i.i.i.i114 = phi ptr [ %360, %359 ], [ %.029.lcssa.i.i.i.i111, %._crit_edge.i.i.i.i109 ]
+  %362 = load ptr, ptr %.1.i.i.i.i114, align 8, !tbaa !70
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
+  %364 = load i8, ptr %363, align 8, !tbaa !72
+  %365 = icmp eq i8 %364, 5
+  br i1 %365, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit, label %366
 
-368:                                              ; preds = %363
-  %369 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i114, i64 8
-  br label %370
+366:                                              ; preds = %361
+  %367 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i114, i64 8
+  br label %368
 
-370:                                              ; preds = %368, %._crit_edge.i.i.i.i109
-  %.2.i.i.i.i113 = phi ptr [ %369, %368 ], [ %.029.lcssa.i.i.i.i111, %._crit_edge.i.i.i.i109 ]
-  %371 = load ptr, ptr %.2.i.i.i.i113, align 8, !tbaa !70
-  %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
-  %373 = load i8, ptr %372, align 8, !tbaa !72
-  %374 = icmp eq i8 %373, 5
-  br i1 %374, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit, label %375
+368:                                              ; preds = %366, %._crit_edge.i.i.i.i109
+  %.2.i.i.i.i113 = phi ptr [ %367, %366 ], [ %.029.lcssa.i.i.i.i111, %._crit_edge.i.i.i.i109 ]
+  %369 = load ptr, ptr %.2.i.i.i.i113, align 8, !tbaa !70
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
+  %371 = load i8, ptr %370, align 8, !tbaa !72
+  %372 = icmp eq i8 %371, 5
+  br i1 %372, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit, label %373
 
 ._crit_edge.i.i.i.unreachabledefault.i115:        ; preds = %._crit_edge.i.i.i.i109
   unreachable
 
-375:                                              ; preds = %370, %._crit_edge.i.i.i.i109
+373:                                              ; preds = %368, %._crit_edge.i.i.i.i109
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit: ; preds = %333
-  %376 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 8
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit: ; preds = %331
+  %374 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 8
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit478: ; preds = %339
-  %377 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 16
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit480: ; preds = %337
+  %375 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 16
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit480: ; preds = %345
-  %378 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 24
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit482: ; preds = %343
+  %376 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i107, i64 24
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i105, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit478, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit480, %356, %363, %370, %375
-  %.028.i.i.i.i112 = phi ptr [ %205, %375 ], [ %.029.lcssa.i.i.i.i111, %356 ], [ %.1.i.i.i.i114, %363 ], [ %.2.i.i.i.i113, %370 ], [ %376, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %377, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit478 ], [ %378, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit480 ], [ %.02940.i.i.i.i107, %.lr.ph.i.i.i.i105 ]
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i105, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit480, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit482, %354, %361, %368, %373
+  %.028.i.i.i.i112 = phi ptr [ %205, %373 ], [ %.029.lcssa.i.i.i.i111, %354 ], [ %.1.i.i.i.i114, %361 ], [ %.2.i.i.i.i113, %368 ], [ %374, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %375, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit480 ], [ %376, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit482 ], [ %.02940.i.i.i.i107, %.lr.ph.i.i.i.i105 ]
   %.not66 = icmp eq ptr %.028.i.i.i.i112, %110
-  br i1 %.not66, label %384, label %379
+  br i1 %.not66, label %382, label %377
 
-379:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit
-  %380 = load ptr, ptr %.028.i.i.i.i112, align 8, !tbaa !70
-  %381 = getelementptr inbounds nuw i8, ptr %380, i64 12
-  %.sroa.0.0.copyload.i.i116 = load i32, ptr %381, align 4, !tbaa !60
-  %382 = load ptr, ptr %0, align 8, !tbaa !61
-  %383 = getelementptr inbounds nuw i8, ptr %382, i64 176
-  store i32 %.sroa.0.0.copyload.i.i116, ptr %383, align 8, !tbaa !60
-  br label %384
+377:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit
+  %378 = load ptr, ptr %.028.i.i.i.i112, align 8, !tbaa !70
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 12
+  %.sroa.0.0.copyload.i.i116 = load i32, ptr %379, align 4, !tbaa !60
+  %380 = load ptr, ptr %0, align 8, !tbaa !61
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 176
+  store i32 %.sroa.0.0.copyload.i.i116, ptr %381, align 8, !tbaa !60
+  br label %382
 
-384:                                              ; preds = %379, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit
+382:                                              ; preds = %377, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit
   br i1 %.not.i85, label %._crit_edge.i.i.i.i125, label %.lr.ph.preheader.i.i.i.i119
 
-.lr.ph.preheader.i.i.i.i119:                      ; preds = %384
-  %385 = lshr i64 %.sroa.241.0.copyload, 2
-  %386 = and i64 %.idx2.i.pre-phi, 9223372036854775776
-  %scevgep.i.i.i.i120 = getelementptr i8, ptr %.sroa.040.0.copyload, i64 %386
+.lr.ph.preheader.i.i.i.i119:                      ; preds = %382
+  %383 = lshr i64 %.sroa.241.0.copyload, 2
+  %384 = and i64 %.idx2.i.pre-phi, 9223372036854775776
+  %scevgep.i.i.i.i120 = getelementptr i8, ptr %.sroa.040.0.copyload, i64 %384
   br label %.lr.ph.i.i.i.i121
 
-.lr.ph.i.i.i.i121:                                ; preds = %409, %.lr.ph.preheader.i.i.i.i119
-  %.041.i.i.i.i122 = phi i64 [ %411, %409 ], [ %385, %.lr.ph.preheader.i.i.i.i119 ]
-  %.02940.i.i.i.i123 = phi ptr [ %410, %409 ], [ %.sroa.040.0.copyload, %.lr.ph.preheader.i.i.i.i119 ]
-  %387 = load ptr, ptr %.02940.i.i.i.i123, align 8, !tbaa !70
-  %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
-  %389 = load i8, ptr %388, align 8, !tbaa !72
-  %390 = icmp eq i8 %389, 6
-  br i1 %390, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit, label %391
+.lr.ph.i.i.i.i121:                                ; preds = %407, %.lr.ph.preheader.i.i.i.i119
+  %.041.i.i.i.i122 = phi i64 [ %409, %407 ], [ %383, %.lr.ph.preheader.i.i.i.i119 ]
+  %.02940.i.i.i.i123 = phi ptr [ %408, %407 ], [ %.sroa.040.0.copyload, %.lr.ph.preheader.i.i.i.i119 ]
+  %385 = load ptr, ptr %.02940.i.i.i.i123, align 8, !tbaa !70
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
+  %387 = load i8, ptr %386, align 8, !tbaa !72
+  %388 = icmp eq i8 %387, 6
+  br i1 %388, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit, label %389
 
-391:                                              ; preds = %.lr.ph.i.i.i.i121
-  %392 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 8
-  %393 = load ptr, ptr %392, align 8, !tbaa !70
-  %394 = getelementptr inbounds nuw i8, ptr %393, i64 8
-  %395 = load i8, ptr %394, align 8, !tbaa !72
-  %396 = icmp eq i8 %395, 6
-  br i1 %396, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, label %397
+389:                                              ; preds = %.lr.ph.i.i.i.i121
+  %390 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 8
+  %391 = load ptr, ptr %390, align 8, !tbaa !70
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
+  %393 = load i8, ptr %392, align 8, !tbaa !72
+  %394 = icmp eq i8 %393, 6
+  br i1 %394, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, label %395
 
-397:                                              ; preds = %391
-  %398 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 16
-  %399 = load ptr, ptr %398, align 8, !tbaa !70
-  %400 = getelementptr inbounds nuw i8, ptr %399, i64 8
-  %401 = load i8, ptr %400, align 8, !tbaa !72
-  %402 = icmp eq i8 %401, 6
-  br i1 %402, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit486, label %403
+395:                                              ; preds = %389
+  %396 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 16
+  %397 = load ptr, ptr %396, align 8, !tbaa !70
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
+  %399 = load i8, ptr %398, align 8, !tbaa !72
+  %400 = icmp eq i8 %399, 6
+  br i1 %400, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit488, label %401
 
-403:                                              ; preds = %397
-  %404 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 24
-  %405 = load ptr, ptr %404, align 8, !tbaa !70
-  %406 = getelementptr inbounds nuw i8, ptr %405, i64 8
-  %407 = load i8, ptr %406, align 8, !tbaa !72
-  %408 = icmp eq i8 %407, 6
-  br i1 %408, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit488, label %409
+401:                                              ; preds = %395
+  %402 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 24
+  %403 = load ptr, ptr %402, align 8, !tbaa !70
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 8
+  %405 = load i8, ptr %404, align 8, !tbaa !72
+  %406 = icmp eq i8 %405, 6
+  br i1 %406, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit490, label %407
 
-409:                                              ; preds = %403
-  %410 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 32
-  %411 = add nsw i64 %.041.i.i.i.i122, -1
-  %412 = icmp sgt i64 %.041.i.i.i.i122, 1
-  br i1 %412, label %.lr.ph.i.i.i.i121, label %._crit_edge.loopexit.i.i.i.i124, !llvm.loop !90
+407:                                              ; preds = %401
+  %408 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 32
+  %409 = add nsw i64 %.041.i.i.i.i122, -1
+  %410 = icmp sgt i64 %.041.i.i.i.i122, 1
+  br i1 %410, label %.lr.ph.i.i.i.i121, label %._crit_edge.loopexit.i.i.i.i124, !llvm.loop !90
 
-._crit_edge.loopexit.i.i.i.i124:                  ; preds = %409
-  %413 = and i64 %.sroa.241.0.copyload, 3
+._crit_edge.loopexit.i.i.i.i124:                  ; preds = %407
+  %411 = and i64 %.sroa.241.0.copyload, 3
   br label %._crit_edge.i.i.i.i125
 
-._crit_edge.i.i.i.i125:                           ; preds = %._crit_edge.loopexit.i.i.i.i124, %384
-  %.pre-phi47.i.i.i.i126 = phi i64 [ %413, %._crit_edge.loopexit.i.i.i.i124 ], [ %.sroa.241.0.copyload, %384 ]
-  %.029.lcssa.i.i.i.i127 = phi ptr [ %scevgep.i.i.i.i120, %._crit_edge.loopexit.i.i.i.i124 ], [ %.sroa.040.0.copyload, %384 ]
+._crit_edge.i.i.i.i125:                           ; preds = %._crit_edge.loopexit.i.i.i.i124, %382
+  %.pre-phi47.i.i.i.i126 = phi i64 [ %411, %._crit_edge.loopexit.i.i.i.i124 ], [ %.sroa.241.0.copyload, %382 ]
+  %.029.lcssa.i.i.i.i127 = phi ptr [ %scevgep.i.i.i.i120, %._crit_edge.loopexit.i.i.i.i124 ], [ %.sroa.040.0.copyload, %382 ]
   switch i64 %.pre-phi47.i.i.i.i126, label %._crit_edge.i.i.i.unreachabledefault.i131 [
-    i64 3, label %414
-    i64 2, label %421
-    i64 1, label %428
-    i64 0, label %433
+    i64 3, label %412
+    i64 2, label %419
+    i64 1, label %426
+    i64 0, label %431
   ]
 
-414:                                              ; preds = %._crit_edge.i.i.i.i125
-  %415 = load ptr, ptr %.029.lcssa.i.i.i.i127, align 8, !tbaa !70
-  %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
-  %417 = load i8, ptr %416, align 8, !tbaa !72
-  %418 = icmp eq i8 %417, 6
-  br i1 %418, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit, label %419
+412:                                              ; preds = %._crit_edge.i.i.i.i125
+  %413 = load ptr, ptr %.029.lcssa.i.i.i.i127, align 8, !tbaa !70
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 8
+  %415 = load i8, ptr %414, align 8, !tbaa !72
+  %416 = icmp eq i8 %415, 6
+  br i1 %416, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit, label %417
 
-419:                                              ; preds = %414
-  %420 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i127, i64 8
-  br label %421
+417:                                              ; preds = %412
+  %418 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i127, i64 8
+  br label %419
 
-421:                                              ; preds = %419, %._crit_edge.i.i.i.i125
-  %.1.i.i.i.i130 = phi ptr [ %420, %419 ], [ %.029.lcssa.i.i.i.i127, %._crit_edge.i.i.i.i125 ]
-  %422 = load ptr, ptr %.1.i.i.i.i130, align 8, !tbaa !70
-  %423 = getelementptr inbounds nuw i8, ptr %422, i64 8
-  %424 = load i8, ptr %423, align 8, !tbaa !72
-  %425 = icmp eq i8 %424, 6
-  br i1 %425, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit, label %426
+419:                                              ; preds = %417, %._crit_edge.i.i.i.i125
+  %.1.i.i.i.i130 = phi ptr [ %418, %417 ], [ %.029.lcssa.i.i.i.i127, %._crit_edge.i.i.i.i125 ]
+  %420 = load ptr, ptr %.1.i.i.i.i130, align 8, !tbaa !70
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 8
+  %422 = load i8, ptr %421, align 8, !tbaa !72
+  %423 = icmp eq i8 %422, 6
+  br i1 %423, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit, label %424
 
-426:                                              ; preds = %421
-  %427 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i130, i64 8
-  br label %428
+424:                                              ; preds = %419
+  %425 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i130, i64 8
+  br label %426
 
-428:                                              ; preds = %426, %._crit_edge.i.i.i.i125
-  %.2.i.i.i.i129 = phi ptr [ %427, %426 ], [ %.029.lcssa.i.i.i.i127, %._crit_edge.i.i.i.i125 ]
-  %429 = load ptr, ptr %.2.i.i.i.i129, align 8, !tbaa !70
-  %430 = getelementptr inbounds nuw i8, ptr %429, i64 8
-  %431 = load i8, ptr %430, align 8, !tbaa !72
-  %432 = icmp eq i8 %431, 6
-  br i1 %432, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit, label %433
+426:                                              ; preds = %424, %._crit_edge.i.i.i.i125
+  %.2.i.i.i.i129 = phi ptr [ %425, %424 ], [ %.029.lcssa.i.i.i.i127, %._crit_edge.i.i.i.i125 ]
+  %427 = load ptr, ptr %.2.i.i.i.i129, align 8, !tbaa !70
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 8
+  %429 = load i8, ptr %428, align 8, !tbaa !72
+  %430 = icmp eq i8 %429, 6
+  br i1 %430, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit, label %431
 
 ._crit_edge.i.i.i.unreachabledefault.i131:        ; preds = %._crit_edge.i.i.i.i125
   unreachable
 
-433:                                              ; preds = %428, %._crit_edge.i.i.i.i125
+431:                                              ; preds = %426, %._crit_edge.i.i.i.i125
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit: ; preds = %391
-  %434 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 8
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit: ; preds = %389
+  %432 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 8
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit486: ; preds = %397
-  %435 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 16
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit488: ; preds = %395
+  %433 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 16
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit488: ; preds = %403
-  %436 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 24
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit490: ; preds = %401
+  %434 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i123, i64 24
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i121, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit486, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit488, %414, %421, %428, %433
-  %.028.i.i.i.i128 = phi ptr [ %205, %433 ], [ %.029.lcssa.i.i.i.i127, %414 ], [ %.1.i.i.i.i130, %421 ], [ %.2.i.i.i.i129, %428 ], [ %434, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %435, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit486 ], [ %436, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit488 ], [ %.02940.i.i.i.i123, %.lr.ph.i.i.i.i121 ]
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i121, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit488, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit490, %412, %419, %426, %431
+  %.028.i.i.i.i128 = phi ptr [ %205, %431 ], [ %.029.lcssa.i.i.i.i127, %412 ], [ %.1.i.i.i.i130, %419 ], [ %.2.i.i.i.i129, %426 ], [ %432, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit ], [ %433, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit488 ], [ %434, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit.loopexit.split.loop.exit490 ], [ %.02940.i.i.i.i123, %.lr.ph.i.i.i.i121 ]
   %.not67 = icmp eq ptr %.028.i.i.i.i128, %110
-  br i1 %.not67, label %.thread, label %437
+  br i1 %.not67, label %.thread, label %435
 
-437:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit
-  %438 = load ptr, ptr %.028.i.i.i.i128, align 8, !tbaa !70
-  %439 = getelementptr inbounds nuw i8, ptr %438, i64 12
-  %.sroa.0.0.copyload.i.i132 = load i32, ptr %439, align 4, !tbaa !60
-  %440 = load ptr, ptr %0, align 8, !tbaa !61
-  %441 = getelementptr inbounds nuw i8, ptr %440, i64 180
-  store i32 %.sroa.0.0.copyload.i.i132, ptr %441, align 4, !tbaa !60
+435:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit
+  %436 = load ptr, ptr %.028.i.i.i.i128, align 8, !tbaa !70
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 12
+  %.sroa.0.0.copyload.i.i132 = load i32, ptr %437, align 4, !tbaa !60
+  %438 = load ptr, ptr %0, align 8, !tbaa !61
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 180
+  store i32 %.sroa.0.0.copyload.i.i132, ptr %439, align 4, !tbaa !60
   br label %.thread
 
-442:                                              ; preds = %_ZN5clang11SemaOpenACC19LoopInConstructRAIIC2ERS0_b.exit
+440:                                              ; preds = %_ZN5clang11SemaOpenACC19LoopInConstructRAIIC2ERS0_b.exit
   %.sroa.017.0.copyload = load ptr, ptr %6, align 8, !tbaa !49
   %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.218.0.copyload = load i64, ptr %.sroa.218.0..sroa_idx, align 8, !tbaa !50
-  %443 = getelementptr inbounds nuw ptr, ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload
+  %441 = getelementptr inbounds nuw ptr, ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload
   %.not16.i133 = icmp eq i64 %.sroa.218.0.copyload, 0
   br i1 %.not16.i133, label %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145, label %.lr.ph.i134
 
-.lr.ph.i134:                                      ; preds = %442
-  %444 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %445 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  br label %446
+.lr.ph.i134:                                      ; preds = %440
+  %442 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %443 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  br label %444
 
-446:                                              ; preds = %.critedge.i143, %.lr.ph.i134
-  %.017.i135 = phi ptr [ %.sroa.017.0.copyload, %.lr.ph.i134 ], [ %466, %.critedge.i143 ]
-  %447 = load ptr, ptr %.017.i135, align 8, !tbaa !70
-  %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
-  %449 = load i8, ptr %448, align 8, !tbaa !72
-  %450 = icmp ne i8 %449, 36
-  %.not1215.i136 = icmp eq ptr %447, null
-  %.not12.i137 = or i1 %.not1215.i136, %450
-  br i1 %.not12.i137, label %.critedge.i143, label %451
+444:                                              ; preds = %.critedge.i143, %.lr.ph.i134
+  %.017.i135 = phi ptr [ %.sroa.017.0.copyload, %.lr.ph.i134 ], [ %464, %.critedge.i143 ]
+  %445 = load ptr, ptr %.017.i135, align 8, !tbaa !70
+  %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
+  %447 = load i8, ptr %446, align 8, !tbaa !72
+  %448 = icmp ne i8 %447, 36
+  %.not1215.i136 = icmp eq ptr %445, null
+  %.not12.i137 = or i1 %.not1215.i136, %448
+  br i1 %.not12.i137, label %.critedge.i143, label %449
 
-451:                                              ; preds = %446
-  %.sroa.2.0..sroa_idx.i.i.i138 = getelementptr inbounds nuw i8, ptr %447, i64 32
+449:                                              ; preds = %444
+  %.sroa.2.0..sroa_idx.i.i.i138 = getelementptr inbounds nuw i8, ptr %445, i64 32
   %.sroa.2.0.copyload.i.i.i139 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i138, align 8, !tbaa !50
-  %452 = icmp eq i64 %.sroa.2.0.copyload.i.i.i139, 0
-  br i1 %452, label %.critedge.i143, label %453
+  %450 = icmp eq i64 %.sroa.2.0.copyload.i.i.i139, 0
+  br i1 %450, label %.critedge.i143, label %451
 
-453:                                              ; preds = %451
-  %454 = load i32, ptr %28, align 8, !tbaa !37
-  %455 = load i32, ptr %444, align 4, !tbaa !38
-  %.not.i.i.not.i.i140 = icmp ult i32 %454, %455
-  br i1 %.not.i.i.not.i.i140, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang22OpenACCReductionClauseELb1EE9push_backES3_.exit.i142, label %456, !prof !76
+451:                                              ; preds = %449
+  %452 = load i32, ptr %28, align 8, !tbaa !37
+  %453 = load i32, ptr %442, align 4, !tbaa !38
+  %.not.i.i.not.i.i140 = icmp ult i32 %452, %453
+  br i1 %.not.i.i.not.i.i140, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang22OpenACCReductionClauseELb1EE9push_backES3_.exit.i142, label %454, !prof !76
 
-456:                                              ; preds = %453
-  %457 = zext i32 %454 to i64
-  %458 = add nuw nsw i64 %457, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull %445, i64 noundef %458, i64 noundef 8) #21
+454:                                              ; preds = %451
+  %455 = zext i32 %452 to i64
+  %456 = add nuw nsw i64 %455, 1
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull %443, i64 noundef %456, i64 noundef 8) #21
   %.pre.i.i141 = load i32, ptr %28, align 8, !tbaa !37
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang22OpenACCReductionClauseELb1EE9push_backES3_.exit.i142
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang22OpenACCReductionClauseELb1EE9push_backES3_.exit.i142: ; preds = %456, %453
-  %459 = phi i32 [ %454, %453 ], [ %.pre.i.i141, %456 ]
-  %460 = load ptr, ptr %24, align 8, !tbaa !34
-  %461 = zext i32 %459 to i64
-  %462 = getelementptr inbounds nuw ptr, ptr %460, i64 %461
-  %463 = ptrtoint ptr %447 to i64
-  store i64 %463, ptr %462, align 1
-  %464 = load i32, ptr %28, align 8, !tbaa !37
-  %465 = add i32 %464, 1
-  store i32 %465, ptr %28, align 8, !tbaa !37
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang22OpenACCReductionClauseELb1EE9push_backES3_.exit.i142: ; preds = %454, %451
+  %457 = phi i32 [ %452, %451 ], [ %.pre.i.i141, %454 ]
+  %458 = load ptr, ptr %24, align 8, !tbaa !34
+  %459 = zext i32 %457 to i64
+  %460 = getelementptr inbounds nuw ptr, ptr %458, i64 %459
+  %461 = ptrtoint ptr %445 to i64
+  store i64 %461, ptr %460, align 1
+  %462 = load i32, ptr %28, align 8, !tbaa !37
+  %463 = add i32 %462, 1
+  store i32 %463, ptr %28, align 8, !tbaa !37
   br label %.critedge.i143
 
-.critedge.i143:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang22OpenACCReductionClauseELb1EE9push_backES3_.exit.i142, %451, %446
-  %466 = getelementptr inbounds nuw i8, ptr %.017.i135, i64 8
-  %.not.i144 = icmp eq ptr %466, %443
-  br i1 %.not.i144, label %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145, label %446
+.critedge.i143:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang22OpenACCReductionClauseELb1EE9push_backES3_.exit.i142, %449, %444
+  %464 = getelementptr inbounds nuw i8, ptr %.017.i135, i64 8
+  %.not.i144 = icmp eq ptr %464, %441
+  br i1 %.not.i144, label %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145, label %444
 
-_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145: ; preds = %.critedge.i143, %442
+_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145: ; preds = %.critedge.i143, %440
   tail call void @_ZN5clang11SemaOpenACC18AssociatedStmtRAII35SetCollapseInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr %4, i64 %5, ptr %.sroa.017.0.copyload, i64 %.sroa.218.0.copyload)
   %.not.i146 = icmp eq i64 %5, 0
-  br i1 %.not.i146, label %467, label %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170_crit_edge
+  br i1 %.not.i146, label %465, label %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170_crit_edge
 
 _ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170_crit_edge: ; preds = %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145
   %.pre406 = load ptr, ptr %0, align 8, !tbaa !61
-  %.pre413 = shl nuw nsw i64 %.sroa.218.0.copyload, 3
+  %.pre415 = shl nuw nsw i64 %.sroa.218.0.copyload, 3
   br label %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170
 
-467:                                              ; preds = %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145
+465:                                              ; preds = %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145
   %.idx2.i.i147 = shl nuw nsw i64 %.sroa.218.0.copyload, 3
-  %468 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload, i64 %.idx2.i.i147
+  %466 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload, i64 %.idx2.i.i147
   %.not.i.i148 = icmp ult i64 %.sroa.218.0.copyload, 4
   br i1 %.not.i.i148, label %._crit_edge.i.i.i.i.i155, label %.lr.ph.preheader.i.i.i.i.i149
 
-.lr.ph.preheader.i.i.i.i.i149:                    ; preds = %467
-  %469 = lshr i64 %.sroa.218.0.copyload, 2
-  %470 = and i64 %.idx2.i.i147, 9223372036854775776
-  %scevgep.i.i.i.i.i150 = getelementptr i8, ptr %.sroa.017.0.copyload, i64 %470
+.lr.ph.preheader.i.i.i.i.i149:                    ; preds = %465
+  %467 = lshr i64 %.sroa.218.0.copyload, 2
+  %468 = and i64 %.idx2.i.i147, 9223372036854775776
+  %scevgep.i.i.i.i.i150 = getelementptr i8, ptr %.sroa.017.0.copyload, i64 %468
   br label %.lr.ph.i.i.i.i.i151
 
-.lr.ph.i.i.i.i.i151:                              ; preds = %493, %.lr.ph.preheader.i.i.i.i.i149
-  %.041.i.i.i.i.i152 = phi i64 [ %495, %493 ], [ %469, %.lr.ph.preheader.i.i.i.i.i149 ]
-  %.02940.i.i.i.i.i153 = phi ptr [ %494, %493 ], [ %.sroa.017.0.copyload, %.lr.ph.preheader.i.i.i.i.i149 ]
-  %471 = load ptr, ptr %.02940.i.i.i.i.i153, align 8, !tbaa !70
-  %472 = getelementptr inbounds nuw i8, ptr %471, i64 8
-  %473 = load i8, ptr %472, align 8, !tbaa !72
-  %474 = icmp eq i8 %473, 47
-  br i1 %474, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158, label %475
+.lr.ph.i.i.i.i.i151:                              ; preds = %491, %.lr.ph.preheader.i.i.i.i.i149
+  %.041.i.i.i.i.i152 = phi i64 [ %493, %491 ], [ %467, %.lr.ph.preheader.i.i.i.i.i149 ]
+  %.02940.i.i.i.i.i153 = phi ptr [ %492, %491 ], [ %.sroa.017.0.copyload, %.lr.ph.preheader.i.i.i.i.i149 ]
+  %469 = load ptr, ptr %.02940.i.i.i.i.i153, align 8, !tbaa !70
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 8
+  %471 = load i8, ptr %470, align 8, !tbaa !72
+  %472 = icmp eq i8 %471, 47
+  br i1 %472, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158, label %473
 
-475:                                              ; preds = %.lr.ph.i.i.i.i.i151
-  %476 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 8
-  %477 = load ptr, ptr %476, align 8, !tbaa !70
-  %478 = getelementptr inbounds nuw i8, ptr %477, i64 8
-  %479 = load i8, ptr %478, align 8, !tbaa !72
-  %480 = icmp eq i8 %479, 47
-  br i1 %480, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit, label %481
+473:                                              ; preds = %.lr.ph.i.i.i.i.i151
+  %474 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 8
+  %475 = load ptr, ptr %474, align 8, !tbaa !70
+  %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
+  %477 = load i8, ptr %476, align 8, !tbaa !72
+  %478 = icmp eq i8 %477, 47
+  br i1 %478, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit, label %479
 
-481:                                              ; preds = %475
-  %482 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 16
-  %483 = load ptr, ptr %482, align 8, !tbaa !70
-  %484 = getelementptr inbounds nuw i8, ptr %483, i64 8
-  %485 = load i8, ptr %484, align 8, !tbaa !72
-  %486 = icmp eq i8 %485, 47
-  br i1 %486, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit414, label %487
+479:                                              ; preds = %473
+  %480 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 16
+  %481 = load ptr, ptr %480, align 8, !tbaa !70
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 8
+  %483 = load i8, ptr %482, align 8, !tbaa !72
+  %484 = icmp eq i8 %483, 47
+  br i1 %484, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit416, label %485
 
-487:                                              ; preds = %481
-  %488 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 24
-  %489 = load ptr, ptr %488, align 8, !tbaa !70
-  %490 = getelementptr inbounds nuw i8, ptr %489, i64 8
-  %491 = load i8, ptr %490, align 8, !tbaa !72
-  %492 = icmp eq i8 %491, 47
-  br i1 %492, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit416, label %493
+485:                                              ; preds = %479
+  %486 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 24
+  %487 = load ptr, ptr %486, align 8, !tbaa !70
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 8
+  %489 = load i8, ptr %488, align 8, !tbaa !72
+  %490 = icmp eq i8 %489, 47
+  br i1 %490, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit418, label %491
 
-493:                                              ; preds = %487
-  %494 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 32
-  %495 = add nsw i64 %.041.i.i.i.i.i152, -1
-  %496 = icmp sgt i64 %.041.i.i.i.i.i152, 1
-  br i1 %496, label %.lr.ph.i.i.i.i.i151, label %._crit_edge.loopexit.i.i.i.i.i154, !llvm.loop !82
+491:                                              ; preds = %485
+  %492 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 32
+  %493 = add nsw i64 %.041.i.i.i.i.i152, -1
+  %494 = icmp sgt i64 %.041.i.i.i.i.i152, 1
+  br i1 %494, label %.lr.ph.i.i.i.i.i151, label %._crit_edge.loopexit.i.i.i.i.i154, !llvm.loop !82
 
-._crit_edge.loopexit.i.i.i.i.i154:                ; preds = %493
-  %497 = and i64 %.sroa.218.0.copyload, 3
+._crit_edge.loopexit.i.i.i.i.i154:                ; preds = %491
+  %495 = and i64 %.sroa.218.0.copyload, 3
   br label %._crit_edge.i.i.i.i.i155
 
-._crit_edge.i.i.i.i.i155:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i154, %467
-  %.pre-phi47.i.i.i.i.i156 = phi i64 [ %497, %._crit_edge.loopexit.i.i.i.i.i154 ], [ %.sroa.218.0.copyload, %467 ]
-  %.029.lcssa.i.i.i.i.i157 = phi ptr [ %scevgep.i.i.i.i.i150, %._crit_edge.loopexit.i.i.i.i.i154 ], [ %.sroa.017.0.copyload, %467 ]
+._crit_edge.i.i.i.i.i155:                         ; preds = %._crit_edge.loopexit.i.i.i.i.i154, %465
+  %.pre-phi47.i.i.i.i.i156 = phi i64 [ %495, %._crit_edge.loopexit.i.i.i.i.i154 ], [ %.sroa.218.0.copyload, %465 ]
+  %.029.lcssa.i.i.i.i.i157 = phi ptr [ %scevgep.i.i.i.i.i150, %._crit_edge.loopexit.i.i.i.i.i154 ], [ %.sroa.017.0.copyload, %465 ]
   switch i64 %.pre-phi47.i.i.i.i.i156, label %._crit_edge.i.i.i.unreachabledefault.i.i166 [
-    i64 3, label %498
-    i64 2, label %505
-    i64 1, label %512
-    i64 0, label %517
+    i64 3, label %496
+    i64 2, label %503
+    i64 1, label %510
+    i64 0, label %515
   ]
 
-498:                                              ; preds = %._crit_edge.i.i.i.i.i155
-  %499 = load ptr, ptr %.029.lcssa.i.i.i.i.i157, align 8, !tbaa !70
-  %500 = getelementptr inbounds nuw i8, ptr %499, i64 8
-  %501 = load i8, ptr %500, align 8, !tbaa !72
-  %502 = icmp eq i8 %501, 47
-  br i1 %502, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158, label %503
+496:                                              ; preds = %._crit_edge.i.i.i.i.i155
+  %497 = load ptr, ptr %.029.lcssa.i.i.i.i.i157, align 8, !tbaa !70
+  %498 = getelementptr inbounds nuw i8, ptr %497, i64 8
+  %499 = load i8, ptr %498, align 8, !tbaa !72
+  %500 = icmp eq i8 %499, 47
+  br i1 %500, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158, label %501
 
-503:                                              ; preds = %498
-  %504 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i157, i64 8
-  br label %505
+501:                                              ; preds = %496
+  %502 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i157, i64 8
+  br label %503
 
-505:                                              ; preds = %503, %._crit_edge.i.i.i.i.i155
-  %.1.i.i.i.i.i165 = phi ptr [ %504, %503 ], [ %.029.lcssa.i.i.i.i.i157, %._crit_edge.i.i.i.i.i155 ]
-  %506 = load ptr, ptr %.1.i.i.i.i.i165, align 8, !tbaa !70
-  %507 = getelementptr inbounds nuw i8, ptr %506, i64 8
-  %508 = load i8, ptr %507, align 8, !tbaa !72
-  %509 = icmp eq i8 %508, 47
-  br i1 %509, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158, label %510
+503:                                              ; preds = %501, %._crit_edge.i.i.i.i.i155
+  %.1.i.i.i.i.i165 = phi ptr [ %502, %501 ], [ %.029.lcssa.i.i.i.i.i157, %._crit_edge.i.i.i.i.i155 ]
+  %504 = load ptr, ptr %.1.i.i.i.i.i165, align 8, !tbaa !70
+  %505 = getelementptr inbounds nuw i8, ptr %504, i64 8
+  %506 = load i8, ptr %505, align 8, !tbaa !72
+  %507 = icmp eq i8 %506, 47
+  br i1 %507, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158, label %508
 
-510:                                              ; preds = %505
-  %511 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i165, i64 8
-  br label %512
+508:                                              ; preds = %503
+  %509 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i165, i64 8
+  br label %510
 
-512:                                              ; preds = %510, %._crit_edge.i.i.i.i.i155
-  %.2.i.i.i.i.i164 = phi ptr [ %511, %510 ], [ %.029.lcssa.i.i.i.i.i157, %._crit_edge.i.i.i.i.i155 ]
-  %513 = load ptr, ptr %.2.i.i.i.i.i164, align 8, !tbaa !70
-  %514 = getelementptr inbounds nuw i8, ptr %513, i64 8
-  %515 = load i8, ptr %514, align 8, !tbaa !72
-  %516 = icmp eq i8 %515, 47
-  br i1 %516, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158, label %517
+510:                                              ; preds = %508, %._crit_edge.i.i.i.i.i155
+  %.2.i.i.i.i.i164 = phi ptr [ %509, %508 ], [ %.029.lcssa.i.i.i.i.i157, %._crit_edge.i.i.i.i.i155 ]
+  %511 = load ptr, ptr %.2.i.i.i.i.i164, align 8, !tbaa !70
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 8
+  %513 = load i8, ptr %512, align 8, !tbaa !72
+  %514 = icmp eq i8 %513, 47
+  br i1 %514, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158, label %515
 
 ._crit_edge.i.i.i.unreachabledefault.i.i166:      ; preds = %._crit_edge.i.i.i.i.i155
   unreachable
 
-517:                                              ; preds = %512, %._crit_edge.i.i.i.i.i155
+515:                                              ; preds = %510, %._crit_edge.i.i.i.i.i155
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit: ; preds = %475
-  %518 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 8
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit: ; preds = %473
+  %516 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 8
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit414: ; preds = %481
-  %519 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 16
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit416: ; preds = %479
+  %517 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 16
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit416: ; preds = %487
-  %520 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 24
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit418: ; preds = %485
+  %518 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i.i153, i64 24
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158: ; preds = %.lr.ph.i.i.i.i.i151, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit414, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit416, %517, %512, %505, %498
-  %.028.i.i.i.i.i159 = phi ptr [ %468, %517 ], [ %.029.lcssa.i.i.i.i.i157, %498 ], [ %.1.i.i.i.i.i165, %505 ], [ %.2.i.i.i.i.i164, %512 ], [ %518, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit ], [ %519, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit414 ], [ %520, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit416 ], [ %.02940.i.i.i.i.i153, %.lr.ph.i.i.i.i.i151 ]
-  %521 = icmp eq ptr %443, %.028.i.i.i.i.i159
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158: ; preds = %.lr.ph.i.i.i.i.i151, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit416, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit418, %515, %510, %503, %496
+  %.028.i.i.i.i.i159 = phi ptr [ %466, %515 ], [ %.029.lcssa.i.i.i.i.i157, %496 ], [ %.1.i.i.i.i.i165, %503 ], [ %.2.i.i.i.i.i164, %510 ], [ %516, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit ], [ %517, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit416 ], [ %518, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158.loopexit.split.loop.exit418 ], [ %.02940.i.i.i.i.i153, %.lr.ph.i.i.i.i.i151 ]
+  %519 = icmp eq ptr %441, %.028.i.i.i.i.i159
   %.pre407 = load ptr, ptr %0, align 8, !tbaa !61
-  br i1 %521, label %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170, label %522
+  br i1 %519, label %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170, label %520
 
-522:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158
-  %523 = load ptr, ptr %.028.i.i.i.i.i159, align 8, !tbaa !70
-  %524 = getelementptr inbounds nuw i8, ptr %.pre407, i64 80
-  store ptr %523, ptr %524, align 8, !tbaa !84
-  %525 = getelementptr inbounds nuw i8, ptr %.pre407, i64 96
-  store i8 0, ptr %525, align 8, !tbaa !85
-  %.sroa.2.0..sroa_idx.i.i.i160 = getelementptr inbounds nuw i8, ptr %523, i64 32
+520:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158
+  %521 = load ptr, ptr %.028.i.i.i.i.i159, align 8, !tbaa !70
+  %522 = getelementptr inbounds nuw i8, ptr %.pre407, i64 80
+  store ptr %521, ptr %522, align 8, !tbaa !84
+  %523 = getelementptr inbounds nuw i8, ptr %.pre407, i64 96
+  store i8 0, ptr %523, align 8, !tbaa !85
+  %.sroa.2.0..sroa_idx.i.i.i160 = getelementptr inbounds nuw i8, ptr %521, i64 32
   %.sroa.2.0.copyload.i.i.i161 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i160, align 8, !tbaa !50
-  %526 = getelementptr inbounds nuw i8, ptr %.pre407, i64 88
-  %527 = getelementptr inbounds nuw i8, ptr %.pre407, i64 92
-  %528 = load i8, ptr %527, align 4, !tbaa !31, !range !62, !noundef !63
-  %529 = trunc nuw i8 %528 to i1
-  br i1 %529, label %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i162, label %530
+  %524 = getelementptr inbounds nuw i8, ptr %.pre407, i64 88
+  %525 = getelementptr inbounds nuw i8, ptr %.pre407, i64 92
+  %526 = load i8, ptr %525, align 4, !tbaa !31, !range !62, !noundef !63
+  %527 = trunc nuw i8 %526 to i1
+  br i1 %527, label %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i162, label %528
 
-530:                                              ; preds = %522
-  store i8 1, ptr %527, align 4, !tbaa !31
+528:                                              ; preds = %520
+  store i8 1, ptr %525, align 4, !tbaa !31
   br label %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i162
 
-_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i162: ; preds = %530, %522
+_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i162: ; preds = %528, %520
   %.sink.i.i163 = trunc i64 %.sroa.2.0.copyload.i.i.i161 to i32
-  store i32 %.sink.i.i163, ptr %526, align 4, !tbaa !60
-  %531 = load i8, ptr %10, align 8, !tbaa !51
-  %532 = getelementptr inbounds nuw i8, ptr %.pre407, i64 97
-  store i8 %531, ptr %532, align 1, !tbaa !86
+  store i32 %.sink.i.i163, ptr %524, align 4, !tbaa !60
+  %529 = load i8, ptr %10, align 8, !tbaa !51
+  %530 = getelementptr inbounds nuw i8, ptr %.pre407, i64 97
+  store i8 %529, ptr %530, align 1, !tbaa !86
   br label %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170
 
 _ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170: ; preds = %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170_crit_edge, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i162
-  %.idx2.i171.pre-phi = phi i64 [ %.pre413, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170_crit_edge ], [ %.idx2.i.i147, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158 ], [ %.idx2.i.i147, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i162 ]
-  %533 = phi ptr [ %.pre406, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170_crit_edge ], [ %.pre407, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158 ], [ %.pre407, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i162 ]
-  %534 = getelementptr inbounds nuw i8, ptr %533, i64 184
-  store i64 20, ptr %534, align 8
-  %535 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload, i64 %.idx2.i171.pre-phi
+  %.idx2.i171.pre-phi = phi i64 [ %.pre415, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170_crit_edge ], [ %.idx2.i.i147, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158 ], [ %.idx2.i.i147, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i162 ]
+  %531 = phi ptr [ %.pre406, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit145._ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170_crit_edge ], [ %.pre407, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCTileClauseEEEEEEDaOT_T0_.exit.i158 ], [ %.pre407, %_ZNSt8optionalIjEaSImEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit.i162 ]
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 184
+  store i64 20, ptr %532, align 8
+  %533 = getelementptr inbounds nuw i8, ptr %.sroa.017.0.copyload, i64 %.idx2.i171.pre-phi
   %.not.i172 = icmp ult i64 %.sroa.218.0.copyload, 4
   br i1 %.not.i172, label %._crit_edge.i.i.i.i179, label %.lr.ph.preheader.i.i.i.i173
 
 .lr.ph.preheader.i.i.i.i173:                      ; preds = %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170
-  %536 = lshr i64 %.sroa.218.0.copyload, 2
-  %537 = and i64 %.idx2.i171.pre-phi, 9223372036854775776
-  %scevgep.i.i.i.i174 = getelementptr i8, ptr %.sroa.017.0.copyload, i64 %537
+  %534 = lshr i64 %.sroa.218.0.copyload, 2
+  %535 = and i64 %.idx2.i171.pre-phi, 9223372036854775776
+  %scevgep.i.i.i.i174 = getelementptr i8, ptr %.sroa.017.0.copyload, i64 %535
   br label %.lr.ph.i.i.i.i175
 
-.lr.ph.i.i.i.i175:                                ; preds = %560, %.lr.ph.preheader.i.i.i.i173
-  %.041.i.i.i.i176 = phi i64 [ %562, %560 ], [ %536, %.lr.ph.preheader.i.i.i.i173 ]
-  %.02940.i.i.i.i177 = phi ptr [ %561, %560 ], [ %.sroa.017.0.copyload, %.lr.ph.preheader.i.i.i.i173 ]
-  %538 = load ptr, ptr %.02940.i.i.i.i177, align 8, !tbaa !70
-  %539 = getelementptr inbounds nuw i8, ptr %538, i64 8
-  %540 = load i8, ptr %539, align 8, !tbaa !72
-  %541 = icmp eq i8 %540, 2
-  br i1 %541, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189, label %542
+.lr.ph.i.i.i.i175:                                ; preds = %558, %.lr.ph.preheader.i.i.i.i173
+  %.041.i.i.i.i176 = phi i64 [ %560, %558 ], [ %534, %.lr.ph.preheader.i.i.i.i173 ]
+  %.02940.i.i.i.i177 = phi ptr [ %559, %558 ], [ %.sroa.017.0.copyload, %.lr.ph.preheader.i.i.i.i173 ]
+  %536 = load ptr, ptr %.02940.i.i.i.i177, align 8, !tbaa !70
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 8
+  %538 = load i8, ptr %537, align 8, !tbaa !72
+  %539 = icmp eq i8 %538, 2
+  br i1 %539, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189, label %540
 
-542:                                              ; preds = %.lr.ph.i.i.i.i175
-  %543 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 8
-  %544 = load ptr, ptr %543, align 8, !tbaa !70
-  %545 = getelementptr inbounds nuw i8, ptr %544, i64 8
-  %546 = load i8, ptr %545, align 8, !tbaa !72
-  %547 = icmp eq i8 %546, 2
-  br i1 %547, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit, label %548
+540:                                              ; preds = %.lr.ph.i.i.i.i175
+  %541 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 8
+  %542 = load ptr, ptr %541, align 8, !tbaa !70
+  %543 = getelementptr inbounds nuw i8, ptr %542, i64 8
+  %544 = load i8, ptr %543, align 8, !tbaa !72
+  %545 = icmp eq i8 %544, 2
+  br i1 %545, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit, label %546
 
-548:                                              ; preds = %542
-  %549 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 16
-  %550 = load ptr, ptr %549, align 8, !tbaa !70
-  %551 = getelementptr inbounds nuw i8, ptr %550, i64 8
-  %552 = load i8, ptr %551, align 8, !tbaa !72
-  %553 = icmp eq i8 %552, 2
-  br i1 %553, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit422, label %554
+546:                                              ; preds = %540
+  %547 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 16
+  %548 = load ptr, ptr %547, align 8, !tbaa !70
+  %549 = getelementptr inbounds nuw i8, ptr %548, i64 8
+  %550 = load i8, ptr %549, align 8, !tbaa !72
+  %551 = icmp eq i8 %550, 2
+  br i1 %551, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit424, label %552
 
-554:                                              ; preds = %548
-  %555 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 24
-  %556 = load ptr, ptr %555, align 8, !tbaa !70
-  %557 = getelementptr inbounds nuw i8, ptr %556, i64 8
-  %558 = load i8, ptr %557, align 8, !tbaa !72
-  %559 = icmp eq i8 %558, 2
-  br i1 %559, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit424, label %560
+552:                                              ; preds = %546
+  %553 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 24
+  %554 = load ptr, ptr %553, align 8, !tbaa !70
+  %555 = getelementptr inbounds nuw i8, ptr %554, i64 8
+  %556 = load i8, ptr %555, align 8, !tbaa !72
+  %557 = icmp eq i8 %556, 2
+  br i1 %557, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit426, label %558
 
-560:                                              ; preds = %554
-  %561 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 32
-  %562 = add nsw i64 %.041.i.i.i.i176, -1
-  %563 = icmp sgt i64 %.041.i.i.i.i176, 1
-  br i1 %563, label %.lr.ph.i.i.i.i175, label %._crit_edge.loopexit.i.i.i.i178, !llvm.loop !87
+558:                                              ; preds = %552
+  %559 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 32
+  %560 = add nsw i64 %.041.i.i.i.i176, -1
+  %561 = icmp sgt i64 %.041.i.i.i.i176, 1
+  br i1 %561, label %.lr.ph.i.i.i.i175, label %._crit_edge.loopexit.i.i.i.i178, !llvm.loop !87
 
-._crit_edge.loopexit.i.i.i.i178:                  ; preds = %560
-  %564 = and i64 %.sroa.218.0.copyload, 3
+._crit_edge.loopexit.i.i.i.i178:                  ; preds = %558
+  %562 = and i64 %.sroa.218.0.copyload, 3
   br label %._crit_edge.i.i.i.i179
 
 ._crit_edge.i.i.i.i179:                           ; preds = %._crit_edge.loopexit.i.i.i.i178, %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170
-  %.pre-phi47.i.i.i.i180 = phi i64 [ %564, %._crit_edge.loopexit.i.i.i.i178 ], [ %.sroa.218.0.copyload, %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170 ]
+  %.pre-phi47.i.i.i.i180 = phi i64 [ %562, %._crit_edge.loopexit.i.i.i.i178 ], [ %.sroa.218.0.copyload, %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170 ]
   %.029.lcssa.i.i.i.i181 = phi ptr [ %scevgep.i.i.i.i174, %._crit_edge.loopexit.i.i.i.i178 ], [ %.sroa.017.0.copyload, %_ZN5clang11SemaOpenACC18AssociatedStmtRAII31SetTileInfoBeforeAssociatedStmtEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS3_IPS4_EE.exit170 ]
   switch i64 %.pre-phi47.i.i.i.i180, label %._crit_edge.i.i.i.unreachabledefault.i185 [
-    i64 3, label %565
-    i64 2, label %572
-    i64 1, label %579
-    i64 0, label %584
+    i64 3, label %563
+    i64 2, label %570
+    i64 1, label %577
+    i64 0, label %582
   ]
 
-565:                                              ; preds = %._crit_edge.i.i.i.i179
-  %566 = load ptr, ptr %.029.lcssa.i.i.i.i181, align 8, !tbaa !70
-  %567 = getelementptr inbounds nuw i8, ptr %566, i64 8
-  %568 = load i8, ptr %567, align 8, !tbaa !72
-  %569 = icmp eq i8 %568, 2
-  br i1 %569, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189, label %570
+563:                                              ; preds = %._crit_edge.i.i.i.i179
+  %564 = load ptr, ptr %.029.lcssa.i.i.i.i181, align 8, !tbaa !70
+  %565 = getelementptr inbounds nuw i8, ptr %564, i64 8
+  %566 = load i8, ptr %565, align 8, !tbaa !72
+  %567 = icmp eq i8 %566, 2
+  br i1 %567, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189, label %568
 
-570:                                              ; preds = %565
-  %571 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i181, i64 8
-  br label %572
+568:                                              ; preds = %563
+  %569 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i181, i64 8
+  br label %570
 
-572:                                              ; preds = %570, %._crit_edge.i.i.i.i179
-  %.1.i.i.i.i184 = phi ptr [ %571, %570 ], [ %.029.lcssa.i.i.i.i181, %._crit_edge.i.i.i.i179 ]
-  %573 = load ptr, ptr %.1.i.i.i.i184, align 8, !tbaa !70
-  %574 = getelementptr inbounds nuw i8, ptr %573, i64 8
-  %575 = load i8, ptr %574, align 8, !tbaa !72
-  %576 = icmp eq i8 %575, 2
-  br i1 %576, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189, label %577
+570:                                              ; preds = %568, %._crit_edge.i.i.i.i179
+  %.1.i.i.i.i184 = phi ptr [ %569, %568 ], [ %.029.lcssa.i.i.i.i181, %._crit_edge.i.i.i.i179 ]
+  %571 = load ptr, ptr %.1.i.i.i.i184, align 8, !tbaa !70
+  %572 = getelementptr inbounds nuw i8, ptr %571, i64 8
+  %573 = load i8, ptr %572, align 8, !tbaa !72
+  %574 = icmp eq i8 %573, 2
+  br i1 %574, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189, label %575
 
-577:                                              ; preds = %572
-  %578 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i184, i64 8
-  br label %579
+575:                                              ; preds = %570
+  %576 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i184, i64 8
+  br label %577
 
-579:                                              ; preds = %577, %._crit_edge.i.i.i.i179
-  %.2.i.i.i.i183 = phi ptr [ %578, %577 ], [ %.029.lcssa.i.i.i.i181, %._crit_edge.i.i.i.i179 ]
-  %580 = load ptr, ptr %.2.i.i.i.i183, align 8, !tbaa !70
-  %581 = getelementptr inbounds nuw i8, ptr %580, i64 8
-  %582 = load i8, ptr %581, align 8, !tbaa !72
-  %583 = icmp eq i8 %582, 2
-  br i1 %583, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189, label %584
+577:                                              ; preds = %575, %._crit_edge.i.i.i.i179
+  %.2.i.i.i.i183 = phi ptr [ %576, %575 ], [ %.029.lcssa.i.i.i.i181, %._crit_edge.i.i.i.i179 ]
+  %578 = load ptr, ptr %.2.i.i.i.i183, align 8, !tbaa !70
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 8
+  %580 = load i8, ptr %579, align 8, !tbaa !72
+  %581 = icmp eq i8 %580, 2
+  br i1 %581, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189, label %582
 
 ._crit_edge.i.i.i.unreachabledefault.i185:        ; preds = %._crit_edge.i.i.i.i179
   unreachable
 
-584:                                              ; preds = %579, %._crit_edge.i.i.i.i179
+582:                                              ; preds = %577, %._crit_edge.i.i.i.i179
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit: ; preds = %542
-  %585 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 8
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit: ; preds = %540
+  %583 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 8
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit422: ; preds = %548
-  %586 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 16
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit424: ; preds = %546
+  %584 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 16
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit424: ; preds = %554
-  %587 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 24
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit426: ; preds = %552
+  %585 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i177, i64 24
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189: ; preds = %.lr.ph.i.i.i.i175, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit422, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit424, %565, %572, %579, %584
-  %.028.i.i.i.i182 = phi ptr [ %535, %584 ], [ %.029.lcssa.i.i.i.i181, %565 ], [ %.1.i.i.i.i184, %572 ], [ %.2.i.i.i.i183, %579 ], [ %585, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit ], [ %586, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit422 ], [ %587, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit424 ], [ %.02940.i.i.i.i177, %.lr.ph.i.i.i.i175 ]
-  %588 = icmp eq ptr %443, %.028.i.i.i.i182
-  br i1 %588, label %589, label %593
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189: ; preds = %.lr.ph.i.i.i.i175, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit424, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit426, %563, %570, %577, %582
+  %.028.i.i.i.i182 = phi ptr [ %533, %582 ], [ %.029.lcssa.i.i.i.i181, %563 ], [ %.1.i.i.i.i184, %570 ], [ %.2.i.i.i.i183, %577 ], [ %583, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit ], [ %584, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit424 ], [ %585, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189.loopexit.split.loop.exit426 ], [ %.02940.i.i.i.i177, %.lr.ph.i.i.i.i175 ]
+  %586 = icmp eq ptr %441, %.028.i.i.i.i182
+  %.pre408 = load ptr, ptr %0, align 8, !tbaa !61
+  br i1 %586, label %587, label %590
 
-589:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189
-  %590 = load i8, ptr %10, align 8, !tbaa !51
-  %591 = load ptr, ptr %0, align 8, !tbaa !61
-  %592 = getelementptr inbounds nuw i8, ptr %591, i64 184
-  store i8 %590, ptr %592, align 8, !tbaa !48
-  %.sroa.49.sroa.3.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %591, i64 188
+587:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189
+  %588 = load i8, ptr %10, align 8, !tbaa !51
+  %589 = getelementptr inbounds nuw i8, ptr %.pre408, i64 184
+  store i8 %588, ptr %589, align 8, !tbaa !48
+  %.sroa.49.sroa.3.0..sroa.49.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.pre408, i64 188
   store i32 %3, ptr %.sroa.49.sroa.3.0..sroa.49.0..sroa_idx.sroa_idx, align 1, !tbaa !60
-  br label %593
+  br label %590
 
-593:                                              ; preds = %589, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189
-  %594 = load ptr, ptr %0, align 8, !tbaa !61
-  %595 = getelementptr inbounds nuw i8, ptr %594, i64 8
-  %596 = load i8, ptr %595, align 8, !tbaa !3
-  %597 = icmp eq i8 %596, 2
-  br i1 %597, label %598, label %656
+590:                                              ; preds = %587, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_16OpenACCSeqClauseEEEEEEDaOT_T0_.exit189
+  %591 = getelementptr inbounds nuw i8, ptr %.pre408, i64 8
+  %592 = load i8, ptr %591, align 8, !tbaa !3
+  %593 = icmp eq i8 %592, 2
+  br i1 %593, label %594, label %652
 
-598:                                              ; preds = %593
-  br i1 %.not.i146, label %599, label %.thread
+594:                                              ; preds = %590
+  br i1 %.not.i146, label %595, label %.thread
 
-599:                                              ; preds = %598
+595:                                              ; preds = %594
   br i1 %.not.i172, label %._crit_edge.i.i.i.i198, label %.lr.ph.preheader.i.i.i.i192
 
-.lr.ph.preheader.i.i.i.i192:                      ; preds = %599
-  %600 = lshr i64 %.sroa.218.0.copyload, 2
-  %601 = and i64 %.idx2.i171.pre-phi, 9223372036854775776
-  %scevgep.i.i.i.i193 = getelementptr i8, ptr %.sroa.017.0.copyload, i64 %601
+.lr.ph.preheader.i.i.i.i192:                      ; preds = %595
+  %596 = lshr i64 %.sroa.218.0.copyload, 2
+  %597 = and i64 %.idx2.i171.pre-phi, 9223372036854775776
+  %scevgep.i.i.i.i193 = getelementptr i8, ptr %.sroa.017.0.copyload, i64 %597
   br label %.lr.ph.i.i.i.i194
 
-.lr.ph.i.i.i.i194:                                ; preds = %624, %.lr.ph.preheader.i.i.i.i192
-  %.041.i.i.i.i195 = phi i64 [ %626, %624 ], [ %600, %.lr.ph.preheader.i.i.i.i192 ]
-  %.02940.i.i.i.i196 = phi ptr [ %625, %624 ], [ %.sroa.017.0.copyload, %.lr.ph.preheader.i.i.i.i192 ]
-  %602 = load ptr, ptr %.02940.i.i.i.i196, align 8, !tbaa !70
-  %603 = getelementptr inbounds nuw i8, ptr %602, i64 8
-  %604 = load i8, ptr %603, align 8, !tbaa !72
-  %605 = icmp eq i8 %604, 48
-  br i1 %605, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208, label %606
+.lr.ph.i.i.i.i194:                                ; preds = %620, %.lr.ph.preheader.i.i.i.i192
+  %.041.i.i.i.i195 = phi i64 [ %622, %620 ], [ %596, %.lr.ph.preheader.i.i.i.i192 ]
+  %.02940.i.i.i.i196 = phi ptr [ %621, %620 ], [ %.sroa.017.0.copyload, %.lr.ph.preheader.i.i.i.i192 ]
+  %598 = load ptr, ptr %.02940.i.i.i.i196, align 8, !tbaa !70
+  %599 = getelementptr inbounds nuw i8, ptr %598, i64 8
+  %600 = load i8, ptr %599, align 8, !tbaa !72
+  %601 = icmp eq i8 %600, 48
+  br i1 %601, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208, label %602
 
-606:                                              ; preds = %.lr.ph.i.i.i.i194
-  %607 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 8
-  %608 = load ptr, ptr %607, align 8, !tbaa !70
-  %609 = getelementptr inbounds nuw i8, ptr %608, i64 8
-  %610 = load i8, ptr %609, align 8, !tbaa !72
-  %611 = icmp eq i8 %610, 48
-  br i1 %611, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit, label %612
+602:                                              ; preds = %.lr.ph.i.i.i.i194
+  %603 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 8
+  %604 = load ptr, ptr %603, align 8, !tbaa !70
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 8
+  %606 = load i8, ptr %605, align 8, !tbaa !72
+  %607 = icmp eq i8 %606, 48
+  br i1 %607, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit, label %608
 
-612:                                              ; preds = %606
-  %613 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 16
-  %614 = load ptr, ptr %613, align 8, !tbaa !70
-  %615 = getelementptr inbounds nuw i8, ptr %614, i64 8
-  %616 = load i8, ptr %615, align 8, !tbaa !72
-  %617 = icmp eq i8 %616, 48
-  br i1 %617, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit430, label %618
+608:                                              ; preds = %602
+  %609 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 16
+  %610 = load ptr, ptr %609, align 8, !tbaa !70
+  %611 = getelementptr inbounds nuw i8, ptr %610, i64 8
+  %612 = load i8, ptr %611, align 8, !tbaa !72
+  %613 = icmp eq i8 %612, 48
+  br i1 %613, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit432, label %614
 
-618:                                              ; preds = %612
-  %619 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 24
-  %620 = load ptr, ptr %619, align 8, !tbaa !70
-  %621 = getelementptr inbounds nuw i8, ptr %620, i64 8
-  %622 = load i8, ptr %621, align 8, !tbaa !72
-  %623 = icmp eq i8 %622, 48
-  br i1 %623, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit432, label %624
+614:                                              ; preds = %608
+  %615 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 24
+  %616 = load ptr, ptr %615, align 8, !tbaa !70
+  %617 = getelementptr inbounds nuw i8, ptr %616, i64 8
+  %618 = load i8, ptr %617, align 8, !tbaa !72
+  %619 = icmp eq i8 %618, 48
+  br i1 %619, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit434, label %620
 
-624:                                              ; preds = %618
-  %625 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 32
-  %626 = add nsw i64 %.041.i.i.i.i195, -1
-  %627 = icmp sgt i64 %.041.i.i.i.i195, 1
-  br i1 %627, label %.lr.ph.i.i.i.i194, label %._crit_edge.loopexit.i.i.i.i197, !llvm.loop !88
+620:                                              ; preds = %614
+  %621 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 32
+  %622 = add nsw i64 %.041.i.i.i.i195, -1
+  %623 = icmp sgt i64 %.041.i.i.i.i195, 1
+  br i1 %623, label %.lr.ph.i.i.i.i194, label %._crit_edge.loopexit.i.i.i.i197, !llvm.loop !88
 
-._crit_edge.loopexit.i.i.i.i197:                  ; preds = %624
-  %628 = and i64 %.sroa.218.0.copyload, 3
+._crit_edge.loopexit.i.i.i.i197:                  ; preds = %620
+  %624 = and i64 %.sroa.218.0.copyload, 3
   br label %._crit_edge.i.i.i.i198
 
-._crit_edge.i.i.i.i198:                           ; preds = %._crit_edge.loopexit.i.i.i.i197, %599
-  %.pre-phi47.i.i.i.i199 = phi i64 [ %628, %._crit_edge.loopexit.i.i.i.i197 ], [ %.sroa.218.0.copyload, %599 ]
-  %.029.lcssa.i.i.i.i200 = phi ptr [ %scevgep.i.i.i.i193, %._crit_edge.loopexit.i.i.i.i197 ], [ %.sroa.017.0.copyload, %599 ]
+._crit_edge.i.i.i.i198:                           ; preds = %._crit_edge.loopexit.i.i.i.i197, %595
+  %.pre-phi47.i.i.i.i199 = phi i64 [ %624, %._crit_edge.loopexit.i.i.i.i197 ], [ %.sroa.218.0.copyload, %595 ]
+  %.029.lcssa.i.i.i.i200 = phi ptr [ %scevgep.i.i.i.i193, %._crit_edge.loopexit.i.i.i.i197 ], [ %.sroa.017.0.copyload, %595 ]
   switch i64 %.pre-phi47.i.i.i.i199, label %._crit_edge.i.i.i.unreachabledefault.i204 [
-    i64 3, label %629
-    i64 2, label %636
-    i64 1, label %643
-    i64 0, label %648
+    i64 3, label %625
+    i64 2, label %632
+    i64 1, label %639
+    i64 0, label %644
   ]
 
-629:                                              ; preds = %._crit_edge.i.i.i.i198
-  %630 = load ptr, ptr %.029.lcssa.i.i.i.i200, align 8, !tbaa !70
-  %631 = getelementptr inbounds nuw i8, ptr %630, i64 8
-  %632 = load i8, ptr %631, align 8, !tbaa !72
-  %633 = icmp eq i8 %632, 48
-  br i1 %633, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208, label %634
+625:                                              ; preds = %._crit_edge.i.i.i.i198
+  %626 = load ptr, ptr %.029.lcssa.i.i.i.i200, align 8, !tbaa !70
+  %627 = getelementptr inbounds nuw i8, ptr %626, i64 8
+  %628 = load i8, ptr %627, align 8, !tbaa !72
+  %629 = icmp eq i8 %628, 48
+  br i1 %629, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208, label %630
 
-634:                                              ; preds = %629
-  %635 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i200, i64 8
-  br label %636
+630:                                              ; preds = %625
+  %631 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i200, i64 8
+  br label %632
 
-636:                                              ; preds = %634, %._crit_edge.i.i.i.i198
-  %.1.i.i.i.i203 = phi ptr [ %635, %634 ], [ %.029.lcssa.i.i.i.i200, %._crit_edge.i.i.i.i198 ]
-  %637 = load ptr, ptr %.1.i.i.i.i203, align 8, !tbaa !70
-  %638 = getelementptr inbounds nuw i8, ptr %637, i64 8
-  %639 = load i8, ptr %638, align 8, !tbaa !72
-  %640 = icmp eq i8 %639, 48
-  br i1 %640, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208, label %641
+632:                                              ; preds = %630, %._crit_edge.i.i.i.i198
+  %.1.i.i.i.i203 = phi ptr [ %631, %630 ], [ %.029.lcssa.i.i.i.i200, %._crit_edge.i.i.i.i198 ]
+  %633 = load ptr, ptr %.1.i.i.i.i203, align 8, !tbaa !70
+  %634 = getelementptr inbounds nuw i8, ptr %633, i64 8
+  %635 = load i8, ptr %634, align 8, !tbaa !72
+  %636 = icmp eq i8 %635, 48
+  br i1 %636, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208, label %637
 
-641:                                              ; preds = %636
-  %642 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i203, i64 8
-  br label %643
+637:                                              ; preds = %632
+  %638 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i203, i64 8
+  br label %639
 
-643:                                              ; preds = %641, %._crit_edge.i.i.i.i198
-  %.2.i.i.i.i202 = phi ptr [ %642, %641 ], [ %.029.lcssa.i.i.i.i200, %._crit_edge.i.i.i.i198 ]
-  %644 = load ptr, ptr %.2.i.i.i.i202, align 8, !tbaa !70
-  %645 = getelementptr inbounds nuw i8, ptr %644, i64 8
-  %646 = load i8, ptr %645, align 8, !tbaa !72
-  %647 = icmp eq i8 %646, 48
-  br i1 %647, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208, label %648
+639:                                              ; preds = %637, %._crit_edge.i.i.i.i198
+  %.2.i.i.i.i202 = phi ptr [ %638, %637 ], [ %.029.lcssa.i.i.i.i200, %._crit_edge.i.i.i.i198 ]
+  %640 = load ptr, ptr %.2.i.i.i.i202, align 8, !tbaa !70
+  %641 = getelementptr inbounds nuw i8, ptr %640, i64 8
+  %642 = load i8, ptr %641, align 8, !tbaa !72
+  %643 = icmp eq i8 %642, 48
+  br i1 %643, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208, label %644
 
 ._crit_edge.i.i.i.unreachabledefault.i204:        ; preds = %._crit_edge.i.i.i.i198
   unreachable
 
-648:                                              ; preds = %643, %._crit_edge.i.i.i.i198
+644:                                              ; preds = %639, %._crit_edge.i.i.i.i198
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit: ; preds = %606
-  %649 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 8
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit: ; preds = %602
+  %645 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 8
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit430: ; preds = %612
-  %650 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 16
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit432: ; preds = %608
+  %646 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 16
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit432: ; preds = %618
-  %651 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 24
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit434: ; preds = %614
+  %647 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i196, i64 24
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208: ; preds = %.lr.ph.i.i.i.i194, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit430, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit432, %629, %636, %643, %648
-  %.028.i.i.i.i201 = phi ptr [ %535, %648 ], [ %.029.lcssa.i.i.i.i200, %629 ], [ %.1.i.i.i.i203, %636 ], [ %.2.i.i.i.i202, %643 ], [ %649, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit ], [ %650, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit430 ], [ %651, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit432 ], [ %.02940.i.i.i.i196, %.lr.ph.i.i.i.i194 ]
-  %.not = icmp eq ptr %.028.i.i.i.i201, %443
-  br i1 %.not, label %656, label %652
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208: ; preds = %.lr.ph.i.i.i.i194, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit432, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit434, %625, %632, %639, %644
+  %.028.i.i.i.i201 = phi ptr [ %533, %644 ], [ %.029.lcssa.i.i.i.i200, %625 ], [ %.1.i.i.i.i203, %632 ], [ %.2.i.i.i.i202, %639 ], [ %645, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit ], [ %646, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit432 ], [ %647, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208.loopexit.split.loop.exit434 ], [ %.02940.i.i.i.i196, %.lr.ph.i.i.i.i194 ]
+  %.not = icmp eq ptr %.028.i.i.i.i201, %441
+  br i1 %.not, label %652, label %648
 
-652:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208
-  %653 = load ptr, ptr %.028.i.i.i.i201, align 8, !tbaa !70
-  %654 = getelementptr inbounds nuw i8, ptr %653, i64 12
-  %.sroa.0.0.copyload.i.i209 = load i32, ptr %654, align 4, !tbaa !60
-  %655 = getelementptr inbounds nuw i8, ptr %594, i64 168
-  store i32 %.sroa.0.0.copyload.i.i209, ptr %655, align 8, !tbaa !60
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %594, i64 172
+648:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208
+  %649 = load ptr, ptr %.028.i.i.i.i201, align 8, !tbaa !70
+  %650 = getelementptr inbounds nuw i8, ptr %649, i64 12
+  %.sroa.0.0.copyload.i.i209 = load i32, ptr %650, align 4, !tbaa !60
+  %651 = getelementptr inbounds nuw i8, ptr %.pre408, i64 168
+  store i32 %.sroa.0.0.copyload.i.i209, ptr %651, align 8, !tbaa !60
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.pre408, i64 172
   store i8 2, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !48
-  br label %656
+  br label %652
 
-656:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208, %652, %593
-  br i1 %.not.i146, label %657, label %.thread
+652:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_17OpenACCGangClauseEEEEEEDaOT_T0_.exit208, %648, %590
+  br i1 %.not.i146, label %653, label %.thread
 
-657:                                              ; preds = %656
+653:                                              ; preds = %652
   br i1 %.not.i172, label %._crit_edge.i.i.i.i218, label %.lr.ph.preheader.i.i.i.i212
 
-.lr.ph.preheader.i.i.i.i212:                      ; preds = %657
-  %658 = lshr i64 %.sroa.218.0.copyload, 2
-  %659 = and i64 %.idx2.i171.pre-phi, 9223372036854775776
-  %scevgep.i.i.i.i213 = getelementptr i8, ptr %.sroa.017.0.copyload, i64 %659
+.lr.ph.preheader.i.i.i.i212:                      ; preds = %653
+  %654 = lshr i64 %.sroa.218.0.copyload, 2
+  %655 = and i64 %.idx2.i171.pre-phi, 9223372036854775776
+  %scevgep.i.i.i.i213 = getelementptr i8, ptr %.sroa.017.0.copyload, i64 %655
   br label %.lr.ph.i.i.i.i214
 
-.lr.ph.i.i.i.i214:                                ; preds = %682, %.lr.ph.preheader.i.i.i.i212
-  %.041.i.i.i.i215 = phi i64 [ %684, %682 ], [ %658, %.lr.ph.preheader.i.i.i.i212 ]
-  %.02940.i.i.i.i216 = phi ptr [ %683, %682 ], [ %.sroa.017.0.copyload, %.lr.ph.preheader.i.i.i.i212 ]
-  %660 = load ptr, ptr %.02940.i.i.i.i216, align 8, !tbaa !70
-  %661 = getelementptr inbounds nuw i8, ptr %660, i64 8
-  %662 = load i8, ptr %661, align 8, !tbaa !72
-  %663 = icmp eq i8 %662, 5
-  br i1 %663, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228, label %664
+.lr.ph.i.i.i.i214:                                ; preds = %678, %.lr.ph.preheader.i.i.i.i212
+  %.041.i.i.i.i215 = phi i64 [ %680, %678 ], [ %654, %.lr.ph.preheader.i.i.i.i212 ]
+  %.02940.i.i.i.i216 = phi ptr [ %679, %678 ], [ %.sroa.017.0.copyload, %.lr.ph.preheader.i.i.i.i212 ]
+  %656 = load ptr, ptr %.02940.i.i.i.i216, align 8, !tbaa !70
+  %657 = getelementptr inbounds nuw i8, ptr %656, i64 8
+  %658 = load i8, ptr %657, align 8, !tbaa !72
+  %659 = icmp eq i8 %658, 5
+  br i1 %659, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228, label %660
 
-664:                                              ; preds = %.lr.ph.i.i.i.i214
-  %665 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 8
-  %666 = load ptr, ptr %665, align 8, !tbaa !70
-  %667 = getelementptr inbounds nuw i8, ptr %666, i64 8
-  %668 = load i8, ptr %667, align 8, !tbaa !72
-  %669 = icmp eq i8 %668, 5
-  br i1 %669, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit, label %670
+660:                                              ; preds = %.lr.ph.i.i.i.i214
+  %661 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 8
+  %662 = load ptr, ptr %661, align 8, !tbaa !70
+  %663 = getelementptr inbounds nuw i8, ptr %662, i64 8
+  %664 = load i8, ptr %663, align 8, !tbaa !72
+  %665 = icmp eq i8 %664, 5
+  br i1 %665, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit, label %666
 
-670:                                              ; preds = %664
-  %671 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 16
-  %672 = load ptr, ptr %671, align 8, !tbaa !70
-  %673 = getelementptr inbounds nuw i8, ptr %672, i64 8
-  %674 = load i8, ptr %673, align 8, !tbaa !72
-  %675 = icmp eq i8 %674, 5
-  br i1 %675, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit438, label %676
+666:                                              ; preds = %660
+  %667 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 16
+  %668 = load ptr, ptr %667, align 8, !tbaa !70
+  %669 = getelementptr inbounds nuw i8, ptr %668, i64 8
+  %670 = load i8, ptr %669, align 8, !tbaa !72
+  %671 = icmp eq i8 %670, 5
+  br i1 %671, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit440, label %672
 
-676:                                              ; preds = %670
-  %677 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 24
-  %678 = load ptr, ptr %677, align 8, !tbaa !70
-  %679 = getelementptr inbounds nuw i8, ptr %678, i64 8
-  %680 = load i8, ptr %679, align 8, !tbaa !72
-  %681 = icmp eq i8 %680, 5
-  br i1 %681, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit440, label %682
+672:                                              ; preds = %666
+  %673 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 24
+  %674 = load ptr, ptr %673, align 8, !tbaa !70
+  %675 = getelementptr inbounds nuw i8, ptr %674, i64 8
+  %676 = load i8, ptr %675, align 8, !tbaa !72
+  %677 = icmp eq i8 %676, 5
+  br i1 %677, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit442, label %678
 
-682:                                              ; preds = %676
-  %683 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 32
-  %684 = add nsw i64 %.041.i.i.i.i215, -1
-  %685 = icmp sgt i64 %.041.i.i.i.i215, 1
-  br i1 %685, label %.lr.ph.i.i.i.i214, label %._crit_edge.loopexit.i.i.i.i217, !llvm.loop !89
+678:                                              ; preds = %672
+  %679 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 32
+  %680 = add nsw i64 %.041.i.i.i.i215, -1
+  %681 = icmp sgt i64 %.041.i.i.i.i215, 1
+  br i1 %681, label %.lr.ph.i.i.i.i214, label %._crit_edge.loopexit.i.i.i.i217, !llvm.loop !89
 
-._crit_edge.loopexit.i.i.i.i217:                  ; preds = %682
-  %686 = and i64 %.sroa.218.0.copyload, 3
+._crit_edge.loopexit.i.i.i.i217:                  ; preds = %678
+  %682 = and i64 %.sroa.218.0.copyload, 3
   br label %._crit_edge.i.i.i.i218
 
-._crit_edge.i.i.i.i218:                           ; preds = %._crit_edge.loopexit.i.i.i.i217, %657
-  %.pre-phi47.i.i.i.i219 = phi i64 [ %686, %._crit_edge.loopexit.i.i.i.i217 ], [ %.sroa.218.0.copyload, %657 ]
-  %.029.lcssa.i.i.i.i220 = phi ptr [ %scevgep.i.i.i.i213, %._crit_edge.loopexit.i.i.i.i217 ], [ %.sroa.017.0.copyload, %657 ]
+._crit_edge.i.i.i.i218:                           ; preds = %._crit_edge.loopexit.i.i.i.i217, %653
+  %.pre-phi47.i.i.i.i219 = phi i64 [ %682, %._crit_edge.loopexit.i.i.i.i217 ], [ %.sroa.218.0.copyload, %653 ]
+  %.029.lcssa.i.i.i.i220 = phi ptr [ %scevgep.i.i.i.i213, %._crit_edge.loopexit.i.i.i.i217 ], [ %.sroa.017.0.copyload, %653 ]
   switch i64 %.pre-phi47.i.i.i.i219, label %._crit_edge.i.i.i.unreachabledefault.i224 [
-    i64 3, label %687
-    i64 2, label %694
-    i64 1, label %701
-    i64 0, label %706
+    i64 3, label %683
+    i64 2, label %690
+    i64 1, label %697
+    i64 0, label %702
   ]
 
-687:                                              ; preds = %._crit_edge.i.i.i.i218
-  %688 = load ptr, ptr %.029.lcssa.i.i.i.i220, align 8, !tbaa !70
-  %689 = getelementptr inbounds nuw i8, ptr %688, i64 8
-  %690 = load i8, ptr %689, align 8, !tbaa !72
-  %691 = icmp eq i8 %690, 5
-  br i1 %691, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228, label %692
+683:                                              ; preds = %._crit_edge.i.i.i.i218
+  %684 = load ptr, ptr %.029.lcssa.i.i.i.i220, align 8, !tbaa !70
+  %685 = getelementptr inbounds nuw i8, ptr %684, i64 8
+  %686 = load i8, ptr %685, align 8, !tbaa !72
+  %687 = icmp eq i8 %686, 5
+  br i1 %687, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228, label %688
 
-692:                                              ; preds = %687
-  %693 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i220, i64 8
-  br label %694
+688:                                              ; preds = %683
+  %689 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i220, i64 8
+  br label %690
 
-694:                                              ; preds = %692, %._crit_edge.i.i.i.i218
-  %.1.i.i.i.i223 = phi ptr [ %693, %692 ], [ %.029.lcssa.i.i.i.i220, %._crit_edge.i.i.i.i218 ]
-  %695 = load ptr, ptr %.1.i.i.i.i223, align 8, !tbaa !70
-  %696 = getelementptr inbounds nuw i8, ptr %695, i64 8
-  %697 = load i8, ptr %696, align 8, !tbaa !72
-  %698 = icmp eq i8 %697, 5
-  br i1 %698, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228, label %699
+690:                                              ; preds = %688, %._crit_edge.i.i.i.i218
+  %.1.i.i.i.i223 = phi ptr [ %689, %688 ], [ %.029.lcssa.i.i.i.i220, %._crit_edge.i.i.i.i218 ]
+  %691 = load ptr, ptr %.1.i.i.i.i223, align 8, !tbaa !70
+  %692 = getelementptr inbounds nuw i8, ptr %691, i64 8
+  %693 = load i8, ptr %692, align 8, !tbaa !72
+  %694 = icmp eq i8 %693, 5
+  br i1 %694, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228, label %695
 
-699:                                              ; preds = %694
-  %700 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i223, i64 8
-  br label %701
+695:                                              ; preds = %690
+  %696 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i223, i64 8
+  br label %697
 
-701:                                              ; preds = %699, %._crit_edge.i.i.i.i218
-  %.2.i.i.i.i222 = phi ptr [ %700, %699 ], [ %.029.lcssa.i.i.i.i220, %._crit_edge.i.i.i.i218 ]
-  %702 = load ptr, ptr %.2.i.i.i.i222, align 8, !tbaa !70
-  %703 = getelementptr inbounds nuw i8, ptr %702, i64 8
-  %704 = load i8, ptr %703, align 8, !tbaa !72
-  %705 = icmp eq i8 %704, 5
-  br i1 %705, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228, label %706
+697:                                              ; preds = %695, %._crit_edge.i.i.i.i218
+  %.2.i.i.i.i222 = phi ptr [ %696, %695 ], [ %.029.lcssa.i.i.i.i220, %._crit_edge.i.i.i.i218 ]
+  %698 = load ptr, ptr %.2.i.i.i.i222, align 8, !tbaa !70
+  %699 = getelementptr inbounds nuw i8, ptr %698, i64 8
+  %700 = load i8, ptr %699, align 8, !tbaa !72
+  %701 = icmp eq i8 %700, 5
+  br i1 %701, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228, label %702
 
 ._crit_edge.i.i.i.unreachabledefault.i224:        ; preds = %._crit_edge.i.i.i.i218
   unreachable
 
-706:                                              ; preds = %701, %._crit_edge.i.i.i.i218
+702:                                              ; preds = %697, %._crit_edge.i.i.i.i218
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit: ; preds = %664
-  %707 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 8
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit: ; preds = %660
+  %703 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 8
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit438: ; preds = %670
-  %708 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 16
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit440: ; preds = %666
+  %704 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 16
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit440: ; preds = %676
-  %709 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 24
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit442: ; preds = %672
+  %705 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i216, i64 24
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228: ; preds = %.lr.ph.i.i.i.i214, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit438, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit440, %687, %694, %701, %706
-  %.028.i.i.i.i221 = phi ptr [ %535, %706 ], [ %.029.lcssa.i.i.i.i220, %687 ], [ %.1.i.i.i.i223, %694 ], [ %.2.i.i.i.i222, %701 ], [ %707, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit ], [ %708, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit438 ], [ %709, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit440 ], [ %.02940.i.i.i.i216, %.lr.ph.i.i.i.i214 ]
-  %.not63 = icmp eq ptr %.028.i.i.i.i221, %443
-  br i1 %.not63, label %714, label %710
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228: ; preds = %.lr.ph.i.i.i.i214, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit440, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit442, %683, %690, %697, %702
+  %.028.i.i.i.i221 = phi ptr [ %533, %702 ], [ %.029.lcssa.i.i.i.i220, %683 ], [ %.1.i.i.i.i223, %690 ], [ %.2.i.i.i.i222, %697 ], [ %703, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit ], [ %704, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit440 ], [ %705, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228.loopexit.split.loop.exit442 ], [ %.02940.i.i.i.i216, %.lr.ph.i.i.i.i214 ]
+  %.not63 = icmp eq ptr %.028.i.i.i.i221, %441
+  br i1 %.not63, label %710, label %706
 
-710:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228
-  %711 = load ptr, ptr %.028.i.i.i.i221, align 8, !tbaa !70
-  %712 = getelementptr inbounds nuw i8, ptr %711, i64 12
-  %.sroa.0.0.copyload.i.i229 = load i32, ptr %712, align 4, !tbaa !60
-  %713 = getelementptr inbounds nuw i8, ptr %594, i64 176
-  store i32 %.sroa.0.0.copyload.i.i229, ptr %713, align 8, !tbaa !60
-  br label %714
+706:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228
+  %707 = load ptr, ptr %.028.i.i.i.i221, align 8, !tbaa !70
+  %708 = getelementptr inbounds nuw i8, ptr %707, i64 12
+  %.sroa.0.0.copyload.i.i229 = load i32, ptr %708, align 4, !tbaa !60
+  %709 = getelementptr inbounds nuw i8, ptr %.pre408, i64 176
+  store i32 %.sroa.0.0.copyload.i.i229, ptr %709, align 8, !tbaa !60
+  br label %710
 
-714:                                              ; preds = %710, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228
+710:                                              ; preds = %706, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCWorkerClauseEEEEEEDaOT_T0_.exit228
   br i1 %.not.i172, label %._crit_edge.i.i.i.i238, label %.lr.ph.preheader.i.i.i.i232
 
-.lr.ph.preheader.i.i.i.i232:                      ; preds = %714
-  %715 = lshr i64 %.sroa.218.0.copyload, 2
-  %716 = and i64 %.idx2.i171.pre-phi, 9223372036854775776
-  %scevgep.i.i.i.i233 = getelementptr i8, ptr %.sroa.017.0.copyload, i64 %716
+.lr.ph.preheader.i.i.i.i232:                      ; preds = %710
+  %711 = lshr i64 %.sroa.218.0.copyload, 2
+  %712 = and i64 %.idx2.i171.pre-phi, 9223372036854775776
+  %scevgep.i.i.i.i233 = getelementptr i8, ptr %.sroa.017.0.copyload, i64 %712
   br label %.lr.ph.i.i.i.i234
 
-.lr.ph.i.i.i.i234:                                ; preds = %739, %.lr.ph.preheader.i.i.i.i232
-  %.041.i.i.i.i235 = phi i64 [ %741, %739 ], [ %715, %.lr.ph.preheader.i.i.i.i232 ]
-  %.02940.i.i.i.i236 = phi ptr [ %740, %739 ], [ %.sroa.017.0.copyload, %.lr.ph.preheader.i.i.i.i232 ]
-  %717 = load ptr, ptr %.02940.i.i.i.i236, align 8, !tbaa !70
-  %718 = getelementptr inbounds nuw i8, ptr %717, i64 8
-  %719 = load i8, ptr %718, align 8, !tbaa !72
-  %720 = icmp eq i8 %719, 6
-  br i1 %720, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248, label %721
+.lr.ph.i.i.i.i234:                                ; preds = %735, %.lr.ph.preheader.i.i.i.i232
+  %.041.i.i.i.i235 = phi i64 [ %737, %735 ], [ %711, %.lr.ph.preheader.i.i.i.i232 ]
+  %.02940.i.i.i.i236 = phi ptr [ %736, %735 ], [ %.sroa.017.0.copyload, %.lr.ph.preheader.i.i.i.i232 ]
+  %713 = load ptr, ptr %.02940.i.i.i.i236, align 8, !tbaa !70
+  %714 = getelementptr inbounds nuw i8, ptr %713, i64 8
+  %715 = load i8, ptr %714, align 8, !tbaa !72
+  %716 = icmp eq i8 %715, 6
+  br i1 %716, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248, label %717
 
-721:                                              ; preds = %.lr.ph.i.i.i.i234
-  %722 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 8
-  %723 = load ptr, ptr %722, align 8, !tbaa !70
-  %724 = getelementptr inbounds nuw i8, ptr %723, i64 8
-  %725 = load i8, ptr %724, align 8, !tbaa !72
-  %726 = icmp eq i8 %725, 6
-  br i1 %726, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit, label %727
+717:                                              ; preds = %.lr.ph.i.i.i.i234
+  %718 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 8
+  %719 = load ptr, ptr %718, align 8, !tbaa !70
+  %720 = getelementptr inbounds nuw i8, ptr %719, i64 8
+  %721 = load i8, ptr %720, align 8, !tbaa !72
+  %722 = icmp eq i8 %721, 6
+  br i1 %722, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit, label %723
 
-727:                                              ; preds = %721
-  %728 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 16
-  %729 = load ptr, ptr %728, align 8, !tbaa !70
-  %730 = getelementptr inbounds nuw i8, ptr %729, i64 8
-  %731 = load i8, ptr %730, align 8, !tbaa !72
-  %732 = icmp eq i8 %731, 6
-  br i1 %732, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit446, label %733
+723:                                              ; preds = %717
+  %724 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 16
+  %725 = load ptr, ptr %724, align 8, !tbaa !70
+  %726 = getelementptr inbounds nuw i8, ptr %725, i64 8
+  %727 = load i8, ptr %726, align 8, !tbaa !72
+  %728 = icmp eq i8 %727, 6
+  br i1 %728, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit448, label %729
 
-733:                                              ; preds = %727
-  %734 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 24
-  %735 = load ptr, ptr %734, align 8, !tbaa !70
-  %736 = getelementptr inbounds nuw i8, ptr %735, i64 8
-  %737 = load i8, ptr %736, align 8, !tbaa !72
-  %738 = icmp eq i8 %737, 6
-  br i1 %738, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit448, label %739
+729:                                              ; preds = %723
+  %730 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 24
+  %731 = load ptr, ptr %730, align 8, !tbaa !70
+  %732 = getelementptr inbounds nuw i8, ptr %731, i64 8
+  %733 = load i8, ptr %732, align 8, !tbaa !72
+  %734 = icmp eq i8 %733, 6
+  br i1 %734, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit450, label %735
 
-739:                                              ; preds = %733
-  %740 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 32
-  %741 = add nsw i64 %.041.i.i.i.i235, -1
-  %742 = icmp sgt i64 %.041.i.i.i.i235, 1
-  br i1 %742, label %.lr.ph.i.i.i.i234, label %._crit_edge.loopexit.i.i.i.i237, !llvm.loop !90
+735:                                              ; preds = %729
+  %736 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 32
+  %737 = add nsw i64 %.041.i.i.i.i235, -1
+  %738 = icmp sgt i64 %.041.i.i.i.i235, 1
+  br i1 %738, label %.lr.ph.i.i.i.i234, label %._crit_edge.loopexit.i.i.i.i237, !llvm.loop !90
 
-._crit_edge.loopexit.i.i.i.i237:                  ; preds = %739
-  %743 = and i64 %.sroa.218.0.copyload, 3
+._crit_edge.loopexit.i.i.i.i237:                  ; preds = %735
+  %739 = and i64 %.sroa.218.0.copyload, 3
   br label %._crit_edge.i.i.i.i238
 
-._crit_edge.i.i.i.i238:                           ; preds = %._crit_edge.loopexit.i.i.i.i237, %714
-  %.pre-phi47.i.i.i.i239 = phi i64 [ %743, %._crit_edge.loopexit.i.i.i.i237 ], [ %.sroa.218.0.copyload, %714 ]
-  %.029.lcssa.i.i.i.i240 = phi ptr [ %scevgep.i.i.i.i233, %._crit_edge.loopexit.i.i.i.i237 ], [ %.sroa.017.0.copyload, %714 ]
+._crit_edge.i.i.i.i238:                           ; preds = %._crit_edge.loopexit.i.i.i.i237, %710
+  %.pre-phi47.i.i.i.i239 = phi i64 [ %739, %._crit_edge.loopexit.i.i.i.i237 ], [ %.sroa.218.0.copyload, %710 ]
+  %.029.lcssa.i.i.i.i240 = phi ptr [ %scevgep.i.i.i.i233, %._crit_edge.loopexit.i.i.i.i237 ], [ %.sroa.017.0.copyload, %710 ]
   switch i64 %.pre-phi47.i.i.i.i239, label %._crit_edge.i.i.i.unreachabledefault.i244 [
-    i64 3, label %744
-    i64 2, label %751
-    i64 1, label %758
-    i64 0, label %763
+    i64 3, label %740
+    i64 2, label %747
+    i64 1, label %754
+    i64 0, label %759
   ]
 
-744:                                              ; preds = %._crit_edge.i.i.i.i238
-  %745 = load ptr, ptr %.029.lcssa.i.i.i.i240, align 8, !tbaa !70
-  %746 = getelementptr inbounds nuw i8, ptr %745, i64 8
-  %747 = load i8, ptr %746, align 8, !tbaa !72
-  %748 = icmp eq i8 %747, 6
-  br i1 %748, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248, label %749
+740:                                              ; preds = %._crit_edge.i.i.i.i238
+  %741 = load ptr, ptr %.029.lcssa.i.i.i.i240, align 8, !tbaa !70
+  %742 = getelementptr inbounds nuw i8, ptr %741, i64 8
+  %743 = load i8, ptr %742, align 8, !tbaa !72
+  %744 = icmp eq i8 %743, 6
+  br i1 %744, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248, label %745
 
-749:                                              ; preds = %744
-  %750 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i240, i64 8
-  br label %751
+745:                                              ; preds = %740
+  %746 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i240, i64 8
+  br label %747
 
-751:                                              ; preds = %749, %._crit_edge.i.i.i.i238
-  %.1.i.i.i.i243 = phi ptr [ %750, %749 ], [ %.029.lcssa.i.i.i.i240, %._crit_edge.i.i.i.i238 ]
-  %752 = load ptr, ptr %.1.i.i.i.i243, align 8, !tbaa !70
-  %753 = getelementptr inbounds nuw i8, ptr %752, i64 8
-  %754 = load i8, ptr %753, align 8, !tbaa !72
-  %755 = icmp eq i8 %754, 6
-  br i1 %755, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248, label %756
+747:                                              ; preds = %745, %._crit_edge.i.i.i.i238
+  %.1.i.i.i.i243 = phi ptr [ %746, %745 ], [ %.029.lcssa.i.i.i.i240, %._crit_edge.i.i.i.i238 ]
+  %748 = load ptr, ptr %.1.i.i.i.i243, align 8, !tbaa !70
+  %749 = getelementptr inbounds nuw i8, ptr %748, i64 8
+  %750 = load i8, ptr %749, align 8, !tbaa !72
+  %751 = icmp eq i8 %750, 6
+  br i1 %751, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248, label %752
 
-756:                                              ; preds = %751
-  %757 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i243, i64 8
-  br label %758
+752:                                              ; preds = %747
+  %753 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i243, i64 8
+  br label %754
 
-758:                                              ; preds = %756, %._crit_edge.i.i.i.i238
-  %.2.i.i.i.i242 = phi ptr [ %757, %756 ], [ %.029.lcssa.i.i.i.i240, %._crit_edge.i.i.i.i238 ]
-  %759 = load ptr, ptr %.2.i.i.i.i242, align 8, !tbaa !70
-  %760 = getelementptr inbounds nuw i8, ptr %759, i64 8
-  %761 = load i8, ptr %760, align 8, !tbaa !72
-  %762 = icmp eq i8 %761, 6
-  br i1 %762, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248, label %763
+754:                                              ; preds = %752, %._crit_edge.i.i.i.i238
+  %.2.i.i.i.i242 = phi ptr [ %753, %752 ], [ %.029.lcssa.i.i.i.i240, %._crit_edge.i.i.i.i238 ]
+  %755 = load ptr, ptr %.2.i.i.i.i242, align 8, !tbaa !70
+  %756 = getelementptr inbounds nuw i8, ptr %755, i64 8
+  %757 = load i8, ptr %756, align 8, !tbaa !72
+  %758 = icmp eq i8 %757, 6
+  br i1 %758, label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248, label %759
 
 ._crit_edge.i.i.i.unreachabledefault.i244:        ; preds = %._crit_edge.i.i.i.i238
   unreachable
 
-763:                                              ; preds = %758, %._crit_edge.i.i.i.i238
+759:                                              ; preds = %754, %._crit_edge.i.i.i.i238
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit: ; preds = %721
-  %764 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 8
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit: ; preds = %717
+  %760 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 8
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit446: ; preds = %727
-  %765 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 16
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit448: ; preds = %723
+  %761 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 16
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit448: ; preds = %733
-  %766 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 24
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit450: ; preds = %729
+  %762 = getelementptr inbounds nuw i8, ptr %.02940.i.i.i.i236, i64 24
   br label %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248
 
-_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248: ; preds = %.lr.ph.i.i.i.i234, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit446, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit448, %744, %751, %758, %763
-  %.028.i.i.i.i241 = phi ptr [ %535, %763 ], [ %.029.lcssa.i.i.i.i240, %744 ], [ %.1.i.i.i.i243, %751 ], [ %.2.i.i.i.i242, %758 ], [ %764, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit ], [ %765, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit446 ], [ %766, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit448 ], [ %.02940.i.i.i.i236, %.lr.ph.i.i.i.i234 ]
-  %.not64 = icmp eq ptr %.028.i.i.i.i241, %443
-  br i1 %.not64, label %.thread, label %767
+_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248: ; preds = %.lr.ph.i.i.i.i234, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit448, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit450, %740, %747, %754, %759
+  %.028.i.i.i.i241 = phi ptr [ %533, %759 ], [ %.029.lcssa.i.i.i.i240, %740 ], [ %.1.i.i.i.i243, %747 ], [ %.2.i.i.i.i242, %754 ], [ %760, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit ], [ %761, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit448 ], [ %762, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248.loopexit.split.loop.exit450 ], [ %.02940.i.i.i.i236, %.lr.ph.i.i.i.i234 ]
+  %.not64 = icmp eq ptr %.028.i.i.i.i241, %441
+  br i1 %.not64, label %.thread, label %763
 
-767:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248
-  %768 = load ptr, ptr %.028.i.i.i.i241, align 8, !tbaa !70
-  %769 = getelementptr inbounds nuw i8, ptr %768, i64 12
-  %.sroa.0.0.copyload.i.i249 = load i32, ptr %769, align 4, !tbaa !60
-  %770 = getelementptr inbounds nuw i8, ptr %594, i64 180
-  store i32 %.sroa.0.0.copyload.i.i249, ptr %770, align 4, !tbaa !60
+763:                                              ; preds = %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248
+  %764 = load ptr, ptr %.028.i.i.i.i241, align 8, !tbaa !70
+  %765 = getelementptr inbounds nuw i8, ptr %764, i64 12
+  %.sroa.0.0.copyload.i.i249 = load i32, ptr %765, align 4, !tbaa !60
+  %766 = getelementptr inbounds nuw i8, ptr %.pre408, i64 180
+  store i32 %.sroa.0.0.copyload.i.i249, ptr %766, align 4, !tbaa !60
   br label %.thread
 
-.thread:                                          ; preds = %598, %266, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248, %767, %_ZN5clang11SemaOpenACC19LoopInConstructRAIIC2ERS0_b.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit, %437, %325, %656, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit
+.thread:                                          ; preds = %594, %264, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit248, %763, %_ZN5clang11SemaOpenACC19LoopInConstructRAIIC2ERS0_b.exit, %_ZN4llvm7find_ifIRNS_8ArrayRefIPN5clang13OpenACCClauseEEENS_6detail17IsaCheckPredicateIJNS2_19OpenACCVectorClauseEEEEEEDaOT_T0_.exit, %435, %323, %652, %_ZN12_GLOBAL__N_129CollectActiveReductionClausesERN4llvm11SmallVectorIPN5clang22OpenACCReductionClauseELj6EEENS0_8ArrayRefIPNS2_13OpenACCClauseEEE.exit
   ret void
 }
 
@@ -10888,7 +10886,7 @@ define internal fastcc void @"_ZZN5clang11SemaOpenACC19ForStmtBeginChecker8check
 declare noundef ptr @_ZNK5clang17CXXMemberCallExpr25getImplicitObjectArgumentEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11SemaOpenACC17ActOnForStmtBeginENS_14SourceLocationEPKNS_4StmtES4_S4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 %1, ptr noundef readonly captures(address) %2, ptr noundef %3, ptr noundef readnone captures(address) %4, ptr noundef %5, ptr noundef readnone captures(address) %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11SemaOpenACC17ActOnForStmtBeginENS_14SourceLocationEPKNS_4StmtES4_S4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 %1, ptr noundef readonly captures(address) %2, ptr noundef %3, ptr noundef readnone captures(none) %4, ptr noundef %5, ptr noundef readnone captures(address) %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"struct.clang::SemaOpenACC::ForStmtBeginChecker", align 8
   %10 = tail call noundef nonnull align 8 dereferenceable(849) ptr @_ZNK5clang8SemaBase11getLangOptsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 96

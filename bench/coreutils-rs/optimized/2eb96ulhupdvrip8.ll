@@ -1986,14 +1986,14 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17haf1e51018576811fE.exit: ; 
   store i64 1, ptr %4, align 8, !noalias !304
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr null, ptr %.sroa.3.0..sroa_idx, align 8, !noalias !304
-  %.sroa.533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store ptr null, ptr %.sroa.533.0..sroa_idx, align 8, !noalias !304
-  %.sroa.734.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 200
-  store i64 0, ptr %.sroa.734.0..sroa_idx, align 8, !noalias !304
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 208
-  store ptr %3, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !304
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 216
-  store ptr %13, ptr %.sroa.9.0..sroa_idx, align 8, !noalias !304
+  %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 136
+  store ptr null, ptr %.sroa.433.0..sroa_idx, align 8, !noalias !304
+  %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 200
+  store i64 0, ptr %.sroa.534.0..sroa_idx, align 8, !noalias !304
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 208
+  store ptr %3, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !304
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 216
+  store ptr %13, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !304
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !305
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 224
   store ptr %6, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !306, !noalias !310

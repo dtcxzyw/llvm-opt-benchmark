@@ -9643,8 +9643,8 @@ define internal fastcc void @"_ZN4core3ptr117drop_in_place$LT$alloc..collections
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx19.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i, align 8, !alias.scope !2155, !noalias !2158
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2155, !noalias !2158
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sroa.0.0.copyload, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !2155, !noalias !2158
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -9760,8 +9760,8 @@ define internal fastcc void @"_ZN4core3ptr117drop_in_place$LT$alloc..collections
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx19.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i, align 8, !alias.scope !2183, !noalias !2186
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !2183, !noalias !2186
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.sroa.0.0.copyload, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !2183, !noalias !2186
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -19085,8 +19085,8 @@ define hidden void @"_ZN4core3ptr160drop_in_place$LT$alloc..collections..btree..
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !4350
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4350
-  %.sroa.4.0..sroa_idx19.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i.i, align 8, !alias.scope !4353, !noalias !4356
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !4353, !noalias !4356
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !4353, !noalias !4356
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -28119,8 +28119,8 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx19.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i, align 8, !alias.scope !5970, !noalias !5973
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !5970, !noalias !5973
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.sroa.0.0.copyload, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !5970, !noalias !5973
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -29727,8 +29727,8 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObje
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !6323
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !6323
-  %.sroa.4.0..sroa_idx19.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i.i, align 8, !alias.scope !6329, !noalias !6332
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !6329, !noalias !6332
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !6329, !noalias !6332
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -44335,8 +44335,8 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$L
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !8858
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !8858
-  %.sroa.4.0..sroa_idx19.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i.i.i.i, align 8, !alias.scope !8859, !noalias !8862
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !alias.scope !8859, !noalias !8862
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i, align 8, !alias.scope !8859, !noalias !8862
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -44431,8 +44431,8 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$L
   %.sroa.534.0.copyload = load i64, ptr %.sroa.534.0..sroa_idx, align 8
   %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.sroa.433.0.copyload = load i64, ptr %.sroa.433.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx19.i19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i19, align 8, !alias.scope !8874, !noalias !8877
+  %.sroa.2.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i23, align 8, !alias.scope !8874, !noalias !8877
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sroa.032.0.copyload, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i24, align 8, !alias.scope !8874, !noalias !8877
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i25 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -44480,8 +44480,8 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$L
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx19.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i, align 8, !alias.scope !8884, !noalias !8887
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !8884, !noalias !8887
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %.sroa.0.0.copyload, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !8884, !noalias !8887
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -50601,8 +50601,8 @@ define hidden void @"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$allo
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !10116
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !10116
-  %.sroa.4.0..sroa_idx19.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i.i, align 8, !alias.scope !10122, !noalias !10125
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !10122, !noalias !10125
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !10122, !noalias !10125
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -55279,57 +55279,57 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$13shrink_to_fit17h49af2043c1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !10724, !noalias !10727
   %10 = icmp ult i64 %9, 2
-  br i1 %10, label %13, label %11
+  br i1 %10, label %19, label %11
 
-_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit: ; preds = %23, %1, %_ZN8smallvec10deallocate17hd2ff8109d9ca7a5cE.exit, %11
+_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit: ; preds = %13, %1, %_ZN8smallvec10deallocate17hd2ff8109d9ca7a5cE.exit, %11
   ret void
 
 11:                                               ; preds = %6
   %12 = icmp ugt i64 %4, %9
-  br i1 %12, label %23, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
+  br i1 %12, label %13, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
 
-13:                                               ; preds = %6
-  %14 = mul nuw nsw i64 %9, 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %7, i64 %14, i1 false)
-  %15 = load i64, ptr %3, align 8, !noundef !8
-  %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 48)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  br i1 %18, label %21, label %19, !prof !106
-
-19:                                               ; preds = %13
-  %20 = tail call noundef zeroext i1 @_ZN4core5alloc6layout6Layout19is_size_align_valid17h0fe1e0f623634d66E(i64 noundef %17, i64 noundef 8), !noalias !10729
-  br i1 %20, label %_ZN8smallvec10deallocate17hd2ff8109d9ca7a5cE.exit, label %21
-
-21:                                               ; preds = %19, %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !10732
-  store i64 0, ptr %2, align 8, !noalias !10732
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %17, ptr %22, align 8, !noalias !10732
-  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.ecd5c9d2ab2508656823283e2923ae87.41, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ecd5c9d2ab2508656823283e2923ae87.40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ecd5c9d2ab2508656823283e2923ae87.61) #30, !noalias !10732
-  unreachable
-
-_ZN8smallvec10deallocate17hd2ff8109d9ca7a5cE.exit: ; preds = %19
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %7, i64 noundef %17, i64 noundef 8) #29
-  store i64 %9, ptr %3, align 8
-  br label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
-
-23:                                               ; preds = %11
-  %24 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h2770d483550e3a34E"(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %9)
-  %25 = extractvalue { i64, i64 } %24, 0
-  switch i64 %25, label %26 [
+13:                                               ; preds = %11
+  %14 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h2770d483550e3a34E"(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %9)
+  %15 = extractvalue { i64, i64 } %14, 0
+  switch i64 %15, label %16 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
-    i64 0, label %28
-  ], !prof !10735
+    i64 0, label %18
+  ], !prof !10729
 
-26:                                               ; preds = %23
-  %27 = extractvalue { i64, i64 } %24, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) %25, i64 noundef %27) #30
+16:                                               ; preds = %13
+  %17 = extractvalue { i64, i64 } %14, 1
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17he8b8c0d2be2abab7E(i64 noundef range(i64 0, -9223372036854775806) %15, i64 noundef %17) #30
   unreachable
 
-28:                                               ; preds = %23
+18:                                               ; preds = %13
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ecd5c9d2ab2508656823283e2923ae87.62, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ecd5c9d2ab2508656823283e2923ae87.63) #30
   unreachable
+
+19:                                               ; preds = %6
+  %20 = mul nuw nsw i64 %9, 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %7, i64 %20, i1 false)
+  %21 = load i64, ptr %3, align 8, !noundef !8
+  %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %21, i64 48)
+  %23 = extractvalue { i64, i1 } %22, 0
+  %24 = extractvalue { i64, i1 } %22, 1
+  br i1 %24, label %27, label %25, !prof !106
+
+25:                                               ; preds = %19
+  %26 = tail call noundef zeroext i1 @_ZN4core5alloc6layout6Layout19is_size_align_valid17h0fe1e0f623634d66E(i64 noundef %23, i64 noundef 8), !noalias !10730
+  br i1 %26, label %_ZN8smallvec10deallocate17hd2ff8109d9ca7a5cE.exit, label %27
+
+27:                                               ; preds = %25, %19
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !10733
+  store i64 0, ptr %2, align 8, !noalias !10733
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %23, ptr %28, align 8, !noalias !10733
+  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.ecd5c9d2ab2508656823283e2923ae87.41, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.ecd5c9d2ab2508656823283e2923ae87.40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ecd5c9d2ab2508656823283e2923ae87.61) #30, !noalias !10733
+  unreachable
+
+_ZN8smallvec10deallocate17hd2ff8109d9ca7a5cE.exit: ; preds = %25
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %7, i64 noundef %23, i64 noundef 8) #29
+  store i64 %9, ptr %3, align 8
+  br label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
 }
 
 ; Function Attrs: cold nonlazybind uwtable
@@ -55358,7 +55358,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h29
   switch i64 %12, label %13 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
     i64 0, label %15
-  ], !prof !10735
+  ], !prof !10729
 
 13:                                               ; preds = %.thread
   %14 = extractvalue { i64, i64 } %11, 1
@@ -55404,7 +55404,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h2d
   switch i64 %13, label %14 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
     i64 0, label %16
-  ], !prof !10735
+  ], !prof !10729
 
 14:                                               ; preds = %.thread
   %15 = extractvalue { i64, i64 } %12, 1
@@ -55450,7 +55450,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unche
   switch i64 %13, label %14 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
     i64 0, label %16
-  ], !prof !10735
+  ], !prof !10729
 
 14:                                               ; preds = %.thread
   %15 = extractvalue { i64, i64 } %12, 1
@@ -55629,7 +55629,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unche
   switch i64 %13, label %14 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
     i64 0, label %16
-  ], !prof !10735
+  ], !prof !10729
 
 14:                                               ; preds = %.thread
   %15 = extractvalue { i64, i64 } %12, 1
@@ -55933,7 +55933,7 @@ define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unche
   switch i64 %13, label %14 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
     i64 0, label %16
-  ], !prof !10735
+  ], !prof !10729
 
 14:                                               ; preds = %.thread
   %15 = extractvalue { i64, i64 } %12, 1
@@ -56103,7 +56103,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h9d
   switch i64 %12, label %13 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
     i64 0, label %15
-  ], !prof !10735
+  ], !prof !10729
 
 13:                                               ; preds = %.thread
   %14 = extractvalue { i64, i64 } %11, 1
@@ -56149,7 +56149,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17ha6
   switch i64 %13, label %14 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
     i64 0, label %16
-  ], !prof !10735
+  ], !prof !10729
 
 14:                                               ; preds = %.thread
   %15 = extractvalue { i64, i64 } %12, 1
@@ -56194,7 +56194,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17ha7
   switch i64 %12, label %13 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
     i64 0, label %15
-  ], !prof !10735
+  ], !prof !10729
 
 13:                                               ; preds = %.thread
   %14 = extractvalue { i64, i64 } %11, 1
@@ -56240,7 +56240,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17hd1
   switch i64 %13, label %14 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
     i64 0, label %16
-  ], !prof !10735
+  ], !prof !10729
 
 14:                                               ; preds = %.thread
   %15 = extractvalue { i64, i64 } %12, 1
@@ -56286,7 +56286,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17hfd
   switch i64 %13, label %14 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17h7b58caab1e7a1ff0E.exit
     i64 0, label %16
-  ], !prof !10735
+  ], !prof !10729
 
 14:                                               ; preds = %.thread
   %15 = extractvalue { i64, i64 } %12, 1
@@ -69271,13 +69271,13 @@ attributes #32 = { cold "function-inline-cost-multiplier"="2" }
 !10726 = distinct !{!10726, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h19c67f27da33f37cE"}
 !10727 = !{!10728}
 !10728 = distinct !{!10728, !10726, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h19c67f27da33f37cE: argument 0"}
-!10729 = !{!10730}
-!10730 = distinct !{!10730, !10731, !"_ZN8smallvec12layout_array17hec09ebef4c4857bcE: argument 0"}
-!10731 = distinct !{!10731, !"_ZN8smallvec12layout_array17hec09ebef4c4857bcE"}
-!10732 = !{!10733}
-!10733 = distinct !{!10733, !10734, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h11a739abb3fb1790E: argument 0"}
-!10734 = distinct !{!10734, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h11a739abb3fb1790E"}
-!10735 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!10729 = !{!"branch_weights", i32 1, i32 4000, i32 1}
+!10730 = !{!10731}
+!10731 = distinct !{!10731, !10732, !"_ZN8smallvec12layout_array17hec09ebef4c4857bcE: argument 0"}
+!10732 = distinct !{!10732, !"_ZN8smallvec12layout_array17hec09ebef4c4857bcE"}
+!10733 = !{!10734}
+!10734 = distinct !{!10734, !10735, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h11a739abb3fb1790E: argument 0"}
+!10735 = distinct !{!10735, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h11a739abb3fb1790E"}
 !10736 = !{!10737}
 !10737 = distinct !{!10737, !10738, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h84f33c2161b77428E: argument 1"}
 !10738 = distinct !{!10738, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h84f33c2161b77428E"}

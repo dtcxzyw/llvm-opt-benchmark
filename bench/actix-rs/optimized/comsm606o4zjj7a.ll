@@ -581,7 +581,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1656) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %.sroa.1423 = alloca [12 x i8], align 8
+  %.sroa.825 = alloca [12 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load i64, ptr %4, align 8, !noundef !62
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -638,7 +638,7 @@ define internal fastcc void @"_ZN118_$LT$brotli..enc..brotli_bit_stream..Command
   br label %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17ha9cbe09b67c63388E.exit"
 
 26:                                               ; preds = %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17ha9cbe09b67c63388E.exit"
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.1423)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.825)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %27 = load i8, ptr %1, align 8, !range !86, !alias.scope !84, !noalias !81, !noundef !62
@@ -660,15 +660,15 @@ default.unreachable:                              ; preds = %26
   %30 = load i32, ptr %29, align 4, !alias.scope !84, !noalias !81, !noundef !62
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i32, ptr %31, align 8, !alias.scope !84, !noalias !81, !noundef !62
-  store i32 %30, ptr %.sroa.1423, align 8, !alias.scope !81, !noalias !84
-  %.sroa.1423.4..sroa_idx34 = getelementptr inbounds nuw i8, ptr %.sroa.1423, i64 4
-  store i32 %32, ptr %.sroa.1423.4..sroa_idx34, align 4, !alias.scope !81, !noalias !84
+  store i32 %30, ptr %.sroa.825, align 8, !alias.scope !81, !noalias !84
+  %.sroa.825.4..sroa_idx36 = getelementptr inbounds nuw i8, ptr %.sroa.825, i64 4
+  store i32 %32, ptr %.sroa.825.4..sroa_idx36, align 4, !alias.scope !81, !noalias !84
   br label %"_ZN6brotli3enc9interface24Command$LT$SliceType$GT$6freeze17h0ff726255aa92168E.exit"
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %35 = load i64, ptr %34, align 4, !alias.scope !84, !noalias !81
-  store i64 %35, ptr %.sroa.1423, align 8, !alias.scope !81, !noalias !84
+  store i64 %35, ptr %.sroa.825, align 8, !alias.scope !81, !noalias !84
   br label %"_ZN6brotli3enc9interface24Command$LT$SliceType$GT$6freeze17h0ff726255aa92168E.exit"
 
 36:                                               ; preds = %26
@@ -679,8 +679,8 @@ default.unreachable:                              ; preds = %26
   %39 = trunc i64 %.val.i to i32
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load i8, ptr %40, align 8, !range !87, !alias.scope !84, !noalias !81, !noundef !62
-  %.sroa.1423.4..sroa_idx33 = getelementptr inbounds nuw i8, ptr %.sroa.1423, i64 4
-  store i64 %.val7.i, ptr %.sroa.1423.4..sroa_idx33, align 4, !alias.scope !81, !noalias !84
+  %.sroa.825.4..sroa_idx35 = getelementptr inbounds nuw i8, ptr %.sroa.825, i64 4
+  store i64 %.val7.i, ptr %.sroa.825.4..sroa_idx35, align 4, !alias.scope !81, !noalias !84
   br label %"_ZN6brotli3enc9interface24Command$LT$SliceType$GT$6freeze17h0ff726255aa92168E.exit"
 
 42:                                               ; preds = %26
@@ -711,19 +711,19 @@ default.unreachable:                              ; preds = %26
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.val11.i = load i64, ptr %58, align 8, !alias.scope !84, !noalias !81, !noundef !62
   %59 = trunc i64 %.val10.i to i32
-  %.sroa.1423.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.1423, i64 4
-  store i64 %.val9.i, ptr %.sroa.1423.4..sroa_idx, align 4, !alias.scope !81, !noalias !84
-  %.sroa.2126.sroa.0.0.extract.trunc = trunc i64 %.val11.i to i8
-  %.sroa.2126.sroa.5.0.extract.shift = and i64 %.val11.i, -256
+  %.sroa.825.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.825, i64 4
+  store i64 %.val9.i, ptr %.sroa.825.4..sroa_idx, align 4, !alias.scope !81, !noalias !84
+  %.sroa.1528.sroa.0.0.extract.trunc = trunc i64 %.val11.i to i8
+  %.sroa.1528.sroa.5.0.extract.shift = and i64 %.val11.i, -256
   br label %"_ZN6brotli3enc9interface24Command$LT$SliceType$GT$6freeze17h0ff726255aa92168E.exit"
 
 "_ZN6brotli3enc9interface24Command$LT$SliceType$GT$6freeze17h0ff726255aa92168E.exit": ; preds = %28, %33, %36, %42, %45, %50, %53
-  %.sroa.10.0 = phi i8 [ undef, %28 ], [ undef, %33 ], [ undef, %36 ], [ %44, %42 ], [ %47, %45 ], [ %52, %50 ], [ undef, %53 ]
-  %.sroa.13.0 = phi i8 [ undef, %28 ], [ undef, %33 ], [ undef, %36 ], [ undef, %42 ], [ %49, %45 ], [ undef, %50 ], [ undef, %53 ]
-  %.sroa.19.0 = phi i32 [ undef, %28 ], [ undef, %33 ], [ %39, %36 ], [ undef, %42 ], [ undef, %45 ], [ undef, %50 ], [ %56, %53 ]
-  %.sroa.23.0 = phi i32 [ undef, %28 ], [ undef, %33 ], [ undef, %36 ], [ undef, %42 ], [ undef, %45 ], [ undef, %50 ], [ %59, %53 ]
-  %.sroa.2126.sroa.0.0 = phi i8 [ undef, %28 ], [ undef, %33 ], [ %41, %36 ], [ undef, %42 ], [ undef, %45 ], [ undef, %50 ], [ %.sroa.2126.sroa.0.0.extract.trunc, %53 ]
-  %.sroa.2126.sroa.5.sroa.0.0 = phi i64 [ 0, %28 ], [ 0, %33 ], [ 0, %36 ], [ 0, %42 ], [ 0, %45 ], [ 0, %50 ], [ %.sroa.2126.sroa.5.0.extract.shift, %53 ]
+  %.sroa.423.0 = phi i8 [ undef, %28 ], [ undef, %33 ], [ undef, %36 ], [ %44, %42 ], [ %47, %45 ], [ %52, %50 ], [ undef, %53 ]
+  %.sroa.724.0 = phi i8 [ undef, %28 ], [ undef, %33 ], [ undef, %36 ], [ undef, %42 ], [ %49, %45 ], [ undef, %50 ], [ undef, %53 ]
+  %.sroa.13.0 = phi i32 [ undef, %28 ], [ undef, %33 ], [ %39, %36 ], [ undef, %42 ], [ undef, %45 ], [ undef, %50 ], [ %56, %53 ]
+  %.sroa.17.0 = phi i32 [ undef, %28 ], [ undef, %33 ], [ undef, %36 ], [ undef, %42 ], [ undef, %45 ], [ undef, %50 ], [ %59, %53 ]
+  %.sroa.1528.sroa.0.0 = phi i8 [ undef, %28 ], [ undef, %33 ], [ %41, %36 ], [ undef, %42 ], [ undef, %45 ], [ undef, %50 ], [ %.sroa.1528.sroa.0.0.extract.trunc, %53 ]
+  %.sroa.1528.sroa.5.sroa.0.0 = phi i64 [ 0, %28 ], [ 0, %33 ], [ 0, %36 ], [ 0, %42 ], [ 0, %45 ], [ 0, %50 ], [ %.sroa.1528.sroa.5.0.extract.shift, %53 ]
   %60 = icmp ult i64 %5, %.val1.i
   br i1 %60, label %63, label %66, !prof !88
 
@@ -736,21 +736,21 @@ default.unreachable:                              ; preds = %26
   %.val14 = load ptr, ptr %6, align 8, !nonnull !62, !align !64, !noundef !62
   %64 = getelementptr inbounds [0 x { i8, [39 x i8] }], ptr %.val14, i64 0, i64 %5
   store i8 %27, ptr %64, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 1
-  store i8 %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 1
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 2
-  store i8 %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 2
-  %.sroa.1423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.1423.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.1423, i64 12, i1 false)
-  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store i32 %.sroa.19.0, ptr %.sroa.19.0..sroa_idx, align 8
-  %.sroa.2126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %.sroa.2126.sroa.0.0.insert.ext = zext i8 %.sroa.2126.sroa.0.0 to i64
-  %.sroa.2126.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2126.sroa.5.sroa.0.0, %.sroa.2126.sroa.0.0.insert.ext
-  store i64 %.sroa.2126.sroa.0.0.insert.insert, ptr %.sroa.2126.0..sroa_idx, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 32
-  store i32 %.sroa.23.0, ptr %.sroa.23.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.1423)
+  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 1
+  store i8 %.sroa.423.0, ptr %.sroa.423.0..sroa_idx, align 1
+  %.sroa.724.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 2
+  store i8 %.sroa.724.0, ptr %.sroa.724.0..sroa_idx, align 2
+  %.sroa.825.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.825.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.825, i64 12, i1 false)
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store i32 %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 8
+  %.sroa.1528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %.sroa.1528.sroa.0.0.insert.ext = zext i8 %.sroa.1528.sroa.0.0 to i64
+  %.sroa.1528.sroa.0.0.insert.insert = or disjoint i64 %.sroa.1528.sroa.5.sroa.0.0, %.sroa.1528.sroa.0.0.insert.ext
+  store i64 %.sroa.1528.sroa.0.0.insert.insert, ptr %.sroa.1528.0..sroa_idx, align 8
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 32
+  store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx, align 8
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.825)
   %65 = add nuw i64 %5, 1
   store i64 %65, ptr %4, align 8
   br label %"_ZN6brotli3enc17brotli_bit_stream25CommandQueue$LT$Alloc$GT$13error_if_full17h1cec5dc07ffa019eE.exit"
@@ -11188,12 +11188,12 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
   %.val14.i203 = load ptr, ptr %103, align 8, !alias.scope !1591, !noalias !1594, !nonnull !62, !align !64, !noundef !62
   %367 = getelementptr inbounds [0 x { i8, [39 x i8] }], ptr %.val14.i203, i64 0, i64 %345
   store i8 2, ptr %367, align 8, !noalias !1598
-  %.sroa.1423.i185.sroa.5.0..sroa.1423.0..sroa_idx.i206.sroa_idx = getelementptr inbounds nuw i8, ptr %367, i64 8
-  store i64 %.sroa.11.sroa.0.0.copyload, ptr %.sroa.1423.i185.sroa.5.0..sroa.1423.0..sroa_idx.i206.sroa_idx, align 8, !noalias !1598
-  %.sroa.19.0..sroa_idx.i207 = getelementptr inbounds nuw i8, ptr %367, i64 16
-  store i32 %366, ptr %.sroa.19.0..sroa_idx.i207, align 8, !noalias !1598
-  %.sroa.2126.0..sroa_idx.i208 = getelementptr inbounds nuw i8, ptr %367, i64 24
-  store i64 0, ptr %.sroa.2126.0..sroa_idx.i208, align 8, !noalias !1598
+  %.sroa.825.i185.sroa.5.0..sroa.825.0..sroa_idx.i206.sroa_idx = getelementptr inbounds nuw i8, ptr %367, i64 8
+  store i64 %.sroa.11.sroa.0.0.copyload, ptr %.sroa.825.i185.sroa.5.0..sroa.825.0..sroa_idx.i206.sroa_idx, align 8, !noalias !1598
+  %.sroa.13.0..sroa_idx.i207 = getelementptr inbounds nuw i8, ptr %367, i64 16
+  store i32 %366, ptr %.sroa.13.0..sroa_idx.i207, align 8, !noalias !1598
+  %.sroa.1528.0..sroa_idx.i208 = getelementptr inbounds nuw i8, ptr %367, i64 24
+  store i64 0, ptr %.sroa.1528.0..sroa_idx.i208, align 8, !noalias !1598
   %368 = add nuw i64 %345, 1
   store i64 %368, ptr %102, align 8, !alias.scope !1591, !noalias !1594
   br label %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit222"
@@ -11290,12 +11290,12 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.val14.i = load ptr, ptr %103, align 8, !alias.scope !1619, !noalias !1622, !nonnull !62, !align !64, !noundef !62
   %398 = getelementptr inbounds [0 x { i8, [39 x i8] }], ptr %.val14.i, i64 0, i64 %376
   store i8 2, ptr %398, align 8, !noalias !1624
-  %.sroa.1423.i.sroa.3.0..sroa.1423.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %398, i64 8
-  store i64 %.sroa.19.0.copyload, ptr %.sroa.1423.i.sroa.3.0..sroa.1423.0..sroa_idx.i.sroa_idx, align 8, !noalias !1624
-  %.sroa.19.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %398, i64 16
-  store i32 %397, ptr %.sroa.19.0..sroa_idx.i, align 8, !noalias !1624
-  %.sroa.2126.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %398, i64 24
-  store i64 0, ptr %.sroa.2126.0..sroa_idx.i, align 8, !noalias !1624
+  %.sroa.825.i.sroa.3.0..sroa.825.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %398, i64 8
+  store i64 %.sroa.19.0.copyload, ptr %.sroa.825.i.sroa.3.0..sroa.825.0..sroa_idx.i.sroa_idx, align 8, !noalias !1624
+  %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %398, i64 16
+  store i32 %397, ptr %.sroa.13.0..sroa_idx.i, align 8, !noalias !1624
+  %.sroa.1528.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %398, i64 24
+  store i64 0, ptr %.sroa.1528.0..sroa_idx.i, align 8, !noalias !1624
   %399 = add nuw i64 %376, 1
   store i64 %399, ptr %102, align 8, !alias.scope !1619, !noalias !1622
   br label %_ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.exit178
@@ -11491,12 +11491,12 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.val14.i241 = load ptr, ptr %103, align 8, !alias.scope !1656, !noalias !1659, !nonnull !62, !align !64, !noundef !62
   %454 = getelementptr inbounds [0 x { i8, [39 x i8] }], ptr %.val14.i241, i64 0, i64 %427
   store i8 4, ptr %454, align 8, !noalias !1661
-  %.sroa.10.0..sroa_idx.i242 = getelementptr inbounds nuw i8, ptr %454, i64 1
-  store i8 %426, ptr %.sroa.10.0..sroa_idx.i242, align 1, !noalias !1661
-  %.sroa.13.0..sroa_idx.i243 = getelementptr inbounds nuw i8, ptr %454, i64 2
-  store i8 0, ptr %.sroa.13.0..sroa_idx.i243, align 2, !noalias !1661
-  %.sroa.2126.0..sroa_idx.i246 = getelementptr inbounds nuw i8, ptr %454, i64 24
-  store i64 0, ptr %.sroa.2126.0..sroa_idx.i246, align 8, !noalias !1661
+  %.sroa.423.0..sroa_idx.i242 = getelementptr inbounds nuw i8, ptr %454, i64 1
+  store i8 %426, ptr %.sroa.423.0..sroa_idx.i242, align 1, !noalias !1661
+  %.sroa.724.0..sroa_idx.i243 = getelementptr inbounds nuw i8, ptr %454, i64 2
+  store i8 0, ptr %.sroa.724.0..sroa_idx.i243, align 2, !noalias !1661
+  %.sroa.1528.0..sroa_idx.i246 = getelementptr inbounds nuw i8, ptr %454, i64 24
+  store i64 0, ptr %.sroa.1528.0..sroa_idx.i246, align 8, !noalias !1661
   %455 = add nuw i64 %427, 1
   store i64 %455, ptr %102, align 8, !alias.scope !1656, !noalias !1659
   br label %"_ZN118_$LT$brotli..enc..brotli_bit_stream..CommandQueue$LT$Alloc$GT$$u20$as$u20$brotli..enc..interface..CommandProcessor$GT$4push17h1a4fb1a6b074fcbeE.exit260"

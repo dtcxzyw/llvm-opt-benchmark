@@ -459,7 +459,7 @@ define void @"_ZN87_$LT$grep_printer..hyperlink..HyperlinkFormat$u20$as$u20$core
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$grep_printer..hyperlink..Part$GT$$GT$17h1234086875e90139E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
           to label %"_ZN4core3ptr59drop_in_place$LT$grep_printer..hyperlink..FormatBuilder$GT$17ha84f363f588fb94dE.exit" unwind label %204
 
-30:                                               ; preds = %.loopexit139, %156, %24, %3
+30:                                               ; preds = %.loopexit134, %156, %24, %3
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -943,7 +943,7 @@ _ZN12grep_printer9hyperlink13FormatBuilder5build17h263187fbc8f4ce59E.exit: ; pre
 
 168:                                              ; preds = %.thread99
   %169 = icmp eq i32 %.sroa.4.0.i.ph103, 125
-  br i1 %169, label %.invoke132, label %.loopexit139
+  br i1 %169, label %.invoke132, label %.loopexit134
 
 170:                                              ; preds = %.thread99
   %171 = icmp eq i32 %.sroa.4.0.i.ph103, 123
@@ -962,26 +962,26 @@ _ZN12grep_printer9hyperlink13FormatBuilder5build17h263187fbc8f4ce59E.exit: ; pre
   br i1 %176, label %.thread96, label %38
 
 .sink.split:                                      ; preds = %199, %192
-  %.sink137 = phi i64 [ %193, %192 ], [ %200, %199 ]
-  %.sink136 = phi ptr [ %195, %192 ], [ %202, %199 ]
-  %.sroa.059.sroa.5.0.copyload.sink.ph = phi i64 [ %.sroa.048.sroa.5.0.copyload, %192 ], [ %.sroa.059.sroa.5.0.copyload, %199 ]
+  %.lcssa129.sink = phi i64 [ %193, %192 ], [ %200, %199 ]
+  %.lcssa.sink = phi ptr [ %195, %192 ], [ %202, %199 ]
+  %.sroa.059.sroa.5.0.copyload.lcssa.sink.ph = phi i64 [ %.sroa.048.sroa.5.0.copyload, %192 ], [ %.sroa.059.sroa.5.0.copyload, %199 ]
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink137, ptr %177, align 8
+  store i64 %.lcssa129.sink, ptr %177, align 8
   %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink136, ptr %.sroa.264.0..sroa_idx, align 8
-  br label %.loopexit139
+  store ptr %.lcssa.sink, ptr %.sroa.264.0..sroa_idx, align 8
+  br label %.loopexit134
 
-.loopexit139:                                     ; preds = %168, %.sink.split
+.loopexit134:                                     ; preds = %168, %.sink.split
   %.sink = phi i64 [ 24, %.sink.split ], [ 8, %168 ]
-  %.sroa.059.sroa.5.0.copyload.sink = phi i64 [ %.sroa.059.sroa.5.0.copyload.sink.ph, %.sink.split ], [ -9223372036854775803, %168 ]
+  %.sroa.059.sroa.5.0.copyload.lcssa.sink = phi i64 [ %.sroa.059.sroa.5.0.copyload.lcssa.sink.ph, %.sink.split ], [ -9223372036854775803, %168 ]
   %.sroa.365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  store i64 %.sroa.059.sroa.5.0.copyload.sink, ptr %.sroa.365.0..sroa_idx, align 8
+  store i64 %.sroa.059.sroa.5.0.copyload.lcssa.sink, ptr %.sroa.365.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !143
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hed26c23aaf3dd599E.llvm.1773065985454848448"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
           to label %.noexc89 unwind label %30
 
-.noexc89:                                         ; preds = %.loopexit139
+.noexc89:                                         ; preds = %.loopexit134
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %179 = load i64, ptr %178, align 8, !range !4, !noalias !143, !noundef !5
   %.not.i.i.i.i88 = icmp eq i64 %179, 0

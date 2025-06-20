@@ -3279,7 +3279,7 @@ define internal void @"_ZN142_$LT$actix_tls..connect..resolver..ResolverService$
   %7 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %.sroa.7.sroa.5.i = alloca [34 x i8], align 2
   %8 = alloca { { i64, ptr, {} }, i64, i64 }, align 8
-  %.sroa.953 = alloca [30 x i32], align 8
+  %.sroa.8 = alloca [30 x i32], align 8
   %9 = alloca { { i32, [9 x i32] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, i16, { i8, [16 x i8] }, [5 x i8] }, align 8
   %10 = alloca { { i32, [9 x i32] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, i16, { i8, [16 x i8] }, [5 x i8] }, align 8
   %11 = alloca { i64, [2 x i64] }, align 8
@@ -3650,24 +3650,24 @@ common.ret:                                       ; preds = %"_ZN4core3ptr86drop
   br i1 %129, label %133, label %130
 
 130:                                              ; preds = %128
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.556.0.copyload = load i64, ptr %.sroa.556.0..sroa_idx, align 8
-  %.sroa.657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.657.0.copyload = load ptr, ptr %.sroa.657.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sroa.454.0.copyload = load i32, ptr %.sroa.454.0..sroa_idx, align 4
+  %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.555.0.copyload = load i64, ptr %.sroa.555.0..sroa_idx, align 8
+  %.sroa.656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.656.0.copyload = load ptr, ptr %.sroa.656.0..sroa_idx, align 8
+  %.sroa.757.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sroa.757.0.copyload = load ptr, ptr %.sroa.757.0..sroa_idx, align 8
   %.sroa.858.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.953, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.858.0..sroa_idx, i64 120, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.858.0..sroa_idx, i64 120, i1 false)
   br label %131
 
 131:                                              ; preds = %130, %133
-  %.sroa.8.082 = phi ptr [ undef, %133 ], [ %.sroa.7.0.copyload, %130 ]
-  %.sroa.6.080 = phi ptr [ undef, %133 ], [ %.sroa.657.0.copyload, %130 ]
-  %.sroa.446.078 = phi i64 [ 1, %133 ], [ %.sroa.556.0.copyload, %130 ]
-  %.sroa.443.076 = phi i32 [ undef, %133 ], [ %.sroa.4.0.copyload, %130 ]
-  %.sroa.041.074 = phi i32 [ 3, %133 ], [ %.val, %130 ]
+  %.sroa.7.082 = phi ptr [ undef, %133 ], [ %.sroa.757.0.copyload, %130 ]
+  %.sroa.6.080 = phi ptr [ undef, %133 ], [ %.sroa.656.0.copyload, %130 ]
+  %.sroa.445.078 = phi i64 [ 1, %133 ], [ %.sroa.555.0.copyload, %130 ]
+  %.sroa.442.076 = phi i32 [ undef, %133 ], [ %.sroa.454.0.copyload, %130 ]
+  %.sroa.040.074 = phi i32 [ 3, %133 ], [ %.val, %130 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %10)
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 152
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he574db79819d4df9E.llvm.14828715386332725032"(ptr noalias noundef nonnull align 8 dereferenceable(16) %132)
@@ -3698,22 +3698,22 @@ common.ret:                                       ; preds = %"_ZN4core3ptr86drop
   br label %137
 
 "_ZN4core3ptr86drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_tls..connect..resolve..Resolve$GT$$GT$17hd422a04cc7c489f2E.exit": ; preds = %131, %"_ZN4core3ptr86drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_tls..connect..resolve..Resolve$GT$$GT$17hd422a04cc7c489f2E.exit20"
-  %.sroa.041.1 = phi i32 [ 3, %"_ZN4core3ptr86drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_tls..connect..resolve..Resolve$GT$$GT$17hd422a04cc7c489f2E.exit20" ], [ %.sroa.041.074, %131 ]
-  %.sroa.443.1 = phi i32 [ undef, %"_ZN4core3ptr86drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_tls..connect..resolve..Resolve$GT$$GT$17hd422a04cc7c489f2E.exit20" ], [ %.sroa.443.076, %131 ]
-  %.sroa.446.1 = phi i64 [ 0, %"_ZN4core3ptr86drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_tls..connect..resolve..Resolve$GT$$GT$17hd422a04cc7c489f2E.exit20" ], [ %.sroa.446.078, %131 ]
+  %.sroa.040.1 = phi i32 [ 3, %"_ZN4core3ptr86drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_tls..connect..resolve..Resolve$GT$$GT$17hd422a04cc7c489f2E.exit20" ], [ %.sroa.040.074, %131 ]
+  %.sroa.442.1 = phi i32 [ undef, %"_ZN4core3ptr86drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_tls..connect..resolve..Resolve$GT$$GT$17hd422a04cc7c489f2E.exit20" ], [ %.sroa.442.076, %131 ]
+  %.sroa.445.1 = phi i64 [ 0, %"_ZN4core3ptr86drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_tls..connect..resolve..Resolve$GT$$GT$17hd422a04cc7c489f2E.exit20" ], [ %.sroa.445.078, %131 ]
   %.sroa.6.1 = phi ptr [ %.sroa.3.0.copyload, %"_ZN4core3ptr86drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_tls..connect..resolve..Resolve$GT$$GT$17hd422a04cc7c489f2E.exit20" ], [ %.sroa.6.080, %131 ]
-  %.sroa.8.1 = phi ptr [ %.sroa.5.0.copyload, %"_ZN4core3ptr86drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_tls..connect..resolve..Resolve$GT$$GT$17hd422a04cc7c489f2E.exit20" ], [ %.sroa.8.082, %131 ]
-  store i32 %.sroa.041.1, ptr %0, align 8
-  %.sroa.443.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.443.1, ptr %.sroa.443.0..sroa_idx44, align 4
-  %.sroa.446.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.446.1, ptr %.sroa.446.0..sroa_idx47, align 8
-  %.sroa.6.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.6.1, ptr %.sroa.6.0..sroa_idx49, align 8
-  %.sroa.8.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.8.1, ptr %.sroa.8.0..sroa_idx51, align 8
-  %.sroa.953.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.953.0..sroa_idx54, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.953, i64 120, i1 false)
+  %.sroa.7.1 = phi ptr [ %.sroa.5.0.copyload, %"_ZN4core3ptr86drop_in_place$LT$alloc..rc..Rc$LT$dyn$u20$actix_tls..connect..resolve..Resolve$GT$$GT$17hd422a04cc7c489f2E.exit20" ], [ %.sroa.7.082, %131 ]
+  store i32 %.sroa.040.1, ptr %0, align 8
+  %.sroa.442.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sroa.442.1, ptr %.sroa.442.0..sroa_idx43, align 4
+  %.sroa.445.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.445.1, ptr %.sroa.445.0..sroa_idx46, align 8
+  %.sroa.6.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.6.1, ptr %.sroa.6.0..sroa_idx48, align 8
+  %.sroa.7.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sroa.7.1, ptr %.sroa.7.0..sroa_idx50, align 8
+  %.sroa.8.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.8.0..sroa_idx52, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.8, i64 120, i1 false)
   br label %common.ret
 
 140:                                              ; preds = %.body, %152, %59, %147

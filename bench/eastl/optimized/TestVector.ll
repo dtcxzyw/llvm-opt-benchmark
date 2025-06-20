@@ -17193,7 +17193,6 @@ invoke.cont2:
   %intArray22369 = alloca %"class.eastl::vector.1", align 8
   %ref.tmp2370 = alloca %"class.eastl::allocator", align 1
   %vA64 = alloca %"class.eastl::vector.87", align 8
-  %ref.tmp2452.sroa.3 = alloca [60 x i8], align 4
   %ref.tmp2465 = alloca %struct.Align64, align 64
   %empty1 = alloca %"class.eastl::vector.1", align 8
   %empty2 = alloca %"class.eastl::vector.1", align 8
@@ -29361,8 +29360,6 @@ if.then.i4789:                                    ; preds = %invoke.cont2450
   %incdec.ptr.i4790 = getelementptr inbounds nuw i8, ptr %1915, i64 64
   store ptr %incdec.ptr.i4790, ptr %mpEnd.i7.i4740, align 8
   store i32 0, ptr %1915, align 64
-  %ref.tmp2452.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1915, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp2452.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp2452.sroa.3, i64 60, i1 false)
   %.pre7967 = load ptr, ptr %mpEnd.i7.i4740, align 8
   %.pre7968 = load ptr, ptr %vA64, align 8
   br label %invoke.cont2454
@@ -29406,8 +29403,6 @@ if.end.i.i.i.i.i.i.i.i.i4777:                     ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i4777, %_ZN5eastl10VectorBaseI7Align6415CustomAllocatorE10DoAllocateEm.exit.i.i
   %retval.0.i.i.i.i.i.i.i.i.i4780 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i4779, %if.end.i.i.i.i.i.i.i.i.i4777 ], [ %retval.0.i.i.i4775, %_ZN5eastl10VectorBaseI7Align6415CustomAllocatorE10DoAllocateEm.exit.i.i ]
   store i32 0, ptr %retval.0.i.i.i.i.i.i.i.i.i4780, align 64
-  %ref.tmp2452.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i4780.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i4780, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp2452.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i4780.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp2452.sroa.3, i64 60, i1 false)
   %1922 = load ptr, ptr %vA64, align 8
   %tobool.not.i7.i.i4781 = icmp eq ptr %1922, null
   br i1 %tobool.not.i7.i.i4781, label %_ZN5eastl6vectorI7Align6415CustomAllocatorE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i, label %if.then.i8.i.i4782

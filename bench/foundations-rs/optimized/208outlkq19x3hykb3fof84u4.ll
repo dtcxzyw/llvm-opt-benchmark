@@ -20590,8 +20590,8 @@ _ZN5tonic9transport5error5Error4with17h68528342bb55060eE.exit:
   store ptr %1, ptr %0, align 8, !alias.scope !3908, !noalias !3912
   %.sroa.5.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx1, align 8, !alias.scope !3908, !noalias !3912
-  %.sroa.62.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %.sroa.62.0..sroa_idx, align 8, !alias.scope !3908, !noalias !3912
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3908, !noalias !3912
   ret void
 }
 
@@ -21747,6 +21747,8 @@ define hidden void @"_ZN89_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %17 = icmp eq i64 %13, 3
+  %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16
@@ -21755,9 +21757,7 @@ define hidden void @"_ZN89_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   %20 = icmp ne ptr %.sroa.4.0.copyload, null
   tail call void @llvm.assume(i1 %20)
   store i64 3, ptr %0, align 8
-  %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.3.0.copyload, ptr %.sroa.484.0..sroa_idx, align 8
-  %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.4.0.copyload, ptr %.sroa.585.0..sroa_idx, align 8
   br label %22
 
@@ -21766,10 +21766,8 @@ define hidden void @"_ZN89_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   %.sroa.832.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.832.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.522.0..sroa_idx, i64 136, i1 false)
   store i64 %13, ptr %0, align 8
-  %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.3.0.copyload, ptr %.sroa.630.0..sroa_idx, align 8
-  %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.4.0.copyload, ptr %.sroa.731.0..sroa_idx, align 8
+  store ptr %.sroa.3.0.copyload, ptr %.sroa.484.0..sroa_idx, align 8
+  store ptr %.sroa.4.0.copyload, ptr %.sroa.585.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5)
   br label %30
 
@@ -21787,6 +21785,8 @@ define hidden void @"_ZN89_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   %.sroa.458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.458.0.copyload = load ptr, ptr %.sroa.458.0..sroa_idx, align 8
   %25 = icmp eq i64 %10, 3
+  %.sroa.498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.599.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -21795,9 +21795,7 @@ define hidden void @"_ZN89_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   %28 = icmp ne ptr %.sroa.458.0.copyload, null
   tail call void @llvm.assume(i1 %28)
   store i64 3, ptr %0, align 8
-  %.sroa.498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.355.0.copyload, ptr %.sroa.498.0..sroa_idx, align 8
-  %.sroa.599.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.458.0.copyload, ptr %.sroa.599.0..sroa_idx, align 8
   br label %31
 
@@ -21806,10 +21804,8 @@ define hidden void @"_ZN89_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   %.sroa.872.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.872.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.561.0..sroa_idx, i64 136, i1 false)
   store i64 %10, ptr %0, align 8
-  %.sroa.670.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.355.0.copyload, ptr %.sroa.670.0..sroa_idx, align 8
-  %.sroa.771.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.458.0.copyload, ptr %.sroa.771.0..sroa_idx, align 8
+  store ptr %.sroa.355.0.copyload, ptr %.sroa.498.0..sroa_idx, align 8
+  store ptr %.sroa.458.0.copyload, ptr %.sroa.599.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
   br label %30
 
@@ -21933,6 +21929,8 @@ define hidden void @"_ZN89_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %40 = icmp eq i64 %36, 3
+  %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %39
@@ -21941,9 +21939,7 @@ define hidden void @"_ZN89_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   %43 = icmp ne ptr %.sroa.4.0.copyload, null
   tail call void @llvm.assume(i1 %43)
   store i64 3, ptr %0, align 8
-  %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.3.0.copyload, ptr %.sroa.484.0..sroa_idx, align 8
-  %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.4.0.copyload, ptr %.sroa.585.0..sroa_idx, align 8
   br label %45
 
@@ -21952,10 +21948,8 @@ define hidden void @"_ZN89_$LT$tower..util..either..Either$LT$A$C$B$GT$$u20$as$u
   %.sroa.832.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.832.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.522.0..sroa_idx, i64 136, i1 false)
   store i64 %36, ptr %0, align 8
-  %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.3.0.copyload, ptr %.sroa.630.0..sroa_idx, align 8
-  %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.4.0.copyload, ptr %.sroa.731.0..sroa_idx, align 8
+  store ptr %.sroa.3.0.copyload, ptr %.sroa.484.0..sroa_idx, align 8
+  store ptr %.sroa.4.0.copyload, ptr %.sroa.585.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6)
   br label %50
 

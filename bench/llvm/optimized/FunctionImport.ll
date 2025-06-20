@@ -20727,16 +20727,16 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfo
 
 ..critedge_crit_edge:                             ; preds = %114
   %.0.copyload.i.i.i.i.i55.pre = load i64, ptr %.sroa.0144.0161, align 8
-  %.pre167 = and i64 %.0.copyload.i.i.i.i.i55.pre, -8
-  %.pre168 = inttoptr i64 %.pre167 to ptr
+  %.pre168 = and i64 %.0.copyload.i.i.i.i.i55.pre, -8
+  %.pre169 = inttoptr i64 %.pre168 to ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E4findERKm.exit
-  %.pre-phi169 = phi ptr [ %.pre168, %..critedge_crit_edge ], [ %84, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E4findERKm.exit ]
+  %.pre-phi170 = phi ptr [ %.pre169, %..critedge_crit_edge ], [ %84, %_ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEEmS3_S5_S8_E4findERKm.exit ]
   %120 = load ptr, ptr %32, align 8, !tbaa !212
-  %121 = getelementptr inbounds nuw i8, ptr %.pre-phi169, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %.pre-phi170, i64 24
   %122 = load ptr, ptr %121, align 8, !tbaa !307
-  %123 = getelementptr inbounds nuw i8, ptr %.pre-phi169, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %.pre-phi170, i64 32
   %124 = load ptr, ptr %123, align 8, !tbaa !310
   %125 = ptrtoint ptr %124 to i64
   %126 = ptrtoint ptr %122 to i64

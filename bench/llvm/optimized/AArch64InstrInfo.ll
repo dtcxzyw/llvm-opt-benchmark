@@ -23598,9 +23598,7 @@ _ZN4llvm8DebugLocD2Ev.exit6:                      ; preds = %_ZN4llvm8DebugLocC2
 define dso_local void @_ZNK4llvm16AArch64InstrInfo6getNopEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::MCInst") align 8 initializes((0, 16)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #17 align 2 {
 _ZN4llvm13MCInstBuilder6addImmEl.exit:
   %.sroa.5 = alloca [28 x i8], align 4
-  %.sroa.7 = alloca [7 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, i8 0, i64 12, i1 false)
   store i32 4081, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -23613,13 +23611,10 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit:
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 6, ptr %5, align 4, !tbaa !47
   store i8 2, ptr %3, align 8
-  %.sroa.7.32..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.32..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, i64 7, i1 false)
   %.sroa.72.32..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %.sroa.72.32..sroa_idx, align 8
   store i32 1, ptr %4, align 8, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
   ret void
 }
 

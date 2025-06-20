@@ -590,19 +590,19 @@ define void @_ZN5paths7AbsPath9normalize17h54d05f3dece16b61E(ptr noalias noundef
   %.pre.i.i = load i8, ptr %10, align 8, !alias.scope !63, !noalias !69
   %12 = icmp ne i8 %.pre.i.i, 11
   call void @llvm.assume(i1 %12)
-  %.pre.i.off.i = add i8 %.pre.i.i, -6
-  %switch.i = icmp ult i8 %.pre.i.off.i, 5
-  br i1 %switch.i, label %.thread.i, label %14
+  %.pre.i.i.off = add i8 %.pre.i.i, -6
+  %switch = icmp ult i8 %.pre.i.i.off, 5
+  br i1 %switch, label %.thread.i, label %14
 
 13:                                               ; preds = %35
   unreachable
 
 14:                                               ; preds = %3
-  %.sroa.427.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8), !noalias !58
   store i8 %.pre.i.i, ptr %8, align 8, !noalias !58
   %.sroa.7.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %8, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.7.0..sroa_idx3.i, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.427.0..sroa_idx.i, i64 55, i1 false), !noalias !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.7.0..sroa_idx3.i, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.gep.i, i64 55, i1 false), !noalias !58
   store i8 11, ptr %10, align 8, !noalias !58
   %15 = call { ptr, i64 } @_ZN6camino13Utf8Component6as_str17h75f0ee6bd6445fc9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %8), !noalias !62
   %16 = extractvalue { ptr, i64 } %15, 0

@@ -2990,12 +2990,12 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br i1 %.not.i, label %"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf51646ffe899b1a9E.exit", label %7
 
 7:                                                ; preds = %2
-  %.sroa.4.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !291, !noalias !296, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !291, !noalias !296, !noundef !3
-  store ptr null, ptr %.sroa.4.0..sroa_idx15.i, align 8, !noalias !294
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !294
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !294
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3134,12 +3134,12 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br i1 %.not.i, label %"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he7c19de2c0a59278E.exit", label %7
 
 7:                                                ; preds = %2
-  %.sroa.4.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !326, !noalias !331, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !326, !noalias !331, !noundef !3
-  store ptr null, ptr %.sroa.4.0..sroa_idx15.i, align 8, !noalias !329
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !329
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !329
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -10590,12 +10590,12 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..map..BTr
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %2
-  %.sroa.4.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
-  store ptr null, ptr %.sroa.4.0..sroa_idx15, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -10635,12 +10635,12 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..map..BTr
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %2
-  %.sroa.4.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
-  store ptr null, ptr %.sroa.4.0..sroa_idx15, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -13372,9 +13372,9 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %21)
   store i64 0, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 2
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.gep138 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -13531,7 +13531,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   br i1 %or.cond, label %187, label %192, !prof !929
 
 69:                                               ; preds = %41
-  %.sroa.024.0.copyload = load i128, ptr %24, align 2
+  %.sroa.024.0.copyload = load i128, ptr %23, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
   invoke void @"_ZN75_$LT$wasmi_core..value..V128$u20$as$u20$core..convert..From$LT$u128$GT$$GT$4from17hce7301d5b6d68332E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %18, i128 noundef %.sroa.024.0.copyload)
           to label %228 unwind label %.loopexit147
@@ -13576,8 +13576,8 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   br i1 %83, label %.thread, label %84
 
 84:                                               ; preds = %79
-  %85 = load ptr, ptr %23, align 8, !alias.scope !933, !noalias !936, !nonnull !3
-  %.sink10.i = select i1 %81, ptr %85, ptr %23
+  %85 = load ptr, ptr %25, align 8, !alias.scope !933, !noalias !936, !nonnull !3
+  %.sink10.i = select i1 %81, ptr %85, ptr %25
   %86 = add i64 %82, -1
   store i64 %86, ptr %.sink9.idx.i.sroa.sel, align 8
   %87 = getelementptr inbounds nuw { i32, [5 x i32] }, ptr %.sink10.i, i64 %86
@@ -13657,8 +13657,8 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   %107 = load i32, ptr %26, align 4, !noundef !3
   %108 = load i64, ptr %21, align 8, !alias.scope !944, !noalias !949, !noundef !3
   %109 = icmp ugt i64 %108, 3
-  %110 = load ptr, ptr %23, align 8, !alias.scope !944, !noalias !949, !nonnull !3
-  %.sink10.i.i = select i1 %109, ptr %110, ptr %23
+  %110 = load ptr, ptr %25, align 8, !alias.scope !944, !noalias !949, !nonnull !3
+  %.sink10.i.i = select i1 %109, ptr %110, ptr %25
   %.sink9.idx.i.i.sroa.sel = select i1 %109, ptr %.sroa.gep138, ptr %21
   %.sink.i.i = call i64 @llvm.umax.i64(i64 %108, i64 3)
   %111 = load i64, ptr %.sink9.idx.i.i.sroa.sel, align 8, !alias.scope !952, !noalias !953, !noundef !3
@@ -13670,7 +13670,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
           to label %114 unwind label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit.i", !noalias !953
 
 114:                                              ; preds = %113
-  %115 = load ptr, ptr %23, align 8, !alias.scope !952, !noalias !953, !nonnull !3, !noundef !3
+  %115 = load ptr, ptr %25, align 8, !alias.scope !952, !noalias !953, !nonnull !3, !noundef !3
   %.pre.i = load i64, ptr %.sroa.gep138, align 8, !alias.scope !952, !noalias !953
   br label %117
 
@@ -13722,8 +13722,8 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %130 = load i64, ptr %21, align 8, !alias.scope !957, !noalias !962, !noundef !3
   %131 = icmp ugt i64 %130, 3
-  %132 = load ptr, ptr %23, align 8, !alias.scope !957, !noalias !962, !nonnull !3
-  %.sink10.i.i39 = select i1 %131, ptr %132, ptr %23
+  %132 = load ptr, ptr %25, align 8, !alias.scope !957, !noalias !962, !nonnull !3
+  %.sink10.i.i39 = select i1 %131, ptr %132, ptr %25
   %.sink9.idx.i.i40.sroa.sel = select i1 %131, ptr %.sroa.gep138, ptr %21
   %.sink.i.i42 = call i64 @llvm.umax.i64(i64 %130, i64 3)
   %133 = load i64, ptr %.sink9.idx.i.i40.sroa.sel, align 8, !alias.scope !965, !noalias !966, !noundef !3
@@ -13735,7 +13735,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
           to label %136 unwind label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit.i46", !noalias !966
 
 136:                                              ; preds = %135
-  %137 = load ptr, ptr %23, align 8, !alias.scope !965, !noalias !966, !nonnull !3, !noundef !3
+  %137 = load ptr, ptr %25, align 8, !alias.scope !965, !noalias !966, !nonnull !3, !noundef !3
   %.pre.i47 = load i64, ptr %.sroa.gep138, align 8, !alias.scope !965, !noalias !966
   br label %139
 
@@ -13762,8 +13762,8 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %145 = load i64, ptr %21, align 8, !alias.scope !967, !noalias !972, !noundef !3
   %146 = icmp ugt i64 %145, 3
-  %147 = load ptr, ptr %23, align 8, !alias.scope !967, !noalias !972, !nonnull !3
-  %.sink10.i.i51 = select i1 %146, ptr %147, ptr %23
+  %147 = load ptr, ptr %25, align 8, !alias.scope !967, !noalias !972, !nonnull !3
+  %.sink10.i.i51 = select i1 %146, ptr %147, ptr %25
   %.sink9.idx.i.i52.sroa.sel = select i1 %146, ptr %.sroa.gep138, ptr %21
   %.sink.i.i54 = call i64 @llvm.umax.i64(i64 %145, i64 3)
   %148 = load i64, ptr %.sink9.idx.i.i52.sroa.sel, align 8, !alias.scope !975, !noalias !976, !noundef !3
@@ -13775,7 +13775,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
           to label %151 unwind label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit.i58", !noalias !976
 
 151:                                              ; preds = %150
-  %152 = load ptr, ptr %23, align 8, !alias.scope !975, !noalias !976, !nonnull !3, !noundef !3
+  %152 = load ptr, ptr %25, align 8, !alias.scope !975, !noalias !976, !nonnull !3, !noundef !3
   %.pre.i59 = load i64, ptr %.sroa.gep138, align 8, !alias.scope !975, !noalias !976
   br label %154
 
@@ -13802,8 +13802,8 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %160 = load i64, ptr %21, align 8, !alias.scope !977, !noalias !982, !noundef !3
   %161 = icmp ugt i64 %160, 3
-  %162 = load ptr, ptr %23, align 8, !alias.scope !977, !noalias !982, !nonnull !3
-  %.sink10.i.i63 = select i1 %161, ptr %162, ptr %23
+  %162 = load ptr, ptr %25, align 8, !alias.scope !977, !noalias !982, !nonnull !3
+  %.sink10.i.i63 = select i1 %161, ptr %162, ptr %25
   %.sink9.idx.i.i64.sroa.sel = select i1 %161, ptr %.sroa.gep138, ptr %21
   %.sink.i.i66 = call i64 @llvm.umax.i64(i64 %160, i64 3)
   %163 = load i64, ptr %.sink9.idx.i.i64.sroa.sel, align 8, !alias.scope !985, !noalias !986, !noundef !3
@@ -13815,7 +13815,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
           to label %166 unwind label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit.i70", !noalias !986
 
 166:                                              ; preds = %165
-  %167 = load ptr, ptr %23, align 8, !alias.scope !985, !noalias !986, !nonnull !3, !noundef !3
+  %167 = load ptr, ptr %25, align 8, !alias.scope !985, !noalias !986, !nonnull !3, !noundef !3
   %.pre.i71 = load i64, ptr %.sroa.gep138, align 8, !alias.scope !985, !noalias !986
   br label %169
 
@@ -13842,8 +13842,8 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %175 = load i64, ptr %21, align 8, !alias.scope !987, !noalias !992, !noundef !3
   %176 = icmp ugt i64 %175, 3
-  %177 = load ptr, ptr %23, align 8, !alias.scope !987, !noalias !992, !nonnull !3
-  %.sink10.i.i75 = select i1 %176, ptr %177, ptr %23
+  %177 = load ptr, ptr %25, align 8, !alias.scope !987, !noalias !992, !nonnull !3
+  %.sink10.i.i75 = select i1 %176, ptr %177, ptr %25
   %.sink9.idx.i.i76.sroa.sel = select i1 %176, ptr %.sroa.gep138, ptr %21
   %.sink.i.i78 = call i64 @llvm.umax.i64(i64 %175, i64 3)
   %178 = load i64, ptr %.sink9.idx.i.i76.sroa.sel, align 8, !alias.scope !995, !noalias !996, !noundef !3
@@ -13855,7 +13855,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
           to label %181 unwind label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit.i82", !noalias !996
 
 181:                                              ; preds = %180
-  %182 = load ptr, ptr %23, align 8, !alias.scope !995, !noalias !996, !nonnull !3, !noundef !3
+  %182 = load ptr, ptr %25, align 8, !alias.scope !995, !noalias !996, !nonnull !3, !noundef !3
   %.pre.i83 = load i64, ptr %.sroa.gep138, align 8, !alias.scope !995, !noalias !996
   br label %184
 
@@ -13933,8 +13933,8 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   %201 = extractvalue { i64, i64 } %198, 1
   %202 = load i64, ptr %21, align 8, !alias.scope !998, !noalias !1003, !noundef !3
   %203 = icmp ugt i64 %202, 3
-  %204 = load ptr, ptr %23, align 8, !alias.scope !998, !noalias !1003, !nonnull !3
-  %.sink10.i.i87 = select i1 %203, ptr %204, ptr %23
+  %204 = load ptr, ptr %25, align 8, !alias.scope !998, !noalias !1003, !nonnull !3
+  %.sink10.i.i87 = select i1 %203, ptr %204, ptr %25
   %.sink9.idx.i.i88.sroa.sel = select i1 %203, ptr %.sroa.gep138, ptr %21
   %.sink.i.i90 = call i64 @llvm.umax.i64(i64 %202, i64 3)
   %205 = load i64, ptr %.sink9.idx.i.i88.sroa.sel, align 8, !alias.scope !1006, !noalias !1007, !noundef !3
@@ -13946,7 +13946,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
           to label %208 unwind label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit.i94", !noalias !1007
 
 208:                                              ; preds = %207
-  %209 = load ptr, ptr %23, align 8, !alias.scope !1006, !noalias !1007, !nonnull !3, !noundef !3
+  %209 = load ptr, ptr %25, align 8, !alias.scope !1006, !noalias !1007, !nonnull !3, !noundef !3
   %.pre.i95 = load i64, ptr %.sroa.gep138, align 8, !alias.scope !1006, !noalias !1007
   br label %211
 
@@ -13971,8 +13971,8 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   %215 = load i32, ptr %26, align 4, !noundef !3
   %216 = load i64, ptr %21, align 8, !alias.scope !1008, !noalias !1013, !noundef !3
   %217 = icmp ugt i64 %216, 3
-  %218 = load ptr, ptr %23, align 8, !alias.scope !1008, !noalias !1013, !nonnull !3
-  %.sink10.i.i99 = select i1 %217, ptr %218, ptr %23
+  %218 = load ptr, ptr %25, align 8, !alias.scope !1008, !noalias !1013, !nonnull !3
+  %.sink10.i.i99 = select i1 %217, ptr %218, ptr %25
   %.sink9.idx.i.i100.sroa.sel = select i1 %217, ptr %.sroa.gep138, ptr %21
   %.sink.i.i102 = call i64 @llvm.umax.i64(i64 %216, i64 3)
   %219 = load i64, ptr %.sink9.idx.i.i100.sroa.sel, align 8, !alias.scope !1016, !noalias !1017, !noundef !3
@@ -13984,7 +13984,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
           to label %222 unwind label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit.i106", !noalias !1017
 
 222:                                              ; preds = %221
-  %223 = load ptr, ptr %23, align 8, !alias.scope !1016, !noalias !1017, !nonnull !3, !noundef !3
+  %223 = load ptr, ptr %25, align 8, !alias.scope !1016, !noalias !1017, !nonnull !3, !noundef !3
   %.pre.i107 = load i64, ptr %.sroa.gep138, align 8, !alias.scope !1016, !noalias !1017
   br label %225
 
@@ -14005,7 +14005,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
 
 228:                                              ; preds = %69
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %25, ptr noundef nonnull align 1 dereferenceable(16) %18, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %24, ptr noundef nonnull align 1 dereferenceable(16) %18, i64 16, i1 false)
   store i8 4, ptr %4, align 8
   %229 = invoke { i64, i64 } @"_ZN5wasmi5value106_$LT$impl$u20$core..convert..From$LT$wasmi..value..Val$GT$$u20$for$u20$wasmi_core..untyped..UntypedVal$GT$4from17h12d4afd44d02a1f0E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
           to label %230 unwind label %.loopexit147
@@ -14017,8 +14017,8 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   %233 = load i64, ptr %21, align 8, !alias.scope !1018, !noalias !1023, !noundef !3
   %234 = icmp ugt i64 %233, 3
-  %235 = load ptr, ptr %23, align 8, !alias.scope !1018, !noalias !1023, !nonnull !3
-  %.sink10.i.i111 = select i1 %234, ptr %235, ptr %23
+  %235 = load ptr, ptr %25, align 8, !alias.scope !1018, !noalias !1023, !nonnull !3
+  %.sink10.i.i111 = select i1 %234, ptr %235, ptr %25
   %.sink9.idx.i.i112.sroa.sel = select i1 %234, ptr %.sroa.gep138, ptr %21
   %.sink.i.i114 = call i64 @llvm.umax.i64(i64 %233, i64 3)
   %236 = load i64, ptr %.sink9.idx.i.i112.sroa.sel, align 8, !alias.scope !1026, !noalias !1027, !noundef !3
@@ -14030,7 +14030,7 @@ define void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr de
           to label %239 unwind label %"_ZN4core3ptr49drop_in_place$LT$wasmi..module..init_expr..Op$GT$17ha281986447d48027E.exit.i118", !noalias !1027
 
 239:                                              ; preds = %238
-  %240 = load ptr, ptr %23, align 8, !alias.scope !1026, !noalias !1027, !nonnull !3, !noundef !3
+  %240 = load ptr, ptr %25, align 8, !alias.scope !1026, !noalias !1027, !nonnull !3, !noundef !3
   %.pre.i119 = load i64, ptr %.sroa.gep138, align 8, !alias.scope !1026, !noalias !1027
   br label %242
 

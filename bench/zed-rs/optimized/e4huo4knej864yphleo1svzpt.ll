@@ -9665,7 +9665,6 @@ common.resume:                                    ; preds = %.body, %21
   store ptr %18, ptr %14, align 8
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 640
   store i32 0, ptr %27, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 644
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 0, ptr %28, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2391)
@@ -9721,6 +9720,7 @@ common.resume:                                    ; preds = %.body, %21
   %47 = phi ptr [ %41, %.thread.i ], [ %46, %45 ]
   %48 = phi i32 [ %44, %.thread.i ], [ %.pre.i, %45 ]
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 2192
+  %.sroa.67.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 644
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 1608
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -9940,7 +9940,7 @@ common.resume:                                    ; preds = %.body, %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(48) %26, i64 48, i1 false), !noalias !2452
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %26, i8 0, i64 44, i1 false), !alias.scope !2447, !noalias !2452
   %.sroa.0.0.copyload.i.i = load i32, ptr %27, align 8, !alias.scope !2447, !noalias !2452
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1584) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(1584) %.sroa.6.0..sroa_idx, i64 1584, i1 false), !noalias !2452
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1584) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(1584) %.sroa.67.0..sroa_idx.i.i, i64 1584, i1 false), !noalias !2452
   store i32 0, ptr %27, align 8, !alias.scope !2447, !noalias !2452
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %.sroa.5.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(584) %28, i64 584, i1 false), !noalias !2452
   store i32 0, ptr %28, align 8, !alias.scope !2447, !noalias !2452
@@ -10014,7 +10014,7 @@ common.resume:                                    ; preds = %.body, %21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %26, i8 0, i64 44, i1 false), !alias.scope !2458, !noalias !2463
   %.sroa.0.0.copyload.i48.i = load i32, ptr %27, align 8, !alias.scope !2458, !noalias !2463
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i50.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1584) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i50.i, ptr noundef nonnull align 4 dereferenceable(1584) %.sroa.6.0..sroa_idx, i64 1584, i1 false), !noalias !2463
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1584) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i50.i, ptr noundef nonnull align 4 dereferenceable(1584) %.sroa.67.0..sroa_idx.i.i, i64 1584, i1 false), !noalias !2463
   store i32 0, ptr %27, align 8, !alias.scope !2458, !noalias !2463
   %.sroa.5.0..sroa_idx.i51.i = getelementptr inbounds nuw i8, ptr %8, i64 1608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) %.sroa.5.0..sroa_idx.i51.i, ptr noundef nonnull align 8 dereferenceable(584) %28, i64 584, i1 false), !noalias !2463

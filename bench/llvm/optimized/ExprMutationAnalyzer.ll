@@ -3072,7 +3072,6 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer18findDire
   %86 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %87 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %.sroa.0771 = alloca [16 x i8], align 8
-  %.sroa.4765 = alloca [3 x i8], align 1
   %.sroa.0758 = alloca [16 x i8], align 8
   %88 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %89 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.897", align 8
@@ -3123,11 +3122,9 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer18findDire
   %126 = alloca %"class.clang::ast_matchers::internal::PolymorphicMatcher.880", align 8
   %127 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %128 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
-  %.sroa.5670 = alloca [3 x i8], align 1
   %.sroa.12 = alloca [12 x i8], align 8
   %129 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %130 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.947", align 8
-  %.sroa.4662 = alloca [3 x i8], align 1
   %.sroa.0658 = alloca [16 x i8], align 8
   %131 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %132 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
@@ -3151,12 +3148,10 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer18findDire
   %146 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %147 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %.sroa.0608 = alloca [16 x i8], align 8
-  %.sroa.4602 = alloca [3 x i8], align 1
   %.sroa.0595 = alloca [16 x i8], align 8
   %148 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %149 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %.sroa.0592 = alloca [16 x i8], align 8
-  %.sroa.4586 = alloca [3 x i8], align 1
   %150 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %151 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
   %152 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
@@ -3166,7 +3161,6 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer18findDire
   %156 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %157 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %158 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
-  %.sroa.4565 = alloca [3 x i8], align 1
   %159 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %160 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
   %161 = alloca %"class.clang::ast_matchers::internal::Matcher.766", align 8
@@ -4028,7 +4022,6 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47) #25, !noalias !391
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46) #25, !noalias !391
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0771)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4765)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0758)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %88) #25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %89) #25
@@ -4356,8 +4349,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_8CallExprEEENS1_15Bindab
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39) #25, !noalias !479
   call void @llvm.experimental.noalias.scope.decl(metadata !486)
   store i8 0, ptr %39, align 8, !noalias !479
-  %.sroa.4765.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4765.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4765, i64 3, i1 false), !noalias !479
   %.sroa.4766.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 275, ptr %.sroa.4766.0..sroa_idx, align 4, !noalias !479
   %.sroa.5767.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -5222,7 +5213,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit166: ; preds = %_ZN5
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %89) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %88) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0758)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4765)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0771)
   %1030 = atomicrmw sub ptr %478, i32 1 acq_rel, align 4
   %1031 = icmp eq i32 %1030, 1
@@ -6670,11 +6660,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_32HasOverloadedOperatorNameMatcherEFvNS1_8TypeListIJNS_19CXXOperatorCallExprENS_12FunctionDeclEEEEEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, %1660
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %117) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %116) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.5670)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %129) #25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %130) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4662)
   %1665 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26, !noalias !705
   %1666 = getelementptr inbounds nuw i8, ptr %1665, i64 8
   store i32 0, ptr %1666, align 4, !tbaa !231, !noalias !705
@@ -6805,8 +6793,6 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   store ptr %1696, ptr %1718, align 8, !tbaa !227, !alias.scope !741
   %1719 = getelementptr inbounds nuw i8, ptr %130, i64 32
   store i8 0, ptr %1719, align 8
-  %.sroa.4662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4662.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4662, i64 3, i1 false)
   %.sroa.4663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 36
   store i32 176, ptr %.sroa.4663.0..sroa_idx, align 4
   %.sroa.5664.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 40
@@ -7010,7 +6996,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit325: ; preds = %1811
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %132) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %131) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0658)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4662)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %130) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %129) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %134) #25
@@ -7093,8 +7078,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit333: ; preds = %_ZN5
 _ZNKR5clang12ast_matchers8internal18PolymorphicMatcherINS1_44matcher_forEachArgumentWithParamType0MatcherEFvNS1_8TypeListIJNS_8CallExprENS_16CXXConstructExprEEEEEJNS1_7MatcherINS_4ExprEEENS9_INS_8QualTypeEEEEEcvNS9_IT_EEIS5_EEv.exit: ; preds = %1841, %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit333
   %1844 = getelementptr inbounds nuw i8, ptr %1837, i64 40
   store i8 0, ptr %1844, align 8, !noalias !775
-  %.sroa.5670.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1837, i64 41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5670.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5670, i64 3, i1 false), !noalias !775
   %.sroa.6672.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1837, i64 44
   store i32 6, ptr %.sroa.6672.0..sroa_idx, align 4, !noalias !775
   %.sroa.7675.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1837, i64 48
@@ -7132,8 +7115,6 @@ _ZNKR5clang12ast_matchers8internal18PolymorphicMatcherINS1_44matcher_forEachArgu
 _ZNKR5clang12ast_matchers8internal18PolymorphicMatcherINS1_44matcher_forEachArgumentWithParamType0MatcherEFvNS1_8TypeListIJNS_8CallExprENS_16CXXConstructExprEEEEEJNS1_7MatcherINS_4ExprEEENS9_INS_8QualTypeEEEEEcvNS9_IT_EEIS6_EEv.exit: ; preds = %1855, %_ZNKR5clang12ast_matchers8internal18PolymorphicMatcherINS1_44matcher_forEachArgumentWithParamType0MatcherEFvNS1_8TypeListIJNS_8CallExprENS_16CXXConstructExprEEEEEJNS1_7MatcherINS_4ExprEEENS9_INS_8QualTypeEEEEEcvNS9_IT_EEIS5_EEv.exit
   %1858 = getelementptr inbounds nuw i8, ptr %1851, i64 40
   store i8 0, ptr %1858, align 8, !noalias !778
-  %.sroa.5670.0..sroa_idx671 = getelementptr inbounds nuw i8, ptr %1851, i64 41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5670.0..sroa_idx671, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5670, i64 3, i1 false), !noalias !778
   %.sroa.6672.0..sroa_idx673 = getelementptr inbounds nuw i8, ptr %1851, i64 44
   store i32 6, ptr %.sroa.6672.0..sroa_idx673, align 4, !noalias !778
   %.sroa.7675.0..sroa_idx676 = getelementptr inbounds nuw i8, ptr %1851, i64 48
@@ -7314,7 +7295,6 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27) #25, !noalias !811
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #25, !noalias !811
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0608)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4602)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0595)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %148) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %149) #25
@@ -7430,8 +7410,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13ParenListExprEEENS1_15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #25, !noalias !852
   call void @llvm.experimental.noalias.scope.decl(metadata !859)
   store i8 0, ptr %23, align 8, !noalias !852
-  %.sroa.4602.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4602.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4602, i64 3, i1 false), !noalias !852
   %.sroa.4603.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 199, ptr %.sroa.4603.0..sroa_idx, align 4, !noalias !852
   %.sroa.5604.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -7488,7 +7466,6 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #25, !noalias !852
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #25, !noalias !852
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0592)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4586)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %150) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %151) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %152) #25
@@ -7605,8 +7582,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_12InitListExprEEENS1_15B
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #25, !noalias !890
   call void @llvm.experimental.noalias.scope.decl(metadata !897)
   store i8 0, ptr %19, align 8, !noalias !890
-  %.sroa.4586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4586.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4586, i64 3, i1 false), !noalias !890
   %.sroa.4587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 234, ptr %.sroa.4587.0..sroa_idx, align 4, !noalias !890
   %.sroa.5588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -7786,7 +7761,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit392: ; preds = %_ZN5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %152) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %151) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %150) #25
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4586)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0592)
   %2126 = atomicrmw sub ptr %1965, i32 1 acq_rel, align 4
   %2127 = icmp eq i32 %2126, 1
@@ -7867,7 +7841,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit402: ; preds = %_ZN5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %149) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %148) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0595)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4602)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0608)
   %2166 = atomicrmw sub ptr %1897, i32 1 acq_rel, align 4
   %2167 = icmp eq i32 %2166, 1
@@ -8367,7 +8340,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit452: ; preds = %_ZN5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %157) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %156) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %158) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4565)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %159) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %160) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %161) #25
@@ -8521,8 +8493,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_15CXXForRangeStmtEEENS1_
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #25, !noalias !1009
   call void @llvm.experimental.noalias.scope.decl(metadata !1010)
   store i8 0, ptr %11, align 8, !noalias !1009
-  %.sroa.4565.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4565.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4565, i64 3, i1 false), !noalias !1009
   %.sroa.4566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 444, ptr %.sroa.4566.0..sroa_idx, align 4, !noalias !1009
   %.sroa.5567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -8717,7 +8687,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit486: ; preds = %2535
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %161) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %160) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %159) #25
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4565)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %164) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %166) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %167) #25
@@ -9279,7 +9248,6 @@ _ZNSt10_Head_baseILm0EN5clang12ast_matchers8internal7MatcherINS0_4ExprEEELb0EED2
   br label %_ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_44matcher_forEachArgumentWithParamType0MatcherEFvNS1_8TypeListIJNS_8CallExprENS_16CXXConstructExprEEEEEJNS1_7MatcherINS_4ExprEEENS9_INS_8QualTypeEEEEED2Ev.exit
 
 _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_44matcher_forEachArgumentWithParamType0MatcherEFvNS1_8TypeListIJNS_8CallExprENS_16CXXConstructExprEEEEEJNS1_7MatcherINS_4ExprEEENS9_INS_8QualTypeEEEEED2Ev.exit: ; preds = %_ZNSt10_Head_baseILm0EN5clang12ast_matchers8internal7MatcherINS0_4ExprEEELb0EED2Ev.exit.i.i524, %2783
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.5670)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.12)
   %2787 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %2788 = load ptr, ptr %2787, align 8, !tbaa !227
@@ -10449,10 +10417,8 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer24findArra
   %.sroa.064 = alloca [16 x i8], align 8
   %15 = alloca %"class.clang::ast_matchers::internal::Matcher.1008", align 8
   %16 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.1009", align 8
-  %.sroa.458 = alloca [3 x i8], align 1
   %17 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %18 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
-  %.sroa.451 = alloca [3 x i8], align 1
   %19 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %20 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
   %21 = alloca %"class.clang::ast_matchers::internal::Matcher.924", align 8
@@ -10465,7 +10431,6 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer24findArra
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.064)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.458)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1225)
@@ -10505,7 +10470,6 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer24findArra
 
 _ZN5clang12ast_matchers7hasBaseERKNS0_8internal7MatcherINS_4ExprEEE.exit: ; preds = %2, %38
   %41 = atomicrmw add ptr %33, i32 1 monotonic, align 4, !noalias !1235
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.451)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #25
@@ -10661,8 +10625,6 @@ _ZN5clang12ast_matchers7hasBaseERKNS0_8internal7MatcherINS_4ExprEEE.exit5: ; pre
   store i32 %101, ptr %16, align 8, !tbaa !1291, !alias.scope !1288
   %102 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 0, ptr %102, align 8
-  %.sroa.451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.451.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.451, i64 3, i1 false)
   %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 309, ptr %.sroa.452.0..sroa_idx, align 4
   %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -10671,8 +10633,6 @@ _ZN5clang12ast_matchers7hasBaseERKNS0_8internal7MatcherINS_4ExprEEE.exit5: ; pre
   store ptr %91, ptr %103, align 8, !tbaa !227, !alias.scope !1288
   %104 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i8 0, ptr %104, align 8
-  %.sroa.458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.458.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.458, i64 3, i1 false)
   %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 36
   store i32 309, ptr %.sroa.459.0..sroa_idx, align 4
   %.sroa.560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -11138,7 +11098,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_18ArraySubscriptExprEED2Ev.exit38: ;
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #25
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.451)
   %314 = load ptr, ptr %36, align 8, !tbaa !227
   %.not.i.i.i.i39 = icmp eq ptr %314, null
   br i1 %.not.i.i.i.i39, label %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit40, label %315
@@ -11177,7 +11136,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit40: ; preds = %_ZN5c
 _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit42: ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit40, %324, %328
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.458)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.064)
@@ -13315,12 +13273,8 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer21findRang
   %48 = alloca %"class.clang::ast_matchers::internal::Matcher.132", align 8
   %49 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1745", align 8
   %50 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
-  %.sroa.4736 = alloca [3 x i8], align 1
   %.sroa.0732 = alloca [16 x i8], align 8
-  %.sroa.4726 = alloca [3 x i8], align 1
-  %.sroa.4705 = alloca [3 x i8], align 1
   %.sroa.0701 = alloca [16 x i8], align 8
-  %.sroa.4695 = alloca [3 x i8], align 1
   %.sroa.0681 = alloca [16 x i8], align 8
   %51 = alloca %"class.llvm::SmallVector.758", align 8
   %52 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
@@ -13340,17 +13294,12 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer21findRang
   %64 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %65 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %66 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.1038", align 8
-  %.sroa.8627 = alloca [3 x i8], align 1
-  %.sroa.17634 = alloca [3 x i8], align 1
-  %.sroa.4616 = alloca [3 x i8], align 1
   %67 = alloca %"class.clang::ast_matchers::internal::Matcher.116", align 8
   %68 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.1053", align 8
   %69 = alloca %"class.clang::ast_matchers::internal::Matcher.117", align 8
   %70 = alloca %"class.clang::ast_matchers::internal::Matcher.116", align 8
   %71 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.1059", align 8
   %72 = alloca %"class.clang::ast_matchers::internal::Matcher.117", align 8
-  %.sroa.8566 = alloca [3 x i8], align 1
-  %.sroa.4555 = alloca [3 x i8], align 1
   %73 = alloca %"class.clang::ast_matchers::internal::Matcher.116", align 8
   %74 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.1053", align 8
   %75 = alloca %"class.clang::ast_matchers::internal::Matcher.117", align 8
@@ -13358,12 +13307,8 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer21findRang
   %77 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.1059", align 8
   %78 = alloca %"class.clang::ast_matchers::internal::Matcher.117", align 8
   %79 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
-  %.sroa.4507 = alloca [3 x i8], align 1
   %.sroa.0503 = alloca [16 x i8], align 8
-  %.sroa.4497 = alloca [3 x i8], align 1
-  %.sroa.4476 = alloca [3 x i8], align 1
   %.sroa.0472 = alloca [16 x i8], align 8
-  %.sroa.4466 = alloca [3 x i8], align 1
   %.sroa.0449 = alloca [16 x i8], align 8
   %80 = alloca %"class.clang::ast_matchers::internal::Matcher.231", align 8
   %81 = alloca %"class.llvm::SmallVector.758", align 8
@@ -13387,12 +13332,8 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer21findRang
   %97 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %98 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4736)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0732)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4726)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4705)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0701)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4695)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0681)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48) #25, !noalias !1595
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49) #25, !noalias !1595
@@ -13541,8 +13482,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13ReferenceTypeEEENS1_15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47) #25, !noalias !1629
   call void @llvm.experimental.noalias.scope.decl(metadata !1636)
   store i8 0, ptr %47, align 8, !noalias !1629
-  %.sroa.4695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4695.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4695, i64 3, i1 false), !noalias !1629
   %.sroa.4696.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 498, ptr %.sroa.4696.0..sroa_idx, align 4, !noalias !1629
   %.sroa.5697.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -13622,8 +13561,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_7VarDeclEEENS1_15Bindabl
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1646)
   store i8 0, ptr %192, align 8
-  %.sroa.4705.0..sroa_idx = getelementptr inbounds nuw i8, ptr %190, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4705.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4705, i64 3, i1 false)
   %.sroa.4706.0..sroa_idx = getelementptr inbounds nuw i8, ptr %190, i64 20
   store i32 450, ptr %.sroa.4706.0..sroa_idx, align 4
   %.sroa.5707.0..sroa_idx = getelementptr inbounds nuw i8, ptr %190, i64 24
@@ -13651,8 +13588,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_7VarDeclEEENS1_15Bindabl
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45) #25, !noalias !1655
   call void @llvm.experimental.noalias.scope.decl(metadata !1662)
   store i8 0, ptr %45, align 8, !noalias !1655
-  %.sroa.4726.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4726.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4726, i64 3, i1 false), !noalias !1655
   %.sroa.4727.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 121, ptr %.sroa.4727.0..sroa_idx, align 4, !noalias !1655
   %.sroa.5728.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -13732,8 +13667,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_8DeclStmtEEENS1_15Bindab
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43) #25, !noalias !1681
   call void @llvm.experimental.noalias.scope.decl(metadata !1682)
   store i8 0, ptr %43, align 8, !noalias !1681
-  %.sroa.4736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4736.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4736, i64 3, i1 false), !noalias !1681
   %.sroa.4737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 437, ptr %.sroa.4737.0..sroa_idx, align 4, !noalias !1681
   %.sroa.5738.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -13936,12 +13869,8 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit46: ; preds = %_
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4TypeEED2Ev.exit48: ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit46, %323, %327
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0681)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4695)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0701)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4705)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4726)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0732)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4736)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %51) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0675)
@@ -14858,9 +14787,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4TypeEED2Ev.exit122: ; preds = %_ZN5
 
 .loopexit748:                                     ; preds = %728, %_ZN5clang12ast_matchers8internal7MatcherINS_4TypeEED2Ev.exit122
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %66) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.8627)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.17634)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4616)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %67) #25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %68) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %69) #25
@@ -14962,9 +14888,6 @@ _ZN5clang12ast_matchers9hasMethodERKNS0_8internal7MatcherINS_13CXXMethodDeclEEE.
   %772 = atomicrmw add ptr %764, i32 1 monotonic, align 4, !noalias !1852
   %773 = load i32, ptr @_ZN5clang12ast_matchers6unlessE, align 4, !tbaa !283, !noalias !1855
   %774 = load i32, ptr @_ZN5clang12ast_matchers5allOfE, align 4, !tbaa !249, !noalias !1858
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.17634, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4616, i64 3, i1 false)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.8566)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4555)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %73) #25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %74) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75) #25
@@ -15068,8 +14991,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXRecordDeclEED2Ev.exit: ; preds 
   %817 = atomicrmw add ptr %808, i32 1 monotonic, align 4, !noalias !1891
   %818 = load i32, ptr @_ZN5clang12ast_matchers6unlessE, align 4, !tbaa !283, !noalias !1894
   %819 = load i32, ptr @_ZN5clang12ast_matchers5allOfE, align 4, !tbaa !249, !noalias !1897
-  %.sroa.17.40..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.17.40..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4555, i64 3, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !1900)
   %820 = load i32, ptr @_ZN5clang12ast_matchers5anyOfE, align 4, !tbaa !249, !noalias !1900
   store i32 %820, ptr %66, align 8, !tbaa !1903, !alias.scope !1900
@@ -15079,8 +15000,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXRecordDeclEED2Ev.exit: ; preds 
   store i32 %818, ptr %822, align 8, !tbaa !1921, !alias.scope !1900
   %823 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store i8 0, ptr %823, align 8
-  %.sroa.8566.16..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8566.16..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8566, i64 3, i1 false)
   %.sroa.9567.16..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 28
   store i32 142, ptr %.sroa.9567.16..sroa_idx, align 4
   %.sroa.10.16..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 32
@@ -15101,8 +15020,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXRecordDeclEED2Ev.exit: ; preds 
   store i32 %773, ptr %828, align 8, !tbaa !1921, !alias.scope !1900
   %829 = getelementptr inbounds nuw i8, ptr %66, i64 88
   store i8 0, ptr %829, align 8
-  %.sroa.8627.16..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8627.16..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8627, i64 3, i1 false)
   %.sroa.9628.16..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 92
   store i32 142, ptr %.sroa.9628.16..sroa_idx, align 4
   %.sroa.10629.16..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 96
@@ -15111,8 +15028,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXRecordDeclEED2Ev.exit: ; preds 
   store ptr %763, ptr %830, align 8, !tbaa !227, !alias.scope !1900
   %831 = getelementptr inbounds nuw i8, ptr %66, i64 112
   store i8 0, ptr %831, align 8
-  %.sroa.17634.40..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.17634.40..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.17634, i64 3, i1 false)
   %.sroa.18635.40..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 116
   store i32 142, ptr %.sroa.18635.40..sroa_idx, align 4
   %.sroa.19636.40..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 120
@@ -15268,8 +15183,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXRecordDeclEED2Ev.exit158: ; pre
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75) #25
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %74) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %73) #25
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4555)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.8566)
   %904 = load ptr, ptr %767, align 8, !tbaa !227
   %.not.i.i.i.i159 = icmp eq ptr %904, null
   br i1 %.not.i.i.i.i159, label %_ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit160, label %905
@@ -15420,16 +15333,9 @@ _ZN5clang12ast_matchers8internal7MatcherINS_9NamedDeclEED2Ev.exit182: ; preds = 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %69) #25
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %68) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67) #25
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4616)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.8627)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.17634)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %79) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4507)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0503)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4497)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4476)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0472)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4466)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0449)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %80) #25
   call void @_ZNKR5clang12ast_matchers8internal23VariadicOperatorMatcherIJNS2_IJNS1_7MatcherINS_13CXXRecordDeclEEENS2_IJS5_EEEEEES7_EEcvNS3_IT_EEIS4_EEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::Matcher.231") align 8 %80, ptr noundef nonnull align 8 dereferenceable(136) %66)
@@ -15548,8 +15454,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_13ReferenceTypeEEENS1_15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27) #25, !noalias !1959
   call void @llvm.experimental.noalias.scope.decl(metadata !1966)
   store i8 0, ptr %27, align 8, !noalias !1959
-  %.sroa.4466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4466.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4466, i64 3, i1 false), !noalias !1959
   %.sroa.4467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 498, ptr %.sroa.4467.0..sroa_idx, align 4, !noalias !1959
   %.sroa.5468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -15629,8 +15533,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_7VarDeclEEENS1_15Bindabl
   %1055 = getelementptr inbounds nuw i8, ptr %1053, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1976)
   store i8 0, ptr %1055, align 8
-  %.sroa.4476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1053, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4476.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4476, i64 3, i1 false)
   %.sroa.4477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1053, i64 20
   store i32 450, ptr %.sroa.4477.0..sroa_idx, align 4
   %.sroa.5478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1053, i64 24
@@ -15658,8 +15560,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_7VarDeclEEENS1_15Bindabl
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #25, !noalias !1985
   call void @llvm.experimental.noalias.scope.decl(metadata !1992)
   store i8 0, ptr %25, align 8, !noalias !1985
-  %.sroa.4497.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4497.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4497, i64 3, i1 false), !noalias !1985
   %.sroa.4498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 121, ptr %.sroa.4498.0..sroa_idx, align 4, !noalias !1985
   %.sroa.5499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -15739,8 +15639,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_8DeclStmtEEENS1_15Bindab
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #25, !noalias !2011
   call void @llvm.experimental.noalias.scope.decl(metadata !2012)
   store i8 0, ptr %23, align 8, !noalias !2011
-  %.sroa.4507.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4507.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4507, i64 3, i1 false), !noalias !2011
   %.sroa.4508.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 437, ptr %.sroa.4508.0..sroa_idx, align 4, !noalias !2011
   %.sroa.5509.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -15974,12 +15872,8 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit257: ; preds = %_ZN5
 _ZN5clang12ast_matchers8internal7MatcherINS_13CXXRecordDeclEED2Ev.exit259: ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit257, %1202, %1206
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0449)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4466)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0472)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4476)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4497)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0503)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4507)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %81) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %83) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0443)
@@ -17403,7 +17297,6 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer21findRefe
   %39 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %40 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %41 = alloca %"class.llvm::SmallVector.758", align 8
-  %.sroa.4216 = alloca [3 x i8], align 1
   %.sroa.0212 = alloca [16 x i8], align 8
   %42 = alloca %"class.clang::ast_matchers::internal::Matcher.69", align 8
   %43 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.772", align 8
@@ -17412,7 +17305,6 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer21findRefe
   %46 = alloca %"class.clang::ast_matchers::internal::Matcher.88", align 8
   %47 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %48 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.947", align 8
-  %.sroa.4193 = alloca [3 x i8], align 1
   %.sroa.0189 = alloca [16 x i8], align 8
   %.sroa.0179 = alloca [16 x i8], align 8
   %49 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
@@ -17422,7 +17314,6 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer21findRefe
   %.sroa.0176 = alloca [16 x i8], align 8
   %53 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.916", align 8
   %.sroa.0168 = alloca [16 x i8], align 8
-  %.sroa.4162 = alloca [3 x i8], align 1
   %.sroa.0155 = alloca [16 x i8], align 8
   %54 = alloca %"class.clang::ast_matchers::internal::PolymorphicMatcher.1074", align 8
   %55 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18091,7 +17982,6 @@ _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_32HasOverloadedOperator
 
 344:                                              ; preds = %_ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_32HasOverloadedOperatorNameMatcherEFvNS1_8TypeListIJNS_19CXXOperatorCallExprENS_12FunctionDeclEEEEEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %41) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4216)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0212)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43) #25
@@ -18145,7 +18035,6 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Matc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47) #25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %48) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4193)
   %365 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26, !noalias !2264
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store i32 0, ptr %366, align 4, !tbaa !231, !noalias !2264
@@ -18271,8 +18160,6 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   store ptr %392, ptr %414, align 8, !tbaa !227, !alias.scope !2294
   %415 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store i8 0, ptr %415, align 8
-  %.sroa.4193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4193.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4193, i64 3, i1 false)
   %.sroa.4194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 36
   store i32 176, ptr %.sroa.4194.0..sroa_idx, align 4
   %.sroa.5195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -18499,7 +18386,6 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
 _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_15CXXForRangeStmtEEENS1_15BindableMatcherIT_EEN4llvm8ArrayRefIPKNS1_7MatcherIS5_EEEE.exit.i: ; preds = %_ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9StringRefE.exit53, %504
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0168)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4162)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0155)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55) #25
@@ -18635,8 +18521,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_8DeclStmtEEENS1_15Bindab
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #25, !noalias !2369
   call void @llvm.experimental.noalias.scope.decl(metadata !2376)
   store i8 0, ptr %10, align 8, !noalias !2369
-  %.sroa.4162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4162.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4162, i64 3, i1 false), !noalias !2369
   %.sroa.4163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 437, ptr %.sroa.4163.0..sroa_idx, align 4, !noalias !2369
   %.sroa.5164.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -18805,12 +18689,10 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_24ForEachDesc
 
 _ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEEC2ERKS4_.exit.i: ; preds = %_ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_24ForEachDescendantMatcherENS1_8TypeListIJNS_4DeclENS_4StmtENS_19NestedNameSpecifierENS_22NestedNameSpecifierLocENS_8QualTypeENS_4TypeENS_7TypeLocENS_18CXXCtorInitializerENS_4AttrEEEENS4_IJS5_S6_S7_S8_SB_S9_SD_EEEEclIS5_EENS1_34ArgumentAdaptingMatcherFuncAdaptorIS3_T_SF_EERKNS1_7MatcherISJ_EE.exit, %629
   %632 = atomicrmw add ptr %626, i32 1 monotonic, align 4, !noalias !2404
-  %.sroa.2223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.2223.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4216, i64 3, i1 false)
   %633 = atomicrmw add ptr %626, i32 1 monotonic, align 4, !noalias !2411
   %634 = load ptr, ptr %0, align 8, !tbaa !1087
   %635 = load ptr, ptr %170, align 8, !tbaa !218
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store i8 0, ptr %5, align 8, !noalias !2416
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 176, ptr %.sroa.3.0..sroa_idx, align 4, !noalias !2416
@@ -19058,7 +18940,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %54) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0155)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4162)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0168)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53) #25
   %750 = load ptr, ptr %501, align 8, !tbaa !227
@@ -19256,7 +19137,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit124: ; preds = %840,
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0179)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0189)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4193)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %48) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46) #25
@@ -19325,7 +19205,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4TypeEED2Ev.exit131: ; preds = %_ZN5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0212)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4216)
   %874 = load ptr, ptr %41, align 8, !tbaa !45
   %875 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %876 = load i32, ptr %875, align 8, !tbaa !47
@@ -21188,10 +21067,8 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer14tryEachD
   %15 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %16 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %.sroa.075 = alloca [16 x i8], align 8
-  %.sroa.469 = alloca [3 x i8], align 1
   %17 = alloca %"class.clang::ast_matchers::internal::Matcher.69", align 8
   %18 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.767", align 8
-  %.sroa.462 = alloca [3 x i8], align 1
   %.sroa.058 = alloca [16 x i8], align 8
   %19 = alloca %"class.clang::ast_matchers::internal::Matcher.194", align 8
   %20 = alloca %"class.clang::ast_matchers::internal::Matcher.69", align 8
@@ -21199,10 +21076,8 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer14tryEachD
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.075)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.469)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.462)
   %21 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26, !noalias !2621
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 0, ptr %22, align 4, !tbaa !231, !noalias !2621
@@ -21318,8 +21193,6 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4De
   store ptr %45, ptr %67, align 8, !tbaa !227, !alias.scope !2651
   %68 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i8 0, ptr %68, align 8
-  %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.462.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.462, i64 3, i1 false)
   %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 36
   store i32 77, ptr %.sroa.463.0..sroa_idx, align 4
   %.sroa.564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -21351,8 +21224,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_11DeclRefExprEEENS1_15Bi
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #25, !noalias !2667
   call void @llvm.experimental.noalias.scope.decl(metadata !2674)
   store i8 0, ptr %11, align 8, !noalias !2667
-  %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.469.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.469, i64 3, i1 false), !noalias !2667
   %.sroa.470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 253, ptr %.sroa.470.0..sroa_idx, align 4, !noalias !2667
   %.sroa.571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -21731,10 +21602,8 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit54: ; preds = %247, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.058)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.462)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #25
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.469)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.075)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #25
   %251 = load ptr, ptr %14, align 8, !tbaa !45
@@ -21912,7 +21781,6 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_31matcher_hasOperatorN
   %8 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %9 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1643", align 8
   %10 = alloca %"class.llvm::SmallVector.758", align 8
-  %.sroa.457 = alloca [3 x i8], align 1
   %.sroa.053 = alloca [16 x i8], align 8
   %11 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %.sroa.050 = alloca [16 x i8], align 8
@@ -21929,7 +21797,6 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_31matcher_hasOperatorN
   %21 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %22 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.457)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.053)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.050)
@@ -22284,13 +22151,11 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_24ForEachDesc
 
 _ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEEC2ERKS4_.exit.i: ; preds = %_ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_24ForEachDescendantMatcherENS1_8TypeListIJNS_4DeclENS_4StmtENS_19NestedNameSpecifierENS_22NestedNameSpecifierLocENS_8QualTypeENS_4TypeENS_7TypeLocENS_18CXXCtorInitializerENS_4AttrEEEENS4_IJS5_S6_S7_S8_SB_S9_SD_EEEEclIS6_EENS1_34ArgumentAdaptingMatcherFuncAdaptorIS3_T_SF_EERKNS1_7MatcherISJ_EE.exit, %163
   %166 = atomicrmw add ptr %160, i32 1 monotonic, align 4, !noalias !2784
-  %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.264.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.457, i64 3, i1 false)
   %167 = atomicrmw add ptr %160, i32 1 monotonic, align 4, !noalias !2791
   %168 = load ptr, ptr %0, align 8, !tbaa !1087
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !218
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store i8 0, ptr %2, align 8, !noalias !2796
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 176, ptr %.sroa.3.0..sroa_idx, align 4, !noalias !2796
@@ -22642,7 +22507,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.050)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.053)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.457)
   %330 = load ptr, ptr %10, align 8, !tbaa !45
   %331 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %332 = load i32, ptr %331, align 8, !tbaa !47
@@ -22699,7 +22563,6 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer25findPoin
   %11 = alloca %"class.std::optional.1463", align 8
   %12 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %13 = alloca %"class.llvm::SmallVector.758", align 8
-  %.sroa.4109 = alloca [3 x i8], align 1
   %.sroa.0105 = alloca [16 x i8], align 8
   %14 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %15 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
@@ -22708,7 +22571,6 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer25findPoin
   %18 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %19 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.872", align 8
   %20 = alloca %"class.llvm::SmallVector.758", align 8
-  %.sroa.485 = alloca [3 x i8], align 1
   %.sroa.081 = alloca [16 x i8], align 8
   %21 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %.sroa.078 = alloca [16 x i8], align 8
@@ -22716,7 +22578,6 @@ define dso_local noundef ptr @_ZN5clang20ExprMutationAnalyzer8Analyzer25findPoin
   %22 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %23 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4109)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0105)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #25
@@ -22884,13 +22745,11 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_24ForEachDesc
 
 _ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEEC2ERKS4_.exit.i: ; preds = %_ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_24ForEachDescendantMatcherENS1_8TypeListIJNS_4DeclENS_4StmtENS_19NestedNameSpecifierENS_22NestedNameSpecifierLocENS_8QualTypeENS_4TypeENS_7TypeLocENS_18CXXCtorInitializerENS_4AttrEEEENS4_IJS5_S6_S7_S8_SB_S9_SD_EEEEclIS6_EENS1_34ArgumentAdaptingMatcherFuncAdaptorIS3_T_SF_EERKNS1_7MatcherISJ_EE.exit, %88
   %91 = atomicrmw add ptr %85, i32 1 monotonic, align 4, !noalias !2846
-  %.sroa.2116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.2116.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4109, i64 3, i1 false)
   %92 = atomicrmw add ptr %85, i32 1 monotonic, align 4, !noalias !2853
   %93 = load ptr, ptr %0, align 8, !tbaa !1087
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !218
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store i8 0, ptr %9, align 8, !noalias !2858
   %.sroa.3117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 176, ptr %.sroa.3117.0..sroa_idx, align 4, !noalias !2858
@@ -23135,14 +22994,12 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit25: ; preds = %_ZN5c
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0105)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4109)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #25
   %.not = icmp eq ptr %spec.select.i125, null
   br i1 %.not, label %200, label %386
 
 200:                                              ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.485)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.081)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.078)
@@ -23348,12 +23205,10 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_24ForEachDesc
 
 _ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEEC2ERKS4_.exit.i43: ; preds = %_ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_24ForEachDescendantMatcherENS1_8TypeListIJNS_4DeclENS_4StmtENS_19NestedNameSpecifierENS_22NestedNameSpecifierLocENS_8QualTypeENS_4TypeENS_7TypeLocENS_18CXXCtorInitializerENS_4AttrEEEENS4_IJS5_S6_S7_S8_SB_S9_SD_EEEEclIS6_EENS1_34ArgumentAdaptingMatcherFuncAdaptorIS3_T_SF_EERKNS1_7MatcherISJ_EE.exit37, %280
   %283 = atomicrmw add ptr %277, i32 1 monotonic, align 4, !noalias !2909
-  %.sroa.292.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.292.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.485, i64 3, i1 false)
   %284 = atomicrmw add ptr %277, i32 1 monotonic, align 4, !noalias !2916
   %285 = load ptr, ptr %0, align 8, !tbaa !1087
   %286 = load ptr, ptr %94, align 8, !tbaa !218
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store i8 0, ptr %3, align 8, !noalias !2921
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 176, ptr %.sroa.3.0..sroa_idx, align 4, !noalias !2921
@@ -23534,7 +23389,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit61: ; preds = %_ZN5c
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.078)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.081)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.485)
   %370 = load ptr, ptr %20, align 8, !tbaa !45
   %371 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %372 = load i32, ptr %371, align 8, !tbaa !47
@@ -26622,7 +26476,6 @@ define dso_local noundef zeroext i1 @_ZN5clang20ExprMutationAnalyzer13isUnevalua
   %33 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.813", align 8
   %34 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
   %35 = alloca %"class.clang::ast_matchers::internal::Matcher.812", align 8
-  %.sroa.4142 = alloca [3 x i8], align 1
   %.sroa.0138 = alloca [16 x i8], align 8
   %.sroa.0135 = alloca [16 x i8], align 8
   %36 = alloca %"class.clang::ast_matchers::internal::Matcher.819", align 8
@@ -26784,7 +26637,6 @@ _ZNK5clang12ast_matchers8internal27ArgumentAdaptingMatcherFuncINS1_18HasAncestor
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4142)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0138)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #25, !noalias !3387
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #25, !noalias !3387
@@ -26916,8 +26768,6 @@ _ZN5clang12ast_matchers17hasArgumentOfTypeERKNS0_8internal7MatcherINS_8QualTypeE
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang12ast_matchers8internal33matcher_hasArgumentOfType0MatcherE, i64 16), ptr %146, align 8, !tbaa !131, !noalias !3402
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store i8 0, ptr %148, align 8, !noalias !3402
-  %.sroa.4142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4142.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4142, i64 3, i1 false), !noalias !3402
   %.sroa.4143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 20
   store i32 6, ptr %.sroa.4143.0..sroa_idx, align 4, !noalias !3402
   %.sroa.5144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %146, i64 24
@@ -27858,7 +27708,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit: ; preds = %_ZN
 
 _ZN5clang12ast_matchers8internal34ArgumentAdaptingMatcherFuncAdaptorINS1_18HasAncestorMatcherENS_7TypeLocENS1_8TypeListIJNS_4DeclENS_22NestedNameSpecifierLocENS_4StmtES4_NS_4AttrEEEEED2Ev.exit: ; preds = %557, %553, %_ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0138)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4142)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #25
@@ -28281,10 +28130,10 @@ define linkonce_odr hidden void @_ZNO5clang12ast_matchers8internal23VariadicOper
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !3568, !alias.scope !3572
   store i8 0, ptr %18, align 8, !noalias !3572
-  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 73, ptr %.sroa.5.0..sroa_idx7.i, align 4, !noalias !3572
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 73, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !3572
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 73, ptr %.sroa.46.0..sroa_idx.i, align 4, !noalias !3572
+  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 73, ptr %.sroa.5.0..sroa_idx7.i, align 8, !noalias !3572
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %7, ptr %21, align 8, !tbaa !227, !noalias !3572
   %22 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !3572
@@ -31126,8 +30975,6 @@ define internal fastcc void @"_ZNK5clang12_GLOBAL__N_13$_4clEv"(ptr dead_on_unwi
   %10 = alloca %"class.clang::ast_matchers::internal::Matcher.116", align 8
   %11 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.1272", align 8
   %12 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.1276", align 8
-  %.sroa.628 = alloca [3 x i8], align 1
-  %.sroa.419 = alloca [3 x i8], align 1
   %13 = alloca %"class.clang::ast_matchers::internal::Matcher.116", align 8
   %14 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.772", align 8
   %15 = alloca %"class.clang::ast_matchers::internal::Matcher.1271", align 8
@@ -31269,8 +31116,6 @@ _ZN5clang12ast_matchers9hasMethodERKNS0_8internal7MatcherINS_13CXXMethodDeclEEE.
   store ptr %58, ptr %69, align 8, !tbaa !227, !alias.scope !3805
   %70 = atomicrmw add ptr %59, i32 1 monotonic, align 4, !noalias !3805
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.628)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.419)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #25
@@ -31384,8 +31229,6 @@ _ZN5clang12ast_matchers9hasMethodERKNS0_8internal7MatcherINS_13CXXMethodDeclEEE.
 _ZN5clang12ast_matchers9hasMethodERKNS0_8internal7MatcherINS_13CXXMethodDeclEEE.exit6: ; preds = %_ZN5clang12ast_matchers9hasMethodERKNS0_8internal7MatcherINS_13CXXMethodDeclEEE.exit4, %111
   %114 = atomicrmw add ptr %106, i32 1 monotonic, align 4, !noalias !3847
   %115 = load i32, ptr @_ZN5clang12ast_matchers5anyOfE, align 4, !tbaa !249, !noalias !3850
-  %.sroa.15.32..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.15.32..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.419, i64 3, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !3853)
   %116 = load i32, ptr @_ZN5clang12ast_matchers6unlessE, align 4, !tbaa !283, !noalias !3853
   store i32 %116, ptr %12, align 8, !tbaa !3856, !alias.scope !3853
@@ -31393,8 +31236,6 @@ _ZN5clang12ast_matchers9hasMethodERKNS0_8internal7MatcherINS_13CXXMethodDeclEEE.
   store i32 %115, ptr %117, align 8, !tbaa !3866, !alias.scope !3853
   %118 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i8 0, ptr %118, align 8
-  %.sroa.628.8..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.628.8..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.628, i64 3, i1 false)
   %.sroa.7.8..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 142, ptr %.sroa.7.8..sroa_idx, align 4
   %.sroa.8.8..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -31600,8 +31441,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_18CXXConstructorDeclEED2Ev.exit: ; p
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #25
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.419)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.628)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #25
   %214 = load ptr, ptr %69, align 8, !tbaa !227
   %.not.i.i.i.i24 = icmp eq ptr %214, null
@@ -50675,10 +50514,10 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !3568, !alias.scope !4886
   store i8 0, ptr %18, align 8, !noalias !4886
-  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 182, ptr %.sroa.5.0..sroa_idx7.i, align 4, !noalias !4886
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 182, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !4886
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 182, ptr %.sroa.46.0..sroa_idx.i, align 4, !noalias !4886
+  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 182, ptr %.sroa.5.0..sroa_idx7.i, align 8, !noalias !4886
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %7, ptr %21, align 8, !tbaa !227, !noalias !4886
   %22 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !4886
@@ -50878,10 +50717,10 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !3568, !alias.scope !4903
   store i8 0, ptr %18, align 8, !noalias !4903
-  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 262, ptr %.sroa.5.0..sroa_idx7.i, align 4, !noalias !4903
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 262, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !4903
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 262, ptr %.sroa.46.0..sroa_idx.i, align 4, !noalias !4903
+  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 262, ptr %.sroa.5.0..sroa_idx7.i, align 8, !noalias !4903
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %7, ptr %21, align 8, !tbaa !227, !noalias !4903
   %22 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !4903
@@ -51818,10 +51657,10 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !3568, !alias.scope !4943
   store i8 0, ptr %18, align 8, !noalias !4943
-  %.sroa.5.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 275, ptr %.sroa.5.0..sroa_idx6.i, align 4, !noalias !4943
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 275, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !4943
+  %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 275, ptr %.sroa.45.0..sroa_idx.i, align 4, !noalias !4943
+  %.sroa.5.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 275, ptr %.sroa.5.0..sroa_idx6.i, align 8, !noalias !4943
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %7, ptr %21, align 8, !tbaa !227, !noalias !4943
   %22 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !4943
@@ -52024,7 +51863,6 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal44match
   %23 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
   %24 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
   %25 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
-  %.sroa.4289 = alloca [3 x i8], align 1
   %.sroa.0282 = alloca [16 x i8], align 8
   %26 = alloca %"class.clang::ast_matchers::internal::Matcher.116", align 8
   %27 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.856", align 8
@@ -52034,11 +51872,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal44match
   %31 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %32 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.897", align 8
   %.sroa.0255 = alloca [16 x i8], align 8
-  %.sroa.4249 = alloca [3 x i8], align 1
   %.sroa.0242 = alloca [16 x i8], align 8
   %.sroa.0216 = alloca [16 x i8], align 8
   %.sroa.0213 = alloca [16 x i8], align 8
-  %.sroa.4207 = alloca [3 x i8], align 1
   %.sroa.0200 = alloca [16 x i8], align 8
   %.sroa.0 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23) #25
@@ -52056,7 +51892,6 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal44match
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 1, ptr %38, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4289)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0282)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #25
@@ -52174,8 +52009,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_19CXXOperatorCallExprEEE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #25, !noalias !4988
   call void @llvm.experimental.noalias.scope.decl(metadata !4989)
   store i8 0, ptr %20, align 8, !noalias !4988
-  %.sroa.4289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4289.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4289, i64 3, i1 false), !noalias !4988
   %.sroa.4290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 277, ptr %.sroa.4290.0..sroa_idx, align 4, !noalias !4988
   %.sroa.5291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -52340,7 +52173,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0282)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4289)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #25
   %160 = load i32, ptr %1, align 8
   %161 = lshr i32 %160, 24
@@ -52593,7 +52425,6 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit71: ; preds = %223, %23
   %.sroa.5238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   %306 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %307 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.4249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 1
   %.sroa.4250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.5251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %308 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -52602,7 +52433,6 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit71: ; preds = %223, %23
   %.sroa.5196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %310 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %311 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.4207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 1
   %.sroa.4208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.5209.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %312 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -52697,7 +52527,6 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit73: ; preds 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31) #25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0255)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4249)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0242)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0216)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0216, ptr noundef nonnull align 8 dereferenceable(12) %303, i64 12, i1 false)
@@ -52831,7 +52660,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_16CXXConstructExprEEENS1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #25, !noalias !5049
   call void @llvm.experimental.noalias.scope.decl(metadata !5056)
   store i8 0, ptr %13, align 8, !noalias !5049
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4249.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4249, i64 3, i1 false), !noalias !5049
   store i32 299, ptr %.sroa.4250.0..sroa_idx, align 4, !noalias !5049
   store i32 299, ptr %.sroa.5251.0..sroa_idx, align 8, !noalias !5049
   store ptr %399, ptr %308, align 8, !tbaa !227, !alias.scope !5056, !noalias !5049
@@ -52884,7 +52712,6 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #25, !noalias !5049
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #25, !noalias !5049
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0213)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4207)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0200)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(12) %303, i64 12, i1 false)
@@ -53016,7 +52843,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_8CallExprEEENS1_15Bindab
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #25, !noalias !5092
   call void @llvm.experimental.noalias.scope.decl(metadata !5099)
   store i8 0, ptr %9, align 8, !noalias !5092
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4207.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4207, i64 3, i1 false), !noalias !5092
   store i32 275, ptr %.sroa.4208.0..sroa_idx, align 4, !noalias !5092
   store i32 275, ptr %.sroa.5209.0..sroa_idx, align 8, !noalias !5092
   store ptr %472, ptr %312, align 8, !tbaa !227, !alias.scope !5099, !noalias !5092
@@ -53316,7 +53142,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_11ParmVarDeclEED2Ev.exit: ; preds = 
 611:                                              ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_11ParmVarDeclEED2Ev.exit, %603, %607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0200)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4207)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0213)
   %612 = atomicrmw sub ptr %400, i32 1 acq_rel, align 4
   %613 = icmp eq i32 %612, 1
@@ -53412,7 +53237,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_11ParmVarDeclEED2Ev.exit150: ; preds
 _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0MatcherEFvNS1_8TypeListIJNS_4ExprENS_10FriendDeclENS_15TypedefNameDeclENS_9ValueDeclENS_16CXXBaseSpecifierEEEEEJNS1_7MatcherINS_8QualTypeEEEEED2Ev.exit152: ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_11ParmVarDeclEED2Ev.exit150, %651, %655
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0216)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0242)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4249)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0255)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #25
@@ -53869,10 +53693,10 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !3568, !alias.scope !5153
   store i8 0, ptr %18, align 8, !noalias !5153
-  %.sroa.5.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 299, ptr %.sroa.5.0..sroa_idx6.i, align 4, !noalias !5153
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 299, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !5153
+  %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 299, ptr %.sroa.45.0..sroa_idx.i, align 4, !noalias !5153
+  %.sroa.5.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 299, ptr %.sroa.5.0..sroa_idx6.i, align 8, !noalias !5153
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %7, ptr %21, align 8, !tbaa !227, !noalias !5153
   %22 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !5153
@@ -54312,7 +54136,6 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal44match
   %23 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
   %24 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
   %25 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
-  %.sroa.4290 = alloca [3 x i8], align 1
   %.sroa.0283 = alloca [16 x i8], align 8
   %26 = alloca %"class.clang::ast_matchers::internal::Matcher.116", align 8
   %27 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.856", align 8
@@ -54322,11 +54145,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal44match
   %31 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %32 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.897", align 8
   %.sroa.0256 = alloca [16 x i8], align 8
-  %.sroa.4250 = alloca [3 x i8], align 1
   %.sroa.0243 = alloca [16 x i8], align 8
   %.sroa.0217 = alloca [16 x i8], align 8
   %.sroa.0214 = alloca [16 x i8], align 8
-  %.sroa.4208 = alloca [3 x i8], align 1
   %.sroa.0201 = alloca [16 x i8], align 8
   %.sroa.0 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23) #25
@@ -54344,7 +54165,6 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal44match
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 1, ptr %38, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4290)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0283)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #25
@@ -54462,8 +54282,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_19CXXOperatorCallExprEEE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #25, !noalias !5205
   call void @llvm.experimental.noalias.scope.decl(metadata !5206)
   store i8 0, ptr %20, align 8, !noalias !5205
-  %.sroa.4290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4290.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4290, i64 3, i1 false), !noalias !5205
   %.sroa.4291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 277, ptr %.sroa.4291.0..sroa_idx, align 4, !noalias !5205
   %.sroa.5292.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -54628,7 +54446,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit51: ; pred
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0283)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4290)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #25
   %159 = load i16, ptr %1, align 8
   %160 = and i16 %159, 511
@@ -54888,7 +54705,6 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit71: ; preds = %226, %24
   %.sroa.5239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   %310 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %311 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.4250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 1
   %.sroa.4251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.5252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %312 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -54897,7 +54713,6 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit71: ; preds = %226, %24
   %.sroa.5197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %314 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %315 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.4208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 1
   %.sroa.4209.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.5210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %316 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -54990,7 +54805,6 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit74: ; preds 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31) #25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0256)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4250)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0243)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0217)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0217, ptr noundef nonnull align 8 dereferenceable(12) %307, i64 12, i1 false)
@@ -55124,7 +54938,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_16CXXConstructExprEEENS1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #25, !noalias !5263
   call void @llvm.experimental.noalias.scope.decl(metadata !5270)
   store i8 0, ptr %13, align 8, !noalias !5263
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4250.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4250, i64 3, i1 false), !noalias !5263
   store i32 299, ptr %.sroa.4251.0..sroa_idx, align 4, !noalias !5263
   store i32 299, ptr %.sroa.5252.0..sroa_idx, align 8, !noalias !5263
   store ptr %399, ptr %312, align 8, !tbaa !227, !alias.scope !5270, !noalias !5263
@@ -55177,7 +54990,6 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #25, !noalias !5263
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #25, !noalias !5263
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0214)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4208)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0201)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(12) %307, i64 12, i1 false)
@@ -55309,7 +55121,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_8CallExprEEENS1_15Bindab
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #25, !noalias !5303
   call void @llvm.experimental.noalias.scope.decl(metadata !5310)
   store i8 0, ptr %9, align 8, !noalias !5303
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4208.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4208, i64 3, i1 false), !noalias !5303
   store i32 275, ptr %.sroa.4209.0..sroa_idx, align 4, !noalias !5303
   store i32 275, ptr %.sroa.5210.0..sroa_idx, align 8, !noalias !5303
   store ptr %472, ptr %316, align 8, !tbaa !227, !alias.scope !5310, !noalias !5303
@@ -55609,7 +55420,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_11ParmVarDeclEED2Ev.exit: ; preds = 
 611:                                              ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_11ParmVarDeclEED2Ev.exit, %603, %607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0201)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4208)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0214)
   %612 = atomicrmw sub ptr %400, i32 1 acq_rel, align 4
   %613 = icmp eq i32 %612, 1
@@ -55705,7 +55515,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_11ParmVarDeclEED2Ev.exit151: ; preds
 _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0MatcherEFvNS1_8TypeListIJNS_4ExprENS_10FriendDeclENS_15TypedefNameDeclENS_9ValueDeclENS_16CXXBaseSpecifierEEEEEJNS1_7MatcherINS_8QualTypeEEEEED2Ev.exit153: ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_11ParmVarDeclEED2Ev.exit151, %651, %655
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0217)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0243)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4250)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0256)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #25
@@ -60904,10 +60713,10 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !3568, !alias.scope !5614
   store i8 0, ptr %18, align 8, !noalias !5614
-  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 121, ptr %.sroa.5.0..sroa_idx7.i, align 4, !noalias !5614
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 121, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !5614
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 121, ptr %.sroa.46.0..sroa_idx.i, align 4, !noalias !5614
+  %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 121, ptr %.sroa.5.0..sroa_idx7.i, align 8, !noalias !5614
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %7, ptr %21, align 8, !tbaa !227, !noalias !5614
   %22 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !5614
@@ -61254,10 +61063,10 @@ define linkonce_odr hidden void @_ZNKR5clang12ast_matchers8internal23VariadicOpe
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !3568, !alias.scope !5643
   store i8 0, ptr %18, align 8, !noalias !5643
-  %.sroa.5.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 275, ptr %.sroa.5.0..sroa_idx6.i, align 4, !noalias !5643
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 275, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !5643
+  %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 275, ptr %.sroa.45.0..sroa_idx.i, align 4, !noalias !5643
+  %.sroa.5.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 275, ptr %.sroa.5.0..sroa_idx6.i, align 8, !noalias !5643
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %7, ptr %21, align 8, !tbaa !227, !noalias !5643
   %22 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !5643
@@ -61459,7 +61268,6 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal40match
   %22 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
   %23 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
   %24 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
-  %.sroa.4191 = alloca [3 x i8], align 1
   %.sroa.0184 = alloca [16 x i8], align 8
   %25 = alloca %"class.clang::ast_matchers::internal::Matcher.116", align 8
   %26 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.856", align 8
@@ -61469,11 +61277,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal40match
   %30 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %31 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.897", align 8
   %.sroa.0174 = alloca [16 x i8], align 8
-  %.sroa.4168 = alloca [3 x i8], align 1
   %.sroa.0161 = alloca [16 x i8], align 8
   %.sroa.0149 = alloca [16 x i8], align 8
   %.sroa.0145 = alloca [16 x i8], align 8
-  %.sroa.4139 = alloca [3 x i8], align 1
   %.sroa.0132 = alloca [16 x i8], align 8
   %.sroa.0 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #25
@@ -61491,7 +61297,6 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal40match
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 1, ptr %37, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4191)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0184)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #25
@@ -61609,8 +61414,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_19CXXOperatorCallExprEEE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #25, !noalias !5684
   call void @llvm.experimental.noalias.scope.decl(metadata !5685)
   store i8 0, ptr %19, align 8, !noalias !5684
-  %.sroa.4191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4191.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4191, i64 3, i1 false), !noalias !5684
   %.sroa.4192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 277, ptr %.sroa.4192.0..sroa_idx, align 4, !noalias !5684
   %.sroa.5193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -61775,7 +61578,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit29: ; pred
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0184)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4191)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #25
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -61799,7 +61601,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit29: ; pred
   %.sroa.5157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   %172 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %173 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.4168.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 1
   %.sroa.4169.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.5170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %174 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -61808,7 +61609,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit29: ; pred
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %176 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %177 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.4139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 1
   %.sroa.4140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.5141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %178 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -61881,7 +61681,6 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit31: ; preds 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %31) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0174)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4168)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0161)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0149)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0149, ptr noundef nonnull align 8 dereferenceable(12) %170, i64 12, i1 false)
@@ -61999,7 +61798,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_16CXXConstructExprEEENS1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #25, !noalias !5730
   call void @llvm.experimental.noalias.scope.decl(metadata !5737)
   store i8 0, ptr %13, align 8, !noalias !5730
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4168.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4168, i64 3, i1 false), !noalias !5730
   store i32 299, ptr %.sroa.4169.0..sroa_idx, align 4, !noalias !5730
   store i32 299, ptr %.sroa.5170.0..sroa_idx, align 8, !noalias !5730
   store ptr %247, ptr %174, align 8, !tbaa !227, !alias.scope !5737, !noalias !5730
@@ -62052,7 +61850,6 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #25, !noalias !5730
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #25, !noalias !5730
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0145)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4139)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0132)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(12) %170, i64 12, i1 false)
@@ -62169,7 +61966,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_8CallExprEEENS1_15Bindab
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #25, !noalias !5764
   call void @llvm.experimental.noalias.scope.decl(metadata !5771)
   store i8 0, ptr %9, align 8, !noalias !5764
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4139.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4139, i64 3, i1 false), !noalias !5764
   store i32 275, ptr %.sroa.4140.0..sroa_idx, align 4, !noalias !5764
   store i32 275, ptr %.sroa.5141.0..sroa_idx, align 8, !noalias !5764
   store ptr %313, ptr %178, align 8, !tbaa !227, !alias.scope !5771, !noalias !5764
@@ -62445,7 +62241,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_12FunctionDeclEED2Ev.exit: ; preds =
 440:                                              ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_12FunctionDeclEED2Ev.exit, %432, %436
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0132)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4139)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0145)
   %441 = atomicrmw sub ptr %248, i32 1 acq_rel, align 4
   %442 = icmp eq i32 %441, 1
@@ -62517,7 +62312,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_18CXXConstructorDeclEED2Ev.exit: ; p
 _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_28matcher_hasParameter0MatcherEFvNS1_8TypeListIJNS_12FunctionDeclENS_14ObjCMethodDeclENS_9BlockDeclEEEEEJjNS1_7MatcherINS_11ParmVarDeclEEEEED2Ev.exit97: ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_18CXXConstructorDeclEED2Ev.exit, %468, %472
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0149)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0161)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4168)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0174)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %31) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #25
@@ -62794,7 +62588,6 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal40match
   %22 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
   %23 = alloca %"class.clang::ast_matchers::internal::BoundNodesTreeBuilder", align 8
   %24 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.763", align 8
-  %.sroa.4192 = alloca [3 x i8], align 1
   %.sroa.0185 = alloca [16 x i8], align 8
   %25 = alloca %"class.clang::ast_matchers::internal::Matcher.116", align 8
   %26 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.856", align 8
@@ -62804,11 +62597,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal40match
   %30 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
   %31 = alloca %"class.clang::ast_matchers::internal::VariadicOperatorMatcher.897", align 8
   %.sroa.0175 = alloca [16 x i8], align 8
-  %.sroa.4169 = alloca [3 x i8], align 1
   %.sroa.0162 = alloca [16 x i8], align 8
   %.sroa.0150 = alloca [16 x i8], align 8
   %.sroa.0146 = alloca [16 x i8], align 8
-  %.sroa.4140 = alloca [3 x i8], align 1
   %.sroa.0133 = alloca [16 x i8], align 8
   %.sroa.0 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #25
@@ -62826,7 +62617,6 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal40match
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 1, ptr %37, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #25
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4192)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0185)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #25
@@ -62944,8 +62734,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_19CXXOperatorCallExprEEE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #25, !noalias !5835
   call void @llvm.experimental.noalias.scope.decl(metadata !5836)
   store i8 0, ptr %19, align 8, !noalias !5835
-  %.sroa.4192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4192.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4192, i64 3, i1 false), !noalias !5835
   %.sroa.4193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 277, ptr %.sroa.4193.0..sroa_idx, align 4, !noalias !5835
   %.sroa.5194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -63110,7 +62898,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit29: ; pred
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0185)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4192)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #25
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %159 = load i32, ptr %158, align 8, !tbaa !5217
@@ -63134,7 +62921,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit29: ; pred
   %.sroa.5158.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   %173 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %174 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.sroa.4169.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 1
   %.sroa.4170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.5171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %175 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -63143,7 +62929,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13CXXMethodDeclEED2Ev.exit29: ; pred
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %177 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %178 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.4140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 1
   %.sroa.4141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.5142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %179 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -63214,7 +62999,6 @@ _ZN5clang12ast_matchers8internal21BoundNodesTreeBuilderC2ERKS2_.exit32: ; preds 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30) #25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %31) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0175)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4169)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0162)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0150)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0150, ptr noundef nonnull align 8 dereferenceable(12) %171, i64 12, i1 false)
@@ -63332,7 +63116,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_16CXXConstructExprEEENS1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #25, !noalias !5881
   call void @llvm.experimental.noalias.scope.decl(metadata !5888)
   store i8 0, ptr %13, align 8, !noalias !5881
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4169.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4169, i64 3, i1 false), !noalias !5881
   store i32 299, ptr %.sroa.4170.0..sroa_idx, align 4, !noalias !5881
   store i32 299, ptr %.sroa.5171.0..sroa_idx, align 8, !noalias !5881
   store ptr %244, ptr %175, align 8, !tbaa !227, !alias.scope !5888, !noalias !5881
@@ -63385,7 +63168,6 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #25, !noalias !5881
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #25, !noalias !5881
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0146)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4140)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0133)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(12) %171, i64 12, i1 false)
@@ -63502,7 +63284,6 @@ _ZN5clang12ast_matchers8internal18makeAllOfCompositeINS_8CallExprEEENS1_15Bindab
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #25, !noalias !5915
   call void @llvm.experimental.noalias.scope.decl(metadata !5922)
   store i8 0, ptr %9, align 8, !noalias !5915
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4140.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4140, i64 3, i1 false), !noalias !5915
   store i32 275, ptr %.sroa.4141.0..sroa_idx, align 4, !noalias !5915
   store i32 275, ptr %.sroa.5142.0..sroa_idx, align 8, !noalias !5915
   store ptr %310, ptr %179, align 8, !tbaa !227, !alias.scope !5922, !noalias !5915
@@ -63778,7 +63559,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_12FunctionDeclEED2Ev.exit: ; preds =
 437:                                              ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_12FunctionDeclEED2Ev.exit, %429, %433
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0133)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4140)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0146)
   %438 = atomicrmw sub ptr %245, i32 1 acq_rel, align 4
   %439 = icmp eq i32 %438, 1
@@ -63850,7 +63630,6 @@ _ZN5clang12ast_matchers8internal7MatcherINS_18CXXConstructorDeclEED2Ev.exit: ; p
 _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_28matcher_hasParameter0MatcherEFvNS1_8TypeListIJNS_12FunctionDeclENS_14ObjCMethodDeclENS_9BlockDeclEEEEEJjNS1_7MatcherINS_11ParmVarDeclEEEEED2Ev.exit98: ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_18CXXConstructorDeclEED2Ev.exit, %465, %469
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0150)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0162)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4169)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0175)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %31) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #25

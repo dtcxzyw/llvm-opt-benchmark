@@ -14505,9 +14505,9 @@ _ZN12_GLOBAL__N_113YAMLConverter17convertCommonTypeINS_5ClassEEEvRKT_RN5clang9ap
 _ZN4llvmplERKNS_5TwineES2_.exit193:               ; preds = %327, %329
   %.sroa.05.0.i.i121 = phi ptr [ %38, %329 ], [ @.str.121, %327 ]
   %.014.i.i120 = phi i8 [ 2, %329 ], [ 3, %327 ]
-  %.sink502 = phi i8 [ 3, %329 ], [ 1, %327 ]
+  %storemerge = phi i8 [ 3, %329 ], [ 1, %327 ]
   store i8 3, ptr %257, align 8, !tbaa !420
-  store i8 %.sink502, ptr %258, align 1, !tbaa !420
+  store i8 %storemerge, ptr %258, align 1, !tbaa !420
   store ptr %.sroa.05.0.i.i121, ptr %37, align 8, !alias.scope !421
   store ptr @.str.122, ptr %261, align 8, !alias.scope !421
   store i8 %.014.i.i120, ptr %259, align 8, !tbaa !142, !alias.scope !421

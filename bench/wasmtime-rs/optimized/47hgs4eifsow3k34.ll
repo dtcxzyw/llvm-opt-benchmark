@@ -1710,11 +1710,9 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h5790f99049531ef8E.
 define hidden void @_ZN16wasmtime_runtime9component8libcalls31utf16_to_compact_probably_utf1617h8ee27e1e6be99d92E(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #9 {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { ptr, [3 x i64] }, align 8
-  %.sroa.1061 = alloca [7 x i8], align 1
   %7 = alloca [2 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %.sroa.10 = alloca [7 x i8], align 1
   %10 = alloca [2 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %11 = alloca [1 x { ptr, ptr }], align 8
   %12 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -1831,8 +1829,6 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   store i32 0, ptr %.sroa.855.0..sroa_idx, align 4
   %.sroa.958.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i8 3, ptr %.sroa.958.0..sroa_idx, align 8
-  %.sroa.1061.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1061.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1061, i64 7, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 2, ptr %56, align 8
   %.sroa.443.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -1845,8 +1841,6 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   store i32 0, ptr %.sroa.855.0..sroa_idx56, align 4
   %.sroa.958.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i8 3, ptr %.sroa.958.0..sroa_idx59, align 8
-  %.sroa.1061.0..sroa_idx62 = getelementptr inbounds nuw i8, ptr %7, i64 105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1061.0..sroa_idx62, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1061, i64 7, i1 false)
   store ptr @anon.809a01dc7ad5777871db8cb9b6424a4f.87, ptr %9, align 8
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %57, align 8
@@ -1884,10 +1878,10 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %85
-  %.sroa.03.094 = phi i64 [ %67, %85 ], [ 0, %.lr.ph.preheader ]
-  %67 = add nuw i64 %.sroa.03.094, 1
-  %68 = shl i64 %.sroa.03.094, 1
-  %exitcond.not = icmp eq i64 %.sroa.03.094, %66
+  %.sroa.03.093 = phi i64 [ %67, %85 ], [ 0, %.lr.ph.preheader ]
+  %67 = add nuw i64 %.sroa.03.093, 1
+  %68 = shl i64 %.sroa.03.093, 1
+  %exitcond.not = icmp eq i64 %.sroa.03.093, %66
   br i1 %exitcond.not, label %84, label %83, !prof !162
 
 ._crit_edge:                                      ; preds = %85, %64
@@ -1921,8 +1915,6 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   store i32 0, ptr %.sroa.826.0..sroa_idx, align 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i8 3, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10, i64 7, i1 false)
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 2, ptr %77, align 8
   %.sroa.416.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %10, i64 72
@@ -1935,8 +1927,6 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   store i32 0, ptr %.sroa.826.0..sroa_idx27, align 4
   %.sroa.9.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %10, i64 104
   store i8 3, ptr %.sroa.9.0..sroa_idx29, align 8
-  %.sroa.10.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %10, i64 105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx31, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10, i64 7, i1 false)
   store ptr @anon.809a01dc7ad5777871db8cb9b6424a4f.91, ptr %12, align 8
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 2, ptr %78, align 8
@@ -1955,8 +1945,8 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
   br label %72
 
 83:                                               ; preds = %.lr.ph
-  %exitcond99.not = icmp eq i64 %.sroa.03.094, %44
-  br i1 %exitcond99.not, label %89, label %85, !prof !162
+  %exitcond98.not = icmp eq i64 %.sroa.03.093, %44
+  br i1 %exitcond98.not, label %89, label %85, !prof !162
 
 84:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %68, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.809a01dc7ad5777871db8cb9b6424a4f.93) #20
@@ -1965,10 +1955,10 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17h66c0e166fe1391f7E.
 85:                                               ; preds = %83
   %86 = getelementptr inbounds [0 x i8], ptr %.sroa.5.0.copyload.i, i64 0, i64 %68
   %87 = load i8, ptr %86, align 1, !noundef !4
-  %88 = getelementptr inbounds [0 x i8], ptr %.sroa.5.0.copyload.i, i64 0, i64 %.sroa.03.094
+  %88 = getelementptr inbounds [0 x i8], ptr %.sroa.5.0.copyload.i, i64 0, i64 %.sroa.03.093
   store i8 %87, ptr %88, align 1
-  %exitcond100.not = icmp eq i64 %67, %65
-  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph
+  %exitcond99.not = icmp eq i64 %67, %65
+  br i1 %exitcond99.not, label %._crit_edge, label %.lr.ph
 
 89:                                               ; preds = %83
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %44, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.809a01dc7ad5777871db8cb9b6424a4f.94) #20

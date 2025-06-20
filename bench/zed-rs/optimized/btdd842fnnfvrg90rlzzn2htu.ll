@@ -538,21 +538,21 @@ define hidden void @_ZN4util21log_error_with_caller17h47eb1f11507c8133E(ptr noal
   %25 = extractvalue { ptr, ptr } %22, 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
   %26 = icmp eq ptr %20, null
-  br i1 %26, label %.thread156, label %29
+  br i1 %26, label %.thread155, label %29
 
 .thread:                                          ; preds = %17
   %27 = extractvalue { ptr, ptr } %18, 0
   %28 = extractvalue { ptr, ptr } %18, 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
-  br label %.thread156
+  br label %.thread155
 
-.thread156:                                       ; preds = %23, %.thread
-  %.sroa.0.1155.ph = phi ptr [ %27, %.thread ], [ %24, %23 ]
-  %.sroa.3.1154.ph = phi ptr [ %28, %.thread ], [ %25, %23 ]
+.thread155:                                       ; preds = %23, %.thread
+  %.sroa.0.1154.ph = phi ptr [ %27, %.thread ], [ %24, %23 ]
+  %.sroa.3.1153.ph = phi ptr [ %28, %.thread ], [ %25, %23 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
-  %.sroa.486.0..sroa_idx164 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @"_ZN55_$LT$ureq..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76eb7fde5221e0cE", ptr %.sroa.486.0..sroa_idx164, align 8
+  %.sroa.486.0..sroa_idx163 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @"_ZN55_$LT$ureq..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76eb7fde5221e0cE", ptr %.sroa.486.0..sroa_idx163, align 8
   br label %30
 
 29:                                               ; preds = %23
@@ -563,22 +563,22 @@ define hidden void @_ZN4util21log_error_with_caller17h47eb1f11507c8133E(ptr noal
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   br label %30
 
-30:                                               ; preds = %29, %.thread156
-  %.sroa.087.2170 = phi i64 [ 1, %29 ], [ 2, %.thread156 ]
-  %.sroa.081.0151169 = phi ptr [ %20, %29 ], [ inttoptr (i64 1 to ptr), %.thread156 ]
-  %.sroa.382.0152168 = phi i64 [ %21, %29 ], [ 0, %.thread156 ]
-  %.sroa.03.1153167 = phi ptr [ %20, %29 ], [ null, %.thread156 ]
-  %.sroa.3.1154166 = phi ptr [ %25, %29 ], [ %.sroa.3.1154.ph, %.thread156 ]
-  %.sroa.0.1155165 = phi ptr [ %24, %29 ], [ %.sroa.0.1155.ph, %.thread156 ]
-  %.sroa.53.i.sroa.4.0 = phi i64 [ %21, %29 ], [ undef, %.thread156 ]
+30:                                               ; preds = %29, %.thread155
+  %.sroa.087.2169 = phi i64 [ 1, %29 ], [ 2, %.thread155 ]
+  %.sroa.081.0150168 = phi ptr [ %20, %29 ], [ inttoptr (i64 1 to ptr), %.thread155 ]
+  %.sroa.382.0151167 = phi i64 [ %21, %29 ], [ 0, %.thread155 ]
+  %.sroa.03.1152166 = phi ptr [ %20, %29 ], [ null, %.thread155 ]
+  %.sroa.3.1153165 = phi ptr [ %25, %29 ], [ %.sroa.3.1153.ph, %.thread155 ]
+  %.sroa.0.1154164 = phi ptr [ %24, %29 ], [ %.sroa.0.1154.ph, %.thread155 ]
+  %.sroa.53.i.sroa.4.0 = phi i64 [ %21, %29 ], [ undef, %.thread155 ]
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i32, ptr %.in, align 8, !noundef !4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %2, ptr %32, align 8, !alias.scope !58, !noalias !55
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr %.sroa.081.0151169, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !55
+  store ptr %.sroa.081.0150168, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !55
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %.sroa.382.0152168, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !55
+  store i64 %.sroa.382.0151167, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !55
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr @anon.f468ef92a6946f48d516bf466695e1ce.21, ptr %33, align 8, !alias.scope !60
   %.sroa.41.80..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -589,9 +589,9 @@ define hidden void @_ZN4util21log_error_with_caller17h47eb1f11507c8133E(ptr noal
   store i64 1, ptr %.sroa.47.80..sroa_idx, align 8, !alias.scope !60
   %.sroa.50.80..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 112
   store ptr null, ptr %.sroa.50.80..sroa_idx, align 8, !alias.scope !60
-  store i64 %.sroa.087.2170, ptr %5, align 8, !alias.scope !58, !noalias !55
+  store i64 %.sroa.087.2169, ptr %5, align 8, !alias.scope !58, !noalias !55
   %.sroa.53.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.sroa.03.1153167, ptr %.sroa.53.0..sroa_idx4.i, align 8, !noalias !55
+  store ptr %.sroa.03.1152166, ptr %.sroa.53.0..sroa_idx4.i, align 8, !noalias !55
   %.sroa.53.i.sroa.4.0..sroa.53.0..sroa_idx4.i.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %.sroa.53.i.sroa.4.0, ptr %.sroa.53.i.sroa.4.0..sroa.53.0..sroa_idx4.i.sroa_idx, align 8, !noalias !55
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -608,13 +608,13 @@ define hidden void @_ZN4util21log_error_with_caller17h47eb1f11507c8133E(ptr noal
   store ptr @anon.f468ef92a6946f48d516bf466695e1ce.18, ptr %37, align 8, !alias.scope !58, !noalias !55
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store ptr @anon.f468ef92a6946f48d516bf466695e1ce.19, ptr %38, align 8, !alias.scope !58, !noalias !55
-  %39 = icmp ne ptr %.sroa.0.1155165, null
+  %39 = icmp ne ptr %.sroa.0.1154164, null
   call void @llvm.assume(i1 %39)
-  %40 = icmp ne ptr %.sroa.3.1154166, null
+  %40 = icmp ne ptr %.sroa.3.1153165, null
   call void @llvm.assume(i1 %40)
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.3.1154166, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.3.1153165, i64 32
   %42 = load ptr, ptr %41, align 8, !invariant.load !4, !nonnull !4
-  invoke void %42(ptr noundef nonnull align 1 %.sroa.0.1155165, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %5)
+  invoke void %42(ptr noundef nonnull align 1 %.sroa.0.1154164, ptr noalias noundef nonnull readonly align 8 dereferenceable(144) %5)
           to label %43 unwind label %11
 
 43:                                               ; preds = %30

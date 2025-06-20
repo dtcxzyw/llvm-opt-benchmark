@@ -12735,8 +12735,8 @@ define void @_ZN12pingora_core9protocols4http2v16server11HttpSession3new17hd8d91
   store ptr %2, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr @anon.8e071d1b15d522c405dc2a4db65745c3.104, ptr %81, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx40, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   store i64 0, ptr %0, align 8
@@ -12748,12 +12748,12 @@ define void @_ZN12pingora_core9protocols4http2v16server11HttpSession3new17hd8d91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %72, ptr %85, align 8
-  %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i64 0, ptr %.sroa.431.0..sroa_idx, align 8
-  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store i64 %67, ptr %.sroa.532.0..sroa_idx, align 8
-  %.sroa.633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store ptr %78, ptr %.sroa.633.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 344
+  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 352
+  store i64 %67, ptr %.sroa.531.0..sroa_idx, align 8
+  %.sroa.632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store ptr %78, ptr %.sroa.632.0..sroa_idx, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
@@ -12769,8 +12769,8 @@ define void @_ZN12pingora_core9protocols4http2v16server11HttpSession3new17hd8d91
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 1000000000, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
   %.sroa.34.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
   store i8 2, ptr %.sroa.34.0..sroa_idx, align 8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 409
   store i8 0, ptr %94, align 1
@@ -12801,8 +12801,8 @@ define void @_ZN12pingora_core9protocols4http2v16server11HttpSession3new17hd8d91
           to label %101 unwind label %98
 
 101:                                              ; preds = %100, %102
-  %.pn10.pn39 = phi { ptr, i32 } [ %.pn10.pn.ph, %102 ], [ %.pn10, %100 ]
-  resume { ptr, i32 } %.pn10.pn39
+  %.pn10.pn38 = phi { ptr, i32 } [ %.pn10.pn.ph, %102 ], [ %.pn10, %100 ]
+  resume { ptr, i32 } %.pn10.pn38
 
 102:                                              ; preds = %14, %25, %19, %22, %53
   %.pn10.pn.ph = phi { ptr, i32 } [ %15, %14 ], [ %.pn.pn, %25 ], [ %.pn.pn, %19 ], [ %.pn.pn, %22 ], [ %54, %53 ]

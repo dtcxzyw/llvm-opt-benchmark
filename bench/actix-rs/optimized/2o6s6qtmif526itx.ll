@@ -4038,8 +4038,8 @@ define hidden void @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$3new17h
   unreachable
 
 30:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$h2..hpack..encoder..Encoder$GT$17h706b84d4935160a9E.exit", %31
-  %.pn.pn28 = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %"_ZN4core3ptr48drop_in_place$LT$h2..hpack..encoder..Encoder$GT$17h706b84d4935160a9E.exit" ]
-  resume { ptr, i32 } %.pn.pn28
+  %.pn.pn27 = phi { ptr, i32 } [ %32, %31 ], [ %.pn, %"_ZN4core3ptr48drop_in_place$LT$h2..hpack..encoder..Encoder$GT$17h706b84d4935160a9E.exit" ]
+  resume { ptr, i32 } %.pn.pn27
 
 31:                                               ; preds = %3
   %32 = landingpad { ptr, i32 }

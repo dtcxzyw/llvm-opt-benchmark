@@ -66,7 +66,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h783d38c4ebfafdb9E.exit._ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit_crit_edge": ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h783d38c4ebfafdb9E.exit"
   %.pre = load i64, ptr %0, align 8, !alias.scope !13, !noalias !16
-  %.pre92 = tail call i64 @llvm.umax.i64(i64 %.pre, i64 3)
+  %.pre91 = tail call i64 @llvm.umax.i64(i64 %.pre, i64 3)
   br label %_ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit
 
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h783d38c4ebfafdb9E.exit.thread": ; preds = %13, %16, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h783d38c4ebfafdb9E.exit"
@@ -79,7 +79,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   unreachable
 
 _ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h783d38c4ebfafdb9E.exit._ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit_crit_edge", %3
-  %.sink.i.pre-phi = phi i64 [ %.pre92, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h783d38c4ebfafdb9E.exit._ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit_crit_edge" ], [ %.sink.i.i, %3 ]
+  %.sink.i.pre-phi = phi i64 [ %.pre91, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h783d38c4ebfafdb9E.exit._ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit_crit_edge" ], [ %.sink.i.i, %3 ]
   %29 = phi i64 [ %.pre, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h783d38c4ebfafdb9E.exit._ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit_crit_edge" ], [ %9, %3 ]
   %30 = icmp ugt i64 %29, 3
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -96,7 +96,7 @@ _ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit: ; pr
   %.sroa.0.0.lcssa = phi ptr [ %1, %_ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit ], [ %66, %65 ]
   store i64 %.sroa.7.0.lcssa, ptr %.sink2.i, align 8
   %35 = icmp eq ptr %.sroa.0.0.lcssa, %2
-  br i1 %35, label %._crit_edge89, label %.lr.ph88
+  br i1 %35, label %.loopexit, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -163,9 +163,9 @@ _ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit: ; pr
   %63 = add i64 %62, 1
   store i64 %63, ptr %.05.i, align 8, !alias.scope !48, !noalias !49
   %64 = icmp eq ptr %39, %2
-  br i1 %64, label %._crit_edge89, label %38
+  br i1 %64, label %.loopexit, label %38
 
-._crit_edge89:                                    ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E.exit", %._crit_edge, %82
+.loopexit:                                        ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E.exit", %._crit_edge, %82
   ret void
 
 65:                                               ; preds = %.lr.ph
@@ -203,7 +203,7 @@ _ZN8smallvec10infallible17hab1009d094fd8ffaE.llvm.9790662432732335914.exit: ; pr
 
 82:                                               ; preds = %.lr.ph
   store i64 %.sroa.7.083, ptr %.sink2.i, align 8
-  br label %._crit_edge89
+  br label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -1452,8 +1452,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hac954b68c5
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.65.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.sroa.7.0..sroa_idx6.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %.sroa.7.0..sroa_idx5.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 48
   %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.0.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 64
   %.sroa.0.sroa.8.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -1534,8 +1534,8 @@ common.resume.i.i:                                ; preds = %50, %36, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !579
   store ptr %40, ptr %10, align 8, !noalias !571
   store i64 65536, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !571
-  store ptr %33, ptr %.sroa.65.0..sroa_idx.i.i.i, align 8, !noalias !571
-  store ptr %34, ptr %.sroa.7.0..sroa_idx6.i.i.i, align 8, !noalias !571
+  store ptr %33, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !571
+  store ptr %34, ptr %.sroa.7.0..sroa_idx5.i.i.i, align 8, !noalias !571
   %42 = icmp ne ptr %.val.i.i, null
   call void @llvm.assume(i1 %42)
   %43 = call { ptr, ptr } @_ZN5uu_pr28read_stream_and_create_pages17h00d5a07735ef3f62E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %.val.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %10, i64 noundef %21), !noalias !571

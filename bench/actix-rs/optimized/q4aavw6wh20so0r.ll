@@ -766,11 +766,11 @@ define internal fastcc { ptr, i64 } @"_ZN16actix_web_actors2ws24handshake_with_p
   br i1 %.not.i.i.i.i10.i, label %.lr.ph.split.split.i.i.i.i.us.preheader, label %.lr.ph.split.split.i
 
 .lr.ph.split.split.i.i.i.i.us.preheader:          ; preds = %.lr.ph.split.i, %select.unfold.i.us
-  %.promoted.i.i.i.i.us89 = phi i64 [ %26, %select.unfold.i.us ], [ 0, %.lr.ph.split.i ]
+  %.promoted.i.i.i.i.us88 = phi i64 [ %26, %select.unfold.i.us ], [ 0, %.lr.ph.split.i ]
   br label %.lr.ph.split.split.i.i.i.i.us
 
 .lr.ph.split.split.i.i.i.i.us:                    ; preds = %.lr.ph.split.split.i.i.i.i.us.preheader, %31
-  %9 = phi i64 [ %26, %31 ], [ %.promoted.i.i.i.i.us89, %.lr.ph.split.split.i.i.i.i.us.preheader ]
+  %9 = phi i64 [ %26, %31 ], [ %.promoted.i.i.i.i.us88, %.lr.ph.split.split.i.i.i.i.us.preheader ]
   %10 = getelementptr inbounds i8, ptr %5, i64 %9
   %.sroa.7.046.i.i.i.i.us = sub nuw i64 %.sroa.7.0, %9
   %11 = icmp ult i64 %.sroa.7.046.i.i.i.i.us, 16
@@ -828,8 +828,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i.us: ; preds
   br i1 %27, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc906c0cd9414d0d4E.exit.loopexit28.loopexit, label %.lr.ph.split.split.i.i.i.i.us
 
 select.unfold.i.us:                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1231cce739dac71bE.exit.i.i.i.i.us"
-  %.sroa.4.0.i.i.i.us = sub i64 %28, %.promoted.i.i.i.i.us89
-  %.sroa.0.0.i.i.i.us = getelementptr inbounds i8, ptr %5, i64 %.promoted.i.i.i.i.us89
+  %.sroa.4.0.i.i.i.us = sub i64 %28, %.promoted.i.i.i.i.us88
+  %.sroa.0.0.i.i.i.us = getelementptr inbounds i8, ptr %5, i64 %.promoted.i.i.i.i.us88
   %32 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h3e3c730b247eede0E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.us, i64 noundef %.sroa.4.0.i.i.i.us), !noalias !123
   %33 = extractvalue { ptr, i64 } %32, 0
   %34 = icmp ne ptr %33, null
@@ -937,10 +937,10 @@ select.unfold.i:                                  ; preds = %"_ZN73_$LT$$u5b$A$u
   br i1 %60, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc906c0cd9414d0d4E.exit, label %.lr.ph.split.split.i, !llvm.loop !124
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hc906c0cd9414d0d4E.exit.loopexit28.loopexit: ; preds = %select.unfold.i.us, %31, %22
-  %.promoted.i.i.i.i.us84 = phi i64 [ %.promoted.i.i.i.i.us89, %22 ], [ %.promoted.i.i.i.i.us89, %31 ], [ %26, %select.unfold.i.us ]
-  %.sroa.4.0.i.i.i.us69 = sub i64 %.sroa.7.0, %.promoted.i.i.i.i.us84
-  %.sroa.0.0.i.i.i.us70 = getelementptr inbounds i8, ptr %5, i64 %.promoted.i.i.i.i.us84
-  %70 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h3e3c730b247eede0E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.us70, i64 noundef %.sroa.4.0.i.i.i.us69), !noalias !123
+  %.promoted.i.i.i.i.us83 = phi i64 [ %.promoted.i.i.i.i.us88, %22 ], [ %.promoted.i.i.i.i.us88, %31 ], [ %26, %select.unfold.i.us ]
+  %.sroa.4.0.i.i.i.us68 = sub i64 %.sroa.7.0, %.promoted.i.i.i.i.us83
+  %.sroa.0.0.i.i.i.us69 = getelementptr inbounds i8, ptr %5, i64 %.promoted.i.i.i.i.us83
+  %70 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h3e3c730b247eede0E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.us69, i64 noundef %.sroa.4.0.i.i.i.us68), !noalias !123
   %71 = extractvalue { ptr, i64 } %70, 0
   %72 = icmp ne ptr %71, null
   tail call void @llvm.assume(i1 %72)

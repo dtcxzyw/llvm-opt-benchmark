@@ -1435,10 +1435,10 @@ common.resume:                                    ; preds = %.body, %57, %"_ZN4c
   store i32 0, ptr %.sroa.5.0..sroa_idx63, align 8
   %.sroa.6.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %42, i64 20
   store i8 0, ptr %.sroa.6.0..sroa_idx64, align 4
-  %.sroa.8.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store ptr null, ptr %.sroa.8.0..sroa_idx66, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 40
-  store i8 0, ptr %.sroa.11.0..sroa_idx, align 8
+  %.sroa.766.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 24
+  store ptr null, ptr %.sroa.766.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store i8 0, ptr %.sroa.10.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store ptr %31, ptr %0, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8

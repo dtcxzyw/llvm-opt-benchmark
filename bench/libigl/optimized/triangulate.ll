@@ -42981,10 +42981,6 @@ _ZNSt17_Optional_payloadISt7variantIJN4CGAL7Point_2INS1_5EpeckEEENS1_9Segment_2I
 define linkonce_odr dso_local void @_ZN4CGAL10Lazy_rep_nISt8optionalISt7variantIJNS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS_9Segment_2IS7_EEEEES1_IS2_IJNS3_INS4_IN5boost14multiprecision6numberINSE_8backends16rational_adaptorINSG_15cpp_int_backendILm0ELm0ELNSE_16cpp_integer_typeE1ELNSE_18cpp_int_check_typeE0ESaIyEEEEELNSE_26expression_template_optionE1EEEEEEENS9_ISQ_EEEEENS_20CommonKernelFunctors11Intersect_2IS7_EENSW_ISQ_EENS_19Cartesian_converterISQ_S7_NS_12NT_converterISP_S6_EEEELb0EJNS9_INS_5EpeckEEES14_EEC2IJRKS14_S18_EEERKSX_RKSY_DpOT_(ptr noundef nonnull align 16 dereferenceable(144) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.03.i.i.i.i = alloca [2 x %"class.CGAL::Point_2.204"], align 16
   %6 = alloca %"class.CGAL::Intersections::internal::Segment_2_Segment_2_pair", align 16
-  %.sroa.6 = alloca [15 x i8], align 1
-  %.sroa.7 = alloca [15 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.7)
   %7 = load ptr, ptr %3, align 8, !tbaa !64
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load atomic i64, ptr %8 acquire, align 8
@@ -43046,18 +43042,12 @@ _ZNK4CGAL20CommonKernelFunctors11Intersect_2INS_16Simple_cartesianINS_11Interval
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %30, ptr noundef nonnull align 16 dereferenceable(64) %.sroa.03.i.i.i.i, i64 64, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 16
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6, i64 15, i1 false)
   %.sroa.610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 %.sink.i, ptr %.sroa.610.0..sroa_idx, align 16
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, i64 15, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %30, ptr %31, align 16, !tbaa !1211
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %32, align 8, !tbaa !399
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.7)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4CGAL10Lazy_rep_nISt8optionalISt7variantIJNS_7Point_2INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS_9Segment_2IS7_EEEEES1_IS2_IJNS3_INS4_IN5boost14multiprecision6numberINSE_8backends16rational_adaptorINSG_15cpp_int_backendILm0ELm0ELNSE_16cpp_integer_typeE1ELNSE_18cpp_int_check_typeE0ESaIyEEEEELNSE_26expression_template_optionE1EEEEEEENS9_ISQ_EEEEENS_20CommonKernelFunctors11Intersect_2IS7_EENSW_ISQ_EENS_19Cartesian_converterISQ_S7_NS_12NT_converterISP_S6_EEEELb0EJNS9_INS_5EpeckEEES14_EEE, i64 16), ptr %0, align 16, !tbaa !39
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %34 = load ptr, ptr %4, align 8, !tbaa !64

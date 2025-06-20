@@ -25806,7 +25806,6 @@ define hidden noundef ptr @_ZN5sqlez10connection10Connection10with_write17h77898
   %14 = alloca [24 x i8], align 8
   %15 = alloca [24 x i8], align 8
   %16 = alloca [48 x i8], align 8
-  %.sroa.10.i.i.i = alloca [7 x i8], align 1
   %17 = alloca [112 x i8], align 8
   %18 = alloca [16 x i8], align 8
   %19 = alloca [24 x i8], align 8
@@ -25948,7 +25947,6 @@ common.resume:                                    ; preds = %355, %352, %65, %11
   %.sroa.745.0..sroa_idx46.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 96
   %.sroa.848.0..sroa_idx49.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 100
   %.sroa.951.0..sroa_idx52.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 104
-  %.sroa.10.0..sroa_idx54.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 105
   %.sroa.411.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.512.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.613.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -26142,7 +26140,6 @@ common.resume:                                    ; preds = %355, %352, %65, %11
 155:                                              ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17ha31c527d65660f12E.llvm.15731766825718755672.exit40.i.i", %69
   %.sroa.022.0.i.i = phi i64 [ 0, %69 ], [ %156, %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17ha31c527d65660f12E.llvm.15731766825718755672.exit40.i.i" ]
   %156 = add nuw nsw i64 %.sroa.022.0.i.i, 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.10.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !5375
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !5375
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !5375
@@ -26379,7 +26376,6 @@ common.resume:                                    ; preds = %355, %352, %65, %11
   store i32 32, ptr %.sroa.745.0..sroa_idx46.i.i.i, align 8, !noalias !5375
   store i32 0, ptr %.sroa.848.0..sroa_idx49.i.i.i, align 4, !noalias !5375
   store i8 3, ptr %.sroa.951.0..sroa_idx52.i.i.i, align 8, !noalias !5375
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx54.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.i.i.i, i64 7, i1 false), !noalias !5375
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !5473
   store ptr @anon.b5c34b2c50fe337d25893a03fec7c9f9.69, ptr %11, align 8, !noalias !5481
   store i64 2, ptr %.sroa.411.0..sroa_idx.i.i.i, align 8, !noalias !5481
@@ -26765,7 +26761,6 @@ common.resume:                                    ; preds = %355, %352, %65, %11
 339:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h16f133c093eac3f1E.exit150.i.i.i", %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17ha31c527d65660f12E.llvm.15731766825718755672.exit137.i.i.i", %255
   %.sroa.0.2.i.i.i = phi ptr [ %256, %255 ], [ %.sroa.0.0.i.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h16f133c093eac3f1E.exit150.i.i.i" ], [ %.sroa.0.3.i.i.i, %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17ha31c527d65660f12E.llvm.15731766825718755672.exit137.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33), !noalias !5375
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !5375
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24), !noalias !5375
   %340 = load ptr, ptr %43, align 8, !alias.scope !5557, !noalias !5375, !noundef !4

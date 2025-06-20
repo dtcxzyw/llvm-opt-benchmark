@@ -89,12 +89,10 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   %8 = alloca [1024 x i8], align 16
   %9 = alloca [1024 x i8], align 16
   %10 = alloca [1024 x i8], align 16
-  %.sroa.22 = alloca [3 x i8], align 1
   %11 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #9
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.22)
   %12 = load i8, ptr %0, align 1
   %.not159 = icmp eq i8 %12, 0
   br i1 %.not159, label %._crit_edge, label %.lr.ph
@@ -580,8 +578,6 @@ addToArray.exit.thread:                           ; preds = %.thread.i
   store i32 %.sroa.11.3.ph, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 20
   store i8 %.sroa.17.3.ph, ptr %.sroa.17.0..sroa_idx, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.22.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.22, i64 3, i1 false)
   %.sroa.2287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 24
   store i32 %57, ptr %.sroa.2287.0..sroa_idx, align 8
   %.sroa.2690.0..sroa_idx = getelementptr inbounds nuw i8, ptr %211, i64 32
@@ -601,7 +597,6 @@ addToArray.exit:                                  ; preds = %179, %184, %188, %2
 
 219:                                              ; preds = %45, %50, %54, %24, %25, %.loopexit129, %30
   %.0 = phi i32 [ -1, %30 ], [ %.154, %.loopexit129 ], [ -1, %25 ], [ -1, %24 ], [ -1, %54 ], [ -1, %50 ], [ -1, %45 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.22)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #9
@@ -670,9 +665,6 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

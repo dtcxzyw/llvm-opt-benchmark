@@ -1463,13 +1463,13 @@ define hidden void @"_ZN56_$LT$mime..ParamSource$u20$as$u20$core..clone..Clone$G
 define hidden void @"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c743eb7055390c3E.llvm.1214063349730439972"(ptr noalias noundef writeonly sret({ [16 x i8], i8, [31 x i8] }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(32) %1) unnamed_addr #2 {
   %3 = alloca { { { ptr, i64 }, i8, [7 x i8] }, { { ptr, i64 }, i8, [7 x i8] } }, align 8
   %4 = load i64, ptr %1, align 8, !range !510, !noundef !9
-  switch i64 %4, label %default.unreachable7 [
+  switch i64 %4, label %default.unreachable6 [
     i64 0, label %5
     i64 1, label %7
     i64 2, label %13
   ]
 
-default.unreachable7:                             ; preds = %2
+default.unreachable6:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -1635,12 +1635,12 @@ default.unreachable7:                             ; preds = %2
   %69 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %26
   %70 = sub i64 %28, %26
   store ptr %49, ptr %0, align 8
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %50, ptr %.sroa.44.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %50, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %69, ptr %.sroa.65.0..sroa_idx, align 8
+  %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %69, ptr %.sroa.64.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %70, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40

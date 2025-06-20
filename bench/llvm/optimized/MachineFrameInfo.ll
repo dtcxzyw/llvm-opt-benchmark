@@ -276,8 +276,8 @@ define dso_local noundef i32 @_ZN4llvm16MachineFrameInfo25CreateVariableSizedObj
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i8 %.sroa.04.0.i, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 17
-  store i32 0, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.1123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i32 0, ptr %.sroa.7.0..sroa_idx, align 1
   store ptr %2, ptr %.sroa.1123.0..sroa_idx, align 8, !tbaa !36
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 0, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !35
@@ -322,8 +322,8 @@ _ZNKSt6vectorIN4llvm16MachineFrameInfo11StackObjectESaIS2_EE12_M_check_lenEmPKc.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   store i8 %.sroa.04.0.i, ptr %.sroa.6.0..sroa_idx12, align 8, !tbaa !3
   %.sroa.7.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %30, i64 17
-  store i32 0, ptr %.sroa.7.0..sroa_idx14, align 1
   %.sroa.1123.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store i32 0, ptr %.sroa.7.0..sroa_idx14, align 1
   store ptr %2, ptr %.sroa.1123.0..sroa_idx24, align 8, !tbaa !36
   %.sroa.12.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i8 0, ptr %.sroa.12.0..sroa_idx26, align 8, !tbaa !35

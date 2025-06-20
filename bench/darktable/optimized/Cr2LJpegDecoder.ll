@@ -443,7 +443,7 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   %41 = phi i32 [ %.pre, %._ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread_crit_edge ], [ %31, %39 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.not130 = icmp eq i32 %41, 0
-  br i1 %.not130, label %.thread157, label %.lr.ph.preheader
+  br i1 %.not130, label %.thread156, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread
   %wide.trip.count = zext i32 %41 to i64
@@ -495,7 +495,7 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   br i1 %52, label %62, label %111
 
 62:                                               ; preds = %60, %61
-  %.not52146147 = phi i1 [ false, %60 ], [ %.not52, %61 ]
+  %.not52145146 = phi i1 [ false, %60 ], [ %.not52, %61 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %64 = load ptr, ptr %63, align 8, !tbaa !6
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
@@ -508,7 +508,7 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   unreachable
 
 69:                                               ; preds = %62
-  br i1 %.not52146147, label %71, label %70
+  br i1 %.not52145146, label %71, label %70
 
 70:                                               ; preds = %69
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.7, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2LJpegDecoder10decodeScanEv, i32 noundef %41) #15
@@ -592,12 +592,12 @@ _ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread: ; preds = %._ZNK8rawspeed14Cr
   br i1 %.not54, label %105, label %106
 
 111:                                              ; preds = %60, %61
-  switch i32 %41, label %.thread157 [
+  switch i32 %41, label %.thread156 [
     i32 2, label %_ZNSt12_Vector_baseIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EE11_M_allocateEm.exit.i
     i32 4, label %_ZNSt12_Vector_baseIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EE11_M_allocateEm.exit.i
   ]
 
-.thread157:                                       ; preds = %_ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread, %111
+.thread156:                                       ; preds = %_ZNK8rawspeed14Cr2SliceWidths5emptyEv.exit.thread, %111
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2LJpegDecoder10decodeScanEv, i32 noundef %41) #15
   unreachable
 
@@ -681,11 +681,11 @@ _ZNK8rawspeed20AbstractLJpegDecoder21getPrefixCodeDecodersEi.exit: ; preds = %13
 .lr.ph.i63:                                       ; preds = %_ZNK8rawspeed20AbstractLJpegDecoder21getPrefixCodeDecodersEi.exit
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre.i = load ptr, ptr %141, align 8, !tbaa !138
-  %.pre140 = load ptr, ptr %113, align 8, !tbaa !139
+  %.pre10.i = load ptr, ptr %113, align 8, !tbaa !139
   br label %142
 
 142:                                              ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed15Cr2DecompressorINS1_20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS4_EEEEE18PerComponentRecipeESaIS9_EEEaSEOS9_.exit.i, %.lr.ph.i63
-  %143 = phi ptr [ %.pre140, %.lr.ph.i63 ], [ %181, %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed15Cr2DecompressorINS1_20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS4_EEEEE18PerComponentRecipeESaIS9_EEEaSEOS9_.exit.i ]
+  %143 = phi ptr [ %.pre10.i, %.lr.ph.i63 ], [ %181, %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed15Cr2DecompressorINS1_20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS4_EEEEE18PerComponentRecipeESaIS9_EEEaSEOS9_.exit.i ]
   %144 = phi ptr [ %.pre.i, %.lr.ph.i63 ], [ %182, %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed15Cr2DecompressorINS1_20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS4_EEEEE18PerComponentRecipeESaIS9_EEEaSEOS9_.exit.i ]
   %.09.i = phi i32 [ %.sroa.14.0, %.lr.ph.i63 ], [ %183, %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed15Cr2DecompressorINS1_20PrefixCodeLUTDecoderINS1_15BaselineCodeTagENS1_23PrefixCodeLookupDecoderIS4_EEEEE18PerComponentRecipeESaIS9_EEEaSEOS9_.exit.i ]
   %145 = load ptr, ptr %4, align 8, !tbaa !154

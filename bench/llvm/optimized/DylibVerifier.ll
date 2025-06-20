@@ -5576,8 +5576,8 @@ define dso_local noundef i32 @_ZN5clang10installapi13DylibVerifier22verifyRemain
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3920
   store i8 15, ptr %10, align 8, !tbaa !139
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 3924
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.415.0..sroa_idx, i8 0, i64 20, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.415.0..sroa_idx, i8 0, i64 20, i1 false)
   %12 = load ptr, ptr %11, align 8, !tbaa !142
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !137

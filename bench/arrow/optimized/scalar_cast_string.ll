@@ -85612,7 +85612,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_v
   %8 = trunc i64 %7 to i32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #28
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %9, i8 0, i64 16, i1 false)
   %sext = shl i64 %7, 32
   %10 = ashr exact i64 %sext, 32
   %11 = mul nsw i64 %10, 86400
@@ -85717,33 +85717,33 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_v
   %spec.select.i.i30.sink91 = phi i64 [ %spec.select.i.i30, %44 ], [ %43, %12 ]
   %.sroa.030.0.insert.insert.i.i26.sink = phi i32 [ %.sroa.030.0.insert.insert.i.i26, %44 ], [ %.sroa.030.0.insert.insert.i.i, %12 ]
   %.sink.in.in = phi i64 [ %75, %44 ], [ %43, %12 ]
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %78 = udiv i64 %spec.select.i.i30.sink91, 3600
-  %79 = udiv i64 %spec.select.i.i30.sink91, 60
-  %.neg.i.i31 = mul nsw i64 %78, -60
-  %80 = add nsw i64 %.neg.i.i31, %79
-  %.neg.i5.i32 = mul nsw i64 %78, -3600
-  %81 = add nsw i64 %.neg.i5.i32, %spec.select.i.i30.sink91
-  %.neg.i6.i33 = mul nsw i64 %80, -60
-  %82 = add i64 %81, %.neg.i6.i33
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %79 = udiv i64 %spec.select.i.i30.sink91, 3600
+  %80 = udiv i64 %spec.select.i.i30.sink91, 60
+  %.neg.i.i31 = mul nsw i64 %79, -60
+  %81 = add nsw i64 %.neg.i.i31, %80
+  %.neg.i5.i32 = mul nsw i64 %79, -3600
+  %82 = add nsw i64 %.neg.i5.i32, %spec.select.i.i30.sink91
+  %.neg.i6.i33 = mul nsw i64 %81, -60
+  %83 = add i64 %82, %.neg.i6.i33
   store i32 %.sroa.030.0.insert.insert.i.i26.sink, ptr %6, align 8
-  store i8 8, ptr %77, align 4, !tbaa !51
-  store i64 %78, ptr %9, align 8, !tbaa !391
+  store i8 8, ptr %78, align 4, !tbaa !51
+  store i64 %79, ptr %9, align 8, !tbaa !391
   %.sroa.543.sroa.4.0..sroa.543.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %80, ptr %.sroa.543.sroa.4.0..sroa.543.0..sroa_idx.sroa_idx, align 8, !tbaa !391
-  %.sroa.543.sroa.5.0..sroa.543.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %82, ptr %.sroa.543.sroa.5.0..sroa.543.0..sroa_idx.sroa_idx, align 8, !tbaa !391
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 %81, ptr %.sroa.543.sroa.4.0..sroa.543.0..sroa_idx.sroa_idx, align 8, !tbaa !391
   %.sink.in = lshr i64 %.sink.in.in, 63
   %.sink = trunc nuw nsw i64 %.sink.in to i8
-  %84 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 0, ptr %84, align 8, !tbaa !391
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i8 %.sink, ptr %85, align 8, !tbaa !4450
-  store i8 1, ptr %83, align 8, !tbaa !4450
-  %86 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_vendored4date9to_streamIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEERSt13basic_ostreamIT_T0_ESD_PKSA_RKNS0_6fieldsIT1_EEPKNSt7__cxx1112basic_stringIcS3_SaIcEEEPKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef %3, ptr noundef %4)
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %83, ptr %84, align 8, !tbaa !391
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 0, ptr %85, align 8, !tbaa !391
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i8 %.sink, ptr %86, align 8, !tbaa !4450
+  store i8 1, ptr %77, align 8, !tbaa !4450
+  %87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_vendored4date9to_streamIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEERSt13basic_ostreamIT_T0_ESD_PKSA_RKNS0_6fieldsIT1_EEPKNSt7__cxx1112basic_stringIcS3_SaIcEEEPKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef %3, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #28
-  ret ptr %86
+  ret ptr %87
 }
 
 declare void @_ZNK14arrow_vendored4date9time_zone13get_info_implENSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind writable sret(%"struct.arrow_vendored::date::sys_info") align 8, ptr noundef nonnull align 8 dereferenceable(88), i64) local_unnamed_addr #3
@@ -96307,7 +96307,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_v
   %8 = trunc i64 %7 to i32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #28
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %9, i8 0, i64 16, i1 false)
   %sext = shl i64 %7, 32
   %10 = ashr exact i64 %sext, 32
   %11 = mul nsw i64 %10, 86400000
@@ -96412,37 +96412,37 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_v
 76:                                               ; preds = %44, %12
   %.sink99 = phi i64 [ %75, %44 ], [ %43, %12 ]
   %.sroa.030.0.insert.insert.i.i27.sink = phi i32 [ %.sroa.030.0.insert.insert.i.i27, %44 ], [ %.sroa.030.0.insert.insert.i.i, %12 ]
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %spec.select.i.i31 = tail call i64 @llvm.abs.i64(i64 %.sink99, i1 true)
-  %78 = udiv i64 %spec.select.i.i31, 3600000
-  %79 = udiv i64 %spec.select.i.i31, 60000
-  %.neg.i.i32 = mul nsw i64 %78, -60
-  %80 = add nsw i64 %.neg.i.i32, %79
-  %.neg.i5.i33 = mul nsw i64 %78, -3600000
-  %81 = add nsw i64 %.neg.i5.i33, %spec.select.i.i31
-  %.neg.i6.i34 = mul nsw i64 %80, -60000
-  %82 = add i64 %81, %.neg.i6.i34
-  %83 = sdiv i64 %82, 1000
-  %.neg.i.i.i35 = mul nsw i64 %83, -1000
-  %84 = add i64 %.neg.i.i.i35, %82
+  %79 = udiv i64 %spec.select.i.i31, 3600000
+  %80 = udiv i64 %spec.select.i.i31, 60000
+  %.neg.i.i32 = mul nsw i64 %79, -60
+  %81 = add nsw i64 %.neg.i.i32, %80
+  %.neg.i5.i33 = mul nsw i64 %79, -3600000
+  %82 = add nsw i64 %.neg.i5.i33, %spec.select.i.i31
+  %.neg.i6.i34 = mul nsw i64 %81, -60000
+  %83 = add i64 %82, %.neg.i6.i34
+  %84 = sdiv i64 %83, 1000
+  %.neg.i.i.i35 = mul nsw i64 %84, -1000
+  %85 = add i64 %.neg.i.i.i35, %83
   store i32 %.sroa.030.0.insert.insert.i.i27.sink, ptr %6, align 8
-  store i8 8, ptr %77, align 4, !tbaa !51
-  store i64 %78, ptr %9, align 8, !tbaa !391
+  store i8 8, ptr %78, align 4, !tbaa !51
+  store i64 %79, ptr %9, align 8, !tbaa !391
   %.sroa.545.sroa.4.0..sroa.545.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %80, ptr %.sroa.545.sroa.4.0..sroa.545.0..sroa_idx.sroa_idx, align 8, !tbaa !391
-  %.sroa.545.sroa.5.0..sroa.545.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %83, ptr %.sroa.545.sroa.5.0..sroa.545.0..sroa_idx.sroa_idx, align 8, !tbaa !391
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 %81, ptr %.sroa.545.sroa.4.0..sroa.545.0..sroa_idx.sroa_idx, align 8, !tbaa !391
   %.sink.in = lshr i64 %.sink99, 63
   %.sink = trunc nuw nsw i64 %.sink.in to i8
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %84, ptr %86, align 8, !tbaa !391
-  %87 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i8 %.sink, ptr %87, align 8, !tbaa !4450
-  store i8 1, ptr %85, align 8, !tbaa !4450
-  %88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_vendored4date9to_streamIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEERSt13basic_ostreamIT_T0_ESD_PKSA_RKNS0_6fieldsIT1_EEPKNSt7__cxx1112basic_stringIcS3_SaIcEEEPKNS5_IlS6_ILl1ELl1EEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef %3, ptr noundef %4)
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 %85, ptr %87, align 8, !tbaa !391
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i8 %.sink, ptr %88, align 8, !tbaa !4450
+  store i8 1, ptr %77, align 8, !tbaa !4450
+  %89 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_vendored4date9to_streamIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEERSt13basic_ostreamIT_T0_ESD_PKSA_RKNS0_6fieldsIT1_EEPKNSt7__cxx1112basic_stringIcS3_SaIcEEEPKNS5_IlS6_ILl1ELl1EEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef %3, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #28
-  ret ptr %88
+  ret ptr %89
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -106720,7 +106720,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_v
   %8 = trunc nsw i64 %7 to i32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #28
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %9, i8 0, i64 16, i1 false)
   %10 = mul nsw i64 %7, 86400000000
   %.not = icmp slt i64 %.sroa.0.0.copyload.i.i, %10
   br i1 %.not, label %43, label %11
@@ -106823,37 +106823,37 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_v
 75:                                               ; preds = %43, %11
   %.sink99 = phi i64 [ %74, %43 ], [ %42, %11 ]
   %.sroa.030.0.insert.insert.i.i27.sink = phi i32 [ %.sroa.030.0.insert.insert.i.i27, %43 ], [ %.sroa.030.0.insert.insert.i.i, %11 ]
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %spec.select.i.i31 = tail call i64 @llvm.abs.i64(i64 %.sink99, i1 true)
-  %77 = udiv i64 %spec.select.i.i31, 3600000000
-  %78 = udiv i64 %spec.select.i.i31, 60000000
-  %.neg.i.i32 = mul nsw i64 %77, -60
-  %79 = add nsw i64 %.neg.i.i32, %78
-  %.neg.i5.i33 = mul nsw i64 %77, -3600000000
-  %80 = add nsw i64 %.neg.i5.i33, %spec.select.i.i31
-  %.neg.i6.i34 = mul nsw i64 %79, -60000000
-  %81 = add i64 %80, %.neg.i6.i34
-  %82 = sdiv i64 %81, 1000000
-  %.neg.i.i.i35 = mul nsw i64 %82, -1000000
-  %83 = add i64 %.neg.i.i.i35, %81
+  %78 = udiv i64 %spec.select.i.i31, 3600000000
+  %79 = udiv i64 %spec.select.i.i31, 60000000
+  %.neg.i.i32 = mul nsw i64 %78, -60
+  %80 = add nsw i64 %.neg.i.i32, %79
+  %.neg.i5.i33 = mul nsw i64 %78, -3600000000
+  %81 = add nsw i64 %.neg.i5.i33, %spec.select.i.i31
+  %.neg.i6.i34 = mul nsw i64 %80, -60000000
+  %82 = add i64 %81, %.neg.i6.i34
+  %83 = sdiv i64 %82, 1000000
+  %.neg.i.i.i35 = mul nsw i64 %83, -1000000
+  %84 = add i64 %.neg.i.i.i35, %82
   store i32 %.sroa.030.0.insert.insert.i.i27.sink, ptr %6, align 8
-  store i8 8, ptr %76, align 4, !tbaa !51
-  store i64 %77, ptr %9, align 8, !tbaa !391
+  store i8 8, ptr %77, align 4, !tbaa !51
+  store i64 %78, ptr %9, align 8, !tbaa !391
   %.sroa.545.sroa.4.0..sroa.545.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %79, ptr %.sroa.545.sroa.4.0..sroa.545.0..sroa_idx.sroa_idx, align 8, !tbaa !391
-  %.sroa.545.sroa.5.0..sroa.545.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %82, ptr %.sroa.545.sroa.5.0..sroa.545.0..sroa_idx.sroa_idx, align 8, !tbaa !391
-  %84 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 %80, ptr %.sroa.545.sroa.4.0..sroa.545.0..sroa_idx.sroa_idx, align 8, !tbaa !391
   %.sink.in = lshr i64 %.sink99, 63
   %.sink = trunc nuw nsw i64 %.sink.in to i8
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %83, ptr %85, align 8, !tbaa !391
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i8 %.sink, ptr %86, align 8, !tbaa !4450
-  store i8 1, ptr %84, align 8, !tbaa !4450
-  %87 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_vendored4date9to_streamIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEERSt13basic_ostreamIT_T0_ESD_PKSA_RKNS0_6fieldsIT1_EEPKNSt7__cxx1112basic_stringIcS3_SaIcEEEPKNS5_IlS6_ILl1ELl1EEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef %3, ptr noundef %4)
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 %84, ptr %86, align 8, !tbaa !391
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i8 %.sink, ptr %87, align 8, !tbaa !4450
+  store i8 1, ptr %76, align 8, !tbaa !4450
+  %88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_vendored4date9to_streamIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEERSt13basic_ostreamIT_T0_ESD_PKSA_RKNS0_6fieldsIT1_EEPKNSt7__cxx1112basic_stringIcS3_SaIcEEEPKNS5_IlS6_ILl1ELl1EEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef %3, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #28
-  ret ptr %87
+  ret ptr %88
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -117129,7 +117129,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_v
   %8 = trunc nsw i64 %7 to i32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #28
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %9, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %9, i8 0, i64 16, i1 false)
   %10 = mul nsw i64 %7, 86400000000000
   %.not = icmp slt i64 %.sroa.0.0.copyload.i.i, %10
   br i1 %.not, label %40, label %11
@@ -117226,37 +117226,37 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_v
 69:                                               ; preds = %40, %11
   %.sink99 = phi i64 [ %68, %40 ], [ %39, %11 ]
   %.sroa.030.0.insert.insert.i.i27.sink = phi i32 [ %.sroa.030.0.insert.insert.i.i27, %40 ], [ %.sroa.030.0.insert.insert.i.i, %11 ]
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %spec.select.i.i31 = tail call i64 @llvm.abs.i64(i64 %.sink99, i1 true)
-  %71 = udiv i64 %spec.select.i.i31, 3600000000000
-  %72 = udiv i64 %spec.select.i.i31, 60000000000
-  %.neg.i.i32 = mul nsw i64 %71, -60
-  %73 = add nsw i64 %.neg.i.i32, %72
-  %.neg.i5.i33 = mul nsw i64 %71, -3600000000000
-  %74 = add nsw i64 %.neg.i5.i33, %spec.select.i.i31
-  %.neg.i6.i34 = mul nsw i64 %73, -60000000000
-  %75 = add i64 %74, %.neg.i6.i34
-  %76 = sdiv i64 %75, 1000000000
-  %.neg.i.i.i35 = mul nsw i64 %76, -1000000000
-  %77 = add i64 %.neg.i.i.i35, %75
+  %72 = udiv i64 %spec.select.i.i31, 3600000000000
+  %73 = udiv i64 %spec.select.i.i31, 60000000000
+  %.neg.i.i32 = mul nsw i64 %72, -60
+  %74 = add nsw i64 %.neg.i.i32, %73
+  %.neg.i5.i33 = mul nsw i64 %72, -3600000000000
+  %75 = add nsw i64 %.neg.i5.i33, %spec.select.i.i31
+  %.neg.i6.i34 = mul nsw i64 %74, -60000000000
+  %76 = add i64 %75, %.neg.i6.i34
+  %77 = sdiv i64 %76, 1000000000
+  %.neg.i.i.i35 = mul nsw i64 %77, -1000000000
+  %78 = add i64 %.neg.i.i.i35, %76
   store i32 %.sroa.030.0.insert.insert.i.i27.sink, ptr %6, align 8
-  store i8 8, ptr %70, align 4, !tbaa !51
-  store i64 %71, ptr %9, align 8, !tbaa !391
+  store i8 8, ptr %71, align 4, !tbaa !51
+  store i64 %72, ptr %9, align 8, !tbaa !391
   %.sroa.545.sroa.4.0..sroa.545.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %73, ptr %.sroa.545.sroa.4.0..sroa.545.0..sroa_idx.sroa_idx, align 8, !tbaa !391
-  %.sroa.545.sroa.5.0..sroa.545.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %76, ptr %.sroa.545.sroa.5.0..sroa.545.0..sroa_idx.sroa_idx, align 8, !tbaa !391
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 %74, ptr %.sroa.545.sroa.4.0..sroa.545.0..sroa_idx.sroa_idx, align 8, !tbaa !391
   %.sink.in = lshr i64 %.sink99, 63
   %.sink = trunc nuw nsw i64 %.sink.in to i8
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %77, ptr %79, align 8, !tbaa !391
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i8 %.sink, ptr %80, align 8, !tbaa !4450
-  store i8 1, ptr %78, align 8, !tbaa !4450
-  %81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_vendored4date9to_streamIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEERSt13basic_ostreamIT_T0_ESD_PKSA_RKNS0_6fieldsIT1_EEPKNSt7__cxx1112basic_stringIcS3_SaIcEEEPKNS5_IlS6_ILl1ELl1EEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef %3, ptr noundef %4)
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 %78, ptr %80, align 8, !tbaa !391
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i8 %.sink, ptr %81, align 8, !tbaa !4450
+  store i8 1, ptr %70, align 8, !tbaa !4450
+  %82 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN14arrow_vendored4date9to_streamIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEERSt13basic_ostreamIT_T0_ESD_PKSA_RKNS0_6fieldsIT1_EEPKNSt7__cxx1112basic_stringIcS3_SaIcEEEPKNS5_IlS6_ILl1ELl1EEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(49) %6, ptr noundef %3, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #28
-  ret ptr %81
+  ret ptr %82
 }
 
 ; Function Attrs: mustprogress uwtable

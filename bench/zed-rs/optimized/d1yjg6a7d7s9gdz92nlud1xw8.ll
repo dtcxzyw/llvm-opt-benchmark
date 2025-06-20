@@ -2690,20 +2690,20 @@ define hidden void @_ZN2ui10components6button6button6Button3new17h034b613de7bc14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !715
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %7), !noalias !715
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull align 8 dereferenceable(752) %.sroa.0, i64 752, i1 false)
-  %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 752
-  store i32 3, ptr %.sroa.515.0..sroa_idx, align 8
-  %.sroa.616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 760
-  store i32 3, ptr %.sroa.616.0..sroa_idx, align 8
-  %.sroa.717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 768
-  store ptr null, ptr %.sroa.717.0..sroa_idx, align 8
-  %.sroa.818.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 784
-  store ptr null, ptr %.sroa.818.0..sroa_idx, align 8
-  %.sroa.919.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 848
-  store i64 0, ptr %.sroa.919.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  store i32 3, ptr %.sroa.5.0..sroa_idx13, align 8
+  %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 760
+  store i32 3, ptr %.sroa.614.0..sroa_idx, align 8
+  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 768
+  store ptr null, ptr %.sroa.715.0..sroa_idx, align 8
+  %.sroa.816.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 784
+  store ptr null, ptr %.sroa.816.0..sroa_idx, align 8
+  %.sroa.917.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 848
+  store i64 0, ptr %.sroa.917.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 856
   store i8 3, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.1120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 858
-  store i8 0, ptr %.sroa.1120.0..sroa_idx, align 2
+  %.sroa.1118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 858
+  store i8 0, ptr %.sroa.1118.0..sroa_idx, align 2
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 859
   store i8 0, ptr %.sroa.12.0..sroa_idx, align 1
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 860
@@ -2718,10 +2718,10 @@ define hidden void @_ZN2ui10components6button6button6Button3new17h034b613de7bc14
   store i8 5, ptr %.sroa.17.0..sroa_idx, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store i64 0, ptr %14, align 8
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 880
-  store ptr %3, ptr %.sroa.413.0..sroa_idx, align 8
-  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 888
-  store i64 %4, ptr %.sroa.514.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 880
+  store ptr %3, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 888
+  store i64 %4, ptr %.sroa.5.0..sroa_idx, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store i32 19, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1209

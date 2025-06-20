@@ -1570,9 +1570,9 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 
 438:                                              ; preds = %435
   %439 = icmp ult i64 %436, 9
-  br i1 %439, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread64.i.i", label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i"
+  br i1 %439, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread63.i.i", label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i"
 
-"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread64.i.i": ; preds = %438
+"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread63.i.i": ; preds = %438
   %440 = getelementptr inbounds nuw i8, ptr %243, i64 %436
   br label %452
 
@@ -1592,22 +1592,22 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %451 = icmp eq i32 %447, 0
   br i1 %451, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$18pop_front_char_run17h27b203df2d5dd9b4E.exit.i", label %452
 
-452:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread64.i.i"
-  %453 = phi ptr [ %440, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread64.i.i" ], [ %450, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i" ]
-  %.sroa.0.0.i68.i.i = phi ptr [ %243, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread64.i.i" ], [ %449, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i" ]
-  %.sroa.4.0.i67.i.i = phi i64 [ %436, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread64.i.i" ], [ %448, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i" ]
-  %454 = ptrtoint ptr %.sroa.0.0.i68.i.i to i64
-  %455 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68.i.i, i64 1
-  %456 = load i8, ptr %.sroa.0.0.i68.i.i, align 1, !noalias !186, !noundef !4
+452:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i", %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread63.i.i"
+  %453 = phi ptr [ %440, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread63.i.i" ], [ %450, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i" ]
+  %.sroa.0.0.i67.i.i = phi ptr [ %243, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread63.i.i" ], [ %449, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i" ]
+  %.sroa.4.0.i66.i.i = phi i64 [ %436, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.thread63.i.i" ], [ %448, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hf60270f8b428432dE.exit.i.i" ]
+  %454 = ptrtoint ptr %.sroa.0.0.i67.i.i to i64
+  %455 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i67.i.i, i64 1
+  %456 = load i8, ptr %.sroa.0.0.i67.i.i, align 1, !noalias !186, !noundef !4
   %457 = icmp sgt i8 %456, -1
   br i1 %457, label %468, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit12.i.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit12.i.i.i.i": ; preds = %452
   %458 = and i8 %456, 31
   %459 = zext nneg i8 %458 to i32
-  %460 = icmp samesign ne i64 %.sroa.4.0.i67.i.i, 1
+  %460 = icmp samesign ne i64 %.sroa.4.0.i66.i.i, 1
   call void @llvm.assume(i1 %460)
-  %461 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68.i.i, i64 2
+  %461 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i67.i.i, i64 2
   %462 = load i8, ptr %455, align 1, !noalias !186, !noundef !4
   %463 = shl nuw nsw i32 %459, 6
   %464 = and i8 %462, 63
@@ -1621,9 +1621,9 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %490
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit14.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit12.i.i.i.i"
-  %470 = icmp samesign ne i64 %.sroa.4.0.i67.i.i, 2
+  %470 = icmp samesign ne i64 %.sroa.4.0.i66.i.i, 2
   call void @llvm.assume(i1 %470)
-  %471 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68.i.i, i64 3
+  %471 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i67.i.i, i64 3
   %472 = load i8, ptr %461, align 1, !noalias !186, !noundef !4
   %473 = shl nuw nsw i32 %465, 6
   %474 = and i8 %472, 63
@@ -1635,9 +1635,9 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %479, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit16.i.i.i.i", label %490
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit16.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit14.i.i.i.i"
-  %480 = icmp samesign ne i64 %.sroa.4.0.i67.i.i, 3
+  %480 = icmp samesign ne i64 %.sroa.4.0.i66.i.i, 3
   call void @llvm.assume(i1 %480)
-  %481 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68.i.i, i64 4
+  %481 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i67.i.i, i64 4
   %482 = load i8, ptr %471, align 1, !noalias !186, !noundef !4
   %483 = shl nuw nsw i32 %459, 18
   %484 = and i32 %483, 1835008
@@ -1758,8 +1758,8 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %544, label %545, label %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.thread.i.i"
 
 "_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.thread.i.i": ; preds = %543
-  %.sroa.546.0.copyload4871.i.i = load i32, ptr %243, align 8, !alias.scope !180, !noalias !184
-  %.sroa.549.0.copyload5173.i.i = load i32, ptr %242, align 4, !alias.scope !180, !noalias !184
+  %.sroa.5.0.copyload4770.i.i = load i32, ptr %243, align 8, !alias.scope !180, !noalias !184
+  %.sroa.548.0.copyload5072.i.i = load i32, ptr %242, align 4, !alias.scope !180, !noalias !184
   br label %566
 
 545:                                              ; preds = %543
@@ -1798,8 +1798,8 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %560 = add nuw i64 %556, 1
   store i64 %560, ptr %555, align 8, !noalias !204
   %.sroa.044.0.copyload45.pre.i.i = load i64, ptr %28, align 8, !alias.scope !180, !noalias !184
-  %.sroa.546.0.copyload48.i.i = load i32, ptr %243, align 8, !alias.scope !180, !noalias !184
-  %.sroa.549.0.copyload51.i.i = load i32, ptr %242, align 4, !alias.scope !180, !noalias !184
+  %.sroa.5.0.copyload47.i.i = load i32, ptr %243, align 8, !alias.scope !180, !noalias !184
+  %.sroa.548.0.copyload50.i.i = load i32, ptr %242, align 4, !alias.scope !180, !noalias !184
   call void @llvm.experimental.noalias.scope.decl(metadata !207)
   %561 = icmp ult i64 %.sroa.044.0.copyload45.pre.i.i, 16
   br i1 %561, label %566, label %562
@@ -1812,9 +1812,9 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %.not.i.i17.i.i, label %567, label %568
 
 566:                                              ; preds = %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.i.i", %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.thread.i.i"
-  %.sroa.549.0.copyload5179.i.i = phi i32 [ %.sroa.549.0.copyload5173.i.i, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.thread.i.i" ], [ %.sroa.549.0.copyload51.i.i, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.i.i" ]
-  %.sroa.546.0.copyload4877.i.i = phi i32 [ %.sroa.546.0.copyload4871.i.i, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.thread.i.i" ], [ %.sroa.546.0.copyload48.i.i, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.i.i" ]
-  %.sroa.044.0.copyload4575.i.i = phi i64 [ %436, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.thread.i.i" ], [ %.sroa.044.0.copyload45.pre.i.i, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.i.i" ]
+  %.sroa.548.0.copyload5078.i.i = phi i32 [ %.sroa.548.0.copyload5072.i.i, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.thread.i.i" ], [ %.sroa.548.0.copyload50.i.i, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.i.i" ]
+  %.sroa.5.0.copyload4776.i.i = phi i32 [ %.sroa.5.0.copyload4770.i.i, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.thread.i.i" ], [ %.sroa.5.0.copyload47.i.i, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.i.i" ]
+  %.sroa.044.0.copyload4574.i.i = phi i64 [ %436, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.thread.i.i" ], [ %.sroa.044.0.copyload45.pre.i.i, %"_ZN77_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde85bccecaaa7858E.exit.i.i" ]
   store i64 15, ptr %28, align 8, !alias.scope !210, !noalias !184
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit.i.i"
 
@@ -2028,14 +2028,14 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %715
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit.i.i": ; preds = %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i", %567, %566
-  %.val22156.i = phi i32 [ 0, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i" ], [ %.sroa.549.0.copyload51.i.i, %567 ], [ %.sroa.549.0.copyload5179.i.i, %566 ]
-  %653 = phi i32 [ 0, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i" ], [ 0, %567 ], [ %.sroa.546.0.copyload4877.i.i, %566 ]
+  %.val22156.i = phi i32 [ 0, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i" ], [ %.sroa.548.0.copyload50.i.i, %567 ], [ %.sroa.548.0.copyload5078.i.i, %566 ]
+  %653 = phi i32 [ 0, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i" ], [ 0, %567 ], [ %.sroa.5.0.copyload4776.i.i, %566 ]
   %654 = phi i64 [ 15, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i" ], [ %.sroa.044.0.copyload45.pre.i.i, %567 ], [ 15, %566 ]
-  %.sroa.549.0.copyload5178.i.i = phi i32 [ %.sroa.549.0.copyload51.i.i, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i" ], [ %.sroa.549.0.copyload51.i.i, %567 ], [ %.sroa.549.0.copyload5179.i.i, %566 ]
-  %.sroa.546.0.copyload4876.i.i = phi i32 [ %.sroa.546.0.copyload48.i.i, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i" ], [ %.sroa.546.0.copyload48.i.i, %567 ], [ %.sroa.546.0.copyload4877.i.i, %566 ]
-  %.sroa.044.0.copyload4574.i.i = phi i64 [ %.sroa.044.0.copyload45.pre.i.i, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i" ], [ %.sroa.044.0.copyload45.pre.i.i, %567 ], [ %.sroa.044.0.copyload4575.i.i, %566 ]
-  %.sroa.770.8.insert.ext.i = zext i32 %.sroa.546.0.copyload4876.i.i to i64
-  %.sroa.770.12.insert.ext.i = zext i32 %.sroa.549.0.copyload5178.i.i to i64
+  %.sroa.548.0.copyload5077.i.i = phi i32 [ %.sroa.548.0.copyload50.i.i, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i" ], [ %.sroa.548.0.copyload50.i.i, %567 ], [ %.sroa.548.0.copyload5078.i.i, %566 ]
+  %.sroa.5.0.copyload4775.i.i = phi i32 [ %.sroa.5.0.copyload47.i.i, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i" ], [ %.sroa.5.0.copyload47.i.i, %567 ], [ %.sroa.5.0.copyload4776.i.i, %566 ]
+  %.sroa.044.0.copyload4573.i.i = phi i64 [ %.sroa.044.0.copyload45.pre.i.i, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i.i.i" ], [ %.sroa.044.0.copyload45.pre.i.i, %567 ], [ %.sroa.044.0.copyload4574.i.i, %566 ]
+  %.sroa.770.8.insert.ext.i = zext i32 %.sroa.5.0.copyload4775.i.i to i64
+  %.sroa.770.12.insert.ext.i = zext i32 %.sroa.548.0.copyload5077.i.i to i64
   %.sroa.770.12.insert.shift.i = shl nuw i64 %.sroa.770.12.insert.ext.i, 32
   %.sroa.770.12.insert.insert.i = or disjoint i64 %.sroa.770.12.insert.shift.i, %.sroa.770.8.insert.ext.i
   br label %715
@@ -2212,7 +2212,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   %.val22.i = phi i32 [ %624, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i23.i.i" ], [ %652, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i31.i.i" ], [ %.val22156.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit.i.i" ]
   %716 = phi i32 [ %625, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i23.i.i" ], [ %650, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i31.i.i" ], [ %653, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit.i.i" ]
   %717 = phi i64 [ %621, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i23.i.i" ], [ %..i.i28.i.i, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i31.i.i" ], [ %654, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit.i.i" ]
-  %.sroa.069.2.ph.i = phi i64 [ %.sroa.042.0.i.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i23.i.i" ], [ %.sroa.042.0.i.i, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i31.i.i" ], [ %.sroa.044.0.copyload4574.i.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit.i.i" ]
+  %.sroa.069.2.ph.i = phi i64 [ %.sroa.042.0.i.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i23.i.i" ], [ %.sroa.042.0.i.i, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i31.i.i" ], [ %.sroa.044.0.copyload4573.i.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit.i.i" ]
   %.sroa.770.2.ph.i = phi i64 [ %.sroa.6.0.i.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$15make_buf_shared17h426eaf36e7b38a2dE.exit.i23.i.i" ], [ %.sroa.6.0.i.i, %"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17hcf1014fb9baf370dE.exit.i31.i.i" ], [ %.sroa.770.12.insert.insert.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5clear17haf48d9ef6e4febc9E.exit.i.i" ]
   %..i = sub nuw nsw i8 2, %.sroa.0.0.i16.i.i
   store i64 -9223372036854775807, ptr %38, align 8, !alias.scope !96, !noalias !100
@@ -6480,7 +6480,6 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
-  %.sroa.7.i = alloca [6 x i8], align 2
   %8 = alloca [8 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
@@ -6514,7 +6513,6 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %38 = alloca [24 x i8], align 8
   %39 = alloca [40 x i8], align 8
   %.sroa.9.sroa.0 = alloca [16 x i8], align 8
-  %.sroa.9.sroa.8 = alloca [6 x i8], align 2
   %40 = alloca [40 x i8], align 8
   %41 = alloca [8 x i8], align 8
   %42 = and i64 %1, 3
@@ -6588,7 +6586,6 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 32
   %.sroa.2.sroa.4.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 33
-  %.sroa.2.sroa.5.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 34
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %69 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -6695,7 +6692,6 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %.sroa.086.01412 = phi i32 [ 0, %64 ], [ %123, %"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h1437806451383ea0E.exit394" ]
   %123 = add nuw nsw i32 %.sroa.086.01412, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.9.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.9.sroa.8)
   %124 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
   %125 = load i64, ptr %67, align 8, !noundef !4
   %126 = getelementptr inbounds { i64, [5 x i64] }, ptr %124, i64 %125
@@ -6740,7 +6736,6 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
 "_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30edba8ce2c3e507E.exit.i": ; preds = %138
   %144 = getelementptr inbounds i8, ptr %128, i64 -24
   store ptr %.val.i, ptr %8, align 8, !noalias !767
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.7.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !771)
   %145 = getelementptr inbounds i8, ptr %128, i64 -16
   %146 = load i8, ptr %145, align 8, !range !5, !alias.scope !771, !noalias !774, !noundef !4
@@ -6793,8 +6788,6 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8415.16..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !776
   %168 = load ptr, ptr %8, align 8, !noalias !767, !nonnull !4, !noundef !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9.sroa.8, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7.i, i64 6, i1 false)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !767
   %.not619 = icmp eq i64 %.sroa.6414.16.copyload, -9223372036854775808
   br i1 %.not619, label %.thread474, label %172
@@ -6815,13 +6808,11 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   call fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$23process_end_tag_in_body17h57e90dce2d01ac34E"(ptr noalias noundef align 8 dereferenceable(192) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %39)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.9.sroa.8)
   br label %"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..LocalNameStaticSet$GT$$GT$17h0e9d66411fdb076aE.exit"
 
 172:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %40)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.sroa.0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.2.sroa.5.0..sroa.2.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9.sroa.8, i64 6, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
   store ptr %168, ptr %41, align 8
   store i64 %.sroa.6414.16.copyload, ptr %40, align 8
@@ -6829,7 +6820,6 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   store i8 %146, ptr %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   store i8 %156, ptr %.sroa.2.sroa.4.0..sroa.2.0..sroa_idx.sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.9.sroa.8)
   %173 = load ptr, ptr %52, align 8, !nonnull !4, !noundef !4
   %174 = load i64, ptr %48, align 8, !noundef !4
   %175 = getelementptr inbounds ptr, ptr %173, i64 %174

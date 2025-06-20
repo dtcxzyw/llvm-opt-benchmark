@@ -866,14 +866,14 @@ default.unreachable20:                            ; preds = %37, %24, %3
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !65, !noalias !66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.6.i.i)
   switch i8 %.pre.i, label %default.unreachable20 [
-    i8 0, label %._crit_edge
+    i8 0, label %._crit_edge15
     i8 1, label %46
     i8 2, label %47
     i8 3, label %._crit_edge.i.i
     i8 4, label %60
   ]
 
-._crit_edge:                                      ; preds = %37
+._crit_edge15:                                    ; preds = %37
   %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre17 = load ptr, ptr %.phi.trans.insert16, align 8, !noalias !66
   %.phi.trans.insert18 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -887,12 +887,12 @@ default.unreachable20:                            ; preds = %37, %24, %3
   %.pre21.i.i = load ptr, ptr %.phi.trans.insert20.i.i, align 8, !noalias !66
   br label %48
 
-38:                                               ; preds = %._crit_edge, %.thread.i
-  %39 = phi ptr [ %27, %.thread.i ], [ %26, %._crit_edge ]
-  %40 = phi ptr [ %28, %.thread.i ], [ %25, %._crit_edge ]
-  %41 = phi i64 [ 1, %.thread.i ], [ %.pre19, %._crit_edge ]
-  %42 = phi ptr [ %29, %.thread.i ], [ %.pre17, %._crit_edge ]
-  %43 = phi ptr [ %.sroa.10.0..sroa_idx.i, %.thread.i ], [ %.phi.trans.insert.i, %._crit_edge ]
+38:                                               ; preds = %._crit_edge15, %.thread.i
+  %39 = phi ptr [ %27, %.thread.i ], [ %26, %._crit_edge15 ]
+  %40 = phi ptr [ %28, %.thread.i ], [ %25, %._crit_edge15 ]
+  %41 = phi i64 [ 1, %.thread.i ], [ %.pre19, %._crit_edge15 ]
+  %42 = phi ptr [ %29, %.thread.i ], [ %.pre17, %._crit_edge15 ]
+  %43 = phi ptr [ %.sroa.10.0..sroa_idx.i, %.thread.i ], [ %.phi.trans.insert.i, %._crit_edge15 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %42, ptr %44, align 8, !noalias !66
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -954,9 +954,9 @@ default.unreachable20:                            ; preds = %37, %24, %3
   br label %"_ZN4core3ptr148drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..http3..driver..InboundFrame$GT$..reserve_inner..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfed8dee70d0965bdE.exit19.i"
 
 60:                                               ; preds = %57, %37
-  %61 = phi ptr [ %26, %37 ], [ %49, %57 ]
-  %62 = phi ptr [ %25, %37 ], [ %50, %57 ]
-  %63 = phi ptr [ %.phi.trans.insert.i, %37 ], [ %51, %57 ]
+  %61 = phi ptr [ %49, %57 ], [ %26, %37 ]
+  %62 = phi ptr [ %50, %57 ], [ %25, %37 ]
+  %63 = phi ptr [ %51, %57 ], [ %.phi.trans.insert.i, %37 ]
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %65 = invoke noundef i8 @"_ZN86_$LT$tokio..sync..batch_semaphore..Acquire$u20$as$u20$core..future..future..Future$GT$4poll17hcd079ca654a7ff13E"(ptr noundef nonnull align 8 %64, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %68 unwind label %66
@@ -1111,8 +1111,8 @@ common.ret.sink.split.i:                          ; preds = %107, %110
 "_ZN4core3ptr148drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..http3..driver..InboundFrame$GT$..reserve_owned..$u7b$$u7b$closure$u7d$$u7d$$GT$17h60e3c97db67cacc1E.exit": ; preds = %105, %common.ret.sink.split.i
   %119 = trunc nuw i64 %101 to i1
   %spec.select = select i1 %119, ptr undef, ptr %102
-  %spec.select15 = sub i64 -9223372036854775806, %101
-  store i64 %spec.select15, ptr %0, align 8
+  %spec.select14 = sub i64 -9223372036854775806, %101
+  store i64 %spec.select14, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %.sroa.2.0..sroa_idx, align 8
   br label %common.ret
@@ -1253,14 +1253,14 @@ default.unreachable21:                            ; preds = %37, %24, %3
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !65, !noalias !77
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.6.i.i)
   switch i8 %.pre.i, label %default.unreachable21 [
-    i8 0, label %._crit_edge
+    i8 0, label %._crit_edge16
     i8 1, label %46
     i8 2, label %47
     i8 3, label %._crit_edge.i.i
     i8 4, label %60
   ]
 
-._crit_edge:                                      ; preds = %37
+._crit_edge16:                                    ; preds = %37
   %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre18 = load ptr, ptr %.phi.trans.insert17, align 8, !noalias !77
   %.phi.trans.insert19 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1274,12 +1274,12 @@ default.unreachable21:                            ; preds = %37, %24, %3
   %.pre21.i.i = load ptr, ptr %.phi.trans.insert20.i.i, align 8, !noalias !77
   br label %48
 
-38:                                               ; preds = %._crit_edge, %.thread.i
-  %39 = phi ptr [ %27, %.thread.i ], [ %26, %._crit_edge ]
-  %40 = phi ptr [ %28, %.thread.i ], [ %25, %._crit_edge ]
-  %41 = phi i64 [ 1, %.thread.i ], [ %.pre20, %._crit_edge ]
-  %42 = phi ptr [ %29, %.thread.i ], [ %.pre18, %._crit_edge ]
-  %43 = phi ptr [ %.sroa.10.0..sroa_idx.i, %.thread.i ], [ %.phi.trans.insert.i, %._crit_edge ]
+38:                                               ; preds = %._crit_edge16, %.thread.i
+  %39 = phi ptr [ %27, %.thread.i ], [ %26, %._crit_edge16 ]
+  %40 = phi ptr [ %28, %.thread.i ], [ %25, %._crit_edge16 ]
+  %41 = phi i64 [ 1, %.thread.i ], [ %.pre20, %._crit_edge16 ]
+  %42 = phi ptr [ %29, %.thread.i ], [ %.pre18, %._crit_edge16 ]
+  %43 = phi ptr [ %.sroa.10.0..sroa_idx.i, %.thread.i ], [ %.phi.trans.insert.i, %._crit_edge16 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %42, ptr %44, align 8, !noalias !77
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1341,9 +1341,9 @@ default.unreachable21:                            ; preds = %37, %24, %3
   br label %"_ZN4core3ptr149drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..http3..driver..OutboundFrame$GT$..reserve_inner..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5bada6447dd90b09E.exit19.i"
 
 60:                                               ; preds = %57, %37
-  %61 = phi ptr [ %26, %37 ], [ %49, %57 ]
-  %62 = phi ptr [ %25, %37 ], [ %50, %57 ]
-  %63 = phi ptr [ %.phi.trans.insert.i, %37 ], [ %51, %57 ]
+  %61 = phi ptr [ %49, %57 ], [ %26, %37 ]
+  %62 = phi ptr [ %50, %57 ], [ %25, %37 ]
+  %63 = phi ptr [ %51, %57 ], [ %.phi.trans.insert.i, %37 ]
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %65 = invoke noundef i8 @"_ZN86_$LT$tokio..sync..batch_semaphore..Acquire$u20$as$u20$core..future..future..Future$GT$4poll17hcd079ca654a7ff13E"(ptr noundef nonnull align 8 %64, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %68 unwind label %66
@@ -1498,10 +1498,10 @@ common.ret.sink.split.i:                          ; preds = %107, %110
 "_ZN4core3ptr149drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$tokio_quiche..http3..driver..OutboundFrame$GT$..reserve_owned..$u7b$$u7b$closure$u7d$$u7d$$GT$17h895fc3524d104f36E.exit": ; preds = %105, %common.ret.sink.split.i
   %119 = trunc nuw i64 %101 to i1
   %spec.select = select i1 %119, ptr undef, ptr %102
-  %spec.select16 = select i1 %119, i8 5, i8 6
-  store i8 %spec.select16, ptr %0, align 8
-  %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %spec.select, ptr %.sroa.215.0..sroa_idx, align 8
+  %spec.select15 = select i1 %119, i8 5, i8 6
+  store i8 %spec.select15, ptr %0, align 8
+  %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %spec.select, ptr %.sroa.214.0..sroa_idx, align 8
   br label %common.ret
 
 .body:                                            ; preds = %99, %90

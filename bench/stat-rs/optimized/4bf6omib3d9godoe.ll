@@ -543,8 +543,8 @@ define void @_ZN6statrs12distribution3chi3Chi3new17h71e735c60156cb0cE(ptr dead_o
   br label %5
 
 5:                                                ; preds = %2, %3
-  %.sink = phi i64 [ 21, %3 ], [ 0, %2 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 21, %3 ], [ 0, %2 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -1137,8 +1137,8 @@ _ZN6statrs12distribution9dirichlet14is_valid_alpha17h00e7d4c1915b2f3aE.exit.thre
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !130
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !130
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %11, ptr %.sroa.48.0..sroa_idx, align 8
+  %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %11, ptr %.sroa.47.0..sroa_idx, align 8
   br label %_ZN6statrs12distribution9dirichlet14is_valid_alpha17h00e7d4c1915b2f3aE.exit.thread
 
 63:                                               ; preds = %.body
@@ -1937,8 +1937,8 @@ define void @_ZN6statrs12distribution11exponential3Exp3new17hd4e24baf5ed34872E(p
   br label %5
 
 5:                                                ; preds = %2, %3
-  %.sink = phi i64 [ 21, %3 ], [ 0, %2 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 21, %3 ], [ 0, %2 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 

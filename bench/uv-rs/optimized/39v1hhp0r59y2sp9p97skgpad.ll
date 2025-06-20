@@ -17660,9 +17660,9 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
 
 16:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h11839f50cc1883c8E.exit.i"
   %.sroa.7.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.424.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx2.i, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.423.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx2.i, i64 7, i1 false)
   %.sroa.6.sroa.5.0..sroa.7.0..sroa_idx2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.6.sroa.5.0.copyload = load ptr, ptr %.sroa.6.sroa.5.0..sroa.7.0..sroa_idx2.i.sroa_idx, align 1, !noalias !3422
   %.sroa.6.sroa.6.0..sroa.7.0..sroa_idx2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -17685,15 +17685,15 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
 21:                                               ; preds = %16
   %.sroa.6.sroa.7.sroa.7.0..sroa.6.sroa.7.0..sroa.7.0..sroa_idx2.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   %.sroa.6.sroa.7.sroa.5.0..sroa.6.sroa.7.0..sroa.7.0..sroa_idx2.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 33
-  %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.551.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.sroa.7.sroa.5.0..sroa.6.sroa.7.0..sroa.7.0..sroa_idx2.i.sroa_idx.sroa_idx, i64 7, i1 false)
-  %.sroa.753.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.753.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.sroa.7.sroa.7.0..sroa.6.sroa.7.0..sroa.7.0..sroa_idx2.i.sroa_idx.sroa_idx, i64 16, i1 false)
+  %.sroa.550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.550.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.sroa.7.sroa.5.0..sroa.6.sroa.7.0..sroa.7.0..sroa_idx2.i.sroa_idx.sroa_idx, i64 7, i1 false)
+  %.sroa.752.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.752.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.6.sroa.7.sroa.7.0..sroa.6.sroa.7.0..sroa.7.0..sroa_idx2.i.sroa_idx.sroa_idx, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %.sroa.450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sroa.6.sroa.7.sroa.0.0.copyload, ptr %.sroa.450.0..sroa_idx, align 8
-  %.sroa.652.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sroa.6.sroa.7.sroa.6.0.copyload, ptr %.sroa.652.0..sroa_idx, align 8
+  %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sroa.6.sroa.7.sroa.0.0.copyload, ptr %.sroa.449.0..sroa_idx, align 8
+  %.sroa.651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %.sroa.6.sroa.7.sroa.6.0.copyload, ptr %.sroa.651.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %25
 
@@ -18560,8 +18560,8 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   store i64 %15, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %16, align 8
-  %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 %12, ptr %.sroa.419.0..sroa_idx, align 1
+  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
+  store i8 %12, ptr %.sroa.418.0..sroa_idx, align 1
   br label %17
 
 17:                                               ; preds = %10, %8
@@ -18972,17 +18972,17 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %.sroa.9.sroa.6.0..sroa.9.0..sroa_idx6.sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.9.sroa.6.0.copyload = load ptr, ptr %.sroa.9.sroa.6.0..sroa.9.0..sroa_idx6.sroa_idx, align 1, !noalias !3797
   %.sroa.9.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.427.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx6, i64 7, i1 false)
-  %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.629.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx6.sroa_idx, i64 16, i1 false)
+  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.426.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx6, i64 7, i1 false)
+  %.sroa.628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.628.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.9.sroa.7.0..sroa.9.0..sroa_idx6.sroa_idx, i64 16, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = add i64 %15, 1
   store i64 %16, ptr %14, align 8
   store i8 %.sroa.0.0.copyload5, ptr %0, align 8
-  %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.9.sroa.6.0.copyload, ptr %.sroa.528.0..sroa_idx, align 8
+  %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.9.sroa.6.0.copyload, ptr %.sroa.527.0..sroa_idx, align 8
   br label %17
 
 17:                                               ; preds = %13, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6fe62f2eacdc8690E.llvm.10726615453632412928.exit.thread"

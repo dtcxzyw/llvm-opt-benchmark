@@ -998,13 +998,13 @@ define internal fastcc void @"_ZN3fst3raw5build16Builder$LT$W$GT$12compile_from1
   br label %22
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28", %3
-  %.0.lcssa = phi i64 [ 1, %3 ], [ %.sroa.8.133.ph, %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28" ]
+  %.0.lcssa = phi i64 [ 1, %3 ], [ %.sroa.8.133.ph55, %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28" ]
   call void @_ZN3fst3raw5build15UnfinishedNodes15top_last_freeze17ha1b2573885315e3dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %.0.lcssa)
   store i32 10, ptr %0, align 8
   br label %24
 
 22:                                               ; preds = %.lr.ph, %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28"
-  %.050 = phi i64 [ 1, %.lr.ph ], [ %.sroa.8.133.ph, %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28" ]
+  %.050 = phi i64 [ 1, %.lr.ph ], [ %.sroa.8.133.ph55, %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28" ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %23 = icmp eq i64 %.050, 1
   br i1 %23, label %26, label %25
@@ -1031,7 +1031,7 @@ define internal fastcc void @"_ZN3fst3raw5build16Builder$LT$W$GT$12compile_from1
   %32 = load i64, ptr %15, align 8, !alias.scope !216, !noalias !218
   %33 = icmp eq i64 %32, 0
   %or.cond5.i = select i1 %or.cond.i, i1 %33, i1 false
-  br i1 %or.cond5.i, label %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread", label %34
+  br i1 %or.cond5.i, label %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread.thread", label %34
 
 34:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !220
@@ -1045,7 +1045,7 @@ define internal fastcc void @"_ZN3fst3raw5build16Builder$LT$W$GT$12compile_from1
 
 "_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread35": ; preds = %.noexc
   %37 = load i64, ptr %19, align 8, !noalias !220, !noundef !9
-  br label %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread.sink.split"
+  br label %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread"
 
 38:                                               ; preds = %.noexc
   %39 = load i64, ptr %17, align 8, !alias.scope !213, !noalias !221, !noundef !9
@@ -1062,14 +1062,14 @@ define internal fastcc void @"_ZN3fst3raw5build16Builder$LT$W$GT$12compile_from1
   %45 = add i64 %44, -1
   store i64 %45, ptr %18, align 8, !alias.scope !213, !noalias !221
   %46 = icmp eq i64 %35, 1
-  br i1 %46, label %47, label %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread.sink.split"
+  br i1 %46, label %47, label %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread"
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %19, align 8, !noalias !220, !nonnull !9, !align !22, !noundef !9
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store i64 %45, ptr %49, align 8, !noalias !222
   %.pre.i = load i64, ptr %18, align 8, !alias.scope !213, !noalias !221
-  br label %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread.sink.split"
+  br label %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread"
 
 .loopexit:                                        ; preds = %34, %38
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1084,17 +1084,13 @@ define internal fastcc void @"_ZN3fst3raw5build16Builder$LT$W$GT$12compile_from1
 50:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7) #21
-          to label %74 unwind label %72
+          to label %73 unwind label %71
 
-"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread.sink.split": ; preds = %43, %47, %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread35"
-  %.sroa.8.133.ph.ph = phi i64 [ %37, %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread35" ], [ %.pre.i, %47 ], [ %45, %43 ]
+"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread": ; preds = %43, %47, %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread35"
+  %.sroa.8.133.ph = phi i64 [ %37, %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread35" ], [ %.pre.i, %47 ], [ %45, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !220
-  br label %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread"
-
-"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread": ; preds = %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread.sink.split", %27
-  %.sroa.8.133.ph = phi i64 [ 0, %27 ], [ %.sroa.8.133.ph.ph, %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread.sink.split" ]
   %.not = icmp eq i64 %.sroa.8.133.ph, 1
-  br i1 %.not, label %61, label %62
+  br i1 %.not, label %61, label %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread.thread"
 
 51:                                               ; preds = %.noexc26
   %52 = ptrtoint ptr %41 to i64
@@ -1127,42 +1123,43 @@ define internal fastcc void @"_ZN3fst3raw5build16Builder$LT$W$GT$12compile_from1
 
 61:                                               ; preds = %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread"
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.e926f23288bd1e2cceb43b3419bdb943.3, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e926f23288bd1e2cceb43b3419bdb943.5) #24
-          to label %71 unwind label %.loopexit.split-lp
+          to label %70 unwind label %.loopexit.split-lp
 
-62:                                               ; preds = %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread"
+"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread.thread": ; preds = %27, %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread"
+  %.sroa.8.133.ph55 = phi i64 [ %.sroa.8.133.ph, %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread" ], [ 0, %27 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !232
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb0416fda25d1ef12E.llvm.2289853374155540651"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %7)
-  %63 = load i64, ptr %20, align 8, !range !61, !noalias !232, !noundef !9
-  %.not.i.i.i.i27 = icmp eq i64 %63, 0
-  br i1 %.not.i.i.i.i27, label %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28", label %64
+  %62 = load i64, ptr %20, align 8, !range !61, !noalias !232, !noundef !9
+  %.not.i.i.i.i27 = icmp eq i64 %62, 0
+  br i1 %.not.i.i.i.i27, label %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28", label %63
 
-64:                                               ; preds = %62
-  %65 = load i64, ptr %21, align 8, !noalias !232, !noundef !9
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28", label %67
+63:                                               ; preds = %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread.thread"
+  %64 = load i64, ptr %21, align 8, !noalias !232, !noundef !9
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28", label %66
 
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %4, align 8, !noalias !232, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %68, i64 noundef %65, i64 noundef %63) #22
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %4, align 8, !noalias !232, !nonnull !9, !noundef !9
+  call void @__rust_dealloc(ptr noundef nonnull %67, i64 noundef %64, i64 noundef %62) #22
   br label %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28"
 
-"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28": ; preds = %62, %64, %67
+"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28": ; preds = %"_ZN3fst3raw5build16Builder$LT$W$GT$7compile17h878209abea253835E.exit.thread.thread", %63, %66
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !232
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  %69 = load i64, ptr %10, align 8, !noundef !9
-  %70 = icmp ult i64 %8, %69
-  br i1 %70, label %22, label %._crit_edge
+  %68 = load i64, ptr %10, align 8, !noundef !9
+  %69 = icmp ult i64 %8, %68
+  br i1 %69, label %22, label %._crit_edge
 
-71:                                               ; preds = %61
+70:                                               ; preds = %61
   unreachable
 
-72:                                               ; preds = %50
-  %73 = landingpad { ptr, i32 }
+71:                                               ; preds = %50
+  %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-74:                                               ; preds = %50
+73:                                               ; preds = %50
   resume { ptr, i32 } %lpad.phi
 }
 

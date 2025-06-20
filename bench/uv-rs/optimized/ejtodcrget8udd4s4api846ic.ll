@@ -1510,8 +1510,8 @@ define void @"_ZN8uv_cache3cli33_$LT$impl$u20$uv_cache..Cache$GT$13from_settings
 
 59:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %10), !noalias !408
-  %.sroa.760.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.760.0..sroa_idx61, i64 16, i1 false)
+  %.sroa.7.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx60, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !407
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !438
@@ -1541,13 +1541,13 @@ define void @"_ZN8uv_cache3cli33_$LT$impl$u20$uv_cache..Cache$GT$13from_settings
   br label %66
 
 66:                                               ; preds = %87, %78, %65
-  %.pn65 = phi { i64, i32 } [ %82, %87 ], [ %73, %78 ], [ %60, %65 ]
-  %.sink = extractvalue { i64, i32 } %.pn65, 1
-  %.sink64 = extractvalue { i64, i32 } %.pn65, 0
+  %.pn64 = phi { i64, i32 } [ %82, %87 ], [ %73, %78 ], [ %60, %65 ]
+  %.sink = extractvalue { i64, i32 } %.pn64, 1
+  %.sink63 = extractvalue { i64, i32 } %.pn64, 0
   %.sroa.448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -9223372036854775808, ptr %.sroa.448.0..sroa_idx, align 8
   %.sroa.549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink64, ptr %.sroa.549.0..sroa_idx, align 8
+  store i64 %.sink63, ptr %.sroa.549.0..sroa_idx, align 8
   %.sroa.650.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.sink, ptr %.sroa.650.0..sroa_idx, align 8
   %.sroa.752.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88

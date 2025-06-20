@@ -1389,7 +1389,7 @@ define hidden void @_ZN5uu_dd6blocks25conv_block_unblock_helper17h293516836efb51
   %16 = alloca { { i64, ptr, {} }, i64 }, align 8
   %17 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, ptr }, align 8
   %18 = load i8, ptr %2, align 8, !range !267, !noundef !4
-  switch i8 %18, label %default.unreachable138 [
+  switch i8 %18, label %default.unreachable137 [
     i8 0, label %53
     i8 1, label %19
     i8 2, label %29
@@ -1399,7 +1399,7 @@ define hidden void @_ZN5uu_dd6blocks25conv_block_unblock_helper17h293516836efb51
     i8 6, label %91
   ]
 
-default.unreachable138:                           ; preds = %4
+default.unreachable137:                           ; preds = %4
   unreachable
 
 19:                                               ; preds = %4
@@ -1453,11 +1453,11 @@ default.unreachable138:                           ; preds = %4
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %.sroa.5104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5104.0.copyload = load i64, ptr %.sroa.5104.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %55 = load ptr, ptr %54, align 8, !nonnull !4, !align !5, !noundef !4
-  %56 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.sroa.5104.0.copyload
+  %56 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   store ptr %.sroa.4.0.copyload, ptr %17, align 8, !alias.scope !268, !noalias !271
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !268, !noalias !271
@@ -1519,19 +1519,19 @@ default.unreachable138:                           ; preds = %4
 
 64:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  %.sroa.0108.0.copyload = load i64, ptr %1, align 8
-  %.sroa.4109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.4109.0.copyload = load ptr, ptr %.sroa.4109.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %.sroa.5110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5110.0.copyload = load i64, ptr %.sroa.5110.0..sroa_idx, align 8
+  %.sroa.0107.0.copyload = load i64, ptr %1, align 8
+  %.sroa.4108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.4108.0.copyload = load ptr, ptr %.sroa.4108.0..sroa_idx, align 8, !nonnull !4, !noundef !4
+  %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5109.0.copyload = load i64, ptr %.sroa.5109.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %66 = load ptr, ptr %65, align 8, !nonnull !4, !align !5, !noundef !4
-  %67 = getelementptr inbounds i8, ptr %.sroa.4109.0.copyload, i64 %.sroa.5110.0.copyload
-  store ptr %.sroa.4109.0.copyload, ptr %13, align 8, !alias.scope !284, !noalias !287
+  %67 = getelementptr inbounds i8, ptr %.sroa.4108.0.copyload, i64 %.sroa.5109.0.copyload
+  store ptr %.sroa.4108.0.copyload, ptr %13, align 8, !alias.scope !284, !noalias !287
   %.sroa.4.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %.sroa.4109.0.copyload, ptr %.sroa.4.0..sroa_idx.i62, align 8, !alias.scope !284, !noalias !287
+  store ptr %.sroa.4108.0.copyload, ptr %.sroa.4.0..sroa_idx.i62, align 8, !alias.scope !284, !noalias !287
   %.sroa.5.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i64 %.sroa.0108.0.copyload, ptr %.sroa.5.0..sroa_idx.i63, align 8, !alias.scope !284, !noalias !287
+  store i64 %.sroa.0107.0.copyload, ptr %.sroa.5.0..sroa_idx.i63, align 8, !alias.scope !284, !noalias !287
   %.sroa.6.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %67, ptr %.sroa.6.0..sroa_idx.i64, align 8, !alias.scope !284, !noalias !287
   %68 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -1627,19 +1627,19 @@ default.unreachable138:                           ; preds = %4
 
 91:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %.sroa.0119.0.copyload = load i64, ptr %1, align 8
-  %.sroa.4120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.4120.0.copyload = load ptr, ptr %.sroa.4120.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5121.0.copyload = load i64, ptr %.sroa.5121.0..sroa_idx, align 8
+  %.sroa.0118.0.copyload = load i64, ptr %1, align 8
+  %.sroa.4119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.4119.0.copyload = load ptr, ptr %.sroa.4119.0..sroa_idx, align 8, !nonnull !4, !noundef !4
+  %.sroa.5120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5120.0.copyload = load i64, ptr %.sroa.5120.0..sroa_idx, align 8
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %93 = load ptr, ptr %92, align 8, !nonnull !4, !align !5, !noundef !4
-  %94 = getelementptr inbounds i8, ptr %.sroa.4120.0.copyload, i64 %.sroa.5121.0.copyload
-  store ptr %.sroa.4120.0.copyload, ptr %5, align 8, !alias.scope !337, !noalias !340
+  %94 = getelementptr inbounds i8, ptr %.sroa.4119.0.copyload, i64 %.sroa.5120.0.copyload
+  store ptr %.sroa.4119.0.copyload, ptr %5, align 8, !alias.scope !337, !noalias !340
   %.sroa.4.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.sroa.4120.0.copyload, ptr %.sroa.4.0..sroa_idx.i70, align 8, !alias.scope !337, !noalias !340
+  store ptr %.sroa.4119.0.copyload, ptr %.sroa.4.0..sroa_idx.i70, align 8, !alias.scope !337, !noalias !340
   %.sroa.5.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.sroa.0119.0.copyload, ptr %.sroa.5.0..sroa_idx.i71, align 8, !alias.scope !337, !noalias !340
+  store i64 %.sroa.0118.0.copyload, ptr %.sroa.5.0..sroa_idx.i71, align 8, !alias.scope !337, !noalias !340
   %.sroa.6.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %94, ptr %.sroa.6.0..sroa_idx.i72, align 8, !alias.scope !337, !noalias !340
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1701,8 +1701,8 @@ default.unreachable138:                           ; preds = %4
   br label %.critedge
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h73cb49cf35dd299dE.exit103": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i96", %102, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i", %78, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i102", %112
-  %.pn132 = phi { ptr, i32 } [ %lpad.thr_comm, %112 ], [ %lpad.thr_comm, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i102" ], [ %79, %78 ], [ %79, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i" ], [ %103, %102 ], [ %103, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i96" ]
-  resume { ptr, i32 } %.pn132
+  %.pn131 = phi { ptr, i32 } [ %lpad.thr_comm, %112 ], [ %lpad.thr_comm, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i102" ], [ %79, %78 ], [ %79, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i" ], [ %103, %102 ], [ %103, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i96" ]
+  resume { ptr, i32 } %.pn131
 
 112:                                              ; preds = %19, %29, %36, %86, %46, %58, %60
   %113 = phi ptr [ %21, %19 ], [ %31, %29 ], [ %38, %36 ], [ %48, %86 ], [ %48, %46 ], [ %21, %58 ], [ %38, %60 ]

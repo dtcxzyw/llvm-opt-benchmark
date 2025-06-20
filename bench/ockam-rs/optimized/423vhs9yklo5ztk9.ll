@@ -1126,9 +1126,9 @@ define void @_ZN15ockam_multiaddr8registry8Registry5codes17h5c4af8078d9bd034E(pt
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h96838810e70d4a69E.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h96838810e70d4a69E.exit": ; preds = %2, %6
-  %.sroa.6.0 = phi i64 [ %8, %6 ], [ undef, %2 ]
-  %.sink22.i = phi i64 [ 1, %6 ], [ 0, %2 ]
-  %.sink.i = phi i64 [ %10, %6 ], [ 0, %2 ]
+  %.sroa.6.0 = phi i64 [ undef, %2 ], [ %8, %6 ]
+  %.sink22.i = phi i64 [ 0, %2 ], [ 1, %6 ]
+  %.sink.i = phi i64 [ 0, %2 ], [ %10, %6 ]
   store i64 %.sink22.i, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -1165,9 +1165,9 @@ define void @_ZN15ockam_multiaddr8registry8Registry8prefixes17h7eeddc8dec91611bE
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h0edd515129dca316E.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h0edd515129dca316E.exit": ; preds = %2, %6
-  %.sroa.6.0 = phi i64 [ %8, %6 ], [ undef, %2 ]
-  %.sink22.i = phi i64 [ 1, %6 ], [ 0, %2 ]
-  %.sink.i = phi i64 [ %10, %6 ], [ 0, %2 ]
+  %.sroa.6.0 = phi i64 [ undef, %2 ], [ %8, %6 ]
+  %.sink22.i = phi i64 [ 0, %2 ], [ 1, %6 ]
+  %.sink.i = phi i64 [ 0, %2 ], [ %10, %6 ]
   store i64 %.sink22.i, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8

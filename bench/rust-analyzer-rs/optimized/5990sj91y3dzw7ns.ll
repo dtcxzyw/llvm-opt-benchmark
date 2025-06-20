@@ -1247,10 +1247,10 @@ _ZN3std6thread7Builder15spawn_unchecked17hca78f1f0028db610E.exit:
   br label %18
 
 18:                                               ; preds = %16, %13
-  %.sink37 = phi ptr [ %12, %16 ], [ %9, %13 ]
+  %.sink36 = phi ptr [ %12, %16 ], [ %9, %13 ]
   %.sink = phi i64 [ 2, %16 ], [ 1, %13 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink37, ptr %19, align 8
+  store ptr %.sink36, ptr %19, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -1300,10 +1300,10 @@ _ZN3std6thread7Builder15spawn_unchecked17h0b423f2be926b544E.exit:
   br label %18
 
 18:                                               ; preds = %16, %13
-  %.sink37 = phi ptr [ %12, %16 ], [ %9, %13 ]
+  %.sink36 = phi ptr [ %12, %16 ], [ %9, %13 ]
   %.sink = phi i64 [ 2, %16 ], [ 1, %13 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink37, ptr %19, align 8
+  store ptr %.sink36, ptr %19, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }

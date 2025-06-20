@@ -3078,8 +3078,8 @@ define void @_ZN5uu_dd6Output8new_fifo17h02327b98df0ac494E(ptr noalias noundef w
   %14 = load i64, ptr %3, align 8, !range !188, !noundef !5
   switch i64 %14, label %default.unreachable [
     i64 2, label %40
-    i64 0, label %87
-    i64 1, label %91
+    i64 0, label %86
+    i64 1, label %90
   ]
 
 15:                                               ; preds = %4
@@ -3166,7 +3166,7 @@ default.unreachable:                              ; preds = %13
   %39 = invoke { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %35)
           to label %103 unwind label %29
 
-40:                                               ; preds = %13, %91, %87
+40:                                               ; preds = %13, %90, %86
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 438, ptr %.sroa.422.0..sroa_idx, align 4
@@ -3239,48 +3239,49 @@ default.unreachable:                              ; preds = %13
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %85 = load ptr, ptr %84, align 8, !nonnull !5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %trunc36, label %98, label %97
+  br i1 %trunc36, label %97, label %96
 
-87:                                               ; preds = %13
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %89 = load i64, ptr %88, align 8, !noundef !5
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %95, label %40
+86:                                               ; preds = %13
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %88 = load i64, ptr %87, align 8, !noundef !5
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %94, label %40
 
-91:                                               ; preds = %13
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %93 = load i64, ptr %92, align 8, !noundef !5
-  %94 = icmp eq i64 %93, 0
-  br i1 %94, label %95, label %40
+90:                                               ; preds = %13
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %92 = load i64, ptr %91, align 8, !noundef !5
+  %93 = icmp eq i64 %92, 0
+  br i1 %93, label %94, label %40
 
-95:                                               ; preds = %91, %87
+94:                                               ; preds = %90, %86
   store i8 3, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %96
+  br label %95
 
-96:                                               ; preds = %"_ZN4core3ptr32drop_in_place$LT$uu_dd..Dest$GT$17h04b7a79d2babb05aE.exit61", %98, %97, %95
+95:                                               ; preds = %"_ZN4core3ptr32drop_in_place$LT$uu_dd..Dest$GT$17h04b7a79d2babb05aE.exit61", %97, %96, %94
   ret void
 
-97:                                               ; preds = %40
+96:                                               ; preds = %40
   store i8 2, ptr %0, align 8
   %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %83, ptr %.sroa.517.0..sroa_idx, align 4
-  store ptr %3, ptr %86, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %3, ptr %.sroa.7.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %96
+  br label %95
 
-98:                                               ; preds = %40
-  %99 = call { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %85)
-  %100 = extractvalue { ptr, ptr } %99, 0
-  %101 = extractvalue { ptr, ptr } %99, 1
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
+97:                                               ; preds = %40
+  %98 = call { ptr, ptr } @"_ZN6uucore4mods5error139_$LT$impl$u20$core..convert..From$LT$std..io..error..Error$GT$$u20$for$u20$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$4from17h5f3f9db19071e545E"(ptr noundef nonnull %85)
+  %99 = extractvalue { ptr, ptr } %98, 0
+  %100 = extractvalue { ptr, ptr } %98, 1
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %99, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %100, ptr %102, align 8
-  store ptr %101, ptr %86, align 8
   store i8 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %96
+  br label %95
 
 103:                                              ; preds = %38
   %104 = extractvalue { ptr, ptr } %39, 0
@@ -3302,7 +3303,7 @@ default.unreachable:                              ; preds = %13
 
 "_ZN4core3ptr32drop_in_place$LT$uu_dd..Dest$GT$17h04b7a79d2babb05aE.exit61": ; preds = %.sink.split.i60, %103, %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  br label %96
+  br label %95
 
 109:                                              ; preds = %.sink.split.i
   %110 = landingpad { ptr, i32 }

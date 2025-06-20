@@ -3763,8 +3763,6 @@ define hidden i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef %1, ptr 
   %39 = alloca %struct.lbmc_stream_info_t, align 4
   %40 = alloca %struct.lbmc_ctxinst_info_t, align 1
   %41 = alloca %struct.lbmc_ctxinst_info_t, align 1
-  %.sroa.28 = alloca [6 x i8], align 2
-  %.sroa.51 = alloca [6 x i8], align 2
   %42 = alloca [256 x i8], align 16
   %43 = alloca %struct.lbm_uim_stream_info_t, align 8
   %44 = alloca %struct._address, align 8
@@ -3775,8 +3773,6 @@ define hidden i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef %1, ptr 
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %39) #12
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %40) #12
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %41) #12
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.28)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.51)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %42) #12
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %43) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44) #12
@@ -3903,13 +3899,11 @@ define hidden i32 @lbmc_dissect_lbmc_packet(ptr noundef %0, i32 noundef %1, ptr 
   %.sroa.19.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 40
   %.sroa.23.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 48
   %.sroa.24.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %.sroa.28.8..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 58
   %.sroa.341030.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 80
   %.sroa.38.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 84
   %.sroa.42.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 88
   %.sroa.46.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 96
   %.sroa.47.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 104
-  %.sroa.51.48..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 106
   %158 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %159 = getelementptr inbounds nuw i8, ptr %42, i64 17
   %160 = getelementptr inbounds nuw i8, ptr %42, i64 18
@@ -8924,8 +8918,6 @@ proto_item_set_generated.exit913:                 ; preds = %proto_item_set_gene
   store ptr null, ptr %.sroa.23.8..sroa_idx1017, align 8
   %.sroa.24.8..sroa_idx1019 = getelementptr inbounds nuw i8, ptr %3552, i64 56
   store i16 %.sroa.24.2.lcssa, ptr %.sroa.24.8..sroa_idx1019, align 8
-  %.sroa.28.8..sroa_idx1023 = getelementptr inbounds nuw i8, ptr %3552, i64 58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.28.8..sroa_idx1023, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.28, i64 6, i1 false)
   %3559 = getelementptr inbounds nuw i8, ptr %3552, i64 64
   store i32 1, ptr %3559, align 8
   %3560 = getelementptr inbounds nuw i8, ptr %3552, i64 72
@@ -8940,8 +8932,6 @@ proto_item_set_generated.exit913:                 ; preds = %proto_item_set_gene
   store ptr null, ptr %.sroa.46.48..sroa_idx1043, align 8
   %.sroa.47.48..sroa_idx1045 = getelementptr inbounds nuw i8, ptr %3552, i64 104
   store i16 %.sroa.47.2.lcssa, ptr %.sroa.47.48..sroa_idx1045, align 8
-  %.sroa.51.48..sroa_idx1049 = getelementptr inbounds nuw i8, ptr %3552, i64 106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.51.48..sroa_idx1049, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.51, i64 6, i1 false)
   %3561 = load i32, ptr @lbmc_stream_tap_handle, align 4
   call void @tap_queue_packet(i32 noundef %3561, ptr noundef %2, ptr noundef %3552)
   br label %3562
@@ -8959,7 +8949,6 @@ proto_item_set_generated.exit913:                 ; preds = %proto_item_set_gene
   store ptr %.sroa.19.2.lcssa, ptr %.sroa.19.8..sroa_idx, align 8
   store ptr null, ptr %.sroa.23.8..sroa_idx, align 8
   store i16 %.sroa.24.2.lcssa, ptr %.sroa.24.8..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.28.8..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.28, i64 6, i1 false)
   store i32 1, ptr %.0787.sroa.gep970, align 8
   store i32 %.sroa.281024.2.lcssa, ptr %.0787.sroa.gep973, align 8
   store i32 2, ptr %.sroa.341030.48..sroa_idx, align 8
@@ -8967,7 +8956,6 @@ proto_item_set_generated.exit913:                 ; preds = %proto_item_set_gene
   store ptr %.sroa.42.2.lcssa, ptr %.sroa.42.48..sroa_idx, align 8
   store ptr null, ptr %.sroa.46.48..sroa_idx, align 8
   store i16 %.sroa.47.2.lcssa, ptr %.sroa.47.48..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.51.48..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.51, i64 6, i1 false)
   br label %3566
 
 3566:                                             ; preds = %3330, %3160, %3388, %3562, %3336, %.thread1099
@@ -10111,8 +10099,6 @@ lbmc_determine_msg_type.exit:                     ; preds = %3963, %4060, %lbmc_
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44) #12
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %43) #12
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %42) #12
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.28)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.51)
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %41) #12
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %40) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %39) #12

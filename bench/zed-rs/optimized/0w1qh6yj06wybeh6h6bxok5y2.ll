@@ -414,15 +414,15 @@ _ZN10serde_json3ser9Formatter17begin_array_value17he74119b18cf8e7a2E.exit.i.i.i.
   br i1 %89, label %_ZN10serde_json3ser9Formatter9end_array17h6d93338ee8216f90E.exit.i.sink.split, label %_ZN10serde_json3ser9Formatter9end_array17h6d93338ee8216f90E.exit.i
 
 _ZN10serde_json3ser9Formatter9end_array17h6d93338ee8216f90E.exit.i.sink.split: ; preds = %.thread, %20
-  %.lcssa40.sink = phi i64 [ %19, %20 ], [ %86, %.thread ]
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17he6f0eec2fe76e980E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i, i64 noundef %.lcssa40.sink, i64 noundef 1), !noalias !7
+  %.lcssa41.sink = phi i64 [ %19, %20 ], [ %86, %.thread ]
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17he6f0eec2fe76e980E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i, i64 noundef %.lcssa41.sink, i64 noundef 1), !noalias !7
   %.pre.i.i.i.i.i.i.i14 = load i64, ptr %9, align 8, !noalias !7
   br label %_ZN10serde_json3ser9Formatter9end_array17h6d93338ee8216f90E.exit.i
 
 _ZN10serde_json3ser9Formatter9end_array17h6d93338ee8216f90E.exit.i: ; preds = %_ZN10serde_json3ser9Formatter9end_array17h6d93338ee8216f90E.exit.i.sink.split, %.thread, %20
-  %.sink42 = phi i64 [ %19, %20 ], [ %86, %.thread ], [ %.pre.i.i.i.i.i.i.i14, %_ZN10serde_json3ser9Formatter9end_array17h6d93338ee8216f90E.exit.i.sink.split ]
+  %.sink43 = phi i64 [ %19, %20 ], [ %86, %.thread ], [ %.pre.i.i.i.i.i.i.i14, %_ZN10serde_json3ser9Formatter9end_array17h6d93338ee8216f90E.exit.i.sink.split ]
   %90 = load ptr, ptr %15, align 8, !noalias !7, !nonnull !7, !noundef !7
-  %91 = getelementptr inbounds i8, ptr %90, i64 %.sink42
+  %91 = getelementptr inbounds i8, ptr %90, i64 %.sink43
   store i8 93, ptr %91, align 1, !noalias !7
   %storemerge.in = load i64, ptr %9, align 8, !noalias !7, !noundef !7
   %storemerge = add i64 %storemerge.in, 1

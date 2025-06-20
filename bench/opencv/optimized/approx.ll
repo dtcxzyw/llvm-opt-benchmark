@@ -4714,9 +4714,9 @@ _ZNSt6vectorI10neighboursSaIS0_EEC2EmRKS1_.exit:  ; preds = %.lr.ph.i.i.i.i.i, %
   %190 = load ptr, ptr %189, align 8, !tbaa !86
   %191 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %192 = load ptr, ptr %191, align 8, !tbaa !125
-  %193 = call i32 @llvm.umax.i32(i32 %181, i32 1)
-  %wide.trip.count = zext nneg i32 %193 to i64
-  %194 = load i64, ptr %192, align 8, !tbaa !126
+  %193 = load i64, ptr %192, align 8, !tbaa !126
+  %194 = call i32 @llvm.umax.i32(i32 %181, i32 1)
+  %wide.trip.count = zext nneg i32 %194 to i64
   br label %214
 
 .preheader245:                                    ; preds = %183
@@ -4727,9 +4727,9 @@ _ZNSt6vectorI10neighboursSaIS0_EEC2EmRKS1_.exit:  ; preds = %.lr.ph.i.i.i.i.i, %
   %196 = load ptr, ptr %195, align 8, !tbaa !86
   %197 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %198 = load ptr, ptr %197, align 8, !tbaa !125
-  %199 = call i32 @llvm.umax.i32(i32 %181, i32 1)
-  %wide.trip.count278 = zext nneg i32 %199 to i64
-  %200 = load i64, ptr %198, align 8, !tbaa !126
+  %199 = load i64, ptr %198, align 8, !tbaa !126
+  %200 = call i32 @llvm.umax.i32(i32 %181, i32 1)
+  %wide.trip.count278 = zext nneg i32 %200 to i64
   br label %205
 
 201:                                              ; preds = %_ZNSt12_Vector_baseI10neighboursSaIS0_EEC2EmRKS1_.exit.i, %170
@@ -4744,7 +4744,7 @@ _ZNSt6vectorI10neighboursSaIS0_EEC2EmRKS1_.exit:  ; preds = %.lr.ph.i.i.i.i.i, %
 
 205:                                              ; preds = %.lr.ph254, %205
   %indvars.iv274 = phi i64 [ 0, %.lr.ph254 ], [ %indvars.iv.next275, %205 ]
-  %206 = mul i64 %200, %indvars.iv274
+  %206 = mul i64 %199, %indvars.iv274
   %207 = getelementptr inbounds nuw i8, ptr %196, i64 %206
   %.sroa.034.0.copyload = load i32, ptr %207, align 4, !tbaa !38
   %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %207, i64 4
@@ -4770,7 +4770,7 @@ _ZNSt6vectorI10neighboursSaIS0_EEC2EmRKS1_.exit:  ; preds = %.lr.ph.i.i.i.i.i, %
 
 214:                                              ; preds = %.lr.ph, %214
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %214 ]
-  %215 = mul i64 %194, %indvars.iv
+  %215 = mul i64 %193, %indvars.iv
   %216 = getelementptr inbounds nuw i8, ptr %190, i64 %215
   %217 = load i64, ptr %216, align 4
   %.sroa.0206.0.extract.trunc = trunc i64 %217 to i32

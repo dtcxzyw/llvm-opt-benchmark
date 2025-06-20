@@ -14885,9 +14885,9 @@ define void @"_ZN13wasmtime_wasi4host7network170_$LT$impl$u20$core..convert..Fro
 define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..udp..HostIncomingDatagramStream$u20$for$u20$T$GT$7receive8recv_one17h1b32ce701709e2a5E"(ptr noalias noundef writeonly sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [16 x i8] }, align 4
   %.sroa.0.i = alloca { i16, i16, i16, i16, i16, i16, i16, i16 }, align 4
-  %.sroa.620 = alloca [6 x i16], align 8
+  %.sroa.619 = alloca [6 x i16], align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %.sroa.030 = alloca [24 x i8], align 8
+  %.sroa.029 = alloca [24 x i8], align 8
   %5 = alloca { [4 x i16], i16, [15 x i16] }, align 8
   %.sroa.6 = alloca [9 x i16], align 8
   %6 = alloca [65535 x i8], align 1
@@ -14961,23 +14961,23 @@ define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..binding
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, %.sroa.5.sroa.4.0.copyload
-  %or.cond62 = select i1 %or.cond, i1 %36, i1 false
+  %or.cond61 = select i1 %or.cond, i1 %36, i1 false
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, %.sroa.5.sroa.5.0.copyload
-  %or.cond65 = select i1 %or.cond62, i1 %39, i1 false
-  br i1 %or.cond65, label %44, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha446af7d62a54da1E.exit.thread"
+  %or.cond64 = select i1 %or.cond61, i1 %39, i1 false
+  br i1 %or.cond64, label %44, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha446af7d62a54da1E.exit.thread"
 
 40:                                               ; preds = %23
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %42 = load i16, ptr %41, align 2, !alias.scope !2438, !noalias !2441, !noundef !5
-  %.sroa.6.4..sroa_idx67 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 4
-  %.sroa.6.4..sroa.6.4..sroa.6.4..sroa.6.4..sroa.6.4..sroa.6.6. = load i16, ptr %.sroa.6.4..sroa_idx67, align 4, !alias.scope !2441, !noalias !2438
+  %.sroa.6.4..sroa_idx66 = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 4
+  %.sroa.6.4..sroa.6.4..sroa.6.4..sroa.6.4..sroa.6.4..sroa.6.6. = load i16, ptr %.sroa.6.4..sroa_idx66, align 4, !alias.scope !2441, !noalias !2438
   %43 = icmp eq i16 %42, %.sroa.6.4..sroa.6.4..sroa.6.4..sroa.6.4..sroa.6.4..sroa.6.6.
   br i1 %43, label %44, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha446af7d62a54da1E.exit.thread"
 
 44:                                               ; preds = %27, %40, %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.030)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.029)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %45 = icmp ugt i64 %.sroa.03.0.copyload, 65535
   br i1 %45, label %46, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h20b924971bf8dfa4E.llvm.10930056130443165094.exit"
@@ -14998,13 +14998,13 @@ define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..binding
   store ptr %49, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.03.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.439.2.copyload = load i48, ptr %.sroa.6, align 8
+  %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.438.2.copyload = load i48, ptr %.sroa.6, align 8
   %trunc.i14 = trunc nuw i16 %11 to i1
   br i1 %trunc.i14, label %53, label %51
 
 51:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h20b924971bf8dfa4E.llvm.10930056130443165094.exit"
-  %.sroa.02.0.extract.trunc.i.i = trunc i48 %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.439.2.copyload to i32
-  %.sroa.4.0.extract.shift.i.i = and i48 %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.439.2.copyload, -4294967296
+  %.sroa.02.0.extract.trunc.i.i = trunc i48 %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.438.2.copyload to i32
+  %.sroa.4.0.extract.shift.i.i = and i48 %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.438.2.copyload, -4294967296
   %52 = bitcast i32 %.sroa.02.0.extract.trunc.i.i to <4 x i8>
   %.sroa.02.0.vec.extract.i.i.i = extractelement <4 x i8> %52, i64 0
   %.sroa.02.1.vec.extract.i.i.i = extractelement <4 x i8> %52, i64 1
@@ -15025,24 +15025,24 @@ define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..binding
   br label %"_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..From$LT$core..net..socket_addr..SocketAddr$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$GT$4from17hc4e6164142b4cd0bE.exit"
 
 53:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h20b924971bf8dfa4E.llvm.10930056130443165094.exit"
-  %.sroa.740.2..sroa.6.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 6
+  %.sroa.739.2..sroa.6.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !2453
-  %.sroa.439.2.extract.shift = lshr i48 %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.439.2.copyload, 16
-  %.sroa.439.2.extract.trunc = trunc nuw i48 %.sroa.439.2.extract.shift to i32
-  store i32 %.sroa.439.2.extract.trunc, ptr %3, align 4, !noalias !2460
-  %.sroa.740.4..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.740.4..sroa_idx, ptr noundef nonnull align 2 dereferenceable(12) %.sroa.740.2..sroa.6.sroa_idx, i64 12, i1 false)
+  %.sroa.438.2.extract.shift = lshr i48 %.sroa.6.0..sroa.6.0..sroa.6.0..sroa.6.0..sroa.438.2.copyload, 16
+  %.sroa.438.2.extract.trunc = trunc nuw i48 %.sroa.438.2.extract.shift to i32
+  store i32 %.sroa.438.2.extract.trunc, ptr %3, align 4, !noalias !2460
+  %.sroa.739.4..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.739.4..sroa_idx, ptr noundef nonnull align 2 dereferenceable(12) %.sroa.739.2..sroa.6.sroa_idx, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i), !noalias !2461
   invoke void @_ZN13wasmtime_wasi7network14from_ipv6_addr17h51670100d7f9563eE(ptr noalias noundef nonnull sret({ i16, i16, i16, i16, i16, i16, i16, i16 }) align 2 captures(none) dereferenceable(16) %.sroa.0.i, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3)
           to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !2453
-  %.sroa.419.2.copyload = load i32, ptr %.sroa.0.i, align 4, !noalias !2462
-  %.sroa.419.2.insert.ext = zext i32 %.sroa.419.2.copyload to i48
-  %.sroa.419.2.insert.shift = shl nuw i48 %.sroa.419.2.insert.ext, 16
-  %.sroa.620.4..sroa.0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.620, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.620.4..sroa.0.i.sroa_idx, i64 12, i1 false)
+  %.sroa.4.2.copyload = load i32, ptr %.sroa.0.i, align 4, !noalias !2462
+  %.sroa.4.2.insert.ext = zext i32 %.sroa.4.2.copyload to i48
+  %.sroa.4.2.insert.shift = shl nuw i48 %.sroa.4.2.insert.ext, 16
+  %.sroa.619.4..sroa.0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.619, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.619.4..sroa.0.i.sroa_idx, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i), !noalias !2461
   br label %"_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..From$LT$core..net..socket_addr..SocketAddr$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$GT$4from17hc4e6164142b4cd0bE.exit"
 
@@ -15058,27 +15058,27 @@ define void @"_ZN13wasmtime_wasi4host3udp113_$LT$impl$u20$wasmtime_wasi..binding
           to label %59 unwind label %57
 
 "_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..From$LT$core..net..socket_addr..SocketAddr$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$GT$4from17hc4e6164142b4cd0bE.exit": ; preds = %.noexc, %51
-  %.sroa.7.047 = phi i32 [ %.sroa.5.sroa.5.0.copyload, %.noexc ], [ undef, %51 ]
-  %.sroa.621.0 = phi i32 [ %.sroa.5.sroa.4.0.copyload, %.noexc ], [ undef, %51 ]
+  %.sroa.7.046 = phi i32 [ %.sroa.5.sroa.5.0.copyload, %.noexc ], [ undef, %51 ]
+  %.sroa.620.0 = phi i32 [ %.sroa.5.sroa.4.0.copyload, %.noexc ], [ undef, %51 ]
   %.sroa.8.0 = phi i16 [ %.sroa.5.sroa.6.0.copyload, %.noexc ], [ undef, %51 ]
-  %.sroa.419.0 = phi i48 [ %.sroa.419.2.insert.shift, %.noexc ], [ %.sroa.03.0.insert.insert.i.i, %51 ]
+  %.sroa.4.0 = phi i48 [ %.sroa.4.2.insert.shift, %.noexc ], [ %.sroa.03.0.insert.insert.i.i, %51 ]
   %.sink.i = phi i16 [ 1, %.noexc ], [ 0, %51 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.030, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.029, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.030, i64 24, i1 false)
-  %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %.sink.i, ptr %.sroa.431.0..sroa_idx, align 8
-  %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i48 %.sroa.419.0, ptr %.sroa.532.0..sroa_idx, align 2
-  %.sroa.633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.633.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.620, i64 12, i1 false)
-  %.sroa.734.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.sroa.621.0, ptr %.sroa.734.0..sroa_idx, align 4
-  %.sroa.835.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %.sroa.7.047, ptr %.sroa.835.0..sroa_idx, align 8
-  %.sroa.936.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i16 %.sroa.8.0, ptr %.sroa.936.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.030)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.029, i64 24, i1 false)
+  %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i16 %.sink.i, ptr %.sroa.430.0..sroa_idx, align 8
+  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
+  store i48 %.sroa.4.0, ptr %.sroa.531.0..sroa_idx, align 2
+  %.sroa.632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.632.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.619, i64 12, i1 false)
+  %.sroa.733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %.sroa.620.0, ptr %.sroa.733.0..sroa_idx, align 4
+  %.sroa.834.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %.sroa.7.046, ptr %.sroa.834.0..sroa_idx, align 8
+  %.sroa.935.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i16 %.sroa.8.0, ptr %.sroa.935.0..sroa_idx, align 4
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.029)
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %.sroa.6)
   br label %56
 

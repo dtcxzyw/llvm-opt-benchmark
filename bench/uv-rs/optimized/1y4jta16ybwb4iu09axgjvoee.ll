@@ -5003,8 +5003,8 @@ default.unreachable:                              ; preds = %20
   %.sroa.69.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 2
   %.sroa.237.sroa.2.0..sroa.237.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.237.sroa.2.0..sroa.237.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.69.0..sroa_idx.i.i, i64 6, i1 false)
-  %.sroa.8190.2..sroa.69.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sroa.8190.2.copyload = load i8, ptr %.sroa.8190.2..sroa.69.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !2231
+  %.sroa.8146.2..sroa.69.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.8146.2.copyload = load i8, ptr %.sroa.8146.2..sroa.69.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !2231
   %.sroa.11.2..sroa.69.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 9
   %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.439.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11.2..sroa.69.0..sroa_idx.i.i.sroa_idx, i64 7, i1 false)
@@ -5017,7 +5017,7 @@ default.unreachable:                              ; preds = %20
   %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %19, ptr %.sroa.237.0..sroa_idx, align 1
   %.sroa.338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.8190.2.copyload, ptr %.sroa.338.0..sroa_idx, align 8
+  store i8 %.sroa.8146.2.copyload, ptr %.sroa.338.0..sroa_idx, align 8
   %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.12.2.copyload, ptr %.sroa.540.0..sroa_idx, align 8
   %.sroa.641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5300,164 +5300,164 @@ default.unreachable:                              ; preds = %20
   %154 = extractvalue { i8, i8 } %149, 1
   br label %168
 
-155:                                              ; preds = %32, %31
-  %.sroa.0.0.ph39.i = phi i8 [ 0, %31 ], [ 2, %32 ]
-  %.sroa.8.0.ph37.i = phi i8 [ undef, %31 ], [ %29, %32 ]
-  %.sroa.524.0.i = phi i8 [ undef, %31 ], [ %33, %32 ]
-  store i8 %.sroa.0.0.ph39.i, ptr %0, align 8
-  %.sroa.2283.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i, ptr %.sroa.2283.0..sroa_idx, align 1
-  %.sroa.3284.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i, ptr %.sroa.3284.0..sroa_idx, align 2
-  %.sroa.5286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %24, ptr %.sroa.5286.0..sroa_idx, align 8
+155:                                              ; preds = %31, %32
+  %.sroa.8149.0.ph = phi i8 [ %33, %32 ], [ undef, %31 ]
+  %.sroa.7148.0.ph = phi i8 [ %29, %32 ], [ undef, %31 ]
+  %.sroa.0147.0.ph = phi i8 [ 2, %32 ], [ 0, %31 ]
+  store i8 %.sroa.0147.0.ph, ptr %0, align 8
+  %.sroa.2239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.7148.0.ph, ptr %.sroa.2239.0..sroa_idx, align 1
+  %.sroa.3240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.8149.0.ph, ptr %.sroa.3240.0..sroa_idx, align 2
+  %.sroa.5242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %24, ptr %.sroa.5242.0..sroa_idx, align 8
   br label %169
 
-156:                                              ; preds = %147, %136, %125, %114, %103, %92, %81, %70, %59, %48, %37, %26
+156:                                              ; preds = %26, %147, %136, %125, %114, %103, %92, %81, %70, %59, %48, %37
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %19, ptr %157, align 1
   store i8 9, ptr %0, align 8
   br label %169
 
-158:                                              ; preds = %43, %42
-  %.sroa.0.0.ph39.i60 = phi i8 [ 0, %42 ], [ 2, %43 ]
-  %.sroa.8.0.ph37.i61 = phi i8 [ undef, %42 ], [ %40, %43 ]
-  %.sroa.524.0.i62 = phi i8 [ undef, %42 ], [ %44, %43 ]
-  store i8 %.sroa.0.0.ph39.i60, ptr %0, align 8
-  %.sroa.2313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i61, ptr %.sroa.2313.0..sroa_idx, align 1
-  %.sroa.3314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i62, ptr %.sroa.3314.0..sroa_idx, align 2
-  %.sroa.5316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %35, ptr %.sroa.5316.0..sroa_idx, align 8
+158:                                              ; preds = %42, %43
+  %.sroa.8153.0.ph = phi i8 [ %44, %43 ], [ undef, %42 ]
+  %.sroa.7152.0.ph = phi i8 [ %40, %43 ], [ undef, %42 ]
+  %.sroa.0151.0.ph = phi i8 [ 2, %43 ], [ 0, %42 ]
+  store i8 %.sroa.0151.0.ph, ptr %0, align 8
+  %.sroa.2269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.7152.0.ph, ptr %.sroa.2269.0..sroa_idx, align 1
+  %.sroa.3270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.8153.0.ph, ptr %.sroa.3270.0..sroa_idx, align 2
+  %.sroa.5272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %35, ptr %.sroa.5272.0..sroa_idx, align 8
   br label %169
 
-159:                                              ; preds = %54, %53
-  %.sroa.0.0.ph39.i72 = phi i8 [ 0, %53 ], [ 2, %54 ]
-  %.sroa.8.0.ph37.i73 = phi i8 [ undef, %53 ], [ %51, %54 ]
-  %.sroa.524.0.i74 = phi i8 [ undef, %53 ], [ %55, %54 ]
-  store i8 %.sroa.0.0.ph39.i72, ptr %0, align 8
-  %.sroa.2343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i73, ptr %.sroa.2343.0..sroa_idx, align 1
-  %.sroa.3344.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i74, ptr %.sroa.3344.0..sroa_idx, align 2
-  %.sroa.5346.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %46, ptr %.sroa.5346.0..sroa_idx, align 8
+159:                                              ; preds = %53, %54
+  %.sroa.8159.0.ph = phi i8 [ %55, %54 ], [ undef, %53 ]
+  %.sroa.7158.0.ph = phi i8 [ %51, %54 ], [ undef, %53 ]
+  %.sroa.0157.0.ph = phi i8 [ 2, %54 ], [ 0, %53 ]
+  store i8 %.sroa.0157.0.ph, ptr %0, align 8
+  %.sroa.2299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.7158.0.ph, ptr %.sroa.2299.0..sroa_idx, align 1
+  %.sroa.3300.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.8159.0.ph, ptr %.sroa.3300.0..sroa_idx, align 2
+  %.sroa.5302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %46, ptr %.sroa.5302.0..sroa_idx, align 8
   br label %169
 
-160:                                              ; preds = %65, %64
-  %.sroa.0.0.ph39.i84 = phi i8 [ 0, %64 ], [ 2, %65 ]
-  %.sroa.8.0.ph37.i85 = phi i8 [ undef, %64 ], [ %62, %65 ]
-  %.sroa.524.0.i86 = phi i8 [ undef, %64 ], [ %66, %65 ]
-  store i8 %.sroa.0.0.ph39.i84, ptr %0, align 8
-  %.sroa.2373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i85, ptr %.sroa.2373.0..sroa_idx, align 1
-  %.sroa.3374.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i86, ptr %.sroa.3374.0..sroa_idx, align 2
-  %.sroa.5376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %57, ptr %.sroa.5376.0..sroa_idx, align 8
+160:                                              ; preds = %64, %65
+  %.sroa.8165.0.ph = phi i8 [ %66, %65 ], [ undef, %64 ]
+  %.sroa.7164.0.ph = phi i8 [ %62, %65 ], [ undef, %64 ]
+  %.sroa.0163.0.ph = phi i8 [ 2, %65 ], [ 0, %64 ]
+  store i8 %.sroa.0163.0.ph, ptr %0, align 8
+  %.sroa.2329.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.7164.0.ph, ptr %.sroa.2329.0..sroa_idx, align 1
+  %.sroa.3330.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.8165.0.ph, ptr %.sroa.3330.0..sroa_idx, align 2
+  %.sroa.5332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %57, ptr %.sroa.5332.0..sroa_idx, align 8
   br label %169
 
-161:                                              ; preds = %76, %75
-  %.sroa.0.0.ph39.i96 = phi i8 [ 0, %75 ], [ 2, %76 ]
-  %.sroa.8.0.ph37.i97 = phi i8 [ undef, %75 ], [ %73, %76 ]
-  %.sroa.524.0.i98 = phi i8 [ undef, %75 ], [ %77, %76 ]
-  store i8 %.sroa.0.0.ph39.i96, ptr %0, align 8
-  %.sroa.2403.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i97, ptr %.sroa.2403.0..sroa_idx, align 1
-  %.sroa.3404.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i98, ptr %.sroa.3404.0..sroa_idx, align 2
-  %.sroa.5406.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %68, ptr %.sroa.5406.0..sroa_idx, align 8
+161:                                              ; preds = %75, %76
+  %.sroa.8171.0.ph = phi i8 [ %77, %76 ], [ undef, %75 ]
+  %.sroa.7170.0.ph = phi i8 [ %73, %76 ], [ undef, %75 ]
+  %.sroa.0169.0.ph = phi i8 [ 2, %76 ], [ 0, %75 ]
+  store i8 %.sroa.0169.0.ph, ptr %0, align 8
+  %.sroa.2359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.7170.0.ph, ptr %.sroa.2359.0..sroa_idx, align 1
+  %.sroa.3360.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.8171.0.ph, ptr %.sroa.3360.0..sroa_idx, align 2
+  %.sroa.5362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %68, ptr %.sroa.5362.0..sroa_idx, align 8
   br label %169
 
-162:                                              ; preds = %87, %86
-  %.sroa.0.0.ph39.i108 = phi i8 [ 0, %86 ], [ 2, %87 ]
-  %.sroa.8.0.ph37.i109 = phi i8 [ undef, %86 ], [ %84, %87 ]
-  %.sroa.524.0.i110 = phi i8 [ undef, %86 ], [ %88, %87 ]
-  store i8 %.sroa.0.0.ph39.i108, ptr %0, align 8
-  %.sroa.2433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i109, ptr %.sroa.2433.0..sroa_idx, align 1
-  %.sroa.3434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i110, ptr %.sroa.3434.0..sroa_idx, align 2
-  %.sroa.5436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %79, ptr %.sroa.5436.0..sroa_idx, align 8
+162:                                              ; preds = %86, %87
+  %.sroa.8177.0.ph = phi i8 [ %88, %87 ], [ undef, %86 ]
+  %.sroa.7176.0.ph = phi i8 [ %84, %87 ], [ undef, %86 ]
+  %.sroa.0175.0.ph = phi i8 [ 2, %87 ], [ 0, %86 ]
+  store i8 %.sroa.0175.0.ph, ptr %0, align 8
+  %.sroa.2389.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.7176.0.ph, ptr %.sroa.2389.0..sroa_idx, align 1
+  %.sroa.3390.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.8177.0.ph, ptr %.sroa.3390.0..sroa_idx, align 2
+  %.sroa.5392.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %79, ptr %.sroa.5392.0..sroa_idx, align 8
   br label %169
 
-163:                                              ; preds = %98, %97
-  %.sroa.0.0.ph39.i120 = phi i8 [ 0, %97 ], [ 2, %98 ]
-  %.sroa.8.0.ph37.i121 = phi i8 [ undef, %97 ], [ %95, %98 ]
-  %.sroa.524.0.i122 = phi i8 [ undef, %97 ], [ %99, %98 ]
-  store i8 %.sroa.0.0.ph39.i120, ptr %0, align 8
-  %.sroa.2463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i121, ptr %.sroa.2463.0..sroa_idx, align 1
-  %.sroa.3464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i122, ptr %.sroa.3464.0..sroa_idx, align 2
-  %.sroa.5466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %90, ptr %.sroa.5466.0..sroa_idx, align 8
+163:                                              ; preds = %97, %98
+  %.sroa.8183.0.ph = phi i8 [ %99, %98 ], [ undef, %97 ]
+  %.sroa.7182.0.ph = phi i8 [ %95, %98 ], [ undef, %97 ]
+  %.sroa.0181.0.ph = phi i8 [ 2, %98 ], [ 0, %97 ]
+  store i8 %.sroa.0181.0.ph, ptr %0, align 8
+  %.sroa.2419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.7182.0.ph, ptr %.sroa.2419.0..sroa_idx, align 1
+  %.sroa.3420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.8183.0.ph, ptr %.sroa.3420.0..sroa_idx, align 2
+  %.sroa.5422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %90, ptr %.sroa.5422.0..sroa_idx, align 8
   br label %169
 
-164:                                              ; preds = %109, %108
-  %.sroa.0.0.ph39.i132 = phi i8 [ 0, %108 ], [ 2, %109 ]
-  %.sroa.8.0.ph37.i133 = phi i8 [ undef, %108 ], [ %106, %109 ]
-  %.sroa.524.0.i134 = phi i8 [ undef, %108 ], [ %110, %109 ]
-  store i8 %.sroa.0.0.ph39.i132, ptr %0, align 8
-  %.sroa.2493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i133, ptr %.sroa.2493.0..sroa_idx, align 1
-  %.sroa.3494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i134, ptr %.sroa.3494.0..sroa_idx, align 2
-  %.sroa.5496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %101, ptr %.sroa.5496.0..sroa_idx, align 8
+164:                                              ; preds = %108, %109
+  %.sroa.8189.0.ph = phi i8 [ %110, %109 ], [ undef, %108 ]
+  %.sroa.7188.0.ph = phi i8 [ %106, %109 ], [ undef, %108 ]
+  %.sroa.0187.0.ph = phi i8 [ 2, %109 ], [ 0, %108 ]
+  store i8 %.sroa.0187.0.ph, ptr %0, align 8
+  %.sroa.2449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.7188.0.ph, ptr %.sroa.2449.0..sroa_idx, align 1
+  %.sroa.3450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.8189.0.ph, ptr %.sroa.3450.0..sroa_idx, align 2
+  %.sroa.5452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %101, ptr %.sroa.5452.0..sroa_idx, align 8
   br label %169
 
-165:                                              ; preds = %120, %119
-  %.sroa.0.0.ph39.i144 = phi i8 [ 0, %119 ], [ 2, %120 ]
-  %.sroa.8.0.ph37.i145 = phi i8 [ undef, %119 ], [ %117, %120 ]
-  %.sroa.524.0.i146 = phi i8 [ undef, %119 ], [ %121, %120 ]
-  store i8 %.sroa.0.0.ph39.i144, ptr %0, align 8
-  %.sroa.2523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i145, ptr %.sroa.2523.0..sroa_idx, align 1
-  %.sroa.3524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i146, ptr %.sroa.3524.0..sroa_idx, align 2
-  %.sroa.5526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %112, ptr %.sroa.5526.0..sroa_idx, align 8
+165:                                              ; preds = %119, %120
+  %.sroa.8195.0.ph = phi i8 [ %121, %120 ], [ undef, %119 ]
+  %.sroa.7194.0.ph = phi i8 [ %117, %120 ], [ undef, %119 ]
+  %.sroa.0193.0.ph = phi i8 [ 2, %120 ], [ 0, %119 ]
+  store i8 %.sroa.0193.0.ph, ptr %0, align 8
+  %.sroa.2479.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.7194.0.ph, ptr %.sroa.2479.0..sroa_idx, align 1
+  %.sroa.3480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.8195.0.ph, ptr %.sroa.3480.0..sroa_idx, align 2
+  %.sroa.5482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %112, ptr %.sroa.5482.0..sroa_idx, align 8
   br label %169
 
-166:                                              ; preds = %131, %130
-  %.sroa.0.0.ph39.i156 = phi i8 [ 0, %130 ], [ 2, %131 ]
-  %.sroa.8.0.ph37.i157 = phi i8 [ undef, %130 ], [ %128, %131 ]
-  %.sroa.524.0.i158 = phi i8 [ undef, %130 ], [ %132, %131 ]
-  store i8 %.sroa.0.0.ph39.i156, ptr %0, align 8
-  %.sroa.2553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i157, ptr %.sroa.2553.0..sroa_idx, align 1
-  %.sroa.3554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i158, ptr %.sroa.3554.0..sroa_idx, align 2
-  %.sroa.5556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %123, ptr %.sroa.5556.0..sroa_idx, align 8
+166:                                              ; preds = %130, %131
+  %.sroa.8201.0.ph = phi i8 [ %132, %131 ], [ undef, %130 ]
+  %.sroa.7200.0.ph = phi i8 [ %128, %131 ], [ undef, %130 ]
+  %.sroa.0199.0.ph = phi i8 [ 2, %131 ], [ 0, %130 ]
+  store i8 %.sroa.0199.0.ph, ptr %0, align 8
+  %.sroa.2509.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.7200.0.ph, ptr %.sroa.2509.0..sroa_idx, align 1
+  %.sroa.3510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.8201.0.ph, ptr %.sroa.3510.0..sroa_idx, align 2
+  %.sroa.5512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %123, ptr %.sroa.5512.0..sroa_idx, align 8
   br label %169
 
-167:                                              ; preds = %142, %141
-  %.sroa.0.0.ph39.i168 = phi i8 [ 0, %141 ], [ 2, %142 ]
-  %.sroa.8.0.ph37.i169 = phi i8 [ undef, %141 ], [ %139, %142 ]
-  %.sroa.524.0.i170 = phi i8 [ undef, %141 ], [ %143, %142 ]
-  store i8 %.sroa.0.0.ph39.i168, ptr %0, align 8
+167:                                              ; preds = %141, %142
+  %.sroa.7207.0.ph = phi i8 [ %143, %142 ], [ undef, %141 ]
+  %.sroa.5206.0.ph = phi i8 [ %139, %142 ], [ undef, %141 ]
+  %.sroa.0205.0.ph = phi i8 [ 2, %142 ], [ 0, %141 ]
+  store i8 %.sroa.0205.0.ph, ptr %0, align 8
   %.sroa.247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i169, ptr %.sroa.247.0..sroa_idx, align 1
+  store i8 %.sroa.5206.0.ph, ptr %.sroa.247.0..sroa_idx, align 1
   %.sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i170, ptr %.sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx, align 2
+  store i8 %.sroa.7207.0.ph, ptr %.sroa.247.sroa.2.0..sroa.247.0..sroa_idx.sroa_idx, align 2
   %.sroa.247.sroa.4.0..sroa.247.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %134, ptr %.sroa.247.sroa.4.0..sroa.247.0..sroa_idx.sroa_idx, align 8
   br label %169
 
-168:                                              ; preds = %153, %152
-  %.sroa.0.0.ph39.i180 = phi i8 [ 0, %152 ], [ 2, %153 ]
-  %.sroa.8.0.ph37.i181 = phi i8 [ undef, %152 ], [ %150, %153 ]
-  %.sroa.524.0.i182 = phi i8 [ undef, %152 ], [ %154, %153 ]
-  store i8 %.sroa.0.0.ph39.i180, ptr %0, align 8
+168:                                              ; preds = %152, %153
+  %.sroa.7213.0.ph = phi i8 [ %154, %153 ], [ undef, %152 ]
+  %.sroa.5212.0.ph = phi i8 [ %150, %153 ], [ undef, %152 ]
+  %.sroa.0211.0.ph = phi i8 [ 2, %153 ], [ 0, %152 ]
+  store i8 %.sroa.0211.0.ph, ptr %0, align 8
   %.sroa.253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i181, ptr %.sroa.253.0..sroa_idx, align 1
+  store i8 %.sroa.5212.0.ph, ptr %.sroa.253.0..sroa_idx, align 1
   %.sroa.253.sroa.2.0..sroa.253.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i182, ptr %.sroa.253.sroa.2.0..sroa.253.0..sroa_idx.sroa_idx, align 2
+  store i8 %.sroa.7213.0.ph, ptr %.sroa.253.sroa.2.0..sroa.253.0..sroa_idx.sroa_idx, align 2
   %.sroa.253.sroa.4.0..sroa.253.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %145, ptr %.sroa.253.sroa.4.0..sroa.253.0..sroa_idx.sroa_idx, align 8
   br label %169
@@ -29876,8 +29876,8 @@ define hidden void @"_ZN179_$LT$uv_python..pointer_size.._..$LT$impl$u20$serde..
   %.sroa.69.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 2
   %.sroa.225.sroa.2.0..sroa.225.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.225.sroa.2.0..sroa.225.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.69.0..sroa_idx.i.i, i64 6, i1 false)
-  %.sroa.843.2..sroa.69.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.843.2.copyload = load i8, ptr %.sroa.843.2..sroa.69.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !6289
+  %.sroa.839.2..sroa.69.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.839.2.copyload = load i8, ptr %.sroa.839.2..sroa.69.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !6289
   %.sroa.11.2..sroa.69.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.427.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11.2..sroa.69.0..sroa_idx.i.i.sroa_idx, i64 7, i1 false)
@@ -29890,7 +29890,7 @@ define hidden void @"_ZN179_$LT$uv_python..pointer_size.._..$LT$impl$u20$serde..
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %9, ptr %.sroa.225.0..sroa_idx, align 1
   %.sroa.326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.843.2.copyload, ptr %.sroa.326.0..sroa_idx, align 8
+  store i8 %.sroa.839.2.copyload, ptr %.sroa.326.0..sroa_idx, align 8
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.12.2.copyload, ptr %.sroa.528.0..sroa_idx, align 8
   %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -29943,37 +29943,37 @@ define hidden void @"_ZN179_$LT$uv_python..pointer_size.._..$LT$impl$u20$serde..
   %34 = extractvalue { i8, i8 } %29, 1
   br label %38
 
-35:                                               ; preds = %22, %21
-  %.sroa.0.0.ph39.i = phi i8 [ 0, %21 ], [ 2, %22 ]
-  %.sroa.8.0.ph37.i = phi i8 [ undef, %21 ], [ %19, %22 ]
-  %.sroa.524.0.i = phi i8 [ undef, %21 ], [ %23, %22 ]
-  store i8 %.sroa.0.0.ph39.i, ptr %0, align 8
-  %.sroa.276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i, ptr %.sroa.276.0..sroa_idx, align 1
-  %.sroa.377.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i, ptr %.sroa.377.0..sroa_idx, align 2
-  %.sroa.579.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %.sroa.579.0..sroa_idx, align 8
+35:                                               ; preds = %21, %22
+  %.sroa.842.0.ph = phi i8 [ %23, %22 ], [ undef, %21 ]
+  %.sroa.741.0.ph = phi i8 [ %19, %22 ], [ undef, %21 ]
+  %.sroa.040.0.ph = phi i8 [ 2, %22 ], [ 0, %21 ]
+  store i8 %.sroa.040.0.ph, ptr %0, align 8
+  %.sroa.272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.741.0.ph, ptr %.sroa.272.0..sroa_idx, align 1
+  %.sroa.373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.842.0.ph, ptr %.sroa.373.0..sroa_idx, align 2
+  %.sroa.575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %14, ptr %.sroa.575.0..sroa_idx, align 8
   br label %39
 
-36:                                               ; preds = %27, %16
-  %.sink = phi i8 [ 0, %16 ], [ 1, %27 ]
+36:                                               ; preds = %16, %27
+  %.sink = phi i8 [ 1, %27 ], [ 0, %16 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %37, align 1
   store i8 9, ptr %0, align 8
   br label %39
 
-38:                                               ; preds = %33, %32
-  %.sroa.0.0.ph39.i34 = phi i8 [ 0, %32 ], [ 2, %33 ]
-  %.sroa.8.0.ph37.i35 = phi i8 [ undef, %32 ], [ %30, %33 ]
-  %.sroa.524.0.i36 = phi i8 [ undef, %32 ], [ %34, %33 ]
-  store i8 %.sroa.0.0.ph39.i34, ptr %0, align 8
-  %.sroa.2106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.ph37.i35, ptr %.sroa.2106.0..sroa_idx, align 1
-  %.sroa.3107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sroa.524.0.i36, ptr %.sroa.3107.0..sroa_idx, align 2
-  %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %25, ptr %.sroa.5109.0..sroa_idx, align 8
+38:                                               ; preds = %32, %33
+  %.sroa.846.0.ph = phi i8 [ %34, %33 ], [ undef, %32 ]
+  %.sroa.745.0.ph = phi i8 [ %30, %33 ], [ undef, %32 ]
+  %.sroa.044.0.ph = phi i8 [ 2, %33 ], [ 0, %32 ]
+  store i8 %.sroa.044.0.ph, ptr %0, align 8
+  %.sroa.2102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.sroa.745.0.ph, ptr %.sroa.2102.0..sroa_idx, align 1
+  %.sroa.3103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sroa.846.0.ph, ptr %.sroa.3103.0..sroa_idx, align 2
+  %.sroa.5105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %25, ptr %.sroa.5105.0..sroa_idx, align 8
   br label %39
 
 39:                                               ; preds = %12, %35, %38, %36

@@ -2687,14 +2687,14 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   tail call void @llvm.experimental.noalias.scope.decl(metadata !776)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !779
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.013.085, i64 24
-  %.val21.i = load ptr, ptr %39, align 8, !alias.scope !776, !noalias !781, !nonnull !8, !noundef !8
-  %40 = load i64, ptr %.val21.i, align 8, !noalias !779, !noundef !8
+  %.val22.i = load ptr, ptr %39, align 8, !alias.scope !776, !noalias !781, !nonnull !8, !noundef !8
+  %40 = load i64, ptr %.val22.i, align 8, !noalias !779, !noundef !8
   %41 = and i64 %40, 1
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %43, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i"
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.val22.i, i64 8
   %45 = load atomic i64, ptr %44 monotonic, align 8, !noalias !781
   %46 = and i64 %45, 1
   %.not.i.i = icmp eq i64 %46, 0
@@ -2711,69 +2711,69 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i"
 
 "_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i": ; preds = %50, %47, %43, %36
-  store ptr %.val21.i, ptr %9, align 8, !noalias !779
+  store ptr %.val22.i, ptr %9, align 8, !noalias !779
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.013.085, i64 32
   %53 = load ptr, ptr %52, align 8, !alias.scope !776, !noalias !781, !noundef !8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit26.i", label %55
+  br i1 %54, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit27.i", label %55
 
 55:                                               ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i"
   %56 = load i64, ptr %53, align 8, !noalias !781, !noundef !8
   %57 = and i64 %56, 1
   %58 = icmp eq i64 %57, 0
-  br i1 %58, label %59, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit26.i"
+  br i1 %58, label %59, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit27.i"
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %61 = load atomic i64, ptr %60 monotonic, align 8, !noalias !781
   %62 = and i64 %61, 1
-  %.not.i24.i = icmp eq i64 %62, 0
-  br i1 %.not.i24.i, label %63, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit26.i"
+  %.not.i25.i = icmp eq i64 %62, 0
+  br i1 %.not.i25.i, label %63, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit27.i"
 
 63:                                               ; preds = %59
   %64 = atomicrmw add ptr %60, i64 2 monotonic, align 8, !noalias !781
   %65 = and i64 %64, -9223372036854775807
-  %or.cond.i25.i = icmp eq i64 %65, -9223372036854775808
-  br i1 %or.cond.i25.i, label %66, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit26.i"
+  %or.cond.i26.i = icmp eq i64 %65, -9223372036854775808
+  br i1 %or.cond.i26.i, label %66, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit27.i"
 
 66:                                               ; preds = %63
   %67 = atomicrmw or ptr %60, i64 1 release, align 8, !noalias !781
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit26.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit27.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit26.i": ; preds = %66, %63, %59, %55, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i"
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit27.i": ; preds = %66, %63, %59, %55, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit.i"
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.013.085, i64 40
   %69 = load ptr, ptr %68, align 8, !alias.scope !776, !noalias !781, !noundef !8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit29.i", label %72
+  br i1 %70, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit30.i", label %72
 
 71:                                               ; preds = %86
   invoke void @"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h85ec35e9197588daE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #32
           to label %186 unwind label %177, !noalias !781
 
-72:                                               ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit26.i"
+72:                                               ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit27.i"
   %73 = load i64, ptr %69, align 8, !noalias !781, !noundef !8
   %74 = and i64 %73, 1
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %76, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit29.i"
+  br i1 %75, label %76, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit30.i"
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %78 = load atomic i64, ptr %77 monotonic, align 8, !noalias !781
   %79 = and i64 %78, 1
-  %.not.i27.i = icmp eq i64 %79, 0
-  br i1 %.not.i27.i, label %80, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit29.i"
+  %.not.i28.i = icmp eq i64 %79, 0
+  br i1 %.not.i28.i, label %80, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit30.i"
 
 80:                                               ; preds = %76
   %81 = atomicrmw add ptr %77, i64 2 monotonic, align 8, !noalias !781
   %82 = and i64 %81, -9223372036854775807
-  %or.cond.i28.i = icmp eq i64 %82, -9223372036854775808
-  br i1 %or.cond.i28.i, label %83, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit29.i"
+  %or.cond.i29.i = icmp eq i64 %82, -9223372036854775808
+  br i1 %or.cond.i29.i, label %83, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit30.i"
 
 83:                                               ; preds = %80
   %84 = atomicrmw or ptr %77, i64 1 release, align 8, !noalias !781
-  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit29.i"
+  br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit30.i"
 
-"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit29.i": ; preds = %83, %80, %76, %72, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit26.i"
+"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit30.i": ; preds = %83, %80, %76, %72, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit27.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !779
   %85 = load i64, ptr %.sroa.013.085, align 8, !range !12, !alias.scope !776, !noalias !781, !noundef !8
   %trunc.i11 = trunc nuw i64 %85 to i1
@@ -2783,7 +2783,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..extra_name..ExtraName$GT$$GT$17h25cd6335b23299e3E"(ptr %53) #32
           to label %71 unwind label %177, !noalias !781
 
-87:                                               ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit29.i"
+87:                                               ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit30.i"
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.013.085, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.013.085, i64 17
   %90 = load i8, ptr %89, align 1, !alias.scope !776, !noalias !781, !noundef !8
@@ -2819,9 +2819,9 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$uv_pep440..version..Version$GT$$GT$17h359b37b98e647bb5E"(ptr noalias noundef align 8 dereferenceable(24) %8) #32
           to label %179 unwind label %177, !noalias !781
 
-103:                                              ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit29.i", %101
-  %storemerge.i = phi i64 [ 1, %101 ], [ 0, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit29.i" ]
-  store i64 %storemerge.i, ptr %8, align 8, !noalias !779
+103:                                              ; preds = %101, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit30.i"
+  %storemerge18.i = phi i64 [ 1, %101 ], [ 0, %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit30.i" ]
+  store i64 %storemerge18.i, ptr %8, align 8, !noalias !779
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.013.085, i64 48
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.013.085, i64 96
   %106 = load i64, ptr %105, align 8, !alias.scope !782, !noalias !785, !noundef !8
@@ -2858,7 +2858,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h7686cfafbdd1c3f3E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge.i.i.i": ; preds = %.noexc.i.i
   %.pre.i.i.i = load i64, ptr %25, align 8, !alias.scope !794, !noalias !797
   %.pre75.i.i.i = tail call i64 @llvm.umax.i64(i64 %.pre.i.i.i, i64 1)
-  %.pre.i = load ptr, ptr %7, align 8, !alias.scope !794, !noalias !797
+  %.pre.i.i = load ptr, ptr %7, align 8, !alias.scope !794, !noalias !797
   br label %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit.i.i.i
 
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h7686cfafbdd1c3f3E.exit.thread.i.i.i": ; preds = %.noexc.i.i
@@ -2877,7 +2877,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   unreachable
 
 _ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit.i.i.i: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h7686cfafbdd1c3f3E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge.i.i.i", %103
-  %120 = phi ptr [ %.pre.i, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h7686cfafbdd1c3f3E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge.i.i.i" ], [ undef, %103 ]
+  %120 = phi ptr [ %.pre.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h7686cfafbdd1c3f3E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge.i.i.i" ], [ undef, %103 ]
   %.sink.i.pre-phi.i.i.i = phi i64 [ %.pre75.i.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h7686cfafbdd1c3f3E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge.i.i.i" ], [ 1, %103 ]
   %121 = phi i64 [ %.pre.i.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h7686cfafbdd1c3f3E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge.i.i.i" ], [ 0, %103 ]
   %122 = icmp ugt i64 %121, 1

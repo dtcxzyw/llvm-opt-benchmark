@@ -5783,15 +5783,15 @@ _ZN4llvmplERKNS_5TwineES2_.exit41:                ; preds = %3
   br label %_ZN4llvmplERKNS_5TwineES2_.exit56
 
 _ZN4llvmplERKNS_5TwineES2_.exit56:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit41, %44, %45
-  %.sink65 = phi i8 [ 4, %44 ], [ %.014.i.i45, %45 ], [ %43, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
-  %.sink63 = phi i8 [ 1, %44 ], [ 4, %45 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %.sink61 = phi i8 [ 4, %44 ], [ %.014.i.i45, %45 ], [ %43, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
+  %.sink = phi i8 [ 1, %44 ], [ 4, %45 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
   %.sroa.56.0.copyload.i.i59 = phi i64 [ undef, %44 ], [ %.sroa.56.0.i.i47, %45 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
   %.sroa.05.0.copyload.i.i57 = phi ptr [ %13, %44 ], [ %.sroa.05.0.i.i46, %45 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
   %49 = phi i1 [ true, %44 ], [ false, %45 ], [ true, %_ZN4llvmplERKNS_5TwineES2_.exit41 ]
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 %.sink65, ptr %50, align 8, !tbaa !143
+  store i8 %.sink61, ptr %50, align 8, !tbaa !143
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  store i8 %.sink63, ptr %51, align 1, !tbaa !143
+  store i8 %.sink, ptr %51, align 1, !tbaa !143
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #22
   %52 = getelementptr inbounds nuw i8, ptr %.0.val, i64 25
   %53 = load i8, ptr %52, align 1, !tbaa !46, !range !50, !noundef !51
@@ -5919,7 +5919,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.ex
   br label %99
 
 99:                                               ; preds = %._crit_edge.i.i, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_.exit
-  switch i8 %.sink65, label %_ZN4llvmplERKNS_5TwineES2_.exit71 [
+  switch i8 %.sink61, label %_ZN4llvmplERKNS_5TwineES2_.exit71 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit71.thread42
     i8 1, label %103
   ]
@@ -5932,7 +5932,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit71.thread42:       ; preds = %99
   br label %_ZN4llvmplERKNS_5TwineES2_.exit86
 
 _ZN4llvmplERKNS_5TwineES2_.exit71:                ; preds = %99
-  %.014.i.i60 = select i1 %49, i8 %.sink65, i8 2
+  %.014.i.i60 = select i1 %49, i8 %.sink61, i8 2
   %.sroa.05.0.i.i61 = select i1 %49, ptr %.sroa.05.0.copyload.i.i57, ptr %10
   %.sroa.56.0.i.i62 = select i1 %49, i64 %.sroa.56.0.copyload.i.i59, i64 undef
   store ptr %.sroa.05.0.i.i61, ptr %9, align 8, !alias.scope !150
@@ -5948,25 +5948,25 @@ _ZN4llvmplERKNS_5TwineES2_.exit71:                ; preds = %99
 
 104:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit71, %103
   %.014.i.i60.sink = phi i8 [ %.014.i.i60, %_ZN4llvmplERKNS_5TwineES2_.exit71 ], [ 4, %103 ]
-  %.sink67 = phi i8 [ 4, %_ZN4llvmplERKNS_5TwineES2_.exit71 ], [ 1, %103 ]
+  %.sink63 = phi i8 [ 4, %_ZN4llvmplERKNS_5TwineES2_.exit71 ], [ 1, %103 ]
   %105 = phi ptr [ %9, %_ZN4llvmplERKNS_5TwineES2_.exit71 ], [ %14, %103 ]
   %106 = phi i8 [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit71 ], [ 4, %103 ]
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 %.014.i.i60.sink, ptr %107, align 8, !tbaa !143
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 %.sink67, ptr %108, align 1, !tbaa !143
+  store i8 %.sink63, ptr %108, align 1, !tbaa !143
   store ptr %105, ptr %8, align 8, !alias.scope !155
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @.str.25, ptr %109, align 8, !alias.scope !155
   br label %_ZN4llvmplERKNS_5TwineES2_.exit86
 
 _ZN4llvmplERKNS_5TwineES2_.exit86:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit71.thread42, %104
-  %.sink61 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit71.thread42 ], [ %106, %104 ]
-  %.sink = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit71.thread42 ], [ 3, %104 ]
+  %.sink68 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit71.thread42 ], [ %106, %104 ]
+  %.sink66 = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit71.thread42 ], [ 3, %104 ]
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 %.sink61, ptr %110, align 8, !tbaa !119, !alias.scope !155
+  store i8 %.sink68, ptr %110, align 8, !tbaa !119, !alias.scope !155
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 %.sink, ptr %111, align 1, !tbaa !122, !alias.scope !155
+  store i8 %.sink66, ptr %111, align 1, !tbaa !122, !alias.scope !155
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %8) #22
   %112 = load ptr, ptr %14, align 8, !tbaa !22
   %113 = getelementptr inbounds nuw i8, ptr %14, i64 16

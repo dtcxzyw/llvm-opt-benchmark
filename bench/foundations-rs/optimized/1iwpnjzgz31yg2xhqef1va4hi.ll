@@ -11205,10 +11205,10 @@ define hidden void @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$3new17h14785564
   store ptr %39, ptr %51, align 8
   %.sroa.4.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 0, ptr %.sroa.4.0..sroa_idx24, align 8
-  %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %32, ptr %.sroa.525.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %45, ptr %.sroa.6.0..sroa_idx26, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i64 %32, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %45, ptr %.sroa.6.0..sroa_idx25, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %52, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 97
@@ -11232,8 +11232,8 @@ define hidden void @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$3new17h14785564
           to label %56 unwind label %53
 
 56:                                               ; preds = %55, %57
-  %.pn32 = phi { ptr, i32 } [ %58, %57 ], [ %37, %55 ]
-  resume { ptr, i32 } %.pn32
+  %.pn31 = phi { ptr, i32 } [ %58, %57 ], [ %37, %55 ]
+  resume { ptr, i32 } %.pn31
 
 57:                                               ; preds = %17, %11, %3
   %58 = landingpad { ptr, i32 }
@@ -11340,10 +11340,10 @@ define hidden void @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$3new17h27751533
   store ptr %30, ptr %41, align 8
   %.sroa.4.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 0, ptr %.sroa.4.0..sroa_idx24, align 8
-  %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i64 %23, ptr %.sroa.525.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %36, ptr %.sroa.6.0..sroa_idx26, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i64 %23, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store ptr %36, ptr %.sroa.6.0..sroa_idx25, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 0, ptr %42, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 193
@@ -11367,8 +11367,8 @@ define hidden void @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$3new17h27751533
           to label %46 unwind label %43
 
 46:                                               ; preds = %45, %47
-  %.pn32 = phi { ptr, i32 } [ %48, %47 ], [ %28, %45 ]
-  resume { ptr, i32 } %.pn32
+  %.pn31 = phi { ptr, i32 } [ %48, %47 ], [ %28, %45 ]
+  resume { ptr, i32 } %.pn31
 
 47:                                               ; preds = %12, %2
   %48 = landingpad { ptr, i32 }
@@ -11483,10 +11483,10 @@ define hidden void @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$3new17habc82757
   store ptr %35, ptr %46, align 8
   %.sroa.4.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 0, ptr %.sroa.4.0..sroa_idx24, align 8
-  %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i64 %28, ptr %.sroa.525.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %41, ptr %.sroa.6.0..sroa_idx26, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i64 %28, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr %41, ptr %.sroa.6.0..sroa_idx25, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %47, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 97
@@ -11510,8 +11510,8 @@ define hidden void @"_ZN5hyper5proto2h12io21Buffered$LT$T$C$B$GT$3new17habc82757
           to label %51 unwind label %48
 
 51:                                               ; preds = %50, %52
-  %.pn32 = phi { ptr, i32 } [ %53, %52 ], [ %33, %50 ]
-  resume { ptr, i32 } %.pn32
+  %.pn31 = phi { ptr, i32 } [ %53, %52 ], [ %33, %50 ]
+  resume { ptr, i32 } %.pn31
 
 52:                                               ; preds = %15, %9, %2
   %53 = landingpad { ptr, i32 }

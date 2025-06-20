@@ -666,7 +666,6 @@ define hidden void @_ZN8uu_split8platform4unix26instantiate_current_writer17h91b
   %28 = alloca { { i64, [3 x i64] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %29 = alloca { { { { i32, [1 x i32] }, i32, i32 }, i32, i32, i32 } }, align 4
   %.sroa.10 = alloca [4 x i32], align 8
-  %.sroa.883 = alloca [7 x i8], align 1
   %30 = alloca { { i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8] } }, align 4
   %31 = alloca { i32, [3 x i32] }, align 8
   %32 = alloca { { i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8] } }, align 4
@@ -683,7 +682,6 @@ define hidden void @_ZN8uu_split8platform4unix26instantiate_current_writer17h91b
   br i1 %4, label %122, label %107
 
 39:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.883)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
@@ -1245,13 +1243,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i60: ; preds = %124
   store i64 0, ptr %.sroa.681.0..sroa_idx, align 8
   %.sroa.782.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %.sroa.782.0..sroa_idx, align 8
-  %.sroa.883.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.883.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.883, i64 7, i1 false)
   %.sroa.884.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %168, ptr %.sroa.884.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @anon.58d87c824ed14e5a617dd58fa20d836d.22, ptr %.sroa.9.0..sroa_idx85, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.883)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10)
   br label %160
 
@@ -1264,7 +1259,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i60: ; preds = %124
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %102, ptr %184, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.883)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10)
   br label %160
 }

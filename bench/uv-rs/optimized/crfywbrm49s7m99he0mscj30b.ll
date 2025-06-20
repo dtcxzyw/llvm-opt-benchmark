@@ -6612,8 +6612,8 @@ _ZN8indexmap3map4core15reserve_entries17h0ff602bb76f1a9eeE.exit.i: ; preds = %.n
   unreachable
 
 .critedge:                                        ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.10960922687847441760.exit.i.i23", %146, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.10960922687847441760.exit.i.i.i", %135, %127
-  %eh.lpad-body35 = phi { ptr, i32 } [ %128, %127 ], [ %132, %135 ], [ %132, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.10960922687847441760.exit.i.i.i" ], [ %143, %146 ], [ %143, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.10960922687847441760.exit.i.i23" ]
-  resume { ptr, i32 } %eh.lpad-body35
+  %eh.lpad-body34 = phi { ptr, i32 } [ %128, %127 ], [ %132, %135 ], [ %132, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.10960922687847441760.exit.i.i.i" ], [ %143, %146 ], [ %143, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.10960922687847441760.exit.i.i23" ]
+  resume { ptr, i32 } %eh.lpad-body34
 
 146:                                              ; preds = %142
   %147 = icmp eq i64 %4, 0
@@ -12947,9 +12947,9 @@ _ZN6fs_err4file4File4open17h95fffbb2c566d2d0E.exit: ; preds = %38
   ret void
 
 80:                                               ; preds = %65, %75, %33
-  %.sink = phi i64 [ 8, %65 ], [ 32, %75 ], [ 8, %33 ]
+  %.sink111 = phi i64 [ 8, %65 ], [ 32, %75 ], [ 8, %33 ]
   %.sroa.671.0106.sink = phi ptr [ %.sroa.671.0106, %65 ], [ %63, %75 ], [ %35, %33 ]
-  %.sroa.4.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %.sroa.4.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink111
   store ptr %.sroa.671.0106.sink, ptr %.sroa.4.0..sroa_idx88, align 8
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %16)
   br label %79

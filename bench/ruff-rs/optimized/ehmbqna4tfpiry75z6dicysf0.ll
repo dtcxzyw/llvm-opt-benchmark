@@ -725,14 +725,14 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h0ed1449af032e83aE", ptr %.sroa.444.0..sroa_idx.i, align 8, !noalias !10
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !111
   store ptr @anon.345dfc9c866e56abc031b8b5377cfe85.111, ptr %4, align 8, !noalias !118
-  %.sroa.4122.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 2, ptr %.sroa.4122.0..sroa_idx.i, align 8, !noalias !118
-  %.sroa.5123.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %6, ptr %.sroa.5123.0..sroa_idx.i, align 8, !noalias !118
-  %.sroa.6124.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 2, ptr %.sroa.6124.0..sroa_idx.i, align 8, !noalias !118
-  %.sroa.7125.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %.sroa.7125.0..sroa_idx.i, align 8, !noalias !118
+  %.sroa.4121.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 2, ptr %.sroa.4121.0..sroa_idx.i, align 8, !noalias !118
+  %.sroa.5122.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %6, ptr %.sroa.5122.0..sroa_idx.i, align 8, !noalias !118
+  %.sroa.6123.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 2, ptr %.sroa.6123.0..sroa_idx.i, align 8, !noalias !118
+  %.sroa.7124.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %.sroa.7124.0..sroa_idx.i, align 8, !noalias !118
   call void @_ZN5alloc3fmt6format12format_inner17h9fdd91b8084950bfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4), !noalias !10
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !111
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !10

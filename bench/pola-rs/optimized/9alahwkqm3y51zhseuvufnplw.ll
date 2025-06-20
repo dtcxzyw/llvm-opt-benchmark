@@ -137,10 +137,8 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   %78 = alloca [40 x i8], align 8
   %.sroa.5105.sroa.6 = alloca [20 x i8], align 4
   %.sroa.6107.sroa.0 = alloca [88 x i8], align 8
-  %.sroa.6107.sroa.12 = alloca [7 x i8], align 1
   %.sroa.64 = alloca [20 x i8], align 4
   %.sroa.71 = alloca [88 x i8], align 8
-  %.sroa.79 = alloca [7 x i8], align 1
   %.sroa.796.sroa.8 = alloca [20 x i8], align 4
   %.sroa.35 = alloca [3 x i8], align 1
   %.sroa.37 = alloca [12 x i8], align 4
@@ -266,7 +264,6 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   %.sroa.6107.sroa.9.0..sroa.6107.0..sroa_idx108.sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 152
   %.sroa.6107.sroa.10.0..sroa.6107.0..sroa_idx108.sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 156
   %.sroa.6107.sroa.11.0..sroa.6107.0..sroa_idx108.sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 160
-  %.sroa.6107.sroa.12.0..sroa.6107.0..sroa_idx108.sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 161
   %123 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.6.i354.sroa.7.0..sroa_idx845 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %.sroa.6.i354.sroa.8.0..sroa_idx849 = getelementptr inbounds nuw i8, ptr %43, i64 17
@@ -1876,7 +1873,6 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.796.sroa.8)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.64)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.71)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.79)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30), !noalias !74
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.6.i376.sroa.7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29), !noalias !74
@@ -2932,7 +2928,6 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.796.sroa.8, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.64, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.64)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.71)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.79)
   %.sroa.3804.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3804.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.796.sroa.8, i64 20, i1 false)
   %610 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2949,11 +2944,8 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.796.sroa.8, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.64, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.6107.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.6107.sroa.0, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.71, i64 88, i1 false)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.6107.sroa.12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6107.sroa.12, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.79, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.64)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.71)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.79)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.5105.sroa.6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.5105.sroa.6, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.796.sroa.8, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.796.sroa.8)
@@ -2981,7 +2973,6 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   store i32 %491, ptr %.sroa.6107.sroa.9.0..sroa.6107.0..sroa_idx108.sroa_idx, align 8
   store i32 %431, ptr %.sroa.6107.sroa.10.0..sroa.6107.0..sroa_idx108.sroa_idx, align 4
   store i8 %.sroa.0190.0.i, ptr %.sroa.6107.sroa.11.0..sroa.6107.0..sroa_idx108.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6107.sroa.12.0..sroa.6107.0..sroa_idx108.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6107.sroa.12, i64 7, i1 false)
   br label %.body
 
 "_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$polars_parquet_format..parquet_format..DataPageHeaderV2$GT$$GT$17h6cce533d640ee1f9E.exit398": ; preds = %611, %614
@@ -2998,10 +2989,8 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   store i32 %491, ptr %.sroa.6107.sroa.9.0..sroa.6107.0..sroa_idx108.sroa_idx, align 8
   store i32 %431, ptr %.sroa.6107.sroa.10.0..sroa.6107.0..sroa_idx108.sroa_idx, align 4
   store i8 %.sroa.0190.0.i, ptr %.sroa.6107.sroa.11.0..sroa.6107.0..sroa_idx108.sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6107.sroa.12.0..sroa.6107.0..sroa_idx108.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6107.sroa.12, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.5105.sroa.6)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.6107.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6107.sroa.12)
   br label %622
 
 617:                                              ; preds = %210

@@ -3154,10 +3154,10 @@ define dso_local noundef i32 @_ZN4llvm13DWARFVerifier24verifyDebugInfoAttributeE
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %123 = load i64, ptr %122, align 8, !tbaa !66
   %124 = icmp eq i64 %123, 0
-  %or.cond404 = select i1 %121, i1 %124, i1 false
+  %or.cond403 = select i1 %121, i1 %124, i1 false
   %.not61 = icmp ult i64 %107, %123
-  %or.cond405 = select i1 %or.cond404, i1 true, i1 %.not61
-  br i1 %or.cond405, label %.thread, label %125
+  %or.cond404 = select i1 %or.cond403, i1 true, i1 %.not61
+  br i1 %or.cond404, label %.thread, label %125
 
 125:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31) #28

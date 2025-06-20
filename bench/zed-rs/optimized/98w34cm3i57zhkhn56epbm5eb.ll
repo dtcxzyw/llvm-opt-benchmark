@@ -702,8 +702,8 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %34 = atomicrmw sub ptr %33, i64 1 seq_cst, align 8
   store i64 %10, ptr %0, align 8
-  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %.sroa.411.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(208) %.sroa.2, i64 208, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(208) %.sroa.2, i64 208, i1 false)
   br label %31
 }
 
@@ -1192,8 +1192,6 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN15futures_channel4mpsc9unbounded17h8cd4ad586f3006f8E() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca [72 x i8], align 8
-  %.sroa.4 = alloca [208 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %.sroa.4)
   %2 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !133
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(224) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 224, i64 noundef 8) #29, !noalias !133
   %4 = icmp eq ptr %3, null
@@ -1208,11 +1206,8 @@ common.resume:                                    ; preds = %12
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h45479848f507f76cE.llvm.5603272153616003405.exit": ; preds = %0
   store i64 -9223372036854775808, ptr %3, align 8
-  %.sroa.4.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %.sroa.4.0..sroa_idx22, ptr noundef nonnull align 8 dereferenceable(208) %.sroa.4, i64 208, i1 false)
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 216
   store ptr null, ptr %.sroa.423.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %.sroa.4)
   %5 = ptrtoint ptr %3 to i64
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %1)
   store i64 1, ptr %1, align 8
@@ -23465,10 +23460,10 @@ tailrecurse.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i
           to label %"_ZN4core3ptr258drop_in_place$LT$futures_util..future..try_future..MapOk$LT$client..Client..request_envelope$LT$proto..GetChannelMessagesById$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$client..Client..request$LT$proto..GetChannelMessagesById$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9d0b61593fa93410E.exit77.i.i" unwind label %366, !noalias !3477
 
 405:                                              ; preds = %398, %201
-  %406 = phi ptr [ %70, %201 ], [ %379, %398 ]
-  %407 = phi ptr [ %69, %201 ], [ %380, %398 ]
-  %408 = phi ptr [ %.phi.trans.insert.i, %201 ], [ %381, %398 ]
-  %409 = phi ptr [ %202, %201 ], [ %382, %398 ]
+  %406 = phi ptr [ %379, %398 ], [ %70, %201 ]
+  %407 = phi ptr [ %380, %398 ], [ %69, %201 ]
+  %408 = phi ptr [ %381, %398 ], [ %.phi.trans.insert.i, %201 ]
+  %409 = phi ptr [ %382, %398 ], [ %202, %201 ]
   %410 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %411 = invoke fastcc { i64, ptr } @"_ZN7channel12channel_chat19messages_from_proto28_$u7b$$u7b$closure$u7d$$u7d$17h453b1e9a35db10afE"(ptr noundef nonnull align 8 %410, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %414 unwind label %412, !noalias !3477

@@ -2133,7 +2133,7 @@ define hidden void @"_ZN109_$LT$heed..iterator..range..RwRange$LT$KC$C$DC$C$IM$G
   %14 = icmp eq i64 %13, 7
   br i1 %14, label %15, label %19
 
-default.unreachable69:                            ; preds = %21
+default.unreachable68:                            ; preds = %21
   unreachable
 
 15:                                               ; preds = %12
@@ -2155,7 +2155,7 @@ default.unreachable69:                            ; preds = %21
   %23 = load i64, ptr %22, align 8, !noundef !4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load i64, ptr %24, align 8, !range !531, !noundef !4
-  switch i64 %25, label %default.unreachable69 [
+  switch i64 %25, label %default.unreachable68 [
     i64 0, label %27
     i64 1, label %36
     i64 2, label %47
@@ -2203,8 +2203,8 @@ default.unreachable69:                            ; preds = %21
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   %.sroa.4.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx66, align 8, !nonnull !4, !noundef !4
-  %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.668.0.copyload = load i64, ptr %.sroa.668.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %trunc = trunc nuw i64 %.sroa.0.0.copyload to i1
   %. = select i1 %trunc, i64 5, i64 7
@@ -2212,7 +2212,7 @@ default.unreachable69:                            ; preds = %21
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4.0.copyload, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.668.0.copyload, ptr %49, align 8
+  store i64 %.sroa.6.0.copyload, ptr %49, align 8
   br label %26
 }
 
@@ -21004,52 +21004,47 @@ define hidden void @"_ZN95_$LT$futures_util..future..poll_fn..PollFn$LT$F$GT$$u2
   store ptr %6, ptr %12, align 8, !noalias !5031
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @anon.d607a7b00f5887b24066a7f5dab6f6b7.180, ptr %13, align 8, !noalias !5031
-  br label %.outer.i
+  br label %15
 
-.outer.i:                                         ; preds = %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread.i", %3
-  %.sroa.02.010.ph.i = phi i64 [ -9223372036854775804, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread.i" ], [ -9223372036854775805, %3 ]
-  %.sroa.0.0.idx9.ph.i = phi i64 [ %.sroa.0.0.add.i, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread.i" ], [ 0, %3 ]
-  br label %14
+14:                                               ; preds = %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i"
+  %..i = select i1 %.sroa.02.17.i, i64 -9223372036854775804, i64 -9223372036854775805
+  store i64 %..i, ptr %0, align 8, !alias.scope !5026, !noalias !5034
+  br label %"_ZN14semantic_index15embedding_index14EmbeddingIndex18persist_embeddings28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4611d048428fd794E.llvm.10321688783904056783.exit"
 
-14:                                               ; preds = %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i", %.outer.i
-  %.sroa.0.0.idx9.i = phi i64 [ %.sroa.0.0.add.i, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i" ], [ %.sroa.0.0.idx9.ph.i, %.outer.i ]
+15:                                               ; preds = %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i", %3
+  %.sroa.02.010.i = phi i1 [ false, %3 ], [ %.sroa.02.17.i, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i" ]
+  %.sroa.0.0.idx9.i = phi i64 [ 0, %3 ], [ %.sroa.0.0.add.i, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i" ]
   %.sroa.0.0.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.0.0.idx9.i
   %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx9.i, 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4), !noalias !5031
-  call void @llvm.experimental.noalias.scope.decl(metadata !5034)
-  %15 = load ptr, ptr %.sroa.0.0.ptr.i, align 8, !alias.scope !5034, !noalias !5037, !nonnull !4, !align !312, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr.i, i64 8
-  %17 = load ptr, ptr %16, align 8, !alias.scope !5034, !noalias !5037, !nonnull !4, !align !5, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8, !invariant.load !4, !noalias !5040, !nonnull !4
-  call void %19(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %4, ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !5041
-  %20 = load i64, ptr %4, align 8, !range !5042, !noalias !5031, !noundef !4
-  switch i64 %20, label %21 [
+  call void @llvm.experimental.noalias.scope.decl(metadata !5035)
+  %16 = load ptr, ptr %.sroa.0.0.ptr.i, align 8, !alias.scope !5035, !noalias !5038, !nonnull !4, !align !312, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr.i, i64 8
+  %18 = load ptr, ptr %17, align 8, !alias.scope !5035, !noalias !5038, !nonnull !4, !align !5, !noundef !4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %20 = load ptr, ptr %19, align 8, !invariant.load !4, !noalias !5041, !nonnull !4
+  call void %20(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %4, ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !5042
+  %21 = load i64, ptr %4, align 8, !range !5043, !noalias !5031, !noundef !4
+  switch i64 %21, label %22 [
     i64 -9223372036854775803, label %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i"
-    i64 -9223372036854775804, label %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread.i"
+    i64 -9223372036854775804, label %23
   ]
 
-.thread.i:                                        ; preds = %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread.i", %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i"
-  %.sink.i = phi i64 [ %.sroa.02.010.ph.i, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i" ], [ -9223372036854775804, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread.i" ]
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !5026, !noalias !5043
-  br label %"_ZN14semantic_index15embedding_index14EmbeddingIndex18persist_embeddings28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4611d048428fd794E.llvm.10321688783904056783.exit"
-
-21:                                               ; preds = %14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !5043
+22:                                               ; preds = %15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !5034
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !5031
   br label %"_ZN14semantic_index15embedding_index14EmbeddingIndex18persist_embeddings28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4611d048428fd794E.llvm.10321688783904056783.exit"
 
-"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i": ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !5031
-  %22 = icmp eq i64 %.sroa.0.0.add.i, 32
-  br i1 %22, label %.thread.i, label %14
+23:                                               ; preds = %15
+  br label %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i"
 
-"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread.i": ; preds = %14
+"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.i": ; preds = %23, %15
+  %.sroa.02.17.i = phi i1 [ true, %23 ], [ %.sroa.02.010.i, %15 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !5031
-  %23 = icmp eq i64 %.sroa.0.0.add.i, 32
-  br i1 %23, label %.thread.i, label %.outer.i
+  %24 = icmp eq i64 %.sroa.0.0.add.i, 32
+  br i1 %24, label %14, label %15
 
-"_ZN14semantic_index15embedding_index14EmbeddingIndex18persist_embeddings28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4611d048428fd794E.llvm.10321688783904056783.exit": ; preds = %.thread.i, %21
+"_ZN14semantic_index15embedding_index14EmbeddingIndex18persist_embeddings28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4611d048428fd794E.llvm.10321688783904056783.exit": ; preds = %14, %22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5031
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !5031
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !5031
@@ -24477,17 +24472,17 @@ define hidden void @"_ZN14semantic_index13project_index12ProjectIndex13all_summa
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN14semantic_index13project_index12ProjectIndex13all_summaries28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb7afceb78da322f8E.llvm.10321688783904056783"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(696) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(1176) %3) unnamed_addr #6 {
   %5 = alloca [96 x i8], align 8
-  %.sroa.08.0.copyload = load i64, ptr %1, align 8
-  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.49.0.copyload = load ptr, ptr %.sroa.49.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.510.0.copyload = load i64, ptr %.sroa.510.0..sroa_idx, align 8
-  %6 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.49.0.copyload, i64 %.sroa.510.0.copyload
-  store ptr %.sroa.49.0.copyload, ptr %5, align 8
+  %.sroa.07.0.copyload = load i64, ptr %1, align 8
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.48.0.copyload = load ptr, ptr %.sroa.48.0..sroa_idx, align 8, !nonnull !4, !noundef !4
+  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.59.0.copyload = load i64, ptr %.sroa.59.0..sroa_idx, align 8
+  %6 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.48.0.copyload, i64 %.sroa.59.0.copyload
+  store ptr %.sroa.48.0.copyload, ptr %5, align 8
   %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %.sroa.49.0.copyload, ptr %.sroa.03.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.48.0.copyload, ptr %.sroa.03.sroa.4.0..sroa_idx, align 8
   %.sroa.03.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.sroa.08.0.copyload, ptr %.sroa.03.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.07.0.copyload, ptr %.sroa.03.sroa.5.0..sroa_idx, align 8
   %.sroa.03.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %6, ptr %.sroa.03.sroa.6.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -27839,56 +27834,51 @@ define hidden void @"_ZN14semantic_index15embedding_index14EmbeddingIndex18persi
   store ptr %6, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @anon.d607a7b00f5887b24066a7f5dab6f6b7.180, ptr %13, align 8
-  br label %.outer
+  br label %15
 
-.outer:                                           ; preds = %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread", %3
-  %.sroa.02.010.ph = phi i64 [ -9223372036854775804, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread" ], [ -9223372036854775805, %3 ]
-  %.sroa.0.0.idx9.ph = phi i64 [ %.sroa.0.0.add, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread" ], [ 0, %3 ]
-  br label %14
+14:                                               ; preds = %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit"
+  %. = select i1 %.sroa.02.17, i64 -9223372036854775804, i64 -9223372036854775805
+  store i64 %., ptr %0, align 8
+  br label %22
 
-14:                                               ; preds = %.outer, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit"
-  %.sroa.0.0.idx9 = phi i64 [ %.sroa.0.0.add, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit" ], [ %.sroa.0.0.idx9.ph, %.outer ]
+15:                                               ; preds = %3, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit"
+  %.sroa.02.010 = phi i1 [ false, %3 ], [ %.sroa.02.17, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit" ]
+  %.sroa.0.0.idx9 = phi i64 [ 0, %3 ], [ %.sroa.0.0.add, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit" ]
   %.sroa.0.0.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.0.0.idx9
   %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx9, 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !6296)
-  %15 = load ptr, ptr %.sroa.0.0.ptr, align 8, !alias.scope !6296, !noalias !6299, !nonnull !4, !align !312, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr, i64 8
-  %17 = load ptr, ptr %16, align 8, !alias.scope !6296, !noalias !6299, !nonnull !4, !align !5, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8, !invariant.load !4, !noalias !6302, !nonnull !4
-  call void %19(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %4, ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !6296
-  %20 = load i64, ptr %4, align 8, !range !5042, !noundef !4
-  switch i64 %20, label %22 [
+  %16 = load ptr, ptr %.sroa.0.0.ptr, align 8, !alias.scope !6296, !noalias !6299, !nonnull !4, !align !312, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ptr, i64 8
+  %18 = load ptr, ptr %17, align 8, !alias.scope !6296, !noalias !6299, !nonnull !4, !align !5, !noundef !4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %20 = load ptr, ptr %19, align 8, !invariant.load !4, !noalias !6302, !nonnull !4
+  call void %20(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %4, ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !6296
+  %21 = load i64, ptr %4, align 8, !range !5043, !noundef !4
+  switch i64 %21, label %23 [
     i64 -9223372036854775803, label %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit"
-    i64 -9223372036854775804, label %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread"
+    i64 -9223372036854775804, label %24
   ]
 
-.thread:                                          ; preds = %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread", %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit"
-  %.sink = phi i64 [ %.sroa.02.010.ph, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit" ], [ -9223372036854775804, %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread" ]
-  store i64 %.sink, ptr %0, align 8
-  br label %21
-
-21:                                               ; preds = %22, %.thread
+22:                                               ; preds = %23, %14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   ret void
 
-22:                                               ; preds = %14
+23:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  br label %21
+  br label %22
 
-"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit": ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  %23 = icmp eq i64 %.sroa.0.0.add, 32
-  br i1 %23, label %.thread, label %14
+24:                                               ; preds = %15
+  br label %"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit"
 
-"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit.thread": ; preds = %14
+"_ZN4core3ptr444drop_in_place$LT$core..task..poll..Poll$LT$semantic_index..embedding_index..EmbeddingIndex..persist_embeddings..$u7b$$u7b$closure$u7d$$u7d$..__PrivResult$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$alloc..string..String$GT$$C$core..ops..range..Bound$LT$alloc..string..String$GT$$RP$$GT$$C$core..option..Option$LT$$LP$semantic_index..embedding_index..EmbeddedFile$C$semantic_index..indexing..IndexingEntryHandle$RP$$GT$$GT$$GT$$GT$17h4059e0a62ee3290eE.exit": ; preds = %15, %24
+  %.sroa.02.17 = phi i1 [ true, %24 ], [ %.sroa.02.010, %15 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  %24 = icmp eq i64 %.sroa.0.0.add, 32
-  br i1 %24, label %.thread, label %.outer
+  %25 = icmp eq i64 %.sroa.0.0.add, 32
+  br i1 %25, label %14, label %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -35298,16 +35288,16 @@ attributes #48 = { nounwind }
 !5031 = !{!5027, !5030, !5032}
 !5032 = distinct !{!5032, !5028, !"_ZN14semantic_index15embedding_index14EmbeddingIndex18persist_embeddings28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4611d048428fd794E.llvm.10321688783904056783: argument 2"}
 !5033 = !{!5027, !5032}
-!5034 = !{!5035}
-!5035 = distinct !{!5035, !5036, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8bf45efb2db37b0aE: argument 1"}
-!5036 = distinct !{!5036, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8bf45efb2db37b0aE"}
-!5037 = !{!5038, !5039, !5027, !5030, !5032}
-!5038 = distinct !{!5038, !5036, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8bf45efb2db37b0aE: argument 0"}
-!5039 = distinct !{!5039, !5036, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8bf45efb2db37b0aE: argument 2"}
-!5040 = !{!5038, !5035, !5039, !5027, !5030}
-!5041 = !{!5035, !5027, !5030}
-!5042 = !{i64 0, i64 -9223372036854775802}
-!5043 = !{!5030, !5032}
+!5034 = !{!5030, !5032}
+!5035 = !{!5036}
+!5036 = distinct !{!5036, !5037, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8bf45efb2db37b0aE: argument 1"}
+!5037 = distinct !{!5037, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8bf45efb2db37b0aE"}
+!5038 = !{!5039, !5040, !5027, !5030, !5032}
+!5039 = distinct !{!5039, !5037, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8bf45efb2db37b0aE: argument 0"}
+!5040 = distinct !{!5040, !5037, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h8bf45efb2db37b0aE: argument 2"}
+!5041 = !{!5039, !5036, !5040, !5027, !5030}
+!5042 = !{!5036, !5027, !5030}
+!5043 = !{i64 0, i64 -9223372036854775802}
 !5044 = !{!5045}
 !5045 = distinct !{!5045, !5046, !"_ZN4core4hash11BuildHasher8hash_one17h983ad3bb4caee52cE: argument 0"}
 !5046 = distinct !{!5046, !"_ZN4core4hash11BuildHasher8hash_one17h983ad3bb4caee52cE"}

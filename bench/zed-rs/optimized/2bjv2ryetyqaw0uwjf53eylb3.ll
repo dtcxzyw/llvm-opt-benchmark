@@ -38906,8 +38906,8 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.llvm.1856919498638270738.ex
   store i64 1, ptr %.sroa.8.0..sroa_idx10, align 8, !noalias !6599
   %.sroa.10.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %5, ptr %.sroa.10.0..sroa_idx11, align 8, !noalias !6599
-  %.sroa.1112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 1, ptr %.sroa.1112.0..sroa_idx, align 8, !noalias !6599
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 1, ptr %.sroa.11.0..sroa_idx, align 8, !noalias !6599
   %15 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !6604
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !6604
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)

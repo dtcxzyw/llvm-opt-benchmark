@@ -159,7 +159,7 @@ define hidden void @_ZN19ruff_python_literal6format13FieldNamePart10parse_part17
   br label %57
 
 57:                                               ; preds = %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit.i, %55
-  %58 = phi ptr [ %.pre42.i, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit.i ], [ %1, %55 ]
+  %58 = phi ptr [ %.pre41.i, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit.i ], [ %1, %55 ]
   %59 = invoke noundef i32 @"_ZN112_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$itertools..peeking_take_while..PeekingNext$GT$12peeking_next17h5a1ad80c73071904E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %58, ptr noalias noundef nonnull align 1 %56)
           to label %60 unwind label %53, !noalias !42
 
@@ -252,7 +252,7 @@ _ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i.i: ; preds = %
   br label %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit.i
 
 _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfaf70d42fb313d5eE.exit.i.i", %.noexc.i
-  %.pre42.i = load ptr, ptr %6, align 8, !noalias !31
+  %.pre41.i = load ptr, ptr %6, align 8, !noalias !31
   br label %57
 
 103:                                              ; preds = %60
@@ -567,9 +567,9 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit29.i: ; preds = %"_ZN5alloc
   br label %236
 
 "_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit.i": ; preds = %.preheader44.i.i, %229
-  %.sroa.1132.0.i = phi i64 [ %234, %229 ], [ %.sroa.013.0.i.i, %.preheader44.i.i ]
-  %.sroa.10.sroa.0.0.extract.trunc = trunc i64 %.sroa.1132.0.i to i8
-  %.sroa.10.sroa.10.0.extract.shift = lshr i64 %.sroa.1132.0.i, 8
+  %.sroa.1131.0.i = phi i64 [ %234, %229 ], [ %.sroa.013.0.i.i, %.preheader44.i.i ]
+  %.sroa.10.sroa.0.0.extract.trunc = trunc i64 %.sroa.1131.0.i to i8
+  %.sroa.10.sroa.10.0.extract.shift = lshr i64 %.sroa.1131.0.i, 8
   %.sroa.10.sroa.10.0.extract.trunc = trunc nuw i64 %.sroa.10.sroa.10.0.extract.shift to i56
   br label %235
 

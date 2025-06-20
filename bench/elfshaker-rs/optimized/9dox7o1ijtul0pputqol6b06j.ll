@@ -125,10 +125,10 @@ define hidden void @_ZN3rmp6decode12read_data_u817hac6fe2f70618a1bfE(ptr dead_on
   br label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %9 = load i8, ptr %3, align 1, !noundef !3
+  %8 = load i8, ptr %3, align 1, !noundef !3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  store i8 %9, ptr %8, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %8, ptr %9, align 1
   br label %10
 
 10:                                               ; preds = %7, %6
@@ -154,10 +154,10 @@ define hidden void @_ZN3rmp6decode12read_data_u817hd7817042041469c9E(ptr dead_on
   br label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %9 = load i8, ptr %3, align 1, !noundef !3
+  %8 = load i8, ptr %3, align 1, !noundef !3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  store i8 %9, ptr %8, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %8, ptr %9, align 1
   br label %10
 
 10:                                               ; preds = %7, %6

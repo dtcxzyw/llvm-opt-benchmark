@@ -3258,9 +3258,9 @@ _ZN13pingora_cache13cache_control13ListValueIter4from17hfb53f3d78426d502E.exit.i
   br label %_ZN13pingora_cache13cache_control12CacheControl15get_field_names17h7d683c801e749573E.exit
 
 _ZN13pingora_cache13cache_control12CacheControl15get_field_names17h7d683c801e749573E.exit: ; preds = %2, %4, %_ZN13pingora_cache13cache_control13ListValueIter4from17hfb53f3d78426d502E.exit.i
-  %.sink = phi i8 [ 0, %_ZN13pingora_cache13cache_control13ListValueIter4from17hfb53f3d78426d502E.exit.i ], [ 2, %4 ], [ 2, %2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sink, ptr %18, align 8, !alias.scope !341, !noalias !354
+  %.sink.i = phi i8 [ 0, %_ZN13pingora_cache13cache_control13ListValueIter4from17hfb53f3d78426d502E.exit.i ], [ 2, %4 ], [ 2, %2 ]
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 %.sink.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !341, !noalias !354
   ret void
 }
 
@@ -3325,9 +3325,9 @@ _ZN13pingora_cache13cache_control13ListValueIter4from17hfb53f3d78426d502E.exit.i
   br label %_ZN13pingora_cache13cache_control12CacheControl15get_field_names17h7d683c801e749573E.exit
 
 _ZN13pingora_cache13cache_control12CacheControl15get_field_names17h7d683c801e749573E.exit: ; preds = %2, %4, %_ZN13pingora_cache13cache_control13ListValueIter4from17hfb53f3d78426d502E.exit.i
-  %.sink = phi i8 [ 0, %_ZN13pingora_cache13cache_control13ListValueIter4from17hfb53f3d78426d502E.exit.i ], [ 2, %4 ], [ 2, %2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sink, ptr %18, align 8, !alias.scope !357, !noalias !370
+  %.sink.i = phi i8 [ 0, %_ZN13pingora_cache13cache_control13ListValueIter4from17hfb53f3d78426d502E.exit.i ], [ 2, %4 ], [ 2, %2 ]
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 %.sink.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !357, !noalias !370
   ret void
 }
 
@@ -3974,15 +3974,15 @@ _ZN13pingora_cache13cache_control12CacheControl19private_field_names17h73b63bc3b
   br label %_ZN13pingora_cache13cache_control12CacheControl20no_cache_field_names17h3d9ca195146c2256E.exit
 
 _ZN13pingora_cache13cache_control12CacheControl20no_cache_field_names17h3d9ca195146c2256E.exit: ; preds = %30, %23
-  %.sroa.014.0 = phi ptr [ %spec.select15.i.i.i.i7, %30 ], [ %25, %23 ]
-  %.sroa.415.0 = phi i64 [ %spec.select.i.i.i.i6, %30 ], [ %27, %23 ]
-  store ptr %.sroa.014.0, ptr %3, align 8
-  %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.sroa.415.0, ptr %.sroa.415.0..sroa_idx, align 8
-  %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @_ZN4core3ops8function6FnOnce9call_once17haec31d1afa24b5fbE, ptr %.sroa.516.0..sroa_idx, align 8
-  %.sroa.617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 0, ptr %.sroa.617.0..sroa_idx, align 8
+  %.sroa.015.0 = phi ptr [ %spec.select15.i.i.i.i7, %30 ], [ %25, %23 ]
+  %.sroa.416.0 = phi i64 [ %spec.select.i.i.i.i6, %30 ], [ %27, %23 ]
+  store ptr %.sroa.015.0, ptr %3, align 8
+  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %.sroa.416.0, ptr %.sroa.416.0..sroa_idx, align 8
+  %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @_ZN4core3ops8function6FnOnce9call_once17haec31d1afa24b5fbE, ptr %.sroa.517.0..sroa_idx, align 8
+  %.sroa.618.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i8 0, ptr %.sroa.618.0..sroa_idx, align 8
   call fastcc void @"_ZN114_$LT$pingora_cache..cache_control..CacheControl$u20$as$u20$pingora_cache..cache_control..InterpretCacheControl$GT$21strip_private_headers20strip_listed_headers17hdeda410d5c8ae539E"(ptr noalias noundef align 8 dereferenceable(232) %1, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3)
   br label %_ZN13pingora_cache13cache_control12CacheControl20no_cache_field_names17h3d9ca195146c2256E.exit.thread
 

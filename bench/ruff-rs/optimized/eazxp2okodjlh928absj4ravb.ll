@@ -1948,7 +1948,6 @@ define hidden noundef zeroext i1 @"_ZN13ruff_notebook4cell45_$LT$impl$u20$ruff_n
   %.val.i.i.i = load ptr, ptr %11, align 8, !noalias !252, !nonnull !4, !noundef !4
   %12 = getelementptr i8, ptr %0, i64 16
   %.val3.i.i.i = load i64, ptr %12, align 8, !noalias !252, !noundef !4
-  store i64 1, ptr %5, align 8, !alias.scope !238, !noalias !241
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.val.i.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !238, !noalias !241
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16

@@ -146786,7 +146786,6 @@ define linkonce_odr hidden ptr @_ZN5boost8geometry6detail7overlay7overlayINS0_5m
   %23 = alloca %"class.std::deque.1067", align 8
   %24 = alloca %"class.std::map.1070", align 8
   %25 = alloca %"struct.boost::geometry::ring_identifier", align 8
-  %.sroa.5 = alloca [7 x i8], align 1
   %.sroa.10 = alloca [30 x i8], align 2
   %26 = load ptr, ptr %0, align 8, !tbaa !174
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -147361,7 +147360,6 @@ _ZNSt5dequeIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs10geographicINS1_
   %.sroa.6.0175 = phi double [ undef, %.lr.ph ], [ %.sroa.6.1, %_ZNSt15_Deque_iteratorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEELb1ELb1ESt6vectorSaEERSB_PSB_EppEv.exit ]
   %.sroa.11152.0174 = phi ptr [ %251, %.lr.ph ], [ %.sroa.11152.1, %_ZNSt15_Deque_iteratorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEELb1ELb1ESt6vectorSaEERSB_PSB_EppEv.exit ]
   %.sroa.0148.0173 = phi ptr [ %245, %.lr.ph ], [ %.sroa.0148.1, %_ZNSt15_Deque_iteratorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEELb1ELb1ESt6vectorSaEERSB_PSB_EppEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %.sroa.10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %.sroa.10.6..sroa_idx, i8 -1, i64 24, i1 false)
   %261 = invoke noundef double @_ZN5boost8geometry6detail4area9ring_area5applyINS0_5model4ringINS5_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSJ_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEENS2_11area_resultIT_T0_Xsr10strategies6detail20is_umbrella_strategyISV_EE5valueEE4typeERKSU_RKSV_(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0148.0173, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -147485,8 +147483,6 @@ _ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i: ; preds = %29
   %.sroa.06.0.i = phi ptr [ %307, %.noexc ], [ %.19.i.i.i.i, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i ], [ %.19.i.i.i.i, %297 ], [ %.19.i.i.i.i, %302 ]
   %309 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 56
   store i8 %272, ptr %309, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5, i64 7, i1 false)
   %.sroa.5134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 64
   store double %.sroa.5134.1, ptr %.sroa.5134.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 72
@@ -147517,7 +147513,6 @@ _ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i: ; preds = %29
   br label %_ZN5boost8geometry6detail7overlay15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEdED2Ev.exit
 
 _ZN5boost8geometry6detail7overlay15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEdED2Ev.exit: ; preds = %314, %308
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %.sroa.10)
   %318 = load ptr, ptr %237, align 8, !tbaa !148
   %.not10.i.i.i.i111 = icmp eq ptr %318, null
@@ -147643,7 +147638,6 @@ _ZN5boost8geometry6detail7overlay15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs
 
 .body104:                                         ; preds = %_ZNSt6vectorIN5boost8geometry15ring_identifierESaIS2_EED2Ev.exit.i, %_ZN5boost8geometry6detail7overlay15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEdED2Ev.exit133
   %.pn = phi { ptr, i32 } [ %363, %_ZN5boost8geometry6detail7overlay15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEdED2Ev.exit133 ], [ %270, %_ZNSt6vectorIN5boost8geometry15ring_identifierESaIS2_EED2Ev.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %.sroa.10)
   br label %366
 
@@ -205269,7 +205263,6 @@ _ZN5boost8geometry6detail7overlay15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs
 define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay8dispatch12select_ringsINS0_8ring_tagENS0_5model4ringINS6_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEEE5applyINS6_7polygonISD_Lb1ELb1ESE_SE_SaSaEESt3mapINS0_15ring_identifierENS2_15ring_propertiesISD_dEESt4lessISL_ESaISt4pairIKSL_SN_EEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSZ_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEvRKSF_RKT_RSR_RT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.1252", align 8
   %7 = alloca %"class.std::tuple.374", align 1
-  %.sroa.5 = alloca [7 x i8], align 1
   %.sroa.10 = alloca [30 x i8], align 2
   %8 = load ptr, ptr %0, align 8, !tbaa !174
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -205278,7 +205271,6 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay8dispatch12sel
   br i1 %.not, label %69, label %_ZN5boost8geometry4areaINS0_5model4ringINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSG_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEENS0_11area_resultIT_T0_E4typeERKSR_RKSS_.exit.i
 
 _ZN5boost8geometry4areaINS0_5model4ringINS2_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSG_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEENS0_11area_resultIT_T0_E4typeERKSR_RKSS_.exit.i: ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %.sroa.10)
   %.sroa.10.6..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.10, i64 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %.sroa.10.6..sroa_idx, i8 -1, i64 24, i1 false)
@@ -205395,8 +205387,6 @@ _ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i: ; preds = %50
   %.sroa.06.0.i = phi ptr [ %58, %.critedge.i ], [ %.19.i.i.i.i, %_ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i ], [ %.19.i.i.i.i, %48 ], [ %.19.i.i.i.i, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 56
   store i8 %19, ptr %60, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5, i64 7, i1 false)
   %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 64
   store double %.sroa.513.0, ptr %.sroa.513.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 72
@@ -205427,7 +205417,6 @@ _ZNKSt4lessIN5boost8geometry15ring_identifierEEclERKS2_S5_.exit.i: ; preds = %50
   br label %_ZN5boost8geometry6detail7overlay15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEdED2Ev.exit
 
 _ZN5boost8geometry6detail7overlay15ring_propertiesINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEdED2Ev.exit: ; preds = %65, %59
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %.sroa.10)
   br label %69
 

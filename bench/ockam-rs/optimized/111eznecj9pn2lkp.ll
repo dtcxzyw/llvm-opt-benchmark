@@ -5773,12 +5773,12 @@ define hidden { ptr, ptr } @_ZN5tokio2io5split5split17h141141f189a94ef7E(ptr nou
   store i32 0, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %0, ptr %.sroa.6.0..sroa_idx13, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %1, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i8 0, ptr %.sroa.8.0..sroa_idx, align 8
+  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %0, ptr %.sroa.513.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %1, ptr %.sroa.6.0..sroa_idx14, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i8 0, ptr %.sroa.7.0..sroa_idx, align 8
   %6 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !826
   %7 = tail call noundef align 8 dereferenceable_or_null(48) ptr @__rust_alloc(i64 noundef 48, i64 noundef 8) #39, !noalias !826
   %8 = icmp eq ptr %7, null

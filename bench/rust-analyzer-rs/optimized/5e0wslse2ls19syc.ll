@@ -971,9 +971,7 @@ define void @_ZN4stdx6thread4pool4Pool3new17hc62c293a50de0f01E(ptr noalias nound
   %.sroa.0.i = alloca { { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] } }, align 128
   %10 = alloca ptr, align 8
   %11 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %.sroa.6 = alloca [2 x i64], align 8
   %12 = alloca { { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, i8, i8, [6 x i8] }, align 8
-  %.sroa.10 = alloca [7 x i8], align 1
   %13 = alloca { { i64, [3 x i64] }, i8, [7 x i8] }, align 8
   %14 = alloca { { i64, ptr, {} }, i64 }, align 8
   %15 = alloca ptr, align 8
@@ -1128,10 +1126,8 @@ _ZN17crossbeam_channel7channel9unbounded17h154918b71c0c2ad8E.exit: ; preds = %.n
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.843.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 33
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.5.0..sroa_idx96 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %58
 
 .body:                                            ; preds = %130, %.thread65, %129, %116, %106, %71, %61
@@ -1161,9 +1157,7 @@ _ZN17crossbeam_channel7channel9unbounded17h154918b71c0c2ad8E.exit: ; preds = %.n
 58:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h19cef3b38cb75523E.exit"
   %.sroa.02.087 = phi i64 [ 0, %.lr.ph ], [ %59, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h19cef3b38cb75523E.exit" ]
   %59 = add nuw i64 %.sroa.02.087, 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   %60 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdc244aaf69d832a7E"(i64 noundef 6, i1 noundef zeroext false)
           to label %63 unwind label %130
@@ -1188,7 +1182,6 @@ _ZN17crossbeam_channel7channel9unbounded17h154918b71c0c2ad8E.exit: ; preds = %.n
   store i64 1, ptr %7, align 8, !noalias !84
   store i64 8388608, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !84
   store i64 -9223372036854775808, ptr %.sroa.5.0..sroa_idx96, align 8, !noalias !84
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !noalias !84
   invoke void @_ZN10jod_thread7Builder4name17h91b99aae6445b58aE(ptr noalias noundef nonnull sret({ { { i64, [1 x i64] }, { i64, [2 x i64] } } }) align 8 captures(none) dereferenceable(40) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11)
           to label %67 unwind label %61
 
@@ -1199,7 +1192,6 @@ _ZN17crossbeam_channel7channel9unbounded17h154918b71c0c2ad8E.exit: ; preds = %.n
   store i8 0, ptr %52, align 1, !alias.scope !78, !noalias !85
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !81
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %68 = atomicrmw add ptr %32, i64 1 monotonic, align 8
   %69 = icmp slt i64 %68, 0
@@ -1347,8 +1339,6 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
   store ptr %103, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !112
   store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.843.0..sroa_idx, align 8, !alias.scope !112
   store i8 0, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10, i64 7, i1 false), !alias.scope !112
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10)
   %112 = load i64, ptr %50, align 8, !alias.scope !118, !noalias !121, !noundef !5
   %113 = load i64, ptr %14, align 8, !alias.scope !118, !noalias !121, !noundef !5
   %114 = icmp eq i64 %112, %113

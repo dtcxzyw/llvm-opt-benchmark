@@ -973,19 +973,19 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.promoted = load i64, ptr %1, align 8
+  %.sroa.5.0..sroa_idx.promoted = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.promoted28 = load i64, ptr %3, align 8
-  %.sroa.5.sroa.0.0.copyload.pre = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.sroa.4.0.copyload.pre = load i64, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.promoted = load i64, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  %.promoted30 = load i64, ptr %3, align 8
   br label %7
 
 7:                                                ; preds = %20, %2
-  %.sroa.5.sroa.4.0.copyload = phi i64 [ %26, %20 ], [ %.sroa.5.sroa.4.0.copyload.pre, %2 ]
-  %.sroa.5.sroa.0.0.copyload = phi i64 [ %.sroa.6.117, %20 ], [ %.sroa.5.sroa.0.0.copyload.pre, %2 ]
-  %8 = phi i64 [ %21, %20 ], [ %.promoted28, %2 ]
+  %8 = phi i64 [ %21, %20 ], [ %.promoted30, %2 ]
+  %.sroa.5.sroa.4.0.copyload29 = phi i64 [ %26, %20 ], [ %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.promoted, %2 ]
+  %.val928 = phi i64 [ %.sroa.6.117, %20 ], [ %.sroa.5.0..sroa_idx.promoted, %2 ]
   %storemerge.i.i.i.i26 = phi i64 [ 1, %20 ], [ %.promoted, %2 ]
   %.not = icmp eq i64 %storemerge.i.i.i.i26, 2
   br i1 %.not, label %9, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit"
@@ -1011,8 +1011,8 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 
 17:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit", %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit.thread"
   %18 = phi i64 [ %10, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit.thread" ], [ %8, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit" ]
-  %.sroa.9.118 = phi i64 [ %15, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit.thread" ], [ %.sroa.5.sroa.4.0.copyload, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit" ]
-  %.sroa.6.117 = phi i64 [ %13, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit.thread" ], [ %.sroa.5.sroa.0.0.copyload, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit" ]
+  %.sroa.9.118 = phi i64 [ %15, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit.thread" ], [ %.sroa.5.sroa.4.0.copyload29, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit" ]
+  %.sroa.6.117 = phi i64 [ %13, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit.thread" ], [ %.val928, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   %.not.i.i.i.i.not = icmp eq i64 %5, %18

@@ -2282,28 +2282,28 @@ define zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$
   br label %18
 
 18:                                               ; preds = %12, %15
-  %.sroa.13.0 = phi i64 [ %8, %15 ], [ 0, %12 ]
-  %.sroa.12.0 = phi i64 [ %17, %15 ], [ undef, %12 ]
-  %.sroa.7.0 = phi i64 [ 1, %15 ], [ 0, %12 ]
+  %.sroa.10.0 = phi i64 [ %17, %15 ], [ undef, %12 ]
+  %.sroa.6.0 = phi i64 [ 1, %15 ], [ 0, %12 ]
+  %.sroa.11.0 = phi i64 [ %8, %15 ], [ 0, %12 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  store i64 %.sroa.7.0, ptr %4, align 8
-  %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %.sroa.321.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.12.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr null, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %13, ptr %.sroa.11.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i64 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 8
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i64 %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 8
+  store i64 %.sroa.6.0, ptr %4, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %13, ptr %.sroa.4.0..sroa_idx21, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.sroa.10.0, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr null, ptr %.sroa.8.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store ptr %13, ptr %.sroa.9.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store i64 %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store i64 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx, align 8
   %19 = load ptr, ptr %1, align 8, !noundef !3
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator3zip17h94b4bd9097c76390E.exit, label %20

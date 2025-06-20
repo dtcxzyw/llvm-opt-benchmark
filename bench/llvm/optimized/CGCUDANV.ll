@@ -2114,14 +2114,14 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit211.i: ; preds 
   store ptr %765, ptr %766, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 24
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.6.0..sroa_idx392.i = getelementptr inbounds nuw i8, ptr %79, i64 64
-  store i8 0, ptr %.sroa.6.0..sroa_idx392.i, align 8
-  %.sroa.8393.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 152
-  store i8 0, ptr %.sroa.8393.0..sroa_idx.i, align 8
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 153
-  store i8 0, ptr %.sroa.9.0..sroa_idx.i, align 1
-  %.sroa.10394.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 160
-  store i64 %.sroa.0.0.copyload.i197.i, ptr %.sroa.10394.0..sroa_idx.i, align 8
+  %.sroa.5392.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 64
+  store i8 0, ptr %.sroa.5392.0..sroa_idx.i, align 8
+  %.sroa.6394.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 152
+  store i8 0, ptr %.sroa.6394.0..sroa_idx.i, align 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 153
+  store i8 0, ptr %.sroa.7.0..sroa_idx.i, align 1
+  %.sroa.8395.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 160
+  store i64 %.sroa.0.0.copyload.i197.i, ptr %.sroa.8395.0..sroa_idx.i, align 8
   %781 = getelementptr inbounds nuw i8, ptr %79, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %781, ptr noundef nonnull align 8 dereferenceable(48) %61, i64 48, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 216
@@ -2160,13 +2160,13 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit211.i: ; preds 
 789:                                              ; preds = %_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit211.i
   %790 = call noundef ptr @_ZNK5clang7CodeGen7Address18emitRawPointerSlowERNS0_15CodeGenFunctionE(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(6496) %1) #22, !noalias !1160
   %.pre.i = load i32, ptr %767, align 8, !tbaa !352
-  %.pre395.i = load i32, ptr %768, align 4, !tbaa !353
+  %.pre396.i = load i32, ptr %768, align 4, !tbaa !353
   %.pre3.i.i217.pre.i = load ptr, ptr %79, align 8, !tbaa !351
   br label %_ZN5clang7CodeGen6RValue3getENS0_7AddressERNS0_15CodeGenFunctionE.exit.i
 
 _ZN5clang7CodeGen6RValue3getENS0_7AddressERNS0_15CodeGenFunctionE.exit.i: ; preds = %789, %786
   %.pre3.i.i217.i = phi ptr [ %.pre3.i.i217.pre.i, %789 ], [ %766, %786 ]
-  %791 = phi i32 [ %.pre395.i, %789 ], [ 8, %786 ]
+  %791 = phi i32 [ %.pre396.i, %789 ], [ 8, %786 ]
   %792 = phi i32 [ %.pre.i, %789 ], [ 3, %786 ]
   %.0.i.i214.i = phi ptr [ %790, %789 ], [ %788, %786 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %29)

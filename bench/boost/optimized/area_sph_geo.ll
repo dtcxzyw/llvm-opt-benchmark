@@ -187152,16 +187152,12 @@ _ZN5boost8geometry4math19normalize_longitudeINS0_6radianEeEEvRT0_.exit.thread: ;
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost8geometry7formula13area_formulasIeLm1ELb1EE11ellipsoidalINS0_8strategy7andoyer7inverseENS0_5model5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEENS5_4area10geographicIS6_Lm1ENS0_3srs8spheroidIdEEvE18spheroid_constantsEEEDaRKT0_SO_RKT1_(ptr dead_on_unwind noalias writable sret(%"struct.boost::geometry::formula::area_formulas<long double, 1>::return_type_ellipsoidal") align 16 %0, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(88) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.5114 = alloca [6 x i8], align 2
-  %.sroa.7116 = alloca [6 x i8], align 2
   %5 = alloca x86_fp80, align 16
   %6 = alloca x86_fp80, align 16
   %7 = alloca x86_fp80, align 16
   %8 = alloca x86_fp80, align 16
   %9 = alloca %"struct.boost::geometry::formula::result_inverse.1172", align 16
   %10 = alloca [2 x x86_fp80], align 16
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.5114)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.7116)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #57
   %11 = load x86_fp80, ptr %1, align 16, !tbaa !2884
   %12 = load atomic i8, ptr @_ZGVZN5boost8geometry4math3d2rIeEET_vE22conversion_coefficient acquire, align 8
@@ -187556,20 +187552,14 @@ _ZN5boost8geometry7formula13area_formulasIeLm1ELb1EE12clenshaw_sumIePeEET_RKS6_T
   %229 = fmul x86_fp80 %82, %153
   %230 = fmul x86_fp80 %229, %228
   store x86_fp80 %storemerge, ptr %0, align 16
-  %.sroa.5114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5114.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5114, i64 6, i1 false), !tbaa.struct !3149
   %.sroa.5115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store x86_fp80 %230, ptr %.sroa.5115.0..sroa_idx, align 16
-  %.sroa.7116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7116.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7116, i64 6, i1 false), !tbaa.struct !3150
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #57
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #57
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.5114)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.7116)
   ret void
 }
 
@@ -187612,9 +187602,9 @@ define linkonce_odr hidden void @_ZN5boost8geometry7formula15andoyer_inverseIeLb
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store x86_fp80 0xK00000000000000000000, ptr %8, align 16, !tbaa !3144
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store x86_fp80 0xK00000000000000000000, ptr %9, align 16, !tbaa !3151
+  store x86_fp80 0xK00000000000000000000, ptr %9, align 16, !tbaa !3149
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store x86_fp80 0xK3FFF8000000000000000, ptr %10, align 16, !tbaa !3152
+  store x86_fp80 0xK3FFF8000000000000000, ptr %10, align 16, !tbaa !3150
   %11 = load x86_fp80, ptr %1, align 16, !tbaa !2884
   %12 = load x86_fp80, ptr %3, align 16, !tbaa !2884
   %13 = fcmp oeq x86_fp80 %11, %12
@@ -188247,9 +188237,9 @@ _ZN5boost8geometry4math6equalsIeiEEbRKT_RKT0_.exit14.i: ; preds = %125
 .critedge.i:                                      ; preds = %_ZN5boost8geometry4math6equalsIeiEEbRKT_RKT0_.exit14.i, %125, %_ZN5boost8geometry4math6equalsIeiEEbRKT_RKT0_.exit.i, %115
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #57
   call void @_ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE11ellipsoidalINS0_8strategy6thomas7inverseENS0_5model5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEENS5_4area10geographicIS6_Lm2ENS0_3srs8spheroidIdEEvE18spheroid_constantsEEEDaRKT0_SO_RKT1_(ptr dead_on_unwind nonnull writable sret(%"struct.boost::geometry::formula::area_formulas<long double>::return_type_ellipsoidal") align 16 %4, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.026, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.015.027, ptr noundef nonnull align 8 dereferenceable(112) %5)
-  %132 = load x86_fp80, ptr %4, align 16, !tbaa !3153
+  %132 = load x86_fp80, ptr %4, align 16, !tbaa !3151
   %133 = fadd x86_fp80 %.sroa.08.025, %132
-  %134 = load x86_fp80, ptr %67, align 16, !tbaa !3155
+  %134 = load x86_fp80, ptr %67, align 16, !tbaa !3153
   %135 = fadd x86_fp80 %.sroa.610.023, %134
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #57
   br label %_ZNK5boost8geometry8strategy4area10geographicINS1_6thomasELm2ENS0_3srs8spheroidIdEEvE5applyINS0_5model5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEENSA_4ringISG_Lb1ELb1ESt6vectorSaEEEEvRKT_SM_RNS8_5stateIT0_EE.exit
@@ -188261,7 +188251,7 @@ _ZNK5boost8geometry8strategy4area10geographicINS1_6thomasELm2ENS0_3srs8spheroidI
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.026, i64 32
   %.sroa.015.0 = getelementptr inbounds nuw i8, ptr %.sroa.015.027, i64 32
   %.not = icmp eq ptr %.sroa.015.0, %8
-  br i1 %.not, label %._crit_edge.loopexit, label %92, !llvm.loop !3156
+  br i1 %.not, label %._crit_edge.loopexit, label %92, !llvm.loop !3154
 
 137:                                              ; preds = %2, %_ZNK5boost8geometry8strategy4area10geographicINS1_6thomasELm2ENS0_3srs8spheroidIdEEvE6resultINS0_5model4ringINSA_5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEEEENS8_11result_typeIT_E4typeERKNS8_5stateISL_EE.exit
   %.0 = phi x86_fp80 [ %.1.i.i, %_ZNK5boost8geometry8strategy4area10geographicINS1_6thomasELm2ENS0_3srs8spheroidIdEEvE6resultINS0_5model4ringINSA_5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEEEENS8_11result_typeIT_E4typeERKNS8_5stateISL_EE.exit ], [ 0xK00000000000000000000, %2 ]
@@ -188403,16 +188393,12 @@ _ZN5boost8geometry4math19normalize_longitudeINS0_6radianEeEEvRT0_.exit.thread: ;
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE11ellipsoidalINS0_8strategy6thomas7inverseENS0_5model5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEENS5_4area10geographicIS6_Lm2ENS0_3srs8spheroidIdEEvE18spheroid_constantsEEEDaRKT0_SO_RKT1_(ptr dead_on_unwind noalias writable sret(%"struct.boost::geometry::formula::area_formulas<long double>::return_type_ellipsoidal") align 16 %0, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(112) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.5113 = alloca [6 x i8], align 2
-  %.sroa.7115 = alloca [6 x i8], align 2
   %5 = alloca x86_fp80, align 16
   %6 = alloca x86_fp80, align 16
   %7 = alloca x86_fp80, align 16
   %8 = alloca x86_fp80, align 16
   %9 = alloca %"struct.boost::geometry::formula::result_inverse.1172", align 16
   %10 = alloca [3 x x86_fp80], align 16
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.5113)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.7115)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #57
   %11 = load x86_fp80, ptr %1, align 16, !tbaa !2884
   %12 = load atomic i8, ptr @_ZGVZN5boost8geometry4math3d2rIeEET_vE22conversion_coefficient acquire, align 8
@@ -188746,7 +188732,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE9normalizeIeEEvRT_S6_.exit83
   %204 = fpext double %203 to x86_fp80
   %205 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.07.i.i, x86_fp80 %188, x86_fp80 %204)
   %.not.i.i = icmp eq ptr %202, %199
-  br i1 %.not.i.i, label %_ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i, label %201, !llvm.loop !3157
+  br i1 %.not.i.i, label %_ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i, label %201, !llvm.loop !3155
 
 _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i: ; preds = %201
   %206 = fmul x86_fp80 %198, %205
@@ -188754,7 +188740,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE15horner_evaluateIePKdEET_RK
   store x86_fp80 %206, ptr %207, align 16, !tbaa !2884
   %208 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %208, 3
-  br i1 %exitcond.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE20evaluate_coeffs_var2IdEEvRKePKT_Pe.exit, label %190, !llvm.loop !3158
+  br i1 %exitcond.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE20evaluate_coeffs_var2IdEEvRKePKT_Pe.exit, label %190, !llvm.loop !3156
 
 _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE20evaluate_coeffs_var2IdEEvRKePKT_Pe.exit: ; preds = %_ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i
   %209 = fdiv x86_fp80 %155, %.0.i.i.i80
@@ -188781,7 +188767,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE20evaluate_coeffs_var2IdEEvR
   %219 = fsub x86_fp80 %218, %.017.i
   %220 = xor i1 %.016.i85, true
   %.not.i = icmp eq ptr %.1.i, %10
-  br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit, label %212, !llvm.loop !3159
+  br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit, label %212, !llvm.loop !3157
 
 _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit: ; preds = %216
   %221 = load x86_fp80, ptr %10, align 16, !tbaa !2884
@@ -188807,7 +188793,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE12clenshaw_sumIePeEET_RKS6_T
   %230 = fsub x86_fp80 %229, %.017.i87
   %231 = xor i1 %.016.i88, true
   %.not.i91 = icmp eq ptr %.1.i90, %10
-  br i1 %.not.i91, label %_ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit92, label %223, !llvm.loop !3159
+  br i1 %.not.i91, label %_ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit92, label %223, !llvm.loop !3157
 
 _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit92: ; preds = %227
   %232 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 %209, x86_fp80 %221)
@@ -188818,20 +188804,14 @@ _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE12clenshaw_sumIePeEET_RKS6_T
   %237 = fmul x86_fp80 %82, %153
   %238 = fmul x86_fp80 %237, %236
   store x86_fp80 %storemerge, ptr %0, align 16
-  %.sroa.5113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5113.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5113, i64 6, i1 false), !tbaa.struct !3149
   %.sroa.5114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store x86_fp80 %238, ptr %.sroa.5114.0..sroa_idx, align 16
-  %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7115.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7115, i64 6, i1 false), !tbaa.struct !3150
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #57
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #57
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.5113)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.7115)
   ret void
 }
 
@@ -188843,9 +188823,9 @@ define linkonce_odr hidden void @_ZN5boost8geometry7formula14thomas_inverseIeLb1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store x86_fp80 0xK00000000000000000000, ptr %8, align 16, !tbaa !3144
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store x86_fp80 0xK00000000000000000000, ptr %9, align 16, !tbaa !3151
+  store x86_fp80 0xK00000000000000000000, ptr %9, align 16, !tbaa !3149
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store x86_fp80 0xK3FFF8000000000000000, ptr %10, align 16, !tbaa !3152
+  store x86_fp80 0xK3FFF8000000000000000, ptr %10, align 16, !tbaa !3150
   %11 = load x86_fp80, ptr %1, align 16, !tbaa !2884
   %12 = load x86_fp80, ptr %3, align 16, !tbaa !2884
   %13 = fcmp oeq x86_fp80 %11, %12
@@ -189348,9 +189328,9 @@ _ZN5boost8geometry4math6equalsIeiEEbRKT_RKT0_.exit14.i: ; preds = %74
 .critedge.i:                                      ; preds = %_ZN5boost8geometry4math6equalsIeiEEbRKT_RKT0_.exit14.i, %74, %_ZN5boost8geometry4math6equalsIeiEEbRKT_RKT0_.exit.i, %64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #57
   call void @_ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE11ellipsoidalINS0_8strategy8vincenty7inverseENS0_5model5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEENS5_4area10geographicIS6_Lm4ENS0_3srs8spheroidIdEEvE18spheroid_constantsEEEDaRKT0_SO_RKT1_(ptr dead_on_unwind nonnull writable sret(%"struct.boost::geometry::formula::area_formulas<long double, 4>::return_type_ellipsoidal") align 16 %3, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.026, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.015.027, ptr noundef nonnull align 8 dereferenceable(184) %4)
-  %81 = load x86_fp80, ptr %3, align 16, !tbaa !3160
+  %81 = load x86_fp80, ptr %3, align 16, !tbaa !3158
   %82 = fadd x86_fp80 %.sroa.08.025, %81
-  %83 = load x86_fp80, ptr %13, align 16, !tbaa !3162
+  %83 = load x86_fp80, ptr %13, align 16, !tbaa !3160
   %84 = fadd x86_fp80 %.sroa.610.023, %83
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #57
   br label %_ZNK5boost8geometry8strategy4area10geographicINS1_8vincentyELm4ENS0_3srs8spheroidIdEEvE5applyINS0_5model5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEENSA_4ringISG_Lb1ELb1ESt6vectorSaEEEEvRKT_SM_RNS8_5stateIT0_EE.exit
@@ -189362,7 +189342,7 @@ _ZNK5boost8geometry8strategy4area10geographicINS1_8vincentyELm4ENS0_3srs8spheroi
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.0.026, i64 32
   %.sroa.015.0 = getelementptr inbounds nuw i8, ptr %.sroa.015.027, i64 32
   %.not = icmp eq ptr %.sroa.015.0, %7
-  br i1 %.not, label %._crit_edge, label %41, !llvm.loop !3163
+  br i1 %.not, label %._crit_edge, label %41, !llvm.loop !3161
 
 86:                                               ; preds = %2, %_ZNK5boost8geometry8strategy4area10geographicINS1_8vincentyELm4ENS0_3srs8spheroidIdEEvE6resultINS0_5model4ringINSA_5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEEEENS8_11result_typeIT_E4typeERKNS8_5stateISL_EE.exit
   %.0 = phi x86_fp80 [ %.1.i.i, %_ZNK5boost8geometry8strategy4area10geographicINS1_8vincentyELm4ENS0_3srs8spheroidIdEEvE6resultINS0_5model4ringINSA_5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEEEENS8_11result_typeIT_E4typeERKNS8_5stateISL_EE.exit ], [ 0xK00000000000000000000, %2 ]
@@ -189504,16 +189484,12 @@ _ZN5boost8geometry4math19normalize_longitudeINS0_6radianEeEEvRT0_.exit.thread: ;
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE11ellipsoidalINS0_8strategy8vincenty7inverseENS0_5model5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEENS5_4area10geographicIS6_Lm4ENS0_3srs8spheroidIdEEvE18spheroid_constantsEEEDaRKT0_SO_RKT1_(ptr dead_on_unwind noalias writable sret(%"struct.boost::geometry::formula::area_formulas<long double, 4>::return_type_ellipsoidal") align 16 %0, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(184) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.5113 = alloca [6 x i8], align 2
-  %.sroa.7115 = alloca [6 x i8], align 2
   %5 = alloca x86_fp80, align 16
   %6 = alloca x86_fp80, align 16
   %7 = alloca x86_fp80, align 16
   %8 = alloca x86_fp80, align 16
   %9 = alloca %"struct.boost::geometry::formula::result_inverse.1172", align 16
   %10 = alloca [5 x x86_fp80], align 16
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.5113)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.7115)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #57
   %11 = load x86_fp80, ptr %1, align 16, !tbaa !2884
   %12 = load atomic i8, ptr @_ZGVZN5boost8geometry4math3d2rIeEET_vE22conversion_coefficient acquire, align 8
@@ -189847,7 +189823,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE9normalizeIeEEvRT_S6_.exit83
   %204 = fpext double %203 to x86_fp80
   %205 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.07.i.i, x86_fp80 %188, x86_fp80 %204)
   %.not.i.i = icmp eq ptr %202, %199
-  br i1 %.not.i.i, label %_ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i, label %201, !llvm.loop !3164
+  br i1 %.not.i.i, label %_ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i, label %201, !llvm.loop !3162
 
 _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i: ; preds = %201
   %206 = fmul x86_fp80 %198, %205
@@ -189855,7 +189831,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE15horner_evaluateIePKdEET_RK
   store x86_fp80 %206, ptr %207, align 16, !tbaa !2884
   %208 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %208, 5
-  br i1 %exitcond.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE20evaluate_coeffs_var2IdEEvRKePKT_Pe.exit, label %190, !llvm.loop !3165
+  br i1 %exitcond.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE20evaluate_coeffs_var2IdEEvRKePKT_Pe.exit, label %190, !llvm.loop !3163
 
 _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE20evaluate_coeffs_var2IdEEvRKePKT_Pe.exit: ; preds = %_ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i
   %209 = fdiv x86_fp80 %155, %.0.i.i.i80
@@ -189882,7 +189858,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE20evaluate_coeffs_var2IdEEvR
   %219 = fsub x86_fp80 %218, %.017.i
   %220 = xor i1 %.016.i85, true
   %.not.i = icmp eq ptr %.1.i, %10
-  br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit, label %212, !llvm.loop !3166
+  br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit, label %212, !llvm.loop !3164
 
 _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit: ; preds = %216
   %221 = load x86_fp80, ptr %10, align 16, !tbaa !2884
@@ -189908,7 +189884,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE12clenshaw_sumIePeEET_RKS6_T
   %230 = fsub x86_fp80 %229, %.017.i87
   %231 = xor i1 %.016.i88, true
   %.not.i91 = icmp eq ptr %.1.i90, %10
-  br i1 %.not.i91, label %_ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit92, label %223, !llvm.loop !3166
+  br i1 %.not.i91, label %_ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit92, label %223, !llvm.loop !3164
 
 _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit92: ; preds = %227
   %232 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 %209, x86_fp80 %221)
@@ -189919,20 +189895,14 @@ _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE12clenshaw_sumIePeEET_RKS6_T
   %237 = fmul x86_fp80 %82, %153
   %238 = fmul x86_fp80 %237, %236
   store x86_fp80 %storemerge, ptr %0, align 16
-  %.sroa.5113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5113.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5113, i64 6, i1 false), !tbaa.struct !3149
   %.sroa.5114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store x86_fp80 %238, ptr %.sroa.5114.0..sroa_idx, align 16
-  %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7115.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7115, i64 6, i1 false), !tbaa.struct !3150
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10) #57
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #57
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.5113)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.7115)
   ret void
 }
 
@@ -189944,9 +189914,9 @@ define linkonce_odr hidden void @_ZN5boost8geometry7formula16vincenty_inverseIeL
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store x86_fp80 0xK00000000000000000000, ptr %8, align 16, !tbaa !3144
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store x86_fp80 0xK00000000000000000000, ptr %9, align 16, !tbaa !3151
+  store x86_fp80 0xK00000000000000000000, ptr %9, align 16, !tbaa !3149
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store x86_fp80 0xK3FFF8000000000000000, ptr %10, align 16, !tbaa !3152
+  store x86_fp80 0xK3FFF8000000000000000, ptr %10, align 16, !tbaa !3150
   %11 = load x86_fp80, ptr %2, align 16, !tbaa !2884
   %12 = load x86_fp80, ptr %4, align 16, !tbaa !2884
   %13 = fcmp oeq x86_fp80 %11, %12
@@ -190114,7 +190084,7 @@ _ZN5boost8geometry4math6equalsIeeEEbRKT_RKT0_.exit138.thread: ; preds = %81, %_Z
   %or.cond = select i1 %132, i1 %134, i1 false
   %135 = icmp samesign ult i32 %.0131, 999
   %or.cond187 = select i1 %or.cond, i1 %135, i1 false
-  br i1 %or.cond187, label %81, label %.critedge, !llvm.loop !3167
+  br i1 %or.cond187, label %81, label %.critedge, !llvm.loop !3165
 
 .critedge:                                        ; preds = %_ZN5boost8geometry4math6equalsIeeEEbRKT_RKT0_.exit138.thread
   %136 = fpext double %55 to x86_fp80
@@ -190337,9 +190307,9 @@ _ZN5boost8geometry4math6equalsIeiEEbRKT_RKT0_.exit14.i: ; preds = %74
 .critedge.i:                                      ; preds = %_ZN5boost8geometry4math6equalsIeiEEbRKT_RKT0_.exit14.i, %74, %_ZN5boost8geometry4math6equalsIeiEEbRKT_RKT0_.exit.i, %64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #57
   call void @_ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE11ellipsoidalINS0_8strategy6karney7inverseENS0_5model5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEENS5_4area10geographicIS6_Lm8ENS0_3srs8spheroidIdEEvE18spheroid_constantsEEEDaRKT0_SO_RKT1_(ptr dead_on_unwind nonnull writable sret(%"struct.boost::geometry::formula::area_formulas<long double, 5>::return_type_ellipsoidal") align 16 %3, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0.026, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.015.027, ptr noundef nonnull align 8 dereferenceable(232) %4)
-  %81 = load x86_fp80, ptr %3, align 16, !tbaa !3168
+  %81 = load x86_fp80, ptr %3, align 16, !tbaa !3166
   %82 = fadd x86_fp80 %.sroa.08.025, %81
-  %83 = load x86_fp80, ptr %13, align 16, !tbaa !3170
+  %83 = load x86_fp80, ptr %13, align 16, !tbaa !3168
   %84 = fadd x86_fp80 %.sroa.610.023, %83
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #57
   br label %_ZNK5boost8geometry8strategy4area10geographicINS1_6karneyELm8ENS0_3srs8spheroidIdEEvE5applyINS0_5model5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEENSA_4ringISG_Lb1ELb1ESt6vectorSaEEEEvRKT_SM_RNS8_5stateIT0_EE.exit
@@ -190351,7 +190321,7 @@ _ZNK5boost8geometry8strategy4area10geographicINS1_6karneyELm8ENS0_3srs8spheroidI
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.0.026, i64 32
   %.sroa.015.0 = getelementptr inbounds nuw i8, ptr %.sroa.015.027, i64 32
   %.not = icmp eq ptr %.sroa.015.0, %7
-  br i1 %.not, label %._crit_edge, label %41, !llvm.loop !3171
+  br i1 %.not, label %._crit_edge, label %41, !llvm.loop !3169
 
 86:                                               ; preds = %2, %_ZNK5boost8geometry8strategy4area10geographicINS1_6karneyELm8ENS0_3srs8spheroidIdEEvE6resultINS0_5model4ringINSA_5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEEEENS8_11result_typeIT_E4typeERKNS8_5stateISL_EE.exit
   %.0 = phi x86_fp80 [ %.1.i.i, %_ZNK5boost8geometry8strategy4area10geographicINS1_6karneyELm8ENS0_3srs8spheroidIdEEvE6resultINS0_5model4ringINSA_5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEEEENS8_11result_typeIT_E4typeERKNS8_5stateISL_EE.exit ], [ 0xK00000000000000000000, %2 ]
@@ -190493,16 +190463,12 @@ _ZN5boost8geometry4math19normalize_longitudeINS0_6radianEeEEvRT0_.exit.thread: ;
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE11ellipsoidalINS0_8strategy6karney7inverseENS0_5model5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEENS5_4area10geographicIS6_Lm8ENS0_3srs8spheroidIdEEvE18spheroid_constantsEEEDaRKT0_SO_RKT1_(ptr dead_on_unwind noalias writable sret(%"struct.boost::geometry::formula::area_formulas<long double, 5>::return_type_ellipsoidal") align 16 %0, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(232) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.5113 = alloca [6 x i8], align 2
-  %.sroa.7115 = alloca [6 x i8], align 2
   %5 = alloca x86_fp80, align 16
   %6 = alloca x86_fp80, align 16
   %7 = alloca x86_fp80, align 16
   %8 = alloca x86_fp80, align 16
   %9 = alloca %"struct.boost::geometry::formula::result_inverse.1172", align 16
   %10 = alloca [6 x x86_fp80], align 16
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.5113)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.7115)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #57
   %11 = load x86_fp80, ptr %1, align 16, !tbaa !2884
   %12 = load atomic i8, ptr @_ZGVZN5boost8geometry4math3d2rIeEET_vE22conversion_coefficient acquire, align 8
@@ -190836,7 +190802,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE9normalizeIeEEvRT_S6_.exit83
   %204 = fpext double %203 to x86_fp80
   %205 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.07.i.i, x86_fp80 %188, x86_fp80 %204)
   %.not.i.i = icmp eq ptr %202, %199
-  br i1 %.not.i.i, label %_ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i, label %201, !llvm.loop !3172
+  br i1 %.not.i.i, label %_ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i, label %201, !llvm.loop !3170
 
 _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i: ; preds = %201
   %206 = fmul x86_fp80 %198, %205
@@ -190844,7 +190810,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE15horner_evaluateIePKdEET_RK
   store x86_fp80 %206, ptr %207, align 16, !tbaa !2884
   %208 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %208, 6
-  br i1 %exitcond.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE20evaluate_coeffs_var2IdEEvRKePKT_Pe.exit, label %190, !llvm.loop !3173
+  br i1 %exitcond.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE20evaluate_coeffs_var2IdEEvRKePKT_Pe.exit, label %190, !llvm.loop !3171
 
 _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE20evaluate_coeffs_var2IdEEvRKePKT_Pe.exit: ; preds = %_ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i
   %209 = fdiv x86_fp80 %155, %.0.i.i.i80
@@ -190871,7 +190837,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE20evaluate_coeffs_var2IdEEvR
   %219 = fsub x86_fp80 %218, %.017.i
   %220 = xor i1 %.016.i85, true
   %.not.i = icmp eq ptr %.1.i, %10
-  br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit, label %212, !llvm.loop !3174
+  br i1 %.not.i, label %_ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit, label %212, !llvm.loop !3172
 
 _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit: ; preds = %216
   %221 = load x86_fp80, ptr %10, align 16, !tbaa !2884
@@ -190897,7 +190863,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE12clenshaw_sumIePeEET_RKS6_T
   %230 = fsub x86_fp80 %229, %.017.i87
   %231 = xor i1 %.016.i88, true
   %.not.i91 = icmp eq ptr %.1.i90, %10
-  br i1 %.not.i91, label %_ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit92, label %223, !llvm.loop !3174
+  br i1 %.not.i91, label %_ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit92, label %223, !llvm.loop !3172
 
 _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE12clenshaw_sumIePeEET_RKS6_T0_S9_.exit92: ; preds = %227
   %232 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 %209, x86_fp80 %221)
@@ -190908,20 +190874,14 @@ _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE12clenshaw_sumIePeEET_RKS6_T
   %237 = fmul x86_fp80 %82, %153
   %238 = fmul x86_fp80 %237, %236
   store x86_fp80 %storemerge, ptr %0, align 16
-  %.sroa.5113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5113.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5113, i64 6, i1 false), !tbaa.struct !3149
   %.sroa.5114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store x86_fp80 %238, ptr %.sroa.5114.0..sroa_idx, align 16
-  %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7115.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7115, i64 6, i1 false), !tbaa.struct !3150
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10) #57
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #57
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.5113)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.7115)
   ret void
 }
 
@@ -191023,9 +190983,9 @@ define linkonce_odr hidden void @_ZN5boost8geometry7formula6detail14karney_inver
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store x86_fp80 0xK00000000000000000000, ptr %67, align 16, !tbaa !3144
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store x86_fp80 0xK00000000000000000000, ptr %68, align 16, !tbaa !3151
+  store x86_fp80 0xK00000000000000000000, ptr %68, align 16, !tbaa !3149
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store x86_fp80 0xK3FFF8000000000000000, ptr %69, align 16, !tbaa !3152
+  store x86_fp80 0xK3FFF8000000000000000, ptr %69, align 16, !tbaa !3150
   %70 = load x86_fp80, ptr %2, align 16, !tbaa !2884
   %71 = load x86_fp80, ptr @_ZZN5boost8geometry7formula6detail14karney_inverseIeLb1ELb1ELb1ELb0ELb0ELm8EE5applyIeeNS0_3srs8spheroidIdEEEENS1_14result_inverseIeEERKT_SD_RKT0_SG_RKT1_E3r2d, align 16, !tbaa !2884
   %72 = fmul x86_fp80 %70, %71
@@ -191663,7 +191623,7 @@ _ZN5boost8geometry4math21normalize_unit_vectorIeEEvRT_S4_.exit152: ; preds = %31
   %437 = load x86_fp80, ptr %436, align 16, !tbaa !2884
   %438 = fadd x86_fp80 %437, %434
   %.not.i.i155 = icmp eq i64 %426, 0
-  br i1 %.not.i.i155, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C1ILm8EeEEEET_RKS5_S7_RKT0_.exit.i, label %425, !llvm.loop !3175
+  br i1 %.not.i.i155, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C1ILm8EeEEEET_RKS5_S7_RKT0_.exit.i, label %425, !llvm.loop !3173
 
 _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C1ILm8EeEEEET_RKS5_S7_RKT0_.exit.i: ; preds = %425
   %439 = fsub x86_fp80 %412, %336
@@ -191691,7 +191651,7 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C1ILm8EeEEEET_
   %455 = load x86_fp80, ptr %454, align 16, !tbaa !2884
   %456 = fadd x86_fp80 %455, %452
   %.not.i18.i = icmp eq i64 %444, 0
-  br i1 %.not.i18.i, label %457, label %443, !llvm.loop !3175
+  br i1 %.not.i18.i, label %457, label %443, !llvm.loop !3173
 
 457:                                              ; preds = %443
   %458 = fmul x86_fp80 %350, 0xK40008000000000000000
@@ -191976,7 +191936,7 @@ _ZN5boost8geometry4math21normalize_unit_vectorIeEEvRT_S4_.exit169: ; preds = %58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #57
   %612 = add nuw nsw i64 %.0108270, 1
   %exitcond.not = icmp eq i64 %612, 94
-  br i1 %exitcond.not, label %.loopexit, label %511, !llvm.loop !3176
+  br i1 %exitcond.not, label %.loopexit, label %511, !llvm.loop !3174
 
 .loopexit:                                        ; preds = %610, %609
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %40) #57
@@ -192059,7 +192019,7 @@ _ZN5boost8geometry4math21normalize_unit_vectorIeEEvRT_S4_.exit169: ; preds = %58
   %675 = load x86_fp80, ptr %674, align 16, !tbaa !2884
   %676 = fadd x86_fp80 %675, %672
   %.not.i.i174 = icmp eq i64 %664, 0
-  br i1 %.not.i.i174, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C1ILm8EeEEEET_RKS5_S7_RKT0_.exit.i175, label %663, !llvm.loop !3175
+  br i1 %.not.i.i174, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C1ILm8EeEEEET_RKS5_S7_RKT0_.exit.i175, label %663, !llvm.loop !3173
 
 _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C1ILm8EeEEEET_RKS5_S7_RKT0_.exit.i175: ; preds = %663
   %677 = load x86_fp80, ptr %34, align 16, !tbaa !2884
@@ -192089,7 +192049,7 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C1ILm8EeEEEET_
   %695 = load x86_fp80, ptr %694, align 16, !tbaa !2884
   %696 = fadd x86_fp80 %695, %692
   %.not.i18.i180 = icmp eq i64 %684, 0
-  br i1 %.not.i18.i180, label %_ZN5boost8geometry7formula6detail14karney_inverseIeLb1ELb1ELb1ELb0ELb0ELm8EE15meridian_lengthINS0_16series_expansion9coeffs_C1ILm8EeEEEEvRKeSA_SA_SA_SA_SA_SA_SA_SA_SA_SA_ReSB_SB_SB_SB_RKT_.exit181, label %683, !llvm.loop !3175
+  br i1 %.not.i18.i180, label %_ZN5boost8geometry7formula6detail14karney_inverseIeLb1ELb1ELb1ELb0ELb0ELm8EE15meridian_lengthINS0_16series_expansion9coeffs_C1ILm8EeEEEEvRKeSA_SA_SA_SA_SA_SA_SA_SA_SA_SA_ReSB_SB_SB_SB_RKT_.exit181, label %683, !llvm.loop !3173
 
 _ZN5boost8geometry7formula6detail14karney_inverseIeLb1ELb1ELb1ELb0ELb0ELm8EE15meridian_lengthINS0_16series_expansion9coeffs_C1ILm8EeEEEEvRKeSA_SA_SA_SA_SA_SA_SA_SA_SA_SA_ReSB_SB_SB_SB_RKT_.exit181: ; preds = %683
   %697 = fmul x86_fp80 %658, 0xK40008000000000000000
@@ -192636,7 +192596,7 @@ _ZN5boost8geometry4math21normalize_unit_vectorIeEEvRT_S4_.exit: ; preds = %134, 
   %213 = load x86_fp80, ptr %212, align 16, !tbaa !2884
   %214 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.07.i, x86_fp80 %184, x86_fp80 %213)
   %.not.i = icmp eq ptr %212, %23
-  br i1 %.not.i, label %_ZN5boost8geometry4math15horner_evaluateIePKeEET_RKS5_T0_S8_.exit, label %211, !llvm.loop !3177
+  br i1 %.not.i, label %_ZN5boost8geometry4math15horner_evaluateIePKeEET_RKS5_T0_S8_.exit, label %211, !llvm.loop !3175
 
 _ZN5boost8geometry4math15horner_evaluateIePKeEET_RKS5_T0_S8_.exit: ; preds = %211
   %215 = fmul x86_fp80 %107, %172
@@ -193171,7 +193131,7 @@ _ZN5boost8geometry4math21normalize_unit_vectorIeEEvRT_S4_.exit139: ; preds = %12
   %197 = load x86_fp80, ptr %196, align 16, !tbaa !2884
   %198 = fadd x86_fp80 %197, %194
   %.not.i = icmp eq i64 %186, 0
-  br i1 %.not.i, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit, label %185, !llvm.loop !3178
+  br i1 %.not.i, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit, label %185, !llvm.loop !3176
 
 _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit: ; preds = %185
   %199 = load x86_fp80, ptr %14, align 16, !tbaa !2884
@@ -193201,7 +193161,7 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_
   %217 = load x86_fp80, ptr %216, align 16, !tbaa !2884
   %218 = fadd x86_fp80 %217, %214
   %.not.i145 = icmp eq i64 %206, 0
-  br i1 %.not.i145, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146, label %205, !llvm.loop !3178
+  br i1 %.not.i145, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146, label %205, !llvm.loop !3176
 
 _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146: ; preds = %205
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %28) #57
@@ -193250,7 +193210,7 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_
   %249 = load x86_fp80, ptr %248, align 16, !tbaa !2884
   %250 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.07.i, x86_fp80 %246, x86_fp80 %249)
   %.not.i147 = icmp eq ptr %248, %28
-  br i1 %.not.i147, label %_ZN5boost8geometry4math15horner_evaluateIePKeEET_RKS5_T0_S8_.exit, label %247, !llvm.loop !3177
+  br i1 %.not.i147, label %_ZN5boost8geometry4math15horner_evaluateIePKeEET_RKS5_T0_S8_.exit, label %247, !llvm.loop !3175
 
 _ZN5boost8geometry4math15horner_evaluateIePKeEET_RKS5_T0_S8_.exit: ; preds = %247
   %251 = fmul x86_fp80 %178, 0xK40008000000000000000
@@ -193455,7 +193415,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry16series_expansion9coeffs_C3I
   %103 = load x86_fp80, ptr %102, align 16, !tbaa !2884
   %104 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.07.i.i, x86_fp80 %98, x86_fp80 %103)
   %.not.i.i = icmp eq ptr %102, %99
-  br i1 %.not.i.i, label %_ZN5boost8geometry4math15horner_evaluateIePeEET_RKS4_T0_S7_.exit.i, label %101, !llvm.loop !3179
+  br i1 %.not.i.i, label %_ZN5boost8geometry4math15horner_evaluateIePeEET_RKS4_T0_S7_.exit.i, label %101, !llvm.loop !3177
 
 _ZN5boost8geometry4math15horner_evaluateIePeEET_RKS4_T0_S7_.exit.i: ; preds = %101
   %105 = fmul x86_fp80 %.019.i, %98
@@ -193465,7 +193425,7 @@ _ZN5boost8geometry4math15horner_evaluateIePeEET_RKS4_T0_S7_.exit.i: ; preds = %1
   %108 = add i64 %97, %.01617.i
   %109 = add nuw nsw i64 %.01518.i, 1
   %exitcond.not.i = icmp eq i64 %109, 8
-  br i1 %exitcond.not.i, label %_ZN5boost8geometry16series_expansion18evaluate_coeffs_C3INS1_9coeffs_C3ILm8EeEENS1_10coeffs_C3xILm8EeEEeEEvRT_RT0_RKT1_.exit, label %96, !llvm.loop !3180
+  br i1 %exitcond.not.i, label %_ZN5boost8geometry16series_expansion18evaluate_coeffs_C3INS1_9coeffs_C3ILm8EeEENS1_10coeffs_C3xILm8EeEEeEEvRT_RT0_RKT1_.exit, label %96, !llvm.loop !3178
 
 _ZN5boost8geometry16series_expansion18evaluate_coeffs_C3INS1_9coeffs_C3ILm8EeEENS1_10coeffs_C3xILm8EeEEeEEvRT_RT0_RKT1_.exit: ; preds = %_ZN5boost8geometry4math15horner_evaluateIePeEET_RKS4_T0_S7_.exit.i
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %4) #57
@@ -205798,7 +205758,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry8strategy4area10geographicINS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = fsub double 1.000000e+00, %12
   %15 = fdiv double %12, %14
-  store double %15, ptr %13, align 8, !tbaa !3181
+  store double %15, ptr %13, align 8, !tbaa !3179
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = tail call noundef double @sqrt(double noundef %15) #57, !tbaa !263
   store double %17, ptr %16, align 8, !tbaa !3097
@@ -205935,7 +205895,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry8strategy4area10geographicINS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = fsub double 1.000000e+00, %12
   %15 = fdiv double %12, %14
-  store double %15, ptr %13, align 8, !tbaa !3182
+  store double %15, ptr %13, align 8, !tbaa !3180
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = tail call noundef double @sqrt(double noundef %15) #57, !tbaa !263
   store double %17, ptr %16, align 8, !tbaa !3107
@@ -218539,7 +218499,7 @@ _ZNK5boost8geometry8strategy4area10geographicINS1_8vincentyELm4ENS0_3srs8spheroi
   %.sroa.6.1 = phi double [ %.sroa.6.018, %.lr.ph ], [ %.sroa.6.018, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i ], [ %80, %.critedge.i ], [ %.sroa.6.018, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit16.i ], [ %.sroa.6.018, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i ]
   %.sroa.9.2 = phi i64 [ %.sroa.9.019, %.lr.ph ], [ %spec.select, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i ], [ %spec.select, %.critedge.i ], [ %spec.select, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit16.i ], [ %.sroa.9.019, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i ]
   %.not = icmp eq ptr %39, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3183
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3181
 
 81:                                               ; preds = %2, %_ZNK5boost8geometry8strategy4area10geographicINS1_8vincentyELm4ENS0_3srs8spheroidIdEEvE6resultINS0_5model4ringINSA_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb0ELb1ESt6vectorSaEEEENS8_11result_typeIT_E4typeERKNS8_5stateISL_EE.exit
   %.0 = phi double [ %.1.i.i, %_ZNK5boost8geometry8strategy4area10geographicINS1_8vincentyELm4ENS0_3srs8spheroidIdEEvE6resultINS0_5model4ringINSA_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb0ELb1ESt6vectorSaEEEENS8_11result_typeIT_E4typeERKNS8_5stateISL_EE.exit ], [ 0.000000e+00, %2 ]
@@ -218691,7 +218651,7 @@ _ZNK5boost8geometry8strategy4area10geographicINS1_6karneyELm8ENS0_3srs8spheroidI
   %.sroa.6.1 = phi double [ %.sroa.6.018, %.lr.ph ], [ %.sroa.6.018, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i ], [ %80, %.critedge.i ], [ %.sroa.6.018, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit16.i ], [ %.sroa.6.018, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i ]
   %.sroa.9.2 = phi i64 [ %.sroa.9.019, %.lr.ph ], [ %spec.select, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i ], [ %spec.select, %.critedge.i ], [ %spec.select, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit16.i ], [ %.sroa.9.019, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i ]
   %.not = icmp eq ptr %39, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3184
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3182
 
 81:                                               ; preds = %2, %_ZNK5boost8geometry8strategy4area10geographicINS1_6karneyELm8ENS0_3srs8spheroidIdEEvE6resultINS0_5model4ringINSA_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb0ELb1ESt6vectorSaEEEENS8_11result_typeIT_E4typeERKNS8_5stateISL_EE.exit
   %.0 = phi double [ %.1.i.i, %_ZNK5boost8geometry8strategy4area10geographicINS1_6karneyELm8ENS0_3srs8spheroidIdEEvE6resultINS0_5model4ringINSA_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb0ELb1ESt6vectorSaEEEENS8_11result_typeIT_E4typeERKNS8_5stateISL_EE.exit ], [ 0.000000e+00, %2 ]
@@ -223183,28 +223143,28 @@ attributes #65 = { nounwind willreturn memory(read) }
 !3146 = distinct !{!3146, !146}
 !3147 = distinct !{!3147, !146}
 !3148 = distinct !{!3148, !146}
-!3149 = !{i64 0, i64 6, !2884, i64 6, i64 16, !2884}
-!3150 = !{i64 0, i64 6, !2884}
-!3151 = !{!3143, !2885, i64 48}
-!3152 = !{!3143, !2885, i64 64}
-!3153 = !{!3154, !2885, i64 0}
-!3154 = !{!"_ZTSN5boost8geometry7formula13area_formulasIeLm2ELb1EE23return_type_ellipsoidalE", !2885, i64 0, !2885, i64 16}
-!3155 = !{!3154, !2885, i64 16}
+!3149 = !{!3143, !2885, i64 48}
+!3150 = !{!3143, !2885, i64 64}
+!3151 = !{!3152, !2885, i64 0}
+!3152 = !{!"_ZTSN5boost8geometry7formula13area_formulasIeLm2ELb1EE23return_type_ellipsoidalE", !2885, i64 0, !2885, i64 16}
+!3153 = !{!3152, !2885, i64 16}
+!3154 = distinct !{!3154, !146}
+!3155 = distinct !{!3155, !146}
 !3156 = distinct !{!3156, !146}
 !3157 = distinct !{!3157, !146}
-!3158 = distinct !{!3158, !146}
-!3159 = distinct !{!3159, !146}
-!3160 = !{!3161, !2885, i64 0}
-!3161 = !{!"_ZTSN5boost8geometry7formula13area_formulasIeLm4ELb1EE23return_type_ellipsoidalE", !2885, i64 0, !2885, i64 16}
-!3162 = !{!3161, !2885, i64 16}
+!3158 = !{!3159, !2885, i64 0}
+!3159 = !{!"_ZTSN5boost8geometry7formula13area_formulasIeLm4ELb1EE23return_type_ellipsoidalE", !2885, i64 0, !2885, i64 16}
+!3160 = !{!3159, !2885, i64 16}
+!3161 = distinct !{!3161, !146}
+!3162 = distinct !{!3162, !146}
 !3163 = distinct !{!3163, !146}
 !3164 = distinct !{!3164, !146}
 !3165 = distinct !{!3165, !146}
-!3166 = distinct !{!3166, !146}
-!3167 = distinct !{!3167, !146}
-!3168 = !{!3169, !2885, i64 0}
-!3169 = !{!"_ZTSN5boost8geometry7formula13area_formulasIeLm5ELb1EE23return_type_ellipsoidalE", !2885, i64 0, !2885, i64 16}
-!3170 = !{!3169, !2885, i64 16}
+!3166 = !{!3167, !2885, i64 0}
+!3167 = !{!"_ZTSN5boost8geometry7formula13area_formulasIeLm5ELb1EE23return_type_ellipsoidalE", !2885, i64 0, !2885, i64 16}
+!3168 = !{!3167, !2885, i64 16}
+!3169 = distinct !{!3169, !146}
+!3170 = distinct !{!3170, !146}
 !3171 = distinct !{!3171, !146}
 !3172 = distinct !{!3172, !146}
 !3173 = distinct !{!3173, !146}
@@ -223213,9 +223173,7 @@ attributes #65 = { nounwind willreturn memory(read) }
 !3176 = distinct !{!3176, !146}
 !3177 = distinct !{!3177, !146}
 !3178 = distinct !{!3178, !146}
-!3179 = distinct !{!3179, !146}
-!3180 = distinct !{!3180, !146}
-!3181 = !{!3093, !1478, i64 32}
-!3182 = !{!3103, !1478, i64 32}
-!3183 = distinct !{!3183, !146}
-!3184 = distinct !{!3184, !146}
+!3179 = !{!3093, !1478, i64 32}
+!3180 = !{!3103, !1478, i64 32}
+!3181 = distinct !{!3181, !146}
+!3182 = distinct !{!3182, !146}

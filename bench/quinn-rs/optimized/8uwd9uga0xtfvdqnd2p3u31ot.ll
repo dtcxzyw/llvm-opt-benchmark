@@ -774,8 +774,8 @@ define { i64, ptr } @_ZN9quinn_udp3imp14UdpSocketState4recv17ha083ed936ae1c98dE(
   %33 = add nuw nsw i64 %.sroa.08.026.i, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.14.i)
-  %exitcond38.not.i = icmp eq i64 %.sroa.08.026.i, 32
-  br i1 %exitcond38.not.i, label %72, label %34
+  %exitcond36.not.i = icmp eq i64 %.sroa.08.026.i, 32
+  br i1 %exitcond36.not.i, label %72, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw { [16 x i64] }, ptr %13, i64 %.sroa.08.026.i
@@ -919,8 +919,8 @@ _ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i: ; preds = %50, %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.14.i, ptr noundef nonnull align 1 dereferenceable(12) %.sroa.637.i.i, i64 12, i1 false), !noalias !27
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.637.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.623.i.i)
-  %exitcond39.not.i = icmp eq i64 %.sroa.08.026.i, %5
-  br i1 %exitcond39.not.i, label %75, label %73
+  %exitcond37.not.i = icmp eq i64 %.sroa.08.026.i, %5
+  br i1 %exitcond37.not.i, label %75, label %73
 
 72:                                               ; preds = %32
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef 32, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b32b8fd91e47b7024bed3f1642a2f1c.37) #19, !noalias !13
@@ -955,8 +955,8 @@ _ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i: ; preds = %50, %48
   store i8 %71, ptr %.sroa.15.0..sroa_idx.i, align 1, !alias.scope !13, !noalias !28
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.14.i)
-  %exitcond40.not.i = icmp eq i64 %33, %24
-  br i1 %exitcond40.not.i, label %._crit_edge29.i, label %32
+  %exitcond38.not.i = icmp eq i64 %33, %24
+  br i1 %exitcond38.not.i, label %._crit_edge29.i, label %32
 
 75:                                               ; preds = %_ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %5, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b32b8fd91e47b7024bed3f1642a2f1c.40) #19, !noalias !13
@@ -982,8 +982,8 @@ _ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i: ; preds = %50, %48
   store i64 88, ptr %85, align 8, !alias.scope !29, !noalias !32
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 48
   store i32 0, ptr %86, align 8, !alias.scope !29, !noalias !32
-  %exitcond37.not.i = icmp eq i64 %76, %.sroa.0.0.sroa.speculated.i.i
-  br i1 %exitcond37.not.i, label %.preheader.i, label %.lr.ph.i
+  %exitcond.not.i = icmp eq i64 %76, %.sroa.0.0.sroa.speculated.i.i
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i
 
 _ZN9quinn_udp3imp4recv17h3e7a95dde96f8b32E.exit:  ; preds = %30, %._crit_edge29.i
   %.sroa.3.0.i = phi ptr [ %31, %._crit_edge29.i ], [ %gep.i, %30 ]

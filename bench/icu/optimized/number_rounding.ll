@@ -847,9 +847,9 @@ declare void @llvm.trap() #14
 define void @_ZN6icu_776number9Precision9unlimitedEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.icu_77::number::Precision") align 8 captures(none) initializes((0, 4), (8, 21), (24, 28)) %0) local_unnamed_addr #11 align 2 {
   store i32 1, ptr %0, align 8, !tbaa !27
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %2, i8 0, i64 13, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8, !tbaa !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %2, i8 0, i64 13, i1 false)
   ret void
 }
 

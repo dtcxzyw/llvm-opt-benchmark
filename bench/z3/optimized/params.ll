@@ -4585,7 +4585,6 @@ _ZNK6vectorISt4pairI6symbolN6params5valueEELb0EjE3endEv.exit: ; preds = %4
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6params8set_boolERK6symbolb(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.9 = alloca [7 x i8], align 1
   %4 = zext i1 %2 to i8
   %5 = load ptr, ptr %0, align 8, !tbaa !69
   %6 = icmp eq ptr %5, null
@@ -4593,7 +4592,6 @@ define hidden void @_ZN6params8set_boolERK6symbolb(ptr noundef nonnull align 8 d
 
 ._crit_edge.thread:                               ; preds = %3
   %.sroa.0.0.copyload.pre23 = load ptr, ptr %1, align 8, !tbaa !45
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9)
   br label %35
 
 _ZN6vectorISt4pairI6symbolN6params5valueEELb0EjE3endEv.exit: ; preds = %3
@@ -4656,7 +4654,6 @@ _ZN8rationalD2Ev.exit.i.i:                        ; preds = %.noexc.i.i.i
   br label %44
 
 ._crit_edge.thread28:                             ; preds = %26, %_ZN6vectorISt4pairI6symbolN6params5valueEELb0EjE3endEv.exit
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9)
   %30 = getelementptr inbounds i8, ptr %5, i64 -4
   %31 = load i32, ptr %30, align 4, !tbaa !51
   %32 = getelementptr inbounds i8, ptr %5, i64 -8
@@ -4683,14 +4680,11 @@ _ZN6vectorISt4pairI6symbolN6params5valueEELb0EjE9push_backERKS4_.exit: ; preds =
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i8 %4, ptr %.sroa.715.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
   %40 = load ptr, ptr %0, align 8, !tbaa !69
   %41 = getelementptr inbounds i8, ptr %40, i64 -4
   %42 = load i32, ptr %41, align 4, !tbaa !51
   %43 = add i32 %42, 1
   store i32 %43, ptr %41, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
   br label %44
 
 44:                                               ; preds = %28, %_ZN6vectorISt4pairI6symbolN6params5valueEELb0EjE9push_backERKS4_.exit

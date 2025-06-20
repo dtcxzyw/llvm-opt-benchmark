@@ -201,17 +201,17 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %.sroa.7.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.7.0..sroa_idx16.i = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.sroa.7.0..sroa_idx14.i = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.7.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %45
 
 45:                                               ; preds = %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17h5a1949096ab4decfE.exit.i", %.lr.ph.i
-  %.sroa.411.011.i = phi i64 [ %23, %.lr.ph.i ], [ %55, %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17h5a1949096ab4decfE.exit.i" ]
-  %.sroa.09.010.i = phi ptr [ %21, %.lr.ph.i ], [ %54, %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17h5a1949096ab4decfE.exit.i" ]
-  %.sroa.08.09.i = phi ptr [ %27, %.lr.ph.i ], [ %46, %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17h5a1949096ab4decfE.exit.i" ]
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.08.09.i, i64 64
-  %47 = call noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17h028632cfd758b6f3E"(ptr noundef nonnull align 4 %.sroa.09.010.i, i64 noundef %.sroa.411.011.i, ptr noundef nonnull align 8 %.sroa.08.09.i), !noalias !22
-  %.not.i = icmp ugt i64 %47, %.sroa.411.011.i
+  %.sroa.411.010.i = phi i64 [ %23, %.lr.ph.i ], [ %55, %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17h5a1949096ab4decfE.exit.i" ]
+  %.sroa.09.09.i = phi ptr [ %21, %.lr.ph.i ], [ %54, %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17h5a1949096ab4decfE.exit.i" ]
+  %.sroa.08.08.i = phi ptr [ %27, %.lr.ph.i ], [ %46, %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17h5a1949096ab4decfE.exit.i" ]
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.08.08.i, i64 64
+  %47 = call noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17h028632cfd758b6f3E"(ptr noundef nonnull align 4 %.sroa.09.09.i, i64 noundef %.sroa.411.010.i, ptr noundef nonnull align 8 %.sroa.08.08.i), !noalias !22
+  %.not.i = icmp ugt i64 %47, %.sroa.411.010.i
   br i1 %.not.i, label %48, label %53, !prof !23
 
 48:                                               ; preds = %45
@@ -229,9 +229,9 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   unreachable
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.09.010.i, i64 %47
-  %55 = sub nuw i64 %.sroa.411.011.i, %47
-  %56 = call noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17h6fe7243a508819bfE"(ptr noundef nonnull align 4 %.sroa.09.010.i, i64 noundef %47), !noalias !22
+  %54 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.09.09.i, i64 %47
+  %55 = sub nuw i64 %.sroa.411.010.i, %47
+  %56 = call noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17h6fe7243a508819bfE"(ptr noundef nonnull align 4 %.sroa.09.09.i, i64 noundef %47), !noalias !22
   %.not16.i = icmp ugt i64 %56, %47
   br i1 %.not16.i, label %57, label %62, !prof !23
 
@@ -250,11 +250,11 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   unreachable
 
 62:                                               ; preds = %53
-  %63 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.09.010.i, i64 %56
+  %63 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.09.09.i, i64 %56
   %64 = sub nuw i64 %47, %56
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13), !noalias !17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !17
-  call void @_ZN21ruff_python_formatter8comments6format16leading_comments17hbc3c9f5f847c54c5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noundef nonnull align 4 %.sroa.09.010.i, i64 noundef %56), !noalias !22
+  call void @_ZN21ruff_python_formatter8comments6format16leading_comments17hbc3c9f5f847c54c5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noundef nonnull align 4 %.sroa.09.09.i, i64 noundef %56), !noalias !22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !17
   store ptr @anon.8228130015aded6fa68a0e300fceb238.60, ptr %11, align 8, !noalias !17
   store i64 2, ptr %32, align 8, !noalias !17
@@ -265,10 +265,10 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   store ptr %66, ptr %10, align 8, !noalias !17
   store i64 %67, ptr %33, align 8, !noalias !17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !17
-  store ptr %.sroa.08.09.i, ptr %9, align 8, !noalias !17
+  store ptr %.sroa.08.08.i, ptr %9, align 8, !noalias !17
   store i8 1, ptr %34, align 8, !noalias !17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !17
-  store ptr %.sroa.08.09.i, ptr %8, align 8, !noalias !17
+  store ptr %.sroa.08.08.i, ptr %8, align 8, !noalias !17
   store i8 0, ptr %35, align 8, !noalias !17
   store ptr %12, ptr %13, align 8, !noalias !17
   store ptr @anon.8228130015aded6fa68a0e300fceb238.54, ptr %36, align 8, !noalias !17
@@ -318,7 +318,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   br i1 %.not.i.i.i, label %81, label %80
 
 80:                                               ; preds = %.lr.ph.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx16.i, i64 20, i1 false), !noalias !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx15.i, i64 20, i1 false), !noalias !43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !34
   br label %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17h5a1949096ab4decfE.exit.i"
 
@@ -336,7 +336,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   br i1 %.not1.i.i, label %86, label %85
 
 85:                                               ; preds = %83
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx15.i, i64 20, i1 false), !noalias !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx14.i, i64 20, i1 false), !noalias !45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !25
   br label %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17h5a1949096ab4decfE.exit.i"
 
@@ -345,8 +345,8 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   br label %._crit_edge.i.i
 
 "_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17h5a1949096ab4decfE.exit.i": ; preds = %81, %85, %80, %69
-  %.sroa.012.0.i = phi i32 [ %84, %85 ], [ %.sroa.03.0.copyload.i, %69 ], [ %79, %80 ], [ 4, %81 ]
-  store i32 %.sroa.012.0.i, ptr %14, align 8, !noalias !17
+  %.sroa.011.0.i = phi i32 [ %84, %85 ], [ %.sroa.03.0.copyload.i, %69 ], [ %79, %80 ], [ 4, %81 ]
+  store i32 %.sroa.011.0.i, ptr %14, align 8, !noalias !17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.i, i64 20, i1 false), !noalias !17
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !17

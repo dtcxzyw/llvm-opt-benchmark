@@ -8823,9 +8823,9 @@ _ZL16shouldIncludePTXRKN4llvm3opt7ArgListENS_9StringRefE.exit: ; preds = %_ZN4ll
 _ZN4llvmplERKNS_5TwineES2_.exit73:                ; preds = %.thread115, %194
   %.sroa.05.0.i.i63 = phi ptr [ %18, %194 ], [ @.str.65, %.thread115 ]
   %.014.i.i62 = phi i8 [ 2, %194 ], [ 3, %.thread115 ]
-  %.sink = phi i8 [ 3, %194 ], [ 1, %.thread115 ]
+  %storemerge = phi i8 [ 3, %194 ], [ 1, %.thread115 ]
   store i8 3, ptr %104, align 8, !tbaa !350
-  store i8 %.sink, ptr %105, align 1, !tbaa !350
+  store i8 %storemerge, ptr %105, align 1, !tbaa !350
   store ptr %.sroa.05.0.i.i63, ptr %17, align 8, !alias.scope !351
   store ptr @.str.66, ptr %108, align 8, !alias.scope !351
   store i8 %.014.i.i62, ptr %106, align 8, !tbaa !142, !alias.scope !351
@@ -8862,10 +8862,10 @@ _ZN4llvmplERKNS_5TwineES2_.exit73:                ; preds = %.thread115, %194
   br label %_ZN4llvmplERKNS_5TwineES2_.exit88
 
 _ZN4llvmplERKNS_5TwineES2_.exit88:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit73, %200, %201
-  %.sink166 = phi i8 [ 4, %200 ], [ %.014.i.i77, %201 ], [ %199, %_ZN4llvmplERKNS_5TwineES2_.exit73 ]
-  %.sink165 = phi i8 [ 1, %200 ], [ 4, %201 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit73 ]
-  store i8 %.sink166, ptr %109, align 8, !tbaa !350
-  store i8 %.sink165, ptr %110, align 1, !tbaa !350
+  %.sink165 = phi i8 [ 4, %200 ], [ %.014.i.i77, %201 ], [ %199, %_ZN4llvmplERKNS_5TwineES2_.exit73 ]
+  %.sink = phi i8 [ 1, %200 ], [ 4, %201 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit73 ]
+  store i8 %.sink165, ptr %109, align 8, !tbaa !350
+  store i8 %.sink, ptr %110, align 1, !tbaa !350
   %204 = call noundef ptr @_ZNK4llvm3opt7ArgList13MakeArgStringERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(34) %16)
   %205 = load i32, ptr %27, align 8, !tbaa !101
   %206 = load i32, ptr %28, align 4, !tbaa !102

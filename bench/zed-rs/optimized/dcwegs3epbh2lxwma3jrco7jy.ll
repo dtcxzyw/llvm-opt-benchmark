@@ -226,12 +226,12 @@ define void @_ZN7snippet7Snippet5parse17hefe7ef05339a1f0bE(ptr dead_on_unwind no
   store i64 %.sink.i.ph, ptr %29, align 8, !alias.scope !21, !noalias !31
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19), !noalias !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
-  %.sroa.4.0.copyload = load i64, ptr %56, align 8
-  %.sroa.549.0.copyload = load i64, ptr %39, align 8
   %68 = icmp eq ptr %.sroa.048.0.copyload.pr, null
-  br i1 %68, label %69, label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7124bd1416e4b63cE.exit"
+  br i1 %68, label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7124bd1416e4b63cE.exit", label %69
 
 69:                                               ; preds = %67
+  %.sroa.549.0.copyload = load i64, ptr %39, align 8
+  %.sroa.4.0.copyload = load i64, ptr %56, align 8
   br label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7124bd1416e4b63cE.exit"
 
 70:                                               ; preds = %.body39, %73
@@ -248,10 +248,10 @@ define void @_ZN7snippet7Snippet5parse17hefe7ef05339a1f0bE(ptr dead_on_unwind no
   br label %70
 
 "_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7124bd1416e4b63cE.exit": ; preds = %69, %67, %.thread68
-  %.sroa.048.0.copyload74 = phi ptr [ %.sroa.048.0.copyload.pr, %67 ], [ null, %.thread68 ], [ null, %69 ]
-  %.sroa.656.0 = phi i64 [ %.sroa.4.0.copyload, %67 ], [ undef, %.thread68 ], [ undef, %69 ]
-  %.sink26.i = phi i64 [ 1, %67 ], [ 0, %.thread68 ], [ 0, %69 ]
-  %.sroa.7.0.copyload.sink.i = phi i64 [ %.sroa.549.0.copyload, %67 ], [ 0, %.thread68 ], [ 0, %69 ]
+  %.sroa.048.0.copyload74 = phi ptr [ null, %67 ], [ %.sroa.048.0.copyload.pr, %69 ], [ null, %.thread68 ]
+  %.sroa.656.0 = phi i64 [ undef, %67 ], [ %.sroa.4.0.copyload, %69 ], [ undef, %.thread68 ]
+  %.sink26.i = phi i64 [ 0, %67 ], [ 1, %69 ], [ 0, %.thread68 ]
+  %.sroa.7.0.copyload.sink.i = phi i64 [ 0, %67 ], [ %.sroa.549.0.copyload, %69 ], [ 0, %.thread68 ]
   store i64 %.sink26.i, ptr %27, align 8
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr null, ptr %.sroa.454.0..sroa_idx, align 8

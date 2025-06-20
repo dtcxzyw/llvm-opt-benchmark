@@ -1936,8 +1936,8 @@ define void @"_ZN14ruff_formatter1_79_$LT$impl$u20$schemars..JsonSchema$u20$for$
   store i64 -9223372036854775808, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr null, ptr %22, align 8
-  %.sroa.2419.176..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 192
-  store i64 0, ptr %.sroa.2419.176..sroa_idx, align 8
+  %.sroa.1924.176..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 192
+  store i64 0, ptr %.sroa.1924.176..sroa_idx, align 8
   %23 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17he172a05eb6b3f65eE(ptr noalias noundef nonnull align 8 dereferenceable(200) %7)
           to label %24 unwind label %13
 
@@ -2085,8 +2085,8 @@ define void @"_ZN14ruff_formatter1_74_$LT$impl$u20$schemars..JsonSchema$u20$for$
   store i64 -9223372036854775808, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr null, ptr %21, align 8
-  %.sroa.2419.176..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 192
-  store i64 0, ptr %.sroa.2419.176..sroa_idx, align 8
+  %.sroa.1924.176..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 192
+  store i64 0, ptr %.sroa.1924.176..sroa_idx, align 8
   %22 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17he172a05eb6b3f65eE(ptr noalias noundef nonnull align 8 dereferenceable(200) %7)
           to label %23 unwind label %12
 
@@ -2238,8 +2238,8 @@ define void @"_ZN14ruff_formatter1_79_$LT$impl$u20$schemars..JsonSchema$u20$for$
   store i64 -9223372036854775808, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 176
   store ptr null, ptr %19, align 8
-  %.sroa.2419.176..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 192
-  store i64 0, ptr %.sroa.2419.176..sroa_idx, align 8
+  %.sroa.1924.176..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 192
+  store i64 0, ptr %.sroa.1924.176..sroa_idx, align 8
   %20 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17he172a05eb6b3f65eE(ptr noalias noundef nonnull align 8 dereferenceable(200) %5)
           to label %21 unwind label %10
 

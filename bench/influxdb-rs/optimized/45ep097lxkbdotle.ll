@@ -31981,14 +31981,14 @@ define hidden void @_ZN7tracing4span4Span3log17hb84d364d4a2ace98E.llvm.913521924
   store i64 %2, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !12904, !noalias !12901
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr @anon.4f1ffef672fa2a96c3f91f70be27e7d7.36, ptr %58, align 8, !alias.scope !12906
-  %.sroa.29.80..sroa_idx123 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  store i64 2, ptr %.sroa.29.80..sroa_idx123, align 8, !alias.scope !12906
-  %.sroa.30.80..sroa_idx125 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  store ptr %8, ptr %.sroa.30.80..sroa_idx125, align 8, !alias.scope !12906
-  %.sroa.31.80..sroa_idx127 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  store i64 2, ptr %.sroa.31.80..sroa_idx127, align 8, !alias.scope !12906
-  %.sroa.32.80..sroa_idx129 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  store ptr null, ptr %.sroa.32.80..sroa_idx129, align 8, !alias.scope !12906
+  %.sroa.27.80..sroa_idx123 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  store i64 2, ptr %.sroa.27.80..sroa_idx123, align 8, !alias.scope !12906
+  %.sroa.28.80..sroa_idx125 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store ptr %8, ptr %.sroa.28.80..sroa_idx125, align 8, !alias.scope !12906
+  %.sroa.29.80..sroa_idx127 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  store i64 2, ptr %.sroa.29.80..sroa_idx127, align 8, !alias.scope !12906
+  %.sroa.30.80..sroa_idx129 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  store ptr null, ptr %.sroa.30.80..sroa_idx129, align 8, !alias.scope !12906
   store i64 %.sroa.048.0, ptr %9, align 8, !alias.scope !12904, !noalias !12901
   %.sroa.53.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %33, ptr %.sroa.53.0..sroa_idx4.i, align 8, !noalias !12901
@@ -32041,17 +32041,17 @@ define hidden void @_ZN7tracing4span4Span3log17hb84d364d4a2ace98E.llvm.913521924
   %77 = load i32, ptr %76, align 8, !range !12900, !noundef !4
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %79 = load i32, ptr %78, align 4
-  %.sroa.0170.0.copyload = load ptr, ptr %4, align 8
-  %.sroa.4171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.4171.0.copyload = load i64, ptr %.sroa.4171.0..sroa_idx, align 8
-  %.sroa.5172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.5172.0.copyload = load ptr, ptr %.sroa.5172.0..sroa_idx, align 8
-  %.sroa.6173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.6173.0.copyload = load i64, ptr %.sroa.6173.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sroa.8174.0.copyload = load i64, ptr %.sroa.8174.0..sroa_idx, align 8
+  %.sroa.0171.0.copyload = load ptr, ptr %4, align 8
+  %.sroa.4172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.4172.0.copyload = load i64, ptr %.sroa.4172.0..sroa_idx, align 8
+  %.sroa.5173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.5173.0.copyload = load ptr, ptr %.sroa.5173.0..sroa_idx, align 8
+  %.sroa.6174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.6174.0.copyload = load i64, ptr %.sroa.6174.0..sroa_idx, align 8
+  %.sroa.7175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sroa.7175.0.copyload = load ptr, ptr %.sroa.7175.0..sroa_idx, align 8
+  %.sroa.8176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sroa.8176.0.copyload = load i64, ptr %.sroa.8176.0..sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !12907)
   %trunc.i114 = trunc nuw i32 %77 to i1
   %.sroa.510.0.i115 = select i1 %trunc.i114, i32 %79, i32 undef
@@ -32062,17 +32062,17 @@ define hidden void @_ZN7tracing4span4Span3log17hb84d364d4a2ace98E.llvm.913521924
   %.sroa.5.0..sroa_idx.i117 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 %2, ptr %.sroa.5.0..sroa_idx.i117, align 8, !alias.scope !12910, !noalias !12907
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store ptr %.sroa.0170.0.copyload, ptr %81, align 8, !alias.scope !12912
-  %.sroa.29150.80..sroa_idx151 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store i64 %.sroa.4171.0.copyload, ptr %.sroa.29150.80..sroa_idx151, align 8, !alias.scope !12912
-  %.sroa.30153.80..sroa_idx154 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  store ptr %.sroa.5172.0.copyload, ptr %.sroa.30153.80..sroa_idx154, align 8, !alias.scope !12912
-  %.sroa.31156.80..sroa_idx157 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store i64 %.sroa.6173.0.copyload, ptr %.sroa.31156.80..sroa_idx157, align 8, !alias.scope !12912
-  %.sroa.32159.80..sroa_idx160 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  store ptr %.sroa.7.0.copyload, ptr %.sroa.32159.80..sroa_idx160, align 8, !alias.scope !12912
-  %.sroa.33162.80..sroa_idx163 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store i64 %.sroa.8174.0.copyload, ptr %.sroa.33162.80..sroa_idx163, align 8, !alias.scope !12912
+  store ptr %.sroa.0171.0.copyload, ptr %81, align 8, !alias.scope !12912
+  %.sroa.27151.80..sroa_idx152 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store i64 %.sroa.4172.0.copyload, ptr %.sroa.27151.80..sroa_idx152, align 8, !alias.scope !12912
+  %.sroa.28154.80..sroa_idx155 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  store ptr %.sroa.5173.0.copyload, ptr %.sroa.28154.80..sroa_idx155, align 8, !alias.scope !12912
+  %.sroa.29157.80..sroa_idx158 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  store i64 %.sroa.6174.0.copyload, ptr %.sroa.29157.80..sroa_idx158, align 8, !alias.scope !12912
+  %.sroa.30160.80..sroa_idx161 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  store ptr %.sroa.7175.0.copyload, ptr %.sroa.30160.80..sroa_idx161, align 8, !alias.scope !12912
+  %.sroa.31163.80..sroa_idx164 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  store i64 %.sroa.8176.0.copyload, ptr %.sroa.31163.80..sroa_idx164, align 8, !alias.scope !12912
   store i64 %.sroa.097.0, ptr %6, align 8, !alias.scope !12910, !noalias !12907
   %.sroa.53.0..sroa_idx4.i118 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %36, ptr %.sroa.53.0..sroa_idx4.i118, align 8, !noalias !12907

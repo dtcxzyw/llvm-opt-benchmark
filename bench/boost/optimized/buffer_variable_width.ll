@@ -193943,8 +193943,8 @@ define linkonce_odr hidden void @_ZZN5boost8geometry6detail7overlay14assign_pare
   %18 = load i64, ptr %2, align 8, !tbaa !3767
   switch i64 %18, label %._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge [
     i64 0, label %19
-    i64 1, label %61
-    i64 2, label %106
+    i64 1, label %60
+    i64 2, label %104
   ]
 
 ._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge: ; preds = %3
@@ -193970,305 +193970,299 @@ define linkonce_odr hidden void @_ZZN5boost8geometry6detail7overlay14assign_pare
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !174
   %30 = icmp eq ptr %27, %29
-  br i1 %30, label %31, label %32
+  br i1 %30, label %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit, label %31
 
 31:                                               ; preds = %19
-  store double 0x7FEFFFFFFFFFFFFF, ptr %26, align 8, !tbaa !1491
-  br label %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit
-
-32:                                               ; preds = %19
-  %33 = load double, ptr %27, align 8, !tbaa !1491
-  store double %33, ptr %26, align 8, !tbaa !1491
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %35 = load double, ptr %34, align 8, !tbaa !1492
-  %36 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store double %35, ptr %36, align 8, !tbaa !1492
-  %37 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store double %33, ptr %37, align 8, !tbaa !1491
-  %38 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store double %35, ptr %38, align 8, !tbaa !1492
+  %32 = load double, ptr %27, align 8, !tbaa !1491
+  store double %32, ptr %26, align 8, !tbaa !1491
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %34 = load double, ptr %33, align 8, !tbaa !1492
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  store double %34, ptr %35, align 8, !tbaa !1492
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  store double %32, ptr %36, align 8, !tbaa !1491
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 88
+  store double %34, ptr %37, align 8, !tbaa !1492
   %.sroa.06.015.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 40
   %.not16.i.i.i.i.i = icmp eq ptr %.sroa.06.015.i.i.i.i.i, %29
   br i1 %.not16.i.i.i.i.i, label %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %32, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i
-  %.sroa.06.018.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %.sroa.06.015.i.i.i.i.i, %32 ]
-  %.pn17.i.i.i.i.i = phi ptr [ %.sroa.06.018.i.i.i.i.i, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %27, %32 ]
-  %39 = phi double [ %47, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %33, %32 ]
-  %40 = phi double [ %51, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %33, %32 ]
-  %41 = phi double [ %57, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %35, %32 ]
-  %42 = phi double [ %60, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %35, %32 ]
-  %43 = load double, ptr %.sroa.06.018.i.i.i.i.i, align 8, !tbaa !1491
-  %44 = fcmp olt double %43, %39
-  br i1 %44, label %45, label %46
+.lr.ph.i.i.i.i.i:                                 ; preds = %31, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i
+  %.sroa.06.018.i.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i.i, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %.sroa.06.015.i.i.i.i.i, %31 ]
+  %.pn17.i.i.i.i.i = phi ptr [ %.sroa.06.018.i.i.i.i.i, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %27, %31 ]
+  %38 = phi double [ %46, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %32, %31 ]
+  %39 = phi double [ %50, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %32, %31 ]
+  %40 = phi double [ %56, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %34, %31 ]
+  %41 = phi double [ %59, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %34, %31 ]
+  %42 = load double, ptr %.sroa.06.018.i.i.i.i.i, align 8, !tbaa !1491
+  %43 = fcmp olt double %42, %38
+  br i1 %43, label %44, label %45
 
-45:                                               ; preds = %.lr.ph.i.i.i.i.i
-  store double %43, ptr %26, align 8, !tbaa !1491
-  br label %46
+44:                                               ; preds = %.lr.ph.i.i.i.i.i
+  store double %42, ptr %26, align 8, !tbaa !1491
+  br label %45
 
-46:                                               ; preds = %45, %.lr.ph.i.i.i.i.i
-  %47 = phi double [ %43, %45 ], [ %39, %.lr.ph.i.i.i.i.i ]
-  %48 = fcmp ogt double %43, %40
-  br i1 %48, label %49, label %50
+45:                                               ; preds = %44, %.lr.ph.i.i.i.i.i
+  %46 = phi double [ %42, %44 ], [ %38, %.lr.ph.i.i.i.i.i ]
+  %47 = fcmp ogt double %42, %39
+  br i1 %47, label %48, label %49
 
-49:                                               ; preds = %46
-  store double %43, ptr %37, align 8, !tbaa !1491
-  br label %50
+48:                                               ; preds = %45
+  store double %42, ptr %36, align 8, !tbaa !1491
+  br label %49
 
-50:                                               ; preds = %49, %46
-  %51 = phi double [ %43, %49 ], [ %40, %46 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.pn17.i.i.i.i.i, i64 48
-  %53 = load double, ptr %52, align 8, !tbaa !1492
-  %54 = fcmp olt double %53, %41
-  br i1 %54, label %55, label %56
+49:                                               ; preds = %48, %45
+  %50 = phi double [ %42, %48 ], [ %39, %45 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.pn17.i.i.i.i.i, i64 48
+  %52 = load double, ptr %51, align 8, !tbaa !1492
+  %53 = fcmp olt double %52, %40
+  br i1 %53, label %54, label %55
 
-55:                                               ; preds = %50
-  store double %53, ptr %36, align 8, !tbaa !1492
-  br label %56
+54:                                               ; preds = %49
+  store double %52, ptr %35, align 8, !tbaa !1492
+  br label %55
 
-56:                                               ; preds = %55, %50
-  %57 = phi double [ %53, %55 ], [ %41, %50 ]
-  %58 = fcmp ogt double %53, %42
-  br i1 %58, label %59, label %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i
+55:                                               ; preds = %54, %49
+  %56 = phi double [ %52, %54 ], [ %40, %49 ]
+  %57 = fcmp ogt double %52, %41
+  br i1 %57, label %58, label %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i
 
-59:                                               ; preds = %56
-  store double %53, ptr %38, align 8, !tbaa !1492
+58:                                               ; preds = %55
+  store double %52, ptr %37, align 8, !tbaa !1492
   br label %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i
 
-_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i: ; preds = %59, %56
-  %60 = phi double [ %42, %56 ], [ %53, %59 ]
+_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i: ; preds = %58, %55
+  %59 = phi double [ %41, %55 ], [ %52, %58 ]
   %.sroa.06.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.06.018.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i.i.i, %29
   br i1 %.not.i.i.i.i.i, label %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !3769
 
-61:                                               ; preds = %3
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !3770
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %65 = load i64, ptr %64, align 8, !tbaa !3427
-  %66 = load ptr, ptr %63, align 8, !tbaa !2529
-  %67 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffered_ring", ptr %66, i64 %65
-  %68 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %69 = load ptr, ptr %67, align 8, !tbaa !174
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !174
-  %72 = icmp eq ptr %69, %71
-  br i1 %72, label %73, label %77
+60:                                               ; preds = %3
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %62 = load ptr, ptr %61, align 8, !tbaa !3770
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %64 = load i64, ptr %63, align 8, !tbaa !3427
+  %65 = load ptr, ptr %62, align 8, !tbaa !2529
+  %66 = getelementptr inbounds nuw %"struct.boost::geometry::detail::buffer::buffered_ring", ptr %65, i64 %64
+  %67 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %68 = load ptr, ptr %66, align 8, !tbaa !174
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !174
+  %71 = icmp eq ptr %68, %70
+  br i1 %71, label %72, label %75
 
-73:                                               ; preds = %61
-  store double 0x7FEFFFFFFFFFFFFF, ptr %68, align 8, !tbaa !1491
-  %74 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store double 0xFFEFFFFFFFFFFFFF, ptr %74, align 8, !tbaa !1491
-  %75 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store double 0x7FEFFFFFFFFFFFFF, ptr %75, align 8, !tbaa !1492
-  %76 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store double 0xFFEFFFFFFFFFFFFF, ptr %76, align 8, !tbaa !1492
+72:                                               ; preds = %60
+  store double 0x7FEFFFFFFFFFFFFF, ptr %67, align 8, !tbaa !1491
+  %73 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  store double 0xFFEFFFFFFFFFFFFF, ptr %73, align 8, !tbaa !1491
+  %74 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  store double 0x7FEFFFFFFFFFFFFF, ptr %74, align 8, !tbaa !1492
   br label %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit
 
-77:                                               ; preds = %61
-  %78 = load double, ptr %69, align 8, !tbaa !1491
-  store double %78, ptr %68, align 8, !tbaa !1491
-  %79 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %80 = load double, ptr %79, align 8, !tbaa !1492
-  %81 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store double %80, ptr %81, align 8, !tbaa !1492
-  %82 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store double %78, ptr %82, align 8, !tbaa !1491
-  %83 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store double %80, ptr %83, align 8, !tbaa !1492
-  %.sroa.06.015.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %69, i64 40
-  %.not16.i.i.i.i.i15 = icmp eq ptr %.sroa.06.015.i.i.i.i.i14, %71
+75:                                               ; preds = %60
+  %76 = load double, ptr %68, align 8, !tbaa !1491
+  store double %76, ptr %67, align 8, !tbaa !1491
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %78 = load double, ptr %77, align 8, !tbaa !1492
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  store double %78, ptr %79, align 8, !tbaa !1492
+  %80 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  store double %76, ptr %80, align 8, !tbaa !1491
+  %81 = getelementptr inbounds nuw i8, ptr %17, i64 88
+  store double %78, ptr %81, align 8, !tbaa !1492
+  %.sroa.06.015.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %.not16.i.i.i.i.i15 = icmp eq ptr %.sroa.06.015.i.i.i.i.i14, %70
   br i1 %.not16.i.i.i.i.i15, label %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit, label %.lr.ph.i.i.i.i.i16
 
-.lr.ph.i.i.i.i.i16:                               ; preds = %77, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19
-  %.sroa.06.018.i.i.i.i.i17 = phi ptr [ %.sroa.06.0.i.i.i.i.i20, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %.sroa.06.015.i.i.i.i.i14, %77 ]
-  %.pn17.i.i.i.i.i18 = phi ptr [ %.sroa.06.018.i.i.i.i.i17, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %69, %77 ]
-  %84 = phi double [ %92, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %78, %77 ]
-  %85 = phi double [ %96, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %78, %77 ]
-  %86 = phi double [ %102, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %80, %77 ]
-  %87 = phi double [ %105, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %80, %77 ]
-  %88 = load double, ptr %.sroa.06.018.i.i.i.i.i17, align 8, !tbaa !1491
-  %89 = fcmp olt double %88, %84
-  br i1 %89, label %90, label %91
+.lr.ph.i.i.i.i.i16:                               ; preds = %75, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19
+  %.sroa.06.018.i.i.i.i.i17 = phi ptr [ %.sroa.06.0.i.i.i.i.i20, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %.sroa.06.015.i.i.i.i.i14, %75 ]
+  %.pn17.i.i.i.i.i18 = phi ptr [ %.sroa.06.018.i.i.i.i.i17, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %68, %75 ]
+  %82 = phi double [ %90, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %76, %75 ]
+  %83 = phi double [ %94, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %76, %75 ]
+  %84 = phi double [ %100, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %78, %75 ]
+  %85 = phi double [ %103, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %78, %75 ]
+  %86 = load double, ptr %.sroa.06.018.i.i.i.i.i17, align 8, !tbaa !1491
+  %87 = fcmp olt double %86, %82
+  br i1 %87, label %88, label %89
 
-90:                                               ; preds = %.lr.ph.i.i.i.i.i16
-  store double %88, ptr %68, align 8, !tbaa !1491
-  br label %91
+88:                                               ; preds = %.lr.ph.i.i.i.i.i16
+  store double %86, ptr %67, align 8, !tbaa !1491
+  br label %89
 
-91:                                               ; preds = %90, %.lr.ph.i.i.i.i.i16
-  %92 = phi double [ %88, %90 ], [ %84, %.lr.ph.i.i.i.i.i16 ]
-  %93 = fcmp ogt double %88, %85
-  br i1 %93, label %94, label %95
+89:                                               ; preds = %88, %.lr.ph.i.i.i.i.i16
+  %90 = phi double [ %86, %88 ], [ %82, %.lr.ph.i.i.i.i.i16 ]
+  %91 = fcmp ogt double %86, %83
+  br i1 %91, label %92, label %93
 
-94:                                               ; preds = %91
-  store double %88, ptr %82, align 8, !tbaa !1491
-  br label %95
+92:                                               ; preds = %89
+  store double %86, ptr %80, align 8, !tbaa !1491
+  br label %93
 
-95:                                               ; preds = %94, %91
-  %96 = phi double [ %88, %94 ], [ %85, %91 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.pn17.i.i.i.i.i18, i64 48
-  %98 = load double, ptr %97, align 8, !tbaa !1492
-  %99 = fcmp olt double %98, %86
-  br i1 %99, label %100, label %101
+93:                                               ; preds = %92, %89
+  %94 = phi double [ %86, %92 ], [ %83, %89 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.pn17.i.i.i.i.i18, i64 48
+  %96 = load double, ptr %95, align 8, !tbaa !1492
+  %97 = fcmp olt double %96, %84
+  br i1 %97, label %98, label %99
 
-100:                                              ; preds = %95
-  store double %98, ptr %81, align 8, !tbaa !1492
-  br label %101
+98:                                               ; preds = %93
+  store double %96, ptr %79, align 8, !tbaa !1492
+  br label %99
 
-101:                                              ; preds = %100, %95
-  %102 = phi double [ %98, %100 ], [ %86, %95 ]
-  %103 = fcmp ogt double %98, %87
-  br i1 %103, label %104, label %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19
+99:                                               ; preds = %98, %93
+  %100 = phi double [ %96, %98 ], [ %84, %93 ]
+  %101 = fcmp ogt double %96, %85
+  br i1 %101, label %102, label %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19
 
-104:                                              ; preds = %101
-  store double %98, ptr %83, align 8, !tbaa !1492
+102:                                              ; preds = %99
+  store double %96, ptr %81, align 8, !tbaa !1492
   br label %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19
 
-_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19: ; preds = %104, %101
-  %105 = phi double [ %87, %101 ], [ %98, %104 ]
+_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19: ; preds = %102, %99
+  %103 = phi double [ %85, %99 ], [ %96, %102 ]
   %.sroa.06.0.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %.sroa.06.018.i.i.i.i.i17, i64 40
-  %.not.i.i.i.i.i21 = icmp eq ptr %.sroa.06.0.i.i.i.i.i20, %71
+  %.not.i.i.i.i.i21 = icmp eq ptr %.sroa.06.0.i.i.i.i.i20, %70
   br i1 %.not.i.i.i.i.i21, label %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit, label %.lr.ph.i.i.i.i.i16, !llvm.loop !3769
 
-106:                                              ; preds = %3
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %108 = load ptr, ptr %107, align 8, !tbaa !3771
-  %109 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %110 = load i64, ptr %109, align 8, !tbaa !3427
-  %111 = load ptr, ptr %108, align 8, !tbaa !174
-  %112 = getelementptr inbounds %"class.boost::geometry::model::ring", ptr %111, i64 %110
-  %113 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %114 = load ptr, ptr %112, align 8, !tbaa !174
-  %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !174
-  %117 = icmp eq ptr %114, %116
-  br i1 %117, label %118, label %122
+104:                                              ; preds = %3
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %106 = load ptr, ptr %105, align 8, !tbaa !3771
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %108 = load i64, ptr %107, align 8, !tbaa !3427
+  %109 = load ptr, ptr %106, align 8, !tbaa !174
+  %110 = getelementptr inbounds %"class.boost::geometry::model::ring", ptr %109, i64 %108
+  %111 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %112 = load ptr, ptr %110, align 8, !tbaa !174
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %114 = load ptr, ptr %113, align 8, !tbaa !174
+  %115 = icmp eq ptr %112, %114
+  br i1 %115, label %116, label %120
 
-118:                                              ; preds = %106
-  store double 0x7FEFFFFFFFFFFFFF, ptr %113, align 8, !tbaa !1491
-  %119 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store double 0xFFEFFFFFFFFFFFFF, ptr %119, align 8, !tbaa !1491
-  %120 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store double 0x7FEFFFFFFFFFFFFF, ptr %120, align 8, !tbaa !1492
-  %121 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store double 0xFFEFFFFFFFFFFFFF, ptr %121, align 8, !tbaa !1492
+116:                                              ; preds = %104
+  store double 0x7FEFFFFFFFFFFFFF, ptr %111, align 8, !tbaa !1491
+  %117 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  store double 0xFFEFFFFFFFFFFFFF, ptr %117, align 8, !tbaa !1491
+  %118 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  store double 0x7FEFFFFFFFFFFFFF, ptr %118, align 8, !tbaa !1492
+  %119 = getelementptr inbounds nuw i8, ptr %17, i64 88
+  store double 0xFFEFFFFFFFFFFFFF, ptr %119, align 8, !tbaa !1492
   br label %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit
 
-122:                                              ; preds = %106
-  %123 = load double, ptr %114, align 8, !tbaa !1491
-  store double %123, ptr %113, align 8, !tbaa !1491
-  %124 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %125 = load double, ptr %124, align 8, !tbaa !1492
-  %126 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store double %125, ptr %126, align 8, !tbaa !1492
-  %127 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  store double %123, ptr %127, align 8, !tbaa !1491
-  %128 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store double %125, ptr %128, align 8, !tbaa !1492
-  %.sroa.06.015.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %114, i64 40
-  %.not16.i.i.i.i.i24 = icmp eq ptr %.sroa.06.015.i.i.i.i.i23, %116
+120:                                              ; preds = %104
+  %121 = load double, ptr %112, align 8, !tbaa !1491
+  store double %121, ptr %111, align 8, !tbaa !1491
+  %122 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %123 = load double, ptr %122, align 8, !tbaa !1492
+  %124 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  store double %123, ptr %124, align 8, !tbaa !1492
+  %125 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  store double %121, ptr %125, align 8, !tbaa !1491
+  %126 = getelementptr inbounds nuw i8, ptr %17, i64 88
+  store double %123, ptr %126, align 8, !tbaa !1492
+  %.sroa.06.015.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %112, i64 40
+  %.not16.i.i.i.i.i24 = icmp eq ptr %.sroa.06.015.i.i.i.i.i23, %114
   br i1 %.not16.i.i.i.i.i24, label %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit, label %.lr.ph.i.i.i.i.i25
 
-.lr.ph.i.i.i.i.i25:                               ; preds = %122, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28
-  %.sroa.06.018.i.i.i.i.i26 = phi ptr [ %.sroa.06.0.i.i.i.i.i29, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %.sroa.06.015.i.i.i.i.i23, %122 ]
-  %.pn17.i.i.i.i.i27 = phi ptr [ %.sroa.06.018.i.i.i.i.i26, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %114, %122 ]
-  %129 = phi double [ %137, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %123, %122 ]
-  %130 = phi double [ %141, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %123, %122 ]
-  %131 = phi double [ %147, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %125, %122 ]
-  %132 = phi double [ %150, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %125, %122 ]
-  %133 = load double, ptr %.sroa.06.018.i.i.i.i.i26, align 8, !tbaa !1491
-  %134 = fcmp olt double %133, %129
-  br i1 %134, label %135, label %136
+.lr.ph.i.i.i.i.i25:                               ; preds = %120, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28
+  %.sroa.06.018.i.i.i.i.i26 = phi ptr [ %.sroa.06.0.i.i.i.i.i29, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %.sroa.06.015.i.i.i.i.i23, %120 ]
+  %.pn17.i.i.i.i.i27 = phi ptr [ %.sroa.06.018.i.i.i.i.i26, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %112, %120 ]
+  %127 = phi double [ %135, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %121, %120 ]
+  %128 = phi double [ %139, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %121, %120 ]
+  %129 = phi double [ %145, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %123, %120 ]
+  %130 = phi double [ %148, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ], [ %123, %120 ]
+  %131 = load double, ptr %.sroa.06.018.i.i.i.i.i26, align 8, !tbaa !1491
+  %132 = fcmp olt double %131, %127
+  br i1 %132, label %133, label %134
 
-135:                                              ; preds = %.lr.ph.i.i.i.i.i25
-  store double %133, ptr %113, align 8, !tbaa !1491
-  br label %136
+133:                                              ; preds = %.lr.ph.i.i.i.i.i25
+  store double %131, ptr %111, align 8, !tbaa !1491
+  br label %134
 
-136:                                              ; preds = %135, %.lr.ph.i.i.i.i.i25
-  %137 = phi double [ %133, %135 ], [ %129, %.lr.ph.i.i.i.i.i25 ]
-  %138 = fcmp ogt double %133, %130
-  br i1 %138, label %139, label %140
+134:                                              ; preds = %133, %.lr.ph.i.i.i.i.i25
+  %135 = phi double [ %131, %133 ], [ %127, %.lr.ph.i.i.i.i.i25 ]
+  %136 = fcmp ogt double %131, %128
+  br i1 %136, label %137, label %138
 
-139:                                              ; preds = %136
-  store double %133, ptr %127, align 8, !tbaa !1491
-  br label %140
+137:                                              ; preds = %134
+  store double %131, ptr %125, align 8, !tbaa !1491
+  br label %138
 
-140:                                              ; preds = %139, %136
-  %141 = phi double [ %133, %139 ], [ %130, %136 ]
-  %142 = getelementptr inbounds nuw i8, ptr %.pn17.i.i.i.i.i27, i64 48
-  %143 = load double, ptr %142, align 8, !tbaa !1492
-  %144 = fcmp olt double %143, %131
-  br i1 %144, label %145, label %146
+138:                                              ; preds = %137, %134
+  %139 = phi double [ %131, %137 ], [ %128, %134 ]
+  %140 = getelementptr inbounds nuw i8, ptr %.pn17.i.i.i.i.i27, i64 48
+  %141 = load double, ptr %140, align 8, !tbaa !1492
+  %142 = fcmp olt double %141, %129
+  br i1 %142, label %143, label %144
 
-145:                                              ; preds = %140
-  store double %143, ptr %126, align 8, !tbaa !1492
-  br label %146
+143:                                              ; preds = %138
+  store double %141, ptr %124, align 8, !tbaa !1492
+  br label %144
 
-146:                                              ; preds = %145, %140
-  %147 = phi double [ %143, %145 ], [ %131, %140 ]
-  %148 = fcmp ogt double %143, %132
-  br i1 %148, label %149, label %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28
+144:                                              ; preds = %143, %138
+  %145 = phi double [ %141, %143 ], [ %129, %138 ]
+  %146 = fcmp ogt double %141, %130
+  br i1 %146, label %147, label %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28
 
-149:                                              ; preds = %146
-  store double %143, ptr %128, align 8, !tbaa !1492
+147:                                              ; preds = %144
+  store double %141, ptr %126, align 8, !tbaa !1492
   br label %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28
 
-_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28: ; preds = %149, %146
-  %150 = phi double [ %132, %146 ], [ %143, %149 ]
+_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28: ; preds = %147, %144
+  %148 = phi double [ %130, %144 ], [ %141, %147 ]
   %.sroa.06.0.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %.sroa.06.018.i.i.i.i.i26, i64 40
-  %.not.i.i.i.i.i30 = icmp eq ptr %.sroa.06.0.i.i.i.i.i29, %116
+  %.not.i.i.i.i.i30 = icmp eq ptr %.sroa.06.0.i.i.i.i.i29, %114
   br i1 %.not.i.i.i.i.i30, label %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit, label %.lr.ph.i.i.i.i.i25, !llvm.loop !3772
 
-_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit: ; preds = %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i, %._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge, %122, %118, %77, %73, %32, %31
-  %151 = phi double [ %.pre42, %._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge ], [ %125, %122 ], [ 0xFFEFFFFFFFFFFFFF, %118 ], [ %80, %77 ], [ 0xFFEFFFFFFFFFFFFF, %73 ], [ %35, %32 ], [ 0xFFEFFFFFFFFFFFFF, %31 ], [ %60, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %105, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %150, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ]
-  %152 = phi double [ %.pre40, %._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge ], [ %123, %122 ], [ 0xFFEFFFFFFFFFFFFF, %118 ], [ %78, %77 ], [ 0xFFEFFFFFFFFFFFFF, %73 ], [ %33, %32 ], [ 0xFFEFFFFFFFFFFFFF, %31 ], [ %51, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %96, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %141, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ]
-  %153 = phi double [ %.pre38, %._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge ], [ %125, %122 ], [ 0x7FEFFFFFFFFFFFFF, %118 ], [ %80, %77 ], [ 0x7FEFFFFFFFFFFFFF, %73 ], [ %35, %32 ], [ 0x7FEFFFFFFFFFFFFF, %31 ], [ %57, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %102, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %147, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ]
-  %154 = phi double [ %.pre, %._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge ], [ %123, %122 ], [ 0x7FEFFFFFFFFFFFFF, %118 ], [ %78, %77 ], [ 0x7FEFFFFFFFFFFFFF, %73 ], [ %33, %32 ], [ 0x7FEFFFFFFFFFFFFF, %31 ], [ %47, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %92, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %137, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ]
-  %155 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %156 = tail call noundef double @llvm.fabs.f64(double %154)
-  %157 = fcmp olt double %156, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i = select i1 %157, double 1.000000e+00, double %156
-  %158 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
-  %159 = fsub double %154, %158
-  store double %159, ptr %155, align 8, !tbaa !1491
-  %160 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %161 = tail call noundef double @llvm.fabs.f64(double %153)
-  %162 = fcmp olt double %161, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i = select i1 %162, double 1.000000e+00, double %161
-  %163 = fmul double %.sroa.speculated.i.i.i.i.i.i, 0x3CB0000000000000
-  %164 = fsub double %153, %163
-  store double %164, ptr %160, align 8, !tbaa !1492
-  %165 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %166 = tail call noundef double @llvm.fabs.f64(double %152)
-  %167 = fcmp olt double %166, 1.000000e+00
-  %.sroa.speculated.i.i.i2.i.i = select i1 %167, double 1.000000e+00, double %166
-  %168 = fmul double %.sroa.speculated.i.i.i2.i.i, 0x3CB0000000000000
-  %169 = fadd double %152, %168
-  store double %169, ptr %165, align 8, !tbaa !1491
-  %170 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  %171 = tail call noundef double @llvm.fabs.f64(double %151)
-  %172 = fcmp olt double %171, 1.000000e+00
-  %.sroa.speculated.i.i.i.i3.i.i = select i1 %172, double 1.000000e+00, double %171
-  %173 = fmul double %.sroa.speculated.i.i.i.i3.i.i, 0x3CB0000000000000
-  %174 = fadd double %151, %173
-  store double %174, ptr %170, align 8, !tbaa !1492
-  %175 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %176 = load double, ptr %175, align 8, !tbaa !3773
-  %177 = fcmp ogt double %176, 0.000000e+00
-  br i1 %177, label %178, label %185
+_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit: ; preds = %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i, %19, %._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge, %120, %116, %75, %72, %31
+  %149 = phi double [ %.pre42, %._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge ], [ %123, %120 ], [ 0xFFEFFFFFFFFFFFFF, %116 ], [ %78, %75 ], [ 0xFFEFFFFFFFFFFFFF, %72 ], [ %34, %31 ], [ 0xFFEFFFFFFFFFFFFF, %19 ], [ %59, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %103, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %148, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ]
+  %150 = phi double [ %.pre40, %._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge ], [ %121, %120 ], [ 0xFFEFFFFFFFFFFFFF, %116 ], [ %76, %75 ], [ 0xFFEFFFFFFFFFFFFF, %72 ], [ %32, %31 ], [ 0xFFEFFFFFFFFFFFFF, %19 ], [ %50, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %94, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %139, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ]
+  %151 = phi double [ %.pre38, %._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge ], [ %123, %120 ], [ 0x7FEFFFFFFFFFFFFF, %116 ], [ %78, %75 ], [ 0x7FEFFFFFFFFFFFFF, %72 ], [ %34, %31 ], [ 0x7FEFFFFFFFFFFFFF, %19 ], [ %56, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %100, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %145, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ]
+  %152 = phi double [ %.pre, %._ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit_crit_edge ], [ %121, %120 ], [ 0x7FEFFFFFFFFFFFFF, %116 ], [ %76, %75 ], [ 0x7FEFFFFFFFFFFFFF, %72 ], [ %32, %31 ], [ 0x7FEFFFFFFFFFFFFF, %19 ], [ %46, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i ], [ %90, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i19 ], [ %135, %_ZN5boost8geometry8strategy6expand15cartesian_point5applyINS0_5model3boxI14specific_pointEES7_EEvRT_RKT0_.exit.i.i.i.i.i28 ]
+  %153 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %154 = tail call noundef double @llvm.fabs.f64(double %152)
+  %155 = fcmp olt double %154, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i = select i1 %155, double 1.000000e+00, double %154
+  %156 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
+  %157 = fsub double %152, %156
+  store double %157, ptr %153, align 8, !tbaa !1491
+  %158 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %159 = tail call noundef double @llvm.fabs.f64(double %151)
+  %160 = fcmp olt double %159, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i = select i1 %160, double 1.000000e+00, double %159
+  %161 = fmul double %.sroa.speculated.i.i.i.i.i.i, 0x3CB0000000000000
+  %162 = fsub double %151, %161
+  store double %162, ptr %158, align 8, !tbaa !1492
+  %163 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  %164 = tail call noundef double @llvm.fabs.f64(double %150)
+  %165 = fcmp olt double %164, 1.000000e+00
+  %.sroa.speculated.i.i.i2.i.i = select i1 %165, double 1.000000e+00, double %164
+  %166 = fmul double %.sroa.speculated.i.i.i2.i.i, 0x3CB0000000000000
+  %167 = fadd double %150, %166
+  store double %167, ptr %163, align 8, !tbaa !1491
+  %168 = getelementptr inbounds nuw i8, ptr %17, i64 88
+  %169 = tail call noundef double @llvm.fabs.f64(double %149)
+  %170 = fcmp olt double %169, 1.000000e+00
+  %.sroa.speculated.i.i.i.i3.i.i = select i1 %170, double 1.000000e+00, double %169
+  %171 = fmul double %.sroa.speculated.i.i.i.i3.i.i, 0x3CB0000000000000
+  %172 = fadd double %149, %171
+  store double %172, ptr %168, align 8, !tbaa !1492
+  %173 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %174 = load double, ptr %173, align 8, !tbaa !3773
+  %175 = fcmp ogt double %174, 0.000000e+00
+  br i1 %175, label %176, label %183
 
-178:                                              ; preds = %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %180 = load ptr, ptr %179, align 8, !tbaa !3775
-  %181 = load i64, ptr %180, align 8, !tbaa !93
-  %182 = add i64 %181, 1
-  store i64 %182, ptr %180, align 8, !tbaa !93
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %184 = load ptr, ptr %183, align 8, !tbaa !3776
-  store i64 %1, ptr %184, align 8, !tbaa !93
-  br label %185
+176:                                              ; preds = %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %178 = load ptr, ptr %177, align 8, !tbaa !3775
+  %179 = load i64, ptr %178, align 8, !tbaa !93
+  %180 = add i64 %179, 1
+  store i64 %180, ptr %178, align 8, !tbaa !93
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %182 = load ptr, ptr %181, align 8, !tbaa !3776
+  store i64 %1, ptr %182, align 8, !tbaa !93
+  br label %183
 
-185:                                              ; preds = %178, %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit
+183:                                              ; preds = %176, %_ZN5boost8geometry8envelopeINS0_6detail6buffer13buffered_ringINS0_5model4ringI14specific_pointLb1ELb1ESt6vectorSaEEEENS5_3boxIS7_EENS0_10strategies6buffer9cartesianIvEEEEvRKT_RT0_RKT1_.exit
   ret void
 }
 

@@ -1516,7 +1516,7 @@ default.unreachable:                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %20)
   %109 = load i64, ptr %59, align 8, !range !244, !noundef !3
   %110 = icmp eq i64 %109, -9223372036854775807
-  br i1 %110, label %356, label %357
+  br i1 %110, label %357, label %356
 
 111:                                              ; preds = %105
   %112 = load i64, ptr %59, align 8, !range !244, !noundef !3
@@ -2419,14 +2419,14 @@ _ZN5serde2de9MapAccess10next_value17hd89a3133895a9fc3E.exit: ; preds = %336
   br i1 %or.cond751.not, label %444, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$uv_normalize..group_name..GroupName$GT$$GT$17h15a44d25ad4d1453E.exit"
 
 356:                                              ; preds = %108
-  store i64 -9223372036854775808, ptr %20, align 8
-  br label %358
-
-357:                                              ; preds = %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %20, ptr noundef nonnull align 8 dereferenceable(88) %59, i64 88, i1 false)
   br label %358
 
-358:                                              ; preds = %356, %357
+357:                                              ; preds = %108
+  store i64 -9223372036854775808, ptr %20, align 8
+  br label %358
+
+358:                                              ; preds = %357, %356
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   %359 = load i64, ptr %58, align 8, !range !86, !noundef !3
   %trunc557 = trunc nuw i64 %359 to i1
@@ -2446,59 +2446,59 @@ _ZN5serde2de9MapAccess10next_value17hd89a3133895a9fc3E.exit: ; preds = %336
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   %366 = load i64, ptr %57, align 8, !range !244, !noundef !3
   %367 = icmp eq i64 %366, -9223372036854775807
-  br i1 %367, label %368, label %369
+  br i1 %367, label %369, label %368
 
 368:                                              ; preds = %364
-  store i64 -9223372036854775808, ptr %18, align 8
-  br label %370
-
-369:                                              ; preds = %364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
   br label %370
 
-370:                                              ; preds = %368, %369
+369:                                              ; preds = %364
+  store i64 -9223372036854775808, ptr %18, align 8
+  br label %370
+
+370:                                              ; preds = %369, %368
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   %371 = load i64, ptr %56, align 8, !range !244, !noundef !3
   %372 = icmp eq i64 %371, -9223372036854775807
-  br i1 %372, label %373, label %374
+  br i1 %372, label %374, label %373
 
 373:                                              ; preds = %370
-  store i64 -9223372036854775808, ptr %17, align 8
-  br label %375
-
-374:                                              ; preds = %370
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false)
   br label %375
 
-375:                                              ; preds = %373, %374
+374:                                              ; preds = %370
+  store i64 -9223372036854775808, ptr %17, align 8
+  br label %375
+
+375:                                              ; preds = %374, %373
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   %376 = load i64, ptr %55, align 8, !range !244, !noundef !3
   %377 = icmp eq i64 %376, -9223372036854775807
-  br i1 %377, label %378, label %379
+  br i1 %377, label %379, label %378
 
 378:                                              ; preds = %375
-  store i64 -9223372036854775808, ptr %16, align 8
-  br label %380
-
-379:                                              ; preds = %375
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
   br label %380
 
-380:                                              ; preds = %378, %379
+379:                                              ; preds = %375
+  store i64 -9223372036854775808, ptr %16, align 8
+  br label %380
+
+380:                                              ; preds = %379, %378
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %15)
   %381 = load i64, ptr %54, align 8, !range !244, !noundef !3
   %382 = icmp eq i64 %381, -9223372036854775807
-  br i1 %382, label %383, label %384
+  br i1 %382, label %384, label %383
 
 383:                                              ; preds = %380
-  store i64 -9223372036854775808, ptr %15, align 8
-  br label %385
-
-384:                                              ; preds = %380
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %15, ptr noundef nonnull align 8 dereferenceable(88) %54, i64 88, i1 false)
   br label %385
 
-385:                                              ; preds = %383, %384
+384:                                              ; preds = %380
+  store i64 -9223372036854775808, ptr %15, align 8
+  br label %385
+
+385:                                              ; preds = %384, %383
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   %386 = load i64, ptr %53, align 8, !range !86, !noundef !3
   %trunc558 = trunc nuw i64 %386 to i1
@@ -4930,8 +4930,8 @@ define hidden void @"_ZN77_$LT$toml_edit..de..table..TableMapAccess$u20$as$u20$s
           to label %.critedge unwind label %55
 
 .critedge:                                        ; preds = %.body23, %58
-  %.pn42 = phi { ptr, i32 } [ %.pn.ph, %58 ], [ %eh.lpad-body24, %.body23 ]
-  resume { ptr, i32 } %.pn42
+  %.pn41 = phi { ptr, i32 } [ %.pn.ph, %58 ], [ %eh.lpad-body24, %.body23 ]
+  resume { ptr, i32 } %.pn41
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -10498,8 +10498,8 @@ _ZN5serde2de9MapAccess10next_value17h50dfb2dab49c5938E.exit: ; preds = %105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4218.0..sroa_idx, i64 16, i1 false)
   br label %223
 
-223:                                              ; preds = %.thread226, %.thread226.thread, %222
-  %.sroa.0214.0 = phi i64 [ %.pre, %222 ], [ -9223372036854775808, %.thread226.thread ], [ -9223372036854775808, %.thread226 ]
+223:                                              ; preds = %.thread226.thread, %.thread226, %222
+  %.sroa.0214.0 = phi i64 [ %.pre, %222 ], [ -9223372036854775808, %.thread226 ], [ -9223372036854775808, %.thread226.thread ]
   %224 = load i64, ptr %37, align 8, !range !86, !noundef !3
   %trunc160 = trunc nuw i64 %224 to i1
   %225 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -11218,8 +11218,8 @@ _ZN5serde2de9MapAccess10next_value17h50dfb2dab49c5938E.exit: ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(624) %.sroa.338, ptr noundef nonnull align 8 dereferenceable(624) %.sroa.338.0..sroa_idx, i64 624, i1 false)
   br label %133
 
-133:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h362a9a04b02a9ac2E.llvm.2447653479177066093.exit.i.i.i._crit_edge", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h362a9a04b02a9ac2E.llvm.2447653479177066093.exit.i.i.i._crit_edge.thread", %132
-  %.sroa.036.0 = phi i64 [ %.pre, %132 ], [ 2, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h362a9a04b02a9ac2E.llvm.2447653479177066093.exit.i.i.i._crit_edge.thread" ], [ 2, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h362a9a04b02a9ac2E.llvm.2447653479177066093.exit.i.i.i._crit_edge" ]
+133:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h362a9a04b02a9ac2E.llvm.2447653479177066093.exit.i.i.i._crit_edge.thread", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h362a9a04b02a9ac2E.llvm.2447653479177066093.exit.i.i.i._crit_edge", %132
+  %.sroa.036.0 = phi i64 [ %.pre, %132 ], [ 2, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h362a9a04b02a9ac2E.llvm.2447653479177066093.exit.i.i.i._crit_edge" ], [ 2, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h362a9a04b02a9ac2E.llvm.2447653479177066093.exit.i.i.i._crit_edge.thread" ]
   store i64 %.sroa.036.0, ptr %0, align 8
   %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(624) %.sroa.441.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(624) %.sroa.338, i64 624, i1 false)
@@ -12247,37 +12247,37 @@ _ZN5serde2de9MapAccess10next_value17h4bcf8e8f790afb46E.exit: ; preds = %156
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49)
   %265 = load i64, ptr %65, align 8, !range !244, !noundef !3
   %266 = icmp eq i64 %265, -9223372036854775807
-  br i1 %266, label %267, label %268
+  br i1 %266, label %268, label %267
 
 267:                                              ; preds = %264
-  store i64 -9223372036854775808, ptr %49, align 8
-  br label %269
-
-268:                                              ; preds = %264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
   br label %269
 
-269:                                              ; preds = %267, %268
-  %.sroa.0117.6 = phi i8 [ 1, %267 ], [ 0, %268 ]
+268:                                              ; preds = %264
+  store i64 -9223372036854775808, ptr %49, align 8
+  br label %269
+
+269:                                              ; preds = %268, %267
+  %.sroa.0117.6 = phi i8 [ 1, %268 ], [ 0, %267 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48)
   %270 = load i64, ptr %64, align 8, !range !244, !noundef !3
   %271 = icmp eq i64 %270, -9223372036854775807
-  br i1 %271, label %272, label %273
+  br i1 %271, label %273, label %272
 
 272:                                              ; preds = %269
-  store i64 -9223372036854775808, ptr %48, align 8
-  br label %274
-
-273:                                              ; preds = %269
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false)
   br label %274
 
-274:                                              ; preds = %272, %273
-  %.sroa.0115.7 = phi i8 [ 1, %272 ], [ 0, %273 ]
+273:                                              ; preds = %269
+  store i64 -9223372036854775808, ptr %48, align 8
+  br label %274
+
+274:                                              ; preds = %273, %272
+  %.sroa.0115.7 = phi i8 [ 1, %273 ], [ 0, %272 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47)
   %275 = load i64, ptr %63, align 8, !range !244, !noundef !3
   %276 = icmp eq i64 %275, -9223372036854775807
-  br i1 %276, label %280, label %281
+  br i1 %276, label %281, label %280
 
 .noexc288:                                        ; preds = %287, %.noexc291
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
@@ -12290,19 +12290,19 @@ _ZN5serde2de9MapAccess10next_value17h4bcf8e8f790afb46E.exit: ; preds = %156
           to label %427 unwind label %.loopexit.split-lp465
 
 280:                                              ; preds = %274
-  store i64 -9223372036854775808, ptr %47, align 8
-  br label %282
-
-281:                                              ; preds = %274
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   br label %282
 
-282:                                              ; preds = %280, %281
-  %.sroa.0113.8 = phi i8 [ 1, %280 ], [ 0, %281 ]
+281:                                              ; preds = %274
+  store i64 -9223372036854775808, ptr %47, align 8
+  br label %282
+
+282:                                              ; preds = %281, %280
+  %.sroa.0113.8 = phi i8 [ 1, %281 ], [ 0, %280 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46)
   %283 = load i64, ptr %62, align 8, !range !127, !noundef !3
   %284 = icmp eq i64 %283, 2
-  br i1 %284, label %288, label %289
+  br i1 %284, label %289, label %288
 
 .noexc291:                                        ; preds = %301, %298
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47)
@@ -12315,15 +12315,15 @@ _ZN5serde2de9MapAccess10next_value17h4bcf8e8f790afb46E.exit: ; preds = %156
           to label %.noexc288 unwind label %425
 
 288:                                              ; preds = %282
-  store i64 0, ptr %46, align 8
-  br label %290
-
-289:                                              ; preds = %282
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %62, i64 32, i1 false)
   br label %290
 
-290:                                              ; preds = %288, %289
-  %.sroa.0111.9 = phi i8 [ 1, %288 ], [ 0, %289 ]
+289:                                              ; preds = %282
+  store i64 0, ptr %46, align 8
+  br label %290
+
+290:                                              ; preds = %289, %288
+  %.sroa.0111.9 = phi i8 [ 1, %289 ], [ 0, %288 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.697)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %44)

@@ -22262,9 +22262,7 @@ define void @_ZN11uv_settings8settings10PipOptions11relative_to17h1e0911d5feb7eb
   %.sroa.6.sroa.7 = alloca [16 x i8], align 8
   %26 = alloca [24 x i8], align 8
   %.sroa.0.sroa.0 = alloca [320 x i8], align 8
-  %.sroa.61 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %.sroa.0.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.61)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6.sroa.7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7.sroa.8)
@@ -22924,14 +22922,11 @@ define void @_ZN11uv_settings8settings10PipOptions11relative_to17h1e0911d5feb7eb
   store i8 %201, ptr %.sroa.59.0..sroa_idx, align 1
   %.sroa.60.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 706
   store i8 %167, ptr %.sroa.60.0..sroa_idx, align 2
-  %.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 707
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.61.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.61, i64 5, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.661.sroa.7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.642.sroa.7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.618)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.sroa.7)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %.sroa.0.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.61)
   br label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17hc962302e6879d9beE.exit332"
 
 202:                                              ; preds = %93
@@ -23067,7 +23062,6 @@ define void @_ZN11uv_settings8settings10PipOptions11relative_to17h1e0911d5feb7eb
   %.sroa.084.2 = phi i1 [ false, %235 ], [ true, %49 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.sroa.7)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %.sroa.0.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.61)
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 200
   call void @llvm.experimental.noalias.scope.decl(metadata !1717)
   %241 = load i64, ptr %240, align 8, !range !392, !alias.scope !1717, !noundef !3
@@ -26077,8 +26071,8 @@ define void @"_ZN11uv_settings8settings1_81_$LT$impl$u20$schemars..JsonSchema$u2
   store i64 -9223372036854775808, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 176
   store ptr null, ptr %27, align 8
-  %.sroa.2447.176..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 192
-  store i64 0, ptr %.sroa.2447.176..sroa_idx, align 8
+  %.sroa.1952.176..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 192
+  store i64 0, ptr %.sroa.1952.176..sroa_idx, align 8
   %28 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h4b1c88b721c5dcfbE(ptr noalias noundef nonnull align 8 dereferenceable(200) %14)
           to label %29 unwind label %57
 
@@ -26513,8 +26507,6 @@ define void @"_ZN93_$LT$uv_settings..settings..GlobalOptions$u20$as$u20$uv_optio
   %11 = alloca [144 x i8], align 8
   %12 = alloca [144 x i8], align 8
   %13 = alloca [144 x i8], align 8
-  %.sroa.11 = alloca [16 x i8], align 8
-  %.sroa.13 = alloca [32 x i8], align 8
   %14 = alloca [144 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
@@ -26688,8 +26680,6 @@ define void @"_ZN93_$LT$uv_settings..settings..GlobalOptions$u20$as$u20$uv_optio
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store i64 29, ptr %90, align 8
   store i64 0, ptr %8, align 8
-  %.sroa.13.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.0..sroa_idx17, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13, i64 32, i1 false)
   call void %26(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.152, i64 noundef 17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %8)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
@@ -26718,8 +26708,6 @@ define void @"_ZN93_$LT$uv_settings..settings..GlobalOptions$u20$as$u20$uv_optio
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store i64 27, ptr %104, align 8
   store i64 0, ptr %7, align 8
-  %.sroa.13.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.0..sroa_idx18, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13, i64 32, i1 false)
   call void %26(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.159, i64 noundef 16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %7)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
@@ -26742,12 +26730,8 @@ define void @"_ZN93_$LT$uv_settings..settings..GlobalOptions$u20$as$u20$uv_optio
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i64 24, ptr %113, align 8
   store i64 0, ptr %6, align 8
-  %.sroa.13.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.0..sroa_idx19, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13, i64 32, i1 false)
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 -9223372036854775808, ptr %114, align 8
-  %.sroa.11.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0..sroa_idx38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, i64 16, i1 false)
   call void %26(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.168, i64 noundef 20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %6)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -26770,12 +26754,8 @@ define void @"_ZN93_$LT$uv_settings..settings..GlobalOptions$u20$as$u20$uv_optio
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i64 21, ptr %123, align 8
   store i64 0, ptr %5, align 8
-  %.sroa.13.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.0..sroa_idx20, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13, i64 32, i1 false)
   %124 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 -9223372036854775808, ptr %124, align 8
-  %.sroa.11.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0..sroa_idx39, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, i64 16, i1 false)
   call void %26(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.173, i64 noundef 17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %5)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -26798,12 +26778,8 @@ define void @"_ZN93_$LT$uv_settings..settings..GlobalOptions$u20$as$u20$uv_optio
   %133 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i64 23, ptr %133, align 8
   store i64 0, ptr %4, align 8
-  %.sroa.13.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.0..sroa_idx21, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13, i64 32, i1 false)
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 -9223372036854775808, ptr %134, align 8
-  %.sroa.11.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0..sroa_idx40, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, i64 16, i1 false)
   call void %26(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.178, i64 noundef 19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %4)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -26826,12 +26802,8 @@ define void @"_ZN93_$LT$uv_settings..settings..GlobalOptions$u20$as$u20$uv_optio
   %143 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i64 40, ptr %143, align 8
   store i64 0, ptr %3, align 8
-  %.sroa.13.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13.0..sroa_idx22, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.13, i64 32, i1 false)
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 -9223372036854775808, ptr %144, align 8
-  %.sroa.11.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0..sroa_idx41, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, i64 16, i1 false)
   call void %26(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.187, i64 noundef 19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %3)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   ret void
@@ -26947,8 +26919,8 @@ define void @"_ZN11uv_settings8settings1_87_$LT$impl$u20$schemars..JsonSchema$u2
   store i64 -9223372036854775808, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 176
   store ptr null, ptr %42, align 8
-  %.sroa.2420.176..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 192
-  store i64 0, ptr %.sroa.2420.176..sroa_idx, align 8
+  %.sroa.1925.176..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 192
+  store i64 0, ptr %.sroa.1925.176..sroa_idx, align 8
   %43 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h4b1c88b721c5dcfbE(ptr noalias noundef nonnull align 8 dereferenceable(200) %27)
           to label %44 unwind label %33
 
@@ -29451,8 +29423,6 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %25 = alloca [144 x i8], align 8
   %26 = alloca [144 x i8], align 8
   %27 = alloca [144 x i8], align 8
-  %.sroa.22 = alloca [16 x i8], align 8
-  %.sroa.27 = alloca [32 x i8], align 8
   %28 = alloca [144 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %28)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
@@ -29624,12 +29594,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %103 = getelementptr inbounds nuw i8, ptr %22, i64 120
   store i64 31, ptr %103, align 8
   store i64 0, ptr %22, align 8
-  %.sroa.27.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx31, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i64 -9223372036854775808, ptr %104, align 8
-  %.sroa.22.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx76, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.245, i64 noundef 16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %22)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %21)
@@ -29658,8 +29624,6 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %118 = getelementptr inbounds nuw i8, ptr %21, i64 120
   store i64 28, ptr %118, align 8
   store i64 0, ptr %21, align 8
-  %.sroa.27.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx32, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.252, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %21)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %20)
@@ -29688,8 +29652,6 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %132 = getelementptr inbounds nuw i8, ptr %20, i64 120
   store i64 20, ptr %132, align 8
   store i64 0, ptr %20, align 8
-  %.sroa.27.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx33, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.259, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %20)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %19)
@@ -29718,8 +29680,6 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %146 = getelementptr inbounds nuw i8, ptr %19, i64 120
   store i64 24, ptr %146, align 8
   store i64 0, ptr %19, align 8
-  %.sroa.27.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx34, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.266, i64 noundef 13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %19)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %18)
@@ -29742,12 +29702,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %155 = getelementptr inbounds nuw i8, ptr %18, i64 120
   store i64 125, ptr %155, align 8
   store i64 0, ptr %18, align 8
-  %.sroa.27.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx35, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %156 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 -9223372036854775808, ptr %156, align 8
-  %.sroa.22.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx77, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.271, i64 noundef 19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %18)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %17)
@@ -29770,12 +29726,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %165 = getelementptr inbounds nuw i8, ptr %17, i64 120
   store i64 46, ptr %165, align 8
   store i64 0, ptr %17, align 8
-  %.sroa.27.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx36, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %166 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i64 -9223372036854775808, ptr %166, align 8
-  %.sroa.22.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx78, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.278, i64 noundef 15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %17)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %16)
@@ -29798,12 +29750,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %175 = getelementptr inbounds nuw i8, ptr %16, i64 120
   store i64 25, ptr %175, align 8
   store i64 0, ptr %16, align 8
-  %.sroa.27.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx37, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %176 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i64 -9223372036854775808, ptr %176, align 8
-  %.sroa.22.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx79, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.283, i64 noundef 18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %16)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15)
@@ -29826,12 +29774,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %185 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store i64 53, ptr %185, align 8
   store i64 0, ptr %15, align 8
-  %.sroa.27.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx38, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %186 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i64 -9223372036854775808, ptr %186, align 8
-  %.sroa.22.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx80, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.288, i64 noundef 26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %15)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14)
@@ -29854,12 +29798,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %195 = getelementptr inbounds nuw i8, ptr %14, i64 120
   store i64 28, ptr %195, align 8
   store i64 0, ptr %14, align 8
-  %.sroa.27.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx39, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %196 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i64 -9223372036854775808, ptr %196, align 8
-  %.sroa.22.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx81, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.293, i64 noundef 13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %14)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %13)
@@ -29888,8 +29828,6 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %210 = getelementptr inbounds nuw i8, ptr %13, i64 120
   store i64 18, ptr %210, align 8
   store i64 0, ptr %13, align 8
-  %.sroa.27.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx40, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.300, i64 noundef 9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %13)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12)
@@ -29912,12 +29850,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %219 = getelementptr inbounds nuw i8, ptr %12, i64 120
   store i64 23, ptr %219, align 8
   store i64 0, ptr %12, align 8
-  %.sroa.27.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx41, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %220 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 -9223372036854775808, ptr %220, align 8
-  %.sroa.22.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx82, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.305, i64 noundef 16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %12)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11)
@@ -29940,12 +29874,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %229 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i64 17, ptr %229, align 8
   store i64 0, ptr %11, align 8
-  %.sroa.27.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx42, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %230 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 -9223372036854775808, ptr %230, align 8
-  %.sroa.22.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx83, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.310, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %11)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
@@ -29968,12 +29898,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %239 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i64 14, ptr %239, align 8
   store i64 0, ptr %10, align 8
-  %.sroa.27.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx43, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %240 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 -9223372036854775808, ptr %240, align 8
-  %.sroa.22.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx84, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.315, i64 noundef 7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %10)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9)
@@ -29996,12 +29922,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %249 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store i64 26, ptr %249, align 8
   store i64 0, ptr %9, align 8
-  %.sroa.27.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx44, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %250 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 -9223372036854775808, ptr %250, align 8
-  %.sroa.22.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx85, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.320, i64 noundef 15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %9)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8)
@@ -30024,12 +29946,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %259 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store i64 16, ptr %259, align 8
   store i64 0, ptr %8, align 8
-  %.sroa.27.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx45, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %260 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 -9223372036854775808, ptr %260, align 8
-  %.sroa.22.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx86, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.325, i64 noundef 9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %8)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
@@ -30052,12 +29970,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %269 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store i64 28, ptr %269, align 8
   store i64 0, ptr %7, align 8
-  %.sroa.27.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx46, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %270 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 -9223372036854775808, ptr %270, align 8
-  %.sroa.22.0..sroa_idx87 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx87, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.330, i64 noundef 17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %7)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
@@ -30080,12 +29994,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %279 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i64 15, ptr %279, align 8
   store i64 0, ptr %6, align 8
-  %.sroa.27.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx47, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %280 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 -9223372036854775808, ptr %280, align 8
-  %.sroa.22.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx88, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.335, i64 noundef 8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %6)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -30108,12 +30018,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %289 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i64 27, ptr %289, align 8
   store i64 0, ptr %5, align 8
-  %.sroa.27.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx48, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %290 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 -9223372036854775808, ptr %290, align 8
-  %.sroa.22.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx89, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.340, i64 noundef 16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %5)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -30136,12 +30042,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %299 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i64 16, ptr %299, align 8
   store i64 0, ptr %4, align 8
-  %.sroa.27.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx49, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %300 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 -9223372036854775808, ptr %300, align 8
-  %.sroa.22.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx90, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.345, i64 noundef 9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %4)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -30164,12 +30066,8 @@ define void @"_ZN104_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$
   %309 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i64 28, ptr %309, align 8
   store i64 0, ptr %3, align 8
-  %.sroa.27.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27.0..sroa_idx50, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.27, i64 32, i1 false)
   %310 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 -9223372036854775808, ptr %310, align 8
-  %.sroa.22.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22.0..sroa_idx91, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.22, i64 16, i1 false)
   call void %40(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.350, i64 noundef 17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %3)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   ret void
@@ -30313,8 +30211,8 @@ define void @"_ZN11uv_settings8settings1_98_$LT$impl$u20$schemars..JsonSchema$u2
   store i64 -9223372036854775808, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %55, i64 176
   store ptr null, ptr %70, align 8
-  %.sroa.2420.176..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 192
-  store i64 0, ptr %.sroa.2420.176..sroa_idx, align 8
+  %.sroa.1925.176..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 192
+  store i64 0, ptr %.sroa.1925.176..sroa_idx, align 8
   %71 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h4b1c88b721c5dcfbE(ptr noalias noundef nonnull align 8 dereferenceable(200) %55)
           to label %72 unwind label %61
 
@@ -31177,8 +31075,8 @@ define void @"_ZN11uv_settings8settings1_94_$LT$impl$u20$schemars..JsonSchema$u2
   store i64 -9223372036854775808, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 176
   store ptr null, ptr %24, align 8
-  %.sroa.2420.176..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 192
-  store i64 0, ptr %.sroa.2420.176..sroa_idx, align 8
+  %.sroa.1925.176..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 192
+  store i64 0, ptr %.sroa.1925.176..sroa_idx, align 8
   %25 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h4b1c88b721c5dcfbE(ptr noalias noundef nonnull align 8 dereferenceable(200) %9)
           to label %26 unwind label %15
 
@@ -33254,8 +33152,6 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %55 = alloca [144 x i8], align 8
   %56 = alloca [144 x i8], align 8
   %57 = alloca [144 x i8], align 8
-  %.sroa.51 = alloca [16 x i8], align 8
-  %.sroa.57 = alloca [32 x i8], align 8
   %58 = alloca [144 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %58)
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
@@ -33447,12 +33343,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %139 = getelementptr inbounds nuw i8, ptr %51, i64 120
   store i64 15, ptr %139, align 8
   store i64 0, ptr %51, align 8
-  %.sroa.57.0..sroa_idx62 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx62, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %140 = getelementptr inbounds nuw i8, ptr %51, i64 40
   store i64 -9223372036854775808, ptr %140, align 8
-  %.sroa.51.0..sroa_idx167 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx167, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.226, i64 noundef 8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %51)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %50)
@@ -33475,12 +33367,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %149 = getelementptr inbounds nuw i8, ptr %50, i64 120
   store i64 67, ptr %149, align 8
   store i64 0, ptr %50, align 8
-  %.sroa.57.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx63, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %150 = getelementptr inbounds nuw i8, ptr %50, i64 40
   store i64 -9223372036854775808, ptr %150, align 8
-  %.sroa.51.0..sroa_idx168 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx168, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.231, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %50)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %50)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %49)
@@ -33509,8 +33397,6 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %164 = getelementptr inbounds nuw i8, ptr %49, i64 120
   store i64 36, ptr %164, align 8
   store i64 0, ptr %49, align 8
-  %.sroa.57.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx64, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.238, i64 noundef 14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %49)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %49)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %48)
@@ -33533,12 +33419,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %173 = getelementptr inbounds nuw i8, ptr %48, i64 120
   store i64 31, ptr %173, align 8
   store i64 0, ptr %48, align 8
-  %.sroa.57.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx65, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %174 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store i64 -9223372036854775808, ptr %174, align 8
-  %.sroa.51.0..sroa_idx169 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx169, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.245, i64 noundef 16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %48)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %48)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %47)
@@ -33561,12 +33443,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %183 = getelementptr inbounds nuw i8, ptr %47, i64 120
   store i64 15, ptr %183, align 8
   store i64 0, ptr %47, align 8
-  %.sroa.57.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx66, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %184 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store i64 -9223372036854775808, ptr %184, align 8
-  %.sroa.51.0..sroa_idx170 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx170, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.335, i64 noundef 8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %47)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %46)
@@ -33589,12 +33467,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %193 = getelementptr inbounds nuw i8, ptr %46, i64 120
   store i64 20, ptr %193, align 8
   store i64 0, ptr %46, align 8
-  %.sroa.57.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx67, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %194 = getelementptr inbounds nuw i8, ptr %46, i64 40
   store i64 -9223372036854775808, ptr %194, align 8
-  %.sroa.51.0..sroa_idx171 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx171, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.345, i64 noundef 9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %46)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %46)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %45)
@@ -33617,12 +33491,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %203 = getelementptr inbounds nuw i8, ptr %45, i64 120
   store i64 22, ptr %203, align 8
   store i64 0, ptr %45, align 8
-  %.sroa.57.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx68, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %204 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i64 -9223372036854775808, ptr %204, align 8
-  %.sroa.51.0..sroa_idx172 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx172, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.442, i64 noundef 11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %45)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %44)
@@ -33645,12 +33515,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %213 = getelementptr inbounds nuw i8, ptr %44, i64 120
   store i64 25, ptr %213, align 8
   store i64 0, ptr %44, align 8
-  %.sroa.57.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx69, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %214 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store i64 -9223372036854775808, ptr %214, align 8
-  %.sroa.51.0..sroa_idx173 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx173, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.283, i64 noundef 18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %44)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %43)
@@ -33673,12 +33539,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %223 = getelementptr inbounds nuw i8, ptr %43, i64 120
   store i64 53, ptr %223, align 8
   store i64 0, ptr %43, align 8
-  %.sroa.57.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx70, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %224 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store i64 -9223372036854775808, ptr %224, align 8
-  %.sroa.51.0..sroa_idx174 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx174, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.288, i64 noundef 26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %43)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %42)
@@ -33701,12 +33563,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %233 = getelementptr inbounds nuw i8, ptr %42, i64 120
   store i64 13, ptr %233, align 8
   store i64 0, ptr %42, align 8
-  %.sroa.57.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx71, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %234 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i64 -9223372036854775808, ptr %234, align 8
-  %.sroa.51.0..sroa_idx175 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx175, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.447, i64 noundef 6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %42)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %41)
@@ -33729,12 +33587,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %243 = getelementptr inbounds nuw i8, ptr %41, i64 120
   store i64 23, ptr %243, align 8
   store i64 0, ptr %41, align 8
-  %.sroa.57.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx72, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %244 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store i64 -9223372036854775808, ptr %244, align 8
-  %.sroa.51.0..sroa_idx176 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx176, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.452, i64 noundef 5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %41)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %40)
@@ -33757,12 +33611,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %253 = getelementptr inbounds nuw i8, ptr %40, i64 120
   store i64 17, ptr %253, align 8
   store i64 0, ptr %40, align 8
-  %.sroa.57.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx73, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %254 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i64 -9223372036854775808, ptr %254, align 8
-  %.sroa.51.0..sroa_idx177 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx177, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.457, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %40)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %39)
@@ -33785,12 +33635,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %263 = getelementptr inbounds nuw i8, ptr %39, i64 120
   store i64 44, ptr %263, align 8
   store i64 0, ptr %39, align 8
-  %.sroa.57.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx74, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %264 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i64 -9223372036854775808, ptr %264, align 8
-  %.sroa.51.0..sroa_idx178 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx178, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.462, i64 noundef 8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %39)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %38)
@@ -33813,12 +33659,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %273 = getelementptr inbounds nuw i8, ptr %38, i64 120
   store i64 14, ptr %273, align 8
   store i64 0, ptr %38, align 8
-  %.sroa.57.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx75, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %274 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i64 -9223372036854775808, ptr %274, align 8
-  %.sroa.51.0..sroa_idx179 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx179, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.467, i64 noundef 7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %38)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %37)
@@ -33841,12 +33683,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %283 = getelementptr inbounds nuw i8, ptr %37, i64 120
   store i64 23, ptr %283, align 8
   store i64 0, ptr %37, align 8
-  %.sroa.57.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx76, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %284 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i64 -9223372036854775808, ptr %284, align 8
-  %.sroa.51.0..sroa_idx180 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx180, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.472, i64 noundef 5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %37)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %36)
@@ -33869,12 +33707,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %293 = getelementptr inbounds nuw i8, ptr %36, i64 120
   store i64 31, ptr %293, align 8
   store i64 0, ptr %36, align 8
-  %.sroa.57.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx77, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %294 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store i64 -9223372036854775808, ptr %294, align 8
-  %.sroa.51.0..sroa_idx181 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx181, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.477, i64 noundef 24, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %36)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %35)
@@ -33903,8 +33737,6 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %308 = getelementptr inbounds nuw i8, ptr %35, i64 120
   store i64 28, ptr %308, align 8
   store i64 0, ptr %35, align 8
-  %.sroa.57.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx78, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.252, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %35)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %34)
@@ -33933,8 +33765,6 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %322 = getelementptr inbounds nuw i8, ptr %34, i64 120
   store i64 20, ptr %322, align 8
   store i64 0, ptr %34, align 8
-  %.sroa.57.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx79, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.259, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %34)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %33)
@@ -33963,8 +33793,6 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %336 = getelementptr inbounds nuw i8, ptr %33, i64 120
   store i64 24, ptr %336, align 8
   store i64 0, ptr %33, align 8
-  %.sroa.57.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx80, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.266, i64 noundef 13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %33)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %32)
@@ -33987,12 +33815,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %345 = getelementptr inbounds nuw i8, ptr %32, i64 120
   store i64 125, ptr %345, align 8
   store i64 0, ptr %32, align 8
-  %.sroa.57.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx81, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %346 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i64 -9223372036854775808, ptr %346, align 8
-  %.sroa.51.0..sroa_idx182 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx182, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.271, i64 noundef 19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %32)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %31)
@@ -34015,12 +33839,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %355 = getelementptr inbounds nuw i8, ptr %31, i64 120
   store i64 32, ptr %355, align 8
   store i64 0, ptr %31, align 8
-  %.sroa.57.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx82, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %356 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store i64 -9223372036854775808, ptr %356, align 8
-  %.sroa.51.0..sroa_idx183 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx183, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.482, i64 noundef 11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %31)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %30)
@@ -34043,12 +33863,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %365 = getelementptr inbounds nuw i8, ptr %30, i64 120
   store i64 22, ptr %365, align 8
   store i64 0, ptr %30, align 8
-  %.sroa.57.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx83, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %366 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i64 -9223372036854775808, ptr %366, align 8
-  %.sroa.51.0..sroa_idx184 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx184, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.487, i64 noundef 15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %30)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %29)
@@ -34071,12 +33887,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %375 = getelementptr inbounds nuw i8, ptr %29, i64 120
   store i64 23, ptr %375, align 8
   store i64 0, ptr %29, align 8
-  %.sroa.57.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx84, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %376 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i64 -9223372036854775808, ptr %376, align 8
-  %.sroa.51.0..sroa_idx185 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx185, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.492, i64 noundef 16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %29)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %28)
@@ -34099,12 +33911,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %385 = getelementptr inbounds nuw i8, ptr %28, i64 120
   store i64 18, ptr %385, align 8
   store i64 0, ptr %28, align 8
-  %.sroa.57.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx85, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %386 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store i64 -9223372036854775808, ptr %386, align 8
-  %.sroa.51.0..sroa_idx186 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx186, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.497, i64 noundef 11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %28)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %27)
@@ -34127,12 +33935,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %395 = getelementptr inbounds nuw i8, ptr %27, i64 120
   store i64 16, ptr %395, align 8
   store i64 0, ptr %27, align 8
-  %.sroa.57.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx86, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %396 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store i64 -9223372036854775808, ptr %396, align 8
-  %.sroa.51.0..sroa_idx187 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx187, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.502, i64 noundef 9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %27)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %26)
@@ -34155,12 +33959,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %405 = getelementptr inbounds nuw i8, ptr %26, i64 120
   store i64 49, ptr %405, align 8
   store i64 0, ptr %26, align 8
-  %.sroa.57.0..sroa_idx87 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx87, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %406 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i64 -9223372036854775808, ptr %406, align 8
-  %.sroa.51.0..sroa_idx188 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx188, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.507, i64 noundef 22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %26)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %25)
@@ -34183,12 +33983,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %415 = getelementptr inbounds nuw i8, ptr %25, i64 120
   store i64 22, ptr %415, align 8
   store i64 0, ptr %25, align 8
-  %.sroa.57.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx88, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %416 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i64 -9223372036854775808, ptr %416, align 8
-  %.sroa.51.0..sroa_idx189 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx189, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.512, i64 noundef 15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %25)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %24)
@@ -34211,12 +34007,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %425 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i64 46, ptr %425, align 8
   store i64 0, ptr %24, align 8
-  %.sroa.57.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx89, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %426 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i64 -9223372036854775808, ptr %426, align 8
-  %.sroa.51.0..sroa_idx190 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx190, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.278, i64 noundef 15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %24)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %23)
@@ -34239,12 +34031,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %435 = getelementptr inbounds nuw i8, ptr %23, i64 120
   store i64 22, ptr %435, align 8
   store i64 0, ptr %23, align 8
-  %.sroa.57.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx90, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %436 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i64 -9223372036854775808, ptr %436, align 8
-  %.sroa.51.0..sroa_idx191 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx191, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.517, i64 noundef 14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %23)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %22)
@@ -34267,12 +34055,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %445 = getelementptr inbounds nuw i8, ptr %22, i64 120
   store i64 44, ptr %445, align 8
   store i64 0, ptr %22, align 8
-  %.sroa.57.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx91, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %446 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i64 -9223372036854775808, ptr %446, align 8
-  %.sroa.51.0..sroa_idx192 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx192, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.522, i64 noundef 15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %22)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %21)
@@ -34295,12 +34079,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %455 = getelementptr inbounds nuw i8, ptr %21, i64 120
   store i64 16, ptr %455, align 8
   store i64 0, ptr %21, align 8
-  %.sroa.57.0..sroa_idx92 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx92, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %456 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 -9223372036854775808, ptr %456, align 8
-  %.sroa.51.0..sroa_idx193 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx193, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.527, i64 noundef 9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %21)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %20)
@@ -34323,12 +34103,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %465 = getelementptr inbounds nuw i8, ptr %20, i64 120
   store i64 38, ptr %465, align 8
   store i64 0, ptr %20, align 8
-  %.sroa.57.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx93, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %466 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i64 -9223372036854775808, ptr %466, align 8
-  %.sroa.51.0..sroa_idx194 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx194, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.293, i64 noundef 13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %20)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %19)
@@ -34351,12 +34127,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %475 = getelementptr inbounds nuw i8, ptr %19, i64 120
   store i64 26, ptr %475, align 8
   store i64 0, ptr %19, align 8
-  %.sroa.57.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %476 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i64 -9223372036854775808, ptr %476, align 8
-  %.sroa.51.0..sroa_idx195 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx195, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.536, i64 noundef 15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %19)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %18)
@@ -34379,12 +34151,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %485 = getelementptr inbounds nuw i8, ptr %18, i64 120
   store i64 21, ptr %485, align 8
   store i64 0, ptr %18, align 8
-  %.sroa.57.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx95, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %486 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 -9223372036854775808, ptr %486, align 8
-  %.sroa.51.0..sroa_idx196 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx196, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.541, i64 noundef 14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %18)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %17)
@@ -34407,12 +34175,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %495 = getelementptr inbounds nuw i8, ptr %17, i64 120
   store i64 22, ptr %495, align 8
   store i64 0, ptr %17, align 8
-  %.sroa.57.0..sroa_idx96 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx96, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %496 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i64 -9223372036854775808, ptr %496, align 8
-  %.sroa.51.0..sroa_idx197 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx197, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.546, i64 noundef 15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %17)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %16)
@@ -34435,12 +34199,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %505 = getelementptr inbounds nuw i8, ptr %16, i64 120
   store i64 25, ptr %505, align 8
   store i64 0, ptr %16, align 8
-  %.sroa.57.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx97, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %506 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i64 -9223372036854775808, ptr %506, align 8
-  %.sroa.51.0..sroa_idx198 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx198, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.551, i64 noundef 18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %16)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15)
@@ -34463,12 +34223,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %515 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store i64 29, ptr %515, align 8
   store i64 0, ptr %15, align 8
-  %.sroa.57.0..sroa_idx98 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx98, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %516 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i64 -9223372036854775808, ptr %516, align 8
-  %.sroa.51.0..sroa_idx199 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx199, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.556, i64 noundef 22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %15)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14)
@@ -34491,12 +34247,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %525 = getelementptr inbounds nuw i8, ptr %14, i64 120
   store i64 28, ptr %525, align 8
   store i64 0, ptr %14, align 8
-  %.sroa.57.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx99, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %526 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i64 -9223372036854775808, ptr %526, align 8
-  %.sroa.51.0..sroa_idx200 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx200, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.561, i64 noundef 21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %14)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %13)
@@ -34525,8 +34277,6 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %540 = getelementptr inbounds nuw i8, ptr %13, i64 120
   store i64 25, ptr %540, align 8
   store i64 0, ptr %13, align 8
-  %.sroa.57.0..sroa_idx100 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx100, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.568, i64 noundef 16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %13)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12)
@@ -34555,8 +34305,6 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %554 = getelementptr inbounds nuw i8, ptr %12, i64 120
   store i64 18, ptr %554, align 8
   store i64 0, ptr %12, align 8
-  %.sroa.57.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx101, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.300, i64 noundef 9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %12)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11)
@@ -34579,12 +34327,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %563 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i64 23, ptr %563, align 8
   store i64 0, ptr %11, align 8
-  %.sroa.57.0..sroa_idx102 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx102, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %564 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 -9223372036854775808, ptr %564, align 8
-  %.sroa.51.0..sroa_idx201 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx201, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.305, i64 noundef 16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %11)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
@@ -34607,12 +34351,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %573 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i64 21, ptr %573, align 8
   store i64 0, ptr %10, align 8
-  %.sroa.57.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx103, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %574 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 -9223372036854775808, ptr %574, align 8
-  %.sroa.51.0..sroa_idx202 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx202, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.573, i64 noundef 14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %10)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9)
@@ -34635,12 +34375,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %583 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store i64 20, ptr %583, align 8
   store i64 0, ptr %9, align 8
-  %.sroa.57.0..sroa_idx104 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx104, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %584 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 -9223372036854775808, ptr %584, align 8
-  %.sroa.51.0..sroa_idx203 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx203, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.580, i64 noundef 13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %9)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8)
@@ -34663,12 +34399,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %593 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store i64 17, ptr %593, align 8
   store i64 0, ptr %8, align 8
-  %.sroa.57.0..sroa_idx105 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx105, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %594 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 -9223372036854775808, ptr %594, align 8
-  %.sroa.51.0..sroa_idx204 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx204, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.310, i64 noundef 10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %8)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
@@ -34691,12 +34423,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %603 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store i64 14, ptr %603, align 8
   store i64 0, ptr %7, align 8
-  %.sroa.57.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx106, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %604 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 -9223372036854775808, ptr %604, align 8
-  %.sroa.51.0..sroa_idx205 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx205, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.315, i64 noundef 7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %7)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
@@ -34719,12 +34447,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %613 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i64 26, ptr %613, align 8
   store i64 0, ptr %6, align 8
-  %.sroa.57.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx107, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %614 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 -9223372036854775808, ptr %614, align 8
-  %.sroa.51.0..sroa_idx206 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx206, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.320, i64 noundef 15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %6)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -34747,12 +34471,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %623 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i64 16, ptr %623, align 8
   store i64 0, ptr %5, align 8
-  %.sroa.57.0..sroa_idx108 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx108, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %624 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 -9223372036854775808, ptr %624, align 8
-  %.sroa.51.0..sroa_idx207 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx207, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.325, i64 noundef 9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %5)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -34775,12 +34495,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %633 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i64 28, ptr %633, align 8
   store i64 0, ptr %4, align 8
-  %.sroa.57.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx109, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %634 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 -9223372036854775808, ptr %634, align 8
-  %.sroa.51.0..sroa_idx208 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx208, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.330, i64 noundef 17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %4)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -34803,12 +34519,8 @@ define void @"_ZN90_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_options_
   %643 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i64 22, ptr %643, align 8
   store i64 0, ptr %3, align 8
-  %.sroa.57.0..sroa_idx110 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57.0..sroa_idx110, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.57, i64 32, i1 false)
   %644 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 -9223372036854775808, ptr %644, align 8
-  %.sroa.51.0..sroa_idx209 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.0..sroa_idx209, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51, i64 16, i1 false)
   call void %70(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 @anon.c8777b812d6b35c09a8e6156f259107b.585, i64 noundef 13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(144) %3)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   ret void
@@ -34974,7 +34686,6 @@ define void @"_ZN11uv_settings8settings1_84_$LT$impl$u20$schemars..JsonSchema$u2
   %112 = alloca [200 x i8], align 8
   %113 = alloca [200 x i8], align 8
   %114 = alloca [200 x i8], align 8
-  %.sroa.5 = alloca [191 x i8], align 1
   %115 = alloca [200 x i8], align 8
   %116 = alloca [200 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %116)
@@ -35017,13 +34728,12 @@ define void @"_ZN11uv_settings8settings1_84_$LT$impl$u20$schemars..JsonSchema$u2
   store i64 -9223372036854775808, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %115, i64 176
   store ptr null, ptr %130, align 8
-  %.sroa.2427.176..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 192
-  store i64 0, ptr %.sroa.2427.176..sroa_idx, align 8
+  %.sroa.1932.176..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 192
+  store i64 0, ptr %.sroa.1932.176..sroa_idx, align 8
   %131 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h4b1c88b721c5dcfbE(ptr noalias noundef nonnull align 8 dereferenceable(200) %115)
           to label %132 unwind label %121
 
 132:                                              ; preds = %123
-  call void @llvm.lifetime.start.p0(i64 191, ptr nonnull %.sroa.5)
   %133 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3071
   %134 = call noalias noundef align 8 dereferenceable_or_null(200) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 200, i64 noundef range(i64 1, -9223372036854775807) 8) #25, !noalias !3071
   %135 = icmp eq ptr %134, null
@@ -35045,9 +34755,6 @@ define void @"_ZN11uv_settings8settings1_84_$LT$impl$u20$schemars..JsonSchema$u2
   store i64 -9223372036854775807, ptr %134, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 8
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(191) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(191) %.sroa.5, i64 191, i1 false)
-  call void @llvm.lifetime.end.p0(i64 191, ptr nonnull %.sroa.5)
   %140 = getelementptr inbounds nuw i8, ptr %131, i64 88
   %.val = load ptr, ptr %140, align 8, !noundef !3
   %141 = icmp eq ptr %.val, null
@@ -36777,7 +36484,6 @@ define void @"_ZN11uv_settings8settings1_85_$LT$impl$u20$schemars..JsonSchema$u2
   %22 = alloca [200 x i8], align 8
   %23 = alloca [200 x i8], align 8
   %24 = alloca [200 x i8], align 8
-  %.sroa.5 = alloca [191 x i8], align 1
   %25 = alloca [200 x i8], align 8
   %26 = alloca [200 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %26)
@@ -36820,13 +36526,12 @@ define void @"_ZN11uv_settings8settings1_85_$LT$impl$u20$schemars..JsonSchema$u2
   store i64 -9223372036854775808, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 176
   store ptr null, ptr %40, align 8
-  %.sroa.2427.176..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 192
-  store i64 0, ptr %.sroa.2427.176..sroa_idx, align 8
+  %.sroa.1932.176..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 192
+  store i64 0, ptr %.sroa.1932.176..sroa_idx, align 8
   %41 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h4b1c88b721c5dcfbE(ptr noalias noundef nonnull align 8 dereferenceable(200) %25)
           to label %42 unwind label %31
 
 42:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 191, ptr nonnull %.sroa.5)
   %43 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3194
   %44 = call noalias noundef align 8 dereferenceable_or_null(200) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 200, i64 noundef range(i64 1, -9223372036854775807) 8) #25, !noalias !3194
   %45 = icmp eq ptr %44, null
@@ -36848,9 +36553,6 @@ define void @"_ZN11uv_settings8settings1_85_$LT$impl$u20$schemars..JsonSchema$u2
   store i64 -9223372036854775807, ptr %44, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(191) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(191) %.sroa.5, i64 191, i1 false)
-  call void @llvm.lifetime.end.p0(i64 191, ptr nonnull %.sroa.5)
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 88
   %.val = load ptr, ptr %50, align 8, !noundef !3
   %51 = icmp eq ptr %.val, null
@@ -37456,8 +37158,8 @@ define void @"_ZN11uv_settings8settings1_88_$LT$impl$u20$schemars..JsonSchema$u2
   store i64 -9223372036854775808, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 176
   store ptr null, ptr %23, align 8
-  %.sroa.2420.176..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 192
-  store i64 0, ptr %.sroa.2420.176..sroa_idx, align 8
+  %.sroa.1925.176..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 192
+  store i64 0, ptr %.sroa.1925.176..sroa_idx, align 8
   %24 = invoke noundef align 8 dereferenceable(104) ptr @_ZN8schemars6schema12SchemaObject6object17h4b1c88b721c5dcfbE(ptr noalias noundef nonnull align 8 dereferenceable(200) %9)
           to label %25 unwind label %14
 

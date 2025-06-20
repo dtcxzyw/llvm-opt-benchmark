@@ -3791,7 +3791,6 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction23EmitNewArrayInitializ
   %20 = alloca %"struct.clang::CodeGen::CodeGenFunction::CleanupDeactivationScope", align 8
   %21 = alloca %class.anon, align 8
   %.sroa.0441.sroa.6 = alloca { ptr, %"class.clang::CharUnits", %"class.clang::CodeGen::CGPointerAuthInfo", ptr }, align 8
-  %.sroa.12 = alloca [7 x i8], align 1
   %22 = alloca %"class.clang::CodeGen::AggValueSlot", align 8
   %.sroa.8439 = alloca [23 x i8], align 1
   %23 = alloca %"class.llvm::Twine", align 8
@@ -3889,7 +3888,6 @@ _ZNK5clang10CXXNewExpr14getInitializerEv.exit:    ; preds = %7
 
 77:                                               ; preds = %71, %71
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.0441.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.12)
   %.sroa.0517.0.copyload = load i64, ptr %18, align 8, !tbaa !3
   %.sroa.4520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %78 = and i64 %2, -16
@@ -3920,7 +3918,6 @@ _ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %77, %82
 
 .critedge186:                                     ; preds = %75
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.0441.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.12)
   %.sroa.0517.0.copyload518 = load i64, ptr %18, align 8, !tbaa !3
   %.sroa.4520.0..sroa_idx521 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.0.copyload.i.i.i.i201 = load i64, ptr %15, align 8
@@ -3965,8 +3962,6 @@ _ZNK5clang8QualType13getQualifiersEv.exit206:     ; preds = %.critedge186, %95
   store i64 %.sroa.6442.0, ptr %.sroa.6442.0..sroa_idx, align 8, !tbaa !313
   %.sroa.8443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 56
   store i8 33, ptr %.sroa.8443.0..sroa_idx, align 8, !tbaa !3
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12, i64 7, i1 false), !tbaa.struct !814
   call void @_ZN5clang7CodeGen15CodeGenFunction11EmitAggExprEPKNS_4ExprENS0_12AggValueSlotE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef %108, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %22) #16
   %109 = getelementptr inbounds nuw i8, ptr %.1553, i64 8
   %.sroa.0.0.copyload.i209 = load i64, ptr %109, align 8, !tbaa !3
@@ -4118,7 +4113,6 @@ _ZNK4llvm11ConstantInt9equalsIntEm.exit.thread:   ; preds = %_ZNK4llvm5APInt13ge
 
 187:                                              ; preds = %_ZNK4llvm11ConstantInt9equalsIntEm.exit.thread, %_ZNK4llvm11ConstantInt9equalsIntEm.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.0441.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.12)
   br label %911
 
 188:                                              ; preds = %75
@@ -13938,14 +13932,14 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %17
   store ptr %32, ptr %19, align 8
   %.sroa.4.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %.sroa.4.0..sroa_idx75, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i8 0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.878.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 152
-  store i8 0, ptr %.sroa.878.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 153
-  store i8 0, ptr %.sroa.9.0..sroa_idx, align 1
-  %.sroa.1079.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 160
-  store i64 %.sroa.0.0.copyload.i19, ptr %.sroa.1079.0..sroa_idx, align 8
+  %.sroa.577.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
+  store i8 0, ptr %.sroa.577.0..sroa_idx, align 8
+  %.sroa.678.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 152
+  store i8 0, ptr %.sroa.678.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 153
+  store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.879.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 160
+  store i64 %.sroa.0.0.copyload.i19, ptr %.sroa.879.0..sroa_idx, align 8
   store i32 1, ptr %20, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i32, ptr %34, align 8

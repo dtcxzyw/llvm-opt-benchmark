@@ -7536,7 +7536,7 @@ _ZN10serde_json5value5Value3get17hf4fd85c6e849e814E.exit: ; preds = %138
           to label %221 unwind label %242
 
 221:                                              ; preds = %.thread, %215
-  %.sink1.i125128 = phi ptr [ %208, %215 ], [ %212, %.thread ]
+  %.sink1.i124127 = phi ptr [ %208, %215 ], [ %212, %.thread ]
   %.sroa.013.0 = phi i8 [ 0, %215 ], [ 1, %.thread ]
   %.val39 = load ptr, ptr %18, align 8, !noundef !9
   %.val40 = load ptr, ptr %188, align 8
@@ -7775,7 +7775,7 @@ _ZN10serde_json5value5Value3get17hf4fd85c6e849e814E.exit: ; preds = %138
   br label %111
 
 308:                                              ; preds = %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$settings..settings_store..DeserializedSetting$GT$$GT$17h88dbd5adcc784293E.exit79"
-  %309 = load ptr, ptr %.sink1.i125128, align 8, !invariant.load !9, !noalias !2231
+  %309 = load ptr, ptr %.sink1.i124127, align 8, !invariant.load !9, !noalias !2231
   %.not.i80 = icmp eq ptr %309, null
   br i1 %.not.i80, label %311, label %310
 
@@ -7784,9 +7784,9 @@ _ZN10serde_json5value5Value3get17hf4fd85c6e849e814E.exit: ; preds = %138
           to label %311 unwind label %319, !noalias !2231
 
 311:                                              ; preds = %310, %308
-  %312 = getelementptr inbounds nuw i8, ptr %.sink1.i125128, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %.sink1.i124127, i64 8
   %313 = load i64, ptr %312, align 8, !range !344, !invariant.load !9, !noalias !2231
-  %314 = getelementptr inbounds nuw i8, ptr %.sink1.i125128, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %.sink1.i124127, i64 16
   %315 = load i64, ptr %314, align 8, !range !345, !invariant.load !9, !noalias !2231
   %316 = icmp ult i64 %315, -9223372036854775807
   call void @llvm.assume(i1 %316)
@@ -7800,9 +7800,9 @@ _ZN10serde_json5value5Value3get17hf4fd85c6e849e814E.exit: ; preds = %138
 319:                                              ; preds = %310
   %320 = landingpad { ptr, i32 }
           cleanup
-  %321 = getelementptr inbounds nuw i8, ptr %.sink1.i125128, i64 8
+  %321 = getelementptr inbounds nuw i8, ptr %.sink1.i124127, i64 8
   %322 = load i64, ptr %321, align 8, !range !344, !invariant.load !9, !noalias !2231
-  %323 = getelementptr inbounds nuw i8, ptr %.sink1.i125128, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %.sink1.i124127, i64 16
   %324 = load i64, ptr %323, align 8, !range !345, !invariant.load !9, !noalias !2231
   %325 = icmp ult i64 %324, -9223372036854775807
   call void @llvm.assume(i1 %325)

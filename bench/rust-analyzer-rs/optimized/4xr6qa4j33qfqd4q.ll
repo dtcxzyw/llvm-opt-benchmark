@@ -2912,12 +2912,12 @@ define hidden void @_ZN6object4read5macho4file10MachHeader13load_commands17h27e7
   br label %18
 
 18:                                               ; preds = %6, %13
-  %.sink20 = phi ptr [ %12, %13 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.57, %6 ]
-  %.sink19 = phi i64 [ %14, %13 ], [ 38, %6 ]
+  %.sink19 = phi ptr [ %12, %13 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.57, %6 ]
+  %.sink18 = phi i64 [ %14, %13 ], [ 38, %6 ]
   %.sink = phi i8 [ %17, %13 ], [ 2, %6 ]
-  store ptr %.sink20, ptr %0, align 8
+  store ptr %.sink19, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink19, ptr %19, align 8
+  store i64 %.sink18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sink, ptr %20, align 4
   ret void
@@ -2948,12 +2948,12 @@ define hidden void @_ZN6object4read5macho4file10MachHeader13load_commands17h86e5
   br label %18
 
 18:                                               ; preds = %6, %13
-  %.sink20 = phi ptr [ %12, %13 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.57, %6 ]
-  %.sink19 = phi i64 [ %14, %13 ], [ 38, %6 ]
+  %.sink19 = phi ptr [ %12, %13 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.57, %6 ]
+  %.sink18 = phi i64 [ %14, %13 ], [ 38, %6 ]
   %.sink = phi i8 [ %17, %13 ], [ 2, %6 ]
-  store ptr %.sink20, ptr %0, align 8
+  store ptr %.sink19, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink19, ptr %19, align 8
+  store i64 %.sink18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sink, ptr %20, align 4
   ret void

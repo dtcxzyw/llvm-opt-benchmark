@@ -282,12 +282,12 @@ define hidden noundef nonnull ptr @_ZN14async_executor8Executor5spawn17hf84ee7fa
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = invoke noundef align 8 dereferenceable(8) ptr @_ZN14async_executor8Executor5state17h87e19c1abb7a92d7E(ptr noundef nonnull align 8 %0)
-          to label %10 unwind label %.body.thread36
+          to label %10 unwind label %.body.thread34
 
 9:                                                ; preds = %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h41e61eb678c80758E.exit"
   br i1 %.2, label %.body.thread, label %120
 
-.body.thread36:                                   ; preds = %2, %15, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit, %19, %_ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exit.i
+.body.thread34:                                   ; preds = %2, %15, %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit, %19, %_ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exit.i
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -301,11 +301,11 @@ define hidden noundef nonnull ptr @_ZN14async_executor8Executor5spawn17hf84ee7fa
 
 15:                                               ; preds = %10
   invoke void @_ZN3std3sys4unix5locks11futex_mutex5Mutex14lock_contended17h711e3c2fa7879c2dE(ptr noundef nonnull align 4 %12)
-          to label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit unwind label %.body.thread36
+          to label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit unwind label %.body.thread34
 
 _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds = %10, %15
   %16 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17hac1ab610c8d17e1aE.llvm.17208988669928403088(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17ha93a1baa6fc65cd0E, i8 noundef 0)
-          to label %.noexc17 unwind label %.body.thread36
+          to label %.noexc17 unwind label %.body.thread34
 
 .noexc17:                                         ; preds = %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit
   %17 = and i64 %16, 9223372036854775807
@@ -314,7 +314,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.exit: ; preds
 
 19:                                               ; preds = %.noexc17
   %20 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h658c934b8397a2acE()
-          to label %.noexc18 unwind label %.body.thread36
+          to label %.noexc18 unwind label %.body.thread34
 
 .noexc18:                                         ; preds = %19
   %21 = xor i1 %20, true
@@ -325,7 +325,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
   %.0.i.i.i = phi i8 [ %22, %.noexc18 ], [ 0, %.noexc17 ]
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 708
   %24 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17h727733828c6e02e6E.llvm.17208988669928403088(ptr noundef nonnull align 1 %23, i8 noundef 0)
-          to label %25 unwind label %.body.thread36
+          to label %25 unwind label %.body.thread34
 
 25:                                               ; preds = %_ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exit.i
   %.not = icmp eq i8 %24, 0
@@ -588,11 +588,11 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %110, %_ZN
           to label %"_ZN4core3ptr51drop_in_place$LT$async_task..runnable..Runnable$GT$17h41e61eb678c80758E.exit" unwind label %114
 
 120:                                              ; preds = %.body.thread, %9
-  %.pn1132 = phi { ptr, i32 } [ %.pn1133, %.body.thread ], [ %.pn, %9 ]
-  resume { ptr, i32 } %.pn1132
+  %.pn1130 = phi { ptr, i32 } [ %.pn1131, %.body.thread ], [ %.pn, %9 ]
+  resume { ptr, i32 } %.pn1130
 
-.body.thread:                                     ; preds = %28, %.body.thread36, %9
-  %.pn1133 = phi { ptr, i32 } [ %.pn, %9 ], [ %lpad.thr_comm, %.body.thread36 ], [ %29, %28 ]
+.body.thread:                                     ; preds = %28, %.body.thread34, %9
+  %.pn1131 = phi { ptr, i32 } [ %.pn, %9 ], [ %lpad.thr_comm, %.body.thread34 ], [ %29, %28 ]
   invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$async_process..driver..$u7b$$u7b$closure$u7d$$u7d$$GT$17h05edc3988c341cf1E"(ptr noundef nonnull align 8 %1) #18
           to label %120 unwind label %114
 }

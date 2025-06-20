@@ -9722,7 +9722,6 @@ define dso_local void @_ZN7doctest7Context9parseArgsEiPKPKcb(ptr noundef nonnull
 _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i:
   %4 = alloca i32, align 4
   %5 = alloca %"class.doctest::String", align 8
-  %.sroa.10401 = alloca [11 x i8], align 4
   %6 = load ptr, ptr %0, align 8, !tbaa !323
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4280
   %8 = load ptr, ptr %7, align 8, !tbaa !138
@@ -9821,14 +9820,14 @@ _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i:
           to label %.noexc323 unwind label %119
 
 .noexc323:                                        ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i
-  br i1 %77, label %.sink.split, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i
+  br i1 %77, label %_ZN7doctest6StringD2Ev.exit338.thread416, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i
 
 _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i: ; preds = %.noexc323
   %78 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull @.str.90, ptr noundef nonnull %5)
           to label %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit unwind label %119
 
 _ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit: ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i
-  br i1 %78, label %.sink.split, label %79
+  br i1 %78, label %_ZN7doctest6StringD2Ev.exit338.thread416, label %79
 
 79:                                               ; preds = %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit
   %80 = load i8, ptr %76, align 1, !tbaa !38
@@ -9851,7 +9850,7 @@ _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i331: ; pr
           to label %.noexc335 unwind label %_ZN7doctest6StringD2Ev.exit341
 
 .noexc335:                                        ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i331
-  br i1 %86, label %.sink.split, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i332
+  br i1 %86, label %_ZN7doctest6StringD2Ev.exit338.thread416, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i332
 
 _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i332: ; preds = %.noexc335
   %87 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull @.str.91, ptr noundef nonnull %5)
@@ -9859,15 +9858,15 @@ _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i33
 
 _ZN7doctest6StringD2Ev.exit338:                   ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i332
   %spec.select = or i1 %3, %87
-  br i1 %spec.select, label %.sink.split, label %_ZN7doctest6StringaSERKS0_.exit
+  br i1 %spec.select, label %_ZN7doctest6StringD2Ev.exit338.thread416, label %_ZN7doctest6StringaSERKS0_.exit
 
-.sink.split:                                      ; preds = %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit, %.noexc323, %.noexc335, %_ZN7doctest6StringD2Ev.exit338
+_ZN7doctest6StringD2Ev.exit338.thread416:         ; preds = %.noexc323, %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit, %.noexc335, %_ZN7doctest6StringD2Ev.exit338
   %88 = load ptr, ptr %0, align 8, !tbaa !323
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %.not.i = icmp eq ptr %89, %5
   br i1 %.not.i, label %_ZN7doctest6StringaSERKS0_.exit, label %90
 
-90:                                               ; preds = %.sink.split
+90:                                               ; preds = %_ZN7doctest6StringD2Ev.exit338.thread416
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 63
   %92 = load i8, ptr %91, align 1, !tbaa !38
   %93 = icmp sgt i8 %92, -1
@@ -9889,7 +9888,6 @@ _ZN7doctest6StringD2Ev.exit338:                   ; preds = %_ZN7doctest12_GLOBA
 
 _ZN7doctest6StringaSERKS0_.exit.thread:           ; preds = %98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %.sroa.10401)
   br label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i350
 
 101:                                              ; preds = %98
@@ -9942,14 +9940,13 @@ _ZN7doctest6StringD2Ev.exit341:                   ; preds = %_ZN7doctest12_GLOBA
           cleanup
   br label %_ZN7doctest6StringD2Ev.exit342
 
-122:                                              ; preds = %164, %110, %693, %690, %670, %667, %647, %644, %624, %621, %601, %598, %578, %575, %555, %552, %532, %529, %509, %506, %486, %483, %463, %460, %440, %437, %417, %414, %394, %391, %371, %368, %348, %345, %325, %322, %302, %299, %279, %276, %256, %253, %233, %230, %222, %219, %211, %208, %200, %197, %189, %186, %178, %_ZN7doctest6StringaSERKS0_.exit377
+122:                                              ; preds = %163, %110, %692, %689, %669, %666, %646, %643, %623, %620, %600, %597, %577, %574, %554, %551, %531, %528, %508, %505, %485, %482, %462, %459, %439, %436, %416, %413, %393, %390, %370, %367, %347, %344, %324, %321, %301, %298, %278, %275, %255, %252, %232, %229, %221, %218, %210, %207, %199, %196, %188, %185, %177, %_ZN7doctest6StringaSERKS0_.exit377
   %123 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7doctest6StringD2Ev.exit342
 
-_ZN7doctest6StringaSERKS0_.exit:                  ; preds = %_ZN7doctest6String8allocateEj.exit.i.i, %.sink.split, %_ZN7doctest6StringD2Ev.exit338
+_ZN7doctest6StringaSERKS0_.exit:                  ; preds = %_ZN7doctest6String8allocateEj.exit.i.i, %_ZN7doctest6StringD2Ev.exit338.thread416, %_ZN7doctest6StringD2Ev.exit338
   %.pr = load i8, ptr %76, align 1, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %.sroa.10401)
   %124 = icmp sgt i8 %.pr, -1
   br i1 %124, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i350, label %125
 
@@ -9964,21 +9961,19 @@ _ZN7doctest6StringaSERKS0_.exit:                  ; preds = %_ZN7doctest6String8
 
 _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i350: ; preds = %_ZN7doctest6StringaSERKS0_.exit.thread, %128, %125, %_ZN7doctest6StringaSERKS0_.exit
   store ptr inttoptr (i64 1701603686 to ptr), ptr %5, align 8
-  %.sroa.10401.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %.sroa.10401.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(11) %.sroa.10401, i64 11, i1 false)
   store i8 19, ptr %76, align 1
   %129 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @.str.92, i64 3), ptr noundef nonnull %5)
-          to label %.noexc354 unwind label %173
+          to label %.noexc354 unwind label %172
 
 .noexc354:                                        ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i350
-  br i1 %129, label %.sink.split422, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i351
+  br i1 %129, label %_ZN7doctest6StringD2Ev.exit372.thread419, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i351
 
 _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i351: ; preds = %.noexc354
   %130 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull @.str.92, ptr noundef nonnull %5)
-          to label %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit356 unwind label %173
+          to label %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit356 unwind label %172
 
 _ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit356: ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i351
-  br i1 %130, label %.sink.split422, label %131
+  br i1 %130, label %_ZN7doctest6StringD2Ev.exit372.thread419, label %131
 
 131:                                              ; preds = %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit356
   %132 = load i8, ptr %76, align 1, !tbaa !38
@@ -10001,7 +9996,7 @@ _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i364: ; pr
           to label %.noexc368 unwind label %_ZN7doctest6StringD2Ev.exit378
 
 .noexc368:                                        ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i364
-  br i1 %138, label %.sink.split422, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i365
+  br i1 %138, label %_ZN7doctest6StringD2Ev.exit372.thread419, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i365
 
 _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i365: ; preds = %.noexc368
   %139 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull @.str.94, ptr noundef nonnull %5)
@@ -10009,1349 +10004,1339 @@ _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i36
 
 _ZN7doctest6StringD2Ev.exit372:                   ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i365
   %spec.select317 = or i1 %3, %139
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.10401)
-  br i1 %spec.select317, label %140, label %_ZN7doctest6StringaSERKS0_.exit377
+  br i1 %spec.select317, label %_ZN7doctest6StringD2Ev.exit372.thread419, label %_ZN7doctest6StringaSERKS0_.exit377
 
-.sink.split422:                                   ; preds = %.noexc368, %.noexc354, %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit356
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.10401)
-  br label %140
+_ZN7doctest6StringD2Ev.exit372.thread419:         ; preds = %.noexc354, %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit356, %.noexc368, %_ZN7doctest6StringD2Ev.exit372
+  %140 = load ptr, ptr %0, align 8, !tbaa !323
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 64
+  %.not.i373 = icmp eq ptr %141, %5
+  br i1 %.not.i373, label %_ZN7doctest6StringaSERKS0_.exit377, label %142
 
-140:                                              ; preds = %.sink.split422, %_ZN7doctest6StringD2Ev.exit372
-  %141 = load ptr, ptr %0, align 8, !tbaa !323
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 64
-  %.not.i373 = icmp eq ptr %142, %5
-  br i1 %.not.i373, label %_ZN7doctest6StringaSERKS0_.exit377, label %143
+142:                                              ; preds = %_ZN7doctest6StringD2Ev.exit372.thread419
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 87
+  %144 = load i8, ptr %143, align 1, !tbaa !38
+  %145 = icmp sgt i8 %144, -1
+  br i1 %145, label %150, label %146
 
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds nuw i8, ptr %141, i64 87
-  %145 = load i8, ptr %144, align 1, !tbaa !38
-  %146 = icmp sgt i8 %145, -1
-  br i1 %146, label %151, label %147
+146:                                              ; preds = %142
+  %147 = load ptr, ptr %141, align 8, !tbaa !38
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %150, label %149
 
-147:                                              ; preds = %143
-  %148 = load ptr, ptr %142, align 8, !tbaa !38
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %151, label %150
+149:                                              ; preds = %146
+  call void @_ZdaPv(ptr noundef nonnull %147) #48
+  br label %150
 
-150:                                              ; preds = %147
-  call void @_ZdaPv(ptr noundef nonnull %148) #48
-  br label %151
+150:                                              ; preds = %149, %146, %142
+  %151 = load i8, ptr %76, align 1, !tbaa !38
+  %152 = icmp sgt i8 %151, -1
+  br i1 %152, label %153, label %154
 
-151:                                              ; preds = %150, %147, %143
-  %152 = load i8, ptr %76, align 1, !tbaa !38
-  %153 = icmp sgt i8 %152, -1
-  br i1 %153, label %154, label %155
-
-154:                                              ; preds = %151
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %142, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
+153:                                              ; preds = %150
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr noundef nonnull readonly align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %_ZN7doctest6StringaSERKS0_.exit377
 
-155:                                              ; preds = %151
-  %156 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %157 = load i32, ptr %156, align 8, !tbaa !38
-  %158 = icmp ult i32 %157, 24
-  br i1 %158, label %159, label %164
+154:                                              ; preds = %150
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %156 = load i32, ptr %155, align 8, !tbaa !38
+  %157 = icmp ult i32 %156, 24
+  br i1 %157, label %158, label %163
 
-159:                                              ; preds = %155
-  %160 = zext nneg i32 %157 to i64
-  %161 = getelementptr inbounds nuw [24 x i8], ptr %142, i64 0, i64 %160
-  store i8 0, ptr %161, align 1, !tbaa !38
-  %162 = trunc nuw nsw i32 %157 to i8
-  %163 = sub nuw nsw i8 23, %162
-  store i8 %163, ptr %144, align 1, !tbaa !38
+158:                                              ; preds = %154
+  %159 = zext nneg i32 %156 to i64
+  %160 = getelementptr inbounds nuw [24 x i8], ptr %141, i64 0, i64 %159
+  store i8 0, ptr %160, align 1, !tbaa !38
+  %161 = trunc nuw nsw i32 %156 to i8
+  %162 = sub nuw nsw i8 23, %161
+  store i8 %162, ptr %143, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i.i374
 
-164:                                              ; preds = %155
-  store i8 -128, ptr %144, align 1, !tbaa !38
-  %165 = getelementptr inbounds nuw i8, ptr %141, i64 72
-  store i32 %157, ptr %165, align 8, !tbaa !38
-  %166 = add i32 %157, 1
-  %167 = getelementptr inbounds nuw i8, ptr %141, i64 76
-  store i32 %166, ptr %167, align 4, !tbaa !38
-  %168 = zext i32 %166 to i64
-  %169 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %168) #51
+163:                                              ; preds = %154
+  store i8 -128, ptr %143, align 1, !tbaa !38
+  %164 = getelementptr inbounds nuw i8, ptr %140, i64 72
+  store i32 %156, ptr %164, align 8, !tbaa !38
+  %165 = add i32 %156, 1
+  %166 = getelementptr inbounds nuw i8, ptr %140, i64 76
+  store i32 %165, ptr %166, align 4, !tbaa !38
+  %167 = zext i32 %165 to i64
+  %168 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %167) #51
           to label %.noexc376 unwind label %122
 
-.noexc376:                                        ; preds = %164
-  store ptr %169, ptr %142, align 8, !tbaa !38
-  %170 = zext i32 %157 to i64
-  %171 = getelementptr inbounds nuw i8, ptr %169, i64 %170
-  store i8 0, ptr %171, align 1, !tbaa !38
+.noexc376:                                        ; preds = %163
+  store ptr %168, ptr %141, align 8, !tbaa !38
+  %169 = zext i32 %156 to i64
+  %170 = getelementptr inbounds nuw i8, ptr %168, i64 %169
+  store i8 0, ptr %170, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i.i374
 
-_ZN7doctest6String8allocateEj.exit.i.i374:        ; preds = %.noexc376, %159
-  %.pre-phi = phi i64 [ %170, %.noexc376 ], [ %160, %159 ]
-  %.0.i.i.i375 = phi ptr [ %169, %.noexc376 ], [ %142, %159 ]
-  %172 = load ptr, ptr %5, align 8, !tbaa !38
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i375, ptr align 1 %172, i64 %.pre-phi, i1 false)
+_ZN7doctest6String8allocateEj.exit.i.i374:        ; preds = %.noexc376, %158
+  %.pre-phi = phi i64 [ %169, %.noexc376 ], [ %159, %158 ]
+  %.0.i.i.i375 = phi ptr [ %168, %.noexc376 ], [ %141, %158 ]
+  %171 = load ptr, ptr %5, align 8, !tbaa !38
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i375, ptr align 1 %171, i64 %.pre-phi, i1 false)
   br label %_ZN7doctest6StringaSERKS0_.exit377
 
-173:                                              ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i351, %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i350
-  %174 = landingpad { ptr, i32 }
+172:                                              ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i351, %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i350
+  %173 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN7doctest6StringD2Ev.exit379
-
-_ZN7doctest6StringD2Ev.exit378:                   ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i364, %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i365
-  %175 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN7doctest6StringD2Ev.exit379
-
-_ZN7doctest6StringD2Ev.exit379:                   ; preds = %173, %_ZN7doctest6StringD2Ev.exit378
-  %.pn311.pn = phi { ptr, i32 } [ %175, %_ZN7doctest6StringD2Ev.exit378 ], [ %174, %173 ]
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.10401)
   br label %_ZN7doctest6StringD2Ev.exit342
 
-_ZN7doctest6StringaSERKS0_.exit377:               ; preds = %_ZN7doctest6String8allocateEj.exit.i.i374, %154, %140, %_ZN7doctest6StringD2Ev.exit372
-  %176 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.95, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %177 unwind label %122
+_ZN7doctest6StringD2Ev.exit378:                   ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i364, %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i365
+  %174 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN7doctest6StringD2Ev.exit342
 
-177:                                              ; preds = %_ZN7doctest6StringaSERKS0_.exit377
-  br i1 %176, label %181, label %178
+_ZN7doctest6StringaSERKS0_.exit377:               ; preds = %_ZN7doctest6String8allocateEj.exit.i.i374, %153, %_ZN7doctest6StringD2Ev.exit372.thread419, %_ZN7doctest6StringD2Ev.exit372
+  %175 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.95, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %176 unwind label %122
 
-178:                                              ; preds = %177
-  %179 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.96, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %180 unwind label %122
-
-180:                                              ; preds = %178
-  br i1 %179, label %181, label %183
-
-181:                                              ; preds = %180, %177
-  %182 = load i32, ptr %4, align 4, !tbaa !12
-  br label %.sink.split423
-
-183:                                              ; preds = %180
-  br i1 %3, label %.sink.split423, label %186
+176:                                              ; preds = %_ZN7doctest6StringaSERKS0_.exit377
+  br i1 %175, label %180, label %177
 
-.sink.split423:                                   ; preds = %183, %181
-  %.sink = phi i32 [ %182, %181 ], [ 0, %183 ]
-  %184 = load ptr, ptr %0, align 8, !tbaa !323
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 88
-  store i32 %.sink, ptr %185, align 8, !tbaa !325
-  br label %186
+177:                                              ; preds = %176
+  %178 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.96, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %179 unwind label %122
+
+179:                                              ; preds = %177
+  br i1 %178, label %180, label %182
+
+180:                                              ; preds = %179, %176
+  %181 = load i32, ptr %4, align 4, !tbaa !12
+  br label %.sink.split
+
+182:                                              ; preds = %179
+  br i1 %3, label %.sink.split, label %185
+
+.sink.split:                                      ; preds = %182, %180
+  %.sink = phi i32 [ %181, %180 ], [ 0, %182 ]
+  %183 = load ptr, ptr %0, align 8, !tbaa !323
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 88
+  store i32 %.sink, ptr %184, align 8, !tbaa !325
+  br label %185
 
-186:                                              ; preds = %.sink.split423, %183
-  %187 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.97, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %188 unwind label %122
+185:                                              ; preds = %.sink.split, %182
+  %186 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.97, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %187 unwind label %122
 
-188:                                              ; preds = %186
-  br i1 %187, label %192, label %189
+187:                                              ; preds = %185
+  br i1 %186, label %191, label %188
 
-189:                                              ; preds = %188
-  %190 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.98, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %191 unwind label %122
-
-191:                                              ; preds = %189
-  br i1 %190, label %192, label %194
-
-192:                                              ; preds = %191, %188
-  %193 = load i32, ptr %4, align 4, !tbaa !12
-  br label %.sink.split426
-
-194:                                              ; preds = %191
-  br i1 %3, label %.sink.split426, label %197
+188:                                              ; preds = %187
+  %189 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.98, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %190 unwind label %122
+
+190:                                              ; preds = %188
+  br i1 %189, label %191, label %193
+
+191:                                              ; preds = %190, %187
+  %192 = load i32, ptr %4, align 4, !tbaa !12
+  br label %.sink.split424
+
+193:                                              ; preds = %190
+  br i1 %3, label %.sink.split424, label %196
+
+.sink.split424:                                   ; preds = %193, %191
+  %.sink425 = phi i32 [ %192, %191 ], [ 0, %193 ]
+  %194 = load ptr, ptr %0, align 8, !tbaa !323
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 92
+  store i32 %.sink425, ptr %195, align 4, !tbaa !326
+  br label %196
 
-.sink.split426:                                   ; preds = %194, %192
-  %.sink427 = phi i32 [ %193, %192 ], [ 0, %194 ]
-  %195 = load ptr, ptr %0, align 8, !tbaa !323
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 92
-  store i32 %.sink427, ptr %196, align 4, !tbaa !326
-  br label %197
-
-197:                                              ; preds = %.sink.split426, %194
-  %198 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.99, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %199 unwind label %122
-
-199:                                              ; preds = %197
-  br i1 %198, label %203, label %200
-
-200:                                              ; preds = %199
-  %201 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.100, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %202 unwind label %122
-
-202:                                              ; preds = %200
-  br i1 %201, label %203, label %205
-
-203:                                              ; preds = %202, %199
-  %204 = load i32, ptr %4, align 4, !tbaa !12
-  br label %.sink.split430
-
-205:                                              ; preds = %202
-  br i1 %3, label %.sink.split430, label %208
-
-.sink.split430:                                   ; preds = %205, %203
-  %.sink431 = phi i32 [ %204, %203 ], [ -1, %205 ]
-  %206 = load ptr, ptr %0, align 8, !tbaa !323
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 96
-  store i32 %.sink431, ptr %207, align 8, !tbaa !327
-  br label %208
-
-208:                                              ; preds = %.sink.split430, %205
-  %209 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.101, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %210 unwind label %122
-
-210:                                              ; preds = %208
-  br i1 %209, label %214, label %211
-
-211:                                              ; preds = %210
-  %212 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %213 unwind label %122
-
-213:                                              ; preds = %211
-  br i1 %212, label %214, label %216
-
-214:                                              ; preds = %213, %210
-  %215 = load i32, ptr %4, align 4, !tbaa !12
-  br label %.sink.split434
-
-216:                                              ; preds = %213
-  br i1 %3, label %.sink.split434, label %219
-
-.sink.split434:                                   ; preds = %216, %214
-  %.sink435 = phi i32 [ %215, %214 ], [ 0, %216 ]
-  %217 = load ptr, ptr %0, align 8, !tbaa !323
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 100
-  store i32 %.sink435, ptr %218, align 4, !tbaa !130
-  br label %219
-
-219:                                              ; preds = %.sink.split434, %216
-  %220 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.103, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %221 unwind label %122
-
-221:                                              ; preds = %219
-  br i1 %220, label %225, label %222
-
-222:                                              ; preds = %221
-  %223 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.104, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %224 unwind label %122
-
-224:                                              ; preds = %222
-  br i1 %223, label %225, label %227
-
-225:                                              ; preds = %224, %221
-  %226 = load i32, ptr %4, align 4, !tbaa !12
-  br label %.sink.split438
-
-227:                                              ; preds = %224
-  br i1 %3, label %.sink.split438, label %230
-
-.sink.split438:                                   ; preds = %227, %225
-  %.sink439 = phi i32 [ %226, %225 ], [ 2147483647, %227 ]
-  %228 = load ptr, ptr %0, align 8, !tbaa !323
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 104
-  store i32 %.sink439, ptr %229, align 8, !tbaa !137
-  br label %230
-
-230:                                              ; preds = %.sink.split438, %227
-  %231 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.105, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %232 unwind label %122
-
-232:                                              ; preds = %230
-  br i1 %231, label %236, label %233
-
-233:                                              ; preds = %232
-  %234 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.106, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %235 unwind label %122
-
-235:                                              ; preds = %233
-  br i1 %234, label %236, label %242
-
-236:                                              ; preds = %235, %232
-  %237 = load i32, ptr %4, align 4, !tbaa !12
-  %238 = icmp ne i32 %237, 0
-  %239 = load ptr, ptr %0, align 8, !tbaa !323
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 108
-  %241 = zext i1 %238 to i8
-  store i8 %241, ptr %240, align 4, !tbaa !310
-  br label %253
-
-242:                                              ; preds = %235
-  %243 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.107)
-  br i1 %243, label %246, label %244
-
-244:                                              ; preds = %242
-  %245 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.108)
-  br i1 %245, label %246, label %249
-
-246:                                              ; preds = %244, %242
-  %247 = load ptr, ptr %0, align 8, !tbaa !323
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 108
-  store i8 1, ptr %248, align 4, !tbaa !310
-  br label %253
-
-249:                                              ; preds = %244
-  br i1 %3, label %250, label %253
-
-250:                                              ; preds = %249
-  %251 = load ptr, ptr %0, align 8, !tbaa !323
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 108
-  store i8 0, ptr %252, align 4, !tbaa !310
-  br label %253
-
-253:                                              ; preds = %246, %250, %249, %236
-  %254 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.109, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %255 unwind label %122
-
-255:                                              ; preds = %253
-  br i1 %254, label %259, label %256
-
-256:                                              ; preds = %255
-  %257 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.110, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %258 unwind label %122
-
-258:                                              ; preds = %256
-  br i1 %257, label %259, label %265
-
-259:                                              ; preds = %258, %255
-  %260 = load i32, ptr %4, align 4, !tbaa !12
-  %261 = icmp ne i32 %260, 0
-  %262 = load ptr, ptr %0, align 8, !tbaa !323
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 109
-  %264 = zext i1 %261 to i8
-  store i8 %264, ptr %263, align 1, !tbaa !141
-  br label %276
-
-265:                                              ; preds = %258
-  %266 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.111)
-  br i1 %266, label %269, label %267
-
-267:                                              ; preds = %265
-  %268 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.112)
-  br i1 %268, label %269, label %272
-
-269:                                              ; preds = %267, %265
-  %270 = load ptr, ptr %0, align 8, !tbaa !323
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 109
-  store i8 1, ptr %271, align 1, !tbaa !141
-  br label %276
-
-272:                                              ; preds = %267
-  br i1 %3, label %273, label %276
-
-273:                                              ; preds = %272
-  %274 = load ptr, ptr %0, align 8, !tbaa !323
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 109
-  store i8 0, ptr %275, align 1, !tbaa !141
-  br label %276
-
-276:                                              ; preds = %269, %273, %272, %259
-  %277 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.113, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %278 unwind label %122
-
-278:                                              ; preds = %276
-  br i1 %277, label %282, label %279
-
-279:                                              ; preds = %278
-  %280 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.114, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %281 unwind label %122
-
-281:                                              ; preds = %279
-  br i1 %280, label %282, label %288
-
-282:                                              ; preds = %281, %278
-  %283 = load i32, ptr %4, align 4, !tbaa !12
-  %284 = icmp ne i32 %283, 0
-  %285 = load ptr, ptr %0, align 8, !tbaa !323
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 110
-  %287 = zext i1 %284 to i8
-  store i8 %287, ptr %286, align 2, !tbaa !328
-  br label %299
-
-288:                                              ; preds = %281
-  %289 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.115)
-  br i1 %289, label %292, label %290
-
-290:                                              ; preds = %288
-  %291 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.116)
-  br i1 %291, label %292, label %295
-
-292:                                              ; preds = %290, %288
-  %293 = load ptr, ptr %0, align 8, !tbaa !323
-  %294 = getelementptr inbounds nuw i8, ptr %293, i64 110
-  store i8 1, ptr %294, align 2, !tbaa !328
-  br label %299
-
-295:                                              ; preds = %290
-  br i1 %3, label %296, label %299
-
-296:                                              ; preds = %295
-  %297 = load ptr, ptr %0, align 8, !tbaa !323
-  %298 = getelementptr inbounds nuw i8, ptr %297, i64 110
-  store i8 0, ptr %298, align 2, !tbaa !328
-  br label %299
-
-299:                                              ; preds = %292, %296, %295, %282
-  %300 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.117, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %301 unwind label %122
-
-301:                                              ; preds = %299
-  br i1 %300, label %305, label %302
-
-302:                                              ; preds = %301
-  %303 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.118, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %304 unwind label %122
-
-304:                                              ; preds = %302
-  br i1 %303, label %305, label %311
-
-305:                                              ; preds = %304, %301
-  %306 = load i32, ptr %4, align 4, !tbaa !12
-  %307 = icmp ne i32 %306, 0
-  %308 = load ptr, ptr %0, align 8, !tbaa !323
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 111
-  %310 = zext i1 %307 to i8
-  store i8 %310, ptr %309, align 1, !tbaa !329
-  br label %322
-
-311:                                              ; preds = %304
-  %312 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.119)
-  br i1 %312, label %315, label %313
-
-313:                                              ; preds = %311
-  %314 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.120)
-  br i1 %314, label %315, label %318
-
-315:                                              ; preds = %313, %311
-  %316 = load ptr, ptr %0, align 8, !tbaa !323
-  %317 = getelementptr inbounds nuw i8, ptr %316, i64 111
-  store i8 1, ptr %317, align 1, !tbaa !329
-  br label %322
-
-318:                                              ; preds = %313
-  br i1 %3, label %319, label %322
-
-319:                                              ; preds = %318
-  %320 = load ptr, ptr %0, align 8, !tbaa !323
-  %321 = getelementptr inbounds nuw i8, ptr %320, i64 111
-  store i8 0, ptr %321, align 1, !tbaa !329
-  br label %322
-
-322:                                              ; preds = %315, %319, %318, %305
-  %323 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.121, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %324 unwind label %122
-
-324:                                              ; preds = %322
-  br i1 %323, label %328, label %325
-
-325:                                              ; preds = %324
-  %326 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.122, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %327 unwind label %122
-
-327:                                              ; preds = %325
-  br i1 %326, label %328, label %334
-
-328:                                              ; preds = %327, %324
-  %329 = load i32, ptr %4, align 4, !tbaa !12
-  %330 = icmp ne i32 %329, 0
-  %331 = load ptr, ptr %0, align 8, !tbaa !323
-  %332 = getelementptr inbounds nuw i8, ptr %331, i64 112
-  %333 = zext i1 %330 to i8
-  store i8 %333, ptr %332, align 8, !tbaa !330
-  br label %345
-
-334:                                              ; preds = %327
-  %335 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.123)
-  br i1 %335, label %338, label %336
-
-336:                                              ; preds = %334
-  %337 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.124)
-  br i1 %337, label %338, label %341
-
-338:                                              ; preds = %336, %334
-  %339 = load ptr, ptr %0, align 8, !tbaa !323
-  %340 = getelementptr inbounds nuw i8, ptr %339, i64 112
-  store i8 1, ptr %340, align 8, !tbaa !330
-  br label %345
-
-341:                                              ; preds = %336
-  br i1 %3, label %342, label %345
-
-342:                                              ; preds = %341
-  %343 = load ptr, ptr %0, align 8, !tbaa !323
-  %344 = getelementptr inbounds nuw i8, ptr %343, i64 112
-  store i8 0, ptr %344, align 8, !tbaa !330
-  br label %345
-
-345:                                              ; preds = %338, %342, %341, %328
-  %346 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.125, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %347 unwind label %122
-
-347:                                              ; preds = %345
-  br i1 %346, label %351, label %348
-
-348:                                              ; preds = %347
-  %349 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.126, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %350 unwind label %122
-
-350:                                              ; preds = %348
-  br i1 %349, label %351, label %357
-
-351:                                              ; preds = %350, %347
-  %352 = load i32, ptr %4, align 4, !tbaa !12
-  %353 = icmp ne i32 %352, 0
-  %354 = load ptr, ptr %0, align 8, !tbaa !323
-  %355 = getelementptr inbounds nuw i8, ptr %354, i64 113
-  %356 = zext i1 %353 to i8
-  store i8 %356, ptr %355, align 1, !tbaa !331
-  br label %368
-
-357:                                              ; preds = %350
-  %358 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.127)
-  br i1 %358, label %361, label %359
-
-359:                                              ; preds = %357
-  %360 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.128)
-  br i1 %360, label %361, label %364
-
-361:                                              ; preds = %359, %357
-  %362 = load ptr, ptr %0, align 8, !tbaa !323
-  %363 = getelementptr inbounds nuw i8, ptr %362, i64 113
-  store i8 1, ptr %363, align 1, !tbaa !331
-  br label %368
-
-364:                                              ; preds = %359
-  br i1 %3, label %365, label %368
-
-365:                                              ; preds = %364
-  %366 = load ptr, ptr %0, align 8, !tbaa !323
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 113
-  store i8 0, ptr %367, align 1, !tbaa !331
-  br label %368
-
-368:                                              ; preds = %361, %365, %364, %351
-  %369 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.129, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %370 unwind label %122
-
-370:                                              ; preds = %368
-  br i1 %369, label %374, label %371
-
-371:                                              ; preds = %370
-  %372 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.130, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %373 unwind label %122
-
-373:                                              ; preds = %371
-  br i1 %372, label %374, label %380
-
-374:                                              ; preds = %373, %370
-  %375 = load i32, ptr %4, align 4, !tbaa !12
-  %376 = icmp ne i32 %375, 0
-  %377 = load ptr, ptr %0, align 8, !tbaa !323
-  %378 = getelementptr inbounds nuw i8, ptr %377, i64 114
-  %379 = zext i1 %376 to i8
-  store i8 %379, ptr %378, align 2, !tbaa !332
-  br label %391
-
-380:                                              ; preds = %373
-  %381 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.131)
-  br i1 %381, label %384, label %382
-
-382:                                              ; preds = %380
-  %383 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.132)
-  br i1 %383, label %384, label %387
-
-384:                                              ; preds = %382, %380
-  %385 = load ptr, ptr %0, align 8, !tbaa !323
-  %386 = getelementptr inbounds nuw i8, ptr %385, i64 114
-  store i8 1, ptr %386, align 2, !tbaa !332
-  br label %391
-
-387:                                              ; preds = %382
-  br i1 %3, label %388, label %391
-
-388:                                              ; preds = %387
-  %389 = load ptr, ptr %0, align 8, !tbaa !323
-  %390 = getelementptr inbounds nuw i8, ptr %389, i64 114
-  store i8 0, ptr %390, align 2, !tbaa !332
-  br label %391
-
-391:                                              ; preds = %384, %388, %387, %374
-  %392 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.133, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %393 unwind label %122
-
-393:                                              ; preds = %391
-  br i1 %392, label %397, label %394
-
-394:                                              ; preds = %393
-  %395 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.134, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %396 unwind label %122
-
-396:                                              ; preds = %394
-  br i1 %395, label %397, label %403
-
-397:                                              ; preds = %396, %393
-  %398 = load i32, ptr %4, align 4, !tbaa !12
-  %399 = icmp ne i32 %398, 0
-  %400 = load ptr, ptr %0, align 8, !tbaa !323
-  %401 = getelementptr inbounds nuw i8, ptr %400, i64 115
-  %402 = zext i1 %399 to i8
-  store i8 %402, ptr %401, align 1, !tbaa !333
-  br label %414
-
-403:                                              ; preds = %396
-  %404 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.135)
-  br i1 %404, label %407, label %405
-
-405:                                              ; preds = %403
-  %406 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.136)
-  br i1 %406, label %407, label %410
-
-407:                                              ; preds = %405, %403
-  %408 = load ptr, ptr %0, align 8, !tbaa !323
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 115
-  store i8 1, ptr %409, align 1, !tbaa !333
-  br label %414
-
-410:                                              ; preds = %405
-  br i1 %3, label %411, label %414
-
-411:                                              ; preds = %410
-  %412 = load ptr, ptr %0, align 8, !tbaa !323
-  %413 = getelementptr inbounds nuw i8, ptr %412, i64 115
-  store i8 0, ptr %413, align 1, !tbaa !333
-  br label %414
-
-414:                                              ; preds = %407, %411, %410, %397
-  %415 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.137, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %416 unwind label %122
-
-416:                                              ; preds = %414
-  br i1 %415, label %420, label %417
-
-417:                                              ; preds = %416
-  %418 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.138, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %419 unwind label %122
-
-419:                                              ; preds = %417
-  br i1 %418, label %420, label %426
-
-420:                                              ; preds = %419, %416
-  %421 = load i32, ptr %4, align 4, !tbaa !12
-  %422 = icmp ne i32 %421, 0
-  %423 = load ptr, ptr %0, align 8, !tbaa !323
-  %424 = getelementptr inbounds nuw i8, ptr %423, i64 116
-  %425 = zext i1 %422 to i8
-  store i8 %425, ptr %424, align 4, !tbaa !334
-  br label %437
-
-426:                                              ; preds = %419
-  %427 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.139)
-  br i1 %427, label %430, label %428
-
-428:                                              ; preds = %426
-  %429 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.140)
-  br i1 %429, label %430, label %433
-
-430:                                              ; preds = %428, %426
-  %431 = load ptr, ptr %0, align 8, !tbaa !323
-  %432 = getelementptr inbounds nuw i8, ptr %431, i64 116
-  store i8 1, ptr %432, align 4, !tbaa !334
-  br label %437
-
-433:                                              ; preds = %428
-  br i1 %3, label %434, label %437
-
-434:                                              ; preds = %433
-  %435 = load ptr, ptr %0, align 8, !tbaa !323
-  %436 = getelementptr inbounds nuw i8, ptr %435, i64 116
-  store i8 0, ptr %436, align 4, !tbaa !334
-  br label %437
-
-437:                                              ; preds = %430, %434, %433, %420
-  %438 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.141, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %439 unwind label %122
-
-439:                                              ; preds = %437
-  br i1 %438, label %443, label %440
-
-440:                                              ; preds = %439
-  %441 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.142, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %442 unwind label %122
-
-442:                                              ; preds = %440
-  br i1 %441, label %443, label %449
-
-443:                                              ; preds = %442, %439
-  %444 = load i32, ptr %4, align 4, !tbaa !12
-  %445 = icmp ne i32 %444, 0
-  %446 = load ptr, ptr %0, align 8, !tbaa !323
-  %447 = getelementptr inbounds nuw i8, ptr %446, i64 117
-  %448 = zext i1 %445 to i8
-  store i8 %448, ptr %447, align 1, !tbaa !335
-  br label %460
-
-449:                                              ; preds = %442
-  %450 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.143)
-  br i1 %450, label %453, label %451
-
-451:                                              ; preds = %449
-  %452 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.144)
-  br i1 %452, label %453, label %456
-
-453:                                              ; preds = %451, %449
-  %454 = load ptr, ptr %0, align 8, !tbaa !323
-  %455 = getelementptr inbounds nuw i8, ptr %454, i64 117
-  store i8 1, ptr %455, align 1, !tbaa !335
-  br label %460
-
-456:                                              ; preds = %451
-  br i1 %3, label %457, label %460
-
-457:                                              ; preds = %456
-  %458 = load ptr, ptr %0, align 8, !tbaa !323
-  %459 = getelementptr inbounds nuw i8, ptr %458, i64 117
-  store i8 0, ptr %459, align 1, !tbaa !335
-  br label %460
-
-460:                                              ; preds = %453, %457, %456, %443
-  %461 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.145, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %462 unwind label %122
-
-462:                                              ; preds = %460
-  br i1 %461, label %466, label %463
-
-463:                                              ; preds = %462
-  %464 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.146, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %465 unwind label %122
-
-465:                                              ; preds = %463
-  br i1 %464, label %466, label %472
-
-466:                                              ; preds = %465, %462
-  %467 = load i32, ptr %4, align 4, !tbaa !12
-  %468 = icmp ne i32 %467, 0
-  %469 = load ptr, ptr %0, align 8, !tbaa !323
-  %470 = getelementptr inbounds nuw i8, ptr %469, i64 118
-  %471 = zext i1 %468 to i8
-  store i8 %471, ptr %470, align 2, !tbaa !336
-  br label %483
-
-472:                                              ; preds = %465
-  %473 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.147)
-  br i1 %473, label %476, label %474
-
-474:                                              ; preds = %472
-  %475 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.148)
-  br i1 %475, label %476, label %479
-
-476:                                              ; preds = %474, %472
-  %477 = load ptr, ptr %0, align 8, !tbaa !323
-  %478 = getelementptr inbounds nuw i8, ptr %477, i64 118
-  store i8 1, ptr %478, align 2, !tbaa !336
-  br label %483
-
-479:                                              ; preds = %474
-  br i1 %3, label %480, label %483
-
-480:                                              ; preds = %479
-  %481 = load ptr, ptr %0, align 8, !tbaa !323
-  %482 = getelementptr inbounds nuw i8, ptr %481, i64 118
-  store i8 0, ptr %482, align 2, !tbaa !336
-  br label %483
-
-483:                                              ; preds = %476, %480, %479, %466
-  %484 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.149, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %485 unwind label %122
-
-485:                                              ; preds = %483
-  br i1 %484, label %489, label %486
-
-486:                                              ; preds = %485
-  %487 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.150, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %488 unwind label %122
-
-488:                                              ; preds = %486
-  br i1 %487, label %489, label %495
-
-489:                                              ; preds = %488, %485
-  %490 = load i32, ptr %4, align 4, !tbaa !12
-  %491 = icmp ne i32 %490, 0
-  %492 = load ptr, ptr %0, align 8, !tbaa !323
-  %493 = getelementptr inbounds nuw i8, ptr %492, i64 119
-  %494 = zext i1 %491 to i8
-  store i8 %494, ptr %493, align 1, !tbaa !337
-  br label %506
-
-495:                                              ; preds = %488
-  %496 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.151)
-  br i1 %496, label %499, label %497
-
-497:                                              ; preds = %495
-  %498 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.152)
-  br i1 %498, label %499, label %502
-
-499:                                              ; preds = %497, %495
-  %500 = load ptr, ptr %0, align 8, !tbaa !323
-  %501 = getelementptr inbounds nuw i8, ptr %500, i64 119
-  store i8 1, ptr %501, align 1, !tbaa !337
-  br label %506
-
-502:                                              ; preds = %497
-  br i1 %3, label %503, label %506
-
-503:                                              ; preds = %502
-  %504 = load ptr, ptr %0, align 8, !tbaa !323
-  %505 = getelementptr inbounds nuw i8, ptr %504, i64 119
-  store i8 0, ptr %505, align 1, !tbaa !337
-  br label %506
-
-506:                                              ; preds = %499, %503, %502, %489
-  %507 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.153, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %508 unwind label %122
-
-508:                                              ; preds = %506
-  br i1 %507, label %512, label %509
-
-509:                                              ; preds = %508
-  %510 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.154, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %511 unwind label %122
-
-511:                                              ; preds = %509
-  br i1 %510, label %512, label %518
-
-512:                                              ; preds = %511, %508
-  %513 = load i32, ptr %4, align 4, !tbaa !12
-  %514 = icmp ne i32 %513, 0
-  %515 = load ptr, ptr %0, align 8, !tbaa !323
-  %516 = getelementptr inbounds nuw i8, ptr %515, i64 120
-  %517 = zext i1 %514 to i8
-  store i8 %517, ptr %516, align 8, !tbaa !75
-  br label %529
-
-518:                                              ; preds = %511
-  %519 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.155)
-  br i1 %519, label %522, label %520
-
-520:                                              ; preds = %518
-  %521 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.156)
-  br i1 %521, label %522, label %525
-
-522:                                              ; preds = %520, %518
-  %523 = load ptr, ptr %0, align 8, !tbaa !323
-  %524 = getelementptr inbounds nuw i8, ptr %523, i64 120
-  store i8 1, ptr %524, align 8, !tbaa !75
-  br label %529
-
-525:                                              ; preds = %520
-  br i1 %3, label %526, label %529
-
-526:                                              ; preds = %525
-  %527 = load ptr, ptr %0, align 8, !tbaa !323
-  %528 = getelementptr inbounds nuw i8, ptr %527, i64 120
-  store i8 0, ptr %528, align 8, !tbaa !75
-  br label %529
-
-529:                                              ; preds = %522, %526, %525, %512
-  %530 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.157, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %531 unwind label %122
-
-531:                                              ; preds = %529
-  br i1 %530, label %535, label %532
-
-532:                                              ; preds = %531
-  %533 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.158, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %534 unwind label %122
-
-534:                                              ; preds = %532
-  br i1 %533, label %535, label %541
-
-535:                                              ; preds = %534, %531
-  %536 = load i32, ptr %4, align 4, !tbaa !12
-  %537 = icmp ne i32 %536, 0
-  %538 = load ptr, ptr %0, align 8, !tbaa !323
-  %539 = getelementptr inbounds nuw i8, ptr %538, i64 121
-  %540 = zext i1 %537 to i8
-  store i8 %540, ptr %539, align 1, !tbaa !308
-  br label %552
-
-541:                                              ; preds = %534
-  %542 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.159)
-  br i1 %542, label %545, label %543
-
-543:                                              ; preds = %541
-  %544 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.160)
-  br i1 %544, label %545, label %548
-
-545:                                              ; preds = %543, %541
-  %546 = load ptr, ptr %0, align 8, !tbaa !323
-  %547 = getelementptr inbounds nuw i8, ptr %546, i64 121
-  store i8 1, ptr %547, align 1, !tbaa !308
-  br label %552
-
-548:                                              ; preds = %543
-  br i1 %3, label %549, label %552
-
-549:                                              ; preds = %548
-  %550 = load ptr, ptr %0, align 8, !tbaa !323
-  %551 = getelementptr inbounds nuw i8, ptr %550, i64 121
-  store i8 0, ptr %551, align 1, !tbaa !308
-  br label %552
-
-552:                                              ; preds = %545, %549, %548, %535
-  %553 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.161, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %554 unwind label %122
-
-554:                                              ; preds = %552
-  br i1 %553, label %558, label %555
-
-555:                                              ; preds = %554
-  %556 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.162, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %557 unwind label %122
-
-557:                                              ; preds = %555
-  br i1 %556, label %558, label %564
-
-558:                                              ; preds = %557, %554
-  %559 = load i32, ptr %4, align 4, !tbaa !12
-  %560 = icmp ne i32 %559, 0
-  %561 = load ptr, ptr %0, align 8, !tbaa !323
-  %562 = getelementptr inbounds nuw i8, ptr %561, i64 122
-  %563 = zext i1 %560 to i8
-  store i8 %563, ptr %562, align 2, !tbaa !338
-  br label %575
-
-564:                                              ; preds = %557
-  %565 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.163)
-  br i1 %565, label %568, label %566
-
-566:                                              ; preds = %564
-  %567 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.164)
-  br i1 %567, label %568, label %571
-
-568:                                              ; preds = %566, %564
-  %569 = load ptr, ptr %0, align 8, !tbaa !323
-  %570 = getelementptr inbounds nuw i8, ptr %569, i64 122
-  store i8 1, ptr %570, align 2, !tbaa !338
-  br label %575
-
-571:                                              ; preds = %566
-  br i1 %3, label %572, label %575
-
-572:                                              ; preds = %571
-  %573 = load ptr, ptr %0, align 8, !tbaa !323
-  %574 = getelementptr inbounds nuw i8, ptr %573, i64 122
-  store i8 0, ptr %574, align 2, !tbaa !338
-  br label %575
-
-575:                                              ; preds = %568, %572, %571, %558
-  %576 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.165, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %577 unwind label %122
-
-577:                                              ; preds = %575
-  br i1 %576, label %581, label %578
-
-578:                                              ; preds = %577
-  %579 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.166, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %580 unwind label %122
-
-580:                                              ; preds = %578
-  br i1 %579, label %581, label %587
-
-581:                                              ; preds = %580, %577
-  %582 = load i32, ptr %4, align 4, !tbaa !12
-  %583 = icmp ne i32 %582, 0
-  %584 = load ptr, ptr %0, align 8, !tbaa !323
-  %585 = getelementptr inbounds nuw i8, ptr %584, i64 123
-  %586 = zext i1 %583 to i8
-  store i8 %586, ptr %585, align 1, !tbaa !339
-  br label %598
-
-587:                                              ; preds = %580
-  %588 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.167)
-  br i1 %588, label %591, label %589
-
-589:                                              ; preds = %587
-  %590 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.168)
-  br i1 %590, label %591, label %594
-
-591:                                              ; preds = %589, %587
-  %592 = load ptr, ptr %0, align 8, !tbaa !323
-  %593 = getelementptr inbounds nuw i8, ptr %592, i64 123
-  store i8 1, ptr %593, align 1, !tbaa !339
-  br label %598
-
-594:                                              ; preds = %589
-  br i1 %3, label %595, label %598
-
-595:                                              ; preds = %594
-  %596 = load ptr, ptr %0, align 8, !tbaa !323
-  %597 = getelementptr inbounds nuw i8, ptr %596, i64 123
-  store i8 1, ptr %597, align 1, !tbaa !339
-  br label %598
-
-598:                                              ; preds = %591, %595, %594, %581
-  %599 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.169, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %600 unwind label %122
-
-600:                                              ; preds = %598
-  br i1 %599, label %604, label %601
-
-601:                                              ; preds = %600
-  %602 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.170, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %603 unwind label %122
-
-603:                                              ; preds = %601
-  br i1 %602, label %604, label %610
-
-604:                                              ; preds = %603, %600
-  %605 = load i32, ptr %4, align 4, !tbaa !12
-  %606 = icmp ne i32 %605, 0
-  %607 = load ptr, ptr %0, align 8, !tbaa !323
-  %608 = getelementptr inbounds nuw i8, ptr %607, i64 124
-  %609 = zext i1 %606 to i8
-  store i8 %609, ptr %608, align 4, !tbaa !80
-  br label %621
-
-610:                                              ; preds = %603
-  %611 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.171)
-  br i1 %611, label %614, label %612
-
-612:                                              ; preds = %610
-  %613 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.172)
-  br i1 %613, label %614, label %617
-
-614:                                              ; preds = %612, %610
-  %615 = load ptr, ptr %0, align 8, !tbaa !323
-  %616 = getelementptr inbounds nuw i8, ptr %615, i64 124
-  store i8 1, ptr %616, align 4, !tbaa !80
-  br label %621
-
-617:                                              ; preds = %612
-  br i1 %3, label %618, label %621
-
-618:                                              ; preds = %617
-  %619 = load ptr, ptr %0, align 8, !tbaa !323
-  %620 = getelementptr inbounds nuw i8, ptr %619, i64 124
-  store i8 0, ptr %620, align 4, !tbaa !80
-  br label %621
-
-621:                                              ; preds = %614, %618, %617, %604
-  %622 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.173, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %623 unwind label %122
-
-623:                                              ; preds = %621
-  br i1 %622, label %627, label %624
-
-624:                                              ; preds = %623
-  %625 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.174, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %626 unwind label %122
-
-626:                                              ; preds = %624
-  br i1 %625, label %627, label %633
-
-627:                                              ; preds = %626, %623
-  %628 = load i32, ptr %4, align 4, !tbaa !12
-  %629 = icmp ne i32 %628, 0
-  %630 = load ptr, ptr %0, align 8, !tbaa !323
-  %631 = getelementptr inbounds nuw i8, ptr %630, i64 125
-  %632 = zext i1 %629 to i8
-  store i8 %632, ptr %631, align 1, !tbaa !340
-  br label %644
-
-633:                                              ; preds = %626
-  %634 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.175)
-  br i1 %634, label %637, label %635
-
-635:                                              ; preds = %633
-  %636 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.176)
-  br i1 %636, label %637, label %640
-
-637:                                              ; preds = %635, %633
-  %638 = load ptr, ptr %0, align 8, !tbaa !323
-  %639 = getelementptr inbounds nuw i8, ptr %638, i64 125
-  store i8 1, ptr %639, align 1, !tbaa !340
-  br label %644
-
-640:                                              ; preds = %635
-  br i1 %3, label %641, label %644
-
-641:                                              ; preds = %640
-  %642 = load ptr, ptr %0, align 8, !tbaa !323
-  %643 = getelementptr inbounds nuw i8, ptr %642, i64 125
-  store i8 0, ptr %643, align 1, !tbaa !340
-  br label %644
-
-644:                                              ; preds = %637, %641, %640, %627
-  %645 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.177, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %646 unwind label %122
-
-646:                                              ; preds = %644
-  br i1 %645, label %650, label %647
-
-647:                                              ; preds = %646
-  %648 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.178, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %649 unwind label %122
-
-649:                                              ; preds = %647
-  br i1 %648, label %650, label %656
-
-650:                                              ; preds = %649, %646
-  %651 = load i32, ptr %4, align 4, !tbaa !12
-  %652 = icmp ne i32 %651, 0
-  %653 = load ptr, ptr %0, align 8, !tbaa !323
-  %654 = getelementptr inbounds nuw i8, ptr %653, i64 126
-  %655 = zext i1 %652 to i8
-  store i8 %655, ptr %654, align 2, !tbaa !341
-  br label %667
-
-656:                                              ; preds = %649
-  %657 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.179)
-  br i1 %657, label %660, label %658
-
-658:                                              ; preds = %656
-  %659 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.180)
-  br i1 %659, label %660, label %663
-
-660:                                              ; preds = %658, %656
-  %661 = load ptr, ptr %0, align 8, !tbaa !323
-  %662 = getelementptr inbounds nuw i8, ptr %661, i64 126
-  store i8 1, ptr %662, align 2, !tbaa !341
-  br label %667
-
-663:                                              ; preds = %658
-  br i1 %3, label %664, label %667
-
-664:                                              ; preds = %663
-  %665 = load ptr, ptr %0, align 8, !tbaa !323
-  %666 = getelementptr inbounds nuw i8, ptr %665, i64 126
-  store i8 0, ptr %666, align 2, !tbaa !341
-  br label %667
-
-667:                                              ; preds = %660, %664, %663, %650
-  %668 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.181, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %669 unwind label %122
-
-669:                                              ; preds = %667
-  br i1 %668, label %673, label %670
-
-670:                                              ; preds = %669
-  %671 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.182, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %672 unwind label %122
-
-672:                                              ; preds = %670
-  br i1 %671, label %673, label %679
-
-673:                                              ; preds = %672, %669
-  %674 = load i32, ptr %4, align 4, !tbaa !12
-  %675 = icmp ne i32 %674, 0
-  %676 = load ptr, ptr %0, align 8, !tbaa !323
-  %677 = getelementptr inbounds nuw i8, ptr %676, i64 127
-  %678 = zext i1 %675 to i8
-  store i8 %678, ptr %677, align 1, !tbaa !342
-  br label %690
-
-679:                                              ; preds = %672
-  %680 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.183)
-  br i1 %680, label %683, label %681
-
-681:                                              ; preds = %679
-  %682 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.184)
-  br i1 %682, label %683, label %686
-
-683:                                              ; preds = %681, %679
-  %684 = load ptr, ptr %0, align 8, !tbaa !323
-  %685 = getelementptr inbounds nuw i8, ptr %684, i64 127
-  store i8 1, ptr %685, align 1, !tbaa !342
-  br label %690
-
-686:                                              ; preds = %681
-  br i1 %3, label %687, label %690
-
-687:                                              ; preds = %686
-  %688 = load ptr, ptr %0, align 8, !tbaa !323
-  %689 = getelementptr inbounds nuw i8, ptr %688, i64 127
-  store i8 0, ptr %689, align 1, !tbaa !342
-  br label %690
-
-690:                                              ; preds = %683, %687, %686, %673
-  %691 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.185, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %692 unwind label %122
-
-692:                                              ; preds = %690
-  br i1 %691, label %696, label %693
-
-693:                                              ; preds = %692
-  %694 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.186, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %695 unwind label %122
-
-695:                                              ; preds = %693
-  br i1 %694, label %696, label %702
-
-696:                                              ; preds = %695, %692
-  %697 = load i32, ptr %4, align 4, !tbaa !12
-  %698 = icmp ne i32 %697, 0
-  %699 = load ptr, ptr %0, align 8, !tbaa !323
-  %700 = getelementptr inbounds nuw i8, ptr %699, i64 128
-  %701 = zext i1 %698 to i8
-  store i8 %701, ptr %700, align 8, !tbaa !343
-  br label %712
-
-702:                                              ; preds = %695
-  %703 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.187)
-  br i1 %703, label %706, label %704
-
-704:                                              ; preds = %702
-  %705 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.188)
-  br i1 %705, label %706, label %709
-
-706:                                              ; preds = %704, %702
-  %707 = load ptr, ptr %0, align 8, !tbaa !323
-  %708 = getelementptr inbounds nuw i8, ptr %707, i64 128
-  store i8 1, ptr %708, align 8, !tbaa !343
-  br label %712
-
-709:                                              ; preds = %704
+196:                                              ; preds = %.sink.split424, %193
+  %197 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.99, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %198 unwind label %122
+
+198:                                              ; preds = %196
+  br i1 %197, label %202, label %199
+
+199:                                              ; preds = %198
+  %200 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.100, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %201 unwind label %122
+
+201:                                              ; preds = %199
+  br i1 %200, label %202, label %204
+
+202:                                              ; preds = %201, %198
+  %203 = load i32, ptr %4, align 4, !tbaa !12
+  br label %.sink.split428
+
+204:                                              ; preds = %201
+  br i1 %3, label %.sink.split428, label %207
+
+.sink.split428:                                   ; preds = %204, %202
+  %.sink429 = phi i32 [ %203, %202 ], [ -1, %204 ]
+  %205 = load ptr, ptr %0, align 8, !tbaa !323
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 96
+  store i32 %.sink429, ptr %206, align 8, !tbaa !327
+  br label %207
+
+207:                                              ; preds = %.sink.split428, %204
+  %208 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.101, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %209 unwind label %122
+
+209:                                              ; preds = %207
+  br i1 %208, label %213, label %210
+
+210:                                              ; preds = %209
+  %211 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.102, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %212 unwind label %122
+
+212:                                              ; preds = %210
+  br i1 %211, label %213, label %215
+
+213:                                              ; preds = %212, %209
+  %214 = load i32, ptr %4, align 4, !tbaa !12
+  br label %.sink.split432
+
+215:                                              ; preds = %212
+  br i1 %3, label %.sink.split432, label %218
+
+.sink.split432:                                   ; preds = %215, %213
+  %.sink433 = phi i32 [ %214, %213 ], [ 0, %215 ]
+  %216 = load ptr, ptr %0, align 8, !tbaa !323
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 100
+  store i32 %.sink433, ptr %217, align 4, !tbaa !130
+  br label %218
+
+218:                                              ; preds = %.sink.split432, %215
+  %219 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.103, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %220 unwind label %122
+
+220:                                              ; preds = %218
+  br i1 %219, label %224, label %221
+
+221:                                              ; preds = %220
+  %222 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.104, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %223 unwind label %122
+
+223:                                              ; preds = %221
+  br i1 %222, label %224, label %226
+
+224:                                              ; preds = %223, %220
+  %225 = load i32, ptr %4, align 4, !tbaa !12
+  br label %.sink.split436
+
+226:                                              ; preds = %223
+  br i1 %3, label %.sink.split436, label %229
+
+.sink.split436:                                   ; preds = %226, %224
+  %.sink437 = phi i32 [ %225, %224 ], [ 2147483647, %226 ]
+  %227 = load ptr, ptr %0, align 8, !tbaa !323
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 104
+  store i32 %.sink437, ptr %228, align 8, !tbaa !137
+  br label %229
+
+229:                                              ; preds = %.sink.split436, %226
+  %230 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.105, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %231 unwind label %122
+
+231:                                              ; preds = %229
+  br i1 %230, label %235, label %232
+
+232:                                              ; preds = %231
+  %233 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.106, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %234 unwind label %122
+
+234:                                              ; preds = %232
+  br i1 %233, label %235, label %241
+
+235:                                              ; preds = %234, %231
+  %236 = load i32, ptr %4, align 4, !tbaa !12
+  %237 = icmp ne i32 %236, 0
+  %238 = load ptr, ptr %0, align 8, !tbaa !323
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 108
+  %240 = zext i1 %237 to i8
+  store i8 %240, ptr %239, align 4, !tbaa !310
+  br label %252
+
+241:                                              ; preds = %234
+  %242 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.107)
+  br i1 %242, label %245, label %243
+
+243:                                              ; preds = %241
+  %244 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.108)
+  br i1 %244, label %245, label %248
+
+245:                                              ; preds = %243, %241
+  %246 = load ptr, ptr %0, align 8, !tbaa !323
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 108
+  store i8 1, ptr %247, align 4, !tbaa !310
+  br label %252
+
+248:                                              ; preds = %243
+  br i1 %3, label %249, label %252
+
+249:                                              ; preds = %248
+  %250 = load ptr, ptr %0, align 8, !tbaa !323
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 108
+  store i8 0, ptr %251, align 4, !tbaa !310
+  br label %252
+
+252:                                              ; preds = %245, %249, %248, %235
+  %253 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.109, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %254 unwind label %122
+
+254:                                              ; preds = %252
+  br i1 %253, label %258, label %255
+
+255:                                              ; preds = %254
+  %256 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.110, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %257 unwind label %122
+
+257:                                              ; preds = %255
+  br i1 %256, label %258, label %264
+
+258:                                              ; preds = %257, %254
+  %259 = load i32, ptr %4, align 4, !tbaa !12
+  %260 = icmp ne i32 %259, 0
+  %261 = load ptr, ptr %0, align 8, !tbaa !323
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 109
+  %263 = zext i1 %260 to i8
+  store i8 %263, ptr %262, align 1, !tbaa !141
+  br label %275
+
+264:                                              ; preds = %257
+  %265 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.111)
+  br i1 %265, label %268, label %266
+
+266:                                              ; preds = %264
+  %267 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.112)
+  br i1 %267, label %268, label %271
+
+268:                                              ; preds = %266, %264
+  %269 = load ptr, ptr %0, align 8, !tbaa !323
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 109
+  store i8 1, ptr %270, align 1, !tbaa !141
+  br label %275
+
+271:                                              ; preds = %266
+  br i1 %3, label %272, label %275
+
+272:                                              ; preds = %271
+  %273 = load ptr, ptr %0, align 8, !tbaa !323
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 109
+  store i8 0, ptr %274, align 1, !tbaa !141
+  br label %275
+
+275:                                              ; preds = %268, %272, %271, %258
+  %276 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.113, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %277 unwind label %122
+
+277:                                              ; preds = %275
+  br i1 %276, label %281, label %278
+
+278:                                              ; preds = %277
+  %279 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.114, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %280 unwind label %122
+
+280:                                              ; preds = %278
+  br i1 %279, label %281, label %287
+
+281:                                              ; preds = %280, %277
+  %282 = load i32, ptr %4, align 4, !tbaa !12
+  %283 = icmp ne i32 %282, 0
+  %284 = load ptr, ptr %0, align 8, !tbaa !323
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 110
+  %286 = zext i1 %283 to i8
+  store i8 %286, ptr %285, align 2, !tbaa !328
+  br label %298
+
+287:                                              ; preds = %280
+  %288 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.115)
+  br i1 %288, label %291, label %289
+
+289:                                              ; preds = %287
+  %290 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.116)
+  br i1 %290, label %291, label %294
+
+291:                                              ; preds = %289, %287
+  %292 = load ptr, ptr %0, align 8, !tbaa !323
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 110
+  store i8 1, ptr %293, align 2, !tbaa !328
+  br label %298
+
+294:                                              ; preds = %289
+  br i1 %3, label %295, label %298
+
+295:                                              ; preds = %294
+  %296 = load ptr, ptr %0, align 8, !tbaa !323
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 110
+  store i8 0, ptr %297, align 2, !tbaa !328
+  br label %298
+
+298:                                              ; preds = %291, %295, %294, %281
+  %299 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.117, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %300 unwind label %122
+
+300:                                              ; preds = %298
+  br i1 %299, label %304, label %301
+
+301:                                              ; preds = %300
+  %302 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.118, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %303 unwind label %122
+
+303:                                              ; preds = %301
+  br i1 %302, label %304, label %310
+
+304:                                              ; preds = %303, %300
+  %305 = load i32, ptr %4, align 4, !tbaa !12
+  %306 = icmp ne i32 %305, 0
+  %307 = load ptr, ptr %0, align 8, !tbaa !323
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 111
+  %309 = zext i1 %306 to i8
+  store i8 %309, ptr %308, align 1, !tbaa !329
+  br label %321
+
+310:                                              ; preds = %303
+  %311 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.119)
+  br i1 %311, label %314, label %312
+
+312:                                              ; preds = %310
+  %313 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.120)
+  br i1 %313, label %314, label %317
+
+314:                                              ; preds = %312, %310
+  %315 = load ptr, ptr %0, align 8, !tbaa !323
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 111
+  store i8 1, ptr %316, align 1, !tbaa !329
+  br label %321
+
+317:                                              ; preds = %312
+  br i1 %3, label %318, label %321
+
+318:                                              ; preds = %317
+  %319 = load ptr, ptr %0, align 8, !tbaa !323
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 111
+  store i8 0, ptr %320, align 1, !tbaa !329
+  br label %321
+
+321:                                              ; preds = %314, %318, %317, %304
+  %322 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.121, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %323 unwind label %122
+
+323:                                              ; preds = %321
+  br i1 %322, label %327, label %324
+
+324:                                              ; preds = %323
+  %325 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.122, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %326 unwind label %122
+
+326:                                              ; preds = %324
+  br i1 %325, label %327, label %333
+
+327:                                              ; preds = %326, %323
+  %328 = load i32, ptr %4, align 4, !tbaa !12
+  %329 = icmp ne i32 %328, 0
+  %330 = load ptr, ptr %0, align 8, !tbaa !323
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 112
+  %332 = zext i1 %329 to i8
+  store i8 %332, ptr %331, align 8, !tbaa !330
+  br label %344
+
+333:                                              ; preds = %326
+  %334 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.123)
+  br i1 %334, label %337, label %335
+
+335:                                              ; preds = %333
+  %336 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.124)
+  br i1 %336, label %337, label %340
+
+337:                                              ; preds = %335, %333
+  %338 = load ptr, ptr %0, align 8, !tbaa !323
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 112
+  store i8 1, ptr %339, align 8, !tbaa !330
+  br label %344
+
+340:                                              ; preds = %335
+  br i1 %3, label %341, label %344
+
+341:                                              ; preds = %340
+  %342 = load ptr, ptr %0, align 8, !tbaa !323
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 112
+  store i8 0, ptr %343, align 8, !tbaa !330
+  br label %344
+
+344:                                              ; preds = %337, %341, %340, %327
+  %345 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.125, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %346 unwind label %122
+
+346:                                              ; preds = %344
+  br i1 %345, label %350, label %347
+
+347:                                              ; preds = %346
+  %348 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.126, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %349 unwind label %122
+
+349:                                              ; preds = %347
+  br i1 %348, label %350, label %356
+
+350:                                              ; preds = %349, %346
+  %351 = load i32, ptr %4, align 4, !tbaa !12
+  %352 = icmp ne i32 %351, 0
+  %353 = load ptr, ptr %0, align 8, !tbaa !323
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 113
+  %355 = zext i1 %352 to i8
+  store i8 %355, ptr %354, align 1, !tbaa !331
+  br label %367
+
+356:                                              ; preds = %349
+  %357 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.127)
+  br i1 %357, label %360, label %358
+
+358:                                              ; preds = %356
+  %359 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.128)
+  br i1 %359, label %360, label %363
+
+360:                                              ; preds = %358, %356
+  %361 = load ptr, ptr %0, align 8, !tbaa !323
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 113
+  store i8 1, ptr %362, align 1, !tbaa !331
+  br label %367
+
+363:                                              ; preds = %358
+  br i1 %3, label %364, label %367
+
+364:                                              ; preds = %363
+  %365 = load ptr, ptr %0, align 8, !tbaa !323
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 113
+  store i8 0, ptr %366, align 1, !tbaa !331
+  br label %367
+
+367:                                              ; preds = %360, %364, %363, %350
+  %368 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.129, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %369 unwind label %122
+
+369:                                              ; preds = %367
+  br i1 %368, label %373, label %370
+
+370:                                              ; preds = %369
+  %371 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.130, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %372 unwind label %122
+
+372:                                              ; preds = %370
+  br i1 %371, label %373, label %379
+
+373:                                              ; preds = %372, %369
+  %374 = load i32, ptr %4, align 4, !tbaa !12
+  %375 = icmp ne i32 %374, 0
+  %376 = load ptr, ptr %0, align 8, !tbaa !323
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 114
+  %378 = zext i1 %375 to i8
+  store i8 %378, ptr %377, align 2, !tbaa !332
+  br label %390
+
+379:                                              ; preds = %372
+  %380 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.131)
+  br i1 %380, label %383, label %381
+
+381:                                              ; preds = %379
+  %382 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.132)
+  br i1 %382, label %383, label %386
+
+383:                                              ; preds = %381, %379
+  %384 = load ptr, ptr %0, align 8, !tbaa !323
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 114
+  store i8 1, ptr %385, align 2, !tbaa !332
+  br label %390
+
+386:                                              ; preds = %381
+  br i1 %3, label %387, label %390
+
+387:                                              ; preds = %386
+  %388 = load ptr, ptr %0, align 8, !tbaa !323
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 114
+  store i8 0, ptr %389, align 2, !tbaa !332
+  br label %390
+
+390:                                              ; preds = %383, %387, %386, %373
+  %391 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.133, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %392 unwind label %122
+
+392:                                              ; preds = %390
+  br i1 %391, label %396, label %393
+
+393:                                              ; preds = %392
+  %394 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.134, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %395 unwind label %122
+
+395:                                              ; preds = %393
+  br i1 %394, label %396, label %402
+
+396:                                              ; preds = %395, %392
+  %397 = load i32, ptr %4, align 4, !tbaa !12
+  %398 = icmp ne i32 %397, 0
+  %399 = load ptr, ptr %0, align 8, !tbaa !323
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 115
+  %401 = zext i1 %398 to i8
+  store i8 %401, ptr %400, align 1, !tbaa !333
+  br label %413
+
+402:                                              ; preds = %395
+  %403 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.135)
+  br i1 %403, label %406, label %404
+
+404:                                              ; preds = %402
+  %405 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.136)
+  br i1 %405, label %406, label %409
+
+406:                                              ; preds = %404, %402
+  %407 = load ptr, ptr %0, align 8, !tbaa !323
+  %408 = getelementptr inbounds nuw i8, ptr %407, i64 115
+  store i8 1, ptr %408, align 1, !tbaa !333
+  br label %413
+
+409:                                              ; preds = %404
+  br i1 %3, label %410, label %413
+
+410:                                              ; preds = %409
+  %411 = load ptr, ptr %0, align 8, !tbaa !323
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 115
+  store i8 0, ptr %412, align 1, !tbaa !333
+  br label %413
+
+413:                                              ; preds = %406, %410, %409, %396
+  %414 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.137, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %415 unwind label %122
+
+415:                                              ; preds = %413
+  br i1 %414, label %419, label %416
+
+416:                                              ; preds = %415
+  %417 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.138, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %418 unwind label %122
+
+418:                                              ; preds = %416
+  br i1 %417, label %419, label %425
+
+419:                                              ; preds = %418, %415
+  %420 = load i32, ptr %4, align 4, !tbaa !12
+  %421 = icmp ne i32 %420, 0
+  %422 = load ptr, ptr %0, align 8, !tbaa !323
+  %423 = getelementptr inbounds nuw i8, ptr %422, i64 116
+  %424 = zext i1 %421 to i8
+  store i8 %424, ptr %423, align 4, !tbaa !334
+  br label %436
+
+425:                                              ; preds = %418
+  %426 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.139)
+  br i1 %426, label %429, label %427
+
+427:                                              ; preds = %425
+  %428 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.140)
+  br i1 %428, label %429, label %432
+
+429:                                              ; preds = %427, %425
+  %430 = load ptr, ptr %0, align 8, !tbaa !323
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 116
+  store i8 1, ptr %431, align 4, !tbaa !334
+  br label %436
+
+432:                                              ; preds = %427
+  br i1 %3, label %433, label %436
+
+433:                                              ; preds = %432
+  %434 = load ptr, ptr %0, align 8, !tbaa !323
+  %435 = getelementptr inbounds nuw i8, ptr %434, i64 116
+  store i8 0, ptr %435, align 4, !tbaa !334
+  br label %436
+
+436:                                              ; preds = %429, %433, %432, %419
+  %437 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.141, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %438 unwind label %122
+
+438:                                              ; preds = %436
+  br i1 %437, label %442, label %439
+
+439:                                              ; preds = %438
+  %440 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.142, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %441 unwind label %122
+
+441:                                              ; preds = %439
+  br i1 %440, label %442, label %448
+
+442:                                              ; preds = %441, %438
+  %443 = load i32, ptr %4, align 4, !tbaa !12
+  %444 = icmp ne i32 %443, 0
+  %445 = load ptr, ptr %0, align 8, !tbaa !323
+  %446 = getelementptr inbounds nuw i8, ptr %445, i64 117
+  %447 = zext i1 %444 to i8
+  store i8 %447, ptr %446, align 1, !tbaa !335
+  br label %459
+
+448:                                              ; preds = %441
+  %449 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.143)
+  br i1 %449, label %452, label %450
+
+450:                                              ; preds = %448
+  %451 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.144)
+  br i1 %451, label %452, label %455
+
+452:                                              ; preds = %450, %448
+  %453 = load ptr, ptr %0, align 8, !tbaa !323
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 117
+  store i8 1, ptr %454, align 1, !tbaa !335
+  br label %459
+
+455:                                              ; preds = %450
+  br i1 %3, label %456, label %459
+
+456:                                              ; preds = %455
+  %457 = load ptr, ptr %0, align 8, !tbaa !323
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 117
+  store i8 0, ptr %458, align 1, !tbaa !335
+  br label %459
+
+459:                                              ; preds = %452, %456, %455, %442
+  %460 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.145, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %461 unwind label %122
+
+461:                                              ; preds = %459
+  br i1 %460, label %465, label %462
+
+462:                                              ; preds = %461
+  %463 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.146, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %464 unwind label %122
+
+464:                                              ; preds = %462
+  br i1 %463, label %465, label %471
+
+465:                                              ; preds = %464, %461
+  %466 = load i32, ptr %4, align 4, !tbaa !12
+  %467 = icmp ne i32 %466, 0
+  %468 = load ptr, ptr %0, align 8, !tbaa !323
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 118
+  %470 = zext i1 %467 to i8
+  store i8 %470, ptr %469, align 2, !tbaa !336
+  br label %482
+
+471:                                              ; preds = %464
+  %472 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.147)
+  br i1 %472, label %475, label %473
+
+473:                                              ; preds = %471
+  %474 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.148)
+  br i1 %474, label %475, label %478
+
+475:                                              ; preds = %473, %471
+  %476 = load ptr, ptr %0, align 8, !tbaa !323
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 118
+  store i8 1, ptr %477, align 2, !tbaa !336
+  br label %482
+
+478:                                              ; preds = %473
+  br i1 %3, label %479, label %482
+
+479:                                              ; preds = %478
+  %480 = load ptr, ptr %0, align 8, !tbaa !323
+  %481 = getelementptr inbounds nuw i8, ptr %480, i64 118
+  store i8 0, ptr %481, align 2, !tbaa !336
+  br label %482
+
+482:                                              ; preds = %475, %479, %478, %465
+  %483 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.149, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %484 unwind label %122
+
+484:                                              ; preds = %482
+  br i1 %483, label %488, label %485
+
+485:                                              ; preds = %484
+  %486 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.150, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %487 unwind label %122
+
+487:                                              ; preds = %485
+  br i1 %486, label %488, label %494
+
+488:                                              ; preds = %487, %484
+  %489 = load i32, ptr %4, align 4, !tbaa !12
+  %490 = icmp ne i32 %489, 0
+  %491 = load ptr, ptr %0, align 8, !tbaa !323
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 119
+  %493 = zext i1 %490 to i8
+  store i8 %493, ptr %492, align 1, !tbaa !337
+  br label %505
+
+494:                                              ; preds = %487
+  %495 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.151)
+  br i1 %495, label %498, label %496
+
+496:                                              ; preds = %494
+  %497 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.152)
+  br i1 %497, label %498, label %501
+
+498:                                              ; preds = %496, %494
+  %499 = load ptr, ptr %0, align 8, !tbaa !323
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 119
+  store i8 1, ptr %500, align 1, !tbaa !337
+  br label %505
+
+501:                                              ; preds = %496
+  br i1 %3, label %502, label %505
+
+502:                                              ; preds = %501
+  %503 = load ptr, ptr %0, align 8, !tbaa !323
+  %504 = getelementptr inbounds nuw i8, ptr %503, i64 119
+  store i8 0, ptr %504, align 1, !tbaa !337
+  br label %505
+
+505:                                              ; preds = %498, %502, %501, %488
+  %506 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.153, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %507 unwind label %122
+
+507:                                              ; preds = %505
+  br i1 %506, label %511, label %508
+
+508:                                              ; preds = %507
+  %509 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.154, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %510 unwind label %122
+
+510:                                              ; preds = %508
+  br i1 %509, label %511, label %517
+
+511:                                              ; preds = %510, %507
+  %512 = load i32, ptr %4, align 4, !tbaa !12
+  %513 = icmp ne i32 %512, 0
+  %514 = load ptr, ptr %0, align 8, !tbaa !323
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 120
+  %516 = zext i1 %513 to i8
+  store i8 %516, ptr %515, align 8, !tbaa !75
+  br label %528
+
+517:                                              ; preds = %510
+  %518 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.155)
+  br i1 %518, label %521, label %519
+
+519:                                              ; preds = %517
+  %520 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.156)
+  br i1 %520, label %521, label %524
+
+521:                                              ; preds = %519, %517
+  %522 = load ptr, ptr %0, align 8, !tbaa !323
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 120
+  store i8 1, ptr %523, align 8, !tbaa !75
+  br label %528
+
+524:                                              ; preds = %519
+  br i1 %3, label %525, label %528
+
+525:                                              ; preds = %524
+  %526 = load ptr, ptr %0, align 8, !tbaa !323
+  %527 = getelementptr inbounds nuw i8, ptr %526, i64 120
+  store i8 0, ptr %527, align 8, !tbaa !75
+  br label %528
+
+528:                                              ; preds = %521, %525, %524, %511
+  %529 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.157, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %530 unwind label %122
+
+530:                                              ; preds = %528
+  br i1 %529, label %534, label %531
+
+531:                                              ; preds = %530
+  %532 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.158, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %533 unwind label %122
+
+533:                                              ; preds = %531
+  br i1 %532, label %534, label %540
+
+534:                                              ; preds = %533, %530
+  %535 = load i32, ptr %4, align 4, !tbaa !12
+  %536 = icmp ne i32 %535, 0
+  %537 = load ptr, ptr %0, align 8, !tbaa !323
+  %538 = getelementptr inbounds nuw i8, ptr %537, i64 121
+  %539 = zext i1 %536 to i8
+  store i8 %539, ptr %538, align 1, !tbaa !308
+  br label %551
+
+540:                                              ; preds = %533
+  %541 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.159)
+  br i1 %541, label %544, label %542
+
+542:                                              ; preds = %540
+  %543 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.160)
+  br i1 %543, label %544, label %547
+
+544:                                              ; preds = %542, %540
+  %545 = load ptr, ptr %0, align 8, !tbaa !323
+  %546 = getelementptr inbounds nuw i8, ptr %545, i64 121
+  store i8 1, ptr %546, align 1, !tbaa !308
+  br label %551
+
+547:                                              ; preds = %542
+  br i1 %3, label %548, label %551
+
+548:                                              ; preds = %547
+  %549 = load ptr, ptr %0, align 8, !tbaa !323
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 121
+  store i8 0, ptr %550, align 1, !tbaa !308
+  br label %551
+
+551:                                              ; preds = %544, %548, %547, %534
+  %552 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.161, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %553 unwind label %122
+
+553:                                              ; preds = %551
+  br i1 %552, label %557, label %554
+
+554:                                              ; preds = %553
+  %555 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.162, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %556 unwind label %122
+
+556:                                              ; preds = %554
+  br i1 %555, label %557, label %563
+
+557:                                              ; preds = %556, %553
+  %558 = load i32, ptr %4, align 4, !tbaa !12
+  %559 = icmp ne i32 %558, 0
+  %560 = load ptr, ptr %0, align 8, !tbaa !323
+  %561 = getelementptr inbounds nuw i8, ptr %560, i64 122
+  %562 = zext i1 %559 to i8
+  store i8 %562, ptr %561, align 2, !tbaa !338
+  br label %574
+
+563:                                              ; preds = %556
+  %564 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.163)
+  br i1 %564, label %567, label %565
+
+565:                                              ; preds = %563
+  %566 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.164)
+  br i1 %566, label %567, label %570
+
+567:                                              ; preds = %565, %563
+  %568 = load ptr, ptr %0, align 8, !tbaa !323
+  %569 = getelementptr inbounds nuw i8, ptr %568, i64 122
+  store i8 1, ptr %569, align 2, !tbaa !338
+  br label %574
+
+570:                                              ; preds = %565
+  br i1 %3, label %571, label %574
+
+571:                                              ; preds = %570
+  %572 = load ptr, ptr %0, align 8, !tbaa !323
+  %573 = getelementptr inbounds nuw i8, ptr %572, i64 122
+  store i8 0, ptr %573, align 2, !tbaa !338
+  br label %574
+
+574:                                              ; preds = %567, %571, %570, %557
+  %575 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.165, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %576 unwind label %122
+
+576:                                              ; preds = %574
+  br i1 %575, label %580, label %577
+
+577:                                              ; preds = %576
+  %578 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.166, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %579 unwind label %122
+
+579:                                              ; preds = %577
+  br i1 %578, label %580, label %586
+
+580:                                              ; preds = %579, %576
+  %581 = load i32, ptr %4, align 4, !tbaa !12
+  %582 = icmp ne i32 %581, 0
+  %583 = load ptr, ptr %0, align 8, !tbaa !323
+  %584 = getelementptr inbounds nuw i8, ptr %583, i64 123
+  %585 = zext i1 %582 to i8
+  store i8 %585, ptr %584, align 1, !tbaa !339
+  br label %597
+
+586:                                              ; preds = %579
+  %587 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.167)
+  br i1 %587, label %590, label %588
+
+588:                                              ; preds = %586
+  %589 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.168)
+  br i1 %589, label %590, label %593
+
+590:                                              ; preds = %588, %586
+  %591 = load ptr, ptr %0, align 8, !tbaa !323
+  %592 = getelementptr inbounds nuw i8, ptr %591, i64 123
+  store i8 1, ptr %592, align 1, !tbaa !339
+  br label %597
+
+593:                                              ; preds = %588
+  br i1 %3, label %594, label %597
+
+594:                                              ; preds = %593
+  %595 = load ptr, ptr %0, align 8, !tbaa !323
+  %596 = getelementptr inbounds nuw i8, ptr %595, i64 123
+  store i8 1, ptr %596, align 1, !tbaa !339
+  br label %597
+
+597:                                              ; preds = %590, %594, %593, %580
+  %598 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.169, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %599 unwind label %122
+
+599:                                              ; preds = %597
+  br i1 %598, label %603, label %600
+
+600:                                              ; preds = %599
+  %601 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.170, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %602 unwind label %122
+
+602:                                              ; preds = %600
+  br i1 %601, label %603, label %609
+
+603:                                              ; preds = %602, %599
+  %604 = load i32, ptr %4, align 4, !tbaa !12
+  %605 = icmp ne i32 %604, 0
+  %606 = load ptr, ptr %0, align 8, !tbaa !323
+  %607 = getelementptr inbounds nuw i8, ptr %606, i64 124
+  %608 = zext i1 %605 to i8
+  store i8 %608, ptr %607, align 4, !tbaa !80
+  br label %620
+
+609:                                              ; preds = %602
+  %610 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.171)
+  br i1 %610, label %613, label %611
+
+611:                                              ; preds = %609
+  %612 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.172)
+  br i1 %612, label %613, label %616
+
+613:                                              ; preds = %611, %609
+  %614 = load ptr, ptr %0, align 8, !tbaa !323
+  %615 = getelementptr inbounds nuw i8, ptr %614, i64 124
+  store i8 1, ptr %615, align 4, !tbaa !80
+  br label %620
+
+616:                                              ; preds = %611
+  br i1 %3, label %617, label %620
+
+617:                                              ; preds = %616
+  %618 = load ptr, ptr %0, align 8, !tbaa !323
+  %619 = getelementptr inbounds nuw i8, ptr %618, i64 124
+  store i8 0, ptr %619, align 4, !tbaa !80
+  br label %620
+
+620:                                              ; preds = %613, %617, %616, %603
+  %621 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.173, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %622 unwind label %122
+
+622:                                              ; preds = %620
+  br i1 %621, label %626, label %623
+
+623:                                              ; preds = %622
+  %624 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.174, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %625 unwind label %122
+
+625:                                              ; preds = %623
+  br i1 %624, label %626, label %632
+
+626:                                              ; preds = %625, %622
+  %627 = load i32, ptr %4, align 4, !tbaa !12
+  %628 = icmp ne i32 %627, 0
+  %629 = load ptr, ptr %0, align 8, !tbaa !323
+  %630 = getelementptr inbounds nuw i8, ptr %629, i64 125
+  %631 = zext i1 %628 to i8
+  store i8 %631, ptr %630, align 1, !tbaa !340
+  br label %643
+
+632:                                              ; preds = %625
+  %633 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.175)
+  br i1 %633, label %636, label %634
+
+634:                                              ; preds = %632
+  %635 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.176)
+  br i1 %635, label %636, label %639
+
+636:                                              ; preds = %634, %632
+  %637 = load ptr, ptr %0, align 8, !tbaa !323
+  %638 = getelementptr inbounds nuw i8, ptr %637, i64 125
+  store i8 1, ptr %638, align 1, !tbaa !340
+  br label %643
+
+639:                                              ; preds = %634
+  br i1 %3, label %640, label %643
+
+640:                                              ; preds = %639
+  %641 = load ptr, ptr %0, align 8, !tbaa !323
+  %642 = getelementptr inbounds nuw i8, ptr %641, i64 125
+  store i8 0, ptr %642, align 1, !tbaa !340
+  br label %643
+
+643:                                              ; preds = %636, %640, %639, %626
+  %644 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.177, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %645 unwind label %122
+
+645:                                              ; preds = %643
+  br i1 %644, label %649, label %646
+
+646:                                              ; preds = %645
+  %647 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.178, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %648 unwind label %122
+
+648:                                              ; preds = %646
+  br i1 %647, label %649, label %655
+
+649:                                              ; preds = %648, %645
+  %650 = load i32, ptr %4, align 4, !tbaa !12
+  %651 = icmp ne i32 %650, 0
+  %652 = load ptr, ptr %0, align 8, !tbaa !323
+  %653 = getelementptr inbounds nuw i8, ptr %652, i64 126
+  %654 = zext i1 %651 to i8
+  store i8 %654, ptr %653, align 2, !tbaa !341
+  br label %666
+
+655:                                              ; preds = %648
+  %656 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.179)
+  br i1 %656, label %659, label %657
+
+657:                                              ; preds = %655
+  %658 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.180)
+  br i1 %658, label %659, label %662
+
+659:                                              ; preds = %657, %655
+  %660 = load ptr, ptr %0, align 8, !tbaa !323
+  %661 = getelementptr inbounds nuw i8, ptr %660, i64 126
+  store i8 1, ptr %661, align 2, !tbaa !341
+  br label %666
+
+662:                                              ; preds = %657
+  br i1 %3, label %663, label %666
+
+663:                                              ; preds = %662
+  %664 = load ptr, ptr %0, align 8, !tbaa !323
+  %665 = getelementptr inbounds nuw i8, ptr %664, i64 126
+  store i8 0, ptr %665, align 2, !tbaa !341
+  br label %666
+
+666:                                              ; preds = %659, %663, %662, %649
+  %667 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.181, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %668 unwind label %122
+
+668:                                              ; preds = %666
+  br i1 %667, label %672, label %669
+
+669:                                              ; preds = %668
+  %670 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.182, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %671 unwind label %122
+
+671:                                              ; preds = %669
+  br i1 %670, label %672, label %678
+
+672:                                              ; preds = %671, %668
+  %673 = load i32, ptr %4, align 4, !tbaa !12
+  %674 = icmp ne i32 %673, 0
+  %675 = load ptr, ptr %0, align 8, !tbaa !323
+  %676 = getelementptr inbounds nuw i8, ptr %675, i64 127
+  %677 = zext i1 %674 to i8
+  store i8 %677, ptr %676, align 1, !tbaa !342
+  br label %689
+
+678:                                              ; preds = %671
+  %679 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.183)
+  br i1 %679, label %682, label %680
+
+680:                                              ; preds = %678
+  %681 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.184)
+  br i1 %681, label %682, label %685
+
+682:                                              ; preds = %680, %678
+  %683 = load ptr, ptr %0, align 8, !tbaa !323
+  %684 = getelementptr inbounds nuw i8, ptr %683, i64 127
+  store i8 1, ptr %684, align 1, !tbaa !342
+  br label %689
+
+685:                                              ; preds = %680
+  br i1 %3, label %686, label %689
+
+686:                                              ; preds = %685
+  %687 = load ptr, ptr %0, align 8, !tbaa !323
+  %688 = getelementptr inbounds nuw i8, ptr %687, i64 127
+  store i8 0, ptr %688, align 1, !tbaa !342
+  br label %689
+
+689:                                              ; preds = %682, %686, %685, %672
+  %690 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.185, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %691 unwind label %122
+
+691:                                              ; preds = %689
+  br i1 %690, label %695, label %692
+
+692:                                              ; preds = %691
+  %693 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.186, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %694 unwind label %122
+
+694:                                              ; preds = %692
+  br i1 %693, label %695, label %701
+
+695:                                              ; preds = %694, %691
+  %696 = load i32, ptr %4, align 4, !tbaa !12
+  %697 = icmp ne i32 %696, 0
+  %698 = load ptr, ptr %0, align 8, !tbaa !323
+  %699 = getelementptr inbounds nuw i8, ptr %698, i64 128
+  %700 = zext i1 %697 to i8
+  store i8 %700, ptr %699, align 8, !tbaa !343
+  br label %711
+
+701:                                              ; preds = %694
+  %702 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.187)
+  br i1 %702, label %705, label %703
+
+703:                                              ; preds = %701
+  %704 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.188)
+  br i1 %704, label %705, label %708
+
+705:                                              ; preds = %703, %701
+  %706 = load ptr, ptr %0, align 8, !tbaa !323
+  %707 = getelementptr inbounds nuw i8, ptr %706, i64 128
+  store i8 1, ptr %707, align 8, !tbaa !343
+  br label %711
+
+708:                                              ; preds = %703
   br i1 %3, label %.thread392, label %.critedge321
 
-.thread392:                                       ; preds = %709
-  %710 = load ptr, ptr %0, align 8, !tbaa !323
-  %711 = getelementptr inbounds nuw i8, ptr %710, i64 128
-  store i8 0, ptr %711, align 8, !tbaa !343
-  br label %714
+.thread392:                                       ; preds = %708
+  %709 = load ptr, ptr %0, align 8, !tbaa !323
+  %710 = getelementptr inbounds nuw i8, ptr %709, i64 128
+  store i8 0, ptr %710, align 8, !tbaa !343
+  br label %713
 
-712:                                              ; preds = %706, %696
-  %713 = phi ptr [ %707, %706 ], [ %699, %696 ]
-  br i1 %3, label %714, label %.critedge321
+711:                                              ; preds = %705, %695
+  %712 = phi ptr [ %706, %705 ], [ %698, %695 ]
+  br i1 %3, label %713, label %.critedge321
 
-714:                                              ; preds = %.thread392, %712
-  %715 = phi ptr [ %710, %.thread392 ], [ %713, %712 ]
-  %716 = getelementptr inbounds nuw i8, ptr %715, i64 129
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %716, i8 0, i64 6, i1 false)
+713:                                              ; preds = %.thread392, %711
+  %714 = phi ptr [ %709, %.thread392 ], [ %712, %711 ]
+  %715 = getelementptr inbounds nuw i8, ptr %714, i64 129
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %715, i8 0, i64 6, i1 false)
   br label %.critedge321
 
-.critedge321:                                     ; preds = %709, %714, %712
-  %717 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.189)
-  br i1 %717, label %722, label %718
+.critedge321:                                     ; preds = %708, %713, %711
+  %716 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.189)
+  br i1 %716, label %721, label %717
 
-718:                                              ; preds = %.critedge321
-  %719 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.190)
-  br i1 %719, label %722, label %720
+717:                                              ; preds = %.critedge321
+  %718 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.190)
+  br i1 %718, label %721, label %719
 
-720:                                              ; preds = %718
-  %721 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.191)
-  br i1 %721, label %722, label %726
+719:                                              ; preds = %717
+  %720 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.191)
+  br i1 %720, label %721, label %725
 
-722:                                              ; preds = %720, %718, %.critedge321
-  %723 = load ptr, ptr %0, align 8, !tbaa !323
-  %724 = getelementptr inbounds nuw i8, ptr %723, i64 129
-  store i8 1, ptr %724, align 1, !tbaa !344
-  %725 = getelementptr inbounds nuw i8, ptr %723, i64 110
-  store i8 1, ptr %725, align 2, !tbaa !328
-  br label %726
+721:                                              ; preds = %719, %717, %.critedge321
+  %722 = load ptr, ptr %0, align 8, !tbaa !323
+  %723 = getelementptr inbounds nuw i8, ptr %722, i64 129
+  store i8 1, ptr %723, align 1, !tbaa !344
+  %724 = getelementptr inbounds nuw i8, ptr %722, i64 110
+  store i8 1, ptr %724, align 2, !tbaa !328
+  br label %725
 
-726:                                              ; preds = %722, %720
-  %727 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.192)
-  br i1 %727, label %730, label %728
+725:                                              ; preds = %721, %719
+  %726 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.192)
+  br i1 %726, label %729, label %727
 
-728:                                              ; preds = %726
-  %729 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.193)
-  br i1 %729, label %730, label %734
+727:                                              ; preds = %725
+  %728 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.193)
+  br i1 %728, label %729, label %733
 
-730:                                              ; preds = %728, %726
-  %731 = load ptr, ptr %0, align 8, !tbaa !323
-  %732 = getelementptr inbounds nuw i8, ptr %731, i64 130
-  store i8 1, ptr %732, align 2, !tbaa !345
-  %733 = getelementptr inbounds nuw i8, ptr %731, i64 110
-  store i8 1, ptr %733, align 2, !tbaa !328
-  br label %734
+729:                                              ; preds = %727, %725
+  %730 = load ptr, ptr %0, align 8, !tbaa !323
+  %731 = getelementptr inbounds nuw i8, ptr %730, i64 130
+  store i8 1, ptr %731, align 2, !tbaa !345
+  %732 = getelementptr inbounds nuw i8, ptr %730, i64 110
+  store i8 1, ptr %732, align 2, !tbaa !328
+  br label %733
 
-734:                                              ; preds = %730, %728
-  %735 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.194)
-  br i1 %735, label %738, label %736
+733:                                              ; preds = %729, %727
+  %734 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.194)
+  br i1 %734, label %737, label %735
 
-736:                                              ; preds = %734
-  %737 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.195)
-  br i1 %737, label %738, label %742
+735:                                              ; preds = %733
+  %736 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.195)
+  br i1 %736, label %737, label %741
 
-738:                                              ; preds = %736, %734
-  %739 = load ptr, ptr %0, align 8, !tbaa !323
-  %740 = getelementptr inbounds nuw i8, ptr %739, i64 131
-  store i8 1, ptr %740, align 1, !tbaa !346
-  %741 = getelementptr inbounds nuw i8, ptr %739, i64 110
-  store i8 1, ptr %741, align 2, !tbaa !328
-  br label %742
+737:                                              ; preds = %735, %733
+  %738 = load ptr, ptr %0, align 8, !tbaa !323
+  %739 = getelementptr inbounds nuw i8, ptr %738, i64 131
+  store i8 1, ptr %739, align 1, !tbaa !346
+  %740 = getelementptr inbounds nuw i8, ptr %738, i64 110
+  store i8 1, ptr %740, align 2, !tbaa !328
+  br label %741
 
-742:                                              ; preds = %738, %736
-  %743 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.196)
-  br i1 %743, label %746, label %744
+741:                                              ; preds = %737, %735
+  %742 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.196)
+  br i1 %742, label %745, label %743
 
-744:                                              ; preds = %742
-  %745 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.197)
-  br i1 %745, label %746, label %750
+743:                                              ; preds = %741
+  %744 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.197)
+  br i1 %744, label %745, label %749
 
-746:                                              ; preds = %744, %742
-  %747 = load ptr, ptr %0, align 8, !tbaa !323
-  %748 = getelementptr inbounds nuw i8, ptr %747, i64 132
-  store i8 1, ptr %748, align 4, !tbaa !347
-  %749 = getelementptr inbounds nuw i8, ptr %747, i64 110
-  store i8 1, ptr %749, align 2, !tbaa !328
-  br label %750
+745:                                              ; preds = %743, %741
+  %746 = load ptr, ptr %0, align 8, !tbaa !323
+  %747 = getelementptr inbounds nuw i8, ptr %746, i64 132
+  store i8 1, ptr %747, align 4, !tbaa !347
+  %748 = getelementptr inbounds nuw i8, ptr %746, i64 110
+  store i8 1, ptr %748, align 2, !tbaa !328
+  br label %749
 
-750:                                              ; preds = %746, %744
-  %751 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.198)
-  br i1 %751, label %754, label %752
+749:                                              ; preds = %745, %743
+  %750 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.198)
+  br i1 %750, label %753, label %751
 
-752:                                              ; preds = %750
-  %753 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.199)
-  br i1 %753, label %754, label %758
+751:                                              ; preds = %749
+  %752 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.199)
+  br i1 %752, label %753, label %757
 
-754:                                              ; preds = %752, %750
-  %755 = load ptr, ptr %0, align 8, !tbaa !323
-  %756 = getelementptr inbounds nuw i8, ptr %755, i64 133
-  store i8 1, ptr %756, align 1, !tbaa !348
-  %757 = getelementptr inbounds nuw i8, ptr %755, i64 110
-  store i8 1, ptr %757, align 2, !tbaa !328
-  br label %758
+753:                                              ; preds = %751, %749
+  %754 = load ptr, ptr %0, align 8, !tbaa !323
+  %755 = getelementptr inbounds nuw i8, ptr %754, i64 133
+  store i8 1, ptr %755, align 1, !tbaa !348
+  %756 = getelementptr inbounds nuw i8, ptr %754, i64 110
+  store i8 1, ptr %756, align 2, !tbaa !328
+  br label %757
 
-758:                                              ; preds = %754, %752
-  %759 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.200)
-  br i1 %759, label %762, label %760
+757:                                              ; preds = %753, %751
+  %758 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.200)
+  br i1 %758, label %761, label %759
 
-760:                                              ; preds = %758
-  %761 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.201)
-  br i1 %761, label %762, label %766
+759:                                              ; preds = %757
+  %760 = call fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEiPKPKcS2_(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.201)
+  br i1 %760, label %761, label %765
 
-762:                                              ; preds = %760, %758
-  %763 = load ptr, ptr %0, align 8, !tbaa !323
-  %764 = getelementptr inbounds nuw i8, ptr %763, i64 134
-  store i8 1, ptr %764, align 2, !tbaa !349
-  %765 = getelementptr inbounds nuw i8, ptr %763, i64 110
-  store i8 1, ptr %765, align 2, !tbaa !328
-  br label %766
+761:                                              ; preds = %759, %757
+  %762 = load ptr, ptr %0, align 8, !tbaa !323
+  %763 = getelementptr inbounds nuw i8, ptr %762, i64 134
+  store i8 1, ptr %763, align 2, !tbaa !349
+  %764 = getelementptr inbounds nuw i8, ptr %762, i64 110
+  store i8 1, ptr %764, align 2, !tbaa !328
+  br label %765
 
-766:                                              ; preds = %762, %760
-  %767 = load i8, ptr %76, align 1, !tbaa !38
-  %768 = icmp sgt i8 %767, -1
-  br i1 %768, label %_ZN7doctest6StringD2Ev.exit380, label %769
+765:                                              ; preds = %761, %759
+  %766 = load i8, ptr %76, align 1, !tbaa !38
+  %767 = icmp sgt i8 %766, -1
+  br i1 %767, label %_ZN7doctest6StringD2Ev.exit380, label %768
 
-769:                                              ; preds = %766
-  %770 = load ptr, ptr %5, align 8, !tbaa !38
-  %771 = icmp eq ptr %770, null
-  br i1 %771, label %_ZN7doctest6StringD2Ev.exit380, label %772
+768:                                              ; preds = %765
+  %769 = load ptr, ptr %5, align 8, !tbaa !38
+  %770 = icmp eq ptr %769, null
+  br i1 %770, label %_ZN7doctest6StringD2Ev.exit380, label %771
 
-772:                                              ; preds = %769
-  call void @_ZdaPv(ptr noundef nonnull %770) #48
+771:                                              ; preds = %768
+  call void @_ZdaPv(ptr noundef nonnull %769) #48
   br label %_ZN7doctest6StringD2Ev.exit380
 
-_ZN7doctest6StringD2Ev.exit380:                   ; preds = %766, %769, %772
+_ZN7doctest6StringD2Ev.exit380:                   ; preds = %765, %768, %771
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #49
   ret void
 
-_ZN7doctest6StringD2Ev.exit342:                   ; preds = %_ZN7doctest6StringD2Ev.exit341, %119, %_ZN7doctest6StringD2Ev.exit379, %122
-  %.pn315 = phi { ptr, i32 } [ %123, %122 ], [ %.pn311.pn, %_ZN7doctest6StringD2Ev.exit379 ], [ %121, %_ZN7doctest6StringD2Ev.exit341 ], [ %120, %119 ]
-  %773 = load i8, ptr %76, align 1, !tbaa !38
-  %774 = icmp sgt i8 %773, -1
-  br i1 %774, label %_ZN7doctest6StringD2Ev.exit381, label %775
+_ZN7doctest6StringD2Ev.exit342:                   ; preds = %_ZN7doctest6StringD2Ev.exit378, %172, %_ZN7doctest6StringD2Ev.exit341, %119, %122
+  %.pn315 = phi { ptr, i32 } [ %123, %122 ], [ %121, %_ZN7doctest6StringD2Ev.exit341 ], [ %120, %119 ], [ %174, %_ZN7doctest6StringD2Ev.exit378 ], [ %173, %172 ]
+  %772 = load i8, ptr %76, align 1, !tbaa !38
+  %773 = icmp sgt i8 %772, -1
+  br i1 %773, label %_ZN7doctest6StringD2Ev.exit381, label %774
 
-775:                                              ; preds = %_ZN7doctest6StringD2Ev.exit342
-  %776 = load ptr, ptr %5, align 8, !tbaa !38
-  %777 = icmp eq ptr %776, null
-  br i1 %777, label %_ZN7doctest6StringD2Ev.exit381, label %778
+774:                                              ; preds = %_ZN7doctest6StringD2Ev.exit342
+  %775 = load ptr, ptr %5, align 8, !tbaa !38
+  %776 = icmp eq ptr %775, null
+  br i1 %776, label %_ZN7doctest6StringD2Ev.exit381, label %777
 
-778:                                              ; preds = %775
-  call void @_ZdaPv(ptr noundef nonnull %776) #48
+777:                                              ; preds = %774
+  call void @_ZdaPv(ptr noundef nonnull %775) #48
   br label %_ZN7doctest6StringD2Ev.exit381
 
-_ZN7doctest6StringD2Ev.exit381:                   ; preds = %_ZN7doctest6StringD2Ev.exit342, %775, %778
+_ZN7doctest6StringD2Ev.exit381:                   ; preds = %_ZN7doctest6StringD2Ev.exit342, %774, %777
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #49
   resume { ptr, i32 } %.pn315

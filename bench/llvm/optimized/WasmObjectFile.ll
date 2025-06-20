@@ -6042,8 +6042,8 @@ _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12emplace_backIJRNS0_4wasm14WasmS
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge37, %218, %156, %189, %213, %278
-  %.sink.sink = phi ptr [ %279, %278 ], [ %214, %213 ], [ %190, %189 ], [ %157, %156 ], [ %219, %218 ], [ null, %.critedge37 ]
-  store ptr %.sink.sink, ptr %0, align 8, !tbaa !37
+  %.sink = phi ptr [ %219, %218 ], [ %157, %156 ], [ %190, %189 ], [ %214, %213 ], [ %279, %278 ], [ null, %.critedge37 ]
+  store ptr %.sink, ptr %0, align 8, !tbaa !37
   ret void
 }
 
@@ -11536,11 +11536,8 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile25parseLinkingSectionSymta
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::Twine", align 8
   %12 = alloca %"class.llvm::StringSet", align 8
-  %.sroa.42 = alloca [3 x i8], align 1
   %.sroa.52 = alloca %"class.llvm::StringRef", align 8
   %.sroa.65 = alloca [23 x i8], align 1
-  %.sroa.78 = alloca [23 x i8], align 1
-  %.sroa.79 = alloca [7 x i8], align 1
   %13 = alloca i64, align 8
   %14 = alloca %"class.llvm::Twine", align 8
   %15 = alloca %"class.llvm::Twine", align 8
@@ -11990,11 +11987,8 @@ _ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.ex
   %.sroa.79498.0765 = phi i32 [ undef, %.lr.ph767 ], [ %.sroa.79498.1, %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12emplace_backIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEERS2_DpOT_.exit ]
   %.sroa.97514.0764 = phi i64 [ undef, %.lr.ph767 ], [ %.sroa.97514.1, %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12emplace_backIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEERS2_DpOT_.exit ]
   %211 = add i32 %.in, -1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.42)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.52)
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.65)
-  call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.78)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.79)
   %212 = load ptr, ptr %31, align 8, !tbaa !252
   %213 = load ptr, ptr %33, align 8, !tbaa !251
   %214 = icmp eq ptr %212, %213
@@ -13551,8 +13545,6 @@ _ZN4llvmplERKNS_5TwineES2_.exit401:               ; preds = %858
   store i64 %.sroa.27.2, ptr %.sroa.27.0..sroa_idx, align 8
   %.sroa.39.0..sroa_idx = getelementptr inbounds nuw i8, ptr %866, i64 16
   store i8 %217, ptr %.sroa.39.0..sroa_idx, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %866, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.42.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.42, i64 3, i1 false)
   %.sroa.42467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %866, i64 20
   store i32 %241, ptr %.sroa.42467.0..sroa_idx, align 4
   %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %866, i64 24
@@ -13563,12 +13555,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit401:               ; preds = %858
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.65.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.65, i64 23, i1 false)
   %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %866, i64 64
   store i8 %.sroa.69.1, ptr %.sroa.69.0..sroa_idx, align 8
-  %.sroa.78.0..sroa_idx = getelementptr inbounds nuw i8, ptr %866, i64 65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.78.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.78, i64 23, i1 false)
   %.sroa.78494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %866, i64 88
   store i8 0, ptr %.sroa.78494.0..sroa_idx, align 8
-  %.sroa.79.0..sroa_idx = getelementptr inbounds nuw i8, ptr %866, i64 89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.79.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.79, i64 7, i1 false)
   %.sroa.79498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %866, i64 96
   store i32 %.sroa.79498.1, ptr %.sroa.79498.0..sroa_idx, align 8
   %.sroa.97514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %866, i64 104
@@ -13615,8 +13603,6 @@ _ZNKSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; 
   store i64 %.sroa.27.2, ptr %.sroa.27.0..sroa_idx442, align 8
   %.sroa.39.0..sroa_idx463 = getelementptr inbounds nuw i8, ptr %888, i64 16
   store i8 %217, ptr %.sroa.39.0..sroa_idx463, align 8
-  %.sroa.42.0..sroa_idx466 = getelementptr inbounds nuw i8, ptr %888, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.42.0..sroa_idx466, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.42, i64 3, i1 false)
   %.sroa.42467.0..sroa_idx468 = getelementptr inbounds nuw i8, ptr %888, i64 20
   store i32 %241, ptr %.sroa.42467.0..sroa_idx468, align 4
   %.sroa.52.0..sroa_idx478 = getelementptr inbounds nuw i8, ptr %888, i64 24
@@ -13627,12 +13613,8 @@ _ZNKSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.65.0..sroa_idx484, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.65, i64 23, i1 false)
   %.sroa.69.0..sroa_idx488 = getelementptr inbounds nuw i8, ptr %888, i64 64
   store i8 %.sroa.69.1, ptr %.sroa.69.0..sroa_idx488, align 8
-  %.sroa.78.0..sroa_idx493 = getelementptr inbounds nuw i8, ptr %888, i64 65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.78.0..sroa_idx493, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.78, i64 23, i1 false)
   %.sroa.78494.0..sroa_idx495 = getelementptr inbounds nuw i8, ptr %888, i64 88
   store i8 0, ptr %.sroa.78494.0..sroa_idx495, align 8
-  %.sroa.79.0..sroa_idx497 = getelementptr inbounds nuw i8, ptr %888, i64 89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.79.0..sroa_idx497, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.79, i64 7, i1 false)
   %.sroa.79498.0..sroa_idx499 = getelementptr inbounds nuw i8, ptr %888, i64 96
   store i32 %.sroa.79498.1, ptr %.sroa.79498.0..sroa_idx499, align 8
   %.sroa.97514.0..sroa_idx515 = getelementptr inbounds nuw i8, ptr %888, i64 104
@@ -13675,11 +13657,8 @@ _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE17_M_realloc_insertIJRNS0_4wasm14
   br label %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12emplace_backIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12emplace_backIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEERS2_DpOT_.exit: ; preds = %868, %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE17_M_realloc_insertIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.42)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.52)
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.65)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.78)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.79)
   %.not = icmp eq i32 %211, 0
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %210, !llvm.loop !973
 
@@ -13688,11 +13667,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNSt6vectorIN4llvm
   br label %897
 
 .critedge140:                                     ; preds = %774, %766, %703, %700, %509, %501, %398, %390, %_ZN4llvmplERKNS_5TwineES2_.exit401, %278, %_ZN4llvmplERKNS_5TwineES2_.exit
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.42)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.52)
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.65)
-  call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.78)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.79)
   br label %897
 
 897:                                              ; preds = %.critedge140, %_ZN4llvm5ErrorD2Ev.exit

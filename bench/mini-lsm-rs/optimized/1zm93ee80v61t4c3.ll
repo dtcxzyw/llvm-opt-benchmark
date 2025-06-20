@@ -6132,7 +6132,7 @@ common.resume:                                    ; preds = %64, %59
   %.sroa.7.0..sroa_idx2.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.sroa.8.0..sroa_idx3.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 24
   %.sroa.10.0..sroa_idx4.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %.sroa.115.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %.sroa.11.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 40
   br label %146
 
 146:                                              ; preds = %151, %142
@@ -6163,7 +6163,7 @@ common.resume:                                    ; preds = %64, %59
   store ptr %22, ptr %.sroa.7.0..sroa_idx2.i.i.i.i.i.i.i.i.i, align 8, !noalias !1549
   store i64 1, ptr %.sroa.8.0..sroa_idx3.i.i.i.i.i.i.i.i.i, align 8, !noalias !1549
   store ptr %20, ptr %.sroa.10.0..sroa_idx4.i.i.i.i.i.i.i.i.i, align 8, !noalias !1549
-  store i64 1, ptr %.sroa.115.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !1549
+  store i64 1, ptr %.sroa.11.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !noalias !1549
   invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i.i.i.i.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19)
           to label %151 unwind label %156, !noalias !1550
 
@@ -6273,7 +6273,7 @@ common.resume:                                    ; preds = %64, %59
   %.sroa.7.0..sroa_idx2.i.i.i.i.i.i.i.i.i156 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.8.0..sroa_idx3.i.i.i.i.i.i.i.i.i157 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.sroa.10.0..sroa_idx4.i.i.i.i.i.i.i.i.i158 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sroa.115.0..sroa_idx.i.i.i.i.i.i.i.i.i159 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %.sroa.11.0..sroa_idx.i.i.i.i.i.i.i.i.i159 = getelementptr inbounds nuw i8, ptr %13, i64 40
   br label %183
 
 183:                                              ; preds = %188, %179
@@ -6304,7 +6304,7 @@ common.resume:                                    ; preds = %64, %59
   store ptr %16, ptr %.sroa.7.0..sroa_idx2.i.i.i.i.i.i.i.i.i156, align 8, !noalias !1599
   store i64 1, ptr %.sroa.8.0..sroa_idx3.i.i.i.i.i.i.i.i.i157, align 8, !noalias !1599
   store ptr %14, ptr %.sroa.10.0..sroa_idx4.i.i.i.i.i.i.i.i.i158, align 8, !noalias !1599
-  store i64 1, ptr %.sroa.115.0..sroa_idx.i.i.i.i.i.i.i.i.i159, align 8, !noalias !1599
+  store i64 1, ptr %.sroa.11.0..sroa_idx.i.i.i.i.i.i.i.i.i159, align 8, !noalias !1599
   invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i.i.i.i.i.i.i147, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
           to label %188 unwind label %193, !noalias !1600
 

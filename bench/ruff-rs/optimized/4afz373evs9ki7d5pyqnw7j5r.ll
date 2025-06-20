@@ -176,13 +176,13 @@ define hidden { ptr, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !alias.scope !55, !noundef !3
   %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %15, label %4
+  br i1 %.not.i.i, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.thread.i, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8, !alias.scope !60, !noundef !3
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %13, label %8
+  br i1 %7, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.thread5.i, label %8
 
 8:                                                ; preds = %4
   %9 = add i64 %6, -1
@@ -190,44 +190,44 @@ define hidden { ptr, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !alias.scope !65, !nonnull !3, !noundef !3
   %12 = icmp eq ptr %3, %11
-  br i1 %12, label %13, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.i
+  br i1 %12, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.thread5.i, label %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.i
 
-13:                                               ; preds = %8, %4
+_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.thread5.i: ; preds = %8, %4
   store ptr null, ptr %2, align 8, !alias.scope !55
-  br label %15
+  br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.thread.i
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.i: ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %14, ptr %2, align 8, !alias.scope !65
-  br label %22
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %13, ptr %2, align 8, !alias.scope !55
+  br label %20
 
-15:                                               ; preds = %13, %1
-  %16 = load ptr, ptr %0, align 8, !alias.scope !68, !noalias !73, !noundef !3
-  %.not.i.i.i = icmp eq ptr %16, null
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !68, !noalias !73, !nonnull !3
-  %19 = icmp eq ptr %16, %18
-  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %19
-  br i1 %or.cond.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea9b20eacec7b7bE.exit", label %20
+_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.thread.i: ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.thread5.i, %1
+  %14 = load ptr, ptr %0, align 8, !alias.scope !68, !noalias !73, !noundef !3
+  %.not.i.i.i = icmp eq ptr %14, null
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8, !alias.scope !68, !noalias !73, !nonnull !3
+  %17 = icmp eq ptr %14, %16
+  %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %17
+  br i1 %or.cond.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea9b20eacec7b7bE.exit", label %18
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %21, ptr %0, align 8, !alias.scope !75, !noalias !73
-  br label %22
+18:                                               ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.thread.i
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr %19, ptr %0, align 8, !alias.scope !75, !noalias !73
+  br label %20
 
-22:                                               ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.i, %20
-  %.sroa.0.0.i2.i.ph = phi ptr [ %16, %20 ], [ %3, %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.i ]
-  %23 = load ptr, ptr %.sroa.0.0.i2.i.ph, align 8, !nonnull !3, !align !8, !noundef !3
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i2.i.ph, i64 8
-  %25 = load i64, ptr %24, align 8, !noundef !3
+20:                                               ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.i, %18
+  %.sroa.0.0.i2.i.ph = phi ptr [ %14, %18 ], [ %3, %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.i ]
+  %21 = load ptr, ptr %.sroa.0.0.i2.i.ph, align 8, !nonnull !3, !align !8, !noundef !3
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i2.i.ph, i64 8
+  %23 = load i64, ptr %22, align 8, !noundef !3
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea9b20eacec7b7bE.exit"
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea9b20eacec7b7bE.exit": ; preds = %15, %22
-  %.sroa.3.0 = phi i64 [ %25, %22 ], [ undef, %15 ]
-  %.sroa.0.0 = phi ptr [ %23, %22 ], [ null, %15 ]
-  %26 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %27 = insertvalue { ptr, i64 } %26, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %27
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbea9b20eacec7b7bE.exit": ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.thread.i, %20
+  %.sroa.3.0 = phi i64 [ %23, %20 ], [ undef, %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.thread.i ]
+  %.sroa.0.0 = phi ptr [ %21, %20 ], [ null, %_ZN4core4iter8adapters5chain17and_then_or_clear17h8db550e8e19bf8bfE.exit.thread.i ]
+  %24 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %25 = insertvalue { ptr, i64 } %24, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable

@@ -5822,17 +5822,17 @@ select.unfold:                                    ; preds = %64
   br label %.thread232.thread
 
 .thread232.thread:                                ; preds = %select.unfold, %81
-  %.sroa.10.0.in.in = phi i8 [ %66, %select.unfold ], [ %49, %81 ]
-  %.sroa.7.0 = phi ptr [ %.sink1.i.i.i.i.i.i.i, %select.unfold ], [ %.sink1.i.i.i, %81 ]
-  %.sroa.0.0 = phi i64 [ %spec.select, %select.unfold ], [ %spec.select.i, %81 ]
-  %.sroa.10.0.in = zext nneg i8 %.sroa.10.0.in.in to i64
-  %.sroa.10.0 = inttoptr i64 %.sroa.10.0.in to ptr
+  %.sroa.0271.0.ph = phi i64 [ %spec.select.i, %81 ], [ %spec.select, %select.unfold ]
+  %.sroa.6.0.ph = phi ptr [ %.sink1.i.i.i, %81 ], [ %.sink1.i.i.i.i.i.i.i, %select.unfold ]
+  %.sroa.9.0.ph.in.in = phi i8 [ %49, %81 ], [ %66, %select.unfold ]
+  %.sroa.9.0.ph.in = zext nneg i8 %.sroa.9.0.ph.in.in to i64
+  %.sroa.9.0.ph = inttoptr i64 %.sroa.9.0.ph.in to ptr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  store i64 %.sroa.0.0, ptr %7, align 8
-  %.sroa.7.0..sroa_idx279 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.sroa.7.0, ptr %.sroa.7.0..sroa_idx279, align 8
-  %.sroa.10.0..sroa_idx281 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %.sroa.10.0, ptr %.sroa.10.0..sroa_idx281, align 8
+  store i64 %.sroa.0271.0.ph, ptr %7, align 8
+  %.sroa.6.0..sroa_idx275 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.sroa.6.0.ph, ptr %.sroa.6.0..sroa_idx275, align 8
+  %.sroa.9.0..sroa_idx276 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %.sroa.9.0.ph, ptr %.sroa.9.0..sroa_idx276, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   br label %94
 
@@ -5848,10 +5848,10 @@ select.unfold:                                    ; preds = %64
   %88 = icmp eq i8 %.pre, 0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store i64 3, ptr %7, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %84, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %85, ptr %.sroa.10.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %84, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %85, ptr %.sroa.9.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   br i1 %88, label %89, label %94
 
@@ -5984,8 +5984,8 @@ _ZN10async_task5utils14abort_on_panic17hc06823fe70f377c9E.exit: ; preds = %106
   br label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb725ecc315d4fba6E.exit"
 
 .body128:                                         ; preds = %137
-  %.not271 = icmp eq ptr %.sroa.0189.0, null
-  br i1 %.not271, label %common.resume, label %148
+  %.not270 = icmp eq ptr %.sroa.0189.0, null
+  br i1 %.not270, label %common.resume, label %148
 
 "_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb725ecc315d4fba6E.exit": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$7destroy17hb3b858cb49e5adbdE.exit.i", %125
   %141 = icmp eq ptr %.sroa.0189.0, null
@@ -6014,6 +6014,11 @@ _ZN10async_task5utils14abort_on_panic17hd4aa22ad8dbfbd1cE.exit: ; preds = %142
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   br label %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb725ecc315d4fba6E.exit146"
 
+"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb725ecc315d4fba6E.exit146": ; preds = %_ZN10async_task5utils14abort_on_panic17hd4aa22ad8dbfbd1cE.exit, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb725ecc315d4fba6E.exit"
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  br label %154
+
 148:                                              ; preds = %.body128
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0, i64 24
   %150 = load ptr, ptr %149, align 8, !nonnull !14, !noundef !14
@@ -6029,11 +6034,6 @@ _ZN10async_task5utils14abort_on_panic17hd4aa22ad8dbfbd1cE.exit: ; preds = %142
 153:                                              ; preds = %90
   invoke fastcc void @"_ZN4core3ptr191drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$async_fs..ReadDir$C$std..io..error..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h5124046e160e2cb3E"(ptr noalias noundef align 8 dereferenceable(24) %7) #18
           to label %common.resume unwind label %151
-
-"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb725ecc315d4fba6E.exit146": ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb725ecc315d4fba6E.exit", %_ZN10async_task5utils14abort_on_panic17hd4aa22ad8dbfbd1cE.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  br label %154
 
 154:                                              ; preds = %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb725ecc315d4fba6E.exit175", %_ZN10async_task5utils14abort_on_panic17h72098da3e5bbc114E.exit, %"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8drop_ref17hb725ecc315d4fba6E.exit146"
   ret i1 false

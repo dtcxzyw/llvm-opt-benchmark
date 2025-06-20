@@ -77,14 +77,14 @@ define noalias noundef nonnull ptr @_ZN16ruff_source_file10line_index9LineIndex1
 
 19:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h306bd1b469f810f4E.exit"
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17he0db010e3632ed3eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.95641a04735e60a239fb9c9cfd8c4f76.22)
-          to label %._crit_edge36 unwind label %.loopexit.split-lp
+          to label %._crit_edge35 unwind label %.loopexit.split-lp
 
-._crit_edge36:                                    ; preds = %19
+._crit_edge35:                                    ; preds = %19
   %.pre = load ptr, ptr %16, align 8, !alias.scope !7, !noalias !10
   br label %20
 
-20:                                               ; preds = %._crit_edge36, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h306bd1b469f810f4E.exit"
-  %21 = phi ptr [ %.pre, %._crit_edge36 ], [ %14, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h306bd1b469f810f4E.exit" ]
+20:                                               ; preds = %._crit_edge35, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h306bd1b469f810f4E.exit"
+  %21 = phi ptr [ %.pre, %._crit_edge35 ], [ %14, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h306bd1b469f810f4E.exit" ]
   store i32 0, ptr %21, align 4
   store i64 1, ptr %17, align 8, !alias.scope !7, !noalias !10
   %22 = icmp ugt i64 %1, 4294967295
@@ -100,14 +100,14 @@ define noalias noundef nonnull ptr @_ZN16ruff_source_file10line_index9LineIndex1
           to label %64 unwind label %.loopexit.split-lp
 
 .lr.ph:                                           ; preds = %23, %.backedge
-  %.sroa.05.0.shrunk34 = phi i1 [ %31, %.backedge ], [ false, %23 ]
-  %.sroa.0.033 = phi ptr [ %27, %.backedge ], [ %0, %23 ]
-  %.sroa.7.032 = phi i64 [ %28, %.backedge ], [ 0, %23 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 1
-  %28 = add nuw nsw i64 %.sroa.7.032, 1
-  %29 = load i8, ptr %.sroa.0.033, align 1, !noundef !4
+  %.sroa.05.0.shrunk33 = phi i1 [ %31, %.backedge ], [ false, %23 ]
+  %.sroa.0.032 = phi ptr [ %27, %.backedge ], [ %0, %23 ]
+  %.sroa.7.031 = phi i64 [ %28, %.backedge ], [ 0, %23 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.032, i64 1
+  %28 = add nuw nsw i64 %.sroa.7.031, 1
+  %29 = load i8, ptr %.sroa.0.032, align 1, !noundef !4
   %30 = icmp slt i8 %29, 0
-  %31 = or i1 %.sroa.05.0.shrunk34, %30
+  %31 = or i1 %.sroa.05.0.shrunk33, %30
   switch i8 %29, label %.backedge [
     i8 13, label %45
     i8 10, label %.critedge
@@ -166,7 +166,7 @@ define noalias noundef nonnull ptr @_ZN16ruff_source_file10line_index9LineIndex1
   br i1 %46, label %49, label %.critedge
 
 .critedge:                                        ; preds = %49, %45, %.lr.ph
-  %47 = trunc i64 %.sroa.7.032 to i32
+  %47 = trunc i64 %.sroa.7.031 to i32
   %48 = invoke noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %47)
           to label %53 unwind label %.loopexit
 
@@ -203,8 +203,8 @@ define noalias noundef nonnull ptr @_ZN16ruff_source_file10line_index9LineIndex1
   unreachable
 
 .body:                                            ; preds = %39, %65
-  %eh.lpad-body24 = phi { ptr, i32 } [ %lpad.phi, %65 ], [ %40, %39 ]
-  resume { ptr, i32 } %eh.lpad-body24
+  %eh.lpad-body23 = phi { ptr, i32 } [ %lpad.phi, %65 ], [ %40, %39 ]
+  resume { ptr, i32 } %eh.lpad-body23
 
 .loopexit:                                        ; preds = %60, %53, %.critedge
   %lpad.loopexit = landingpad { ptr, i32 }

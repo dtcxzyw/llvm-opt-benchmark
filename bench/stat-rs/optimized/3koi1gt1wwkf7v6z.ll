@@ -116,8 +116,8 @@ define void @_ZN6statrs12distribution16discrete_uniform15DiscreteUniform3new17ha
   br label %8
 
 8:                                                ; preds = %3, %5
-  %.sink = phi i64 [ 21, %5 ], [ 0, %3 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 21, %5 ], [ 0, %3 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -742,14 +742,14 @@ define void @_ZN6statrs12distribution11multinomial11Multinomial3new17h717f46255a
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds double, ptr %1, i64 %2
   %7 = icmp eq i64 %2, 0
-  br i1 %7, label %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread5, label %.lr.ph.split.us.i
+  br i1 %7, label %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread4, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %4, %9
   %.sroa.05.013.us.i = phi double [ %11, %9 ], [ 0.000000e+00, %4 ]
   %.sroa.0.0812.us.i = phi ptr [ %10, %9 ], [ %1, %4 ]
   %8 = load double, ptr %.sroa.0.0812.us.i, align 8, !alias.scope !27, !noundef !4
   %or.cond1.us.i = fcmp ult double %8, 0.000000e+00
-  br i1 %or.cond1.us.i, label %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread5, label %9
+  br i1 %or.cond1.us.i, label %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread4, label %9
 
 9:                                                ; preds = %.lr.ph.split.us.i
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0812.us.i, i64 8
@@ -759,7 +759,7 @@ define void @_ZN6statrs12distribution11multinomial11Multinomial3new17h717f46255a
 
 _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit: ; preds = %9
   %13 = fcmp une double %11, 0.000000e+00
-  br i1 %13, label %14, label %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread5
+  br i1 %13, label %14, label %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread4
 
 14:                                               ; preds = %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !30
@@ -789,9 +789,9 @@ _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit
   store i64 %2, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %3, ptr %.sroa.42.0..sroa_idx, align 8
-  br label %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread5
+  br label %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread4
 
-_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread5: ; preds = %.lr.ph.split.us.i, %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit, %4, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h27bdbd6ac334718eE.exit"
+_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit.thread4: ; preds = %.lr.ph.split.us.i, %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit, %4, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h27bdbd6ac334718eE.exit"
   %storemerge = phi i64 [ 21, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h27bdbd6ac334718eE.exit" ], [ 0, %4 ], [ 0, %_ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit ], [ 0, %.lr.ph.split.us.i ]
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -868,8 +868,8 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
   store i64 2, ptr %.sroa.8.0..sroa_idx23, align 8
   %.sroa.10.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %3, ptr %.sroa.10.0..sroa_idx24, align 8
-  %.sroa.1125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i64 2, ptr %.sroa.1125.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i64 2, ptr %.sroa.11.0..sroa_idx, align 8
   %10 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !37
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !37
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)

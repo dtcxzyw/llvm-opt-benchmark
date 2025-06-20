@@ -36177,8 +36177,8 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   store i64 %4, ptr %12, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2004)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8), !noalias !2004
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2004
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2004
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %13, i8 0, i64 16, i1 false), !noalias !2004
   call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %7), !noalias !2004
   store i64 1, ptr %7, align 8, !noalias !2004
@@ -36309,8 +36309,8 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   store i64 %4, ptr %12, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2025)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8), !noalias !2025
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2025
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2025
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %13, i8 0, i64 16, i1 false), !noalias !2025
   call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %7), !noalias !2025
   store i64 1, ptr %7, align 8, !noalias !2025
@@ -36441,8 +36441,8 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   store i64 %4, ptr %12, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2046)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8), !noalias !2046
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2046
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2046
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %13, i8 0, i64 16, i1 false), !noalias !2046
   call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %7), !noalias !2046
   store i64 1, ptr %7, align 8, !noalias !2046
@@ -36573,8 +36573,8 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   store i64 %4, ptr %12, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2067)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8), !noalias !2067
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2067
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2067
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %13, i8 0, i64 16, i1 false), !noalias !2067
   call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %7), !noalias !2067
   store i64 1, ptr %7, align 8, !noalias !2067
@@ -36705,8 +36705,8 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   store i64 %4, ptr %12, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2088)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8), !noalias !2088
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2088
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2088
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %13, i8 0, i64 16, i1 false), !noalias !2088
   call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %7), !noalias !2088
   store i64 1, ptr %7, align 8, !noalias !2088
@@ -36837,8 +36837,8 @@ define hidden void @"_ZN82_$LT$salsa..tracked_struct..JarImpl$LT$C$GT$$u20$as$u2
   store i64 %4, ptr %12, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2109)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8), !noalias !2109
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2109
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %8, i8 0, i64 16, i1 false), !noalias !2109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %13, i8 0, i64 16, i1 false), !noalias !2109
   call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %7), !noalias !2109
   store i64 1, ptr %7, align 8, !noalias !2109

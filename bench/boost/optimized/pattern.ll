@@ -4086,7 +4086,7 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
   %or.cond.i.i.i.i.i.i = select i1 %23, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %_ZN5boost15optional_detail13optional_baseINS_4urls6detail24userinfo_template_rule_t10value_typeEED2Ev.exit, label %25
 
-_ZN5boost15optional_detail13optional_baseINS_4urls6detail24userinfo_template_rule_t10value_typeEED2Ev.exit: ; preds = %17, %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i, %22
+_ZN5boost15optional_detail13optional_baseINS_4urls6detail24userinfo_template_rule_t10value_typeEED2Ev.exit: ; preds = %22, %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i, %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22, !noalias !250
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %24, align 8, !tbaa !3
@@ -4105,9 +4105,9 @@ _ZN5boost15optional_detail13optional_baseINS_4urls6detail24userinfo_template_rul
   store ptr %8, ptr %2, align 8, !tbaa !3
   br label %26
 
-26:                                               ; preds = %_ZN5boost15optional_detail13optional_baseINS_4urls6detail24userinfo_template_rule_t10value_typeEED2Ev.exit, %25, %4
-  %.sink.sink = phi i8 [ 0, %4 ], [ 0, %25 ], [ 1, %_ZN5boost15optional_detail13optional_baseINS_4urls6detail24userinfo_template_rule_t10value_typeEED2Ev.exit ]
-  store i8 %.sink.sink, ptr %0, align 8, !tbaa !219
+26:                                               ; preds = %4, %_ZN5boost15optional_detail13optional_baseINS_4urls6detail24userinfo_template_rule_t10value_typeEED2Ev.exit, %25
+  %.sink = phi i8 [ 1, %_ZN5boost15optional_detail13optional_baseINS_4urls6detail24userinfo_template_rule_t10value_typeEED2Ev.exit ], [ 0, %25 ], [ 0, %4 ]
+  store i8 %.sink, ptr %0, align 8, !tbaa !219
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %27, align 8, !tbaa !259
   ret void

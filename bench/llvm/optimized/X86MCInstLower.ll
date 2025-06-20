@@ -5788,7 +5788,7 @@ _ZN18NoAutoPaddingScopeC2ERN4llvm10MCStreamerE.exit: ; preds = %3, %13
 
 _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %45, %50, %64
   %.sroa.029.0 = phi i8 [ %48, %45 ], [ 2, %50 ], [ 1, %64 ]
-  %.sroa.10.0 = phi i64 [ %49, %45 ], [ %52, %50 ], [ %.sroa.3.8.insert.ext.i, %64 ]
+  %.sroa.730.0 = phi i64 [ %49, %45 ], [ %52, %50 ], [ %.sroa.3.8.insert.ext.i, %64 ]
   %.0 = phi i32 [ 1132, %45 ], [ 1132, %50 ], [ 1133, %64 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #21
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -5801,7 +5801,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %45, %50, %64
   store i32 %.0, ptr %7, align 8, !tbaa !219
   store i8 %.sroa.029.0, ptr %69, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i64 %.sroa.10.0, ptr %.sroa.22.0..sroa_idx.i.i, align 8
+  store i64 %.sroa.730.0, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   store i32 1, ptr %70, align 8, !tbaa !26
   %72 = load ptr, ptr %8, align 8, !tbaa !194
   %73 = call noundef nonnull align 8 dereferenceable(304) ptr @_ZNK4llvm10AsmPrinter16getSubtargetInfoEv(ptr noundef nonnull align 8 dereferenceable(777) %0) #21
@@ -6525,7 +6525,7 @@ _ZN18NoAutoPaddingScopeC2ERN4llvm10MCStreamerE.exit: ; preds = %_ZN4llvm13X86Asm
 
 _ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit: ; preds = %66, %63
   %.sroa.038.0 = phi i8 [ %69, %66 ], [ %spec.select, %63 ]
-  %.sroa.8.0 = phi i64 [ %70, %66 ], [ %65, %63 ]
+  %.sroa.639.0 = phi i64 [ %70, %66 ], [ %65, %63 ]
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %72 = load ptr, ptr %71, align 8, !tbaa !199
   %73 = zext i32 %48 to i64
@@ -6549,7 +6549,7 @@ _ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit: ; preds = %66, %63
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i8 %.sroa.038.0, ptr %81, align 8
   %.sroa.22.0..sroa_idx.i.i.i28 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i64 %.sroa.8.0, ptr %.sroa.22.0..sroa_idx.i.i.i28, align 8
+  store i64 %.sroa.639.0, ptr %.sroa.22.0..sroa_idx.i.i.i28, align 8
   store i32 2, ptr %79, align 8, !tbaa !26
   call void @_ZN4llvm13X86AsmPrinter23EmitAndCountInstructionERNS_6MCInstE(ptr noundef nonnull align 8 dereferenceable(888) %0, ptr noundef nonnull align 8 dereferenceable(128) %8)
   %82 = load ptr, ptr %77, align 8, !tbaa !25

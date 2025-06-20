@@ -2237,10 +2237,10 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread440:    ; preds = %201, %_ZNK4llvm8MCS
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %266, %276, %277
-  %.sink709 = phi i8 [ 9, %276 ], [ %.014.i.i, %277 ], [ %275, %266 ]
+  %.sink686 = phi i8 [ 9, %276 ], [ %.014.i.i, %277 ], [ %275, %266 ]
   %.sink = phi i8 [ 1, %276 ], [ 9, %277 ], [ 1, %266 ]
   %281 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 %.sink709, ptr %281, align 8, !tbaa !437
+  store i8 %.sink686, ptr %281, align 8, !tbaa !437
   %282 = getelementptr inbounds nuw i8, ptr %10, i64 33
   store i8 %.sink, ptr %282, align 1, !tbaa !437
   %283 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %270, ptr noundef nonnull align 8 dereferenceable(34) %10) #19

@@ -2315,7 +2315,6 @@ define void @_ZNK2cv5gimpl7GIsland9consumersERKN3ade5GraphERKNS2_6HandleINS2_4No
   %7 = alloca %"struct.ade::util::Range::IterableRange<ade::util::Range::MapRange<ade::util::Range::MapRange<ade::util::Range::IterRange<__gnu_cxx::__normal_iterator<ade::Edge **, std::vector<ade::Edge *>>>, ade::Node::HandleMapper>, ade::Node::InEdgeMapper>>::iterator", align 8
   %8 = alloca %"struct.std::__detail::_AllocNode", align 8
   %.sroa.9 = alloca [16 x i8], align 8
-  %.sroa.11 = alloca [7 x i8], align 1
   %9 = alloca %"class.ade::details::MetadataId", align 8
   %10 = alloca %"class.ade::Handle", align 8
   %11 = alloca %"struct.ade::details::InitIdsArray", align 1
@@ -2559,7 +2558,6 @@ _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit:           ; preds = %_ZNK3ade13TypedMeta
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.9151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 33
   %.not.i.i.i.i.i2.i = icmp eq ptr %99, null
   %119 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %120 = getelementptr inbounds nuw i8, ptr %99, i64 12
@@ -2751,7 +2749,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i32: ; preds = %194,
 
 200:                                              ; preds = %198
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0115.sroa.3, i64 16, i1 false)
   %201 = icmp eq ptr %.sroa.0115.sroa.0.0.copyload, %.sroa.0115.sroa.2.0.copyload
   br i1 %201, label %.loopexit134, label %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_12InEdgeMapperEEEE8iteratorneERKSL_.exit.i.i.i
@@ -2763,7 +2760,6 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx
   store ptr %.sroa.0115.sroa.2.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, i64 16, i1 false)
   store i8 0, ptr %.sroa.9151.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11, i64 7, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #28, !noalias !155
   %202 = load ptr, ptr %7, align 8, !tbaa !160, !noalias !163
@@ -3032,7 +3028,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i60: ; preds = %303,
 .loopexit134:                                     ; preds = %.noexc39, %310, %200
   %.sroa.0118.0.copyload = phi ptr [ %.sroa.0115.sroa.2.0.copyload, %200 ], [ %.sroa.0.0, %.noexc39 ], [ %.sroa.0115.sroa.2.0.copyload, %310 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #28
@@ -3247,7 +3242,6 @@ define void @_ZNK2cv5gimpl7GIsland8producerERKN3ade5GraphERKNS2_6HandleINS2_4Nod
   %6 = alloca %"class.ade::Handle", align 8
   %7 = alloca %"struct.ade::util::Range::IterableRange<ade::util::Range::MapRange<ade::util::Range::MapRange<ade::util::Range::IterRange<__gnu_cxx::__normal_iterator<ade::Edge **, std::vector<ade::Edge *>>>, ade::Node::HandleMapper>, ade::Node::OutEdgeMapper>>::iterator", align 8
   %.sroa.9 = alloca [16 x i8], align 8
-  %.sroa.11 = alloca [7 x i8], align 1
   %8 = alloca %"class.ade::details::MetadataId", align 8
   %9 = alloca %"class.ade::Handle", align 8
   %10 = alloca %"struct.ade::details::InitIdsArray", align 1
@@ -3482,7 +3476,6 @@ _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit:           ; preds = %_ZNK3ade13TypedMeta
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.9233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 33
   %.not.i.i.i.i.i2.i = icmp eq ptr %100, null
   %114 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %115 = getelementptr inbounds nuw i8, ptr %100, i64 12
@@ -3638,7 +3631,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i44: ; preds = %176,
 
 182:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0130.sroa.3, i64 16, i1 false)
   %183 = icmp eq ptr %.sroa.0130.sroa.0.0.copyload, %.sroa.0130.sroa.2.0.copyload
   br i1 %183, label %.loopexit149, label %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPPNS_4EdgeESt6vectorIS8_SaIS8_EEEESD_EENS_4Node12HandleMapperEEENSF_13OutEdgeMapperEEEE8iteratorneERKSL_.exit.i.i.i
@@ -3650,7 +3642,6 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS3_INS1_9IterRangeIN9__gnu_cxx
   store ptr %.sroa.0130.sroa.2.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, i64 16, i1 false)
   store i8 0, ptr %.sroa.9233.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11, i64 7, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #28, !noalias !187
   %184 = load ptr, ptr %7, align 8, !tbaa !160, !noalias !192
@@ -3919,7 +3910,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i75: ; preds = %285,
 .loopexit149:                                     ; preds = %.noexc51, %292, %182
   %.sroa.0133.0.copyload = phi ptr [ %.sroa.0130.sroa.2.0.copyload, %182 ], [ %.sroa.0.0, %.noexc51 ], [ %.sroa.0130.sroa.2.0.copyload, %292 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #28

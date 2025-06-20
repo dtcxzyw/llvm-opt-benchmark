@@ -12610,12 +12610,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br i1 %.not.i.i.i.i.i, label %20, label %15
 
 15:                                               ; preds = %12
-  %.sroa.4.0..sroa_idx15.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !1328, !noalias !1329, !noundef !12
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %19 = load i64, ptr %18, align 8, !alias.scope !1328, !noalias !1329, !noundef !12
-  store ptr null, ptr %.sroa.4.0..sroa_idx15.i.i.i.i.i, align 8, !alias.scope !1323, !noalias !1330
+  %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !1323, !noalias !1330
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %14, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !alias.scope !1323, !noalias !1330
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24

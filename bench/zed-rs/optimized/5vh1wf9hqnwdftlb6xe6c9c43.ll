@@ -1605,8 +1605,8 @@ define void @_ZN8markdown8Markdown3new17haba4edf4a5eeb8f6E(ptr dead_on_unwind no
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 2488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 2536
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %27, i8 0, i64 18, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 2448
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %27, i8 0, i64 18, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
   store i64 0, ptr %11, align 8
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1752,8 +1752,8 @@ define void @_ZN8markdown8Markdown8new_text17h40978cbde9e45db2E(ptr dead_on_unwi
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 2488
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 2536
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %27, i8 0, i64 18, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 2448
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %27, i8 0, i64 18, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
   store i64 0, ptr %11, align 8
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1949,10 +1949,10 @@ define void @_ZN8markdown8Markdown5reset17hfeef3ce3f4bcdfd8E(ptr noalias noundef
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !272
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 2536
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %40, i8 0, i64 18, i1 false)
   store i64 0, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2560
   tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %40, i8 0, i64 18, i1 false)
   %42 = load i8, ptr %41, align 8, !range !31, !alias.scope !290, !noundef !9
   switch i8 %42, label %43 [
     i8 2, label %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h0acd821e69599f77E.llvm.5483158644543765426.exit"

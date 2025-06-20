@@ -5912,8 +5912,8 @@ define hidden void @_ZN14regex_automata3nfa8thompson9backtrack7Builder10build_ma
   store ptr %11, ptr %5, align 8, !noalias !911
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i8, ptr %13, align 8, !range !264, !alias.scope !914, !noalias !917, !noundef !4
-  %switch.not.i = icmp samesign ult i8 %14, 2
-  br i1 %switch.not.i, label %17, label %_ZN14regex_automata3nfa8thompson9backtrack7Builder14build_from_nfa17hbf5d0e38ed92fed2E.exit
+  %switch.not.i.i = icmp samesign ult i8 %14, 2
+  br i1 %switch.not.i.i, label %17, label %_ZN14regex_automata3nfa8thompson9backtrack7Builder14build_from_nfa17hbf5d0e38ed92fed2E.exit
 
 15:                                               ; preds = %17
   %16 = landingpad { ptr, i32 }

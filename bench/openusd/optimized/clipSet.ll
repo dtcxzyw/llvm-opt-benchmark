@@ -3031,7 +3031,6 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11Usd_ClipSetC2ERKNSt7__cxx111
   %8 = alloca %"struct.std::pair.197", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %10 = alloca %"class.std::shared_ptr.199", align 8
-  %.sroa.5 = alloca [7 x i8], align 1
   %11 = alloca %"class.std::shared_ptr", align 8
   %12 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfAssetPath", align 8
   %13 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.49", align 8
@@ -3655,8 +3654,6 @@ _ZNSt10shared_ptrISt6vectorIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMa
   store double %252, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 16
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5, i64 7, i1 false)
   %259 = load ptr, ptr %254, align 8
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 24
   store ptr %260, ptr %254, align 8
@@ -3697,8 +3694,6 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESaIS2_EE
   store double %252, ptr %.sroa.3.0..sroa_idx191, align 8
   %.sroa.4.0..sroa_idx193 = getelementptr inbounds nuw i8, ptr %275, i64 16
   store i8 0, ptr %.sroa.4.0..sroa_idx193, align 8
-  %.sroa.5.0..sroa_idx195 = getelementptr inbounds nuw i8, ptr %275, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx195, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5, i64 7, i1 false)
   %.not10.i.i.i.i.i.i = icmp eq ptr %262, %255
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11TimeMappingESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 

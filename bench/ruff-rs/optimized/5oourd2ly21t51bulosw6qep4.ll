@@ -636,12 +636,12 @@ define void @_ZN20ruff_python_semantic3cfg5graph9build_cfg17h50cf29a209420bb6E(p
   store i64 0, ptr %.sroa.5.0..sroa_idx46.i, align 8, !noalias !92
   %.sroa.650.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 0, ptr %.sroa.650.0..sroa_idx.i, align 8, !noalias !92
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i64 0, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !92
-  %.sroa.957.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i64 0, ptr %.sroa.957.0..sroa_idx.i, align 8, !noalias !92
-  %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 88
-  store i8 1, ptr %.sroa.10.0..sroa_idx.i, align 8, !noalias !92
+  %.sroa.754.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store i64 0, ptr %.sroa.754.0..sroa_idx.i, align 8, !noalias !92
+  %.sroa.858.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store i64 0, ptr %.sroa.858.0..sroa_idx.i, align 8, !noalias !92
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 88
+  store i8 1, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !92
   %23 = icmp eq i64 %16, 0
   br i1 %23, label %24, label %29
 
@@ -677,27 +677,27 @@ define void @_ZN20ruff_python_semantic3cfg5graph9build_cfg17h50cf29a209420bb6E(p
   store i64 0, ptr %.sroa.5.0..sroa_idx47.i, align 8, !noalias !83
   %.sroa.650.0..sroa_idx51.i = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i64 0, ptr %.sroa.650.0..sroa_idx51.i, align 8, !noalias !83
-  %.sroa.8.0..sroa_idx54.i = getelementptr inbounds nuw i8, ptr %30, i64 56
-  store i64 0, ptr %.sroa.8.0..sroa_idx54.i, align 8, !noalias !83
-  %.sroa.957.0..sroa_idx58.i = getelementptr inbounds nuw i8, ptr %30, i64 80
-  store i64 0, ptr %.sroa.957.0..sroa_idx58.i, align 8, !noalias !83
-  %.sroa.10.0..sroa_idx60.i = getelementptr inbounds nuw i8, ptr %30, i64 88
-  store i8 1, ptr %.sroa.10.0..sroa_idx60.i, align 8, !noalias !83
+  %.sroa.754.0..sroa_idx55.i = getelementptr inbounds nuw i8, ptr %30, i64 56
+  store i64 0, ptr %.sroa.754.0..sroa_idx55.i, align 8, !noalias !83
+  %.sroa.858.0..sroa_idx59.i = getelementptr inbounds nuw i8, ptr %30, i64 80
+  store i64 0, ptr %.sroa.858.0..sroa_idx59.i, align 8, !noalias !83
+  %.sroa.9.0..sroa_idx61.i = getelementptr inbounds nuw i8, ptr %30, i64 88
+  store i8 1, ptr %.sroa.9.0..sroa_idx61.i, align 8, !noalias !83
   store i64 1, ptr %.sroa.53.0..sroa_idx.i, align 8, !alias.scope !96, !noalias !93
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9), !noalias !90
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8), !noalias !102
   store ptr inttoptr (i64 8 to ptr), ptr %8, align 8, !noalias !104
-  %.sroa.565.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 0, ptr %.sroa.565.0..sroa_idx.i, align 8, !noalias !104
-  %.sroa.670.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i64 0, ptr %.sroa.670.0..sroa_idx.i, align 8, !noalias !104
-  %.sroa.875.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i64 0, ptr %.sroa.875.0..sroa_idx.i, align 8, !noalias !104
-  %.sroa.980.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i64 0, ptr %.sroa.980.0..sroa_idx.i, align 8, !noalias !104
-  %.sroa.1083.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store i8 2, ptr %.sroa.1083.0..sroa_idx.i, align 8, !noalias !104
+  %.sroa.566.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 0, ptr %.sroa.566.0..sroa_idx.i, align 8, !noalias !104
+  %.sroa.671.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i64 0, ptr %.sroa.671.0..sroa_idx.i, align 8, !noalias !104
+  %.sroa.776.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store i64 0, ptr %.sroa.776.0..sroa_idx.i, align 8, !noalias !104
+  %.sroa.881.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i64 0, ptr %.sroa.881.0..sroa_idx.i, align 8, !noalias !104
+  %.sroa.984.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 88
+  store i8 2, ptr %.sroa.984.0..sroa_idx.i, align 8, !noalias !104
   %31 = load i64, ptr %11, align 8, !range !105, !alias.scope !106, !noalias !109, !noundef !3
   %32 = icmp eq i64 %31, 1
   br i1 %32, label %33, label %_ZN20ruff_python_semantic3cfg5graph10CFGBuilder13with_capacity17h7cd6bfc9ada116fbE.exit
@@ -732,16 +732,16 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder13with_capacity17h7cd6bfc9ada116f
   %40 = load ptr, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !106, !noalias !109, !nonnull !3, !noundef !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   store ptr inttoptr (i64 8 to ptr), ptr %41, align 8, !noalias !83
-  %.sroa.565.0..sroa_idx66.i = getelementptr inbounds nuw i8, ptr %40, i64 104
-  store i64 0, ptr %.sroa.565.0..sroa_idx66.i, align 8, !noalias !83
-  %.sroa.670.0..sroa_idx71.i = getelementptr inbounds nuw i8, ptr %40, i64 128
-  store i64 0, ptr %.sroa.670.0..sroa_idx71.i, align 8, !noalias !83
-  %.sroa.875.0..sroa_idx76.i = getelementptr inbounds nuw i8, ptr %40, i64 152
-  store i64 0, ptr %.sroa.875.0..sroa_idx76.i, align 8, !noalias !83
-  %.sroa.980.0..sroa_idx81.i = getelementptr inbounds nuw i8, ptr %40, i64 176
-  store i64 0, ptr %.sroa.980.0..sroa_idx81.i, align 8, !noalias !83
-  %.sroa.1083.0..sroa_idx84.i = getelementptr inbounds nuw i8, ptr %40, i64 184
-  store i8 2, ptr %.sroa.1083.0..sroa_idx84.i, align 8, !noalias !83
+  %.sroa.566.0..sroa_idx67.i = getelementptr inbounds nuw i8, ptr %40, i64 104
+  store i64 0, ptr %.sroa.566.0..sroa_idx67.i, align 8, !noalias !83
+  %.sroa.671.0..sroa_idx72.i = getelementptr inbounds nuw i8, ptr %40, i64 128
+  store i64 0, ptr %.sroa.671.0..sroa_idx72.i, align 8, !noalias !83
+  %.sroa.776.0..sroa_idx77.i = getelementptr inbounds nuw i8, ptr %40, i64 152
+  store i64 0, ptr %.sroa.776.0..sroa_idx77.i, align 8, !noalias !83
+  %.sroa.881.0..sroa_idx82.i = getelementptr inbounds nuw i8, ptr %40, i64 176
+  store i64 0, ptr %.sroa.881.0..sroa_idx82.i, align 8, !noalias !83
+  %.sroa.984.0..sroa_idx85.i = getelementptr inbounds nuw i8, ptr %40, i64 184
+  store i8 2, ptr %.sroa.984.0..sroa_idx85.i, align 8, !noalias !83
   store i64 2, ptr %.sroa.53.0..sroa_idx.i, align 8, !alias.scope !106, !noalias !109
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8), !noalias !102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
@@ -763,12 +763,12 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder13with_capacity17h7cd6bfc9ada116f
 .lr.ph.i:                                         ; preds = %_ZN20ruff_python_semantic3cfg5graph10CFGBuilder13with_capacity17h7cd6bfc9ada116fbE.exit
   %.sroa.4.0..sroa_idx.i26.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.513.0..sroa_idx.i27.i = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sroa.5.0..sroa_idx.i27.i = getelementptr inbounds nuw i8, ptr %6, i64 40
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.4.0..sroa_idx.i20.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.513.0..sroa_idx.i21.i = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %.sroa.5.0..sroa_idx.i21.i = getelementptr inbounds nuw i8, ptr %7, i64 40
   br label %50
 
 50:                                               ; preds = %94, %.lr.ph.i
@@ -909,7 +909,7 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder23set_current_block_edges17h8337e
   %97 = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !range !118, !alias.scope !142, !noalias !115, !noundef !3
   store i64 1, ptr %.sroa.4.0..sroa_idx.i20.i, align 8, !alias.scope !145, !noalias !141
   store i32 %97, ptr %49, align 8, !alias.scope !145, !noalias !141
-  store i64 1, ptr %.sroa.513.0..sroa_idx.i21.i, align 8, !alias.scope !145, !noalias !141
+  store i64 1, ptr %.sroa.5.0..sroa_idx.i21.i, align 8, !alias.scope !145, !noalias !141
   %98 = icmp ult i64 %52, %.sroa.03.0136.i
   br i1 %98, label %100, label %99, !prof !70
 
@@ -936,7 +936,7 @@ _ZN20ruff_python_semantic3cfg5graph10CFGBuilder23set_current_block_edges17h8337e
   %103 = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !range !118, !alias.scope !149, !noalias !115, !noundef !3
   store i64 1, ptr %.sroa.4.0..sroa_idx.i26.i, align 8, !alias.scope !152, !noalias !141
   store i32 %103, ptr %46, align 8, !alias.scope !152, !noalias !141
-  store i64 1, ptr %.sroa.513.0..sroa_idx.i27.i, align 8, !alias.scope !152, !noalias !141
+  store i64 1, ptr %.sroa.5.0..sroa_idx.i27.i, align 8, !alias.scope !152, !noalias !141
   %104 = icmp ult i64 %52, %.sroa.03.0136.i
   br i1 %104, label %106, label %105, !prof !70
 

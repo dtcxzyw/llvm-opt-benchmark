@@ -3179,7 +3179,7 @@ _ZN5serde2de9MapAccess10next_value17h0f08a2ef28a7b3a0E.exit.i: ; preds = %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339.0..sroa_idx.i, i64 16, i1 false), !noalias !590
   br label %110
 
-110:                                              ; preds = %86, %109
+110:                                              ; preds = %109, %86
   %.sroa.037.0.i = phi i64 [ %87, %109 ], [ -9223372036854775807, %86 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.037.0.i, ptr %111, align 8, !alias.scope !585, !noalias !588
@@ -4404,7 +4404,7 @@ _ZN5serde2de9MapAccess10next_value17h0f08a2ef28a7b3a0E.exit.i: ; preds = %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339.0..sroa_idx.i, i64 16, i1 false), !noalias !807
   br label %110
 
-110:                                              ; preds = %86, %109
+110:                                              ; preds = %109, %86
   %.sroa.037.0.i = phi i64 [ %87, %109 ], [ -9223372036854775808, %86 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.037.0.i, ptr %111, align 8, !alias.scope !802, !noalias !805
@@ -5629,7 +5629,7 @@ _ZN5serde2de9MapAccess10next_value17h0f08a2ef28a7b3a0E.exit.i: ; preds = %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339.0..sroa_idx.i, i64 16, i1 false), !noalias !1022
   br label %110
 
-110:                                              ; preds = %86, %109
+110:                                              ; preds = %109, %86
   %.sroa.037.0.i = phi i64 [ %87, %109 ], [ -9223372036854775806, %86 ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.037.0.i, ptr %111, align 8, !alias.scope !1017, !noalias !1020
@@ -6787,8 +6787,8 @@ _ZN5serde2de9MapAccess10next_value17he245d5bb68d69645E.exit: ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339.0..sroa_idx, i64 16, i1 false)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge, %2, %40
-  %.sroa.037.0 = phi i64 [ %.pre, %40 ], [ -9223372036854775806, %2 ], [ -9223372036854775806, %._crit_edge ]
+._crit_edge.thread:                               ; preds = %2, %._crit_edge, %40
+  %.sroa.037.0 = phi i64 [ %.pre, %40 ], [ -9223372036854775806, %._crit_edge ], [ -9223372036854775806, %2 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.037.0, ptr %41, align 8
   %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6975,8 +6975,8 @@ _ZN5serde2de9MapAccess10next_value17he245d5bb68d69645E.exit: ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339.0..sroa_idx, i64 16, i1 false)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge, %2, %40
-  %.sroa.037.0 = phi i64 [ %.pre, %40 ], [ -9223372036854775807, %2 ], [ -9223372036854775807, %._crit_edge ]
+._crit_edge.thread:                               ; preds = %2, %._crit_edge, %40
+  %.sroa.037.0 = phi i64 [ %.pre, %40 ], [ -9223372036854775807, %._crit_edge ], [ -9223372036854775807, %2 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.037.0, ptr %41, align 8
   %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7163,8 +7163,8 @@ _ZN5serde2de9MapAccess10next_value17he245d5bb68d69645E.exit: ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339.0..sroa_idx, i64 16, i1 false)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %._crit_edge, %2, %40
-  %.sroa.037.0 = phi i64 [ %.pre, %40 ], [ -9223372036854775808, %2 ], [ -9223372036854775808, %._crit_edge ]
+._crit_edge.thread:                               ; preds = %2, %._crit_edge, %40
+  %.sroa.037.0 = phi i64 [ %.pre, %40 ], [ -9223372036854775808, %._crit_edge ], [ -9223372036854775808, %2 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.037.0, ptr %41, align 8
   %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

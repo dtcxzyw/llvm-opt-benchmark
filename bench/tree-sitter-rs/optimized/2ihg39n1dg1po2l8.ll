@@ -4448,7 +4448,7 @@ define void @_ZN18tree_sitter_loader6Loader43language_configuration_for_first_li
   %.sroa.5.0..sroa_idx2.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.7.0..sroa_idx3.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 24
   %.sroa.9.0..sroa_idx4.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sroa.115.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %.sroa.11.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 40
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -4670,7 +4670,7 @@ define void @_ZN18tree_sitter_loader6Loader43language_configuration_for_first_li
   store i64 %127, ptr %.sroa.5.0..sroa_idx2.i.i.i, align 8, !noalias !882
   store i64 0, ptr %.sroa.7.0..sroa_idx3.i.i.i, align 8, !noalias !882
   store i64 %127, ptr %.sroa.9.0..sroa_idx4.i.i.i, align 8, !noalias !882
-  store i8 1, ptr %.sroa.115.0..sroa_idx.i.i.i, align 8, !noalias !882
+  store i8 1, ptr %.sroa.11.0..sroa_idx.i.i.i, align 8, !noalias !882
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !882
   %128 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !885)

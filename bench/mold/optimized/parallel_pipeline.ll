@@ -482,9 +482,7 @@ _ZN3tbb6detail2r110stage_task20try_spawn_stage_taskERNS0_2d114execution_dataE.ex
 define linkonce_odr void @_ZN3tbb6detail2r112input_buffer32try_to_spawn_task_for_next_tokenINS1_10stage_taskEEEvRT_RNS0_2d114execution_dataE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 64 dereferenceable(113) %1, ptr noundef nonnull align 8 dereferenceable(12) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %.sroa.09 = alloca <{ ptr, i64, i8 }>, align 8
-  %.sroa.7 = alloca [6 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %.sroa.09)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %.sroa.09, i8 0, i64 17, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = atomicrmw xchg ptr %5, i8 1 seq_cst, align 1
@@ -565,8 +563,6 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(17) %37, ptr noundef nonnull align 8 dereferenceable(17) %.sroa.09, i64 17, i1 false), !tbaa.struct !23
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 81
   store i8 1, ptr %.sroa.6.0..sroa_idx, align 1, !tbaa !26
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7, i64 6, i1 false), !tbaa.struct !37
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2r110stage_taskE, i64 16), ptr %34, align 64, !tbaa !43
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 88
   store ptr %32, ptr %38, align 8, !tbaa !58
@@ -600,12 +596,10 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit7: ; preds = %2
           cleanup
   store atomic i8 0, ptr %5 release, align 8
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %.sroa.09)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.7)
   resume { ptr, i32 } %50
 
 51:                                               ; preds = %_ZN3tbb6detail2r110stage_task16spawn_stage_taskERKNS1_9task_infoERNS0_2d114execution_dataE.exit, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %.sroa.09)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.7)
   ret void
 }
 

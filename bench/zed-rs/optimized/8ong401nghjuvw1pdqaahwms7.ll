@@ -18189,8 +18189,8 @@ _ZN10serde_json3ser9Formatter17begin_array_value17hffaf0768482eec58E.exit.i.i.i.
   br i1 %102, label %_ZN10serde_json3ser9Formatter9end_array17hfabb849697dc92baE.exit.i.sink.split.i.i, label %104
 
 _ZN10serde_json3ser9Formatter9end_array17hfabb849697dc92baE.exit.i.sink.split.i.i: ; preds = %.thread.i.i, %33
-  %.lcssa26.sink.i.i = phi i64 [ %32, %33 ], [ %99, %.thread.i.i ]
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4db4b6e214190c08E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val10, i64 noundef %.lcssa26.sink.i.i, i64 noundef 1), !noalias !4623
+  %.lcssa27.sink.i.i = phi i64 [ %32, %33 ], [ %99, %.thread.i.i ]
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4db4b6e214190c08E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val10, i64 noundef %.lcssa27.sink.i.i, i64 noundef 1), !noalias !4623
   %.pre.i.i.i.i.i.i.i14.i.i = load i64, ptr %22, align 8, !noalias !4623
   br label %104
 
@@ -18199,9 +18199,9 @@ _ZN10serde_json3ser9Formatter9end_array17hfabb849697dc92baE.exit.i.sink.split.i.
   unreachable
 
 104:                                              ; preds = %33, %.thread.i.i, %_ZN10serde_json3ser9Formatter9end_array17hfabb849697dc92baE.exit.i.sink.split.i.i
-  %.sink28.i.i = phi i64 [ %32, %33 ], [ %99, %.thread.i.i ], [ %.pre.i.i.i.i.i.i.i14.i.i, %_ZN10serde_json3ser9Formatter9end_array17hfabb849697dc92baE.exit.i.sink.split.i.i ]
+  %.sink29.i.i = phi i64 [ %32, %33 ], [ %99, %.thread.i.i ], [ %.pre.i.i.i.i.i.i.i14.i.i, %_ZN10serde_json3ser9Formatter9end_array17hfabb849697dc92baE.exit.i.sink.split.i.i ]
   %105 = load ptr, ptr %28, align 8, !noalias !4623, !nonnull !4, !noundef !4
-  %106 = getelementptr inbounds i8, ptr %105, i64 %.sink28.i.i
+  %106 = getelementptr inbounds i8, ptr %105, i64 %.sink29.i.i
   store i8 93, ptr %106, align 1, !noalias !4623
   %storemerge.in.i.i = load i64, ptr %22, align 8, !noalias !4623, !noundef !4
   %storemerge.i.i = add i64 %storemerge.in.i.i, 1
@@ -29423,10 +29423,10 @@ _ZN4gpui3app10entity_map9EntityMap4read17h2703cfc2acf74dedE.exit: ; preds = %.no
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 -9223372036854775808, ptr %.sroa.5.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
-  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %7, ptr %.sroa.414.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %.sroa.5.0..sroa_idx15, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 1, ptr %.sroa.5.0..sroa_idx14, align 8
   ret void
 
 32:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17h2703cfc2acf74dedE.exit, %10, %.noexc, %18, %"_ZN98_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17he97b3d87a8ea0fb3E.exit.i", %29

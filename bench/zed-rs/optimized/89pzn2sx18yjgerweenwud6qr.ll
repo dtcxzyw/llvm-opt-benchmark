@@ -1571,9 +1571,6 @@ define noundef range(i8 -1, 2) i8 @_ZN4util5paths13compare_paths17hb855281c7e984
   %14 = alloca [56 x i8], align 8
   %15 = alloca [56 x i8], align 8
   %16 = alloca [56 x i8], align 8
-  %.sroa.515 = alloca [55 x i8], align 1
-  %.sroa.511 = alloca [55 x i8], align 1
-  %.sroa.5 = alloca [55 x i8], align 1
   %17 = alloca [120 x i8], align 8
   %18 = alloca [120 x i8], align 8
   %19 = load ptr, ptr %0, align 8, !nonnull !13, !align !61, !noundef !13
@@ -1631,11 +1628,8 @@ define noundef range(i8 -1, 2) i8 @_ZN4util5paths13compare_paths17hb855281c7e984
   br label %53
 
 53:                                               ; preds = %147, %2
-  call void @llvm.lifetime.start.p0(i64 55, ptr nonnull %.sroa.511)
   %.sroa.09.0.copyload = load i8, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.511, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5.0..sroa_idx, i64 55, i1 false)
   store i8 11, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5, i64 55, i1 false)
   %54 = icmp eq i8 %.sroa.09.0.copyload, 11
   br i1 %54, label %55, label %56
 
@@ -1645,16 +1639,12 @@ define noundef range(i8 -1, 2) i8 @_ZN4util5paths13compare_paths17hb855281c7e984
 
 56:                                               ; preds = %53
   store i8 %.sroa.09.0.copyload, ptr %16, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.511.0..sroa_idx12, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.511, i64 55, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.511.0..sroa_idx12, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5.0..sroa_idx, i64 55, i1 false)
   br label %57
 
 57:                                               ; preds = %56, %55
-  call void @llvm.lifetime.end.p0(i64 55, ptr nonnull %.sroa.511)
-  call void @llvm.lifetime.start.p0(i64 55, ptr nonnull %.sroa.515)
   %.sroa.013.0.copyload = load i8, ptr %17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.515, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5.0..sroa_idx6, i64 55, i1 false)
   store i8 11, ptr %17, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5.0..sroa_idx6, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5, i64 55, i1 false)
   %58 = icmp eq i8 %.sroa.013.0.copyload, 11
   br i1 %58, label %59, label %60
 
@@ -1664,11 +1654,10 @@ define noundef range(i8 -1, 2) i8 @_ZN4util5paths13compare_paths17hb855281c7e984
 
 60:                                               ; preds = %57
   store i8 %.sroa.013.0.copyload, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.515.0..sroa_idx16, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.515, i64 55, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.515.0..sroa_idx16, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5.0..sroa_idx6, i64 55, i1 false)
   br label %61
 
 61:                                               ; preds = %60, %59
-  call void @llvm.lifetime.end.p0(i64 55, ptr nonnull %.sroa.515)
   %62 = load i8, ptr %16, align 8, !range !267, !noundef !13
   %63 = icmp eq i8 %62, 10
   %64 = load i8, ptr %15, align 8, !range !267, !noundef !13

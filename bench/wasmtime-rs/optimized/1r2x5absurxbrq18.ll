@@ -17081,8 +17081,8 @@ define hidden void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h206
   %.sroa.0.0.copyload6 = load ptr, ptr %1, align 8, !alias.scope !3906, !nonnull !16, !noundef !16
   %.sroa.5.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.0.copyload9 = load ptr, ptr %.sroa.5.0..sroa_idx8, align 8, !alias.scope !3906, !nonnull !16, !noundef !16
-  %.sroa.610.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.610.0.copyload12 = load ptr, ptr %.sroa.610.0..sroa_idx11, align 8, !alias.scope !3906
+  %.sroa.6.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.6.0.copyload11 = load ptr, ptr %.sroa.6.0..sroa_idx10, align 8, !alias.scope !3906
   %5 = ptrtoint ptr %.sroa.5.0.copyload9 to i64
   %6 = ptrtoint ptr %.sroa.0.0.copyload6 to i64
   %7 = sub nuw i64 %5, %6
@@ -17100,8 +17100,8 @@ define hidden void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h206
   store ptr %.sroa.0.0.copyload6, ptr %3, align 8
   %.sroa.5.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.5.0.copyload9, ptr %.sroa.5.0..sroa_idx7, align 8
-  %.sroa.610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sroa.610.0.copyload12, ptr %.sroa.610.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.sroa.6.0.copyload11, ptr %.sroa.6.0..sroa_idx, align 8
   call void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7variant17hc6b393c720e9446aE.llvm.3269599604001853466(ptr noalias noundef nonnull sret({ i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }) align 4 captures(none) dereferenceable(20) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %13 = tail call noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E"(i8 noundef %9)
@@ -17153,8 +17153,8 @@ define hidden void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h2e0
   %.sroa.0.0.copyload6 = load ptr, ptr %1, align 8, !alias.scope !3910, !nonnull !16, !noundef !16
   %.sroa.5.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.0.copyload9 = load ptr, ptr %.sroa.5.0..sroa_idx8, align 8, !alias.scope !3910, !nonnull !16, !noundef !16
-  %.sroa.610.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.610.0.copyload12 = load ptr, ptr %.sroa.610.0..sroa_idx11, align 8, !alias.scope !3910
+  %.sroa.6.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.6.0.copyload11 = load ptr, ptr %.sroa.6.0..sroa_idx10, align 8, !alias.scope !3910
   %5 = ptrtoint ptr %.sroa.5.0.copyload9 to i64
   %6 = ptrtoint ptr %.sroa.0.0.copyload6 to i64
   %7 = sub nuw i64 %5, %6
@@ -17172,8 +17172,8 @@ define hidden void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h2e0
   store ptr %.sroa.0.0.copyload6, ptr %3, align 8
   %.sroa.5.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.5.0.copyload9, ptr %.sroa.5.0..sroa_idx7, align 8
-  %.sroa.610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sroa.610.0.copyload12, ptr %.sroa.610.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.sroa.6.0.copyload11, ptr %.sroa.6.0..sroa_idx, align 8
   call void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7variant17h905b0e2f0cc33cb1E.llvm.3269599604001853466(ptr noalias noundef nonnull sret({ i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }) align 4 captures(none) dereferenceable(20) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %13 = tail call noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E"(i8 noundef %9)
@@ -17235,8 +17235,8 @@ define hidden void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h4c5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %.sroa.4.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %.sroa.4.0..sroa_idx9, align 8
-  %.sroa.610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 2, ptr %.sroa.610.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 2, ptr %.sroa.6.0..sroa_idx, align 8
   call void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7variant17hb325ce6ede282fd5E.llvm.3269599604001853466(ptr noalias noundef nonnull sret({ i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }) align 4 captures(none) dereferenceable(20) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %9 = tail call noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E"(i8 noundef %5)
@@ -17339,10 +17339,10 @@ _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit5: ; pred
   store i32 %24, ptr %31, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %15, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %24, ptr %.sroa.4.0..sroa_idx14, align 4
-  %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %15, ptr %.sroa.515.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %24, ptr %.sroa.4.0..sroa_idx13, align 4
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %15, ptr %.sroa.514.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 29
@@ -17357,8 +17357,8 @@ define hidden void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h7e8
   %.sroa.0.0.copyload6 = load ptr, ptr %1, align 8, !alias.scope !3922, !nonnull !16, !noundef !16
   %.sroa.5.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.0.copyload9 = load ptr, ptr %.sroa.5.0..sroa_idx8, align 8, !alias.scope !3922, !nonnull !16, !noundef !16
-  %.sroa.610.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.610.0.copyload12 = load ptr, ptr %.sroa.610.0..sroa_idx11, align 8, !alias.scope !3922
+  %.sroa.6.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.6.0.copyload11 = load ptr, ptr %.sroa.6.0..sroa_idx10, align 8, !alias.scope !3922
   %5 = ptrtoint ptr %.sroa.5.0.copyload9 to i64
   %6 = ptrtoint ptr %.sroa.0.0.copyload6 to i64
   %7 = sub nuw i64 %5, %6
@@ -17376,8 +17376,8 @@ define hidden void @_ZN16wasmtime_environ9component5types11VariantInfo3new17h7e8
   store ptr %.sroa.0.0.copyload6, ptr %3, align 8
   %.sroa.5.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.5.0.copyload9, ptr %.sroa.5.0..sroa_idx7, align 8
-  %.sroa.610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %.sroa.610.0.copyload12, ptr %.sroa.610.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %.sroa.6.0.copyload11, ptr %.sroa.6.0..sroa_idx, align 8
   call void @_ZN16wasmtime_environ9component5types16CanonicalAbiInfo7variant17hdb1e6cb076f34e4dE.llvm.3269599604001853466(ptr noalias noundef nonnull sret({ i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }) align 4 captures(none) dereferenceable(20) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %13 = tail call noundef i32 @"_ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E"(i8 noundef %9)
@@ -17480,10 +17480,10 @@ _ZN16wasmtime_environ9component5types8align_to17h089c6779f7c5890cE.exit5: ; pred
   store i32 %24, ptr %31, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %15, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %24, ptr %.sroa.4.0..sroa_idx14, align 4
-  %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %15, ptr %.sroa.515.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %24, ptr %.sroa.4.0..sroa_idx13, align 4
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %15, ptr %.sroa.514.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 29

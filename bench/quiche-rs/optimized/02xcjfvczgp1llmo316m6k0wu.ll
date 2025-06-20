@@ -5512,9 +5512,7 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
   %10 = alloca [40 x i8], align 8
   %11 = alloca [48 x i8], align 8
   %12 = alloca [48 x i8], align 8
-  %.sroa.24.i = alloca [3 x i8], align 1
-  %.sroa.20109.i = alloca [136 x i8], align 8
-  %.sroa.30.i = alloca [3 x i8], align 1
+  %.sroa.20108.i = alloca [136 x i8], align 8
   %13 = alloca [40 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = alloca [32 x i8], align 8
@@ -5597,7 +5595,7 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
   unreachable
 
 .body.i:                                          ; preds = %199, %159, %.loopexit.split-lp.i, %.loopexit.loopexit.split-lp.i, %.loopexit.loopexit.i
-  %.pn48.i = phi { ptr, i32 } [ %200, %199 ], [ %160, %159 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit139.i, %.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp140.i, %.loopexit.loopexit.split-lp.i ]
+  %.pn48.i = phi { ptr, i32 } [ %200, %199 ], [ %160, %159 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %lpad.loopexit138.i, %.loopexit.loopexit.i ], [ %lpad.loopexit.split-lp139.i, %.loopexit.loopexit.split-lp.i ]
   %60 = load i32, ptr %57, align 8, !range !11, !alias.scope !508, !noalias !504, !noundef !3
   %61 = icmp eq i32 %60, 1000000000
   br i1 %61, label %common.resume, label %62
@@ -5607,12 +5605,12 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
           to label %common.resume unwind label %211, !noalias !499
 
 .loopexit.loopexit.i:                             ; preds = %119, %97, %80
-  %lpad.loopexit139.i = landingpad { ptr, i32 }
+  %lpad.loopexit138.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .loopexit.loopexit.split-lp.i:                    ; preds = %209, %207
-  %lpad.loopexit.split-lp140.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp139.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
@@ -5636,26 +5634,25 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
   %67 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %68 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %.sroa.770.0..sroa_idx71.i = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sroa.873.0..sroa_idx74.i = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.sroa.1079.0..sroa_idx80.i = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %.sroa.1182.0..sroa_idx83.i = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %.sroa.1388.0..sroa_idx89.i = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %.sroa.1491.0..sroa_idx92.i = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %.sroa.1697.0..sroa_idx98.i = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %.sroa.17100.0..sroa_idx101.i = getelementptr inbounds nuw i8, ptr %16, i64 72
-  %.sroa.19106.0..sroa_idx107.i = getelementptr inbounds nuw i8, ptr %16, i64 80
-  %.sroa.20109.0..sroa_idx110.i = getelementptr inbounds nuw i8, ptr %16, i64 88
-  %.sroa.21111.0..sroa_idx112.i = getelementptr inbounds nuw i8, ptr %16, i64 224
-  %.sroa.22114.0..sroa_idx115.i = getelementptr inbounds nuw i8, ptr %16, i64 232
-  %.sroa.23117.0..sroa_idx118.i = getelementptr inbounds nuw i8, ptr %16, i64 240
-  %.sroa.24120.0..sroa_idx121.i = getelementptr inbounds nuw i8, ptr %16, i64 248
-  %.sroa.25.0..sroa_idx123.i = getelementptr inbounds nuw i8, ptr %16, i64 256
-  %.sroa.26.0..sroa_idx125.i = getelementptr inbounds nuw i8, ptr %16, i64 257
-  %.sroa.27.0..sroa_idx127.i = getelementptr inbounds nuw i8, ptr %16, i64 258
-  %.sroa.28.0..sroa_idx129.i = getelementptr inbounds nuw i8, ptr %16, i64 259
-  %.sroa.29.0..sroa_idx131.i = getelementptr inbounds nuw i8, ptr %16, i64 260
-  %.sroa.30.0..sroa_idx133.i = getelementptr inbounds nuw i8, ptr %16, i64 261
+  %.sroa.769.0..sroa_idx70.i = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.872.0..sroa_idx73.i = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sroa.1078.0..sroa_idx79.i = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sroa.1181.0..sroa_idx82.i = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %.sroa.1387.0..sroa_idx88.i = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %.sroa.1490.0..sroa_idx91.i = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %.sroa.1696.0..sroa_idx97.i = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %.sroa.1799.0..sroa_idx100.i = getelementptr inbounds nuw i8, ptr %16, i64 72
+  %.sroa.19105.0..sroa_idx106.i = getelementptr inbounds nuw i8, ptr %16, i64 80
+  %.sroa.20108.0..sroa_idx109.i = getelementptr inbounds nuw i8, ptr %16, i64 88
+  %.sroa.21110.0..sroa_idx111.i = getelementptr inbounds nuw i8, ptr %16, i64 224
+  %.sroa.22113.0..sroa_idx114.i = getelementptr inbounds nuw i8, ptr %16, i64 232
+  %.sroa.23116.0..sroa_idx117.i = getelementptr inbounds nuw i8, ptr %16, i64 240
+  %.sroa.24119.0..sroa_idx120.i = getelementptr inbounds nuw i8, ptr %16, i64 248
+  %.sroa.25.0..sroa_idx122.i = getelementptr inbounds nuw i8, ptr %16, i64 256
+  %.sroa.26.0..sroa_idx124.i = getelementptr inbounds nuw i8, ptr %16, i64 257
+  %.sroa.27.0..sroa_idx126.i = getelementptr inbounds nuw i8, ptr %16, i64 258
+  %.sroa.28.0..sroa_idx128.i = getelementptr inbounds nuw i8, ptr %16, i64 259
+  %.sroa.29.0..sroa_idx130.i = getelementptr inbounds nuw i8, ptr %16, i64 260
   %.sroa.432.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.436.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -5672,13 +5669,13 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.outer.i, %.lr.ph.lr.ph.i
-  %.sroa.023.0.ph218.i = phi i64 [ 0, %.lr.ph.lr.ph.i ], [ %.sroa.023.0207.i, %.outer.i ]
-  %.sroa.021.0.ph217.i = phi i64 [ 0, %.lr.ph.lr.ph.i ], [ %.sroa.021.1.i, %.outer.i ]
-  %.sroa.019.0.ph216.i = phi i64 [ 0, %.lr.ph.lr.ph.i ], [ %143, %.outer.i ]
+  %.sroa.023.0.ph217.i = phi i64 [ 0, %.lr.ph.lr.ph.i ], [ %.sroa.023.0206.i, %.outer.i ]
+  %.sroa.021.0.ph216.i = phi i64 [ 0, %.lr.ph.lr.ph.i ], [ %.sroa.021.1.i, %.outer.i ]
+  %.sroa.019.0.ph215.i = phi i64 [ 0, %.lr.ph.lr.ph.i ], [ %143, %.outer.i ]
   br label %80
 
 80:                                               ; preds = %135, %.lr.ph.i
-  %.sroa.023.0207.i = phi i64 [ %.sroa.023.0.ph218.i, %.lr.ph.i ], [ %138, %135 ]
+  %.sroa.023.0206.i = phi i64 [ %.sroa.023.0.ph217.i, %.lr.ph.i ], [ %138, %135 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !511
   store ptr %.sroa.2.0..sroa_idx.i, ptr %9, align 8, !noalias !511
   store ptr %63, ptr %64, align 8, !noalias !511
@@ -5704,12 +5701,12 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %90 = load i32, ptr %89, align 8, !range !13, !noalias !499, !noundef !3
   call void @llvm.assume(i1 %66)
-  %.not138.i = icmp samesign ugt i32 %90, %55
-  br i1 %.not138.i, label %92, label %97
+  %.not137.i = icmp samesign ugt i32 %90, %55
+  br i1 %.not137.i, label %92, label %97
 
 91:                                               ; preds = %85
-  %.not137.i = icmp sgt i64 %86, %54
-  br i1 %.not137.i, label %92, label %97
+  %.not136.i = icmp sgt i64 %86, %54
+  br i1 %.not136.i, label %92, label %97
 
 92:                                               ; preds = %91, %88
   %93 = load i64, ptr %17, align 8, !noalias !504, !noundef !3
@@ -5791,7 +5788,7 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
 135:                                              ; preds = %120
   %136 = getelementptr inbounds nuw i8, ptr %84, i64 224
   %137 = load i64, ptr %136, align 8, !noalias !499, !noundef !3
-  %138 = add i64 %137, %.sroa.023.0207.i
+  %138 = add i64 %137, %.sroa.023.0206.i
   %139 = load i64, ptr %68, align 8, !alias.scope !502, !noalias !506, !noundef !3
   %140 = add i64 %139, -1
   store i64 %140, ptr %68, align 8, !alias.scope !502, !noalias !506
@@ -5800,8 +5797,8 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
   br i1 %142, label %_ZN6quiche8recovery10congestion8recovery13RecoveryEpoch19detect_lost_packets17h4567281f401cefe9E.exit, label %80
 
 .outer.i:                                         ; preds = %210, %201, %128
-  %.sroa.021.1.i = phi i64 [ %149, %210 ], [ %149, %201 ], [ %.sroa.021.0.ph217.i, %128 ]
-  %143 = add i64 %.sroa.019.0.ph216.i, 1
+  %.sroa.021.1.i = phi i64 [ %149, %210 ], [ %149, %201 ], [ %.sroa.021.0.ph216.i, %128 ]
+  %143 = add i64 %.sroa.019.0.ph215.i, 1
   %144 = load i8, ptr %.sroa.3.0..sroa_idx.i, align 8, !range !9, !alias.scope !518, !noalias !517, !noundef !3
   %145 = trunc nuw i8 %144 to i1
   br i1 %145, label %_ZN6quiche8recovery10congestion8recovery13RecoveryEpoch19detect_lost_packets17h4567281f401cefe9E.exit, label %.lr.ph.i
@@ -5809,10 +5806,8 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
 146:                                              ; preds = %128
   %147 = getelementptr inbounds nuw i8, ptr %84, i64 224
   %148 = load i64, ptr %147, align 8, !noalias !499, !noundef !3
-  %149 = add i64 %148, %.sroa.021.0.ph217.i
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %.sroa.20109.i)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.30.i)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.24.i)
+  %149 = add i64 %148, %.sroa.021.0.ph216.i
+  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %.sroa.20108.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !520)
   %150 = getelementptr inbounds nuw i8, ptr %84, i64 80
   %151 = load i64, ptr %150, align 8, !alias.scope !520, !noalias !523, !noundef !3
@@ -5843,7 +5838,7 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
   unreachable
 
 163:                                              ; preds = %146
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.20109.i, ptr noundef nonnull align 8 dereferenceable(136) %8, i64 136, i1 false), !noalias !504
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.20108.i, ptr noundef nonnull align 8 dereferenceable(136) %8, i64 136, i1 false), !noalias !504
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8), !noalias !530
   %164 = load i64, ptr %84, align 8, !alias.scope !520, !noalias !523, !noundef !3
   %165 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -5881,8 +5876,6 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
   %193 = getelementptr inbounds nuw i8, ptr %84, i64 259
   %194 = load i8, ptr %193, align 1, !range !9, !alias.scope !520, !noalias !523, !noundef !3
   %195 = load i8, ptr %131, align 4, !range !9, !alias.scope !520, !noalias !523, !noundef !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.30.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.24.i, i64 3, i1 false), !noalias !504
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.24.i)
   %196 = load i32, ptr %57, align 8, !range !11, !alias.scope !536, !noalias !504, !noundef !3
   %197 = icmp eq i32 %196, 1000000000
   br i1 %197, label %201, label %198
@@ -5896,53 +5889,50 @@ define internal fastcc { i64, i64 } @_ZN6quiche8recovery10congestion8recovery14L
           cleanup
   store i64 %164, ptr %16, align 8, !noalias !504
   store i32 %166, ptr %57, align 8, !noalias !504
-  store i64 %180, ptr %.sroa.770.0..sroa_idx71.i, align 8, !noalias !504
-  store i32 %182, ptr %.sroa.873.0..sroa_idx74.i, align 8, !noalias !504
-  store i64 %184, ptr %.sroa.1079.0..sroa_idx80.i, align 8, !noalias !504
-  store i32 %186, ptr %.sroa.1182.0..sroa_idx83.i, align 8, !noalias !504
-  store i64 %.sroa.0.0.i53.i, ptr %.sroa.1388.0..sroa_idx89.i, align 8, !noalias !504
-  store i32 %168, ptr %.sroa.1491.0..sroa_idx92.i, align 8, !noalias !504
-  store i64 %.sroa.01.0.i.i, ptr %.sroa.1697.0..sroa_idx98.i, align 8, !noalias !504
-  store i32 %171, ptr %.sroa.17100.0..sroa_idx101.i, align 8, !noalias !504
-  store i64 %151, ptr %.sroa.19106.0..sroa_idx107.i, align 8, !noalias !504
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.20109.0..sroa_idx110.i, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.20109.i, i64 136, i1 false), !noalias !504
-  store i64 %173, ptr %.sroa.21111.0..sroa_idx112.i, align 8, !noalias !504
-  store i64 %178, ptr %.sroa.22114.0..sroa_idx115.i, align 8, !noalias !504
-  store i64 %190, ptr %.sroa.23117.0..sroa_idx118.i, align 8, !noalias !504
-  store i64 %192, ptr %.sroa.24120.0..sroa_idx121.i, align 8, !noalias !504
-  store i8 %175, ptr %.sroa.25.0..sroa_idx123.i, align 8, !noalias !504
-  store i8 %176, ptr %.sroa.26.0..sroa_idx125.i, align 1, !noalias !504
-  store i8 %188, ptr %.sroa.27.0..sroa_idx127.i, align 2, !noalias !504
-  store i8 %194, ptr %.sroa.28.0..sroa_idx129.i, align 1, !noalias !504
-  store i8 %195, ptr %.sroa.29.0..sroa_idx131.i, align 4, !noalias !504
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.30.0..sroa_idx133.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.30.i, i64 3, i1 false), !noalias !504
+  store i64 %180, ptr %.sroa.769.0..sroa_idx70.i, align 8, !noalias !504
+  store i32 %182, ptr %.sroa.872.0..sroa_idx73.i, align 8, !noalias !504
+  store i64 %184, ptr %.sroa.1078.0..sroa_idx79.i, align 8, !noalias !504
+  store i32 %186, ptr %.sroa.1181.0..sroa_idx82.i, align 8, !noalias !504
+  store i64 %.sroa.0.0.i53.i, ptr %.sroa.1387.0..sroa_idx88.i, align 8, !noalias !504
+  store i32 %168, ptr %.sroa.1490.0..sroa_idx91.i, align 8, !noalias !504
+  store i64 %.sroa.01.0.i.i, ptr %.sroa.1696.0..sroa_idx97.i, align 8, !noalias !504
+  store i32 %171, ptr %.sroa.1799.0..sroa_idx100.i, align 8, !noalias !504
+  store i64 %151, ptr %.sroa.19105.0..sroa_idx106.i, align 8, !noalias !504
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.20108.0..sroa_idx109.i, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.20108.i, i64 136, i1 false), !noalias !504
+  store i64 %173, ptr %.sroa.21110.0..sroa_idx111.i, align 8, !noalias !504
+  store i64 %178, ptr %.sroa.22113.0..sroa_idx114.i, align 8, !noalias !504
+  store i64 %190, ptr %.sroa.23116.0..sroa_idx117.i, align 8, !noalias !504
+  store i64 %192, ptr %.sroa.24119.0..sroa_idx120.i, align 8, !noalias !504
+  store i8 %175, ptr %.sroa.25.0..sroa_idx122.i, align 8, !noalias !504
+  store i8 %176, ptr %.sroa.26.0..sroa_idx124.i, align 1, !noalias !504
+  store i8 %188, ptr %.sroa.27.0..sroa_idx126.i, align 2, !noalias !504
+  store i8 %194, ptr %.sroa.28.0..sroa_idx128.i, align 1, !noalias !504
+  store i8 %195, ptr %.sroa.29.0..sroa_idx130.i, align 4, !noalias !504
   br label %.body.i
 
 201:                                              ; preds = %198, %163
   store i64 %164, ptr %16, align 8, !noalias !504
   store i32 %166, ptr %57, align 8, !noalias !504
-  store i64 %180, ptr %.sroa.770.0..sroa_idx71.i, align 8, !noalias !504
-  store i32 %182, ptr %.sroa.873.0..sroa_idx74.i, align 8, !noalias !504
-  store i64 %184, ptr %.sroa.1079.0..sroa_idx80.i, align 8, !noalias !504
-  store i32 %186, ptr %.sroa.1182.0..sroa_idx83.i, align 8, !noalias !504
-  store i64 %.sroa.0.0.i53.i, ptr %.sroa.1388.0..sroa_idx89.i, align 8, !noalias !504
-  store i32 %168, ptr %.sroa.1491.0..sroa_idx92.i, align 8, !noalias !504
-  store i64 %.sroa.01.0.i.i, ptr %.sroa.1697.0..sroa_idx98.i, align 8, !noalias !504
-  store i32 %171, ptr %.sroa.17100.0..sroa_idx101.i, align 8, !noalias !504
-  store i64 %151, ptr %.sroa.19106.0..sroa_idx107.i, align 8, !noalias !504
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.20109.0..sroa_idx110.i, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.20109.i, i64 136, i1 false), !noalias !504
-  store i64 %173, ptr %.sroa.21111.0..sroa_idx112.i, align 8, !noalias !504
-  store i64 %178, ptr %.sroa.22114.0..sroa_idx115.i, align 8, !noalias !504
-  store i64 %190, ptr %.sroa.23117.0..sroa_idx118.i, align 8, !noalias !504
-  store i64 %192, ptr %.sroa.24120.0..sroa_idx121.i, align 8, !noalias !504
-  store i8 %175, ptr %.sroa.25.0..sroa_idx123.i, align 8, !noalias !504
-  store i8 %176, ptr %.sroa.26.0..sroa_idx125.i, align 1, !noalias !504
-  store i8 %188, ptr %.sroa.27.0..sroa_idx127.i, align 2, !noalias !504
-  store i8 %194, ptr %.sroa.28.0..sroa_idx129.i, align 1, !noalias !504
-  store i8 %195, ptr %.sroa.29.0..sroa_idx131.i, align 4, !noalias !504
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.30.0..sroa_idx133.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.30.i, i64 3, i1 false), !noalias !504
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.20109.i)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.30.i)
+  store i64 %180, ptr %.sroa.769.0..sroa_idx70.i, align 8, !noalias !504
+  store i32 %182, ptr %.sroa.872.0..sroa_idx73.i, align 8, !noalias !504
+  store i64 %184, ptr %.sroa.1078.0..sroa_idx79.i, align 8, !noalias !504
+  store i32 %186, ptr %.sroa.1181.0..sroa_idx82.i, align 8, !noalias !504
+  store i64 %.sroa.0.0.i53.i, ptr %.sroa.1387.0..sroa_idx88.i, align 8, !noalias !504
+  store i32 %168, ptr %.sroa.1490.0..sroa_idx91.i, align 8, !noalias !504
+  store i64 %.sroa.01.0.i.i, ptr %.sroa.1696.0..sroa_idx97.i, align 8, !noalias !504
+  store i32 %171, ptr %.sroa.1799.0..sroa_idx100.i, align 8, !noalias !504
+  store i64 %151, ptr %.sroa.19105.0..sroa_idx106.i, align 8, !noalias !504
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.20108.0..sroa_idx109.i, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.20108.i, i64 136, i1 false), !noalias !504
+  store i64 %173, ptr %.sroa.21110.0..sroa_idx111.i, align 8, !noalias !504
+  store i64 %178, ptr %.sroa.22113.0..sroa_idx114.i, align 8, !noalias !504
+  store i64 %190, ptr %.sroa.23116.0..sroa_idx117.i, align 8, !noalias !504
+  store i64 %192, ptr %.sroa.24119.0..sroa_idx120.i, align 8, !noalias !504
+  store i8 %175, ptr %.sroa.25.0..sroa_idx122.i, align 8, !noalias !504
+  store i8 %176, ptr %.sroa.26.0..sroa_idx124.i, align 1, !noalias !504
+  store i8 %188, ptr %.sroa.27.0..sroa_idx126.i, align 2, !noalias !504
+  store i8 %194, ptr %.sroa.28.0..sroa_idx128.i, align 1, !noalias !504
+  store i8 %195, ptr %.sroa.29.0..sroa_idx130.i, align 4, !noalias !504
+  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %.sroa.20108.i)
   %202 = load i64, ptr %68, align 8, !alias.scope !502, !noalias !506, !noundef !3
   %203 = add i64 %202, -1
   store i64 %203, ptr %68, align 8, !alias.scope !502, !noalias !506
@@ -5996,13 +5986,13 @@ common.resume:                                    ; preds = %249, %299, %231, %.
   resume { ptr, i32 } %common.resume.op
 
 _ZN6quiche8recovery10congestion8recovery13RecoveryEpoch19detect_lost_packets17h4567281f401cefe9E.exit: ; preds = %.outer.i, %.noexc50.i, %135, %110
-  %.sroa.019.0.ph203.i = phi i64 [ %.sroa.019.0.ph216.i, %110 ], [ %.sroa.019.0.ph216.i, %135 ], [ %.sroa.019.0.ph216.i, %.noexc50.i ], [ %143, %.outer.i ]
-  %213 = phi i64 [ %.sroa.021.0.ph217.i, %110 ], [ %.sroa.021.0.ph217.i, %135 ], [ %.sroa.021.0.ph217.i, %.noexc50.i ], [ %.sroa.021.1.i, %.outer.i ]
-  %214 = phi i64 [ %.sroa.023.0207.i, %110 ], [ %.sroa.023.0207.i, %.noexc50.i ], [ %138, %135 ], [ %.sroa.023.0207.i, %.outer.i ]
+  %.sroa.019.0.ph202.i = phi i64 [ %.sroa.019.0.ph215.i, %110 ], [ %.sroa.019.0.ph215.i, %135 ], [ %.sroa.019.0.ph215.i, %.noexc50.i ], [ %143, %.outer.i ]
+  %213 = phi i64 [ %.sroa.021.0.ph216.i, %110 ], [ %.sroa.021.0.ph216.i, %135 ], [ %.sroa.021.0.ph216.i, %.noexc50.i ], [ %.sroa.021.1.i, %.outer.i ]
+  %214 = phi i64 [ %.sroa.023.0206.i, %110 ], [ %.sroa.023.0206.i, %.noexc50.i ], [ %138, %135 ], [ %.sroa.023.0206.i, %.outer.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %22, ptr noundef nonnull align 8 dereferenceable(264) %16, i64 264, i1 false), !noalias !539
   %215 = getelementptr inbounds nuw i8, ptr %22, i64 264
-  store i64 %.sroa.019.0.ph203.i, ptr %215, align 8, !alias.scope !499, !noalias !539
+  store i64 %.sroa.019.0.ph202.i, ptr %215, align 8, !alias.scope !499, !noalias !539
   %216 = getelementptr inbounds nuw i8, ptr %22, i64 272
   store i64 %213, ptr %216, align 8, !alias.scope !499, !noalias !539
   %217 = getelementptr inbounds nuw i8, ptr %22, i64 280

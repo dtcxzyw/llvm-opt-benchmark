@@ -282,8 +282,8 @@ define void @_ZN17diesel_migrations21file_based_migrations23migrations_in_direct
   %7 = icmp eq i8 %6, 2
   %.sroa.01.0.i = load ptr, ptr %4, align 8, !noalias !31, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !31
-  %. = select i1 %7, i64 2, i64 6
-  store i64 %., ptr %0, align 8
+  %spec.select = select i1 %7, i64 2, i64 6
+  store i64 %spec.select, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.01.0.i, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16

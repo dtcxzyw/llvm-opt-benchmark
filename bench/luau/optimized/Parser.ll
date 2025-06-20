@@ -13877,8 +13877,8 @@ _ZN4Luau10TempVectorINS_20AstDeclaredClassPropEED2Ev.exit: ; preds = %_ZN4Luau9A
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #29
   br label %686
 
-686:                                              ; preds = %.loopexit544, %.loopexit.split-lp545, %.loopexit554, %.loopexit.split-lp555, %612, %.loopexit.split-lp550, %.loopexit549, %682, %684, %661, %663, %494, %496, %532, %483, %468, %396, %394
-  %.pn81 = phi { ptr, i32 } [ %lpad.phi543, %396 ], [ %.pn75.pn.pn.pn.pn, %483 ], [ %533, %532 ], [ %395, %394 ], [ %.pn, %468 ], [ %495, %494 ], [ %497, %496 ], [ %662, %661 ], [ %664, %663 ], [ %685, %684 ], [ %683, %682 ], [ %613, %612 ], [ %lpad.loopexit551, %.loopexit549 ], [ %lpad.loopexit.split-lp552, %.loopexit.split-lp550 ], [ %lpad.loopexit556, %.loopexit554 ], [ %lpad.loopexit.split-lp557, %.loopexit.split-lp555 ], [ %lpad.loopexit546, %.loopexit544 ], [ %lpad.loopexit.split-lp547, %.loopexit.split-lp545 ]
+686:                                              ; preds = %612, %.loopexit.split-lp550, %.loopexit549, %.loopexit.split-lp555, %.loopexit554, %.loopexit544, %.loopexit.split-lp545, %682, %684, %661, %663, %494, %496, %532, %483, %468, %396, %394
+  %.pn81 = phi { ptr, i32 } [ %lpad.phi543, %396 ], [ %.pn75.pn.pn.pn.pn, %483 ], [ %533, %532 ], [ %395, %394 ], [ %.pn, %468 ], [ %495, %494 ], [ %497, %496 ], [ %662, %661 ], [ %664, %663 ], [ %685, %684 ], [ %683, %682 ], [ %lpad.loopexit546, %.loopexit544 ], [ %lpad.loopexit.split-lp547, %.loopexit.split-lp545 ], [ %613, %612 ], [ %lpad.loopexit551, %.loopexit549 ], [ %lpad.loopexit.split-lp552, %.loopexit.split-lp550 ], [ %lpad.loopexit556, %.loopexit554 ], [ %lpad.loopexit.split-lp557, %.loopexit.split-lp555 ]
   %687 = load ptr, ptr %343, align 8, !tbaa !479
   %688 = getelementptr inbounds i8, ptr %687, i64 %349
   %689 = load ptr, ptr %344, align 8, !tbaa !479
@@ -23699,8 +23699,8 @@ _ZN4Luau10TempVectorINS_12CstTypeTable4ItemEED2Ev.exit: ; preds = %551, %._crit_
 _ZN4Luau10TempVectorINS_12AstTablePropEED2Ev.exit: ; preds = %_ZN4Luau10TempVectorINS_12CstTypeTable4ItemEED2Ev.exit, %._crit_edge.i.i.i271
   ret ptr %.0
 
-558:                                              ; preds = %95, %97, %130, %245, %333, %389, %257, %255, %393, %395, %391, %.loopexit558, %.loopexit.split-lp, %481, %483, %.loopexit.split-lp560, %.loopexit559, %.loopexit.split-lp565, %.loopexit564, %494, %549, %531, %535, %533, %93
-  %.pn87.pn.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %550, %549 ], [ %495, %494 ], [ %532, %531 ], [ %536, %535 ], [ %534, %533 ], [ %96, %95 ], [ %.pn76.pn.pn.pn.pn.pn.pn, %245 ], [ %.pn72, %333 ], [ %390, %389 ], [ %.pn, %130 ], [ %98, %97 ], [ %256, %255 ], [ %258, %257 ], [ %392, %391 ], [ %396, %395 ], [ %394, %393 ], [ %482, %481 ], [ %484, %483 ], [ %lpad.loopexit, %.loopexit558 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit561, %.loopexit559 ], [ %lpad.loopexit.split-lp562, %.loopexit.split-lp560 ], [ %lpad.loopexit566, %.loopexit564 ], [ %lpad.loopexit.split-lp567, %.loopexit.split-lp565 ]
+558:                                              ; preds = %95, %97, %130, %245, %333, %389, %257, %255, %393, %395, %391, %.loopexit559, %.loopexit.split-lp560, %.loopexit564, %.loopexit.split-lp565, %.loopexit558, %.loopexit.split-lp, %481, %483, %494, %549, %531, %535, %533, %93
+  %.pn87.pn.pn.pn.pn = phi { ptr, i32 } [ %94, %93 ], [ %550, %549 ], [ %495, %494 ], [ %532, %531 ], [ %536, %535 ], [ %534, %533 ], [ %96, %95 ], [ %.pn76.pn.pn.pn.pn.pn.pn, %245 ], [ %.pn72, %333 ], [ %390, %389 ], [ %.pn, %130 ], [ %98, %97 ], [ %256, %255 ], [ %258, %257 ], [ %392, %391 ], [ %396, %395 ], [ %394, %393 ], [ %482, %481 ], [ %484, %483 ], [ %lpad.loopexit, %.loopexit558 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit566, %.loopexit564 ], [ %lpad.loopexit.split-lp567, %.loopexit.split-lp565 ], [ %lpad.loopexit561, %.loopexit559 ], [ %lpad.loopexit.split-lp562, %.loopexit.split-lp560 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #29
   %559 = load ptr, ptr %51, align 8, !tbaa !674
   %560 = getelementptr inbounds i8, ptr %559, i64 %57
@@ -29392,7 +29392,7 @@ _ZN4Luau6Parser16expectAndConsumeEcPKc.exit:      ; preds = %.invoke, %.noexc60
   br i1 %.not378, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %_ZN4Luau6Parser16expectAndConsumeEcPKc.exit
-  %.sroa.5.0.copyload401 = load i64, ptr %.sroa.6317.0..sroa_idx, align 4
+  %.sroa.5.0.copyload399 = load i64, ptr %.sroa.6317.0..sroa_idx, align 4
   br label %333
 
 .lr.ph:                                           ; preds = %_ZN4Luau6Parser16expectAndConsumeEcPKc.exit
@@ -29451,7 +29451,7 @@ _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit: ; preds = %.
   %63 = load i64, ptr %32, align 4
   %64 = load i32, ptr %31, align 8, !tbaa !79
   %.not.i.i67 = icmp eq i32 %64, 61
-  br i1 %.not.i.i67, label %.invoke426, label %65
+  br i1 %.not.i.i67, label %.invoke424, label %65
 
 65:                                               ; preds = %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit
   invoke void @_ZN4Luau6Parser20expectAndConsumeFailENS_6Lexeme4TypeEPKc(ptr noundef nonnull align 8 dereferenceable(1072) %0, i32 noundef 61, ptr noundef nonnull @.str.167)
@@ -29470,13 +29470,13 @@ _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit: ; preds = %.
 
 68:                                               ; preds = %.noexc69
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
-          to label %.invoke426 unwind label %142
+          to label %.invoke424 unwind label %142
 
-.invoke426:                                       ; preds = %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit, %68
+.invoke424:                                       ; preds = %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit, %68
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
           to label %_ZN4Luau6Parser16expectAndConsumeEcPKc.exit73 unwind label %142
 
-_ZN4Luau6Parser16expectAndConsumeEcPKc.exit73:    ; preds = %.invoke426, %.noexc69
+_ZN4Luau6Parser16expectAndConsumeEcPKc.exit73:    ; preds = %.invoke424, %.noexc69
   %69 = invoke noundef ptr @_ZN4Luau6Parser9parseExprEj(ptr noundef nonnull align 8 dereferenceable(1072) %0, i32 noundef 0)
           to label %70 unwind label %144
 
@@ -29713,7 +29713,7 @@ _ZNSt6vectorIN4Luau12CstExprTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
           cleanup
   br label %147
 
-142:                                              ; preds = %.invoke426, %68, %.noexc68, %65
+142:                                              ; preds = %.invoke424, %68, %.noexc68, %65
   %143 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -29779,9 +29779,9 @@ _ZNSt6vectorIN4Luau12CstExprTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   %157 = load ptr, ptr %46, align 8, !tbaa !20, !noalias !756
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false)
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
-          to label %._crit_edge395 unwind label %183
+          to label %._crit_edge393 unwind label %183
 
-._crit_edge395:                                   ; preds = %156
+._crit_edge393:                                   ; preds = %156
   %158 = ptrtoint ptr %157 to i64
   %.pre = load i64, ptr %32, align 4
   br label %161
@@ -29797,13 +29797,13 @@ _ZNSt6vectorIN4Luau12CstExprTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   store i64 %.sroa.0.0.copyload.i, ptr %.sroa.5.0..sroa_idx3.i, align 8, !alias.scope !753
   br label %161
 
-161:                                              ; preds = %._crit_edge395, %.noexc84
-  %162 = phi i64 [ %.sroa.0.0.copyload.i, %.noexc84 ], [ %.pre, %._crit_edge395 ]
-  %.sink.i = phi i64 [ %160, %.noexc84 ], [ %158, %._crit_edge395 ]
+161:                                              ; preds = %._crit_edge393, %.noexc84
+  %162 = phi i64 [ %.sroa.0.0.copyload.i, %.noexc84 ], [ %.pre, %._crit_edge393 ]
+  %.sink.i = phi i64 [ %160, %.noexc84 ], [ %158, %._crit_edge393 ]
   store i64 %.sink.i, ptr %8, align 8, !tbaa !260, !alias.scope !753
   %163 = load i32, ptr %31, align 8, !tbaa !79
   %.not.i.i85 = icmp eq i32 %163, 61
-  br i1 %.not.i.i85, label %.invoke427, label %164
+  br i1 %.not.i.i85, label %.invoke425, label %164
 
 164:                                              ; preds = %161
   invoke void @_ZN4Luau6Parser20expectAndConsumeFailENS_6Lexeme4TypeEPKc(ptr noundef nonnull align 8 dereferenceable(1072) %0, i32 noundef 61, ptr noundef nonnull @.str.167)
@@ -29822,13 +29822,13 @@ _ZNSt6vectorIN4Luau12CstExprTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
 
 167:                                              ; preds = %.noexc87
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
-          to label %.invoke427 unwind label %185
+          to label %.invoke425 unwind label %185
 
-.invoke427:                                       ; preds = %161, %167
+.invoke425:                                       ; preds = %161, %167
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
           to label %_ZN4Luau6Parser16expectAndConsumeEcPKc.exit91 unwind label %185
 
-_ZN4Luau6Parser16expectAndConsumeEcPKc.exit91:    ; preds = %.invoke427, %.noexc87
+_ZN4Luau6Parser16expectAndConsumeEcPKc.exit91:    ; preds = %.invoke425, %.noexc87
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #29
   %168 = load ptr, ptr %8, align 8, !tbaa !759
   store ptr %168, ptr %9, align 8, !tbaa !451
@@ -29872,7 +29872,7 @@ _ZN4Luau9Allocator5allocINS_21AstExprConstantStringEJRNS_8LocationERNS_8AstArray
           cleanup
   br label %255
 
-185:                                              ; preds = %.invoke427, %167, %.noexc86, %164
+185:                                              ; preds = %.invoke425, %167, %.noexc86, %164
   %186 = landingpad { ptr, i32 }
           cleanup
   br label %255
@@ -30360,16 +30360,16 @@ _ZNSt6vectorIN4Luau12CstExprTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   %.sroa.14327.3 = phi i64 [ %.sroa.14327.2, %146 ], [ %.sroa.14327.4, %253 ], [ %319, %318 ], [ %.sroa.14327.0379, %283 ]
   %.sroa.16.2 = add i64 %.sroa.16.0380, 1
   %323 = load i32, ptr %31, align 8, !tbaa !79
-  switch i32 %323, label %._crit_edge.thread409 [
+  switch i32 %323, label %._crit_edge.thread407 [
     i32 44, label %324
     i32 59, label %324
     i32 91, label %325
     i32 281, label %325
-    i32 125, label %._crit_edge.thread407
+    i32 125, label %._crit_edge.thread405
   ]
 
-._crit_edge.thread409:                            ; preds = %322
-  %.sroa.5.0.copyload410 = load i64, ptr %.sroa.6317.0..sroa_idx, align 4
+._crit_edge.thread407:                            ; preds = %322
+  %.sroa.5.0.copyload408 = load i64, ptr %.sroa.6317.0..sroa_idx, align 4
   br label %331
 
 324:                                              ; preds = %322, %322
@@ -30388,10 +30388,10 @@ _ZNSt6vectorIN4Luau12CstExprTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
 329:                                              ; preds = %328, %324
   %.old.pr = load i32, ptr %31, align 8, !tbaa !79
   %.not.old = icmp eq i32 %.old.pr, 125
-  br i1 %.not.old, label %._crit_edge.thread407, label %.backedge, !llvm.loop !768
+  br i1 %.not.old, label %._crit_edge.thread405, label %.backedge, !llvm.loop !768
 
-._crit_edge.thread407:                            ; preds = %329, %322
-  %.sroa.5.0.copyload408 = load i64, ptr %.sroa.6317.0..sroa_idx, align 4
+._crit_edge.thread405:                            ; preds = %329, %322
+  %.sroa.5.0.copyload406 = load i64, ptr %.sroa.6317.0..sroa_idx, align 4
   br label %333
 
 ._crit_edge:                                      ; preds = %325
@@ -30399,8 +30399,8 @@ _ZNSt6vectorIN4Luau12CstExprTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   %.sroa.5.0.copyload = load i64, ptr %.sroa.6317.0..sroa_idx, align 4
   br i1 %330, label %333, label %331
 
-331:                                              ; preds = %._crit_edge.thread409, %._crit_edge
-  %.sroa.5.0.copyload411 = phi i64 [ %.sroa.5.0.copyload410, %._crit_edge.thread409 ], [ %.sroa.5.0.copyload, %._crit_edge ]
+331:                                              ; preds = %._crit_edge.thread407, %._crit_edge
+  %.sroa.5.0.copyload409 = phi i64 [ %.sroa.5.0.copyload408, %._crit_edge.thread407 ], [ %.sroa.5.0.copyload, %._crit_edge ]
   invoke void @_ZN4Luau6Parser25expectMatchAndConsumeFailENS_6Lexeme4TypeERKNS0_11MatchLexemeEPKc(ptr noundef nonnull align 8 dereferenceable(1072) %0, i32 noundef 125, ptr noundef nonnull readonly align 4 dereferenceable(12) %5, ptr noundef null)
           to label %.noexc158 unwind label %335
 
@@ -30408,10 +30408,10 @@ _ZNSt6vectorIN4Luau12CstExprTable4ItemESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9_
   %332 = invoke noundef zeroext i1 @_ZN4Luau6Parser28expectMatchAndConsumeRecoverEcRKNS0_11MatchLexemeEb(ptr noundef nonnull align 8 dereferenceable(1072) %0, i8 noundef signext 125, ptr nonnull readonly align 4 poison, i1 noundef zeroext false)
           to label %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161 unwind label %335
 
-333:                                              ; preds = %._crit_edge.thread407, %._crit_edge.thread, %._crit_edge
-  %.sroa.5.0.copyload406 = phi i64 [ %.sroa.5.0.copyload401, %._crit_edge.thread ], [ %.sroa.5.0.copyload, %._crit_edge ], [ %.sroa.5.0.copyload408, %._crit_edge.thread407 ]
-  %.sroa.16.1405 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.16.2, %._crit_edge ], [ %.sroa.16.2, %._crit_edge.thread407 ]
-  %.sroa.14327.1403 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.14327.3, %._crit_edge ], [ %.sroa.14327.3, %._crit_edge.thread407 ]
+333:                                              ; preds = %._crit_edge.thread405, %._crit_edge.thread, %._crit_edge
+  %.sroa.5.0.copyload404 = phi i64 [ %.sroa.5.0.copyload399, %._crit_edge.thread ], [ %.sroa.5.0.copyload, %._crit_edge ], [ %.sroa.5.0.copyload406, %._crit_edge.thread405 ]
+  %.sroa.16.1403 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.16.2, %._crit_edge ], [ %.sroa.16.2, %._crit_edge.thread405 ]
+  %.sroa.14327.1401 = phi i64 [ 0, %._crit_edge.thread ], [ %.sroa.14327.3, %._crit_edge ], [ %.sroa.14327.3, %._crit_edge.thread405 ]
   invoke void @_ZN4Luau6Parser10nextLexemeEv(ptr noundef nonnull align 8 dereferenceable(1072) %0)
           to label %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161.thread unwind label %335
 
@@ -30429,14 +30429,14 @@ _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161: ; preds =
   br label %401
 
 _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161.thread: ; preds = %333, %334, %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161
-  %.sroa.16.1404 = phi i64 [ %.sroa.16.2, %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161 ], [ %.sroa.16.2, %334 ], [ %.sroa.16.1405, %333 ]
-  %.sroa.14327.1402 = phi i64 [ %.sroa.14327.3, %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161 ], [ %.sroa.14327.3, %334 ], [ %.sroa.14327.1403, %333 ]
-  %.sroa.5.0 = phi i64 [ %.sroa.5.0.copyload411, %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161 ], [ %.sroa.5.0.copyload194, %334 ], [ %.sroa.5.0.copyload406, %333 ]
+  %.sroa.16.1402 = phi i64 [ %.sroa.16.2, %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161 ], [ %.sroa.16.2, %334 ], [ %.sroa.16.1403, %333 ]
+  %.sroa.14327.1400 = phi i64 [ %.sroa.14327.3, %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161 ], [ %.sroa.14327.3, %334 ], [ %.sroa.14327.1401, %333 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.5.0.copyload409, %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161 ], [ %.sroa.5.0.copyload194, %334 ], [ %.sroa.5.0.copyload404, %333 ]
   %337 = load i8, ptr @_ZN5FFlag16LuauStoreCSTDataE, align 8, !tbaa !257, !range !174, !noundef !175
   %338 = trunc nuw i8 %337 to i1
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %340 = load ptr, ptr %339, align 8, !tbaa !297
-  %341 = icmp eq i64 %.sroa.16.1404, 0
+  %341 = icmp eq i64 %.sroa.16.1402, 0
   br i1 %338, label %342, label %380
 
 342:                                              ; preds = %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161.thread
@@ -30450,7 +30450,7 @@ _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161.thread: ; 
 .lr.ph.preheader.i.i:                             ; preds = %342
   %344 = load ptr, ptr %16, align 8, !tbaa !106
   %345 = getelementptr i8, ptr %344, i64 %22
-  %346 = mul i64 %.sroa.16.1404, 24
+  %346 = mul i64 %.sroa.16.1402, 24
   %347 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %340, i64 noundef %346)
           to label %.lr.ph.i.i unwind label %373
 
@@ -30460,14 +30460,14 @@ _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit161.thread: ; 
   %349 = getelementptr inbounds nuw %"struct.Luau::AstExprTable::Item", ptr %345, i64 %.010.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %348, ptr noundef nonnull align 8 dereferenceable(24) %349, i64 24, i1 false), !tbaa.struct !769
   %350 = add nuw i64 %.010.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %350, %.sroa.16.1404
+  %exitcond.not.i.i = icmp eq i64 %350, %.sroa.16.1402
   br i1 %exitcond.not.i.i, label %.loopexit348, label %.lr.ph.i.i, !llvm.loop !770
 
 .loopexit348:                                     ; preds = %.lr.ph.i.i, %342
   %351 = phi ptr [ null, %342 ], [ %347, %.lr.ph.i.i ]
   store ptr %351, ptr %11, align 8
   %352 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.sroa.16.1404, ptr %352, align 8
+  store i64 %.sroa.16.1402, ptr %352, align 8
   %353 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %340, i64 noundef 48)
           to label %.noexc163 unwind label %373
 
@@ -30486,13 +30486,13 @@ _ZN4Luau9Allocator5allocINS_12AstExprTableEJNS_8LocationENS_8AstArrayINS2_4ItemE
 357:                                              ; preds = %_ZN4Luau9Allocator5allocINS_12AstExprTableEJNS_8LocationENS_8AstArrayINS2_4ItemEEEEEEPT_DpOT0_.exit
   %358 = load ptr, ptr %339, align 8, !tbaa !297
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #29
-  %359 = icmp eq i64 %.sroa.14327.1402, 0
+  %359 = icmp eq i64 %.sroa.14327.1400, 0
   br i1 %359, label %.loopexit, label %.lr.ph.preheader.i.i165
 
 .lr.ph.preheader.i.i165:                          ; preds = %357
   %360 = load ptr, ptr %23, align 8, !tbaa !102
   %361 = getelementptr i8, ptr %360, i64 %29
-  %362 = mul i64 %.sroa.14327.1402, 56
+  %362 = mul i64 %.sroa.14327.1400, 56
   %363 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %358, i64 noundef %362)
           to label %.lr.ph.i.i166 unwind label %375
 
@@ -30502,14 +30502,14 @@ _ZN4Luau9Allocator5allocINS_12AstExprTableEJNS_8LocationENS_8AstArrayINS2_4ItemE
   %365 = getelementptr inbounds nuw %"struct.Luau::CstExprTable::Item", ptr %361, i64 %.010.i.i167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %364, ptr noundef nonnull align 4 dereferenceable(56) %365, i64 56, i1 false)
   %366 = add nuw i64 %.010.i.i167, 1
-  %exitcond.not.i.i168 = icmp eq i64 %366, %.sroa.14327.1402
+  %exitcond.not.i.i168 = icmp eq i64 %366, %.sroa.14327.1400
   br i1 %exitcond.not.i.i168, label %.loopexit, label %.lr.ph.i.i166, !llvm.loop !771
 
 .loopexit:                                        ; preds = %.lr.ph.i.i166, %357
   %367 = phi ptr [ null, %357 ], [ %363, %.lr.ph.i.i166 ]
   store ptr %367, ptr %12, align 8
   %368 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %.sroa.14327.1402, ptr %368, align 8
+  store i64 %.sroa.14327.1400, ptr %368, align 8
   %369 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %358, i64 noundef 24)
           to label %.noexc172 unwind label %375
 
@@ -30564,7 +30564,7 @@ _ZN4Luau9Allocator5allocINS_12CstExprTableEJNS_8AstArrayINS2_4ItemEEEEEEPT_DpOT0
 .lr.ph.preheader.i.i174:                          ; preds = %380
   %382 = load ptr, ptr %16, align 8, !tbaa !106
   %383 = getelementptr i8, ptr %382, i64 %22
-  %384 = mul i64 %.sroa.16.1404, 24
+  %384 = mul i64 %.sroa.16.1402, 24
   %385 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %340, i64 noundef %384)
           to label %.lr.ph.i.i175 unwind label %392
 
@@ -30574,14 +30574,14 @@ _ZN4Luau9Allocator5allocINS_12CstExprTableEJNS_8AstArrayINS2_4ItemEEEEEEPT_DpOT0
   %387 = getelementptr inbounds nuw %"struct.Luau::AstExprTable::Item", ptr %383, i64 %.010.i.i176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %386, ptr noundef nonnull align 8 dereferenceable(24) %387, i64 24, i1 false), !tbaa.struct !769
   %388 = add nuw i64 %.010.i.i176, 1
-  %exitcond.not.i.i177 = icmp eq i64 %388, %.sroa.16.1404
+  %exitcond.not.i.i177 = icmp eq i64 %388, %.sroa.16.1402
   br i1 %exitcond.not.i.i177, label %.loopexit349, label %.lr.ph.i.i175, !llvm.loop !770
 
 .loopexit349:                                     ; preds = %.lr.ph.i.i175, %380
   %389 = phi ptr [ null, %380 ], [ %385, %.lr.ph.i.i175 ]
   store ptr %389, ptr %15, align 8
   %390 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %.sroa.16.1404, ptr %390, align 8
+  store i64 %.sroa.16.1402, ptr %390, align 8
   %391 = invoke noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %340, i64 noundef 48)
           to label %.noexc182 unwind label %392
 

@@ -6252,7 +6252,7 @@ _ZN4gpui8executor5Scope5spawn17h83603699de51018dE.exit.i.i.i: ; preds = %331, %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i)
   br label %444
 
-448:                                              ; preds = %401, %.body50.i, %403
+448:                                              ; preds = %.body50.i, %403, %401
   %.pn16.pn.pn.pn.i = phi { ptr, i32 } [ %.pn16.i, %403 ], [ %402, %401 ], [ %.pn9.i, %.body50.i ]
   %449 = getelementptr inbounds nuw i8, ptr %110, i64 441
   %450 = load i8, ptr %449, align 1, !range !454, !noalias !1215, !noundef !4

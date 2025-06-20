@@ -4768,7 +4768,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5343.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, i64 16, i1 false), !noalias !347
   br label %305
 
-305:                                              ; preds = %.loopexit.i, %304
+305:                                              ; preds = %304, %.loopexit.i
   %.sroa.0341.0.i = phi i64 [ %136, %304 ], [ -9223372036854775807, %.loopexit.i ]
   %306 = load i64, ptr %55, align 8, !range !385, !noalias !347, !noundef !4
   %.not230.i = icmp eq i64 %306, -9223372036854775807
@@ -4779,7 +4779,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5348.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4351.0..sroa_idx.i, i64 16, i1 false), !noalias !347
   br label %308
 
-308:                                              ; preds = %305, %307
+308:                                              ; preds = %307, %305
   %.sroa.0346.0.i = phi i64 [ %306, %307 ], [ -9223372036854775808, %305 ]
   %309 = load i64, ptr %54, align 8, !range !385, !noalias !347, !noundef !4
   %.not231.i = icmp eq i64 %309, -9223372036854775807
@@ -4790,7 +4790,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5354.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4357.0..sroa_idx.i, i64 16, i1 false), !noalias !347
   br label %311
 
-311:                                              ; preds = %308, %310
+311:                                              ; preds = %310, %308
   %.sroa.0352.0.i = phi i64 [ %309, %310 ], [ -9223372036854775808, %308 ]
   %312 = load i64, ptr %53, align 8, !range !385, !noalias !347, !noundef !4
   %.not232.i = icmp eq i64 %312, -9223372036854775807
@@ -4801,7 +4801,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3221.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3221.0..sroa_idx.i, i64 16, i1 false), !noalias !347
   br label %314
 
-314:                                              ; preds = %311, %313
+314:                                              ; preds = %313, %311
   %.sroa.0219.0.i = phi i64 [ %312, %313 ], [ -9223372036854775808, %311 ]
   store i64 %.sroa.0346.0.i, ptr %0, align 8, !alias.scope !342, !noalias !345
   %.sroa.0113.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4989,8 +4989,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %22 = alloca [176 x i8], align 8
   %23 = alloca [144 x i8], align 8
   %.sroa.7.i.i.sroa.7.i = alloca [31 x i8], align 1
-  %.sroa.925.i.i.sroa.5.i = alloca [31 x i8], align 1
-  %.sroa.925.i.i.sroa.6.i = alloca [24 x i8], align 8
+  %.sroa.924.i.i.sroa.5.i = alloca [31 x i8], align 1
+  %.sroa.924.i.i.sroa.6.i = alloca [24 x i8], align 8
   %24 = alloca [32 x i8], align 8
   %.sroa.11.i.i.i = alloca [31 x i8], align 1
   %.sroa.12.i.i.sroa.4.i = alloca [31 x i8], align 1
@@ -5085,11 +5085,11 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.7.0..sroa_idx24.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.7.i.i.sroa.7.0..sroa.7.0..sroa_idx24.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %.sroa.925.0..sroa_idx26.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %.sroa.925.i.i.sroa.5.0..sroa.925.0..sroa_idx26.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 41
-  %.sroa.925.i.i.sroa.6.0..sroa.925.0..sroa_idx26.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %.sroa.7.0..sroa_idx23.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.7.i.i.sroa.7.0..sroa.7.0..sroa_idx23.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %.sroa.924.0..sroa_idx25.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sroa.924.i.i.sroa.5.0..sroa.924.0..sroa_idx25.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 41
+  %.sroa.924.i.i.sroa.6.0..sroa.924.0..sroa_idx25.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 72
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.7.i.i.sroa.7.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %9, i64 9
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 1
@@ -5110,7 +5110,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0dc22e612027425E.exit.i.i.i.i": ; preds = %41, %157
   %65 = phi ptr [ %162, %157 ], [ %63, %41 ]
-  %.sroa.925.i.i.sroa.0.0.i45 = phi i8 [ %.sroa.925.i.i.sroa.0.1.i, %157 ], [ undef, %41 ]
+  %.sroa.924.i.i.sroa.0.0.i45 = phi i8 [ %.sroa.924.i.i.sroa.0.1.i, %157 ], [ undef, %41 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !534)
   call void @llvm.experimental.noalias.scope.decl(metadata !536)
   call void @llvm.experimental.noalias.scope.decl(metadata !538)
@@ -5306,8 +5306,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   store i8 %.sroa.9.0.copyload16.i.i.i, ptr %24, align 8, !noalias !556
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.3.0..sroa_idx2.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.11.i.i.i, i64 31, i1 false), !noalias !556
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.7.i.i.sroa.7.i)
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.925.i.i.sroa.5.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.925.i.i.sroa.6.i)
+  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.924.i.i.sroa.5.i)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.924.i.i.sroa.6.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !559)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !556
   %.sroa.4.0.copyload.i.i.i.i = load i64, ptr %55, align 8, !alias.scope !562, !noalias !563
@@ -5454,8 +5454,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 135:                                              ; preds = %136, %134
   %.sroa.7.i.i.sroa.0.0.i = phi i8 [ %.sroa.7.i.i.sroa.0.0.copyload20.i, %134 ], [ %.sroa.7.i.i.sroa.0.0.copyload.i, %136 ]
-  %.sroa.925.i.i.sroa.0.1.i = phi i8 [ %.sroa.925.i.i.sroa.0.0.i45, %134 ], [ %.sroa.925.i.i.sroa.0.0.copyload.i, %136 ]
-  %.sroa.022.0.i.i.i = phi i64 [ 2, %134 ], [ %.sroa.022.0.copyload23.i.i.i, %136 ]
+  %.sroa.924.i.i.sroa.0.1.i = phi i8 [ %.sroa.924.i.i.sroa.0.0.i45, %134 ], [ %.sroa.924.i.i.sroa.0.0.copyload.i, %136 ]
+  %.sroa.021.0.i.i.i = phi i64 [ 2, %134 ], [ %.sroa.021.0.copyload22.i.i.i, %136 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9), !noalias !565
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %12), !noalias !565
   invoke void @"_ZN4core3ptr40drop_in_place$LT$toml_edit..key..Key$GT$17hc6c07c0769b7b436E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %13)
@@ -5463,12 +5463,12 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 
 136:                                              ; preds = %129
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !574
-  %.sroa.022.0.copyload23.i.i.i = load i64, ptr %6, align 8, !noalias !588
-  %.sroa.7.i.i.sroa.0.0.copyload.i = load i8, ptr %.sroa.7.0..sroa_idx24.i.i.i, align 8, !noalias !588
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.7.i.i.sroa.7.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.7.i.i.sroa.7.0..sroa.7.0..sroa_idx24.i.i.sroa_idx.i, i64 31, i1 false), !noalias !588
-  %.sroa.925.i.i.sroa.0.0.copyload.i = load i8, ptr %.sroa.925.0..sroa_idx26.i.i.i, align 8, !noalias !588
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.925.i.i.sroa.5.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.925.i.i.sroa.5.0..sroa.925.0..sroa_idx26.i.i.sroa_idx.i, i64 31, i1 false), !noalias !588
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.925.i.i.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.925.i.i.sroa.6.0..sroa.925.0..sroa_idx26.i.i.sroa_idx.i, i64 24, i1 false), !noalias !588
+  %.sroa.021.0.copyload22.i.i.i = load i64, ptr %6, align 8, !noalias !588
+  %.sroa.7.i.i.sroa.0.0.copyload.i = load i8, ptr %.sroa.7.0..sroa_idx23.i.i.i, align 8, !noalias !588
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.7.i.i.sroa.7.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.7.i.i.sroa.7.0..sroa.7.0..sroa_idx23.i.i.sroa_idx.i, i64 31, i1 false), !noalias !588
+  %.sroa.924.i.i.sroa.0.0.copyload.i = load i8, ptr %.sroa.924.0..sroa_idx25.i.i.i, align 8, !noalias !588
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.924.i.i.sroa.5.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.924.i.i.sroa.5.0..sroa.924.0..sroa_idx25.i.i.sroa_idx.i, i64 31, i1 false), !noalias !588
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.924.i.i.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.924.i.i.sroa.6.0..sroa.924.0..sroa_idx25.i.i.sroa_idx.i, i64 24, i1 false), !noalias !588
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6), !noalias !565
   br label %135
 
@@ -5507,16 +5507,16 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 140:                                              ; preds = %135
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13), !noalias !565
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !556
-  %.not7.i.i.i = icmp eq i64 %.sroa.022.0.i.i.i, 2
+  %.not7.i.i.i = icmp eq i64 %.sroa.021.0.i.i.i, 2
   br i1 %.not7.i.i.i, label %147, label %141
 
 141:                                              ; preds = %140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.15.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.7.i.i.sroa.7.i, i64 31, i1 false), !noalias !513
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.16.sroa.9.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.925.i.i.sroa.5.i, i64 31, i1 false), !noalias !513
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.925.i.i.sroa.6.i, i64 24, i1 false), !noalias !558
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.16.sroa.9.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.924.i.i.sroa.5.i, i64 31, i1 false), !noalias !513
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.924.i.i.sroa.6.i, i64 24, i1 false), !noalias !558
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.7.i.i.sroa.7.i)
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.925.i.i.sroa.5.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.925.i.i.sroa.6.i)
+  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.924.i.i.sroa.5.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.924.i.i.sroa.6.i)
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h900b077778fc0d6eE"(ptr noalias noundef align 8 dereferenceable(32) %24)
           to label %.noexc5.i unwind label %144, !noalias !508
 
@@ -5541,9 +5541,9 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
           to label %30 unwind label %165, !noalias !508
 
 146:                                              ; preds = %.noexc5.i, %101
-  %.sroa.16.sroa.0.1.i = phi i8 [ %.sroa.925.i.i.sroa.0.1.i, %.noexc5.i ], [ %.sroa.12.i.i.sroa.0.0.copyload.i, %101 ]
+  %.sroa.16.sroa.0.1.i = phi i8 [ %.sroa.924.i.i.sroa.0.1.i, %.noexc5.i ], [ %.sroa.12.i.i.sroa.0.0.copyload.i, %101 ]
   %.sroa.10.0.i = phi i8 [ %.sroa.7.i.i.sroa.0.0.i, %.noexc5.i ], [ %.sroa.9.0.copyload16.i.i.i, %101 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.022.0.i.i.i, %.noexc5.i ], [ %.sroa.0.0.copyload14.i.i.i, %101 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.021.0.i.i.i, %.noexc5.i ], [ %.sroa.0.0.copyload14.i.i.i, %101 ]
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.12.i.i.sroa.4.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12.i.i.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.11.i.i.i)
@@ -5571,8 +5571,8 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
 147:                                              ; preds = %140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.16.sroa.9.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.7.i.i.sroa.7.i, i64 31, i1 false), !noalias !513
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.7.i.i.sroa.7.i)
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.925.i.i.sroa.5.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.925.i.i.sroa.6.i)
+  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.924.i.i.sroa.5.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.924.i.i.sroa.6.i)
   %.sroa.022.0.copyload.i = load i8, ptr %24, align 8, !noalias !556
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.15.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.3.0..sroa_idx2.i.i.i, i64 31, i1 false), !noalias !513
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24), !noalias !556
@@ -6723,7 +6723,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.4.0..sroa_idx.i, i64 96, i1 false), !noalias !608
   br label %268
 
-268:                                              ; preds = %.loopexit.i, %267
+268:                                              ; preds = %267, %.loopexit.i
   %.sroa.0194.0.i = phi i64 [ %127, %267 ], [ -9223372036854775807, %.loopexit.i ]
   %269 = load i64, ptr %49, align 8, !range !322, !noalias !608, !noundef !4
   %.not113.i = icmp eq i64 %269, -9223372036854775806
@@ -6734,7 +6734,7 @@ define hidden void @"_ZN83_$LT$toml_edit..de..table..TableDeserializer$u20$as$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5201.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4204.0..sroa_idx.i, i64 16, i1 false), !noalias !608
   br label %271
 
-271:                                              ; preds = %268, %270
+271:                                              ; preds = %270, %268
   %.sroa.0199.0.i = phi i64 [ %269, %270 ], [ -9223372036854775807, %268 ]
   %.not114.i = icmp eq i8 %.sroa.032.0276.i, 3
   %.sroa.059.0.i = select i1 %.not114.i, i8 2, i8 %.sroa.032.0276.i

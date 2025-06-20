@@ -31657,8 +31657,8 @@ _ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit: ; preds
   store i64 0, ptr %.sroa.7.0..sroa_idx99, align 8
   %.sroa.9.0..sroa_idx100 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i64 %2, ptr %.sroa.9.0..sroa_idx100, align 8
-  %.sroa.11101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store i8 1, ptr %.sroa.11101.0..sroa_idx, align 8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store i8 1, ptr %.sroa.11.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
   call fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17h35827b129516fecaE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef readonly align 8 dereferenceable(16) @_ZN11polars_time12chunkedarray6string8strptime12HOUR_PATTERN17hbc439894cd1f8124E, ptr noalias noundef readonly align 8 dereferenceable(48) %27)
   %42 = load i64, ptr %26, align 8, !range !359, !noundef !37
@@ -31682,16 +31682,16 @@ _ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit: ; preds
 _ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit58: ; preds = %46, %_ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25)
   store i32 0, ptr %25, align 8
-  %.sroa.4104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %1, ptr %.sroa.4104.0..sroa_idx, align 8
-  %.sroa.5105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 %2, ptr %.sroa.5105.0..sroa_idx, align 8
-  %.sroa.7106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i64 0, ptr %.sroa.7106.0..sroa_idx, align 8
-  %.sroa.9107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i64 %2, ptr %.sroa.9107.0..sroa_idx, align 8
-  %.sroa.11108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store i8 1, ptr %.sroa.11108.0..sroa_idx, align 8
+  %.sroa.4103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %1, ptr %.sroa.4103.0..sroa_idx, align 8
+  %.sroa.5104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store i64 %2, ptr %.sroa.5104.0..sroa_idx, align 8
+  %.sroa.7105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store i64 0, ptr %.sroa.7105.0..sroa_idx, align 8
+  %.sroa.9106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store i64 %2, ptr %.sroa.9106.0..sroa_idx, align 8
+  %.sroa.11107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 40
+  store i8 1, ptr %.sroa.11107.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
   call fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17h35827b129516fecaE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %24, ptr noalias noundef readonly align 8 dereferenceable(16) @_ZN11polars_time12chunkedarray6string8strptime14MINUTE_PATTERN17h6692fcb9f382f3e5E, ptr noalias noundef readonly align 8 dereferenceable(48) %25)
   %47 = load i64, ptr %24, align 8, !range !359, !noundef !37
@@ -31719,16 +31719,16 @@ _ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit58: ; pre
 _ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit63: ; preds = %53, %50
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   store i32 0, ptr %23, align 8
-  %.sroa.4112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %1, ptr %.sroa.4112.0..sroa_idx, align 8
-  %.sroa.5113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i64 %2, ptr %.sroa.5113.0..sroa_idx, align 8
-  %.sroa.7114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i64 0, ptr %.sroa.7114.0..sroa_idx, align 8
-  %.sroa.9115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i64 %2, ptr %.sroa.9115.0..sroa_idx, align 8
-  %.sroa.11116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store i8 1, ptr %.sroa.11116.0..sroa_idx, align 8
+  %.sroa.4111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %1, ptr %.sroa.4111.0..sroa_idx, align 8
+  %.sroa.5112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i64 %2, ptr %.sroa.5112.0..sroa_idx, align 8
+  %.sroa.7113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store i64 0, ptr %.sroa.7113.0..sroa_idx, align 8
+  %.sroa.9114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store i64 %2, ptr %.sroa.9114.0..sroa_idx, align 8
+  %.sroa.11115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store i8 1, ptr %.sroa.11115.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   call fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17h35827b129516fecaE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef readonly align 8 dereferenceable(16) @_ZN11polars_time12chunkedarray6string8strptime14SECOND_PATTERN17h6d43be2b2eec8b0dE, ptr noalias noundef readonly align 8 dereferenceable(48) %23)
   %54 = load i64, ptr %22, align 8, !range !359, !noundef !37
@@ -31773,16 +31773,16 @@ _ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit63: ; pre
 _ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit68: ; preds = %63, %60
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
   store i32 0, ptr %21, align 8
-  %.sroa.4120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %1, ptr %.sroa.4120.0..sroa_idx, align 8
-  %.sroa.5121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i64 %2, ptr %.sroa.5121.0..sroa_idx, align 8
-  %.sroa.7122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store i64 0, ptr %.sroa.7122.0..sroa_idx, align 8
-  %.sroa.9123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i64 %2, ptr %.sroa.9123.0..sroa_idx, align 8
-  %.sroa.11124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i8 1, ptr %.sroa.11124.0..sroa_idx, align 8
+  %.sroa.4119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %1, ptr %.sroa.4119.0..sroa_idx, align 8
+  %.sroa.5120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i64 %2, ptr %.sroa.5120.0..sroa_idx, align 8
+  %.sroa.7121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store i64 0, ptr %.sroa.7121.0..sroa_idx, align 8
+  %.sroa.9122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store i64 %2, ptr %.sroa.9122.0..sroa_idx, align 8
+  %.sroa.11123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 40
+  store i8 1, ptr %.sroa.11123.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   call fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17h35827b129516fecaE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef readonly align 8 dereferenceable(16) @_ZN11polars_time12chunkedarray6string8strptime12HOUR_PATTERN17hbc439894cd1f8124E, ptr noalias noundef readonly align 8 dereferenceable(48) %21)
   %64 = load i64, ptr %20, align 8, !range !359, !noundef !37
@@ -31827,16 +31827,16 @@ _ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit68: ; pre
 _ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit73: ; preds = %73, %70
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
   store i32 0, ptr %19, align 8
-  %.sroa.4128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %1, ptr %.sroa.4128.0..sroa_idx, align 8
-  %.sroa.5129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i64 %2, ptr %.sroa.5129.0..sroa_idx, align 8
-  %.sroa.7130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i64 0, ptr %.sroa.7130.0..sroa_idx, align 8
-  %.sroa.9131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i64 %2, ptr %.sroa.9131.0..sroa_idx, align 8
-  %.sroa.11132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i8 1, ptr %.sroa.11132.0..sroa_idx, align 8
+  %.sroa.4127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %1, ptr %.sroa.4127.0..sroa_idx, align 8
+  %.sroa.5128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i64 %2, ptr %.sroa.5128.0..sroa_idx, align 8
+  %.sroa.7129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i64 0, ptr %.sroa.7129.0..sroa_idx, align 8
+  %.sroa.9130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store i64 %2, ptr %.sroa.9130.0..sroa_idx, align 8
+  %.sroa.11131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store i8 1, ptr %.sroa.11131.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17h35827b129516fecaE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef readonly align 8 dereferenceable(16) @_ZN11polars_time12chunkedarray6string8strptime19TWELVE_HOUR_PATTERN17he09500efb25b2b84E, ptr noalias noundef readonly align 8 dereferenceable(48) %19)
   %74 = load i64, ptr %18, align 8, !range !359, !noundef !37
@@ -31860,16 +31860,16 @@ _ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit73: ; pre
 _ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit78: ; preds = %78, %_ZN14regex_automata4util6search5Input8set_span17h2b5db176ed65943bE.exit73
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   store i32 0, ptr %17, align 8
-  %.sroa.4136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %1, ptr %.sroa.4136.0..sroa_idx, align 8
-  %.sroa.5137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %2, ptr %.sroa.5137.0..sroa_idx, align 8
-  %.sroa.7138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i64 0, ptr %.sroa.7138.0..sroa_idx, align 8
-  %.sroa.9139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i64 %2, ptr %.sroa.9139.0..sroa_idx, align 8
-  %.sroa.11140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store i8 1, ptr %.sroa.11140.0..sroa_idx, align 8
+  %.sroa.4135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %1, ptr %.sroa.4135.0..sroa_idx, align 8
+  %.sroa.5136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i64 %2, ptr %.sroa.5136.0..sroa_idx, align 8
+  %.sroa.7137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store i64 0, ptr %.sroa.7137.0..sroa_idx, align 8
+  %.sroa.9138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store i64 %2, ptr %.sroa.9138.0..sroa_idx, align 8
+  %.sroa.11139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 40
+  store i8 1, ptr %.sroa.11139.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17h35827b129516fecaE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef readonly align 8 dereferenceable(16) @_ZN11polars_time12chunkedarray6string8strptime16MERIDIEM_PATTERN17h159f2e2aa257bc11E, ptr noalias noundef readonly align 8 dereferenceable(48) %17)
   %79 = load i64, ptr %16, align 8, !range !359, !noundef !37

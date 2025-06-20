@@ -1503,10 +1503,10 @@ common.resume:                                    ; preds = %53, %33
   store i64 %111, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !141, !noalias !158
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %113, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !141, !noalias !158
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %115, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !141, !noalias !158
-  %.sroa.5.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %117, ptr %.sroa.5.0..sroa_idx.i2, align 8, !alias.scope !141, !noalias !158
+  %.sroa.4.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %115, ptr %.sroa.4.0..sroa_idx.i2, align 8, !alias.scope !141, !noalias !158
+  %.sroa.5.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i16 %117, ptr %.sroa.5.0..sroa_idx.i3, align 8, !alias.scope !141, !noalias !158
   br label %118
 
 118:                                              ; preds = %121, %107
@@ -2384,18 +2384,18 @@ define hidden void @"_ZN5wasmi6engine8executor44_$LT$impl$u20$wasmi..engine..Eng
 
 35:                                               ; preds = %"_ZN4spin5mutex4spin22SpinMutex$LT$T$C$R$GT$4lock17he6b8f296cda8453bE.exit"
   invoke void @"_ZN4core3ptr79drop_in_place$LT$spin..mutex..MutexGuard$LT$wasmi..engine..EngineStacks$GT$$GT$17hcaaa94e7c0425202E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
-          to label %36 unwind label %.thread32.thread57
+          to label %36 unwind label %.thread31.thread56
 
-.thread32.thread57:                               ; preds = %110, %80, %45, %39, %36, %35
-  %lpad.thr_comm55 = landingpad { ptr, i32 }
+.thread31.thread56:                               ; preds = %110, %80, %45, %39, %36, %35
+  %lpad.thr_comm54 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread46
+  br label %.thread45
 
 36:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %38 = invoke { ptr, ptr } @_ZN5wasmi6engine8executor14EngineExecutor3new17hfe6be19522a88a23E(ptr noundef nonnull align 8 %37, ptr noalias noundef nonnull align 8 dereferenceable(104) %21)
-          to label %39 unwind label %.thread32.thread57
+          to label %39 unwind label %.thread31.thread56
 
 39:                                               ; preds = %36
   %40 = extractvalue { ptr, ptr } %38, 0
@@ -2403,7 +2403,7 @@ define hidden void @"_ZN5wasmi6engine8executor44_$LT$impl$u20$wasmi..engine..Eng
   %42 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %42)
   %43 = invoke fastcc noundef align 8 ptr @_ZN5wasmi6engine8executor14EngineExecutor17execute_root_func17hdc4f737e163a31b5E(ptr %40, ptr %41, ptr noalias noundef align 8 dereferenceable(344) %2, ptr noalias noundef readonly align 4 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5, ptr noalias noundef nonnull align 8 %6, i64 noundef %7)
-          to label %44 unwind label %.thread32.thread57
+          to label %44 unwind label %.thread31.thread56
 
 44:                                               ; preds = %39
   %.not = icmp eq ptr %43, null
@@ -2412,7 +2412,7 @@ define hidden void @"_ZN5wasmi6engine8executor44_$LT$impl$u20$wasmi..engine..Eng
 45:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   invoke void @_ZN5wasmi5error5Error14into_resumable17hfbbdda1bc07d7848E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull align 8 %43)
-          to label %62 unwind label %.thread32.thread57
+          to label %62 unwind label %.thread31.thread56
 
 46:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
@@ -2462,7 +2462,7 @@ define hidden void @"_ZN5wasmi6engine8executor44_$LT$impl$u20$wasmi..engine..Eng
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %21)
   ret void
 
-60:                                               ; preds = %.thread46, %127, %123, %109, %107, %56, %33
+60:                                               ; preds = %.thread45, %127, %123, %109, %107, %56, %33
   %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
@@ -2509,7 +2509,7 @@ define hidden void @"_ZN5wasmi6engine8executor44_$LT$impl$u20$wasmi..engine..Eng
   %81 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %82 = load i64, ptr %81, align 8, !noundef !3
   %83 = invoke noundef i64 @_ZN5wasmi6engine9resumable23ResumableOutOfFuelError13required_fuel17h218068917353d237E(i64 noundef %82)
-          to label %110 unwind label %.thread32.thread57
+          to label %110 unwind label %.thread31.thread56
 
 84:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
@@ -2520,7 +2520,7 @@ define hidden void @"_ZN5wasmi6engine8executor44_$LT$impl$u20$wasmi..engine..Eng
 86:                                               ; preds = %92
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread46
+  br label %.thread45
 
 87:                                               ; preds = %84
   %88 = load i32, ptr %85, align 4, !range !274, !noundef !3
@@ -2570,17 +2570,17 @@ define hidden void @"_ZN5wasmi6engine8executor44_$LT$impl$u20$wasmi..engine..Eng
   %108 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$wasmi..error..Error$GT$17hd58c5f4557d77fd0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15) #18
-          to label %.thread46 unwind label %60
+          to label %.thread45 unwind label %60
 
 109:                                              ; preds = %87, %84
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$wasmi..engine..resumable..ResumableHostTrapError$GT$17h4b5ef632f850f1f9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #18
-          to label %.thread46 unwind label %60
+          to label %.thread45 unwind label %60
 
 110:                                              ; preds = %80
   %111 = invoke noundef align 8 dereferenceable(8) ptr @_ZN5wasmi5store5inner10StoreInner6engine17hddc585b9f222e4f5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(240) %2)
-          to label %112 unwind label %.thread32.thread57
+          to label %112 unwind label %.thread31.thread56
 
 112:                                              ; preds = %110
   %113 = load ptr, ptr %111, align 8, !nonnull !3, !noundef !3
@@ -2648,13 +2648,13 @@ define hidden void @"_ZN5wasmi6engine8executor44_$LT$impl$u20$wasmi..engine..Eng
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %122
 
-.thread46:                                        ; preds = %107, %.thread32.thread57, %86, %109
-  %.pn14.pn49 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %86 ], [ %lpad.thr_comm, %109 ], [ %lpad.thr_comm55, %.thread32.thread57 ], [ %108, %107 ]
+.thread45:                                        ; preds = %107, %.thread31.thread56, %86, %109
+  %.pn14.pn48 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %86 ], [ %lpad.thr_comm, %109 ], [ %lpad.thr_comm54, %.thread31.thread56 ], [ %108, %107 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$wasmi..engine..executor..stack..Stack$GT$17hb822faf8390832aaE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %21) #18
           to label %.thread unwind label %60
 
-.thread:                                          ; preds = %56, %123, %.thread46, %33
-  %.pn14.pn.pn = phi { ptr, i32 } [ %.pn14.pn49, %.thread46 ], [ %34, %33 ], [ %57, %56 ], [ %.pn14, %123 ]
+.thread:                                          ; preds = %56, %123, %.thread45, %33
+  %.pn14.pn.pn = phi { ptr, i32 } [ %.pn14.pn48, %.thread45 ], [ %34, %33 ], [ %57, %56 ], [ %.pn14, %123 ]
   resume { ptr, i32 } %.pn14.pn.pn
 }
 

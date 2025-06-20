@@ -3821,8 +3821,8 @@ _ZN8indexmap3map4core15reserve_entries17hbc040daf030c846aE.exit.i: ; preds = %.n
   unreachable
 
 .critedge:                                        ; preds = %131, %123, %140
-  %eh.lpad-body28 = phi { ptr, i32 } [ %lpad.phi, %140 ], [ %128, %131 ], [ %124, %123 ]
-  resume { ptr, i32 } %eh.lpad-body28
+  %eh.lpad-body27 = phi { ptr, i32 } [ %lpad.phi, %140 ], [ %128, %131 ], [ %124, %123 ]
+  resume { ptr, i32 } %eh.lpad-body27
 
 140:                                              ; preds = %137
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha362250438a746d5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #16

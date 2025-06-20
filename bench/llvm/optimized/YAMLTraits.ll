@@ -2106,7 +2106,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml5Input12preflightKeyEPKcbbRbRP
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i32, ptr %12, align 8, !tbaa !61
   %.not45 = icmp eq i32 %13, 0
-  br i1 %.not45, label %14, label %117
+  br i1 %.not45, label %14, label %118
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -2122,11 +2122,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml5Input12preflightKeyEPKcbbRbRP
   store i32 22, ptr %12, align 8, !tbaa !96
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %19, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !97
-  br label %117
+  br label %118
 
 20:                                               ; preds = %17
   store i8 1, ptr %4, align 1, !tbaa !181
-  br label %117
+  br label %118
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %16, align 8, !tbaa !125
@@ -2155,11 +2155,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml5Input12preflightKeyEPKcbbRbRP
   %.sroa.41.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %32, ptr %.sroa.41.0..sroa_idx.i.i, align 8, !tbaa !97
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #35
-  br label %117
+  br label %118
 
 33:                                               ; preds = %25
   store i8 1, ptr %4, align 1, !tbaa !181
-  br label %117
+  br label %118
 
 34:                                               ; preds = %21
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -2308,10 +2308,10 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !163
   %.not22.not = icmp eq ptr %101, null
-  br i1 %.not22.not, label %102, label %115
+  br i1 %.not22.not, label %102, label %116
 
 102:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit
-  br i1 %2, label %103, label %114
+  br i1 %2, label %103, label %115
 
 103:                                              ; preds = %102
   %104 = load ptr, ptr %15, align 8, !tbaa !68
@@ -2323,49 +2323,49 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   br i1 %.not.i24, label %_ZN4llvmplERKNS_5TwineES2_.exit40, label %106
 
 106:                                              ; preds = %103
-  %.sroa.557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %1, ptr %.sroa.557.0..sroa_idx, align 8, !alias.scope !184
+  %107 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %1, ptr %107, align 8, !alias.scope !184
   br label %_ZN4llvmplERKNS_5TwineES2_.exit40
 
 _ZN4llvmplERKNS_5TwineES2_.exit40:                ; preds = %103, %106
-  %.sink = phi i8 [ 3, %106 ], [ 1, %103 ]
   %.sroa.05.0.i.i30 = phi ptr [ %11, %106 ], [ @.str.1, %103 ]
   %.014.i.i29 = phi i8 [ 2, %106 ], [ 3, %103 ]
+  %.sink = phi i8 [ 3, %106 ], [ 1, %103 ]
   %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 3, ptr %.sroa.558.0..sroa_idx, align 8, !tbaa !189
   %.sroa.759.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 %.sink, ptr %.sroa.759.0..sroa_idx, align 1, !tbaa !189
   store ptr %.sroa.05.0.i.i30, ptr %10, align 8, !alias.scope !190
-  %107 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr @.str.2, ptr %107, align 8, !alias.scope !190
-  %108 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 %.014.i.i29, ptr %108, align 8, !tbaa !150, !alias.scope !190
-  %109 = getelementptr inbounds nuw i8, ptr %10, i64 33
-  store i8 3, ptr %109, align 1, !tbaa !147, !alias.scope !190
-  %110 = load ptr, ptr %104, align 8, !tbaa !125
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %112 = load ptr, ptr %111, align 8, !tbaa !10
-  call void @_ZN4llvm4yaml6Stream10printErrorEPNS0_4NodeERKNS_5TwineENS_9SourceMgr8DiagKindE(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef %110, ptr noundef nonnull align 8 dereferenceable(34) %10, i32 noundef 0) #35
-  %113 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #36
+  %108 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr @.str.2, ptr %108, align 8, !alias.scope !190
+  %109 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i8 %.014.i.i29, ptr %109, align 8, !tbaa !150, !alias.scope !190
+  %110 = getelementptr inbounds nuw i8, ptr %10, i64 33
+  store i8 3, ptr %110, align 1, !tbaa !147, !alias.scope !190
+  %111 = load ptr, ptr %104, align 8, !tbaa !125
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %113 = load ptr, ptr %112, align 8, !tbaa !10
+  call void @_ZN4llvm4yaml6Stream10printErrorEPNS0_4NodeERKNS_5TwineENS_9SourceMgr8DiagKindE(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef %111, ptr noundef nonnull align 8 dereferenceable(34) %10, i32 noundef 0) #35
+  %114 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #36
   store i32 22, ptr %12, align 8, !tbaa !96
   %.sroa.41.0..sroa_idx.i.i41 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %113, ptr %.sroa.41.0..sroa_idx.i.i41, align 8, !tbaa !97
+  store ptr %114, ptr %.sroa.41.0..sroa_idx.i.i41, align 8, !tbaa !97
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #35
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #35
-  br label %117
+  br label %118
 
-114:                                              ; preds = %102
+115:                                              ; preds = %102
   store i8 1, ptr %4, align 1, !tbaa !181
-  br label %117
+  br label %118
 
-115:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit
-  %116 = load ptr, ptr %15, align 8, !tbaa !68
-  store ptr %116, ptr %5, align 8, !tbaa !78
+116:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit
+  %117 = load ptr, ptr %15, align 8, !tbaa !68
+  store ptr %117, ptr %5, align 8, !tbaa !78
   store ptr %101, ptr %15, align 8, !tbaa !68
-  br label %117
+  br label %118
 
-117:                                              ; preds = %33, %27, %_ZN4llvmplERKNS_5TwineES2_.exit40, %114, %115, %18, %20, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %20 ], [ false, %18 ], [ false, %33 ], [ false, %27 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit40 ], [ false, %114 ], [ true, %115 ]
+118:                                              ; preds = %33, %27, %_ZN4llvmplERKNS_5TwineES2_.exit40, %115, %116, %18, %20, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %20 ], [ false, %18 ], [ false, %33 ], [ false, %27 ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit40 ], [ false, %115 ], [ true, %116 ]
   ret i1 %.0
 }
 

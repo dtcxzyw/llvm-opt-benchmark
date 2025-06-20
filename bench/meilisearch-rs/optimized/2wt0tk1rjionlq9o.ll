@@ -113,8 +113,8 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   store ptr %.sroa.0.0.copyload.pre, ptr %.sroa.4.0..sroa_idx, align 8
   br label %.thread
 
-.thread:                                          ; preds = %9, %3, %12
-  %.sink = phi i64 [ 1, %12 ], [ 0, %3 ], [ 0, %9 ]
+.thread:                                          ; preds = %3, %9, %12
+  %.sink = phi i64 [ 1, %12 ], [ 0, %9 ], [ 0, %3 ]
   store i64 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret void

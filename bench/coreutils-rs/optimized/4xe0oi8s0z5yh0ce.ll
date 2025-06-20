@@ -225,10 +225,10 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %20, label %33, label %29
 
 21:                                               ; preds = %4
-  %.sroa.437.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.437.0.copyload.i = load i64, ptr %.sroa.437.0..sroa_idx.i, align 8, !alias.scope !8, !noalias !11
-  %.sroa.5.0..sroa_idx38.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx38.i, align 8, !alias.scope !8, !noalias !11
+  %.sroa.436.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.436.0.copyload.i = load i64, ptr %.sroa.436.0..sroa_idx.i, align 8, !alias.scope !8, !noalias !11
+  %.sroa.5.0..sroa_idx37.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx37.i, align 8, !alias.scope !8, !noalias !11
   %22 = zext nneg i16 %15 to i64
   %23 = add i64 %.sroa.5.0.copyload.i, 1
   %.not.i.i = icmp ugt i64 %23, %22
@@ -379,14 +379,14 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %.thread, %73
-  %.sroa.15.070 = phi ptr [ %13, %.thread ], [ %.sroa.06.0.i, %73 ]
-  %.sroa.19.069 = phi i64 [ %.sroa.437.0.copyload.i, %.thread ], [ %.sroa.57.0.i, %73 ]
-  %.sroa.23.068 = phi i64 [ %.sroa.5.0.copyload.i, %.thread ], [ %.sroa.725.0.i, %73 ]
-  store ptr %.sroa.15.070, ptr %0, align 8
+  %.sroa.725.0.sink.i70 = phi i64 [ %.sroa.5.0.copyload.i, %.thread ], [ %.sroa.725.0.i, %73 ]
+  %.sroa.57.0.sink.i69 = phi i64 [ %.sroa.436.0.copyload.i, %.thread ], [ %.sroa.57.0.i, %73 ]
+  %.sroa.06.0.sink.i68 = phi ptr [ %13, %.thread ], [ %.sroa.06.0.i, %73 ]
+  store ptr %.sroa.06.0.sink.i68, ptr %0, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.19.069, ptr %78, align 8
+  store i64 %.sroa.57.0.sink.i69, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.23.068, ptr %79, align 8
+  store i64 %.sroa.725.0.sink.i70, ptr %79, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.7)
   br label %275
 

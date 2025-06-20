@@ -3355,9 +3355,9 @@ _ZN10serde_json3ser9Formatter9end_array17he6f8d9ea4673ca91E.exit.i.sink.split.i.
   br label %"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h745f0d93939017bbE.exit.i"
 
 "_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_some17h745f0d93939017bbE.exit.i": ; preds = %_ZN10serde_json3ser9Formatter9end_array17he6f8d9ea4673ca91E.exit.i.sink.split.i.i.i.i, %.thread.i.i.i.i, %48
-  %.sink24.i.i.i.i = phi i64 [ %47, %48 ], [ %85, %.thread.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i14.i.i.i.i, %_ZN10serde_json3ser9Formatter9end_array17he6f8d9ea4673ca91E.exit.i.sink.split.i.i.i.i ]
+  %.sink25.i.i.i.i = phi i64 [ %47, %48 ], [ %85, %.thread.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i14.i.i.i.i, %_ZN10serde_json3ser9Formatter9end_array17he6f8d9ea4673ca91E.exit.i.sink.split.i.i.i.i ]
   %89 = load ptr, ptr %43, align 8, !noalias !1860, !nonnull !13, !noundef !13
-  %90 = getelementptr inbounds i8, ptr %89, i64 %.sink24.i.i.i.i
+  %90 = getelementptr inbounds i8, ptr %89, i64 %.sink25.i.i.i.i
   store i8 93, ptr %90, align 1, !noalias !1860
   %storemerge.in.i.i.i.i = load i64, ptr %37, align 8, !noalias !1860, !noundef !13
   %storemerge.i.i.i.i = add i64 %storemerge.in.i.i.i.i, 1

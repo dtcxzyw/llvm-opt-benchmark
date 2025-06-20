@@ -670,14 +670,14 @@ define hidden void @"_ZN105_$LT$itertools..permutations..Permutations$LT$I$GT$$u
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %16, ptr %15, align 8
   %17 = load i64, ptr %1, align 8, !range !169, !noundef !10
-  switch i64 %17, label %default.unreachable172 [
+  switch i64 %17, label %default.unreachable170 [
     i64 0, label %18
     i64 1, label %22
     i64 2, label %40
     i64 3, label %50
   ]
 
-default.unreachable172:                           ; preds = %2
+default.unreachable170:                           ; preds = %2
   unreachable
 
 18:                                               ; preds = %2
@@ -1018,12 +1018,12 @@ common.resume:                                    ; preds = %129, %210, %212, %3
   store i64 1, ptr %12, align 8
   %.sroa.4.0..sroa_idx136 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx136, align 8
-  %.sroa.5137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 %153, ptr %.sroa.5137.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx138 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 1, ptr %.sroa.6.0..sroa_idx138, align 8
-  %.sroa.7139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i64 %155, ptr %.sroa.7139.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 %153, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx137 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i64 1, ptr %.sroa.6.0..sroa_idx137, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i64 %155, ptr %.sroa.7.0..sroa_idx, align 8
   %156 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %15, ptr %156, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hc078d431cde6dabeE.llvm.10122841070676192969"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)

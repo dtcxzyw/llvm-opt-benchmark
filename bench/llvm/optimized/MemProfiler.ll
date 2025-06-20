@@ -9775,10 +9775,10 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread17: ; preds = %.critedge85, %_ZN
   store ptr %.sroa.24.0, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !236
   br label %.critedge87
 
-.critedge87:                                      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread17, %10, %16, %24, %32, %53, %64, %8, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %40, %43, %.critedge78, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %92, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit, %2
-  %.sink.sink = phi i8 [ 0, %2 ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread17 ], [ 0, %10 ], [ 0, %16 ], [ 0, %24 ], [ 0, %32 ], [ 0, %53 ], [ 0, %64 ], [ 0, %8 ], [ 0, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ 0, %40 ], [ 0, %43 ], [ 0, %.critedge78 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %92 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit ]
+.critedge87:                                      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %92, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %.critedge78, %43, %40, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %8, %64, %53, %32, %24, %16, %10, %2, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread17
+  %.sink = phi i8 [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread17 ], [ 0, %2 ], [ 0, %10 ], [ 0, %16 ], [ 0, %24 ], [ 0, %32 ], [ 0, %53 ], [ 0, %64 ], [ 0, %8 ], [ 0, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 0, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ 0, %40 ], [ 0, %43 ], [ 0, %.critedge78 ], [ 0, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit ], [ 0, %92 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sink.sink, ptr %139, align 8, !tbaa !253
+  store i8 %.sink, ptr %139, align 8, !tbaa !253
   ret void
 }
 
@@ -13868,12 +13868,12 @@ _ZNSt7__cxx119to_stringEm.exit.i.i:               ; preds = %137, %129
   br label %_ZN4llvmplERKNS_5TwineES2_.exit53.i.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit53.i.i:            ; preds = %141, %140, %_ZNSt7__cxx119to_stringEm.exit.i.i
-  %.014.i.i42.i.sink.i = phi i8 [ %.014.i.i42.i.i, %141 ], [ 4, %140 ], [ %.sink120.i.i, %_ZNSt7__cxx119to_stringEm.exit.i.i ]
-  %.sink.i = phi i8 [ 4, %141 ], [ 1, %140 ], [ 1, %_ZNSt7__cxx119to_stringEm.exit.i.i ]
+  %.sink124.i.i = phi i8 [ 4, %140 ], [ %.014.i.i42.i.i, %141 ], [ %.sink120.i.i, %_ZNSt7__cxx119to_stringEm.exit.i.i ]
+  %.sink122.i.i = phi i8 [ 1, %140 ], [ 4, %141 ], [ 1, %_ZNSt7__cxx119to_stringEm.exit.i.i ]
   %143 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 %.014.i.i42.i.sink.i, ptr %143, align 8, !tbaa !710, !noalias !674
+  store i8 %.sink124.i.i, ptr %143, align 8, !tbaa !710, !noalias !674
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 %.sink.i, ptr %144, align 1, !tbaa !710, !noalias !674
+  store i8 %.sink122.i.i, ptr %144, align 1, !tbaa !710, !noalias !674
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(34) %6) #22, !noalias !674
   %145 = load ptr, ptr %12, align 8, !tbaa !65, !noalias !674
   %146 = icmp eq ptr %145, %106

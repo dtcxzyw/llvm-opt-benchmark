@@ -5938,7 +5938,7 @@ define void @_ZN14wasmtime_cache16ModuleCacheEntry3new17h28ac49d96dae3bfeE(ptr n
   %11 = alloca [1 x { ptr, ptr }], align 8
   %12 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %13 = alloca { ptr, i64 }, align 8
-  %.sroa.02 = alloca [24 x i8], align 8
+  %.sroa.01 = alloca [24 x i8], align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 180
   %15 = load i8, ptr %14, align 4, !range !1393, !alias.scope !1394, !noundef !4
   %16 = trunc nuw i8 %15 to i1
@@ -5949,7 +5949,7 @@ define void @_ZN14wasmtime_cache16ModuleCacheEntry3new17h28ac49d96dae3bfeE(ptr n
   br label %67
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.02)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.01)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1397)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   store ptr %1, ptr %13, align 8, !noalias !1400
@@ -6103,14 +6103,14 @@ _ZN3std4path4Path4join17h72ef233c68e63755E.exit.i: ; preds = %_ZN14wasmtime_cach
 _ZN14wasmtime_cache21ModuleCacheEntryInner3new17h7375263fd2eee023E.exit: ; preds = %.noexc14.i, %55, %59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1440
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1400
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.02, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1400
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !1400
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.02, i64 24, i1 false)
-  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %3, ptr %.sroa.43.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.02)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01, i64 24, i1 false)
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %3, ptr %.sroa.42.0..sroa_idx, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.01)
   br label %67
 
 67:                                               ; preds = %_ZN14wasmtime_cache21ModuleCacheEntryInner3new17h7375263fd2eee023E.exit, %17

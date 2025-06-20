@@ -694,80 +694,80 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h39164b1eac0b8962E(ptr n
   store i32 %5, ptr %11, align 4, !alias.scope !33
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph45.i
 
-.lr.ph46.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph45.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !36, !noalias !39, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !36, !noalias !39
-  br i1 %.not57.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph45.i
   %wide.trip.count.i = zext i32 %5 to i64
-  br label %.lr.ph.split.us49.preheader.i
+  br label %.lr.ph.split.us48.preheader.i
 
-.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv71.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next72.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %15 = trunc nuw i64 %indvars.iv71.i to i32
+.lr.ph.split.us48.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next71.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
+  %15 = trunc nuw i64 %indvars.iv70.i to i32
   %16 = xor i32 %15, -1
   %17 = add i32 %7, %16
   %18 = zext i32 %17 to i64
-  br label %.lr.ph.split.us49.i
+  br label %.lr.ph.split.us48.i
 
-.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us48.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us48.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us48.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = trunc nuw i64 %indvars.iv.i to i32
   %20 = invoke noundef align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hceaa3a089891951aE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %19, i32 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us49.i
-  %.sroa.0.0.copyload.i.us48.i = load i32, ptr %20, align 2, !noalias !42
+.noexc:                                           ; preds = %.lr.ph.split.us48.i
+  %.sroa.0.0.copyload.i.us47.i = load i32, ptr %20, align 2, !noalias !42
   %21 = mul nuw i64 %indvars.iv.i, %12
   %22 = add nuw i64 %21, %18
   %23 = shl i64 %22, 1
   %24 = add i64 %23, 2
   %25 = icmp eq i64 %23, -2
-  br i1 %25, label %.split.us50.i, label %26
+  br i1 %25, label %.split.us49.i, label %26
 
 26:                                               ; preds = %.noexc
   %27 = icmp ugt i64 %24, %.val3.i.i
-  br i1 %27, label %.split52.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
+  br i1 %27, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %28 = getelementptr inbounds i16, ptr %.val.i.i, i64 %23
-  store i32 %.sroa.0.0.copyload.i.us48.i, ptr %28, align 2, !noalias !42
+  store i32 %.sroa.0.0.copyload.i.us47.i, ptr %28, align 2, !noalias !42
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us48.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %12
-  br i1 %exitcond75.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
+  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %12
+  br i1 %exitcond74.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
-.split.us50.i:                                    ; preds = %.noexc
+.split.us49.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us50.i
+.noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split52.us.i:                                    ; preds = %26
+.split51.us.i:                                    ; preds = %26
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %24, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split52.us.i
+.noexc2:                                          ; preds = %.split51.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us49.i
+.loopexit:                                        ; preds = %.lr.ph.split.us48.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split.us49.i, %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -777,7 +777,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h39164b1eac0b8962E(ptr n
   invoke void @"_ZN4core3ptr115drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..LumaA$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h11586b09306c37f2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %32 unwind label %30
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph45.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -825,76 +825,76 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h3b02c97d06eaebf1E(ptr n
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !46
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph47.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
 
-.lr.ph47.i:                                       ; preds = %.preheader.i
-  %.not59.i = icmp eq i32 %5, 0
+.lr.ph46.i:                                       ; preds = %.preheader.i
+  %.not58.i = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
-  br i1 %.not59.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not58.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph47.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
   %wide.trip.count.i = zext i32 %5 to i64
-  br label %.lr.ph.split.us50.preheader.i
+  br label %.lr.ph.split.us49.preheader.i
 
-.lr.ph.split.us50.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv76.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next77.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
-  %15 = trunc nuw i64 %indvars.iv76.i to i32
+.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv75.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next76.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
+  %15 = trunc nuw i64 %indvars.iv75.i to i32
   %16 = xor i32 %15, -1
   %17 = add i32 %7, %16
   %18 = zext i32 %17 to i64
-  br label %.lr.ph.split.us50.i
+  br label %.lr.ph.split.us49.i
 
-.lr.ph.split.us50.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us50.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us50.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = trunc nuw i64 %indvars.iv.i to i32
   %20 = invoke noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %19, i32 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us50.i
-  %.sroa.0.0.copyload.i.us49.i = load i24, ptr %20, align 1, !noalias !52
+.noexc:                                           ; preds = %.lr.ph.split.us49.i
+  %.sroa.0.0.copyload.i.us48.i = load i24, ptr %20, align 1, !noalias !52
   %21 = mul nuw i64 %indvars.iv.i, %14
   %22 = add nuw i64 %21, %18
   %23 = mul i64 %22, 3
   %24 = add i64 %23, 3
   %25 = icmp ugt i64 %23, -4
-  br i1 %25, label %.split.us51.i, label %26
+  br i1 %25, label %.split.us50.i, label %26
 
 26:                                               ; preds = %.noexc
   %27 = icmp ugt i64 %24, %.fca.1.extract.i
-  br i1 %27, label %.split54.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
+  br i1 %27, label %.split53.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %28 = getelementptr inbounds i8, ptr %11, i64 %23
-  store i24 %.sroa.0.0.copyload.i.us49.i, ptr %28, align 1, !noalias !52
+  store i24 %.sroa.0.0.copyload.i.us48.i, ptr %28, align 1, !noalias !52
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us50.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
-  %exitcond80.not.i = icmp eq i64 %indvars.iv.next77.i, %14
-  br i1 %exitcond80.not.i, label %.loopexit4, label %.lr.ph.split.us50.preheader.i
+  %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %14
+  br i1 %exitcond79.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
 
-.split.us51.i:                                    ; preds = %.noexc
+.split.us50.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %23, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us51.i
+.noexc1:                                          ; preds = %.split.us50.i
   unreachable
 
-.split54.us.i:                                    ; preds = %26
+.split53.us.i:                                    ; preds = %26
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %24, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split54.us.i
+.noexc2:                                          ; preds = %.split53.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us50.i
+.loopexit:                                        ; preds = %.lr.ph.split.us49.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-.loopexit.split-lp:                               ; preds = %.split.us51.i, %.split54.us.i
+.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split53.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -904,7 +904,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h3b02c97d06eaebf1E(ptr n
   invoke void @"_ZN4core3ptr111drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9c79fa629ee2a026E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %32 unwind label %30
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph47.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -952,76 +952,76 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h62ccefcc6e3594d6E(ptr n
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !59
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph45.i
 
-.lr.ph46.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph45.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
-  br i1 %.not57.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph45.i
   %wide.trip.count.i = zext i32 %5 to i64
-  br label %.lr.ph.split.us49.preheader.i
+  br label %.lr.ph.split.us48.preheader.i
 
-.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv71.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next72.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %15 = trunc nuw i64 %indvars.iv71.i to i32
+.lr.ph.split.us48.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next71.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
+  %15 = trunc nuw i64 %indvars.iv70.i to i32
   %16 = xor i32 %15, -1
   %17 = add i32 %7, %16
   %18 = zext i32 %17 to i64
-  br label %.lr.ph.split.us49.i
+  br label %.lr.ph.split.us48.i
 
-.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us48.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us48.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us48.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = trunc nuw i64 %indvars.iv.i to i32
   %20 = invoke noundef align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h553bd5839299de1eE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %19, i32 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us49.i
-  %.sroa.0.0.copyload.i.us48.i = load i32, ptr %20, align 1, !noalias !65
+.noexc:                                           ; preds = %.lr.ph.split.us48.i
+  %.sroa.0.0.copyload.i.us47.i = load i32, ptr %20, align 1, !noalias !65
   %21 = mul nuw i64 %indvars.iv.i, %14
   %22 = add nuw i64 %21, %18
   %23 = shl i64 %22, 2
   %24 = add i64 %23, 4
   %25 = icmp eq i64 %23, -4
-  br i1 %25, label %.split.us50.i, label %26
+  br i1 %25, label %.split.us49.i, label %26
 
 26:                                               ; preds = %.noexc
   %27 = icmp ugt i64 %24, %.fca.1.extract.i
-  br i1 %27, label %.split52.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
+  br i1 %27, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %28 = getelementptr inbounds i8, ptr %11, i64 %23
-  store i32 %.sroa.0.0.copyload.i.us48.i, ptr %28, align 1, !noalias !65
+  store i32 %.sroa.0.0.copyload.i.us47.i, ptr %28, align 1, !noalias !65
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us48.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %14
-  br i1 %exitcond75.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
+  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %14
+  br i1 %exitcond74.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
-.split.us50.i:                                    ; preds = %.noexc
+.split.us49.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us50.i
+.noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split52.us.i:                                    ; preds = %26
+.split51.us.i:                                    ; preds = %26
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %24, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split52.us.i
+.noexc2:                                          ; preds = %.split51.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us49.i
+.loopexit:                                        ; preds = %.lr.ph.split.us48.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split.us49.i, %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -1031,7 +1031,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h62ccefcc6e3594d6E(ptr n
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17ha4891b45020b4ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %32 unwind label %30
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph45.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -1073,68 +1073,68 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h6e045b57ffd38eeaE(ptr n
   store i32 %5, ptr %11, align 4, !alias.scope !72
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit3, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit3, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not48.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not47.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %13, align 8, !alias.scope !75, !noalias !78
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %14, align 8, !alias.scope !75, !noalias !78, !nonnull !4
-  br i1 %.not48.i, label %.loopexit3, label %.lr.ph.us.preheader.i
+  br i1 %.not47.i, label %.loopexit3, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %wide.trip.count.i = zext i32 %5 to i64
-  br label %.lr.ph.split.us43.preheader.i
+  br label %.lr.ph.split.us42.preheader.i
 
-.lr.ph.split.us43.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv59.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next60.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
-  %15 = trunc nuw i64 %indvars.iv59.i to i32
+.lr.ph.split.us42.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv58.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next59.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
+  %15 = trunc nuw i64 %indvars.iv58.i to i32
   %16 = xor i32 %15, -1
   %17 = add i32 %7, %16
   %18 = zext i32 %17 to i64
-  br label %.lr.ph.split.us43.i
+  br label %.lr.ph.split.us42.i
 
-.lr.ph.split.us43.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us43.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us43.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us42.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us42.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us42.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i" ]
   %19 = trunc nuw i64 %indvars.iv.i to i32
   %20 = invoke noundef align 2 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hd2363a508e017e20E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %19, i32 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us43.i
+.noexc:                                           ; preds = %.lr.ph.split.us42.i
   %21 = mul nuw i64 %indvars.iv.i, %12
   %22 = add nuw i64 %21, %18
   %.not.i.us.i = icmp ult i64 %22, %.val3.i.i
-  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", label %.split.us44.i
+  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", label %.split.us43.i
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
-  %.sroa.0.0.copyload.i.us42.i = load i16, ptr %20, align 2, !noalias !81
+  %.sroa.0.0.copyload.i.us41.i = load i16, ptr %20, align 2, !noalias !81
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = getelementptr inbounds i16, ptr %.val.i.i, i64 %22
-  store i16 %.sroa.0.0.copyload.i.us42.i, ptr %23, align 2, !noalias !81
+  store i16 %.sroa.0.0.copyload.i.us41.i, ptr %23, align 2, !noalias !81
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us43.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us42.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i"
-  %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %12
-  br i1 %exitcond63.not.i, label %.loopexit3, label %.lr.ph.split.us43.preheader.i
+  %exitcond62.not.i = icmp eq i64 %indvars.iv.next59.i, %12
+  br i1 %exitcond62.not.i, label %.loopexit3, label %.lr.ph.split.us42.preheader.i
 
-.split.us44.i:                                    ; preds = %.noexc
+.split.us43.i:                                    ; preds = %.noexc
   %24 = add nuw i64 %22, 1
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %24, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us44.i
+.noexc1:                                          ; preds = %.split.us43.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us43.i
+.loopexit:                                        ; preds = %.lr.ph.split.us42.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %25
 
-.loopexit.split-lp:                               ; preds = %.split.us44.i
+.loopexit.split-lp:                               ; preds = %.split.us43.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %25
@@ -1144,7 +1144,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017h6e045b57ffd38eeaE(ptr n
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Luma$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17hab9acd9360c57db3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %28 unwind label %26
 
-.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -1186,79 +1186,79 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hacdf18294d0a168eE(ptr n
   store i32 %5, ptr %11, align 4, !alias.scope !85
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph44.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph43.i
 
-.lr.ph44.i:                                       ; preds = %.preheader.i
-  %.not54.i = icmp eq i32 %5, 0
+.lr.ph43.i:                                       ; preds = %.preheader.i
+  %.not53.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !88, !noalias !91, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !88, !noalias !91
-  br i1 %.not54.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not53.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph44.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph43.i
   %wide.trip.count.i = zext i32 %5 to i64
-  br label %.lr.ph.split.us46.preheader.i
+  br label %.lr.ph.split.us45.preheader.i
 
-.lr.ph.split.us46.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv68.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next69.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  %15 = trunc nuw i64 %indvars.iv68.i to i32
+.lr.ph.split.us45.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv67.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next68.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %15 = trunc nuw i64 %indvars.iv67.i to i32
   %16 = xor i32 %15, -1
   %17 = add i32 %7, %16
   %18 = zext i32 %17 to i64
-  br label %.lr.ph.split.us46.i
+  br label %.lr.ph.split.us45.i
 
-.lr.ph.split.us46.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us46.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us46.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us45.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us45.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us45.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = trunc nuw i64 %indvars.iv.i to i32
   %20 = invoke noundef align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %19, i32 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us46.i
+.noexc:                                           ; preds = %.lr.ph.split.us45.i
   %21 = mul nuw i64 %indvars.iv.i, %12
   %22 = add nuw i64 %21, %18
   %23 = shl i64 %22, 2
   %24 = add i64 %23, 4
   %25 = icmp eq i64 %23, -4
-  br i1 %25, label %.split.us47.i, label %26
+  br i1 %25, label %.split.us46.i, label %26
 
 26:                                               ; preds = %.noexc
   %27 = icmp ugt i64 %24, %.val3.i.i
-  br i1 %27, label %.split49.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
+  br i1 %27, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %28 = getelementptr inbounds float, ptr %.val.i.i, i64 %23
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %28, ptr noundef nonnull align 4 dereferenceable(16) %20, i64 16, i1 false), !noalias !94
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us46.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us45.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
-  %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %12
-  br i1 %exitcond72.not.i, label %.loopexit4, label %.lr.ph.split.us46.preheader.i
+  %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %12
+  br i1 %exitcond71.not.i, label %.loopexit4, label %.lr.ph.split.us45.preheader.i
 
-.split.us47.i:                                    ; preds = %.noexc
+.split.us46.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us47.i
+.noexc1:                                          ; preds = %.split.us46.i
   unreachable
 
-.split49.us.i:                                    ; preds = %26
+.split48.us.i:                                    ; preds = %26
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %24, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split49.us.i
+.noexc2:                                          ; preds = %.split48.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us46.i
+.loopexit:                                        ; preds = %.lr.ph.split.us45.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-.loopexit.split-lp:                               ; preds = %.split.us47.i, %.split49.us.i
+.loopexit.split-lp:                               ; preds = %.split.us46.i, %.split48.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -1268,7 +1268,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hacdf18294d0a168eE(ptr n
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$f32$GT$$C$alloc..vec..Vec$LT$f32$GT$$GT$$GT$17h3c91b4aeb1ba84e9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %32 unwind label %30
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph44.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph43.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -1310,79 +1310,79 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hbd991d547f202d50E(ptr n
   store i32 %5, ptr %11, align 4, !alias.scope !98
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph45.i
 
-.lr.ph46.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph45.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !101, !noalias !104, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !101, !noalias !104
-  br i1 %.not57.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph45.i
   %wide.trip.count.i = zext i32 %5 to i64
-  br label %.lr.ph.split.us48.preheader.i
+  br label %.lr.ph.split.us47.preheader.i
 
-.lr.ph.split.us48.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv74.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
-  %15 = trunc nuw i64 %indvars.iv74.i to i32
+.lr.ph.split.us47.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv73.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next74.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
+  %15 = trunc nuw i64 %indvars.iv73.i to i32
   %16 = xor i32 %15, -1
   %17 = add i32 %7, %16
   %18 = zext i32 %17 to i64
-  br label %.lr.ph.split.us48.i
+  br label %.lr.ph.split.us47.i
 
-.lr.ph.split.us48.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us48.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us48.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us47.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us47.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us47.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = trunc nuw i64 %indvars.iv.i to i32
   %20 = invoke noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %19, i32 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us48.i
+.noexc:                                           ; preds = %.lr.ph.split.us47.i
   %21 = mul nuw i64 %indvars.iv.i, %12
   %22 = add nuw i64 %21, %18
   %23 = mul i64 %22, 3
   %24 = add i64 %23, 3
   %25 = icmp ugt i64 %23, -4
-  br i1 %25, label %.split.us49.i, label %26
+  br i1 %25, label %.split.us48.i, label %26
 
 26:                                               ; preds = %.noexc
   %27 = icmp ugt i64 %24, %.val3.i.i
-  br i1 %27, label %.split52.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
+  br i1 %27, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %28 = getelementptr inbounds float, ptr %.val.i.i, i64 %23
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %28, ptr noundef nonnull align 4 dereferenceable(12) %20, i64 12, i1 false), !noalias !107
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us48.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us47.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
-  %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %12
-  br i1 %exitcond78.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
+  %exitcond77.not.i = icmp eq i64 %indvars.iv.next74.i, %12
+  br i1 %exitcond77.not.i, label %.loopexit4, label %.lr.ph.split.us47.preheader.i
 
-.split.us49.i:                                    ; preds = %.noexc
+.split.us48.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %23, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us49.i
+.noexc1:                                          ; preds = %.split.us48.i
   unreachable
 
-.split52.us.i:                                    ; preds = %26
+.split51.us.i:                                    ; preds = %26
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %24, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split52.us.i
+.noexc2:                                          ; preds = %.split51.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us48.i
+.loopexit:                                        ; preds = %.lr.ph.split.us47.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-.loopexit.split-lp:                               ; preds = %.split.us49.i, %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split.us48.i, %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -1392,7 +1392,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hbd991d547f202d50E(ptr n
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$f32$GT$$C$alloc..vec..Vec$LT$f32$GT$$GT$$GT$17hd1af88b6803ff990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %32 unwind label %30
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph45.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -1440,76 +1440,76 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hc23e4ff2b93fbba9E(ptr n
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !111
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph45.i
 
-.lr.ph46.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph45.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
-  br i1 %.not57.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph45.i
   %wide.trip.count.i = zext i32 %5 to i64
-  br label %.lr.ph.split.us49.preheader.i
+  br label %.lr.ph.split.us48.preheader.i
 
-.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv71.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next72.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %15 = trunc nuw i64 %indvars.iv71.i to i32
+.lr.ph.split.us48.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next71.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
+  %15 = trunc nuw i64 %indvars.iv70.i to i32
   %16 = xor i32 %15, -1
   %17 = add i32 %7, %16
   %18 = zext i32 %17 to i64
-  br label %.lr.ph.split.us49.i
+  br label %.lr.ph.split.us48.i
 
-.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us48.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us48.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us48.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = trunc nuw i64 %indvars.iv.i to i32
   %20 = invoke noundef align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8633644275b32013E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %19, i32 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us49.i
-  %.sroa.0.0.copyload.i.us48.i = load i16, ptr %20, align 1, !noalias !117
+.noexc:                                           ; preds = %.lr.ph.split.us48.i
+  %.sroa.0.0.copyload.i.us47.i = load i16, ptr %20, align 1, !noalias !117
   %21 = mul nuw i64 %indvars.iv.i, %14
   %22 = add nuw i64 %21, %18
   %23 = shl i64 %22, 1
   %24 = add i64 %23, 2
   %25 = icmp eq i64 %23, -2
-  br i1 %25, label %.split.us50.i, label %26
+  br i1 %25, label %.split.us49.i, label %26
 
 26:                                               ; preds = %.noexc
   %27 = icmp ugt i64 %24, %.fca.1.extract.i
-  br i1 %27, label %.split52.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
+  br i1 %27, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %28 = getelementptr inbounds i8, ptr %11, i64 %23
-  store i16 %.sroa.0.0.copyload.i.us48.i, ptr %28, align 1, !noalias !117
+  store i16 %.sroa.0.0.copyload.i.us47.i, ptr %28, align 1, !noalias !117
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us48.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %14
-  br i1 %exitcond75.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
+  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %14
+  br i1 %exitcond74.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
-.split.us50.i:                                    ; preds = %.noexc
+.split.us49.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us50.i
+.noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split52.us.i:                                    ; preds = %26
+.split51.us.i:                                    ; preds = %26
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %24, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split52.us.i
+.noexc2:                                          ; preds = %.split51.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us49.i
+.loopexit:                                        ; preds = %.lr.ph.split.us48.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split.us49.i, %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -1519,7 +1519,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hc23e4ff2b93fbba9E(ptr n
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..LumaA$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17ha1a53ec1e6e57852E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %32 unwind label %30
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph45.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -1567,64 +1567,64 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hcbf1c1ad434c6552E(ptr n
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !124
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit3, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit3, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not48.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not47.i = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
-  br i1 %.not48.i, label %.loopexit3, label %.lr.ph.us.preheader.i
+  br i1 %.not47.i, label %.loopexit3, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %wide.trip.count.i = zext i32 %5 to i64
-  br label %.lr.ph.split.us43.preheader.i
+  br label %.lr.ph.split.us42.preheader.i
 
-.lr.ph.split.us43.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv59.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next60.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
-  %15 = trunc nuw i64 %indvars.iv59.i to i32
+.lr.ph.split.us42.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv58.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next59.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
+  %15 = trunc nuw i64 %indvars.iv58.i to i32
   %16 = xor i32 %15, -1
   %17 = add i32 %7, %16
   %18 = zext i32 %17 to i64
-  br label %.lr.ph.split.us43.i
+  br label %.lr.ph.split.us42.i
 
-.lr.ph.split.us43.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us43.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us43.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us42.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us42.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us42.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i" ]
   %19 = trunc nuw i64 %indvars.iv.i to i32
   %20 = invoke noundef align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h2bfe2e2e7bce91aeE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %19, i32 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us43.i
+.noexc:                                           ; preds = %.lr.ph.split.us42.i
   %21 = mul nuw i64 %indvars.iv.i, %14
   %22 = add nuw i64 %21, %18
   %.not.i.us.i = icmp ult i64 %22, %.fca.1.extract.i
-  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", label %.split.us44.i
+  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", label %.split.us43.i
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
-  %.sroa.0.0.copyload.i.us42.i = load i8, ptr %20, align 1, !noalias !130
+  %.sroa.0.0.copyload.i.us41.i = load i8, ptr %20, align 1, !noalias !130
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = getelementptr inbounds i8, ptr %11, i64 %22
-  store i8 %.sroa.0.0.copyload.i.us42.i, ptr %23, align 1, !noalias !130
+  store i8 %.sroa.0.0.copyload.i.us41.i, ptr %23, align 1, !noalias !130
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us43.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us42.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i"
-  %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %14
-  br i1 %exitcond63.not.i, label %.loopexit3, label %.lr.ph.split.us43.preheader.i
+  %exitcond62.not.i = icmp eq i64 %indvars.iv.next59.i, %14
+  br i1 %exitcond62.not.i, label %.loopexit3, label %.lr.ph.split.us42.preheader.i
 
-.split.us44.i:                                    ; preds = %.noexc
+.split.us43.i:                                    ; preds = %.noexc
   %24 = add nuw i64 %22, 1
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %24, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us44.i
+.noexc1:                                          ; preds = %.split.us43.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us43.i
+.loopexit:                                        ; preds = %.lr.ph.split.us42.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %25
 
-.loopexit.split-lp:                               ; preds = %.split.us44.i
+.loopexit.split-lp:                               ; preds = %.split.us43.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %25
@@ -1634,7 +1634,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hcbf1c1ad434c6552E(ptr n
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Luma$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9bfc8b04396d871eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %28 unwind label %26
 
-.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -1676,80 +1676,80 @@ define hidden void @_ZN5image8imageops6affine8rotate9017he71b6a36bde27be5E(ptr n
   store i32 %5, ptr %11, align 4, !alias.scope !137
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph47.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
 
-.lr.ph47.i:                                       ; preds = %.preheader.i
-  %.not59.i = icmp eq i32 %5, 0
+.lr.ph46.i:                                       ; preds = %.preheader.i
+  %.not58.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !140, !noalias !143, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !140, !noalias !143
-  br i1 %.not59.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not58.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph47.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
   %wide.trip.count.i = zext i32 %5 to i64
-  br label %.lr.ph.split.us50.preheader.i
+  br label %.lr.ph.split.us49.preheader.i
 
-.lr.ph.split.us50.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv76.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next77.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
-  %15 = trunc nuw i64 %indvars.iv76.i to i32
+.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv75.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next76.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
+  %15 = trunc nuw i64 %indvars.iv75.i to i32
   %16 = xor i32 %15, -1
   %17 = add i32 %7, %16
   %18 = zext i32 %17 to i64
-  br label %.lr.ph.split.us50.i
+  br label %.lr.ph.split.us49.i
 
-.lr.ph.split.us50.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us50.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us50.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = trunc nuw i64 %indvars.iv.i to i32
   %20 = invoke noundef align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hc4a40bd0c7ce1bc8E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %19, i32 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us50.i
-  %.sroa.0.0.copyload.i.us49.i = load i48, ptr %20, align 2, !noalias !146
+.noexc:                                           ; preds = %.lr.ph.split.us49.i
+  %.sroa.0.0.copyload.i.us48.i = load i48, ptr %20, align 2, !noalias !146
   %21 = mul nuw i64 %indvars.iv.i, %12
   %22 = add nuw i64 %21, %18
   %23 = mul i64 %22, 3
   %24 = add i64 %23, 3
   %25 = icmp ugt i64 %23, -4
-  br i1 %25, label %.split.us51.i, label %26
+  br i1 %25, label %.split.us50.i, label %26
 
 26:                                               ; preds = %.noexc
   %27 = icmp ugt i64 %24, %.val3.i.i
-  br i1 %27, label %.split54.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
+  br i1 %27, label %.split53.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %28 = getelementptr inbounds i16, ptr %.val.i.i, i64 %23
-  store i48 %.sroa.0.0.copyload.i.us49.i, ptr %28, align 2, !noalias !146
+  store i48 %.sroa.0.0.copyload.i.us48.i, ptr %28, align 2, !noalias !146
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us50.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
-  %exitcond80.not.i = icmp eq i64 %indvars.iv.next77.i, %12
-  br i1 %exitcond80.not.i, label %.loopexit4, label %.lr.ph.split.us50.preheader.i
+  %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %12
+  br i1 %exitcond79.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
 
-.split.us51.i:                                    ; preds = %.noexc
+.split.us50.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %23, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us51.i
+.noexc1:                                          ; preds = %.split.us50.i
   unreachable
 
-.split54.us.i:                                    ; preds = %26
+.split53.us.i:                                    ; preds = %26
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %24, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split54.us.i
+.noexc2:                                          ; preds = %.split53.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us50.i
+.loopexit:                                        ; preds = %.lr.ph.split.us49.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-.loopexit.split-lp:                               ; preds = %.split.us51.i, %.split54.us.i
+.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split53.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -1759,7 +1759,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017he71b6a36bde27be5E(ptr n
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h594a734dcad31749E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %32 unwind label %30
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph47.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -1801,80 +1801,80 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hf914a3fe05119ec1E(ptr n
   store i32 %5, ptr %11, align 4, !alias.scope !150
   tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph45.i
 
-.lr.ph46.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph45.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !153, !noalias !156, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !153, !noalias !156
-  br i1 %.not57.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph45.i
   %wide.trip.count.i = zext i32 %5 to i64
-  br label %.lr.ph.split.us49.preheader.i
+  br label %.lr.ph.split.us48.preheader.i
 
-.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv71.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next72.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %15 = trunc nuw i64 %indvars.iv71.i to i32
+.lr.ph.split.us48.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next71.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
+  %15 = trunc nuw i64 %indvars.iv70.i to i32
   %16 = xor i32 %15, -1
   %17 = add i32 %7, %16
   %18 = zext i32 %17 to i64
-  br label %.lr.ph.split.us49.i
+  br label %.lr.ph.split.us48.i
 
-.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us48.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us48.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us48.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = trunc nuw i64 %indvars.iv.i to i32
   %20 = invoke noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %19, i32 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us49.i
-  %.sroa.0.0.copyload.i.us48.i = load i64, ptr %20, align 2, !noalias !159
+.noexc:                                           ; preds = %.lr.ph.split.us48.i
+  %.sroa.0.0.copyload.i.us47.i = load i64, ptr %20, align 2, !noalias !159
   %21 = mul nuw i64 %indvars.iv.i, %12
   %22 = add nuw i64 %21, %18
   %23 = shl i64 %22, 2
   %24 = add i64 %23, 4
   %25 = icmp eq i64 %23, -4
-  br i1 %25, label %.split.us50.i, label %26
+  br i1 %25, label %.split.us49.i, label %26
 
 26:                                               ; preds = %.noexc
   %27 = icmp ugt i64 %24, %.val3.i.i
-  br i1 %27, label %.split52.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
+  br i1 %27, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %26
   %28 = getelementptr inbounds i16, ptr %.val.i.i, i64 %23
-  store i64 %.sroa.0.0.copyload.i.us48.i, ptr %28, align 2, !noalias !159
+  store i64 %.sroa.0.0.copyload.i.us47.i, ptr %28, align 2, !noalias !159
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us48.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %12
-  br i1 %exitcond75.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
+  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %12
+  br i1 %exitcond74.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
-.split.us50.i:                                    ; preds = %.noexc
+.split.us49.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us50.i
+.noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split52.us.i:                                    ; preds = %26
+.split51.us.i:                                    ; preds = %26
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %24, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split52.us.i
+.noexc2:                                          ; preds = %.split51.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us49.i
+.loopexit:                                        ; preds = %.lr.ph.split.us48.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split.us49.i, %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %29
@@ -1884,7 +1884,7 @@ define hidden void @_ZN5image8imageops6affine8rotate9017hf914a3fe05119ec1E(ptr n
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h4ed1c6a8c5e3bfe9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %32 unwind label %30
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph45.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -1932,36 +1932,36 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0c705807466d7ac5E(ptr 
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !163
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph49.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph48.i
 
-.lr.ph49.i:                                       ; preds = %.preheader.i
-  %.not66.i = icmp eq i32 %5, 0
+.lr.ph48.i:                                       ; preds = %.preheader.i
+  %.not65.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not66.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not65.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph49.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph48.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us52.preheader.i
+  br label %.lr.ph.split.us51.preheader.i
 
-.lr.ph.split.us52.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv88.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next89.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
-  %16 = trunc nuw i64 %indvars.iv88.i to i32
+.lr.ph.split.us51.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv87.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next88.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %16 = trunc nuw i64 %indvars.iv87.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %14
   br label %21
 
-21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us52.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us52.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i" ]
+21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us51.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us51.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = trunc nuw i64 %indvars.iv.i to i32
   %23 = invoke noundef align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h553bd5839299de1eE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %22, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %21
-  %.sroa.0.0.copyload.i.us51.i = load i32, ptr %23, align 1, !noalias !169
+  %.sroa.0.0.copyload.i.us50.i = load i32, ptr %23, align 1, !noalias !169
   %24 = xor i32 %22, -1
   %25 = add i32 %5, %24
   %26 = zext i32 %25 to i64
@@ -1969,34 +1969,34 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0c705807466d7ac5E(ptr 
   %28 = shl i64 %27, 2
   %29 = add i64 %28, 4
   %30 = icmp eq i64 %28, -4
-  br i1 %30, label %.split58.us.i, label %31
+  br i1 %30, label %.split57.us.i, label %31
 
 31:                                               ; preds = %.noexc
   %32 = icmp ugt i64 %29, %.fca.1.extract.i
-  br i1 %32, label %.split61.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
+  br i1 %32, label %.split60.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i": ; preds = %31
   %33 = getelementptr inbounds i8, ptr %11, i64 %28
-  store i32 %.sroa.0.0.copyload.i.us51.i, ptr %33, align 1, !noalias !169
+  store i32 %.sroa.0.0.copyload.i.us50.i, ptr %33, align 1, !noalias !169
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %21
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
-  %exitcond92.not.i = icmp eq i64 %indvars.iv.next89.i, %15
-  br i1 %exitcond92.not.i, label %.loopexit4, label %.lr.ph.split.us52.preheader.i
+  %exitcond91.not.i = icmp eq i64 %indvars.iv.next88.i, %15
+  br i1 %exitcond91.not.i, label %.loopexit4, label %.lr.ph.split.us51.preheader.i
 
-.split58.us.i:                                    ; preds = %.noexc
+.split57.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split58.us.i
+.noexc1:                                          ; preds = %.split57.us.i
   unreachable
 
-.split61.us.i:                                    ; preds = %31
+.split60.us.i:                                    ; preds = %31
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split61.us.i
+.noexc2:                                          ; preds = %.split60.us.i
   unreachable
 
 .loopexit:                                        ; preds = %21
@@ -2004,7 +2004,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0c705807466d7ac5E(ptr 
           cleanup
   br label %34
 
-.loopexit.split-lp:                               ; preds = %.split58.us.i, %.split61.us.i
+.loopexit.split-lp:                               ; preds = %.split57.us.i, %.split60.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %34
@@ -2014,7 +2014,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0c705807466d7ac5E(ptr 
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17ha4891b45020b4ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %37 unwind label %35
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph49.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph48.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -2056,40 +2056,40 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0df223190119d3adE(ptr 
   store i32 %7, ptr %11, align 4, !alias.scope !176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph49.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph48.i
 
-.lr.ph49.i:                                       ; preds = %.preheader.i
-  %.not66.i = icmp eq i32 %5, 0
+.lr.ph48.i:                                       ; preds = %.preheader.i
+  %.not65.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !179, !noalias !182, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !179, !noalias !182
-  br i1 %.not66.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not65.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph49.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph48.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us52.preheader.i
+  br label %.lr.ph.split.us51.preheader.i
 
-.lr.ph.split.us52.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv88.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next89.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
-  %16 = trunc nuw i64 %indvars.iv88.i to i32
+.lr.ph.split.us51.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv87.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next88.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %16 = trunc nuw i64 %indvars.iv87.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
   br label %21
 
-21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us52.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us52.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i" ]
+21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us51.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us51.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = trunc nuw i64 %indvars.iv.i to i32
   %23 = invoke noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %22, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %21
-  %.sroa.0.0.copyload.i.us51.i = load i64, ptr %23, align 2, !noalias !185
+  %.sroa.0.0.copyload.i.us50.i = load i64, ptr %23, align 2, !noalias !185
   %24 = xor i32 %22, -1
   %25 = add i32 %5, %24
   %26 = zext i32 %25 to i64
@@ -2097,34 +2097,34 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0df223190119d3adE(ptr 
   %28 = shl i64 %27, 2
   %29 = add i64 %28, 4
   %30 = icmp eq i64 %28, -4
-  br i1 %30, label %.split58.us.i, label %31
+  br i1 %30, label %.split57.us.i, label %31
 
 31:                                               ; preds = %.noexc
   %32 = icmp ugt i64 %29, %.val3.i.i
-  br i1 %32, label %.split61.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
+  br i1 %32, label %.split60.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %31
   %33 = getelementptr inbounds i16, ptr %.val.i.i, i64 %28
-  store i64 %.sroa.0.0.copyload.i.us51.i, ptr %33, align 2, !noalias !185
+  store i64 %.sroa.0.0.copyload.i.us50.i, ptr %33, align 2, !noalias !185
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %21
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
-  %exitcond92.not.i = icmp eq i64 %indvars.iv.next89.i, %15
-  br i1 %exitcond92.not.i, label %.loopexit4, label %.lr.ph.split.us52.preheader.i
+  %exitcond91.not.i = icmp eq i64 %indvars.iv.next88.i, %15
+  br i1 %exitcond91.not.i, label %.loopexit4, label %.lr.ph.split.us51.preheader.i
 
-.split58.us.i:                                    ; preds = %.noexc
+.split57.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split58.us.i
+.noexc1:                                          ; preds = %.split57.us.i
   unreachable
 
-.split61.us.i:                                    ; preds = %31
+.split60.us.i:                                    ; preds = %31
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split61.us.i
+.noexc2:                                          ; preds = %.split60.us.i
   unreachable
 
 .loopexit:                                        ; preds = %21
@@ -2132,7 +2132,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0df223190119d3adE(ptr 
           cleanup
   br label %34
 
-.loopexit.split-lp:                               ; preds = %.split58.us.i, %.split61.us.i
+.loopexit.split-lp:                               ; preds = %.split57.us.i, %.split60.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %34
@@ -2142,7 +2142,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h0df223190119d3adE(ptr 
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h4ed1c6a8c5e3bfe9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %37 unwind label %35
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph49.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph48.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -2184,40 +2184,40 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h5023a15d56dae266E(ptr 
   store i32 %7, ptr %11, align 4, !alias.scope !189
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph50.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph49.i
 
-.lr.ph50.i:                                       ; preds = %.preheader.i
-  %.not68.i = icmp eq i32 %5, 0
+.lr.ph49.i:                                       ; preds = %.preheader.i
+  %.not67.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !192, !noalias !195, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !192, !noalias !195
-  br i1 %.not68.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not67.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph50.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph49.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us53.preheader.i
+  br label %.lr.ph.split.us52.preheader.i
 
-.lr.ph.split.us53.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv93.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next94.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
-  %16 = trunc nuw i64 %indvars.iv93.i to i32
+.lr.ph.split.us52.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv92.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next93.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
+  %16 = trunc nuw i64 %indvars.iv92.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
   br label %21
 
-21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us53.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us53.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i" ]
+21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us52.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us52.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = trunc nuw i64 %indvars.iv.i to i32
   %23 = invoke noundef align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hc4a40bd0c7ce1bc8E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %22, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %21
-  %.sroa.0.0.copyload.i.us52.i = load i48, ptr %23, align 2, !noalias !198
+  %.sroa.0.0.copyload.i.us51.i = load i48, ptr %23, align 2, !noalias !198
   %24 = xor i32 %22, -1
   %25 = add i32 %5, %24
   %26 = zext i32 %25 to i64
@@ -2225,34 +2225,34 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h5023a15d56dae266E(ptr 
   %28 = mul i64 %27, 3
   %29 = add i64 %28, 3
   %30 = icmp ugt i64 %28, -4
-  br i1 %30, label %.split59.us.i, label %31
+  br i1 %30, label %.split58.us.i, label %31
 
 31:                                               ; preds = %.noexc
   %32 = icmp ugt i64 %29, %.val3.i.i
-  br i1 %32, label %.split63.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
+  br i1 %32, label %.split62.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i": ; preds = %31
   %33 = getelementptr inbounds i16, ptr %.val.i.i, i64 %28
-  store i48 %.sroa.0.0.copyload.i.us52.i, ptr %33, align 2, !noalias !198
+  store i48 %.sroa.0.0.copyload.i.us51.i, ptr %33, align 2, !noalias !198
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %21
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
-  %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %15
-  br i1 %exitcond97.not.i, label %.loopexit4, label %.lr.ph.split.us53.preheader.i
+  %exitcond96.not.i = icmp eq i64 %indvars.iv.next93.i, %15
+  br i1 %exitcond96.not.i, label %.loopexit4, label %.lr.ph.split.us52.preheader.i
 
-.split59.us.i:                                    ; preds = %.noexc
+.split58.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %28, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split59.us.i
+.noexc1:                                          ; preds = %.split58.us.i
   unreachable
 
-.split63.us.i:                                    ; preds = %31
+.split62.us.i:                                    ; preds = %31
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split63.us.i
+.noexc2:                                          ; preds = %.split62.us.i
   unreachable
 
 .loopexit:                                        ; preds = %21
@@ -2260,7 +2260,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h5023a15d56dae266E(ptr 
           cleanup
   br label %34
 
-.loopexit.split-lp:                               ; preds = %.split59.us.i, %.split63.us.i
+.loopexit.split-lp:                               ; preds = %.split58.us.i, %.split62.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %34
@@ -2270,7 +2270,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h5023a15d56dae266E(ptr 
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h594a734dcad31749E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %37 unwind label %35
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph50.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph49.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -2318,29 +2318,29 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h54a253a2f8bcfec2E(ptr 
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !202
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit3, label %.lr.ph43.i
+  br i1 %.not.i, label %.loopexit3, label %.lr.ph42.i
 
-.lr.ph43.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph42.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not57.i, label %.loopexit3, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit3, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph43.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph42.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us46.preheader.i
+  br label %.lr.ph.split.us45.preheader.i
 
-.lr.ph.split.us46.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv75.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next76.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
-  %16 = trunc nuw i64 %indvars.iv75.i to i32
+.lr.ph.split.us45.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv74.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
+  %16 = trunc nuw i64 %indvars.iv74.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %14
   br label %21
 
-21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us46.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us46.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i" ]
+21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us45.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us45.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i" ]
   %22 = trunc nuw i64 %indvars.iv.i to i32
   %23 = invoke noundef align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h2bfe2e2e7bce91aeE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %22, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
@@ -2351,26 +2351,26 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h54a253a2f8bcfec2E(ptr 
   %26 = zext i32 %25 to i64
   %27 = add nuw i64 %20, %26
   %.not.i.us.i = icmp ult i64 %27, %.fca.1.extract.i
-  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", label %.split52.us.i
+  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", label %.split51.us.i
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
-  %.sroa.0.0.copyload.i.us45.i = load i8, ptr %23, align 1, !noalias !208
+  %.sroa.0.0.copyload.i.us44.i = load i8, ptr %23, align 1, !noalias !208
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = getelementptr inbounds i8, ptr %11, i64 %27
-  store i8 %.sroa.0.0.copyload.i.us45.i, ptr %28, align 1, !noalias !208
+  store i8 %.sroa.0.0.copyload.i.us44.i, ptr %28, align 1, !noalias !208
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %21
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i"
-  %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %15
-  br i1 %exitcond79.not.i, label %.loopexit3, label %.lr.ph.split.us46.preheader.i
+  %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %15
+  br i1 %exitcond78.not.i, label %.loopexit3, label %.lr.ph.split.us45.preheader.i
 
-.split52.us.i:                                    ; preds = %.noexc
+.split51.us.i:                                    ; preds = %.noexc
   %29 = add nuw i64 %27, 1
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split52.us.i
+.noexc1:                                          ; preds = %.split51.us.i
   unreachable
 
 .loopexit:                                        ; preds = %21
@@ -2378,7 +2378,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h54a253a2f8bcfec2E(ptr 
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -2388,7 +2388,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h54a253a2f8bcfec2E(ptr 
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Luma$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9bfc8b04396d871eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph43.i, %.preheader.i
+.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph42.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -2430,33 +2430,33 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h58ebd1e9f8339de8E(ptr 
   store i32 %7, ptr %11, align 4, !alias.scope !215
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit3, label %.lr.ph43.i
+  br i1 %.not.i, label %.loopexit3, label %.lr.ph42.i
 
-.lr.ph43.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph42.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %13, align 8, !alias.scope !218, !noalias !221
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %14, align 8, !alias.scope !218, !noalias !221, !nonnull !4
-  br i1 %.not57.i, label %.loopexit3, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit3, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph43.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph42.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us46.preheader.i
+  br label %.lr.ph.split.us45.preheader.i
 
-.lr.ph.split.us46.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv75.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next76.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
-  %16 = trunc nuw i64 %indvars.iv75.i to i32
+.lr.ph.split.us45.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv74.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
+  %16 = trunc nuw i64 %indvars.iv74.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
   br label %21
 
-21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us46.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us46.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i" ]
+21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us45.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us45.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i" ]
   %22 = trunc nuw i64 %indvars.iv.i to i32
   %23 = invoke noundef align 2 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hd2363a508e017e20E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %22, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
@@ -2467,26 +2467,26 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h58ebd1e9f8339de8E(ptr 
   %26 = zext i32 %25 to i64
   %27 = add nuw i64 %20, %26
   %.not.i.us.i = icmp ult i64 %27, %.val3.i.i
-  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", label %.split52.us.i
+  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", label %.split51.us.i
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
-  %.sroa.0.0.copyload.i.us45.i = load i16, ptr %23, align 2, !noalias !224
+  %.sroa.0.0.copyload.i.us44.i = load i16, ptr %23, align 2, !noalias !224
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = getelementptr inbounds i16, ptr %.val.i.i, i64 %27
-  store i16 %.sroa.0.0.copyload.i.us45.i, ptr %28, align 2, !noalias !224
+  store i16 %.sroa.0.0.copyload.i.us44.i, ptr %28, align 2, !noalias !224
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %21
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i"
-  %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %15
-  br i1 %exitcond79.not.i, label %.loopexit3, label %.lr.ph.split.us46.preheader.i
+  %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %15
+  br i1 %exitcond78.not.i, label %.loopexit3, label %.lr.ph.split.us45.preheader.i
 
-.split52.us.i:                                    ; preds = %.noexc
+.split51.us.i:                                    ; preds = %.noexc
   %29 = add nuw i64 %27, 1
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split52.us.i
+.noexc1:                                          ; preds = %.split51.us.i
   unreachable
 
 .loopexit:                                        ; preds = %21
@@ -2494,7 +2494,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h58ebd1e9f8339de8E(ptr 
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -2504,7 +2504,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h58ebd1e9f8339de8E(ptr 
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Luma$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17hab9acd9360c57db3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph43.i, %.preheader.i
+.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph42.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -2552,36 +2552,36 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h6d0bebbe0aa2e10fE(ptr 
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !228
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph50.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph49.i
 
-.lr.ph50.i:                                       ; preds = %.preheader.i
-  %.not68.i = icmp eq i32 %5, 0
+.lr.ph49.i:                                       ; preds = %.preheader.i
+  %.not67.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not68.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not67.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph50.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph49.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us53.preheader.i
+  br label %.lr.ph.split.us52.preheader.i
 
-.lr.ph.split.us53.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv93.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next94.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
-  %16 = trunc nuw i64 %indvars.iv93.i to i32
+.lr.ph.split.us52.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv92.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next93.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
+  %16 = trunc nuw i64 %indvars.iv92.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %14
   br label %21
 
-21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us53.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us53.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i" ]
+21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us52.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us52.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = trunc nuw i64 %indvars.iv.i to i32
   %23 = invoke noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %22, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %21
-  %.sroa.0.0.copyload.i.us52.i = load i24, ptr %23, align 1, !noalias !234
+  %.sroa.0.0.copyload.i.us51.i = load i24, ptr %23, align 1, !noalias !234
   %24 = xor i32 %22, -1
   %25 = add i32 %5, %24
   %26 = zext i32 %25 to i64
@@ -2589,34 +2589,34 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h6d0bebbe0aa2e10fE(ptr 
   %28 = mul i64 %27, 3
   %29 = add i64 %28, 3
   %30 = icmp ugt i64 %28, -4
-  br i1 %30, label %.split59.us.i, label %31
+  br i1 %30, label %.split58.us.i, label %31
 
 31:                                               ; preds = %.noexc
   %32 = icmp ugt i64 %29, %.fca.1.extract.i
-  br i1 %32, label %.split63.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
+  br i1 %32, label %.split62.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i": ; preds = %31
   %33 = getelementptr inbounds i8, ptr %11, i64 %28
-  store i24 %.sroa.0.0.copyload.i.us52.i, ptr %33, align 1, !noalias !234
+  store i24 %.sroa.0.0.copyload.i.us51.i, ptr %33, align 1, !noalias !234
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %21
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
-  %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %15
-  br i1 %exitcond97.not.i, label %.loopexit4, label %.lr.ph.split.us53.preheader.i
+  %exitcond96.not.i = icmp eq i64 %indvars.iv.next93.i, %15
+  br i1 %exitcond96.not.i, label %.loopexit4, label %.lr.ph.split.us52.preheader.i
 
-.split59.us.i:                                    ; preds = %.noexc
+.split58.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %28, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split59.us.i
+.noexc1:                                          ; preds = %.split58.us.i
   unreachable
 
-.split63.us.i:                                    ; preds = %31
+.split62.us.i:                                    ; preds = %31
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split63.us.i
+.noexc2:                                          ; preds = %.split62.us.i
   unreachable
 
 .loopexit:                                        ; preds = %21
@@ -2624,7 +2624,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h6d0bebbe0aa2e10fE(ptr 
           cleanup
   br label %34
 
-.loopexit.split-lp:                               ; preds = %.split59.us.i, %.split63.us.i
+.loopexit.split-lp:                               ; preds = %.split58.us.i, %.split62.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %34
@@ -2634,7 +2634,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h6d0bebbe0aa2e10fE(ptr 
   invoke void @"_ZN4core3ptr111drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9c79fa629ee2a026E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %37 unwind label %35
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph50.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph49.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -2676,33 +2676,33 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h9a842ad363d91a7aE(ptr 
   store i32 %7, ptr %11, align 4, !alias.scope !241
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph49.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph48.i
 
-.lr.ph49.i:                                       ; preds = %.preheader.i
-  %.not66.i = icmp eq i32 %5, 0
+.lr.ph48.i:                                       ; preds = %.preheader.i
+  %.not65.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !244, !noalias !247, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !244, !noalias !247
-  br i1 %.not66.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not65.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph49.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph48.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us51.preheader.i
+  br label %.lr.ph.split.us50.preheader.i
 
-.lr.ph.split.us51.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv91.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next92.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
-  %16 = trunc nuw i64 %indvars.iv91.i to i32
+.lr.ph.split.us50.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv90.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next91.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
+  %16 = trunc nuw i64 %indvars.iv90.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
   br label %21
 
-21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us51.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us51.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i" ]
+21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us50.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us50.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = trunc nuw i64 %indvars.iv.i to i32
   %23 = invoke noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %22, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
@@ -2716,11 +2716,11 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h9a842ad363d91a7aE(ptr 
   %28 = mul i64 %27, 3
   %29 = add i64 %28, 3
   %30 = icmp ugt i64 %28, -4
-  br i1 %30, label %.split57.us.i, label %31
+  br i1 %30, label %.split56.us.i, label %31
 
 31:                                               ; preds = %.noexc
   %32 = icmp ugt i64 %29, %.val3.i.i
-  br i1 %32, label %.split61.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
+  br i1 %32, label %.split60.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i": ; preds = %31
   %33 = getelementptr inbounds float, ptr %.val.i.i, i64 %28
@@ -2729,21 +2729,21 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h9a842ad363d91a7aE(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %21
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
-  %exitcond95.not.i = icmp eq i64 %indvars.iv.next92.i, %15
-  br i1 %exitcond95.not.i, label %.loopexit4, label %.lr.ph.split.us51.preheader.i
+  %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %15
+  br i1 %exitcond94.not.i, label %.loopexit4, label %.lr.ph.split.us50.preheader.i
 
-.split57.us.i:                                    ; preds = %.noexc
+.split56.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %28, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split57.us.i
+.noexc1:                                          ; preds = %.split56.us.i
   unreachable
 
-.split61.us.i:                                    ; preds = %31
+.split60.us.i:                                    ; preds = %31
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split61.us.i
+.noexc2:                                          ; preds = %.split60.us.i
   unreachable
 
 .loopexit:                                        ; preds = %21
@@ -2751,7 +2751,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h9a842ad363d91a7aE(ptr 
           cleanup
   br label %34
 
-.loopexit.split-lp:                               ; preds = %.split57.us.i, %.split61.us.i
+.loopexit.split-lp:                               ; preds = %.split56.us.i, %.split60.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %34
@@ -2761,7 +2761,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017h9a842ad363d91a7aE(ptr 
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$f32$GT$$C$alloc..vec..Vec$LT$f32$GT$$GT$$GT$17hd1af88b6803ff990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %37 unwind label %35
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph49.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph48.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -2809,36 +2809,36 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hbe4d6ec303c69758E(ptr 
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !254
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph49.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph48.i
 
-.lr.ph49.i:                                       ; preds = %.preheader.i
-  %.not66.i = icmp eq i32 %5, 0
+.lr.ph48.i:                                       ; preds = %.preheader.i
+  %.not65.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not66.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not65.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph49.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph48.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us52.preheader.i
+  br label %.lr.ph.split.us51.preheader.i
 
-.lr.ph.split.us52.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv88.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next89.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
-  %16 = trunc nuw i64 %indvars.iv88.i to i32
+.lr.ph.split.us51.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv87.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next88.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %16 = trunc nuw i64 %indvars.iv87.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %14
   br label %21
 
-21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us52.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us52.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i" ]
+21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us51.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us51.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = trunc nuw i64 %indvars.iv.i to i32
   %23 = invoke noundef align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8633644275b32013E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %22, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %21
-  %.sroa.0.0.copyload.i.us51.i = load i16, ptr %23, align 1, !noalias !260
+  %.sroa.0.0.copyload.i.us50.i = load i16, ptr %23, align 1, !noalias !260
   %24 = xor i32 %22, -1
   %25 = add i32 %5, %24
   %26 = zext i32 %25 to i64
@@ -2846,34 +2846,34 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hbe4d6ec303c69758E(ptr 
   %28 = shl i64 %27, 1
   %29 = add i64 %28, 2
   %30 = icmp eq i64 %28, -2
-  br i1 %30, label %.split58.us.i, label %31
+  br i1 %30, label %.split57.us.i, label %31
 
 31:                                               ; preds = %.noexc
   %32 = icmp ugt i64 %29, %.fca.1.extract.i
-  br i1 %32, label %.split61.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
+  br i1 %32, label %.split60.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i": ; preds = %31
   %33 = getelementptr inbounds i8, ptr %11, i64 %28
-  store i16 %.sroa.0.0.copyload.i.us51.i, ptr %33, align 1, !noalias !260
+  store i16 %.sroa.0.0.copyload.i.us50.i, ptr %33, align 1, !noalias !260
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %21
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
-  %exitcond92.not.i = icmp eq i64 %indvars.iv.next89.i, %15
-  br i1 %exitcond92.not.i, label %.loopexit4, label %.lr.ph.split.us52.preheader.i
+  %exitcond91.not.i = icmp eq i64 %indvars.iv.next88.i, %15
+  br i1 %exitcond91.not.i, label %.loopexit4, label %.lr.ph.split.us51.preheader.i
 
-.split58.us.i:                                    ; preds = %.noexc
+.split57.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split58.us.i
+.noexc1:                                          ; preds = %.split57.us.i
   unreachable
 
-.split61.us.i:                                    ; preds = %31
+.split60.us.i:                                    ; preds = %31
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split61.us.i
+.noexc2:                                          ; preds = %.split60.us.i
   unreachable
 
 .loopexit:                                        ; preds = %21
@@ -2881,7 +2881,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hbe4d6ec303c69758E(ptr 
           cleanup
   br label %34
 
-.loopexit.split-lp:                               ; preds = %.split58.us.i, %.split61.us.i
+.loopexit.split-lp:                               ; preds = %.split57.us.i, %.split60.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %34
@@ -2891,7 +2891,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hbe4d6ec303c69758E(ptr 
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..LumaA$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17ha1a53ec1e6e57852E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %37 unwind label %35
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph49.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph48.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -2933,40 +2933,40 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hdecd2762337dddd1E(ptr 
   store i32 %7, ptr %11, align 4, !alias.scope !267
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph49.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph48.i
 
-.lr.ph49.i:                                       ; preds = %.preheader.i
-  %.not66.i = icmp eq i32 %5, 0
+.lr.ph48.i:                                       ; preds = %.preheader.i
+  %.not65.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !270, !noalias !273, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !270, !noalias !273
-  br i1 %.not66.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not65.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph49.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph48.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us52.preheader.i
+  br label %.lr.ph.split.us51.preheader.i
 
-.lr.ph.split.us52.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv88.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next89.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
-  %16 = trunc nuw i64 %indvars.iv88.i to i32
+.lr.ph.split.us51.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv87.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next88.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %16 = trunc nuw i64 %indvars.iv87.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
   br label %21
 
-21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us52.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us52.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i" ]
+21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us51.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us51.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = trunc nuw i64 %indvars.iv.i to i32
   %23 = invoke noundef align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hceaa3a089891951aE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %22, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %21
-  %.sroa.0.0.copyload.i.us51.i = load i32, ptr %23, align 2, !noalias !276
+  %.sroa.0.0.copyload.i.us50.i = load i32, ptr %23, align 2, !noalias !276
   %24 = xor i32 %22, -1
   %25 = add i32 %5, %24
   %26 = zext i32 %25 to i64
@@ -2974,34 +2974,34 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hdecd2762337dddd1E(ptr 
   %28 = shl i64 %27, 1
   %29 = add i64 %28, 2
   %30 = icmp eq i64 %28, -2
-  br i1 %30, label %.split58.us.i, label %31
+  br i1 %30, label %.split57.us.i, label %31
 
 31:                                               ; preds = %.noexc
   %32 = icmp ugt i64 %29, %.val3.i.i
-  br i1 %32, label %.split61.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
+  br i1 %32, label %.split60.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %31
   %33 = getelementptr inbounds i16, ptr %.val.i.i, i64 %28
-  store i32 %.sroa.0.0.copyload.i.us51.i, ptr %33, align 2, !noalias !276
+  store i32 %.sroa.0.0.copyload.i.us50.i, ptr %33, align 2, !noalias !276
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %21
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
-  %exitcond92.not.i = icmp eq i64 %indvars.iv.next89.i, %15
-  br i1 %exitcond92.not.i, label %.loopexit4, label %.lr.ph.split.us52.preheader.i
+  %exitcond91.not.i = icmp eq i64 %indvars.iv.next88.i, %15
+  br i1 %exitcond91.not.i, label %.loopexit4, label %.lr.ph.split.us51.preheader.i
 
-.split58.us.i:                                    ; preds = %.noexc
+.split57.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split58.us.i
+.noexc1:                                          ; preds = %.split57.us.i
   unreachable
 
-.split61.us.i:                                    ; preds = %31
+.split60.us.i:                                    ; preds = %31
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split61.us.i
+.noexc2:                                          ; preds = %.split60.us.i
   unreachable
 
 .loopexit:                                        ; preds = %21
@@ -3009,7 +3009,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hdecd2762337dddd1E(ptr 
           cleanup
   br label %34
 
-.loopexit.split-lp:                               ; preds = %.split58.us.i, %.split61.us.i
+.loopexit.split-lp:                               ; preds = %.split57.us.i, %.split60.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %34
@@ -3019,7 +3019,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hdecd2762337dddd1E(ptr 
   invoke void @"_ZN4core3ptr115drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..LumaA$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h11586b09306c37f2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %37 unwind label %35
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph49.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph48.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -3061,33 +3061,33 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hf561a74b6c6d8d2bE(ptr 
   store i32 %7, ptr %11, align 4, !alias.scope !280
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph47.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
 
-.lr.ph47.i:                                       ; preds = %.preheader.i
-  %.not63.i = icmp eq i32 %5, 0
+.lr.ph46.i:                                       ; preds = %.preheader.i
+  %.not62.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !283, !noalias !286, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !283, !noalias !286
-  br i1 %.not63.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not62.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph47.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us49.preheader.i
+  br label %.lr.ph.split.us48.preheader.i
 
-.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv85.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next86.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
-  %16 = trunc nuw i64 %indvars.iv85.i to i32
+.lr.ph.split.us48.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv84.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next85.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
+  %16 = trunc nuw i64 %indvars.iv84.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
   br label %21
 
-21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i" ]
+21:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us48.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us48.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = trunc nuw i64 %indvars.iv.i to i32
   %23 = invoke noundef align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %22, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
@@ -3101,11 +3101,11 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hf561a74b6c6d8d2bE(ptr 
   %28 = shl i64 %27, 2
   %29 = add i64 %28, 4
   %30 = icmp eq i64 %28, -4
-  br i1 %30, label %.split55.us.i, label %31
+  br i1 %30, label %.split54.us.i, label %31
 
 31:                                               ; preds = %.noexc
   %32 = icmp ugt i64 %29, %.val3.i.i
-  br i1 %32, label %.split58.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
+  br i1 %32, label %.split57.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %31
   %33 = getelementptr inbounds float, ptr %.val.i.i, i64 %28
@@ -3114,21 +3114,21 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hf561a74b6c6d8d2bE(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %21
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
-  %exitcond89.not.i = icmp eq i64 %indvars.iv.next86.i, %15
-  br i1 %exitcond89.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
+  %exitcond88.not.i = icmp eq i64 %indvars.iv.next85.i, %15
+  br i1 %exitcond88.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
-.split55.us.i:                                    ; preds = %.noexc
+.split54.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split55.us.i
+.noexc1:                                          ; preds = %.split54.us.i
   unreachable
 
-.split58.us.i:                                    ; preds = %31
+.split57.us.i:                                    ; preds = %31
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split58.us.i
+.noexc2:                                          ; preds = %.split57.us.i
   unreachable
 
 .loopexit:                                        ; preds = %21
@@ -3136,7 +3136,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hf561a74b6c6d8d2bE(ptr 
           cleanup
   br label %34
 
-.loopexit.split-lp:                               ; preds = %.split55.us.i, %.split58.us.i
+.loopexit.split-lp:                               ; preds = %.split54.us.i, %.split57.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %34
@@ -3146,7 +3146,7 @@ define hidden void @_ZN5image8imageops6affine9rotate18017hf561a74b6c6d8d2bE(ptr 
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$f32$GT$$C$alloc..vec..Vec$LT$f32$GT$$GT$$GT$17h3c91b4aeb1ba84e9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %37 unwind label %35
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph47.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -3194,21 +3194,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0a5854b61bac09ceE(ptr 
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !293
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not49.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not48.i = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
-  br i1 %.not49.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not48.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %15 = zext i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv63.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next64.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %16 = trunc nuw i64 %indvars.iv63.i to i32
+  %indvars.iv62.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next63.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %16 = trunc nuw i64 %indvars.iv62.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -3224,15 +3224,15 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0a5854b61bac09ceE(ptr 
   %21 = add i32 %5, %20
   %22 = zext i32 %21 to i64
   %23 = mul nuw i64 %22, %14
-  %24 = add nuw i64 %23, %indvars.iv63.i
+  %24 = add nuw i64 %23, %indvars.iv62.i
   %25 = shl i64 %24, 1
   %26 = add i64 %25, 2
   %27 = icmp eq i64 %25, -2
-  br i1 %27, label %.split43.us.i, label %28
+  br i1 %27, label %.split42.us.i, label %28
 
 28:                                               ; preds = %.noexc
   %29 = icmp ugt i64 %26, %.fca.1.extract.i
-  br i1 %29, label %.split46.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
+  br i1 %29, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i": ; preds = %28
   %30 = getelementptr inbounds i8, ptr %11, i64 %25
@@ -3241,21 +3241,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0a5854b61bac09ceE(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, %14
-  br i1 %exitcond66.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, %14
+  br i1 %exitcond65.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split43.us.i:                                    ; preds = %.noexc
+.split42.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split43.us.i
+.noexc1:                                          ; preds = %.split42.us.i
   unreachable
 
-.split46.us.i:                                    ; preds = %28
+.split45.us.i:                                    ; preds = %28
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split46.us.i
+.noexc2:                                          ; preds = %.split45.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -3263,7 +3263,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0a5854b61bac09ceE(ptr 
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split46.us.i
+.loopexit.split-lp:                               ; preds = %.split42.us.i, %.split45.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -3273,7 +3273,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0a5854b61bac09ceE(ptr 
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..LumaA$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17ha1a53ec1e6e57852E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %34 unwind label %32
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -3321,21 +3321,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0c5003021cffe784E(ptr 
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !306
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph41.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
 
-.lr.ph41.i:                                       ; preds = %.preheader.i
-  %.not51.i = icmp eq i32 %5, 0
+.lr.ph40.i:                                       ; preds = %.preheader.i
+  %.not50.i = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
-  br i1 %.not51.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not50.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph41.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
   %15 = zext i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv68.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next69.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  %16 = trunc nuw i64 %indvars.iv68.i to i32
+  %indvars.iv67.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next68.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %16 = trunc nuw i64 %indvars.iv67.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -3351,15 +3351,15 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0c5003021cffe784E(ptr 
   %21 = add i32 %5, %20
   %22 = zext i32 %21 to i64
   %23 = mul nuw i64 %22, %14
-  %24 = add nuw i64 %23, %indvars.iv68.i
+  %24 = add nuw i64 %23, %indvars.iv67.i
   %25 = mul i64 %24, 3
   %26 = add i64 %25, 3
   %27 = icmp ugt i64 %25, -4
-  br i1 %27, label %.split44.us.i, label %28
+  br i1 %27, label %.split43.us.i, label %28
 
 28:                                               ; preds = %.noexc
   %29 = icmp ugt i64 %26, %.fca.1.extract.i
-  br i1 %29, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
+  br i1 %29, label %.split47.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i": ; preds = %28
   %30 = getelementptr inbounds i8, ptr %11, i64 %25
@@ -3368,21 +3368,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0c5003021cffe784E(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
-  %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, %14
-  br i1 %exitcond71.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, %14
+  br i1 %exitcond70.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split44.us.i:                                    ; preds = %.noexc
+.split43.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %25, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split44.us.i
+.noexc1:                                          ; preds = %.split43.us.i
   unreachable
 
-.split48.us.i:                                    ; preds = %28
+.split47.us.i:                                    ; preds = %28
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split48.us.i
+.noexc2:                                          ; preds = %.split47.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -3390,7 +3390,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0c5003021cffe784E(ptr 
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %.split44.us.i, %.split48.us.i
+.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split47.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -3400,7 +3400,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h0c5003021cffe784E(ptr 
   invoke void @"_ZN4core3ptr111drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9c79fa629ee2a026E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %34 unwind label %32
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph41.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -3442,25 +3442,25 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h38d6570bf1719f2aE(ptr 
   store i32 %5, ptr %11, align 4, !alias.scope !319
   tail call void @llvm.experimental.noalias.scope.decl(metadata !322)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not49.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not48.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !322, !noalias !325, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !322, !noalias !325
-  br i1 %.not49.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not48.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %15 = zext i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv63.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next64.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %16 = trunc nuw i64 %indvars.iv63.i to i32
+  %indvars.iv62.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next63.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %16 = trunc nuw i64 %indvars.iv62.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -3476,15 +3476,15 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h38d6570bf1719f2aE(ptr 
   %21 = add i32 %5, %20
   %22 = zext i32 %21 to i64
   %23 = mul nuw i64 %22, %12
-  %24 = add nuw i64 %23, %indvars.iv63.i
+  %24 = add nuw i64 %23, %indvars.iv62.i
   %25 = shl i64 %24, 1
   %26 = add i64 %25, 2
   %27 = icmp eq i64 %25, -2
-  br i1 %27, label %.split43.us.i, label %28
+  br i1 %27, label %.split42.us.i, label %28
 
 28:                                               ; preds = %.noexc
   %29 = icmp ugt i64 %26, %.val3.i.i
-  br i1 %29, label %.split46.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
+  br i1 %29, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %28
   %30 = getelementptr inbounds i16, ptr %.val.i.i, i64 %25
@@ -3493,21 +3493,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h38d6570bf1719f2aE(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, %12
-  br i1 %exitcond66.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, %12
+  br i1 %exitcond65.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split43.us.i:                                    ; preds = %.noexc
+.split42.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split43.us.i
+.noexc1:                                          ; preds = %.split42.us.i
   unreachable
 
-.split46.us.i:                                    ; preds = %28
+.split45.us.i:                                    ; preds = %28
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split46.us.i
+.noexc2:                                          ; preds = %.split45.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -3515,7 +3515,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h38d6570bf1719f2aE(ptr 
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split46.us.i
+.loopexit.split-lp:                               ; preds = %.split42.us.i, %.split45.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -3525,7 +3525,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h38d6570bf1719f2aE(ptr 
   invoke void @"_ZN4core3ptr115drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..LumaA$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h11586b09306c37f2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %34 unwind label %32
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -3567,25 +3567,25 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h40f8bfacfed5426dE(ptr 
   store i32 %5, ptr %11, align 4, !alias.scope !332
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not50.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not49.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !335, !noalias !338, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !335, !noalias !338
-  br i1 %.not50.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not49.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %15 = zext i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv67.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next68.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %16 = trunc nuw i64 %indvars.iv67.i to i32
+  %indvars.iv66.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next67.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
+  %16 = trunc nuw i64 %indvars.iv66.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -3600,15 +3600,15 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h40f8bfacfed5426dE(ptr 
   %21 = add i32 %5, %20
   %22 = zext i32 %21 to i64
   %23 = mul nuw i64 %22, %12
-  %24 = add nuw i64 %23, %indvars.iv67.i
+  %24 = add nuw i64 %23, %indvars.iv66.i
   %25 = mul i64 %24, 3
   %26 = add i64 %25, 3
   %27 = icmp ugt i64 %25, -4
-  br i1 %27, label %.split43.us.i, label %28
+  br i1 %27, label %.split42.us.i, label %28
 
 28:                                               ; preds = %.noexc
   %29 = icmp ugt i64 %26, %.val3.i.i
-  br i1 %29, label %.split47.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
+  br i1 %29, label %.split46.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i": ; preds = %28
   %30 = getelementptr inbounds float, ptr %.val.i.i, i64 %25
@@ -3617,21 +3617,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h40f8bfacfed5426dE(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
-  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, %12
-  br i1 %exitcond70.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, %12
+  br i1 %exitcond69.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split43.us.i:                                    ; preds = %.noexc
+.split42.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %25, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split43.us.i
+.noexc1:                                          ; preds = %.split42.us.i
   unreachable
 
-.split47.us.i:                                    ; preds = %28
+.split46.us.i:                                    ; preds = %28
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split47.us.i
+.noexc2:                                          ; preds = %.split46.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -3639,7 +3639,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h40f8bfacfed5426dE(ptr 
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split47.us.i
+.loopexit.split-lp:                               ; preds = %.split42.us.i, %.split46.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -3649,7 +3649,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017h40f8bfacfed5426dE(ptr 
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$f32$GT$$C$alloc..vec..Vec$LT$f32$GT$$GT$$GT$17hd1af88b6803ff990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %34 unwind label %32
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -3697,21 +3697,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha0a77988f794c325E(ptr 
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !345
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit3, label %.lr.ph36.i
+  br i1 %.not.i, label %.loopexit3, label %.lr.ph35.i
 
-.lr.ph36.i:                                       ; preds = %.preheader.i
-  %.not42.i = icmp eq i32 %5, 0
+.lr.ph35.i:                                       ; preds = %.preheader.i
+  %.not41.i = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
-  br i1 %.not42.i, label %.loopexit3, label %.lr.ph.us.preheader.i
+  br i1 %.not41.i, label %.loopexit3, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph36.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph35.i
   %15 = zext i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv53.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next54.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
-  %16 = trunc nuw i64 %indvars.iv53.i to i32
+  %indvars.iv52.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next53.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
+  %16 = trunc nuw i64 %indvars.iv52.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -3725,9 +3725,9 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha0a77988f794c325E(ptr 
   %21 = add i32 %5, %20
   %22 = zext i32 %21 to i64
   %23 = mul nuw i64 %22, %14
-  %24 = add nuw i64 %23, %indvars.iv53.i
+  %24 = add nuw i64 %23, %indvars.iv52.i
   %.not.i.us.i = icmp ult i64 %24, %.fca.1.extract.i
-  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", label %.split39.us.i
+  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", label %.split38.us.i
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
   %.sroa.0.0.copyload.i.us.i = load i8, ptr %19, align 1, !noalias !351
@@ -3738,15 +3738,15 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha0a77988f794c325E(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i"
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next54.i, %14
-  br i1 %exitcond56.not.i, label %.loopexit3, label %.lr.ph.us.i
+  %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, %14
+  br i1 %exitcond55.not.i, label %.loopexit3, label %.lr.ph.us.i
 
-.split39.us.i:                                    ; preds = %.noexc
+.split38.us.i:                                    ; preds = %.noexc
   %26 = add nuw i64 %24, 1
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split39.us.i
+.noexc1:                                          ; preds = %.split38.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -3754,7 +3754,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha0a77988f794c325E(ptr 
           cleanup
   br label %27
 
-.loopexit.split-lp:                               ; preds = %.split39.us.i
+.loopexit.split-lp:                               ; preds = %.split38.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %27
@@ -3764,7 +3764,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha0a77988f794c325E(ptr 
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Luma$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9bfc8b04396d871eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %30 unwind label %28
 
-.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph36.i, %.preheader.i
+.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph35.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -3806,25 +3806,25 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha1ca1f933f5b1270E(ptr 
   store i32 %5, ptr %11, align 4, !alias.scope !358
   tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit3, label %.lr.ph36.i
+  br i1 %.not.i, label %.loopexit3, label %.lr.ph35.i
 
-.lr.ph36.i:                                       ; preds = %.preheader.i
-  %.not42.i = icmp eq i32 %5, 0
+.lr.ph35.i:                                       ; preds = %.preheader.i
+  %.not41.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %13, align 8, !alias.scope !361, !noalias !364
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %14, align 8, !alias.scope !361, !noalias !364, !nonnull !4
-  br i1 %.not42.i, label %.loopexit3, label %.lr.ph.us.preheader.i
+  br i1 %.not41.i, label %.loopexit3, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph36.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph35.i
   %15 = zext i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv53.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next54.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
-  %16 = trunc nuw i64 %indvars.iv53.i to i32
+  %indvars.iv52.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next53.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
+  %16 = trunc nuw i64 %indvars.iv52.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -3838,9 +3838,9 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha1ca1f933f5b1270E(ptr 
   %21 = add i32 %5, %20
   %22 = zext i32 %21 to i64
   %23 = mul nuw i64 %22, %12
-  %24 = add nuw i64 %23, %indvars.iv53.i
+  %24 = add nuw i64 %23, %indvars.iv52.i
   %.not.i.us.i = icmp ult i64 %24, %.val3.i.i
-  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", label %.split39.us.i
+  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", label %.split38.us.i
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
   %.sroa.0.0.copyload.i.us.i = load i16, ptr %19, align 2, !noalias !367
@@ -3851,15 +3851,15 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha1ca1f933f5b1270E(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i"
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next54.i, %12
-  br i1 %exitcond56.not.i, label %.loopexit3, label %.lr.ph.us.i
+  %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, %12
+  br i1 %exitcond55.not.i, label %.loopexit3, label %.lr.ph.us.i
 
-.split39.us.i:                                    ; preds = %.noexc
+.split38.us.i:                                    ; preds = %.noexc
   %26 = add nuw i64 %24, 1
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split39.us.i
+.noexc1:                                          ; preds = %.split38.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -3867,7 +3867,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha1ca1f933f5b1270E(ptr 
           cleanup
   br label %27
 
-.loopexit.split-lp:                               ; preds = %.split39.us.i
+.loopexit.split-lp:                               ; preds = %.split38.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %27
@@ -3877,7 +3877,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017ha1ca1f933f5b1270E(ptr 
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Luma$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17hab9acd9360c57db3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %30 unwind label %28
 
-.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph36.i, %.preheader.i
+.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph35.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -3925,21 +3925,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hcca26da611c8fb76E(ptr 
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !371
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not49.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not48.i = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
-  br i1 %.not49.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not48.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %15 = zext i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv63.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next64.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %16 = trunc nuw i64 %indvars.iv63.i to i32
+  %indvars.iv62.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next63.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %16 = trunc nuw i64 %indvars.iv62.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -3955,15 +3955,15 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hcca26da611c8fb76E(ptr 
   %21 = add i32 %5, %20
   %22 = zext i32 %21 to i64
   %23 = mul nuw i64 %22, %14
-  %24 = add nuw i64 %23, %indvars.iv63.i
+  %24 = add nuw i64 %23, %indvars.iv62.i
   %25 = shl i64 %24, 2
   %26 = add i64 %25, 4
   %27 = icmp eq i64 %25, -4
-  br i1 %27, label %.split43.us.i, label %28
+  br i1 %27, label %.split42.us.i, label %28
 
 28:                                               ; preds = %.noexc
   %29 = icmp ugt i64 %26, %.fca.1.extract.i
-  br i1 %29, label %.split46.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
+  br i1 %29, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i": ; preds = %28
   %30 = getelementptr inbounds i8, ptr %11, i64 %25
@@ -3972,21 +3972,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hcca26da611c8fb76E(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, %14
-  br i1 %exitcond66.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, %14
+  br i1 %exitcond65.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split43.us.i:                                    ; preds = %.noexc
+.split42.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split43.us.i
+.noexc1:                                          ; preds = %.split42.us.i
   unreachable
 
-.split46.us.i:                                    ; preds = %28
+.split45.us.i:                                    ; preds = %28
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split46.us.i
+.noexc2:                                          ; preds = %.split45.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -3994,7 +3994,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hcca26da611c8fb76E(ptr 
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split46.us.i
+.loopexit.split-lp:                               ; preds = %.split42.us.i, %.split45.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -4004,7 +4004,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hcca26da611c8fb76E(ptr 
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17ha4891b45020b4ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %34 unwind label %32
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -4046,25 +4046,25 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hd9c01f41d263d508E(ptr 
   store i32 %5, ptr %11, align 4, !alias.scope !384
   tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph38.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph37.i
 
-.lr.ph38.i:                                       ; preds = %.preheader.i
-  %.not47.i = icmp eq i32 %5, 0
+.lr.ph37.i:                                       ; preds = %.preheader.i
+  %.not46.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !387, !noalias !390, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !387, !noalias !390
-  br i1 %.not47.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not46.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph38.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph37.i
   %15 = zext i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv61.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next62.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %16 = trunc nuw i64 %indvars.iv61.i to i32
+  %indvars.iv60.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next61.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
+  %16 = trunc nuw i64 %indvars.iv60.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -4079,15 +4079,15 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hd9c01f41d263d508E(ptr 
   %21 = add i32 %5, %20
   %22 = zext i32 %21 to i64
   %23 = mul nuw i64 %22, %12
-  %24 = add nuw i64 %23, %indvars.iv61.i
+  %24 = add nuw i64 %23, %indvars.iv60.i
   %25 = shl i64 %24, 2
   %26 = add i64 %25, 4
   %27 = icmp eq i64 %25, -4
-  br i1 %27, label %.split41.us.i, label %28
+  br i1 %27, label %.split40.us.i, label %28
 
 28:                                               ; preds = %.noexc
   %29 = icmp ugt i64 %26, %.val3.i.i
-  br i1 %29, label %.split44.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
+  br i1 %29, label %.split43.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %28
   %30 = getelementptr inbounds float, ptr %.val.i.i, i64 %25
@@ -4096,21 +4096,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hd9c01f41d263d508E(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
-  %exitcond64.not.i = icmp eq i64 %indvars.iv.next62.i, %12
-  br i1 %exitcond64.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond63.not.i = icmp eq i64 %indvars.iv.next61.i, %12
+  br i1 %exitcond63.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split41.us.i:                                    ; preds = %.noexc
+.split40.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split41.us.i
+.noexc1:                                          ; preds = %.split40.us.i
   unreachable
 
-.split44.us.i:                                    ; preds = %28
+.split43.us.i:                                    ; preds = %28
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split44.us.i
+.noexc2:                                          ; preds = %.split43.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -4118,7 +4118,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hd9c01f41d263d508E(ptr 
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %.split41.us.i, %.split44.us.i
+.loopexit.split-lp:                               ; preds = %.split40.us.i, %.split43.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -4128,7 +4128,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hd9c01f41d263d508E(ptr 
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$f32$GT$$C$alloc..vec..Vec$LT$f32$GT$$GT$$GT$17h3c91b4aeb1ba84e9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %34 unwind label %32
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph38.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph37.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -4170,25 +4170,25 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hee4616d76ee6204fE(ptr 
   store i32 %5, ptr %11, align 4, !alias.scope !397
   tail call void @llvm.experimental.noalias.scope.decl(metadata !400)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph41.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
 
-.lr.ph41.i:                                       ; preds = %.preheader.i
-  %.not51.i = icmp eq i32 %5, 0
+.lr.ph40.i:                                       ; preds = %.preheader.i
+  %.not50.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !400, !noalias !403, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !400, !noalias !403
-  br i1 %.not51.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not50.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph41.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
   %15 = zext i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv68.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next69.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  %16 = trunc nuw i64 %indvars.iv68.i to i32
+  %indvars.iv67.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next68.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %16 = trunc nuw i64 %indvars.iv67.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -4204,15 +4204,15 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hee4616d76ee6204fE(ptr 
   %21 = add i32 %5, %20
   %22 = zext i32 %21 to i64
   %23 = mul nuw i64 %22, %12
-  %24 = add nuw i64 %23, %indvars.iv68.i
+  %24 = add nuw i64 %23, %indvars.iv67.i
   %25 = mul i64 %24, 3
   %26 = add i64 %25, 3
   %27 = icmp ugt i64 %25, -4
-  br i1 %27, label %.split44.us.i, label %28
+  br i1 %27, label %.split43.us.i, label %28
 
 28:                                               ; preds = %.noexc
   %29 = icmp ugt i64 %26, %.val3.i.i
-  br i1 %29, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
+  br i1 %29, label %.split47.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i": ; preds = %28
   %30 = getelementptr inbounds i16, ptr %.val.i.i, i64 %25
@@ -4221,21 +4221,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hee4616d76ee6204fE(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
-  %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, %12
-  br i1 %exitcond71.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, %12
+  br i1 %exitcond70.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split44.us.i:                                    ; preds = %.noexc
+.split43.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %25, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split44.us.i
+.noexc1:                                          ; preds = %.split43.us.i
   unreachable
 
-.split48.us.i:                                    ; preds = %28
+.split47.us.i:                                    ; preds = %28
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split48.us.i
+.noexc2:                                          ; preds = %.split47.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -4243,7 +4243,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hee4616d76ee6204fE(ptr 
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %.split44.us.i, %.split48.us.i
+.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split47.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -4253,7 +4253,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hee4616d76ee6204fE(ptr 
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h594a734dcad31749E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %34 unwind label %32
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph41.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -4295,25 +4295,25 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hfe64b40264f70ae3E(ptr 
   store i32 %5, ptr %11, align 4, !alias.scope !410
   tail call void @llvm.experimental.noalias.scope.decl(metadata !413)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not49.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not48.i = icmp eq i32 %5, 0
   %12 = zext i32 %7 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !413, !noalias !416, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !413, !noalias !416
-  br i1 %.not49.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not48.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %15 = zext i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv63.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next64.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %16 = trunc nuw i64 %indvars.iv63.i to i32
+  %indvars.iv62.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next63.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %16 = trunc nuw i64 %indvars.iv62.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -4329,15 +4329,15 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hfe64b40264f70ae3E(ptr 
   %21 = add i32 %5, %20
   %22 = zext i32 %21 to i64
   %23 = mul nuw i64 %22, %12
-  %24 = add nuw i64 %23, %indvars.iv63.i
+  %24 = add nuw i64 %23, %indvars.iv62.i
   %25 = shl i64 %24, 2
   %26 = add i64 %25, 4
   %27 = icmp eq i64 %25, -4
-  br i1 %27, label %.split43.us.i, label %28
+  br i1 %27, label %.split42.us.i, label %28
 
 28:                                               ; preds = %.noexc
   %29 = icmp ugt i64 %26, %.val3.i.i
-  br i1 %29, label %.split46.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
+  br i1 %29, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %28
   %30 = getelementptr inbounds i16, ptr %.val.i.i, i64 %25
@@ -4346,21 +4346,21 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hfe64b40264f70ae3E(ptr 
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, %12
-  br i1 %exitcond66.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, %12
+  br i1 %exitcond65.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split43.us.i:                                    ; preds = %.noexc
+.split42.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split43.us.i
+.noexc1:                                          ; preds = %.split42.us.i
   unreachable
 
-.split46.us.i:                                    ; preds = %28
+.split45.us.i:                                    ; preds = %28
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split46.us.i
+.noexc2:                                          ; preds = %.split45.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -4368,7 +4368,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hfe64b40264f70ae3E(ptr 
           cleanup
   br label %31
 
-.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split46.us.i
+.loopexit.split-lp:                               ; preds = %.split42.us.i, %.split45.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -4378,7 +4378,7 @@ define hidden void @_ZN5image8imageops6affine9rotate27017hfe64b40264f70ae3E(ptr 
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h4ed1c6a8c5e3bfe9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %34 unwind label %32
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -4410,32 +4410,32 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h266f63872491b440E.l
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph46
+  br i1 %.not, label %._crit_edge, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph45:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph46
+.lr.ph.us.preheader:                              ; preds = %.lr.ph45
   %wide.trip.count = zext i32 %5 to i64
-  br label %.lr.ph.split.us48.preheader
+  br label %.lr.ph.split.us47.preheader
 
-.lr.ph.split.us48.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv74 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next75, %..loopexit_crit_edge.us ]
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %17 = trunc nuw i64 %indvars.iv74 to i32
+.lr.ph.split.us47.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv73 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next74, %..loopexit_crit_edge.us ]
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %17 = trunc nuw i64 %indvars.iv73 to i32
   %18 = xor i32 %17, -1
   %19 = add i32 %7, %18
   %20 = zext i32 %19 to i64
-  br label %.lr.ph.split.us48
+  br label %.lr.ph.split.us47
 
-.lr.ph.split.us48:                                ; preds = %.lr.ph.split.us48.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us48.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us47:                                ; preds = %.lr.ph.split.us47.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us47.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = tail call noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !423
@@ -4444,21 +4444,21 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h266f63872491b440E.l
   %25 = mul i64 %24, 3
   %26 = add i64 %25, 3
   %27 = icmp ugt i64 %25, -4
-  br i1 %27, label %.split.us49, label %28
+  br i1 %27, label %.split.us48, label %28
 
-28:                                               ; preds = %.lr.ph.split.us48
+28:                                               ; preds = %.lr.ph.split.us47
   %29 = icmp ugt i64 %26, %.val3.i
-  br i1 %29, label %.split52.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+  br i1 %29, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %28
   %30 = getelementptr inbounds float, ptr %.val.i, i64 %25
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %30, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us48
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us47
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %14
-  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.us48.preheader
+  %exitcond77.not = icmp eq i64 %indvars.iv.next74, %14
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.us47.preheader
 
 31:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -4468,18 +4468,18 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h266f63872491b440E.l
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %32
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph45, %.preheader
   store i8 10, ptr %0, align 8
   br label %32
 
 32:                                               ; preds = %._crit_edge, %31
   ret void
 
-.split.us49:                                      ; preds = %.lr.ph.split.us48
+.split.us48:                                      ; preds = %.lr.ph.split.us47
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %25, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !426
   unreachable
 
-.split52.us:                                      ; preds = %28
+.split51.us:                                      ; preds = %28
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !426
   unreachable
 }
@@ -4501,56 +4501,56 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h3e034ffd9864049dE.l
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph46
+  br i1 %.not, label %._crit_edge, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph45:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph46
+.lr.ph.us.preheader:                              ; preds = %.lr.ph45
   %wide.trip.count = zext i32 %5 to i64
-  br label %.lr.ph.split.us49.preheader
+  br label %.lr.ph.split.us48.preheader
 
-.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next72, %..loopexit_crit_edge.us ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %17 = trunc nuw i64 %indvars.iv71 to i32
+.lr.ph.split.us48.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next71, %..loopexit_crit_edge.us ]
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %17 = trunc nuw i64 %indvars.iv70 to i32
   %18 = xor i32 %17, -1
   %19 = add i32 %7, %18
   %20 = zext i32 %19 to i64
-  br label %.lr.ph.split.us49
+  br label %.lr.ph.split.us48
 
-.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us48:                                ; preds = %.lr.ph.split.us48.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us48.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = tail call noundef align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hceaa3a089891951aE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us48 = load i32, ptr %22, align 2
+  %.sroa.0.0.copyload.i.us47 = load i32, ptr %22, align 2
   %23 = mul nuw i64 %indvars.iv, %14
   %24 = add nuw i64 %23, %20
   %25 = shl i64 %24, 1
   %26 = add i64 %25, 2
   %27 = icmp eq i64 %25, -2
-  br i1 %27, label %.split.us50, label %28
+  br i1 %27, label %.split.us49, label %28
 
-28:                                               ; preds = %.lr.ph.split.us49
+28:                                               ; preds = %.lr.ph.split.us48
   %29 = icmp ugt i64 %26, %.val3.i
-  br i1 %29, label %.split52.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
+  br i1 %29, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %28
   %30 = getelementptr inbounds i16, ptr %.val.i, i64 %25
-  store i32 %.sroa.0.0.copyload.i.us48, ptr %30, align 2
+  store i32 %.sroa.0.0.copyload.i.us47, ptr %30, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us48
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %14
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %14
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us48.preheader
 
 31:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -4560,18 +4560,18 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h3e034ffd9864049dE.l
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %32
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph45, %.preheader
   store i8 10, ptr %0, align 8
   br label %32
 
 32:                                               ; preds = %._crit_edge, %31
   ret void
 
-.split.us50:                                      ; preds = %.lr.ph.split.us49
+.split.us49:                                      ; preds = %.lr.ph.split.us48
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !434
   unreachable
 
-.split52.us:                                      ; preds = %28
+.split51.us:                                      ; preds = %28
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !434
   unreachable
 }
@@ -4593,56 +4593,56 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h431c80afdd614e19E.l
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph46
+  br i1 %.not, label %._crit_edge, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph45:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph46
+.lr.ph.us.preheader:                              ; preds = %.lr.ph45
   %wide.trip.count = zext i32 %5 to i64
-  br label %.lr.ph.split.us49.preheader
+  br label %.lr.ph.split.us48.preheader
 
-.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next72, %..loopexit_crit_edge.us ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %17 = trunc nuw i64 %indvars.iv71 to i32
+.lr.ph.split.us48.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next71, %..loopexit_crit_edge.us ]
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %17 = trunc nuw i64 %indvars.iv70 to i32
   %18 = xor i32 %17, -1
   %19 = add i32 %7, %18
   %20 = zext i32 %19 to i64
-  br label %.lr.ph.split.us49
+  br label %.lr.ph.split.us48
 
-.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us48:                                ; preds = %.lr.ph.split.us48.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us48.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = tail call noundef align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h553bd5839299de1eE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us48 = load i32, ptr %22, align 1
+  %.sroa.0.0.copyload.i.us47 = load i32, ptr %22, align 1
   %23 = mul nuw i64 %indvars.iv, %14
   %24 = add nuw i64 %23, %20
   %25 = shl i64 %24, 2
   %26 = add i64 %25, 4
   %27 = icmp eq i64 %25, -4
-  br i1 %27, label %.split.us50, label %28
+  br i1 %27, label %.split.us49, label %28
 
-28:                                               ; preds = %.lr.ph.split.us49
+28:                                               ; preds = %.lr.ph.split.us48
   %29 = icmp ugt i64 %26, %.val3.i
-  br i1 %29, label %.split52.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
+  br i1 %29, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us": ; preds = %28
   %30 = getelementptr inbounds i8, ptr %.val.i, i64 %25
-  store i32 %.sroa.0.0.copyload.i.us48, ptr %30, align 1
+  store i32 %.sroa.0.0.copyload.i.us47, ptr %30, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us48
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %14
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %14
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us48.preheader
 
 31:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -4652,18 +4652,18 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h431c80afdd614e19E.l
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %32
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph45, %.preheader
   store i8 10, ptr %0, align 8
   br label %32
 
 32:                                               ; preds = %._crit_edge, %31
   ret void
 
-.split.us50:                                      ; preds = %.lr.ph.split.us49
+.split.us49:                                      ; preds = %.lr.ph.split.us48
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !442
   unreachable
 
-.split52.us:                                      ; preds = %28
+.split51.us:                                      ; preds = %28
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !442
   unreachable
 }
@@ -4685,56 +4685,56 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h450808dada6b5fd4E.l
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph46
+  br i1 %.not, label %._crit_edge, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph45:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph46
+.lr.ph.us.preheader:                              ; preds = %.lr.ph45
   %wide.trip.count = zext i32 %5 to i64
-  br label %.lr.ph.split.us49.preheader
+  br label %.lr.ph.split.us48.preheader
 
-.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next72, %..loopexit_crit_edge.us ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %17 = trunc nuw i64 %indvars.iv71 to i32
+.lr.ph.split.us48.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next71, %..loopexit_crit_edge.us ]
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %17 = trunc nuw i64 %indvars.iv70 to i32
   %18 = xor i32 %17, -1
   %19 = add i32 %7, %18
   %20 = zext i32 %19 to i64
-  br label %.lr.ph.split.us49
+  br label %.lr.ph.split.us48
 
-.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us48:                                ; preds = %.lr.ph.split.us48.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us48.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = tail call noundef align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8633644275b32013E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us48 = load i16, ptr %22, align 1
+  %.sroa.0.0.copyload.i.us47 = load i16, ptr %22, align 1
   %23 = mul nuw i64 %indvars.iv, %14
   %24 = add nuw i64 %23, %20
   %25 = shl i64 %24, 1
   %26 = add i64 %25, 2
   %27 = icmp eq i64 %25, -2
-  br i1 %27, label %.split.us50, label %28
+  br i1 %27, label %.split.us49, label %28
 
-28:                                               ; preds = %.lr.ph.split.us49
+28:                                               ; preds = %.lr.ph.split.us48
   %29 = icmp ugt i64 %26, %.val3.i
-  br i1 %29, label %.split52.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
+  br i1 %29, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us": ; preds = %28
   %30 = getelementptr inbounds i8, ptr %.val.i, i64 %25
-  store i16 %.sroa.0.0.copyload.i.us48, ptr %30, align 1
+  store i16 %.sroa.0.0.copyload.i.us47, ptr %30, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us48
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %14
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %14
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us48.preheader
 
 31:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -4744,18 +4744,18 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h450808dada6b5fd4E.l
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %32
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph45, %.preheader
   store i8 10, ptr %0, align 8
   br label %32
 
 32:                                               ; preds = %._crit_edge, %31
   ret void
 
-.split.us50:                                      ; preds = %.lr.ph.split.us49
+.split.us49:                                      ; preds = %.lr.ph.split.us48
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !450
   unreachable
 
-.split52.us:                                      ; preds = %28
+.split51.us:                                      ; preds = %28
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !450
   unreachable
 }
@@ -4777,56 +4777,56 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h4fc7f0c8cb42c17dE.l
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph47
+  br i1 %.not, label %._crit_edge, label %.lr.ph46
 
-.lr.ph47:                                         ; preds = %.preheader
-  %.not59 = icmp eq i32 %5, 0
+.lr.ph46:                                         ; preds = %.preheader
+  %.not58 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not59, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph47
+.lr.ph.us.preheader:                              ; preds = %.lr.ph46
   %wide.trip.count = zext i32 %5 to i64
-  br label %.lr.ph.split.us50.preheader
+  br label %.lr.ph.split.us49.preheader
 
-.lr.ph.split.us50.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next77, %..loopexit_crit_edge.us ]
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %17 = trunc nuw i64 %indvars.iv76 to i32
+.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv75 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next76, %..loopexit_crit_edge.us ]
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %17 = trunc nuw i64 %indvars.iv75 to i32
   %18 = xor i32 %17, -1
   %19 = add i32 %7, %18
   %20 = zext i32 %19 to i64
-  br label %.lr.ph.split.us50
+  br label %.lr.ph.split.us49
 
-.lr.ph.split.us50:                                ; preds = %.lr.ph.split.us50.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us50.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = tail call noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us49 = load i24, ptr %22, align 1
+  %.sroa.0.0.copyload.i.us48 = load i24, ptr %22, align 1
   %23 = mul nuw i64 %indvars.iv, %14
   %24 = add nuw i64 %23, %20
   %25 = mul i64 %24, 3
   %26 = add i64 %25, 3
   %27 = icmp ugt i64 %25, -4
-  br i1 %27, label %.split.us51, label %28
+  br i1 %27, label %.split.us50, label %28
 
-28:                                               ; preds = %.lr.ph.split.us50
+28:                                               ; preds = %.lr.ph.split.us49
   %29 = icmp ugt i64 %26, %.val3.i
-  br i1 %29, label %.split54.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
+  br i1 %29, label %.split53.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us": ; preds = %28
   %30 = getelementptr inbounds i8, ptr %.val.i, i64 %25
-  store i24 %.sroa.0.0.copyload.i.us49, ptr %30, align 1
+  store i24 %.sroa.0.0.copyload.i.us48, ptr %30, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us50
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
-  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %14
-  br i1 %exitcond80.not, label %._crit_edge, label %.lr.ph.split.us50.preheader
+  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %14
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
 
 31:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -4836,18 +4836,18 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h4fc7f0c8cb42c17dE.l
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %32
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph47, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
   store i8 10, ptr %0, align 8
   br label %32
 
 32:                                               ; preds = %._crit_edge, %31
   ret void
 
-.split.us51:                                      ; preds = %.lr.ph.split.us50
+.split.us50:                                      ; preds = %.lr.ph.split.us49
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %25, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !458
   unreachable
 
-.split54.us:                                      ; preds = %28
+.split53.us:                                      ; preds = %28
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !458
   unreachable
 }
@@ -4869,32 +4869,32 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h5cd3001408b39c08E.l
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph44
+  br i1 %.not, label %._crit_edge, label %.lr.ph43
 
-.lr.ph44:                                         ; preds = %.preheader
-  %.not54 = icmp eq i32 %5, 0
+.lr.ph43:                                         ; preds = %.preheader
+  %.not53 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not54, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not53, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph44
+.lr.ph.us.preheader:                              ; preds = %.lr.ph43
   %wide.trip.count = zext i32 %5 to i64
-  br label %.lr.ph.split.us46.preheader
+  br label %.lr.ph.split.us45.preheader
 
-.lr.ph.split.us46.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next69, %..loopexit_crit_edge.us ]
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %17 = trunc nuw i64 %indvars.iv68 to i32
+.lr.ph.split.us45.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next68, %..loopexit_crit_edge.us ]
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %17 = trunc nuw i64 %indvars.iv67 to i32
   %18 = xor i32 %17, -1
   %19 = add i32 %7, %18
   %20 = zext i32 %19 to i64
-  br label %.lr.ph.split.us46
+  br label %.lr.ph.split.us45
 
-.lr.ph.split.us46:                                ; preds = %.lr.ph.split.us46.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us46.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us45:                                ; preds = %.lr.ph.split.us45.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us45.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = tail call noundef align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !466
@@ -4903,21 +4903,21 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h5cd3001408b39c08E.l
   %25 = shl i64 %24, 2
   %26 = add i64 %25, 4
   %27 = icmp eq i64 %25, -4
-  br i1 %27, label %.split.us47, label %28
+  br i1 %27, label %.split.us46, label %28
 
-28:                                               ; preds = %.lr.ph.split.us46
+28:                                               ; preds = %.lr.ph.split.us45
   %29 = icmp ugt i64 %26, %.val3.i
-  br i1 %29, label %.split49.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
+  br i1 %29, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %28
   %30 = getelementptr inbounds float, ptr %.val.i, i64 %25
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us46
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us45
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
-  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %14
-  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us46.preheader
+  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %14
+  br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph.split.us45.preheader
 
 31:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -4927,18 +4927,18 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h5cd3001408b39c08E.l
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %32
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph44, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph43, %.preheader
   store i8 10, ptr %0, align 8
   br label %32
 
 32:                                               ; preds = %._crit_edge, %31
   ret void
 
-.split.us47:                                      ; preds = %.lr.ph.split.us46
+.split.us46:                                      ; preds = %.lr.ph.split.us45
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !469
   unreachable
 
-.split49.us:                                      ; preds = %28
+.split48.us:                                      ; preds = %28
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !469
   unreachable
 }
@@ -4960,50 +4960,50 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h73a64648e5528865E.l
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %.preheader
-  %.not48 = icmp eq i32 %5, 0
+.lr.ph39:                                         ; preds = %.preheader
+  %.not47 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %16, align 8, !nonnull !4
-  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
   %wide.trip.count = zext i32 %5 to i64
-  br label %.lr.ph.split.us43.preheader
+  br label %.lr.ph.split.us42.preheader
 
-.lr.ph.split.us43.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next60, %..loopexit_crit_edge.us ]
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %17 = trunc nuw i64 %indvars.iv59 to i32
+.lr.ph.split.us42.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next59, %..loopexit_crit_edge.us ]
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %17 = trunc nuw i64 %indvars.iv58 to i32
   %18 = xor i32 %17, -1
   %19 = add i32 %7, %18
   %20 = zext i32 %19 to i64
-  br label %.lr.ph.split.us43
+  br label %.lr.ph.split.us42
 
-.lr.ph.split.us43:                                ; preds = %.lr.ph.split.us43.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us43.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us42:                                ; preds = %.lr.ph.split.us42.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us42.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us" ]
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = tail call noundef align 2 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hd2363a508e017e20E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
   %23 = mul nuw i64 %indvars.iv, %14
   %24 = add nuw i64 %23, %20
   %.not.i.us = icmp ult i64 %24, %.val3.i
-  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", label %.split.us44
+  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", label %.split.us43
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %.lr.ph.split.us43
-  %.sroa.0.0.copyload.i.us42 = load i16, ptr %22, align 2
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %.lr.ph.split.us42
+  %.sroa.0.0.copyload.i.us41 = load i16, ptr %22, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = getelementptr inbounds i16, ptr %.val.i, i64 %24
-  store i16 %.sroa.0.0.copyload.i.us42, ptr %25, align 2
+  store i16 %.sroa.0.0.copyload.i.us41, ptr %25, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us43
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us42
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us"
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %14
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us43.preheader
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %14
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us42.preheader
 
 26:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -5013,14 +5013,14 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17h73a64648e5528865E.l
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %27
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
   store i8 10, ptr %0, align 8
   br label %27
 
 27:                                               ; preds = %._crit_edge, %26
   ret void
 
-.split.us44:                                      ; preds = %.lr.ph.split.us43
+.split.us43:                                      ; preds = %.lr.ph.split.us42
   %28 = add nuw i64 %24, 1
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !477
   unreachable
@@ -5043,56 +5043,56 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17hbd4beb87f282cfd1E.l
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph46
+  br i1 %.not, label %._crit_edge, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph45:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph46
+.lr.ph.us.preheader:                              ; preds = %.lr.ph45
   %wide.trip.count = zext i32 %5 to i64
-  br label %.lr.ph.split.us49.preheader
+  br label %.lr.ph.split.us48.preheader
 
-.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next72, %..loopexit_crit_edge.us ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %17 = trunc nuw i64 %indvars.iv71 to i32
+.lr.ph.split.us48.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next71, %..loopexit_crit_edge.us ]
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %17 = trunc nuw i64 %indvars.iv70 to i32
   %18 = xor i32 %17, -1
   %19 = add i32 %7, %18
   %20 = zext i32 %19 to i64
-  br label %.lr.ph.split.us49
+  br label %.lr.ph.split.us48
 
-.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us48:                                ; preds = %.lr.ph.split.us48.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us48.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = tail call noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us48 = load i64, ptr %22, align 2
+  %.sroa.0.0.copyload.i.us47 = load i64, ptr %22, align 2
   %23 = mul nuw i64 %indvars.iv, %14
   %24 = add nuw i64 %23, %20
   %25 = shl i64 %24, 2
   %26 = add i64 %25, 4
   %27 = icmp eq i64 %25, -4
-  br i1 %27, label %.split.us50, label %28
+  br i1 %27, label %.split.us49, label %28
 
-28:                                               ; preds = %.lr.ph.split.us49
+28:                                               ; preds = %.lr.ph.split.us48
   %29 = icmp ugt i64 %26, %.val3.i
-  br i1 %29, label %.split52.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
+  br i1 %29, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %28
   %30 = getelementptr inbounds i16, ptr %.val.i, i64 %25
-  store i64 %.sroa.0.0.copyload.i.us48, ptr %30, align 2
+  store i64 %.sroa.0.0.copyload.i.us47, ptr %30, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us48
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %14
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %14
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us48.preheader
 
 31:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -5102,18 +5102,18 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17hbd4beb87f282cfd1E.l
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %32
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph45, %.preheader
   store i8 10, ptr %0, align 8
   br label %32
 
 32:                                               ; preds = %._crit_edge, %31
   ret void
 
-.split.us50:                                      ; preds = %.lr.ph.split.us49
+.split.us49:                                      ; preds = %.lr.ph.split.us48
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !485
   unreachable
 
-.split52.us:                                      ; preds = %28
+.split51.us:                                      ; preds = %28
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !485
   unreachable
 }
@@ -5135,56 +5135,56 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17hdaedff5c8f400268E.l
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph47
+  br i1 %.not, label %._crit_edge, label %.lr.ph46
 
-.lr.ph47:                                         ; preds = %.preheader
-  %.not59 = icmp eq i32 %5, 0
+.lr.ph46:                                         ; preds = %.preheader
+  %.not58 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not59, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph47
+.lr.ph.us.preheader:                              ; preds = %.lr.ph46
   %wide.trip.count = zext i32 %5 to i64
-  br label %.lr.ph.split.us50.preheader
+  br label %.lr.ph.split.us49.preheader
 
-.lr.ph.split.us50.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next77, %..loopexit_crit_edge.us ]
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %17 = trunc nuw i64 %indvars.iv76 to i32
+.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv75 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next76, %..loopexit_crit_edge.us ]
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %17 = trunc nuw i64 %indvars.iv75 to i32
   %18 = xor i32 %17, -1
   %19 = add i32 %7, %18
   %20 = zext i32 %19 to i64
-  br label %.lr.ph.split.us50
+  br label %.lr.ph.split.us49
 
-.lr.ph.split.us50:                                ; preds = %.lr.ph.split.us50.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us50.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = tail call noundef align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hc4a40bd0c7ce1bc8E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us49 = load i48, ptr %22, align 2
+  %.sroa.0.0.copyload.i.us48 = load i48, ptr %22, align 2
   %23 = mul nuw i64 %indvars.iv, %14
   %24 = add nuw i64 %23, %20
   %25 = mul i64 %24, 3
   %26 = add i64 %25, 3
   %27 = icmp ugt i64 %25, -4
-  br i1 %27, label %.split.us51, label %28
+  br i1 %27, label %.split.us50, label %28
 
-28:                                               ; preds = %.lr.ph.split.us50
+28:                                               ; preds = %.lr.ph.split.us49
   %29 = icmp ugt i64 %26, %.val3.i
-  br i1 %29, label %.split54.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
+  br i1 %29, label %.split53.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us": ; preds = %28
   %30 = getelementptr inbounds i16, ptr %.val.i, i64 %25
-  store i48 %.sroa.0.0.copyload.i.us49, ptr %30, align 2
+  store i48 %.sroa.0.0.copyload.i.us48, ptr %30, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us50
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
-  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %14
-  br i1 %exitcond80.not, label %._crit_edge, label %.lr.ph.split.us50.preheader
+  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %14
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
 
 31:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -5194,18 +5194,18 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17hdaedff5c8f400268E.l
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %32
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph47, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
   store i8 10, ptr %0, align 8
   br label %32
 
 32:                                               ; preds = %._crit_edge, %31
   ret void
 
-.split.us51:                                      ; preds = %.lr.ph.split.us50
+.split.us50:                                      ; preds = %.lr.ph.split.us49
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %25, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !493
   unreachable
 
-.split54.us:                                      ; preds = %28
+.split53.us:                                      ; preds = %28
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %26, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !493
   unreachable
 }
@@ -5227,50 +5227,50 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17he1b025d2b57209aeE.l
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %.preheader
-  %.not48 = icmp eq i32 %5, 0
+.lr.ph39:                                         ; preds = %.preheader
+  %.not47 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %16, align 8, !nonnull !4
-  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
   %wide.trip.count = zext i32 %5 to i64
-  br label %.lr.ph.split.us43.preheader
+  br label %.lr.ph.split.us42.preheader
 
-.lr.ph.split.us43.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next60, %..loopexit_crit_edge.us ]
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %17 = trunc nuw i64 %indvars.iv59 to i32
+.lr.ph.split.us42.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next59, %..loopexit_crit_edge.us ]
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %17 = trunc nuw i64 %indvars.iv58 to i32
   %18 = xor i32 %17, -1
   %19 = add i32 %7, %18
   %20 = zext i32 %19 to i64
-  br label %.lr.ph.split.us43
+  br label %.lr.ph.split.us42
 
-.lr.ph.split.us43:                                ; preds = %.lr.ph.split.us43.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us43.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us42:                                ; preds = %.lr.ph.split.us42.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us42.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us" ]
   %21 = trunc nuw i64 %indvars.iv to i32
   %22 = tail call noundef align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h2bfe2e2e7bce91aeE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
   %23 = mul nuw i64 %indvars.iv, %14
   %24 = add nuw i64 %23, %20
   %.not.i.us = icmp ult i64 %24, %.val3.i
-  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", label %.split.us44
+  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", label %.split.us43
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us": ; preds = %.lr.ph.split.us43
-  %.sroa.0.0.copyload.i.us42 = load i8, ptr %22, align 1
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us": ; preds = %.lr.ph.split.us42
+  %.sroa.0.0.copyload.i.us41 = load i8, ptr %22, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = getelementptr inbounds i8, ptr %.val.i, i64 %24
-  store i8 %.sroa.0.0.copyload.i.us42, ptr %25, align 1
+  store i8 %.sroa.0.0.copyload.i.us41, ptr %25, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us43
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us42
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us"
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %14
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us43.preheader
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %14
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us42.preheader
 
 26:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -5280,14 +5280,14 @@ define hidden void @_ZN5image8imageops6affine11rotate90_in17he1b025d2b57209aeE.l
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %27
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
   store i8 10, ptr %0, align 8
   br label %27
 
 27:                                               ; preds = %._crit_edge, %26
   ret void
 
-.split.us44:                                      ; preds = %.lr.ph.split.us43
+.split.us43:                                      ; preds = %.lr.ph.split.us42
   %28 = add nuw i64 %24, 1
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.13) #18, !noalias !501
   unreachable
@@ -5310,37 +5310,37 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h4c7314abcf01226bE.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph49
+  br i1 %.not, label %._crit_edge, label %.lr.ph48
 
-.lr.ph49:                                         ; preds = %.preheader
-  %.not66 = icmp eq i32 %5, 0
+.lr.ph48:                                         ; preds = %.preheader
+  %.not65 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not66, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph49
+.lr.ph.us.preheader:                              ; preds = %.lr.ph48
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us52.preheader
+  br label %.lr.ph.split.us51.preheader
 
-.lr.ph.split.us52.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next89, %..loopexit_crit_edge.us ]
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %18 = trunc nuw i64 %indvars.iv88 to i32
+.lr.ph.split.us51.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv87 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next88, %..loopexit_crit_edge.us ]
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %18 = trunc nuw i64 %indvars.iv87 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
   br label %23
 
-23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us52.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us52.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us" ]
+23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us51.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us51.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call noundef align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8633644275b32013E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %24, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us51 = load i16, ptr %25, align 1
+  %.sroa.0.0.copyload.i.us50 = load i16, ptr %25, align 1
   %26 = xor i32 %24, -1
   %27 = add i32 %5, %26
   %28 = zext i32 %27 to i64
@@ -5348,21 +5348,21 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h4c7314abcf01226bE.
   %30 = shl i64 %29, 1
   %31 = add i64 %30, 2
   %32 = icmp eq i64 %30, -2
-  br i1 %32, label %.split58.us, label %33
+  br i1 %32, label %.split57.us, label %33
 
 33:                                               ; preds = %23
   %34 = icmp ugt i64 %31, %.val3.i
-  br i1 %34, label %.split61.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
+  br i1 %34, label %.split60.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us": ; preds = %33
   %35 = getelementptr inbounds i8, ptr %.val.i, i64 %30
-  store i16 %.sroa.0.0.copyload.i.us51, ptr %35, align 1
+  store i16 %.sroa.0.0.copyload.i.us50, ptr %35, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %17
-  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph.split.us52.preheader
+  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %17
+  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us51.preheader
 
 36:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -5372,18 +5372,18 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h4c7314abcf01226bE.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %37
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph49, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph48, %.preheader
   store i8 10, ptr %0, align 8
   br label %37
 
 37:                                               ; preds = %._crit_edge, %36
   ret void
 
-.split58.us:                                      ; preds = %23
+.split57.us:                                      ; preds = %23
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !509
   unreachable
 
-.split61.us:                                      ; preds = %33
+.split60.us:                                      ; preds = %33
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %31, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !509
   unreachable
 }
@@ -5405,33 +5405,33 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h558af5a1f5d05ef3E.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph43
+  br i1 %.not, label %._crit_edge, label %.lr.ph42
 
-.lr.ph43:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph42:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %16, align 8, !nonnull !4
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph43
+.lr.ph.us.preheader:                              ; preds = %.lr.ph42
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us46.preheader
+  br label %.lr.ph.split.us45.preheader
 
-.lr.ph.split.us46.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv75 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next76, %..loopexit_crit_edge.us ]
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %18 = trunc nuw i64 %indvars.iv75 to i32
+.lr.ph.split.us45.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next75, %..loopexit_crit_edge.us ]
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %18 = trunc nuw i64 %indvars.iv74 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
   br label %23
 
-23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", %.lr.ph.split.us46.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us46.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us" ]
+23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", %.lr.ph.split.us45.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us45.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us" ]
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call noundef align 2 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hd2363a508e017e20E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %24, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
   %26 = xor i32 %24, -1
@@ -5439,19 +5439,19 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h558af5a1f5d05ef3E.
   %28 = zext i32 %27 to i64
   %29 = add nuw i64 %22, %28
   %.not.i.us = icmp ult i64 %29, %.val3.i
-  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", label %.split52.us
+  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", label %.split51.us
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %23
-  %.sroa.0.0.copyload.i.us45 = load i16, ptr %25, align 2
+  %.sroa.0.0.copyload.i.us44 = load i16, ptr %25, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = getelementptr inbounds i16, ptr %.val.i, i64 %29
-  store i16 %.sroa.0.0.copyload.i.us45, ptr %30, align 2
+  store i16 %.sroa.0.0.copyload.i.us44, ptr %30, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us"
-  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %17
-  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us46.preheader
+  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %17
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.us45.preheader
 
 31:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -5461,14 +5461,14 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h558af5a1f5d05ef3E.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %32
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph43, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph42, %.preheader
   store i8 10, ptr %0, align 8
   br label %32
 
 32:                                               ; preds = %._crit_edge, %31
   ret void
 
-.split52.us:                                      ; preds = %23
+.split51.us:                                      ; preds = %23
   %33 = add nuw i64 %29, 1
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %33, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !517
   unreachable
@@ -5491,37 +5491,37 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h7355b7d5e4ac00f0E.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph49
+  br i1 %.not, label %._crit_edge, label %.lr.ph48
 
-.lr.ph49:                                         ; preds = %.preheader
-  %.not66 = icmp eq i32 %5, 0
+.lr.ph48:                                         ; preds = %.preheader
+  %.not65 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not66, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph49
+.lr.ph.us.preheader:                              ; preds = %.lr.ph48
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us52.preheader
+  br label %.lr.ph.split.us51.preheader
 
-.lr.ph.split.us52.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next89, %..loopexit_crit_edge.us ]
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %18 = trunc nuw i64 %indvars.iv88 to i32
+.lr.ph.split.us51.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv87 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next88, %..loopexit_crit_edge.us ]
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %18 = trunc nuw i64 %indvars.iv87 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
   br label %23
 
-23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us", %.lr.ph.split.us52.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us52.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us" ]
+23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us", %.lr.ph.split.us51.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us51.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %24, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us51 = load i64, ptr %25, align 2
+  %.sroa.0.0.copyload.i.us50 = load i64, ptr %25, align 2
   %26 = xor i32 %24, -1
   %27 = add i32 %5, %26
   %28 = zext i32 %27 to i64
@@ -5529,21 +5529,21 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h7355b7d5e4ac00f0E.
   %30 = shl i64 %29, 2
   %31 = add i64 %30, 4
   %32 = icmp eq i64 %30, -4
-  br i1 %32, label %.split58.us, label %33
+  br i1 %32, label %.split57.us, label %33
 
 33:                                               ; preds = %23
   %34 = icmp ugt i64 %31, %.val3.i
-  br i1 %34, label %.split61.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
+  br i1 %34, label %.split60.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %33
   %35 = getelementptr inbounds i16, ptr %.val.i, i64 %30
-  store i64 %.sroa.0.0.copyload.i.us51, ptr %35, align 2
+  store i64 %.sroa.0.0.copyload.i.us50, ptr %35, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %17
-  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph.split.us52.preheader
+  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %17
+  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us51.preheader
 
 36:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -5553,18 +5553,18 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h7355b7d5e4ac00f0E.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %37
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph49, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph48, %.preheader
   store i8 10, ptr %0, align 8
   br label %37
 
 37:                                               ; preds = %._crit_edge, %36
   ret void
 
-.split58.us:                                      ; preds = %23
+.split57.us:                                      ; preds = %23
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !525
   unreachable
 
-.split61.us:                                      ; preds = %33
+.split60.us:                                      ; preds = %33
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %31, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !525
   unreachable
 }
@@ -5586,37 +5586,37 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h77aa5956049beb78E.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph50
+  br i1 %.not, label %._crit_edge, label %.lr.ph49
 
-.lr.ph50:                                         ; preds = %.preheader
-  %.not68 = icmp eq i32 %5, 0
+.lr.ph49:                                         ; preds = %.preheader
+  %.not67 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not68, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not67, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph50
+.lr.ph.us.preheader:                              ; preds = %.lr.ph49
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us53.preheader
+  br label %.lr.ph.split.us52.preheader
 
-.lr.ph.split.us53.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next94, %..loopexit_crit_edge.us ]
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %18 = trunc nuw i64 %indvars.iv93 to i32
+.lr.ph.split.us52.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv92 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next93, %..loopexit_crit_edge.us ]
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %18 = trunc nuw i64 %indvars.iv92 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
   br label %23
 
-23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us53.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us53.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us" ]
+23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us52.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us52.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call noundef align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hc4a40bd0c7ce1bc8E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %24, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us52 = load i48, ptr %25, align 2
+  %.sroa.0.0.copyload.i.us51 = load i48, ptr %25, align 2
   %26 = xor i32 %24, -1
   %27 = add i32 %5, %26
   %28 = zext i32 %27 to i64
@@ -5624,21 +5624,21 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h77aa5956049beb78E.
   %30 = mul i64 %29, 3
   %31 = add i64 %30, 3
   %32 = icmp ugt i64 %30, -4
-  br i1 %32, label %.split59.us, label %33
+  br i1 %32, label %.split58.us, label %33
 
 33:                                               ; preds = %23
   %34 = icmp ugt i64 %31, %.val3.i
-  br i1 %34, label %.split63.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
+  br i1 %34, label %.split62.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us": ; preds = %33
   %35 = getelementptr inbounds i16, ptr %.val.i, i64 %30
-  store i48 %.sroa.0.0.copyload.i.us52, ptr %35, align 2
+  store i48 %.sroa.0.0.copyload.i.us51, ptr %35, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
-  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %17
-  br i1 %exitcond97.not, label %._crit_edge, label %.lr.ph.split.us53.preheader
+  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %17
+  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph.split.us52.preheader
 
 36:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -5648,18 +5648,18 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h77aa5956049beb78E.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %37
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph50, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph49, %.preheader
   store i8 10, ptr %0, align 8
   br label %37
 
 37:                                               ; preds = %._crit_edge, %36
   ret void
 
-.split59.us:                                      ; preds = %23
+.split58.us:                                      ; preds = %23
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %30, i64 noundef %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !533
   unreachable
 
-.split63.us:                                      ; preds = %33
+.split62.us:                                      ; preds = %33
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %31, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !533
   unreachable
 }
@@ -5681,37 +5681,37 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h793c16fb6bb6aadbE.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph49
+  br i1 %.not, label %._crit_edge, label %.lr.ph48
 
-.lr.ph49:                                         ; preds = %.preheader
-  %.not66 = icmp eq i32 %5, 0
+.lr.ph48:                                         ; preds = %.preheader
+  %.not65 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not66, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph49
+.lr.ph.us.preheader:                              ; preds = %.lr.ph48
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us52.preheader
+  br label %.lr.ph.split.us51.preheader
 
-.lr.ph.split.us52.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next89, %..loopexit_crit_edge.us ]
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %18 = trunc nuw i64 %indvars.iv88 to i32
+.lr.ph.split.us51.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv87 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next88, %..loopexit_crit_edge.us ]
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %18 = trunc nuw i64 %indvars.iv87 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
   br label %23
 
-23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us52.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us52.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us" ]
+23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us51.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us51.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call noundef align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h553bd5839299de1eE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %24, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us51 = load i32, ptr %25, align 1
+  %.sroa.0.0.copyload.i.us50 = load i32, ptr %25, align 1
   %26 = xor i32 %24, -1
   %27 = add i32 %5, %26
   %28 = zext i32 %27 to i64
@@ -5719,21 +5719,21 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h793c16fb6bb6aadbE.
   %30 = shl i64 %29, 2
   %31 = add i64 %30, 4
   %32 = icmp eq i64 %30, -4
-  br i1 %32, label %.split58.us, label %33
+  br i1 %32, label %.split57.us, label %33
 
 33:                                               ; preds = %23
   %34 = icmp ugt i64 %31, %.val3.i
-  br i1 %34, label %.split61.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
+  br i1 %34, label %.split60.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us": ; preds = %33
   %35 = getelementptr inbounds i8, ptr %.val.i, i64 %30
-  store i32 %.sroa.0.0.copyload.i.us51, ptr %35, align 1
+  store i32 %.sroa.0.0.copyload.i.us50, ptr %35, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %17
-  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph.split.us52.preheader
+  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %17
+  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us51.preheader
 
 36:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -5743,18 +5743,18 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17h793c16fb6bb6aadbE.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %37
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph49, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph48, %.preheader
   store i8 10, ptr %0, align 8
   br label %37
 
 37:                                               ; preds = %._crit_edge, %36
   ret void
 
-.split58.us:                                      ; preds = %23
+.split57.us:                                      ; preds = %23
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !541
   unreachable
 
-.split61.us:                                      ; preds = %33
+.split60.us:                                      ; preds = %33
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %31, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !541
   unreachable
 }
@@ -5776,33 +5776,33 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hbe6cc0c3a89a80ccE.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph43
+  br i1 %.not, label %._crit_edge, label %.lr.ph42
 
-.lr.ph43:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph42:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %16, align 8, !nonnull !4
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph43
+.lr.ph.us.preheader:                              ; preds = %.lr.ph42
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us46.preheader
+  br label %.lr.ph.split.us45.preheader
 
-.lr.ph.split.us46.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv75 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next76, %..loopexit_crit_edge.us ]
-  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %18 = trunc nuw i64 %indvars.iv75 to i32
+.lr.ph.split.us45.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next75, %..loopexit_crit_edge.us ]
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %18 = trunc nuw i64 %indvars.iv74 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
   br label %23
 
-23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", %.lr.ph.split.us46.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us46.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us" ]
+23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", %.lr.ph.split.us45.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us45.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us" ]
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call noundef align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h2bfe2e2e7bce91aeE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %24, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
   %26 = xor i32 %24, -1
@@ -5810,19 +5810,19 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hbe6cc0c3a89a80ccE.
   %28 = zext i32 %27 to i64
   %29 = add nuw i64 %22, %28
   %.not.i.us = icmp ult i64 %29, %.val3.i
-  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", label %.split52.us
+  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", label %.split51.us
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us": ; preds = %23
-  %.sroa.0.0.copyload.i.us45 = load i8, ptr %25, align 1
+  %.sroa.0.0.copyload.i.us44 = load i8, ptr %25, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = getelementptr inbounds i8, ptr %.val.i, i64 %29
-  store i8 %.sroa.0.0.copyload.i.us45, ptr %30, align 1
+  store i8 %.sroa.0.0.copyload.i.us44, ptr %30, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us"
-  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %17
-  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us46.preheader
+  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %17
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.us45.preheader
 
 31:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -5832,14 +5832,14 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hbe6cc0c3a89a80ccE.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %32
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph43, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph42, %.preheader
   store i8 10, ptr %0, align 8
   br label %32
 
 32:                                               ; preds = %._crit_edge, %31
   ret void
 
-.split52.us:                                      ; preds = %23
+.split51.us:                                      ; preds = %23
   %33 = add nuw i64 %29, 1
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %33, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !549
   unreachable
@@ -5862,37 +5862,37 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hc13e73a806aecddbE.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph50
+  br i1 %.not, label %._crit_edge, label %.lr.ph49
 
-.lr.ph50:                                         ; preds = %.preheader
-  %.not68 = icmp eq i32 %5, 0
+.lr.ph49:                                         ; preds = %.preheader
+  %.not67 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not68, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not67, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph50
+.lr.ph.us.preheader:                              ; preds = %.lr.ph49
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us53.preheader
+  br label %.lr.ph.split.us52.preheader
 
-.lr.ph.split.us53.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next94, %..loopexit_crit_edge.us ]
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %18 = trunc nuw i64 %indvars.iv93 to i32
+.lr.ph.split.us52.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv92 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next93, %..loopexit_crit_edge.us ]
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %18 = trunc nuw i64 %indvars.iv92 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
   br label %23
 
-23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us53.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us53.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us" ]
+23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us52.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us52.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %24, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us52 = load i24, ptr %25, align 1
+  %.sroa.0.0.copyload.i.us51 = load i24, ptr %25, align 1
   %26 = xor i32 %24, -1
   %27 = add i32 %5, %26
   %28 = zext i32 %27 to i64
@@ -5900,21 +5900,21 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hc13e73a806aecddbE.
   %30 = mul i64 %29, 3
   %31 = add i64 %30, 3
   %32 = icmp ugt i64 %30, -4
-  br i1 %32, label %.split59.us, label %33
+  br i1 %32, label %.split58.us, label %33
 
 33:                                               ; preds = %23
   %34 = icmp ugt i64 %31, %.val3.i
-  br i1 %34, label %.split63.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
+  br i1 %34, label %.split62.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us": ; preds = %33
   %35 = getelementptr inbounds i8, ptr %.val.i, i64 %30
-  store i24 %.sroa.0.0.copyload.i.us52, ptr %35, align 1
+  store i24 %.sroa.0.0.copyload.i.us51, ptr %35, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
-  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %17
-  br i1 %exitcond97.not, label %._crit_edge, label %.lr.ph.split.us53.preheader
+  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %17
+  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph.split.us52.preheader
 
 36:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -5924,18 +5924,18 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hc13e73a806aecddbE.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %37
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph50, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph49, %.preheader
   store i8 10, ptr %0, align 8
   br label %37
 
 37:                                               ; preds = %._crit_edge, %36
   ret void
 
-.split59.us:                                      ; preds = %23
+.split58.us:                                      ; preds = %23
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %30, i64 noundef %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !557
   unreachable
 
-.split63.us:                                      ; preds = %33
+.split62.us:                                      ; preds = %33
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %31, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !557
   unreachable
 }
@@ -5957,37 +5957,37 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hd521d0908c900114E.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph49
+  br i1 %.not, label %._crit_edge, label %.lr.ph48
 
-.lr.ph49:                                         ; preds = %.preheader
-  %.not66 = icmp eq i32 %5, 0
+.lr.ph48:                                         ; preds = %.preheader
+  %.not65 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not66, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph49
+.lr.ph.us.preheader:                              ; preds = %.lr.ph48
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us52.preheader
+  br label %.lr.ph.split.us51.preheader
 
-.lr.ph.split.us52.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv88 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next89, %..loopexit_crit_edge.us ]
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %18 = trunc nuw i64 %indvars.iv88 to i32
+.lr.ph.split.us51.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv87 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next88, %..loopexit_crit_edge.us ]
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %18 = trunc nuw i64 %indvars.iv87 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
   br label %23
 
-23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us52.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us52.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us" ]
+23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us51.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us51.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call noundef align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hceaa3a089891951aE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %24, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us51 = load i32, ptr %25, align 2
+  %.sroa.0.0.copyload.i.us50 = load i32, ptr %25, align 2
   %26 = xor i32 %24, -1
   %27 = add i32 %5, %26
   %28 = zext i32 %27 to i64
@@ -5995,21 +5995,21 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hd521d0908c900114E.
   %30 = shl i64 %29, 1
   %31 = add i64 %30, 2
   %32 = icmp eq i64 %30, -2
-  br i1 %32, label %.split58.us, label %33
+  br i1 %32, label %.split57.us, label %33
 
 33:                                               ; preds = %23
   %34 = icmp ugt i64 %31, %.val3.i
-  br i1 %34, label %.split61.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
+  br i1 %34, label %.split60.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %33
   %35 = getelementptr inbounds i16, ptr %.val.i, i64 %30
-  store i32 %.sroa.0.0.copyload.i.us51, ptr %35, align 2
+  store i32 %.sroa.0.0.copyload.i.us50, ptr %35, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %17
-  br i1 %exitcond92.not, label %._crit_edge, label %.lr.ph.split.us52.preheader
+  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %17
+  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us51.preheader
 
 36:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -6019,18 +6019,18 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hd521d0908c900114E.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %37
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph49, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph48, %.preheader
   store i8 10, ptr %0, align 8
   br label %37
 
 37:                                               ; preds = %._crit_edge, %36
   ret void
 
-.split58.us:                                      ; preds = %23
+.split57.us:                                      ; preds = %23
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !565
   unreachable
 
-.split61.us:                                      ; preds = %33
+.split60.us:                                      ; preds = %33
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %31, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !565
   unreachable
 }
@@ -6052,33 +6052,33 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hdc4baccfc67df242E.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph49
+  br i1 %.not, label %._crit_edge, label %.lr.ph48
 
-.lr.ph49:                                         ; preds = %.preheader
-  %.not66 = icmp eq i32 %5, 0
+.lr.ph48:                                         ; preds = %.preheader
+  %.not65 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not66, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not65, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph49
+.lr.ph.us.preheader:                              ; preds = %.lr.ph48
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us51.preheader
+  br label %.lr.ph.split.us50.preheader
 
-.lr.ph.split.us51.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv91 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next92, %..loopexit_crit_edge.us ]
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %18 = trunc nuw i64 %indvars.iv91 to i32
+.lr.ph.split.us50.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv90 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next91, %..loopexit_crit_edge.us ]
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %18 = trunc nuw i64 %indvars.iv90 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
   br label %23
 
-23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us51.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us51.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us" ]
+23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us", %.lr.ph.split.us50.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us50.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %24, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !573
@@ -6089,11 +6089,11 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hdc4baccfc67df242E.
   %30 = mul i64 %29, 3
   %31 = add i64 %30, 3
   %32 = icmp ugt i64 %30, -4
-  br i1 %32, label %.split57.us, label %33
+  br i1 %32, label %.split56.us, label %33
 
 33:                                               ; preds = %23
   %34 = icmp ugt i64 %31, %.val3.i
-  br i1 %34, label %.split61.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+  br i1 %34, label %.split60.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %33
   %35 = getelementptr inbounds float, ptr %.val.i, i64 %30
@@ -6102,8 +6102,8 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hdc4baccfc67df242E.
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
-  %exitcond95.not = icmp eq i64 %indvars.iv.next92, %17
-  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split.us51.preheader
+  %exitcond94.not = icmp eq i64 %indvars.iv.next91, %17
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph.split.us50.preheader
 
 36:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -6113,18 +6113,18 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hdc4baccfc67df242E.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %37
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph49, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph48, %.preheader
   store i8 10, ptr %0, align 8
   br label %37
 
 37:                                               ; preds = %._crit_edge, %36
   ret void
 
-.split57.us:                                      ; preds = %23
+.split56.us:                                      ; preds = %23
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %30, i64 noundef %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !576
   unreachable
 
-.split61.us:                                      ; preds = %33
+.split60.us:                                      ; preds = %33
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %31, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !576
   unreachable
 }
@@ -6146,33 +6146,33 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hf9ccd096e99ea21aE.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph47
+  br i1 %.not, label %._crit_edge, label %.lr.ph46
 
-.lr.ph47:                                         ; preds = %.preheader
-  %.not63 = icmp eq i32 %5, 0
+.lr.ph46:                                         ; preds = %.preheader
+  %.not62 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not63, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not62, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph47
+.lr.ph.us.preheader:                              ; preds = %.lr.ph46
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us49.preheader
+  br label %.lr.ph.split.us48.preheader
 
-.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv85 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next86, %..loopexit_crit_edge.us ]
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %18 = trunc nuw i64 %indvars.iv85 to i32
+.lr.ph.split.us48.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv84 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next85, %..loopexit_crit_edge.us ]
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %18 = trunc nuw i64 %indvars.iv84 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
   br label %23
 
-23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us", %.lr.ph.split.us49.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us" ]
+23:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us", %.lr.ph.split.us48.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us48.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call noundef align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %24, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !584
@@ -6183,11 +6183,11 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hf9ccd096e99ea21aE.
   %30 = shl i64 %29, 2
   %31 = add i64 %30, 4
   %32 = icmp eq i64 %30, -4
-  br i1 %32, label %.split55.us, label %33
+  br i1 %32, label %.split54.us, label %33
 
 33:                                               ; preds = %23
   %34 = icmp ugt i64 %31, %.val3.i
-  br i1 %34, label %.split58.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
+  br i1 %34, label %.split57.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %33
   %35 = getelementptr inbounds float, ptr %.val.i, i64 %30
@@ -6196,8 +6196,8 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hf9ccd096e99ea21aE.
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %23
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
-  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %17
-  br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
+  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %17
+  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us48.preheader
 
 36:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -6207,18 +6207,18 @@ define hidden void @_ZN5image8imageops6affine12rotate180_in17hf9ccd096e99ea21aE.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %37
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph47, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
   store i8 10, ptr %0, align 8
   br label %37
 
 37:                                               ; preds = %._crit_edge, %36
   ret void
 
-.split55.us:                                      ; preds = %23
+.split54.us:                                      ; preds = %23
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !587
   unreachable
 
-.split58.us:                                      ; preds = %33
+.split57.us:                                      ; preds = %33
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %31, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.14) #18, !noalias !587
   unreachable
 }
@@ -6240,25 +6240,25 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h0a92986481f3e3cbE.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %.preheader
-  %.not49 = icmp eq i32 %5, 0
+.lr.ph39:                                         ; preds = %.preheader
+  %.not48 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
   %17 = zext i32 %5 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next64, %..loopexit_crit_edge.us ]
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %18 = trunc nuw i64 %indvars.iv63 to i32
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %..loopexit_crit_edge.us ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %18 = trunc nuw i64 %indvars.iv62 to i32
   br label %19
 
 19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us", %.lr.ph.us
@@ -6271,15 +6271,15 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h0a92986481f3e3cbE.
   %23 = add i32 %5, %22
   %24 = zext i32 %23 to i64
   %25 = mul nuw i64 %24, %14
-  %26 = add nuw i64 %25, %indvars.iv63
+  %26 = add nuw i64 %25, %indvars.iv62
   %27 = shl i64 %26, 1
   %28 = add i64 %27, 2
   %29 = icmp eq i64 %27, -2
-  br i1 %29, label %.split43.us, label %30
+  br i1 %29, label %.split42.us, label %30
 
 30:                                               ; preds = %19
   %31 = icmp ugt i64 %28, %.val3.i
-  br i1 %31, label %.split46.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
+  br i1 %31, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us": ; preds = %30
   %32 = getelementptr inbounds i8, ptr %.val.i, i64 %27
@@ -6288,8 +6288,8 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h0a92986481f3e3cbE.
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
-  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %14
-  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph.us
+  %exitcond65.not = icmp eq i64 %indvars.iv.next63, %14
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.us
 
 33:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -6299,18 +6299,18 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h0a92986481f3e3cbE.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %34
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
   store i8 10, ptr %0, align 8
   br label %34
 
 34:                                               ; preds = %._crit_edge, %33
   ret void
 
-.split43.us:                                      ; preds = %19
+.split42.us:                                      ; preds = %19
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !595
   unreachable
 
-.split46.us:                                      ; preds = %30
+.split45.us:                                      ; preds = %30
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !595
   unreachable
 }
@@ -6332,25 +6332,25 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h0c0b7adabf61a6f1E.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %.preheader
-  %.not49 = icmp eq i32 %5, 0
+.lr.ph39:                                         ; preds = %.preheader
+  %.not48 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
   %17 = zext i32 %5 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next64, %..loopexit_crit_edge.us ]
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %18 = trunc nuw i64 %indvars.iv63 to i32
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %..loopexit_crit_edge.us ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %18 = trunc nuw i64 %indvars.iv62 to i32
   br label %19
 
 19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us", %.lr.ph.us
@@ -6363,15 +6363,15 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h0c0b7adabf61a6f1E.
   %23 = add i32 %5, %22
   %24 = zext i32 %23 to i64
   %25 = mul nuw i64 %24, %14
-  %26 = add nuw i64 %25, %indvars.iv63
+  %26 = add nuw i64 %25, %indvars.iv62
   %27 = shl i64 %26, 2
   %28 = add i64 %27, 4
   %29 = icmp eq i64 %27, -4
-  br i1 %29, label %.split43.us, label %30
+  br i1 %29, label %.split42.us, label %30
 
 30:                                               ; preds = %19
   %31 = icmp ugt i64 %28, %.val3.i
-  br i1 %31, label %.split46.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
+  br i1 %31, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us": ; preds = %30
   %32 = getelementptr inbounds i8, ptr %.val.i, i64 %27
@@ -6380,8 +6380,8 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h0c0b7adabf61a6f1E.
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
-  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %14
-  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph.us
+  %exitcond65.not = icmp eq i64 %indvars.iv.next63, %14
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.us
 
 33:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -6391,18 +6391,18 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h0c0b7adabf61a6f1E.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %34
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
   store i8 10, ptr %0, align 8
   br label %34
 
 34:                                               ; preds = %._crit_edge, %33
   ret void
 
-.split43.us:                                      ; preds = %19
+.split42.us:                                      ; preds = %19
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !603
   unreachable
 
-.split46.us:                                      ; preds = %30
+.split45.us:                                      ; preds = %30
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !603
   unreachable
 }
@@ -6424,25 +6424,25 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h36e2a71ebb5e64adE.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph36
+  br i1 %.not, label %._crit_edge, label %.lr.ph35
 
-.lr.ph36:                                         ; preds = %.preheader
-  %.not42 = icmp eq i32 %5, 0
+.lr.ph35:                                         ; preds = %.preheader
+  %.not41 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %16, align 8, !nonnull !4
-  br i1 %.not42, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not41, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph36
+.lr.ph.us.preheader:                              ; preds = %.lr.ph35
   %17 = zext i32 %5 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next54, %..loopexit_crit_edge.us ]
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %18 = trunc nuw i64 %indvars.iv53 to i32
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next53, %..loopexit_crit_edge.us ]
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %18 = trunc nuw i64 %indvars.iv52 to i32
   br label %19
 
 19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", %.lr.ph.us
@@ -6453,9 +6453,9 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h36e2a71ebb5e64adE.
   %23 = add i32 %5, %22
   %24 = zext i32 %23 to i64
   %25 = mul nuw i64 %24, %14
-  %26 = add nuw i64 %25, %indvars.iv53
+  %26 = add nuw i64 %25, %indvars.iv52
   %.not.i.us = icmp ult i64 %26, %.val3.i
-  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", label %.split39.us
+  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", label %.split38.us
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us": ; preds = %19
   %.sroa.0.0.copyload.i.us = load i8, ptr %21, align 1
@@ -6466,8 +6466,8 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h36e2a71ebb5e64adE.
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us"
-  %exitcond56.not = icmp eq i64 %indvars.iv.next54, %14
-  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.us
+  %exitcond55.not = icmp eq i64 %indvars.iv.next53, %14
+  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph.us
 
 28:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -6477,14 +6477,14 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h36e2a71ebb5e64adE.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %29
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph36, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph35, %.preheader
   store i8 10, ptr %0, align 8
   br label %29
 
 29:                                               ; preds = %._crit_edge, %28
   ret void
 
-.split39.us:                                      ; preds = %19
+.split38.us:                                      ; preds = %19
   %30 = add nuw i64 %26, 1
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %30, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !611
   unreachable
@@ -6496,6 +6496,280 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h383a7fa80e72adeeE.
   %5 = load i32, ptr %4, align 8, !alias.scope !616, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i32, ptr %6, align 4, !alias.scope !616, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %9 = load i32, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %11 = load i32, ptr %10, align 4, !noundef !4
+  %12 = icmp ne i32 %5, %11
+  %13 = icmp ne i32 %7, %9
+  %or.cond = or i1 %13, %12
+  br i1 %or.cond, label %33, label %.preheader
+
+.preheader:                                       ; preds = %3
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
+
+.lr.ph39:                                         ; preds = %.preheader
+  %.not49 = icmp eq i32 %5, 0
+  %14 = zext i32 %7 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val3.i = load i64, ptr %16, align 8
+  br i1 %.not49, label %._crit_edge, label %.lr.ph.us.preheader
+
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
+  %17 = zext i32 %5 to i64
+  br label %.lr.ph.us
+
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next67, %..loopexit_crit_edge.us ]
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %18 = trunc nuw i64 %indvars.iv66 to i32
+  br label %19
+
+19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us", %.lr.ph.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us" ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %20 = trunc nuw i64 %indvars.iv to i32
+  %21 = tail call noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !619
+  %22 = xor i32 %20, -1
+  %23 = add i32 %5, %22
+  %24 = zext i32 %23 to i64
+  %25 = mul nuw i64 %24, %14
+  %26 = add nuw i64 %25, %indvars.iv66
+  %27 = mul i64 %26, 3
+  %28 = add i64 %27, 3
+  %29 = icmp ugt i64 %27, -4
+  br i1 %29, label %.split42.us, label %30
+
+30:                                               ; preds = %19
+  %31 = icmp ugt i64 %28, %.val3.i
+  br i1 %31, label %.split46.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %30
+  %32 = getelementptr inbounds float, ptr %.val.i, i64 %27
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %17
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
+
+..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+  %exitcond69.not = icmp eq i64 %indvars.iv.next67, %14
+  br i1 %exitcond69.not, label %._crit_edge, label %.lr.ph.us
+
+33:                                               ; preds = %3
+  store i8 6, ptr %0, align 8
+  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  br label %34
+
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
+  store i8 10, ptr %0, align 8
+  br label %34
+
+34:                                               ; preds = %._crit_edge, %33
+  ret void
+
+.split42.us:                                      ; preds = %19
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %27, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !622
+  unreachable
+
+.split46.us:                                      ; preds = %30
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !622
+  unreachable
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5image8imageops6affine12rotate270_in17h7ceb42689a176d40E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = load i32, ptr %4, align 8, !alias.scope !627, !noundef !4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %7 = load i32, ptr %6, align 4, !alias.scope !627, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %9 = load i32, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %11 = load i32, ptr %10, align 4, !noundef !4
+  %12 = icmp ne i32 %5, %11
+  %13 = icmp ne i32 %7, %9
+  %or.cond = or i1 %13, %12
+  br i1 %or.cond, label %33, label %.preheader
+
+.preheader:                                       ; preds = %3
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph37
+
+.lr.ph37:                                         ; preds = %.preheader
+  %.not46 = icmp eq i32 %5, 0
+  %14 = zext i32 %7 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val3.i = load i64, ptr %16, align 8
+  br i1 %.not46, label %._crit_edge, label %.lr.ph.us.preheader
+
+.lr.ph.us.preheader:                              ; preds = %.lr.ph37
+  %17 = zext i32 %5 to i64
+  br label %.lr.ph.us
+
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
+  %indvars.iv60 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next61, %..loopexit_crit_edge.us ]
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %18 = trunc nuw i64 %indvars.iv60 to i32
+  br label %19
+
+19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us", %.lr.ph.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us" ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %20 = trunc nuw i64 %indvars.iv to i32
+  %21 = tail call noundef align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !630
+  %22 = xor i32 %20, -1
+  %23 = add i32 %5, %22
+  %24 = zext i32 %23 to i64
+  %25 = mul nuw i64 %24, %14
+  %26 = add nuw i64 %25, %indvars.iv60
+  %27 = shl i64 %26, 2
+  %28 = add i64 %27, 4
+  %29 = icmp eq i64 %27, -4
+  br i1 %29, label %.split40.us, label %30
+
+30:                                               ; preds = %19
+  %31 = icmp ugt i64 %28, %.val3.i
+  br i1 %31, label %.split43.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
+
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %30
+  %32 = getelementptr inbounds float, ptr %.val.i, i64 %27
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false)
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %17
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
+
+..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
+  %exitcond63.not = icmp eq i64 %indvars.iv.next61, %14
+  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.us
+
+33:                                               ; preds = %3
+  store i8 6, ptr %0, align 8
+  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  br label %34
+
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph37, %.preheader
+  store i8 10, ptr %0, align 8
+  br label %34
+
+34:                                               ; preds = %._crit_edge, %33
+  ret void
+
+.split40.us:                                      ; preds = %19
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !633
+  unreachable
+
+.split43.us:                                      ; preds = %30
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !633
+  unreachable
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5image8imageops6affine12rotate270_in17h8c4e41229ff8b5eaE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = load i32, ptr %4, align 8, !alias.scope !638, !noundef !4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %7 = load i32, ptr %6, align 4, !alias.scope !638, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %9 = load i32, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %11 = load i32, ptr %10, align 4, !noundef !4
+  %12 = icmp ne i32 %5, %11
+  %13 = icmp ne i32 %7, %9
+  %or.cond = or i1 %13, %12
+  br i1 %or.cond, label %33, label %.preheader
+
+.preheader:                                       ; preds = %3
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
+
+.lr.ph39:                                         ; preds = %.preheader
+  %.not48 = icmp eq i32 %5, 0
+  %14 = zext i32 %7 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val3.i = load i64, ptr %16, align 8
+  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
+
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
+  %17 = zext i32 %5 to i64
+  br label %.lr.ph.us
+
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %..loopexit_crit_edge.us ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %18 = trunc nuw i64 %indvars.iv62 to i32
+  br label %19
+
+19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us", %.lr.ph.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us" ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %20 = trunc nuw i64 %indvars.iv to i32
+  %21 = tail call noundef align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hceaa3a089891951aE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
+  %.sroa.0.0.copyload.i.us = load i32, ptr %21, align 2
+  %22 = xor i32 %20, -1
+  %23 = add i32 %5, %22
+  %24 = zext i32 %23 to i64
+  %25 = mul nuw i64 %24, %14
+  %26 = add nuw i64 %25, %indvars.iv62
+  %27 = shl i64 %26, 1
+  %28 = add i64 %27, 2
+  %29 = icmp eq i64 %27, -2
+  br i1 %29, label %.split42.us, label %30
+
+30:                                               ; preds = %19
+  %31 = icmp ugt i64 %28, %.val3.i
+  br i1 %31, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
+
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %30
+  %32 = getelementptr inbounds i16, ptr %.val.i, i64 %27
+  store i32 %.sroa.0.0.copyload.i.us, ptr %32, align 2
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %17
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
+
+..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
+  %exitcond65.not = icmp eq i64 %indvars.iv.next63, %14
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.us
+
+33:                                               ; preds = %3
+  store i8 6, ptr %0, align 8
+  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  br label %34
+
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
+  store i8 10, ptr %0, align 8
+  br label %34
+
+34:                                               ; preds = %._crit_edge, %33
+  ret void
+
+.split42.us:                                      ; preds = %19
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !641
+  unreachable
+
+.split45.us:                                      ; preds = %30
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !641
+  unreachable
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5image8imageops6affine12rotate270_in17hbccfb73e1fa18110E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = load i32, ptr %4, align 8, !alias.scope !646, !noundef !4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %7 = load i32, ptr %6, align 4, !alias.scope !646, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -6528,11 +6802,12 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h383a7fa80e72adeeE.
   %18 = trunc nuw i64 %indvars.iv67 to i32
   br label %19
 
-19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us", %.lr.ph.us
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us" ]
+19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us", %.lr.ph.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = trunc nuw i64 %indvars.iv to i32
-  %21 = tail call noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !619
+  %21 = tail call noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
+  %.sroa.0.0.copyload.i.us = load i24, ptr %21, align 1
   %22 = xor i32 %20, -1
   %23 = add i32 %5, %22
   %24 = zext i32 %23 to i64
@@ -6545,15 +6820,15 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h383a7fa80e72adeeE.
 
 30:                                               ; preds = %19
   %31 = icmp ugt i64 %28, %.val3.i
-  br i1 %31, label %.split47.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+  br i1 %31, label %.split47.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %30
-  %32 = getelementptr inbounds float, ptr %.val.i, i64 %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us": ; preds = %30
+  %32 = getelementptr inbounds i8, ptr %.val.i, i64 %27
+  store i24 %.sroa.0.0.copyload.i.us, ptr %32, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %17
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
-..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, %14
   br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.us
 
@@ -6573,285 +6848,10 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17h383a7fa80e72adeeE.
   ret void
 
 .split43.us:                                      ; preds = %19
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %27, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !622
-  unreachable
-
-.split47.us:                                      ; preds = %30
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !622
-  unreachable
-}
-
-; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17h7ceb42689a176d40E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i32, ptr %4, align 8, !alias.scope !627, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load i32, ptr %6, align 4, !alias.scope !627, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load i32, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %11 = load i32, ptr %10, align 4, !noundef !4
-  %12 = icmp ne i32 %5, %11
-  %13 = icmp ne i32 %7, %9
-  %or.cond = or i1 %13, %12
-  br i1 %or.cond, label %33, label %.preheader
-
-.preheader:                                       ; preds = %3
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph38
-
-.lr.ph38:                                         ; preds = %.preheader
-  %.not47 = icmp eq i32 %5, 0
-  %14 = zext i32 %7 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.us.preheader
-
-.lr.ph.us.preheader:                              ; preds = %.lr.ph38
-  %17 = zext i32 %5 to i64
-  br label %.lr.ph.us
-
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv61 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next62, %..loopexit_crit_edge.us ]
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %18 = trunc nuw i64 %indvars.iv61 to i32
-  br label %19
-
-19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us", %.lr.ph.us
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us" ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = trunc nuw i64 %indvars.iv to i32
-  %21 = tail call noundef align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !630
-  %22 = xor i32 %20, -1
-  %23 = add i32 %5, %22
-  %24 = zext i32 %23 to i64
-  %25 = mul nuw i64 %24, %14
-  %26 = add nuw i64 %25, %indvars.iv61
-  %27 = shl i64 %26, 2
-  %28 = add i64 %27, 4
-  %29 = icmp eq i64 %27, -4
-  br i1 %29, label %.split41.us, label %30
-
-30:                                               ; preds = %19
-  %31 = icmp ugt i64 %28, %.val3.i
-  br i1 %31, label %.split44.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
-
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %30
-  %32 = getelementptr inbounds float, ptr %.val.i, i64 %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false)
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %17
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
-
-..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
-  %exitcond64.not = icmp eq i64 %indvars.iv.next62, %14
-  br i1 %exitcond64.not, label %._crit_edge, label %.lr.ph.us
-
-33:                                               ; preds = %3
-  store i8 6, ptr %0, align 8
-  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %34
-
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph38, %.preheader
-  store i8 10, ptr %0, align 8
-  br label %34
-
-34:                                               ; preds = %._crit_edge, %33
-  ret void
-
-.split41.us:                                      ; preds = %19
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !633
-  unreachable
-
-.split44.us:                                      ; preds = %30
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !633
-  unreachable
-}
-
-; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17h8c4e41229ff8b5eaE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i32, ptr %4, align 8, !alias.scope !638, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load i32, ptr %6, align 4, !alias.scope !638, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load i32, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %11 = load i32, ptr %10, align 4, !noundef !4
-  %12 = icmp ne i32 %5, %11
-  %13 = icmp ne i32 %7, %9
-  %or.cond = or i1 %13, %12
-  br i1 %or.cond, label %33, label %.preheader
-
-.preheader:                                       ; preds = %3
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
-
-.lr.ph40:                                         ; preds = %.preheader
-  %.not49 = icmp eq i32 %5, 0
-  %14 = zext i32 %7 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.us.preheader
-
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
-  %17 = zext i32 %5 to i64
-  br label %.lr.ph.us
-
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next64, %..loopexit_crit_edge.us ]
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %18 = trunc nuw i64 %indvars.iv63 to i32
-  br label %19
-
-19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us", %.lr.ph.us
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us" ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = trunc nuw i64 %indvars.iv to i32
-  %21 = tail call noundef align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hceaa3a089891951aE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us = load i32, ptr %21, align 2
-  %22 = xor i32 %20, -1
-  %23 = add i32 %5, %22
-  %24 = zext i32 %23 to i64
-  %25 = mul nuw i64 %24, %14
-  %26 = add nuw i64 %25, %indvars.iv63
-  %27 = shl i64 %26, 1
-  %28 = add i64 %27, 2
-  %29 = icmp eq i64 %27, -2
-  br i1 %29, label %.split43.us, label %30
-
-30:                                               ; preds = %19
-  %31 = icmp ugt i64 %28, %.val3.i
-  br i1 %31, label %.split46.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
-
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %30
-  %32 = getelementptr inbounds i16, ptr %.val.i, i64 %27
-  store i32 %.sroa.0.0.copyload.i.us, ptr %32, align 2
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %17
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
-
-..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
-  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %14
-  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph.us
-
-33:                                               ; preds = %3
-  store i8 6, ptr %0, align 8
-  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %34
-
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
-  store i8 10, ptr %0, align 8
-  br label %34
-
-34:                                               ; preds = %._crit_edge, %33
-  ret void
-
-.split43.us:                                      ; preds = %19
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !641
-  unreachable
-
-.split46.us:                                      ; preds = %30
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !641
-  unreachable
-}
-
-; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine12rotate270_in17hbccfb73e1fa18110E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i32, ptr %4, align 8, !alias.scope !646, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load i32, ptr %6, align 4, !alias.scope !646, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load i32, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %11 = load i32, ptr %10, align 4, !noundef !4
-  %12 = icmp ne i32 %5, %11
-  %13 = icmp ne i32 %7, %9
-  %or.cond = or i1 %13, %12
-  br i1 %or.cond, label %33, label %.preheader
-
-.preheader:                                       ; preds = %3
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph41
-
-.lr.ph41:                                         ; preds = %.preheader
-  %.not51 = icmp eq i32 %5, 0
-  %14 = zext i32 %7 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not51, label %._crit_edge, label %.lr.ph.us.preheader
-
-.lr.ph.us.preheader:                              ; preds = %.lr.ph41
-  %17 = zext i32 %5 to i64
-  br label %.lr.ph.us
-
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next69, %..loopexit_crit_edge.us ]
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %18 = trunc nuw i64 %indvars.iv68 to i32
-  br label %19
-
-19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us", %.lr.ph.us
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us" ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = trunc nuw i64 %indvars.iv to i32
-  %21 = tail call noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us = load i24, ptr %21, align 1
-  %22 = xor i32 %20, -1
-  %23 = add i32 %5, %22
-  %24 = zext i32 %23 to i64
-  %25 = mul nuw i64 %24, %14
-  %26 = add nuw i64 %25, %indvars.iv68
-  %27 = mul i64 %26, 3
-  %28 = add i64 %27, 3
-  %29 = icmp ugt i64 %27, -4
-  br i1 %29, label %.split44.us, label %30
-
-30:                                               ; preds = %19
-  %31 = icmp ugt i64 %28, %.val3.i
-  br i1 %31, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
-
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us": ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %.val.i, i64 %27
-  store i24 %.sroa.0.0.copyload.i.us, ptr %32, align 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %17
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
-
-..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
-  %exitcond71.not = icmp eq i64 %indvars.iv.next69, %14
-  br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph.us
-
-33:                                               ; preds = %3
-  store i8 6, ptr %0, align 8
-  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %34
-
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph41, %.preheader
-  store i8 10, ptr %0, align 8
-  br label %34
-
-34:                                               ; preds = %._crit_edge, %33
-  ret void
-
-.split44.us:                                      ; preds = %19
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %27, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !649
   unreachable
 
-.split48.us:                                      ; preds = %30
+.split47.us:                                      ; preds = %30
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !649
   unreachable
 }
@@ -6873,25 +6873,25 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hcc2d81e0ab508b7fE.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %.preheader
-  %.not49 = icmp eq i32 %5, 0
+.lr.ph39:                                         ; preds = %.preheader
+  %.not48 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
   %17 = zext i32 %5 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next64, %..loopexit_crit_edge.us ]
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %18 = trunc nuw i64 %indvars.iv63 to i32
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %..loopexit_crit_edge.us ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %18 = trunc nuw i64 %indvars.iv62 to i32
   br label %19
 
 19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us", %.lr.ph.us
@@ -6904,15 +6904,15 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hcc2d81e0ab508b7fE.
   %23 = add i32 %5, %22
   %24 = zext i32 %23 to i64
   %25 = mul nuw i64 %24, %14
-  %26 = add nuw i64 %25, %indvars.iv63
+  %26 = add nuw i64 %25, %indvars.iv62
   %27 = shl i64 %26, 2
   %28 = add i64 %27, 4
   %29 = icmp eq i64 %27, -4
-  br i1 %29, label %.split43.us, label %30
+  br i1 %29, label %.split42.us, label %30
 
 30:                                               ; preds = %19
   %31 = icmp ugt i64 %28, %.val3.i
-  br i1 %31, label %.split46.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
+  br i1 %31, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %30
   %32 = getelementptr inbounds i16, ptr %.val.i, i64 %27
@@ -6921,8 +6921,8 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hcc2d81e0ab508b7fE.
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
-  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %14
-  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph.us
+  %exitcond65.not = icmp eq i64 %indvars.iv.next63, %14
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.us
 
 33:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -6932,18 +6932,18 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hcc2d81e0ab508b7fE.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %34
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
   store i8 10, ptr %0, align 8
   br label %34
 
 34:                                               ; preds = %._crit_edge, %33
   ret void
 
-.split43.us:                                      ; preds = %19
+.split42.us:                                      ; preds = %19
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !657
   unreachable
 
-.split46.us:                                      ; preds = %30
+.split45.us:                                      ; preds = %30
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !657
   unreachable
 }
@@ -6965,25 +6965,25 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hdb559a043ece9456E.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph41
+  br i1 %.not, label %._crit_edge, label %.lr.ph40
 
-.lr.ph41:                                         ; preds = %.preheader
-  %.not51 = icmp eq i32 %5, 0
+.lr.ph40:                                         ; preds = %.preheader
+  %.not50 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not51, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not50, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph41
+.lr.ph.us.preheader:                              ; preds = %.lr.ph40
   %17 = zext i32 %5 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next69, %..loopexit_crit_edge.us ]
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %18 = trunc nuw i64 %indvars.iv68 to i32
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next68, %..loopexit_crit_edge.us ]
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %18 = trunc nuw i64 %indvars.iv67 to i32
   br label %19
 
 19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us", %.lr.ph.us
@@ -6996,15 +6996,15 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hdb559a043ece9456E.
   %23 = add i32 %5, %22
   %24 = zext i32 %23 to i64
   %25 = mul nuw i64 %24, %14
-  %26 = add nuw i64 %25, %indvars.iv68
+  %26 = add nuw i64 %25, %indvars.iv67
   %27 = mul i64 %26, 3
   %28 = add i64 %27, 3
   %29 = icmp ugt i64 %27, -4
-  br i1 %29, label %.split44.us, label %30
+  br i1 %29, label %.split43.us, label %30
 
 30:                                               ; preds = %19
   %31 = icmp ugt i64 %28, %.val3.i
-  br i1 %31, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
+  br i1 %31, label %.split47.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us": ; preds = %30
   %32 = getelementptr inbounds i16, ptr %.val.i, i64 %27
@@ -7013,8 +7013,8 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hdb559a043ece9456E.
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
-  %exitcond71.not = icmp eq i64 %indvars.iv.next69, %14
-  br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph.us
+  %exitcond70.not = icmp eq i64 %indvars.iv.next68, %14
+  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.us
 
 33:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -7024,18 +7024,18 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17hdb559a043ece9456E.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %34
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph41, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
   store i8 10, ptr %0, align 8
   br label %34
 
 34:                                               ; preds = %._crit_edge, %33
   ret void
 
-.split44.us:                                      ; preds = %19
+.split43.us:                                      ; preds = %19
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %27, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !665
   unreachable
 
-.split48.us:                                      ; preds = %30
+.split47.us:                                      ; preds = %30
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %28, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !665
   unreachable
 }
@@ -7057,25 +7057,25 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17he554148410d8764aE.
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph36
+  br i1 %.not, label %._crit_edge, label %.lr.ph35
 
-.lr.ph36:                                         ; preds = %.preheader
-  %.not42 = icmp eq i32 %5, 0
+.lr.ph35:                                         ; preds = %.preheader
+  %.not41 = icmp eq i32 %5, 0
   %14 = zext i32 %7 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %16, align 8, !nonnull !4
-  br i1 %.not42, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not41, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph36
+.lr.ph.us.preheader:                              ; preds = %.lr.ph35
   %17 = zext i32 %5 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next54, %..loopexit_crit_edge.us ]
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %18 = trunc nuw i64 %indvars.iv53 to i32
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next53, %..loopexit_crit_edge.us ]
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %18 = trunc nuw i64 %indvars.iv52 to i32
   br label %19
 
 19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", %.lr.ph.us
@@ -7086,9 +7086,9 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17he554148410d8764aE.
   %23 = add i32 %5, %22
   %24 = zext i32 %23 to i64
   %25 = mul nuw i64 %24, %14
-  %26 = add nuw i64 %25, %indvars.iv53
+  %26 = add nuw i64 %25, %indvars.iv52
   %.not.i.us = icmp ult i64 %26, %.val3.i
-  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", label %.split39.us
+  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", label %.split38.us
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %19
   %.sroa.0.0.copyload.i.us = load i16, ptr %21, align 2
@@ -7099,8 +7099,8 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17he554148410d8764aE.
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us"
-  %exitcond56.not = icmp eq i64 %indvars.iv.next54, %14
-  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.us
+  %exitcond55.not = icmp eq i64 %indvars.iv.next53, %14
+  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph.us
 
 28:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -7110,14 +7110,14 @@ define hidden void @_ZN5image8imageops6affine12rotate270_in17he554148410d8764aE.
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %29
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph36, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph35, %.preheader
   store i8 10, ptr %0, align 8
   br label %29
 
 29:                                               ; preds = %._crit_edge, %28
   ret void
 
-.split39.us:                                      ; preds = %19
+.split38.us:                                      ; preds = %19
   %30 = add nuw i64 %26, 1
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %30, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.15) #18, !noalias !673
   unreachable
@@ -7156,22 +7156,22 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h157782c93c9b3d4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !681
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit3, label %.lr.ph36.i
+  br i1 %.not.i, label %.loopexit3, label %.lr.ph35.i
 
-.lr.ph36.i:                                       ; preds = %.preheader.i
-  %.not42.i = icmp eq i32 %5, 0
+.lr.ph35.i:                                       ; preds = %.preheader.i
+  %.not41.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not42.i, label %.loopexit3, label %.lr.ph.us.preheader.i
+  br i1 %.not41.i, label %.loopexit3, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph36.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph35.i
   %wide.trip.count.i = zext i32 %7 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv53.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next54.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
-  %15 = mul nuw i64 %indvars.iv53.i, %14
-  %16 = trunc nuw i64 %indvars.iv53.i to i32
+  %indvars.iv52.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next53.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
+  %15 = mul nuw i64 %indvars.iv52.i, %14
+  %16 = trunc nuw i64 %indvars.iv52.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -7186,7 +7186,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h157782c93c9b3d4
   %22 = zext i32 %21 to i64
   %23 = add nuw i64 %15, %22
   %.not.i.us.i = icmp ult i64 %23, %.fca.1.extract.i
-  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", label %.split39.us.i
+  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", label %.split38.us.i
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
   %.sroa.0.0.copyload.i.us.i = load i8, ptr %19, align 1, !noalias !687
@@ -7197,15 +7197,15 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h157782c93c9b3d4
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i"
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
-  br i1 %exitcond56.not.i, label %.loopexit3, label %.lr.ph.us.i
+  %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count.i
+  br i1 %exitcond55.not.i, label %.loopexit3, label %.lr.ph.us.i
 
-.split39.us.i:                                    ; preds = %.noexc
+.split38.us.i:                                    ; preds = %.noexc
   %25 = add nuw i64 %23, 1
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split39.us.i
+.noexc1:                                          ; preds = %.split38.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -7213,7 +7213,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h157782c93c9b3d4
           cleanup
   br label %26
 
-.loopexit.split-lp:                               ; preds = %.split39.us.i
+.loopexit.split-lp:                               ; preds = %.split38.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %26
@@ -7223,7 +7223,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h157782c93c9b3d4
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Luma$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9bfc8b04396d871eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %29 unwind label %27
 
-.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph36.i, %.preheader.i
+.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph35.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -7271,22 +7271,22 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h20bd3e5b6da9358
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !694
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not49.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not48.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not49.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not48.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %wide.trip.count.i = zext i32 %7 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv63.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next64.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %15 = mul nuw i64 %indvars.iv63.i, %14
-  %16 = trunc nuw i64 %indvars.iv63.i to i32
+  %indvars.iv62.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next63.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %15 = mul nuw i64 %indvars.iv62.i, %14
+  %16 = trunc nuw i64 %indvars.iv62.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -7305,11 +7305,11 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h20bd3e5b6da9358
   %24 = shl i64 %23, 2
   %25 = add i64 %24, 4
   %26 = icmp eq i64 %24, -4
-  br i1 %26, label %.split43.us.i, label %27
+  br i1 %26, label %.split42.us.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.fca.1.extract.i
-  br i1 %28, label %.split46.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i8, ptr %11, i64 %24
@@ -7318,21 +7318,21 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h20bd3e5b6da9358
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count.i
-  br i1 %exitcond66.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count.i
+  br i1 %exitcond65.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split43.us.i:                                    ; preds = %.noexc
+.split42.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split43.us.i
+.noexc1:                                          ; preds = %.split42.us.i
   unreachable
 
-.split46.us.i:                                    ; preds = %27
+.split45.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split46.us.i
+.noexc2:                                          ; preds = %.split45.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -7340,7 +7340,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h20bd3e5b6da9358
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split46.us.i
+.loopexit.split-lp:                               ; preds = %.split42.us.i, %.split45.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -7350,7 +7350,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h20bd3e5b6da9358
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17ha4891b45020b4ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -7392,26 +7392,26 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h4a7f32b7b0d1060
   store i32 %7, ptr %11, align 4, !alias.scope !707
   tail call void @llvm.experimental.noalias.scope.decl(metadata !710)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph41.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
 
-.lr.ph41.i:                                       ; preds = %.preheader.i
-  %.not51.i = icmp eq i32 %5, 0
+.lr.ph40.i:                                       ; preds = %.preheader.i
+  %.not50.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !710, !noalias !713, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !710, !noalias !713
-  br i1 %.not51.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not50.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph41.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
   %wide.trip.count.i = zext i32 %7 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv68.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next69.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  %15 = mul nuw i64 %indvars.iv68.i, %12
-  %16 = trunc nuw i64 %indvars.iv68.i to i32
+  %indvars.iv67.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next68.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %15 = mul nuw i64 %indvars.iv67.i, %12
+  %16 = trunc nuw i64 %indvars.iv67.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -7430,11 +7430,11 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h4a7f32b7b0d1060
   %24 = mul i64 %23, 3
   %25 = add i64 %24, 3
   %26 = icmp ugt i64 %24, -4
-  br i1 %26, label %.split44.us.i, label %27
+  br i1 %26, label %.split43.us.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.val3.i.i
-  br i1 %28, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split47.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
@@ -7443,21 +7443,21 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h4a7f32b7b0d1060
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
-  %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count.i
-  br i1 %exitcond71.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count.i
+  br i1 %exitcond70.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split44.us.i:                                    ; preds = %.noexc
+.split43.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %24, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split44.us.i
+.noexc1:                                          ; preds = %.split43.us.i
   unreachable
 
-.split48.us.i:                                    ; preds = %27
+.split47.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split48.us.i
+.noexc2:                                          ; preds = %.split47.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -7465,7 +7465,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h4a7f32b7b0d1060
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split44.us.i, %.split48.us.i
+.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split47.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -7475,7 +7475,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h4a7f32b7b0d1060
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h594a734dcad31749E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph41.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -7523,22 +7523,22 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h6ef19be8145465a
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !720
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph41.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
 
-.lr.ph41.i:                                       ; preds = %.preheader.i
-  %.not51.i = icmp eq i32 %5, 0
+.lr.ph40.i:                                       ; preds = %.preheader.i
+  %.not50.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not51.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not50.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph41.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
   %wide.trip.count.i = zext i32 %7 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv68.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next69.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  %15 = mul nuw i64 %indvars.iv68.i, %14
-  %16 = trunc nuw i64 %indvars.iv68.i to i32
+  %indvars.iv67.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next68.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %15 = mul nuw i64 %indvars.iv67.i, %14
+  %16 = trunc nuw i64 %indvars.iv67.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -7557,11 +7557,11 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h6ef19be8145465a
   %24 = mul i64 %23, 3
   %25 = add i64 %24, 3
   %26 = icmp ugt i64 %24, -4
-  br i1 %26, label %.split44.us.i, label %27
+  br i1 %26, label %.split43.us.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.fca.1.extract.i
-  br i1 %28, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split47.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i8, ptr %11, i64 %24
@@ -7570,21 +7570,21 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h6ef19be8145465a
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
-  %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count.i
-  br i1 %exitcond71.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count.i
+  br i1 %exitcond70.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split44.us.i:                                    ; preds = %.noexc
+.split43.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %24, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split44.us.i
+.noexc1:                                          ; preds = %.split43.us.i
   unreachable
 
-.split48.us.i:                                    ; preds = %27
+.split47.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split48.us.i
+.noexc2:                                          ; preds = %.split47.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -7592,7 +7592,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h6ef19be8145465a
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split44.us.i, %.split48.us.i
+.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split47.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -7602,7 +7602,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h6ef19be8145465a
   invoke void @"_ZN4core3ptr111drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9c79fa629ee2a026E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph41.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -7644,26 +7644,26 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h89349abefc7c5a4
   store i32 %7, ptr %11, align 4, !alias.scope !733
   tail call void @llvm.experimental.noalias.scope.decl(metadata !736)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph38.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph37.i
 
-.lr.ph38.i:                                       ; preds = %.preheader.i
-  %.not47.i = icmp eq i32 %5, 0
+.lr.ph37.i:                                       ; preds = %.preheader.i
+  %.not46.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !736, !noalias !739, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !736, !noalias !739
-  br i1 %.not47.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not46.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph38.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph37.i
   %wide.trip.count.i = zext i32 %7 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv61.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next62.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %15 = mul nuw i64 %indvars.iv61.i, %12
-  %16 = trunc nuw i64 %indvars.iv61.i to i32
+  %indvars.iv60.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next61.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
+  %15 = mul nuw i64 %indvars.iv60.i, %12
+  %16 = trunc nuw i64 %indvars.iv60.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -7681,11 +7681,11 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h89349abefc7c5a4
   %24 = shl i64 %23, 2
   %25 = add i64 %24, 4
   %26 = icmp eq i64 %24, -4
-  br i1 %26, label %.split41.us.i, label %27
+  br i1 %26, label %.split40.us.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.val3.i.i
-  br i1 %28, label %.split44.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split43.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds float, ptr %.val.i.i, i64 %24
@@ -7694,21 +7694,21 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h89349abefc7c5a4
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
-  %exitcond64.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count.i
-  br i1 %exitcond64.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond63.not.i = icmp eq i64 %indvars.iv.next61.i, %wide.trip.count.i
+  br i1 %exitcond63.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split41.us.i:                                    ; preds = %.noexc
+.split40.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split41.us.i
+.noexc1:                                          ; preds = %.split40.us.i
   unreachable
 
-.split44.us.i:                                    ; preds = %27
+.split43.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split44.us.i
+.noexc2:                                          ; preds = %.split43.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -7716,7 +7716,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h89349abefc7c5a4
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split41.us.i, %.split44.us.i
+.loopexit.split-lp:                               ; preds = %.split40.us.i, %.split43.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -7726,7 +7726,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17h89349abefc7c5a4
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$f32$GT$$C$alloc..vec..Vec$LT$f32$GT$$GT$$GT$17h3c91b4aeb1ba84e9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph38.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph37.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -7768,26 +7768,26 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hc274b4bed2f5e65
   store i32 %7, ptr %11, align 4, !alias.scope !746
   tail call void @llvm.experimental.noalias.scope.decl(metadata !749)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not49.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not48.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !749, !noalias !752, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !749, !noalias !752
-  br i1 %.not49.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not48.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %wide.trip.count.i = zext i32 %7 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv63.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next64.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %15 = mul nuw i64 %indvars.iv63.i, %12
-  %16 = trunc nuw i64 %indvars.iv63.i to i32
+  %indvars.iv62.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next63.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %15 = mul nuw i64 %indvars.iv62.i, %12
+  %16 = trunc nuw i64 %indvars.iv62.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -7806,11 +7806,11 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hc274b4bed2f5e65
   %24 = shl i64 %23, 2
   %25 = add i64 %24, 4
   %26 = icmp eq i64 %24, -4
-  br i1 %26, label %.split43.us.i, label %27
+  br i1 %26, label %.split42.us.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.val3.i.i
-  br i1 %28, label %.split46.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
@@ -7819,21 +7819,21 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hc274b4bed2f5e65
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count.i
-  br i1 %exitcond66.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count.i
+  br i1 %exitcond65.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split43.us.i:                                    ; preds = %.noexc
+.split42.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split43.us.i
+.noexc1:                                          ; preds = %.split42.us.i
   unreachable
 
-.split46.us.i:                                    ; preds = %27
+.split45.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split46.us.i
+.noexc2:                                          ; preds = %.split45.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -7841,7 +7841,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hc274b4bed2f5e65
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split46.us.i
+.loopexit.split-lp:                               ; preds = %.split42.us.i, %.split45.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -7851,7 +7851,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hc274b4bed2f5e65
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h4ed1c6a8c5e3bfe9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -7893,26 +7893,26 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcc5a24a7152648e
   store i32 %7, ptr %11, align 4, !alias.scope !759
   tail call void @llvm.experimental.noalias.scope.decl(metadata !762)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not49.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not48.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !762, !noalias !765, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !762, !noalias !765
-  br i1 %.not49.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not48.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %wide.trip.count.i = zext i32 %7 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv63.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next64.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %15 = mul nuw i64 %indvars.iv63.i, %12
-  %16 = trunc nuw i64 %indvars.iv63.i to i32
+  %indvars.iv62.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next63.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %15 = mul nuw i64 %indvars.iv62.i, %12
+  %16 = trunc nuw i64 %indvars.iv62.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -7931,11 +7931,11 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcc5a24a7152648e
   %24 = shl i64 %23, 1
   %25 = add i64 %24, 2
   %26 = icmp eq i64 %24, -2
-  br i1 %26, label %.split43.us.i, label %27
+  br i1 %26, label %.split42.us.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.val3.i.i
-  br i1 %28, label %.split46.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
@@ -7944,21 +7944,21 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcc5a24a7152648e
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count.i
-  br i1 %exitcond66.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count.i
+  br i1 %exitcond65.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split43.us.i:                                    ; preds = %.noexc
+.split42.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split43.us.i
+.noexc1:                                          ; preds = %.split42.us.i
   unreachable
 
-.split46.us.i:                                    ; preds = %27
+.split45.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split46.us.i
+.noexc2:                                          ; preds = %.split45.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -7966,7 +7966,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcc5a24a7152648e
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split46.us.i
+.loopexit.split-lp:                               ; preds = %.split42.us.i, %.split45.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -7976,7 +7976,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcc5a24a7152648e
   invoke void @"_ZN4core3ptr115drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..LumaA$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h11586b09306c37f2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -8024,22 +8024,22 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcea6f3324b7132e
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !772
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not49.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not48.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not49.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not48.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %wide.trip.count.i = zext i32 %7 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv63.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next64.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %15 = mul nuw i64 %indvars.iv63.i, %14
-  %16 = trunc nuw i64 %indvars.iv63.i to i32
+  %indvars.iv62.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next63.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
+  %15 = mul nuw i64 %indvars.iv62.i, %14
+  %16 = trunc nuw i64 %indvars.iv62.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -8058,11 +8058,11 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcea6f3324b7132e
   %24 = shl i64 %23, 1
   %25 = add i64 %24, 2
   %26 = icmp eq i64 %24, -2
-  br i1 %26, label %.split43.us.i, label %27
+  br i1 %26, label %.split42.us.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.fca.1.extract.i
-  br i1 %28, label %.split46.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split45.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i8, ptr %11, i64 %24
@@ -8071,21 +8071,21 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcea6f3324b7132e
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, %wide.trip.count.i
-  br i1 %exitcond66.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond65.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count.i
+  br i1 %exitcond65.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split43.us.i:                                    ; preds = %.noexc
+.split42.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split43.us.i
+.noexc1:                                          ; preds = %.split42.us.i
   unreachable
 
-.split46.us.i:                                    ; preds = %27
+.split45.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split46.us.i
+.noexc2:                                          ; preds = %.split45.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -8093,7 +8093,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcea6f3324b7132e
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split46.us.i
+.loopexit.split-lp:                               ; preds = %.split42.us.i, %.split45.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -8103,7 +8103,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hcea6f3324b7132e
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..LumaA$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17ha1a53ec1e6e57852E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -8145,26 +8145,26 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hced13e7044afa92
   store i32 %7, ptr %11, align 4, !alias.scope !785
   tail call void @llvm.experimental.noalias.scope.decl(metadata !788)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not50.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not49.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !788, !noalias !791, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !788, !noalias !791
-  br i1 %.not50.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not49.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %wide.trip.count.i = zext i32 %7 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv67.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next68.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %15 = mul nuw i64 %indvars.iv67.i, %12
-  %16 = trunc nuw i64 %indvars.iv67.i to i32
+  %indvars.iv66.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next67.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
+  %15 = mul nuw i64 %indvars.iv66.i, %12
+  %16 = trunc nuw i64 %indvars.iv66.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -8182,11 +8182,11 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hced13e7044afa92
   %24 = mul i64 %23, 3
   %25 = add i64 %24, 3
   %26 = icmp ugt i64 %24, -4
-  br i1 %26, label %.split43.us.i, label %27
+  br i1 %26, label %.split42.us.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.val3.i.i
-  br i1 %28, label %.split47.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split46.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds float, ptr %.val.i.i, i64 %24
@@ -8195,21 +8195,21 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hced13e7044afa92
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
-  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count.i
-  br i1 %exitcond70.not.i, label %.loopexit4, label %.lr.ph.us.i
+  %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count.i
+  br i1 %exitcond69.not.i, label %.loopexit4, label %.lr.ph.us.i
 
-.split43.us.i:                                    ; preds = %.noexc
+.split42.us.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %24, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split43.us.i
+.noexc1:                                          ; preds = %.split42.us.i
   unreachable
 
-.split47.us.i:                                    ; preds = %27
+.split46.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split47.us.i
+.noexc2:                                          ; preds = %.split46.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -8217,7 +8217,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hced13e7044afa92
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split43.us.i, %.split47.us.i
+.loopexit.split-lp:                               ; preds = %.split42.us.i, %.split46.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -8227,7 +8227,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hced13e7044afa92
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$f32$GT$$C$alloc..vec..Vec$LT$f32$GT$$GT$$GT$17hd1af88b6803ff990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -8269,26 +8269,26 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hd50408adce3565b
   store i32 %7, ptr %11, align 4, !alias.scope !798
   tail call void @llvm.experimental.noalias.scope.decl(metadata !801)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit3, label %.lr.ph36.i
+  br i1 %.not.i, label %.loopexit3, label %.lr.ph35.i
 
-.lr.ph36.i:                                       ; preds = %.preheader.i
-  %.not42.i = icmp eq i32 %5, 0
+.lr.ph35.i:                                       ; preds = %.preheader.i
+  %.not41.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %13, align 8, !alias.scope !801, !noalias !804
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %14, align 8, !alias.scope !801, !noalias !804, !nonnull !4
-  br i1 %.not42.i, label %.loopexit3, label %.lr.ph.us.preheader.i
+  br i1 %.not41.i, label %.loopexit3, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph36.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph35.i
   %wide.trip.count.i = zext i32 %7 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv53.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next54.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
-  %15 = mul nuw i64 %indvars.iv53.i, %12
-  %16 = trunc nuw i64 %indvars.iv53.i to i32
+  %indvars.iv52.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next53.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
+  %15 = mul nuw i64 %indvars.iv52.i, %12
+  %16 = trunc nuw i64 %indvars.iv52.i to i32
   br label %17
 
 17:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", %.lr.ph.us.i
@@ -8303,7 +8303,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hd50408adce3565b
   %22 = zext i32 %21 to i64
   %23 = add nuw i64 %15, %22
   %.not.i.us.i = icmp ult i64 %23, %.val3.i.i
-  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", label %.split39.us.i
+  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", label %.split38.us.i
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
   %.sroa.0.0.copyload.i.us.i = load i16, ptr %19, align 2, !noalias !807
@@ -8314,15 +8314,15 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hd50408adce3565b
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %17
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i"
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
-  br i1 %exitcond56.not.i, label %.loopexit3, label %.lr.ph.us.i
+  %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count.i
+  br i1 %exitcond55.not.i, label %.loopexit3, label %.lr.ph.us.i
 
-.split39.us.i:                                    ; preds = %.noexc
+.split38.us.i:                                    ; preds = %.noexc
   %25 = add nuw i64 %23, 1
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split39.us.i
+.noexc1:                                          ; preds = %.split38.us.i
   unreachable
 
 .loopexit:                                        ; preds = %17
@@ -8330,7 +8330,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hd50408adce3565b
           cleanup
   br label %26
 
-.loopexit.split-lp:                               ; preds = %.split39.us.i
+.loopexit.split-lp:                               ; preds = %.split38.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %26
@@ -8340,7 +8340,7 @@ define hidden void @_ZN5image8imageops6affine15flip_horizontal17hd50408adce3565b
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Luma$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17hab9acd9360c57db3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %29 unwind label %27
 
-.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph36.i, %.preheader.i
+.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph35.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -8388,77 +8388,77 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h208575b48ed0f51dE
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !811
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph47.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
 
-.lr.ph47.i:                                       ; preds = %.preheader.i
-  %.not59.i = icmp eq i32 %5, 0
+.lr.ph46.i:                                       ; preds = %.preheader.i
+  %.not58.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not59.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not58.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph47.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us50.preheader.i
+  br label %.lr.ph.split.us49.preheader.i
 
-.lr.ph.split.us50.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv76.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next77.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
-  %16 = trunc nuw i64 %indvars.iv76.i to i32
+.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv75.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next76.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
+  %16 = trunc nuw i64 %indvars.iv75.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %14
-  br label %.lr.ph.split.us50.i
+  br label %.lr.ph.split.us49.i
 
-.lr.ph.split.us50.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us50.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us50.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = trunc nuw i64 %indvars.iv.i to i32
   %22 = invoke noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us50.i
-  %.sroa.0.0.copyload.i.us49.i = load i24, ptr %22, align 1, !noalias !817
+.noexc:                                           ; preds = %.lr.ph.split.us49.i
+  %.sroa.0.0.copyload.i.us48.i = load i24, ptr %22, align 1, !noalias !817
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = mul i64 %23, 3
   %25 = add i64 %24, 3
   %26 = icmp ugt i64 %24, -4
-  br i1 %26, label %.split.us51.i, label %27
+  br i1 %26, label %.split.us50.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.fca.1.extract.i
-  br i1 %28, label %.split54.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split53.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i8, ptr %11, i64 %24
-  store i24 %.sroa.0.0.copyload.i.us49.i, ptr %29, align 1, !noalias !817
+  store i24 %.sroa.0.0.copyload.i.us48.i, ptr %29, align 1, !noalias !817
   %lftr.wideiv = trunc i64 %indvars.iv.next.i to i32
   %exitcond = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us50.i
+  br i1 %exitcond, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us.i"
-  %exitcond80.not.i = icmp eq i64 %indvars.iv.next77.i, %15
-  br i1 %exitcond80.not.i, label %.loopexit4, label %.lr.ph.split.us50.preheader.i
+  %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %15
+  br i1 %exitcond79.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
 
-.split.us51.i:                                    ; preds = %.noexc
+.split.us50.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %24, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us51.i
+.noexc1:                                          ; preds = %.split.us50.i
   unreachable
 
-.split54.us.i:                                    ; preds = %27
+.split53.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split54.us.i
+.noexc2:                                          ; preds = %.split53.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us50.i
+.loopexit:                                        ; preds = %.lr.ph.split.us49.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split.us51.i, %.split54.us.i
+.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split53.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -8468,7 +8468,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h208575b48ed0f51dE
   invoke void @"_ZN4core3ptr111drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9c79fa629ee2a026E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph47.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -8510,79 +8510,79 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h321536d834f914b8E
   store i32 %7, ptr %11, align 4, !alias.scope !824
   tail call void @llvm.experimental.noalias.scope.decl(metadata !827)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph44.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph43.i
 
-.lr.ph44.i:                                       ; preds = %.preheader.i
-  %.not54.i = icmp eq i32 %5, 0
+.lr.ph43.i:                                       ; preds = %.preheader.i
+  %.not53.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !827, !noalias !830, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !827, !noalias !830
-  br i1 %.not54.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not53.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph44.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph43.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us46.preheader.i
+  br label %.lr.ph.split.us45.preheader.i
 
-.lr.ph.split.us46.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv68.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next69.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  %16 = trunc nuw i64 %indvars.iv68.i to i32
+.lr.ph.split.us45.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv67.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next68.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %16 = trunc nuw i64 %indvars.iv67.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
-  br label %.lr.ph.split.us46.i
+  br label %.lr.ph.split.us45.i
 
-.lr.ph.split.us46.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us46.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us46.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us45.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us45.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us45.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = trunc nuw i64 %indvars.iv.i to i32
   %22 = invoke noundef align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us46.i
+.noexc:                                           ; preds = %.lr.ph.split.us45.i
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = shl i64 %23, 2
   %25 = add i64 %24, 4
   %26 = icmp eq i64 %24, -4
-  br i1 %26, label %.split.us47.i, label %27
+  br i1 %26, label %.split.us46.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.val3.i.i
-  br i1 %28, label %.split49.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split48.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds float, ptr %.val.i.i, i64 %24
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false), !noalias !833
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us46.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us45.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us.i"
-  %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %15
-  br i1 %exitcond72.not.i, label %.loopexit4, label %.lr.ph.split.us46.preheader.i
+  %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %15
+  br i1 %exitcond71.not.i, label %.loopexit4, label %.lr.ph.split.us45.preheader.i
 
-.split.us47.i:                                    ; preds = %.noexc
+.split.us46.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us47.i
+.noexc1:                                          ; preds = %.split.us46.i
   unreachable
 
-.split49.us.i:                                    ; preds = %27
+.split48.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split49.us.i
+.noexc2:                                          ; preds = %.split48.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us46.i
+.loopexit:                                        ; preds = %.lr.ph.split.us45.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split.us47.i, %.split49.us.i
+.loopexit.split-lp:                               ; preds = %.split.us46.i, %.split48.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -8592,7 +8592,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h321536d834f914b8E
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$f32$GT$$C$alloc..vec..Vec$LT$f32$GT$$GT$$GT$17h3c91b4aeb1ba84e9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph44.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph43.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -8634,80 +8634,80 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h671c3b94835badffE
   store i32 %7, ptr %11, align 4, !alias.scope !837
   tail call void @llvm.experimental.noalias.scope.decl(metadata !840)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph45.i
 
-.lr.ph46.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph45.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !840, !noalias !843, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !840, !noalias !843
-  br i1 %.not57.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph45.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us49.preheader.i
+  br label %.lr.ph.split.us48.preheader.i
 
-.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv71.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next72.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %16 = trunc nuw i64 %indvars.iv71.i to i32
+.lr.ph.split.us48.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next71.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
+  %16 = trunc nuw i64 %indvars.iv70.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
-  br label %.lr.ph.split.us49.i
+  br label %.lr.ph.split.us48.i
 
-.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us48.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us48.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us48.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = trunc nuw i64 %indvars.iv.i to i32
   %22 = invoke noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us49.i
-  %.sroa.0.0.copyload.i.us48.i = load i64, ptr %22, align 2, !noalias !846
+.noexc:                                           ; preds = %.lr.ph.split.us48.i
+  %.sroa.0.0.copyload.i.us47.i = load i64, ptr %22, align 2, !noalias !846
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = shl i64 %23, 2
   %25 = add i64 %24, 4
   %26 = icmp eq i64 %24, -4
-  br i1 %26, label %.split.us50.i, label %27
+  br i1 %26, label %.split.us49.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.val3.i.i
-  br i1 %28, label %.split52.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
-  store i64 %.sroa.0.0.copyload.i.us48.i, ptr %29, align 2, !noalias !846
+  store i64 %.sroa.0.0.copyload.i.us47.i, ptr %29, align 2, !noalias !846
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us48.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us.i"
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %15
-  br i1 %exitcond75.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
+  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %15
+  br i1 %exitcond74.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
-.split.us50.i:                                    ; preds = %.noexc
+.split.us49.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us50.i
+.noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split52.us.i:                                    ; preds = %27
+.split51.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split52.us.i
+.noexc2:                                          ; preds = %.split51.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us49.i
+.loopexit:                                        ; preds = %.lr.ph.split.us48.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split.us49.i, %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -8717,7 +8717,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h671c3b94835badffE
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h4ed1c6a8c5e3bfe9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph45.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -8759,80 +8759,80 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h8c7e817064366020E
   store i32 %7, ptr %11, align 4, !alias.scope !850
   tail call void @llvm.experimental.noalias.scope.decl(metadata !853)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph45.i
 
-.lr.ph46.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph45.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !853, !noalias !856, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !853, !noalias !856
-  br i1 %.not57.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph45.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us48.preheader.i
+  br label %.lr.ph.split.us47.preheader.i
 
-.lr.ph.split.us48.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv74.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
-  %16 = trunc nuw i64 %indvars.iv74.i to i32
+.lr.ph.split.us47.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv73.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next74.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
+  %16 = trunc nuw i64 %indvars.iv73.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
-  br label %.lr.ph.split.us48.i
+  br label %.lr.ph.split.us47.i
 
-.lr.ph.split.us48.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us48.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us48.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us47.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us47.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us47.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = trunc nuw i64 %indvars.iv.i to i32
   %22 = invoke noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us48.i
+.noexc:                                           ; preds = %.lr.ph.split.us47.i
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = mul i64 %23, 3
   %25 = add i64 %24, 3
   %26 = icmp ugt i64 %24, -4
-  br i1 %26, label %.split.us49.i, label %27
+  br i1 %26, label %.split.us48.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.val3.i.i
-  br i1 %28, label %.split52.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds float, ptr %.val.i.i, i64 %24
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %29, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false), !noalias !859
   %lftr.wideiv = trunc i64 %indvars.iv.next.i to i32
   %exitcond = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us48.i
+  br i1 %exitcond, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us47.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us.i"
-  %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %15
-  br i1 %exitcond78.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
+  %exitcond77.not.i = icmp eq i64 %indvars.iv.next74.i, %15
+  br i1 %exitcond77.not.i, label %.loopexit4, label %.lr.ph.split.us47.preheader.i
 
-.split.us49.i:                                    ; preds = %.noexc
+.split.us48.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %24, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us49.i
+.noexc1:                                          ; preds = %.split.us48.i
   unreachable
 
-.split52.us.i:                                    ; preds = %27
+.split51.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split52.us.i
+.noexc2:                                          ; preds = %.split51.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us48.i
+.loopexit:                                        ; preds = %.lr.ph.split.us47.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split.us49.i, %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split.us48.i, %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -8842,7 +8842,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h8c7e817064366020E
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$f32$GT$$C$alloc..vec..Vec$LT$f32$GT$$GT$$GT$17hd1af88b6803ff990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph45.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -8890,76 +8890,76 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h9619b1cb4fac9766E
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !863
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph45.i
 
-.lr.ph46.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph45.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not57.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph45.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us49.preheader.i
+  br label %.lr.ph.split.us48.preheader.i
 
-.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv71.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next72.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %16 = trunc nuw i64 %indvars.iv71.i to i32
+.lr.ph.split.us48.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next71.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
+  %16 = trunc nuw i64 %indvars.iv70.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %14
-  br label %.lr.ph.split.us49.i
+  br label %.lr.ph.split.us48.i
 
-.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us48.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us48.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us48.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = trunc nuw i64 %indvars.iv.i to i32
   %22 = invoke noundef align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8633644275b32013E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us49.i
-  %.sroa.0.0.copyload.i.us48.i = load i16, ptr %22, align 1, !noalias !869
+.noexc:                                           ; preds = %.lr.ph.split.us48.i
+  %.sroa.0.0.copyload.i.us47.i = load i16, ptr %22, align 1, !noalias !869
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = shl i64 %23, 1
   %25 = add i64 %24, 2
   %26 = icmp eq i64 %24, -2
-  br i1 %26, label %.split.us50.i, label %27
+  br i1 %26, label %.split.us49.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.fca.1.extract.i
-  br i1 %28, label %.split52.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i8, ptr %11, i64 %24
-  store i16 %.sroa.0.0.copyload.i.us48.i, ptr %29, align 1, !noalias !869
+  store i16 %.sroa.0.0.copyload.i.us47.i, ptr %29, align 1, !noalias !869
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us48.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us.i"
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %15
-  br i1 %exitcond75.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
+  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %15
+  br i1 %exitcond74.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
-.split.us50.i:                                    ; preds = %.noexc
+.split.us49.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us50.i
+.noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split52.us.i:                                    ; preds = %27
+.split51.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split52.us.i
+.noexc2:                                          ; preds = %.split51.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us49.i
+.loopexit:                                        ; preds = %.lr.ph.split.us48.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split.us49.i, %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -8969,7 +8969,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17h9619b1cb4fac9766E
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..LumaA$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17ha1a53ec1e6e57852E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph45.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -9017,76 +9017,76 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17haf2aabc265be3a58E
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !876
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph45.i
 
-.lr.ph46.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph45.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not57.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph45.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us49.preheader.i
+  br label %.lr.ph.split.us48.preheader.i
 
-.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv71.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next72.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %16 = trunc nuw i64 %indvars.iv71.i to i32
+.lr.ph.split.us48.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next71.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
+  %16 = trunc nuw i64 %indvars.iv70.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %14
-  br label %.lr.ph.split.us49.i
+  br label %.lr.ph.split.us48.i
 
-.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us48.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us48.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us48.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = trunc nuw i64 %indvars.iv.i to i32
   %22 = invoke noundef align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h553bd5839299de1eE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us49.i
-  %.sroa.0.0.copyload.i.us48.i = load i32, ptr %22, align 1, !noalias !882
+.noexc:                                           ; preds = %.lr.ph.split.us48.i
+  %.sroa.0.0.copyload.i.us47.i = load i32, ptr %22, align 1, !noalias !882
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = shl i64 %23, 2
   %25 = add i64 %24, 4
   %26 = icmp eq i64 %24, -4
-  br i1 %26, label %.split.us50.i, label %27
+  br i1 %26, label %.split.us49.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.fca.1.extract.i
-  br i1 %28, label %.split52.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i8, ptr %11, i64 %24
-  store i32 %.sroa.0.0.copyload.i.us48.i, ptr %29, align 1, !noalias !882
+  store i32 %.sroa.0.0.copyload.i.us47.i, ptr %29, align 1, !noalias !882
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %14
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us48.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us.i"
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %15
-  br i1 %exitcond75.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
+  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %15
+  br i1 %exitcond74.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
-.split.us50.i:                                    ; preds = %.noexc
+.split.us49.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us50.i
+.noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split52.us.i:                                    ; preds = %27
+.split51.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split52.us.i
+.noexc2:                                          ; preds = %.split51.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us49.i
+.loopexit:                                        ; preds = %.lr.ph.split.us48.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split.us49.i, %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -9096,7 +9096,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17haf2aabc265be3a58E
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17ha4891b45020b4ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph45.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -9138,80 +9138,80 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hd538e6a1eb039016E
   store i32 %7, ptr %11, align 4, !alias.scope !889
   tail call void @llvm.experimental.noalias.scope.decl(metadata !892)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph45.i
 
-.lr.ph46.i:                                       ; preds = %.preheader.i
-  %.not57.i = icmp eq i32 %5, 0
+.lr.ph45.i:                                       ; preds = %.preheader.i
+  %.not56.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !892, !noalias !895, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !892, !noalias !895
-  br i1 %.not57.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not56.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph45.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us49.preheader.i
+  br label %.lr.ph.split.us48.preheader.i
 
-.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv71.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next72.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %16 = trunc nuw i64 %indvars.iv71.i to i32
+.lr.ph.split.us48.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next71.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
+  %16 = trunc nuw i64 %indvars.iv70.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
-  br label %.lr.ph.split.us49.i
+  br label %.lr.ph.split.us48.i
 
-.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us48.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us48.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us48.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = trunc nuw i64 %indvars.iv.i to i32
   %22 = invoke noundef align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hceaa3a089891951aE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us49.i
-  %.sroa.0.0.copyload.i.us48.i = load i32, ptr %22, align 2, !noalias !898
+.noexc:                                           ; preds = %.lr.ph.split.us48.i
+  %.sroa.0.0.copyload.i.us47.i = load i32, ptr %22, align 2, !noalias !898
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = shl i64 %23, 1
   %25 = add i64 %24, 2
   %26 = icmp eq i64 %24, -2
-  br i1 %26, label %.split.us50.i, label %27
+  br i1 %26, label %.split.us49.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.val3.i.i
-  br i1 %28, label %.split52.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split51.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
-  store i32 %.sroa.0.0.copyload.i.us48.i, ptr %29, align 2, !noalias !898
+  store i32 %.sroa.0.0.copyload.i.us47.i, ptr %29, align 2, !noalias !898
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %12
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us48.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us.i"
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %15
-  br i1 %exitcond75.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
+  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %15
+  br i1 %exitcond74.not.i, label %.loopexit4, label %.lr.ph.split.us48.preheader.i
 
-.split.us50.i:                                    ; preds = %.noexc
+.split.us49.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us50.i
+.noexc1:                                          ; preds = %.split.us49.i
   unreachable
 
-.split52.us.i:                                    ; preds = %27
+.split51.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split52.us.i
+.noexc2:                                          ; preds = %.split51.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us49.i
+.loopexit:                                        ; preds = %.lr.ph.split.us48.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split52.us.i
+.loopexit.split-lp:                               ; preds = %.split.us49.i, %.split51.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -9221,7 +9221,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hd538e6a1eb039016E
   invoke void @"_ZN4core3ptr115drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..LumaA$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h11586b09306c37f2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph45.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -9263,69 +9263,69 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hdbc9b822497e11d6E
   store i32 %7, ptr %11, align 4, !alias.scope !902
   tail call void @llvm.experimental.noalias.scope.decl(metadata !905)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit3, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit3, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not48.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not47.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %13, align 8, !alias.scope !905, !noalias !908
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %14, align 8, !alias.scope !905, !noalias !908, !nonnull !4
-  br i1 %.not48.i, label %.loopexit3, label %.lr.ph.us.preheader.i
+  br i1 %.not47.i, label %.loopexit3, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us43.preheader.i
+  br label %.lr.ph.split.us42.preheader.i
 
-.lr.ph.split.us43.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv59.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next60.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
-  %16 = trunc nuw i64 %indvars.iv59.i to i32
+.lr.ph.split.us42.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv58.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next59.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
+  %16 = trunc nuw i64 %indvars.iv58.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
-  br label %.lr.ph.split.us43.i
+  br label %.lr.ph.split.us42.i
 
-.lr.ph.split.us43.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us43.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us43.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us42.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us42.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us42.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i" ]
   %21 = trunc nuw i64 %indvars.iv.i to i32
   %22 = invoke noundef align 2 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hd2363a508e017e20E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us43.i
+.noexc:                                           ; preds = %.lr.ph.split.us42.i
   %23 = add nuw i64 %indvars.iv.i, %20
   %.not.i.us.i = icmp ult i64 %23, %.val3.i.i
-  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", label %.split.us44.i
+  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i", label %.split.us43.i
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
-  %.sroa.0.0.copyload.i.us42.i = load i16, ptr %22, align 2, !noalias !911
+  %.sroa.0.0.copyload.i.us41.i = load i16, ptr %22, align 2, !noalias !911
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %24 = getelementptr inbounds i16, ptr %.val.i.i, i64 %23
-  store i16 %.sroa.0.0.copyload.i.us42.i, ptr %24, align 2, !noalias !911
+  store i16 %.sroa.0.0.copyload.i.us41.i, ptr %24, align 2, !noalias !911
   %lftr.wideiv = trunc i64 %indvars.iv.next.i to i32
   %exitcond = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us43.i
+  br i1 %exitcond, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us42.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us.i"
-  %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %15
-  br i1 %exitcond63.not.i, label %.loopexit3, label %.lr.ph.split.us43.preheader.i
+  %exitcond62.not.i = icmp eq i64 %indvars.iv.next59.i, %15
+  br i1 %exitcond62.not.i, label %.loopexit3, label %.lr.ph.split.us42.preheader.i
 
-.split.us44.i:                                    ; preds = %.noexc
+.split.us43.i:                                    ; preds = %.noexc
   %25 = add nuw i64 %23, 1
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us44.i
+.noexc1:                                          ; preds = %.split.us43.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us43.i
+.loopexit:                                        ; preds = %.lr.ph.split.us42.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %26
 
-.loopexit.split-lp:                               ; preds = %.split.us44.i
+.loopexit.split-lp:                               ; preds = %.split.us43.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %26
@@ -9335,7 +9335,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hdbc9b822497e11d6E
   invoke void @"_ZN4core3ptr114drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Luma$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17hab9acd9360c57db3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %29 unwind label %27
 
-.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -9383,65 +9383,65 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17he274783432231661E
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.fca.1.extract.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !915
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit3, label %.lr.ph40.i
+  br i1 %.not.i, label %.loopexit3, label %.lr.ph39.i
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %.not48.i = icmp eq i32 %5, 0
+.lr.ph39.i:                                       ; preds = %.preheader.i
+  %.not47.i = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
-  br i1 %.not48.i, label %.loopexit3, label %.lr.ph.us.preheader.i
+  br i1 %.not47.i, label %.loopexit3, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph40.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph39.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us43.preheader.i
+  br label %.lr.ph.split.us42.preheader.i
 
-.lr.ph.split.us43.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv59.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next60.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
-  %16 = trunc nuw i64 %indvars.iv59.i to i32
+.lr.ph.split.us42.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv58.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next59.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
+  %16 = trunc nuw i64 %indvars.iv58.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %14
-  br label %.lr.ph.split.us43.i
+  br label %.lr.ph.split.us42.i
 
-.lr.ph.split.us43.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us43.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us43.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us42.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us42.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us42.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i" ]
   %21 = trunc nuw i64 %indvars.iv.i to i32
   %22 = invoke noundef align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h2bfe2e2e7bce91aeE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us43.i
+.noexc:                                           ; preds = %.lr.ph.split.us42.i
   %23 = add nuw i64 %indvars.iv.i, %20
   %.not.i.us.i = icmp ult i64 %23, %.fca.1.extract.i
-  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", label %.split.us44.i
+  br i1 %.not.i.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i", label %.split.us43.i
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i": ; preds = %.noexc
-  %.sroa.0.0.copyload.i.us42.i = load i8, ptr %22, align 1, !noalias !921
+  %.sroa.0.0.copyload.i.us41.i = load i8, ptr %22, align 1, !noalias !921
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %24 = getelementptr inbounds i8, ptr %11, i64 %23
-  store i8 %.sroa.0.0.copyload.i.us42.i, ptr %24, align 1, !noalias !921
+  store i8 %.sroa.0.0.copyload.i.us41.i, ptr %24, align 1, !noalias !921
   %lftr.wideiv = trunc i64 %indvars.iv.next.i to i32
   %exitcond = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us43.i
+  br i1 %exitcond, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us42.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us.i"
-  %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %15
-  br i1 %exitcond63.not.i, label %.loopexit3, label %.lr.ph.split.us43.preheader.i
+  %exitcond62.not.i = icmp eq i64 %indvars.iv.next59.i, %15
+  br i1 %exitcond62.not.i, label %.loopexit3, label %.lr.ph.split.us42.preheader.i
 
-.split.us44.i:                                    ; preds = %.noexc
+.split.us43.i:                                    ; preds = %.noexc
   %25 = add nuw i64 %23, 1
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.fca.1.extract.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us44.i
+.noexc1:                                          ; preds = %.split.us43.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us43.i
+.loopexit:                                        ; preds = %.lr.ph.split.us42.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %26
 
-.loopexit.split-lp:                               ; preds = %.split.us44.i
+.loopexit.split-lp:                               ; preds = %.split.us43.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %26
@@ -9451,7 +9451,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17he274783432231661E
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Luma$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h9bfc8b04396d871eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %29 unwind label %27
 
-.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph40.i, %.preheader.i
+.loopexit3:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph39.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -9493,81 +9493,81 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hec343f3be3f80951E
   store i32 %7, ptr %11, align 4, !alias.scope !928
   tail call void @llvm.experimental.noalias.scope.decl(metadata !931)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit4, label %.lr.ph47.i
+  br i1 %.not.i, label %.loopexit4, label %.lr.ph46.i
 
-.lr.ph47.i:                                       ; preds = %.preheader.i
-  %.not59.i = icmp eq i32 %5, 0
+.lr.ph46.i:                                       ; preds = %.preheader.i
+  %.not58.i = icmp eq i32 %5, 0
   %12 = zext i32 %5 to i64
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val.i.i = load ptr, ptr %13, align 8, !alias.scope !931, !noalias !934, !nonnull !4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val3.i.i = load i64, ptr %14, align 8, !alias.scope !931, !noalias !934
-  br i1 %.not59.i, label %.loopexit4, label %.lr.ph.us.preheader.i
+  br i1 %.not58.i, label %.loopexit4, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %.lr.ph47.i
+.lr.ph.us.preheader.i:                            ; preds = %.lr.ph46.i
   %15 = zext i32 %7 to i64
-  br label %.lr.ph.split.us50.preheader.i
+  br label %.lr.ph.split.us49.preheader.i
 
-.lr.ph.split.us50.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
-  %indvars.iv76.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next77.i, %..loopexit_crit_edge.us.i ]
-  %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
-  %16 = trunc nuw i64 %indvars.iv76.i to i32
+.lr.ph.split.us49.preheader.i:                    ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.us.preheader.i
+  %indvars.iv75.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next76.i, %..loopexit_crit_edge.us.i ]
+  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
+  %16 = trunc nuw i64 %indvars.iv75.i to i32
   %17 = xor i32 %16, -1
   %18 = add i32 %7, %17
   %19 = zext i32 %18 to i64
   %20 = mul nuw i64 %19, %12
-  br label %.lr.ph.split.us50.i
+  br label %.lr.ph.split.us49.i
 
-.lr.ph.split.us50.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us50.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us50.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i" ]
+.lr.ph.split.us49.i:                              ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i", %.lr.ph.split.us49.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us49.preheader.i ], [ %indvars.iv.next.i, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i" ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = trunc nuw i64 %indvars.iv.i to i32
   %22 = invoke noundef align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hc4a40bd0c7ce1bc8E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %21, i32 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %.lr.ph.split.us50.i
-  %.sroa.0.0.copyload.i.us49.i = load i48, ptr %22, align 2, !noalias !937
+.noexc:                                           ; preds = %.lr.ph.split.us49.i
+  %.sroa.0.0.copyload.i.us48.i = load i48, ptr %22, align 2, !noalias !937
   %23 = add nuw i64 %indvars.iv.i, %20
   %24 = mul i64 %23, 3
   %25 = add i64 %24, 3
   %26 = icmp ugt i64 %24, -4
-  br i1 %26, label %.split.us51.i, label %27
+  br i1 %26, label %.split.us50.i, label %27
 
 27:                                               ; preds = %.noexc
   %28 = icmp ugt i64 %25, %.val3.i.i
-  br i1 %28, label %.split54.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
+  br i1 %28, label %.split53.us.i, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i": ; preds = %27
   %29 = getelementptr inbounds i16, ptr %.val.i.i, i64 %24
-  store i48 %.sroa.0.0.copyload.i.us49.i, ptr %29, align 2, !noalias !937
+  store i48 %.sroa.0.0.copyload.i.us48.i, ptr %29, align 2, !noalias !937
   %lftr.wideiv = trunc i64 %indvars.iv.next.i to i32
   %exitcond = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us50.i
+  br i1 %exitcond, label %..loopexit_crit_edge.us.i, label %.lr.ph.split.us49.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us.i"
-  %exitcond80.not.i = icmp eq i64 %indvars.iv.next77.i, %15
-  br i1 %exitcond80.not.i, label %.loopexit4, label %.lr.ph.split.us50.preheader.i
+  %exitcond79.not.i = icmp eq i64 %indvars.iv.next76.i, %15
+  br i1 %exitcond79.not.i, label %.loopexit4, label %.lr.ph.split.us49.preheader.i
 
-.split.us51.i:                                    ; preds = %.noexc
+.split.us50.i:                                    ; preds = %.noexc
   invoke void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %24, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc1 unwind label %.loopexit.split-lp
 
-.noexc1:                                          ; preds = %.split.us51.i
+.noexc1:                                          ; preds = %.split.us50.i
   unreachable
 
-.split54.us.i:                                    ; preds = %27
+.split53.us.i:                                    ; preds = %27
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %25, i64 noundef %.val3.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18
           to label %.noexc2 unwind label %.loopexit.split-lp
 
-.noexc2:                                          ; preds = %.split54.us.i
+.noexc2:                                          ; preds = %.split53.us.i
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph.split.us50.i
+.loopexit:                                        ; preds = %.lr.ph.split.us49.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %30
 
-.loopexit.split-lp:                               ; preds = %.split.us51.i, %.split54.us.i
+.loopexit.split-lp:                               ; preds = %.split.us50.i, %.split53.us.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -9577,7 +9577,7 @@ define hidden void @_ZN5image8imageops6affine13flip_vertical17hec343f3be3f80951E
   invoke void @"_ZN4core3ptr113drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgb$LT$u16$GT$$C$alloc..vec..Vec$LT$u16$GT$$GT$$GT$17h594a734dcad31749E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #19
           to label %33 unwind label %31
 
-.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph47.i, %.preheader.i
+.loopexit4:                                       ; preds = %..loopexit_crit_edge.us.i, %.lr.ph46.i, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
@@ -9609,26 +9609,26 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h0bde49abda7e
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph38
+  br i1 %.not, label %._crit_edge, label %.lr.ph37
 
-.lr.ph38:                                         ; preds = %.preheader
-  %.not47 = icmp eq i32 %5, 0
+.lr.ph37:                                         ; preds = %.preheader
+  %.not46 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not46, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph38
+.lr.ph.us.preheader:                              ; preds = %.lr.ph37
   %wide.trip.count = zext i32 %7 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv61 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next62, %..loopexit_crit_edge.us ]
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %17 = mul nuw i64 %indvars.iv61, %14
-  %18 = trunc nuw i64 %indvars.iv61 to i32
+  %indvars.iv60 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next61, %..loopexit_crit_edge.us ]
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %17 = mul nuw i64 %indvars.iv60, %14
+  %18 = trunc nuw i64 %indvars.iv60 to i32
   br label %19
 
 19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us", %.lr.ph.us
@@ -9643,11 +9643,11 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h0bde49abda7e
   %26 = shl i64 %25, 2
   %27 = add i64 %26, 4
   %28 = icmp eq i64 %26, -4
-  br i1 %28, label %.split41.us, label %29
+  br i1 %28, label %.split40.us, label %29
 
 29:                                               ; preds = %19
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split44.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split43.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds float, ptr %.val.i, i64 %26
@@ -9656,8 +9656,8 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h0bde49abda7e
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
-  %exitcond64.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
-  br i1 %exitcond64.not, label %._crit_edge, label %.lr.ph.us
+  %exitcond63.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count
+  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.us
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -9667,18 +9667,18 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h0bde49abda7e
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph38, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph37, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split41.us:                                      ; preds = %19
+.split40.us:                                      ; preds = %19
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !944
   unreachable
 
-.split44.us:                                      ; preds = %29
+.split43.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !944
   unreachable
 }
@@ -9700,26 +9700,26 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1de51ffabc66
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph36
+  br i1 %.not, label %._crit_edge, label %.lr.ph35
 
-.lr.ph36:                                         ; preds = %.preheader
-  %.not42 = icmp eq i32 %5, 0
+.lr.ph35:                                         ; preds = %.preheader
+  %.not41 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %16, align 8, !nonnull !4
-  br i1 %.not42, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not41, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph36
+.lr.ph.us.preheader:                              ; preds = %.lr.ph35
   %wide.trip.count = zext i32 %7 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next54, %..loopexit_crit_edge.us ]
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %17 = mul nuw i64 %indvars.iv53, %14
-  %18 = trunc nuw i64 %indvars.iv53 to i32
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next53, %..loopexit_crit_edge.us ]
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %17 = mul nuw i64 %indvars.iv52, %14
+  %18 = trunc nuw i64 %indvars.iv52 to i32
   br label %19
 
 19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", %.lr.ph.us
@@ -9731,7 +9731,7 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1de51ffabc66
   %24 = zext i32 %23 to i64
   %25 = add nuw i64 %17, %24
   %.not.i.us = icmp ult i64 %25, %.val3.i
-  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", label %.split39.us
+  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", label %.split38.us
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %19
   %.sroa.0.0.copyload.i.us = load i16, ptr %21, align 2
@@ -9742,8 +9742,8 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1de51ffabc66
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us"
-  %exitcond56.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.us
+  %exitcond55.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
+  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph.us
 
 27:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -9753,14 +9753,14 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1de51ffabc66
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %28
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph36, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph35, %.preheader
   store i8 10, ptr %0, align 8
   br label %28
 
 28:                                               ; preds = %._crit_edge, %27
   ret void
 
-.split39.us:                                      ; preds = %19
+.split38.us:                                      ; preds = %19
   %29 = add nuw i64 %25, 1
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !952
   unreachable
@@ -9783,26 +9783,26 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1e9e461543f4
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %.preheader
-  %.not49 = icmp eq i32 %5, 0
+.lr.ph39:                                         ; preds = %.preheader
+  %.not48 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
   %wide.trip.count = zext i32 %7 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next64, %..loopexit_crit_edge.us ]
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %17 = mul nuw i64 %indvars.iv63, %14
-  %18 = trunc nuw i64 %indvars.iv63 to i32
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %..loopexit_crit_edge.us ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %17 = mul nuw i64 %indvars.iv62, %14
+  %18 = trunc nuw i64 %indvars.iv62 to i32
   br label %19
 
 19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us", %.lr.ph.us
@@ -9818,11 +9818,11 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1e9e461543f4
   %26 = shl i64 %25, 1
   %27 = add i64 %26, 2
   %28 = icmp eq i64 %26, -2
-  br i1 %28, label %.split43.us, label %29
+  br i1 %28, label %.split42.us, label %29
 
 29:                                               ; preds = %19
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split46.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
@@ -9831,8 +9831,8 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1e9e461543f4
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
-  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph.us
+  %exitcond65.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.us
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -9842,18 +9842,18 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h1e9e461543f4
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split43.us:                                      ; preds = %19
+.split42.us:                                      ; preds = %19
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !960
   unreachable
 
-.split46.us:                                      ; preds = %29
+.split45.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !960
   unreachable
 }
@@ -9875,26 +9875,26 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h290293b98593
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %.preheader
-  %.not49 = icmp eq i32 %5, 0
+.lr.ph39:                                         ; preds = %.preheader
+  %.not48 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
   %wide.trip.count = zext i32 %7 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next64, %..loopexit_crit_edge.us ]
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %17 = mul nuw i64 %indvars.iv63, %14
-  %18 = trunc nuw i64 %indvars.iv63 to i32
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %..loopexit_crit_edge.us ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %17 = mul nuw i64 %indvars.iv62, %14
+  %18 = trunc nuw i64 %indvars.iv62 to i32
   br label %19
 
 19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us", %.lr.ph.us
@@ -9910,11 +9910,11 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h290293b98593
   %26 = shl i64 %25, 2
   %27 = add i64 %26, 4
   %28 = icmp eq i64 %26, -4
-  br i1 %28, label %.split43.us, label %29
+  br i1 %28, label %.split42.us, label %29
 
 29:                                               ; preds = %19
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split46.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds i8, ptr %.val.i, i64 %26
@@ -9923,8 +9923,8 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h290293b98593
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
-  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph.us
+  %exitcond65.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.us
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -9934,18 +9934,18 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h290293b98593
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split43.us:                                      ; preds = %19
+.split42.us:                                      ; preds = %19
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !968
   unreachable
 
-.split46.us:                                      ; preds = %29
+.split45.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !968
   unreachable
 }
@@ -9956,6 +9956,364 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h394aa9011726
   %5 = load i32, ptr %4, align 8, !alias.scope !973, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i32, ptr %6, align 4, !alias.scope !973, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %9 = load i32, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %11 = load i32, ptr %10, align 4, !noundef !4
+  %12 = icmp ne i32 %5, %9
+  %13 = icmp ne i32 %7, %11
+  %or.cond = or i1 %12, %13
+  br i1 %or.cond, label %32, label %.preheader
+
+.preheader:                                       ; preds = %3
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
+
+.lr.ph39:                                         ; preds = %.preheader
+  %.not49 = icmp eq i32 %5, 0
+  %14 = zext i32 %5 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val3.i = load i64, ptr %16, align 8
+  br i1 %.not49, label %._crit_edge, label %.lr.ph.us.preheader
+
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
+  %wide.trip.count = zext i32 %7 to i64
+  br label %.lr.ph.us
+
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next67, %..loopexit_crit_edge.us ]
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %17 = mul nuw i64 %indvars.iv66, %14
+  %18 = trunc nuw i64 %indvars.iv66 to i32
+  br label %19
+
+19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us", %.lr.ph.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us" ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %20 = trunc nuw i64 %indvars.iv to i32
+  %21 = tail call noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !976
+  %22 = xor i32 %20, -1
+  %23 = add i32 %5, %22
+  %24 = zext i32 %23 to i64
+  %25 = add nuw i64 %17, %24
+  %26 = mul i64 %25, 3
+  %27 = add i64 %26, 3
+  %28 = icmp ugt i64 %26, -4
+  br i1 %28, label %.split42.us, label %29
+
+29:                                               ; preds = %19
+  %30 = icmp ugt i64 %27, %.val3.i
+  br i1 %30, label %.split46.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %29
+  %31 = getelementptr inbounds float, ptr %.val.i, i64 %26
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
+
+..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+  %exitcond69.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count
+  br i1 %exitcond69.not, label %._crit_edge, label %.lr.ph.us
+
+32:                                               ; preds = %3
+  store i8 6, ptr %0, align 8
+  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  br label %33
+
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
+  store i8 10, ptr %0, align 8
+  br label %33
+
+33:                                               ; preds = %._crit_edge, %32
+  ret void
+
+.split42.us:                                      ; preds = %19
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %26, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !979
+  unreachable
+
+.split46.us:                                      ; preds = %29
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !979
+  unreachable
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h46fbef9c28a7e41dE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = load i32, ptr %4, align 8, !alias.scope !984, !noundef !4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %7 = load i32, ptr %6, align 4, !alias.scope !984, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %9 = load i32, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %11 = load i32, ptr %10, align 4, !noundef !4
+  %12 = icmp ne i32 %5, %9
+  %13 = icmp ne i32 %7, %11
+  %or.cond = or i1 %12, %13
+  br i1 %or.cond, label %27, label %.preheader
+
+.preheader:                                       ; preds = %3
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph35
+
+.lr.ph35:                                         ; preds = %.preheader
+  %.not41 = icmp eq i32 %5, 0
+  %14 = zext i32 %5 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val3.i = load i64, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val.i = load ptr, ptr %16, align 8, !nonnull !4
+  br i1 %.not41, label %._crit_edge, label %.lr.ph.us.preheader
+
+.lr.ph.us.preheader:                              ; preds = %.lr.ph35
+  %wide.trip.count = zext i32 %7 to i64
+  br label %.lr.ph.us
+
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next53, %..loopexit_crit_edge.us ]
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %17 = mul nuw i64 %indvars.iv52, %14
+  %18 = trunc nuw i64 %indvars.iv52 to i32
+  br label %19
+
+19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", %.lr.ph.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us" ]
+  %20 = trunc nuw i64 %indvars.iv to i32
+  %21 = tail call noundef align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h2bfe2e2e7bce91aeE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
+  %22 = xor i32 %20, -1
+  %23 = add i32 %5, %22
+  %24 = zext i32 %23 to i64
+  %25 = add nuw i64 %17, %24
+  %.not.i.us = icmp ult i64 %25, %.val3.i
+  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", label %.split38.us
+
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us": ; preds = %19
+  %.sroa.0.0.copyload.i.us = load i8, ptr %21, align 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %26 = getelementptr inbounds i8, ptr %.val.i, i64 %25
+  store i8 %.sroa.0.0.copyload.i.us, ptr %26, align 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
+
+..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us"
+  %exitcond55.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
+  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph.us
+
+27:                                               ; preds = %3
+  store i8 6, ptr %0, align 8
+  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  br label %28
+
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph35, %.preheader
+  store i8 10, ptr %0, align 8
+  br label %28
+
+28:                                               ; preds = %._crit_edge, %27
+  ret void
+
+.split38.us:                                      ; preds = %19
+  %29 = add nuw i64 %25, 1
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !987
+  unreachable
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h5d13567e02306570E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = load i32, ptr %4, align 8, !alias.scope !992, !noundef !4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %7 = load i32, ptr %6, align 4, !alias.scope !992, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %9 = load i32, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %11 = load i32, ptr %10, align 4, !noundef !4
+  %12 = icmp ne i32 %5, %9
+  %13 = icmp ne i32 %7, %11
+  %or.cond = or i1 %12, %13
+  br i1 %or.cond, label %32, label %.preheader
+
+.preheader:                                       ; preds = %3
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
+
+.lr.ph39:                                         ; preds = %.preheader
+  %.not48 = icmp eq i32 %5, 0
+  %14 = zext i32 %5 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val3.i = load i64, ptr %16, align 8
+  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
+
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
+  %wide.trip.count = zext i32 %7 to i64
+  br label %.lr.ph.us
+
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %..loopexit_crit_edge.us ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %17 = mul nuw i64 %indvars.iv62, %14
+  %18 = trunc nuw i64 %indvars.iv62 to i32
+  br label %19
+
+19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us", %.lr.ph.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us" ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %20 = trunc nuw i64 %indvars.iv to i32
+  %21 = tail call noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
+  %.sroa.0.0.copyload.i.us = load i64, ptr %21, align 2
+  %22 = xor i32 %20, -1
+  %23 = add i32 %5, %22
+  %24 = zext i32 %23 to i64
+  %25 = add nuw i64 %17, %24
+  %26 = shl i64 %25, 2
+  %27 = add i64 %26, 4
+  %28 = icmp eq i64 %26, -4
+  br i1 %28, label %.split42.us, label %29
+
+29:                                               ; preds = %19
+  %30 = icmp ugt i64 %27, %.val3.i
+  br i1 %30, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
+
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %29
+  %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
+  store i64 %.sroa.0.0.copyload.i.us, ptr %31, align 2
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
+
+..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
+  %exitcond65.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.us
+
+32:                                               ; preds = %3
+  store i8 6, ptr %0, align 8
+  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  br label %33
+
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
+  store i8 10, ptr %0, align 8
+  br label %33
+
+33:                                               ; preds = %._crit_edge, %32
+  ret void
+
+.split42.us:                                      ; preds = %19
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !995
+  unreachable
+
+.split45.us:                                      ; preds = %29
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !995
+  unreachable
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h6e0e21fea32fcc49E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = load i32, ptr %4, align 8, !alias.scope !1000, !noundef !4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %7 = load i32, ptr %6, align 4, !alias.scope !1000, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %9 = load i32, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %11 = load i32, ptr %10, align 4, !noundef !4
+  %12 = icmp ne i32 %5, %9
+  %13 = icmp ne i32 %7, %11
+  %or.cond = or i1 %12, %13
+  br i1 %or.cond, label %32, label %.preheader
+
+.preheader:                                       ; preds = %3
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
+
+.lr.ph39:                                         ; preds = %.preheader
+  %.not48 = icmp eq i32 %5, 0
+  %14 = zext i32 %5 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val3.i = load i64, ptr %16, align 8
+  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
+
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
+  %wide.trip.count = zext i32 %7 to i64
+  br label %.lr.ph.us
+
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %..loopexit_crit_edge.us ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %17 = mul nuw i64 %indvars.iv62, %14
+  %18 = trunc nuw i64 %indvars.iv62 to i32
+  br label %19
+
+19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us", %.lr.ph.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us" ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %20 = trunc nuw i64 %indvars.iv to i32
+  %21 = tail call noundef align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8633644275b32013E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
+  %.sroa.0.0.copyload.i.us = load i16, ptr %21, align 1
+  %22 = xor i32 %20, -1
+  %23 = add i32 %5, %22
+  %24 = zext i32 %23 to i64
+  %25 = add nuw i64 %17, %24
+  %26 = shl i64 %25, 1
+  %27 = add i64 %26, 2
+  %28 = icmp eq i64 %26, -2
+  br i1 %28, label %.split42.us, label %29
+
+29:                                               ; preds = %19
+  %30 = icmp ugt i64 %27, %.val3.i
+  br i1 %30, label %.split45.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
+
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us": ; preds = %29
+  %31 = getelementptr inbounds i8, ptr %.val.i, i64 %26
+  store i16 %.sroa.0.0.copyload.i.us, ptr %31, align 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
+
+..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
+  %exitcond65.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
+  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.us
+
+32:                                               ; preds = %3
+  store i8 6, ptr %0, align 8
+  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  br label %33
+
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
+  store i8 10, ptr %0, align 8
+  br label %33
+
+33:                                               ; preds = %._crit_edge, %32
+  ret void
+
+.split42.us:                                      ; preds = %19
+  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !1003
+  unreachable
+
+.split45.us:                                      ; preds = %29
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !1003
+  unreachable
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha86b053ba7245770E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %5 = load i32, ptr %4, align 8, !alias.scope !1008, !noundef !4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %7 = load i32, ptr %6, align 4, !alias.scope !1008, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -9989,11 +10347,12 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h394aa9011726
   %18 = trunc nuw i64 %indvars.iv67 to i32
   br label %19
 
-19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us", %.lr.ph.us
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us" ]
+19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us", %.lr.ph.us
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = trunc nuw i64 %indvars.iv to i32
-  %21 = tail call noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !976
+  %21 = tail call noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
+  %.sroa.0.0.copyload.i.us = load i24, ptr %21, align 1
   %22 = xor i32 %20, -1
   %23 = add i32 %5, %22
   %24 = zext i32 %23 to i64
@@ -10005,15 +10364,15 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h394aa9011726
 
 29:                                               ; preds = %19
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split47.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split47.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %29
-  %31 = getelementptr inbounds float, ptr %.val.i, i64 %26
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) %21, i64 12, i1 false)
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us": ; preds = %29
+  %31 = getelementptr inbounds i8, ptr %.val.i, i64 %26
+  store i24 %.sroa.0.0.copyload.i.us, ptr %31, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
-..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
   %exitcond70.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count
   br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.us
 
@@ -10033,369 +10392,10 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h394aa9011726
   ret void
 
 .split43.us:                                      ; preds = %19
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %26, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !979
-  unreachable
-
-.split47.us:                                      ; preds = %29
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !979
-  unreachable
-}
-
-; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h46fbef9c28a7e41dE.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i32, ptr %4, align 8, !alias.scope !984, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load i32, ptr %6, align 4, !alias.scope !984, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load i32, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %11 = load i32, ptr %10, align 4, !noundef !4
-  %12 = icmp ne i32 %5, %9
-  %13 = icmp ne i32 %7, %11
-  %or.cond = or i1 %12, %13
-  br i1 %or.cond, label %27, label %.preheader
-
-.preheader:                                       ; preds = %3
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph36
-
-.lr.ph36:                                         ; preds = %.preheader
-  %.not42 = icmp eq i32 %5, 0
-  %14 = zext i32 %5 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val3.i = load i64, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val.i = load ptr, ptr %16, align 8, !nonnull !4
-  br i1 %.not42, label %._crit_edge, label %.lr.ph.us.preheader
-
-.lr.ph.us.preheader:                              ; preds = %.lr.ph36
-  %wide.trip.count = zext i32 %7 to i64
-  br label %.lr.ph.us
-
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next54, %..loopexit_crit_edge.us ]
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %17 = mul nuw i64 %indvars.iv53, %14
-  %18 = trunc nuw i64 %indvars.iv53 to i32
-  br label %19
-
-19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", %.lr.ph.us
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us" ]
-  %20 = trunc nuw i64 %indvars.iv to i32
-  %21 = tail call noundef align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h2bfe2e2e7bce91aeE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %22 = xor i32 %20, -1
-  %23 = add i32 %5, %22
-  %24 = zext i32 %23 to i64
-  %25 = add nuw i64 %17, %24
-  %.not.i.us = icmp ult i64 %25, %.val3.i
-  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", label %.split39.us
-
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us": ; preds = %19
-  %.sroa.0.0.copyload.i.us = load i8, ptr %21, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = getelementptr inbounds i8, ptr %.val.i, i64 %25
-  store i8 %.sroa.0.0.copyload.i.us, ptr %26, align 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
-
-..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us"
-  %exitcond56.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.us
-
-27:                                               ; preds = %3
-  store i8 6, ptr %0, align 8
-  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %28
-
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph36, %.preheader
-  store i8 10, ptr %0, align 8
-  br label %28
-
-28:                                               ; preds = %._crit_edge, %27
-  ret void
-
-.split39.us:                                      ; preds = %19
-  %29 = add nuw i64 %25, 1
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !987
-  unreachable
-}
-
-; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h5d13567e02306570E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i32, ptr %4, align 8, !alias.scope !992, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load i32, ptr %6, align 4, !alias.scope !992, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load i32, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %11 = load i32, ptr %10, align 4, !noundef !4
-  %12 = icmp ne i32 %5, %9
-  %13 = icmp ne i32 %7, %11
-  %or.cond = or i1 %12, %13
-  br i1 %or.cond, label %32, label %.preheader
-
-.preheader:                                       ; preds = %3
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
-
-.lr.ph40:                                         ; preds = %.preheader
-  %.not49 = icmp eq i32 %5, 0
-  %14 = zext i32 %5 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.us.preheader
-
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
-  %wide.trip.count = zext i32 %7 to i64
-  br label %.lr.ph.us
-
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next64, %..loopexit_crit_edge.us ]
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %17 = mul nuw i64 %indvars.iv63, %14
-  %18 = trunc nuw i64 %indvars.iv63 to i32
-  br label %19
-
-19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us", %.lr.ph.us
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us" ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = trunc nuw i64 %indvars.iv to i32
-  %21 = tail call noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us = load i64, ptr %21, align 2
-  %22 = xor i32 %20, -1
-  %23 = add i32 %5, %22
-  %24 = zext i32 %23 to i64
-  %25 = add nuw i64 %17, %24
-  %26 = shl i64 %25, 2
-  %27 = add i64 %26, 4
-  %28 = icmp eq i64 %26, -4
-  br i1 %28, label %.split43.us, label %29
-
-29:                                               ; preds = %19
-  %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split46.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
-
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %29
-  %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
-  store i64 %.sroa.0.0.copyload.i.us, ptr %31, align 2
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
-
-..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
-  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph.us
-
-32:                                               ; preds = %3
-  store i8 6, ptr %0, align 8
-  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %33
-
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
-  store i8 10, ptr %0, align 8
-  br label %33
-
-33:                                               ; preds = %._crit_edge, %32
-  ret void
-
-.split43.us:                                      ; preds = %19
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !995
-  unreachable
-
-.split46.us:                                      ; preds = %29
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !995
-  unreachable
-}
-
-; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17h6e0e21fea32fcc49E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i32, ptr %4, align 8, !alias.scope !1000, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load i32, ptr %6, align 4, !alias.scope !1000, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load i32, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %11 = load i32, ptr %10, align 4, !noundef !4
-  %12 = icmp ne i32 %5, %9
-  %13 = icmp ne i32 %7, %11
-  %or.cond = or i1 %12, %13
-  br i1 %or.cond, label %32, label %.preheader
-
-.preheader:                                       ; preds = %3
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
-
-.lr.ph40:                                         ; preds = %.preheader
-  %.not49 = icmp eq i32 %5, 0
-  %14 = zext i32 %5 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.us.preheader
-
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
-  %wide.trip.count = zext i32 %7 to i64
-  br label %.lr.ph.us
-
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next64, %..loopexit_crit_edge.us ]
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %17 = mul nuw i64 %indvars.iv63, %14
-  %18 = trunc nuw i64 %indvars.iv63 to i32
-  br label %19
-
-19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us", %.lr.ph.us
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us" ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = trunc nuw i64 %indvars.iv to i32
-  %21 = tail call noundef align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8633644275b32013E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us = load i16, ptr %21, align 1
-  %22 = xor i32 %20, -1
-  %23 = add i32 %5, %22
-  %24 = zext i32 %23 to i64
-  %25 = add nuw i64 %17, %24
-  %26 = shl i64 %25, 1
-  %27 = add i64 %26, 2
-  %28 = icmp eq i64 %26, -2
-  br i1 %28, label %.split43.us, label %29
-
-29:                                               ; preds = %19
-  %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split46.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
-
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us": ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %.val.i, i64 %26
-  store i16 %.sroa.0.0.copyload.i.us, ptr %31, align 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
-
-..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
-  %exitcond66.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
-  br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph.us
-
-32:                                               ; preds = %3
-  store i8 6, ptr %0, align 8
-  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %33
-
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
-  store i8 10, ptr %0, align 8
-  br label %33
-
-33:                                               ; preds = %._crit_edge, %32
-  ret void
-
-.split43.us:                                      ; preds = %19
-  tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !1003
-  unreachable
-
-.split46.us:                                      ; preds = %29
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !1003
-  unreachable
-}
-
-; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha86b053ba7245770E.llvm.1609853135345852838(ptr noalias noundef writeonly sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i32, ptr %4, align 8, !alias.scope !1008, !noundef !4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load i32, ptr %6, align 4, !alias.scope !1008, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load i32, ptr %8, align 8, !noundef !4
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %11 = load i32, ptr %10, align 4, !noundef !4
-  %12 = icmp ne i32 %5, %9
-  %13 = icmp ne i32 %7, %11
-  %or.cond = or i1 %12, %13
-  br i1 %or.cond, label %32, label %.preheader
-
-.preheader:                                       ; preds = %3
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph41
-
-.lr.ph41:                                         ; preds = %.preheader
-  %.not51 = icmp eq i32 %5, 0
-  %14 = zext i32 %5 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val.i = load ptr, ptr %15, align 8, !nonnull !4
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not51, label %._crit_edge, label %.lr.ph.us.preheader
-
-.lr.ph.us.preheader:                              ; preds = %.lr.ph41
-  %wide.trip.count = zext i32 %7 to i64
-  br label %.lr.ph.us
-
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next69, %..loopexit_crit_edge.us ]
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %17 = mul nuw i64 %indvars.iv68, %14
-  %18 = trunc nuw i64 %indvars.iv68 to i32
-  br label %19
-
-19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us", %.lr.ph.us
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us" ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = trunc nuw i64 %indvars.iv to i32
-  %21 = tail call noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us = load i24, ptr %21, align 1
-  %22 = xor i32 %20, -1
-  %23 = add i32 %5, %22
-  %24 = zext i32 %23 to i64
-  %25 = add nuw i64 %17, %24
-  %26 = mul i64 %25, 3
-  %27 = add i64 %26, 3
-  %28 = icmp ugt i64 %26, -4
-  br i1 %28, label %.split44.us, label %29
-
-29:                                               ; preds = %19
-  %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
-
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us": ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %.val.i, i64 %26
-  store i24 %.sroa.0.0.copyload.i.us, ptr %31, align 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
-
-..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
-  %exitcond71.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count
-  br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph.us
-
-32:                                               ; preds = %3
-  store i8 6, ptr %0, align 8
-  %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -9223372036854775808, ptr %.sroa.4.sroa.0.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %33
-
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph41, %.preheader
-  store i8 10, ptr %0, align 8
-  br label %33
-
-33:                                               ; preds = %._crit_edge, %32
-  ret void
-
-.split44.us:                                      ; preds = %19
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %26, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !1011
   unreachable
 
-.split48.us:                                      ; preds = %29
+.split47.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !1011
   unreachable
 }
@@ -10417,26 +10417,26 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha8db36717e37
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph41
+  br i1 %.not, label %._crit_edge, label %.lr.ph40
 
-.lr.ph41:                                         ; preds = %.preheader
-  %.not51 = icmp eq i32 %5, 0
+.lr.ph40:                                         ; preds = %.preheader
+  %.not50 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not51, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not50, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph41
+.lr.ph.us.preheader:                              ; preds = %.lr.ph40
   %wide.trip.count = zext i32 %7 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next69, %..loopexit_crit_edge.us ]
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %17 = mul nuw i64 %indvars.iv68, %14
-  %18 = trunc nuw i64 %indvars.iv68 to i32
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next68, %..loopexit_crit_edge.us ]
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %17 = mul nuw i64 %indvars.iv67, %14
+  %18 = trunc nuw i64 %indvars.iv67 to i32
   br label %19
 
 19:                                               ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us", %.lr.ph.us
@@ -10452,11 +10452,11 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha8db36717e37
   %26 = mul i64 %25, 3
   %27 = add i64 %26, 3
   %28 = icmp ugt i64 %26, -4
-  br i1 %28, label %.split44.us, label %29
+  br i1 %28, label %.split43.us, label %29
 
 29:                                               ; preds = %19
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split47.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
@@ -10465,8 +10465,8 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha8db36717e37
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
-  %exitcond71.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count
-  br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph.us
+  %exitcond70.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count
+  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.us
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -10476,18 +10476,18 @@ define hidden void @_ZN5image8imageops6affine18flip_horizontal_in17ha8db36717e37
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph41, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split44.us:                                      ; preds = %19
+.split43.us:                                      ; preds = %19
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %26, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !1019
   unreachable
 
-.split48.us:                                      ; preds = %29
+.split47.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.16) #18, !noalias !1019
   unreachable
 }
@@ -10509,56 +10509,56 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h014e661c1b0e5d
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph46
+  br i1 %.not, label %._crit_edge, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph45:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph46
+.lr.ph.us.preheader:                              ; preds = %.lr.ph45
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us49.preheader
+  br label %.lr.ph.split.us48.preheader
 
-.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next72, %..loopexit_crit_edge.us ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %18 = trunc nuw i64 %indvars.iv71 to i32
+.lr.ph.split.us48.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next71, %..loopexit_crit_edge.us ]
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %18 = trunc nuw i64 %indvars.iv70 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
-  br label %.lr.ph.split.us49
+  br label %.lr.ph.split.us48
 
-.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us48:                                ; preds = %.lr.ph.split.us48.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us48.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call noundef align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hceaa3a089891951aE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %23, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us48 = load i32, ptr %24, align 2
+  %.sroa.0.0.copyload.i.us47 = load i32, ptr %24, align 2
   %25 = add nuw i64 %22, %indvars.iv
   %26 = shl i64 %25, 1
   %27 = add i64 %26, 2
   %28 = icmp eq i64 %26, -2
-  br i1 %28, label %.split.us50, label %29
+  br i1 %28, label %.split.us49, label %29
 
-29:                                               ; preds = %.lr.ph.split.us49
+29:                                               ; preds = %.lr.ph.split.us48
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split52.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
-  store i32 %.sroa.0.0.copyload.i.us48, ptr %31, align 2
+  store i32 %.sroa.0.0.copyload.i.us47, ptr %31, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us48
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5930453894d60387E.llvm.1609853135345852838.exit.us"
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %17
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %17
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us48.preheader
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -10568,18 +10568,18 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h014e661c1b0e5d
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph45, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split.us50:                                      ; preds = %.lr.ph.split.us49
+.split.us49:                                      ; preds = %.lr.ph.split.us48
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1027
   unreachable
 
-.split52.us:                                      ; preds = %29
+.split51.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1027
   unreachable
 }
@@ -10601,56 +10601,56 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h10b60ff047d5b0
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph46
+  br i1 %.not, label %._crit_edge, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph45:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph46
+.lr.ph.us.preheader:                              ; preds = %.lr.ph45
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us49.preheader
+  br label %.lr.ph.split.us48.preheader
 
-.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next72, %..loopexit_crit_edge.us ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %18 = trunc nuw i64 %indvars.iv71 to i32
+.lr.ph.split.us48.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next71, %..loopexit_crit_edge.us ]
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %18 = trunc nuw i64 %indvars.iv70 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
-  br label %.lr.ph.split.us49
+  br label %.lr.ph.split.us48
 
-.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us48:                                ; preds = %.lr.ph.split.us48.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us48.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call noundef align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h553bd5839299de1eE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %23, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us48 = load i32, ptr %24, align 1
+  %.sroa.0.0.copyload.i.us47 = load i32, ptr %24, align 1
   %25 = add nuw i64 %22, %indvars.iv
   %26 = shl i64 %25, 2
   %27 = add i64 %26, 4
   %28 = icmp eq i64 %26, -4
-  br i1 %28, label %.split.us50, label %29
+  br i1 %28, label %.split.us49, label %29
 
-29:                                               ; preds = %.lr.ph.split.us49
+29:                                               ; preds = %.lr.ph.split.us48
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split52.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds i8, ptr %.val.i, i64 %26
-  store i32 %.sroa.0.0.copyload.i.us48, ptr %31, align 1
+  store i32 %.sroa.0.0.copyload.i.us47, ptr %31, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us48
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h70c4a46b5eac3ac1E.llvm.1609853135345852838.exit.us"
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %17
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %17
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us48.preheader
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -10660,18 +10660,18 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h10b60ff047d5b0
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph45, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split.us50:                                      ; preds = %.lr.ph.split.us49
+.split.us49:                                      ; preds = %.lr.ph.split.us48
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1035
   unreachable
 
-.split52.us:                                      ; preds = %29
+.split51.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1035
   unreachable
 }
@@ -10693,51 +10693,51 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h2ab0cd3a788e73
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %.preheader
-  %.not48 = icmp eq i32 %5, 0
+.lr.ph39:                                         ; preds = %.preheader
+  %.not47 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %16, align 8, !nonnull !4
-  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us43.preheader
+  br label %.lr.ph.split.us42.preheader
 
-.lr.ph.split.us43.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next60, %..loopexit_crit_edge.us ]
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %18 = trunc nuw i64 %indvars.iv59 to i32
+.lr.ph.split.us42.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next59, %..loopexit_crit_edge.us ]
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %18 = trunc nuw i64 %indvars.iv58 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
-  br label %.lr.ph.split.us43
+  br label %.lr.ph.split.us42
 
-.lr.ph.split.us43:                                ; preds = %.lr.ph.split.us43.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us43.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us42:                                ; preds = %.lr.ph.split.us42.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us42.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us" ]
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call noundef align 2 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hd2363a508e017e20E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %23, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
   %25 = add nuw i64 %22, %indvars.iv
   %.not.i.us = icmp ult i64 %25, %.val3.i
-  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", label %.split.us44
+  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us", label %.split.us43
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %.lr.ph.split.us43
-  %.sroa.0.0.copyload.i.us42 = load i16, ptr %24, align 2
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us": ; preds = %.lr.ph.split.us42
+  %.sroa.0.0.copyload.i.us41 = load i16, ptr %24, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = getelementptr inbounds i16, ptr %.val.i, i64 %25
-  store i16 %.sroa.0.0.copyload.i.us42, ptr %26, align 2
+  store i16 %.sroa.0.0.copyload.i.us41, ptr %26, align 2
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us43
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us42
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17hd6014897d121147eE.llvm.1609853135345852838.exit.us"
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %17
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us43.preheader
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %17
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us42.preheader
 
 27:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -10747,14 +10747,14 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h2ab0cd3a788e73
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %28
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
   store i8 10, ptr %0, align 8
   br label %28
 
 28:                                               ; preds = %._crit_edge, %27
   ret void
 
-.split.us44:                                      ; preds = %.lr.ph.split.us43
+.split.us43:                                      ; preds = %.lr.ph.split.us42
   %29 = add nuw i64 %25, 1
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1043
   unreachable
@@ -10777,33 +10777,33 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h4887b983ed192e
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph44
+  br i1 %.not, label %._crit_edge, label %.lr.ph43
 
-.lr.ph44:                                         ; preds = %.preheader
-  %.not54 = icmp eq i32 %5, 0
+.lr.ph43:                                         ; preds = %.preheader
+  %.not53 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not54, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not53, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph44
+.lr.ph.us.preheader:                              ; preds = %.lr.ph43
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us46.preheader
+  br label %.lr.ph.split.us45.preheader
 
-.lr.ph.split.us46.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next69, %..loopexit_crit_edge.us ]
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %18 = trunc nuw i64 %indvars.iv68 to i32
+.lr.ph.split.us45.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next68, %..loopexit_crit_edge.us ]
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %18 = trunc nuw i64 %indvars.iv67 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
-  br label %.lr.ph.split.us46
+  br label %.lr.ph.split.us45
 
-.lr.ph.split.us46:                                ; preds = %.lr.ph.split.us46.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us46.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us45:                                ; preds = %.lr.ph.split.us45.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us45.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call noundef align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %23, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !1051
@@ -10811,21 +10811,21 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h4887b983ed192e
   %26 = shl i64 %25, 2
   %27 = add i64 %26, 4
   %28 = icmp eq i64 %26, -4
-  br i1 %28, label %.split.us47, label %29
+  br i1 %28, label %.split.us46, label %29
 
-29:                                               ; preds = %.lr.ph.split.us46
+29:                                               ; preds = %.lr.ph.split.us45
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split49.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split48.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds float, ptr %.val.i, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us46
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us45
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h860adfab78dd66ccE.llvm.1609853135345852838.exit.us"
-  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %17
-  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us46.preheader
+  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %17
+  br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph.split.us45.preheader
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -10835,18 +10835,18 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h4887b983ed192e
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph44, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph43, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split.us47:                                      ; preds = %.lr.ph.split.us46
+.split.us46:                                      ; preds = %.lr.ph.split.us45
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1054
   unreachable
 
-.split49.us:                                      ; preds = %29
+.split48.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1054
   unreachable
 }
@@ -10868,56 +10868,56 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h8afdcff2e1827a
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph46
+  br i1 %.not, label %._crit_edge, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph45:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph46
+.lr.ph.us.preheader:                              ; preds = %.lr.ph45
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us49.preheader
+  br label %.lr.ph.split.us48.preheader
 
-.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next72, %..loopexit_crit_edge.us ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %18 = trunc nuw i64 %indvars.iv71 to i32
+.lr.ph.split.us48.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next71, %..loopexit_crit_edge.us ]
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %18 = trunc nuw i64 %indvars.iv70 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
-  br label %.lr.ph.split.us49
+  br label %.lr.ph.split.us48
 
-.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us48:                                ; preds = %.lr.ph.split.us48.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us48.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %23, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us48 = load i64, ptr %24, align 2
+  %.sroa.0.0.copyload.i.us47 = load i64, ptr %24, align 2
   %25 = add nuw i64 %22, %indvars.iv
   %26 = shl i64 %25, 2
   %27 = add i64 %26, 4
   %28 = icmp eq i64 %26, -4
-  br i1 %28, label %.split.us50, label %29
+  br i1 %28, label %.split.us49, label %29
 
-29:                                               ; preds = %.lr.ph.split.us49
+29:                                               ; preds = %.lr.ph.split.us48
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split52.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
-  store i64 %.sroa.0.0.copyload.i.us48, ptr %31, align 2
+  store i64 %.sroa.0.0.copyload.i.us47, ptr %31, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us48
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h9cac4b9f822d16fcE.llvm.1609853135345852838.exit.us"
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %17
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %17
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us48.preheader
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -10927,18 +10927,18 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17h8afdcff2e1827a
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph45, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split.us50:                                      ; preds = %.lr.ph.split.us49
+.split.us49:                                      ; preds = %.lr.ph.split.us48
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -4, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1062
   unreachable
 
-.split52.us:                                      ; preds = %29
+.split51.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1062
   unreachable
 }
@@ -10960,33 +10960,33 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hb859d94d3f4992
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph46
+  br i1 %.not, label %._crit_edge, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph45:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph46
+.lr.ph.us.preheader:                              ; preds = %.lr.ph45
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us48.preheader
+  br label %.lr.ph.split.us47.preheader
 
-.lr.ph.split.us48.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv74 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next75, %..loopexit_crit_edge.us ]
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %18 = trunc nuw i64 %indvars.iv74 to i32
+.lr.ph.split.us47.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv73 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next74, %..loopexit_crit_edge.us ]
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %18 = trunc nuw i64 %indvars.iv73 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
-  br label %.lr.ph.split.us48
+  br label %.lr.ph.split.us47
 
-.lr.ph.split.us48:                                ; preds = %.lr.ph.split.us48.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us48.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us47:                                ; preds = %.lr.ph.split.us47.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us47.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %23, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949), !noalias !1070
@@ -10994,22 +10994,22 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hb859d94d3f4992
   %26 = mul i64 %25, 3
   %27 = add i64 %26, 3
   %28 = icmp ugt i64 %26, -4
-  br i1 %28, label %.split.us49, label %29
+  br i1 %28, label %.split.us48, label %29
 
-29:                                               ; preds = %.lr.ph.split.us48
+29:                                               ; preds = %.lr.ph.split.us47
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split52.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds float, ptr %.val.i, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false)
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us48
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us47
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8f09307f17e97de3E.llvm.1609853135345852838.exit.us"
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %17
-  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.us48.preheader
+  %exitcond77.not = icmp eq i64 %indvars.iv.next74, %17
+  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.us47.preheader
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -11019,18 +11019,18 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hb859d94d3f4992
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph45, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split.us49:                                      ; preds = %.lr.ph.split.us48
+.split.us48:                                      ; preds = %.lr.ph.split.us47
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %26, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1073
   unreachable
 
-.split52.us:                                      ; preds = %29
+.split51.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1073
   unreachable
 }
@@ -11052,51 +11052,51 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hdbf01ba55f2ac4
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph40
+  br i1 %.not, label %._crit_edge, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %.preheader
-  %.not48 = icmp eq i32 %5, 0
+.lr.ph39:                                         ; preds = %.preheader
+  %.not47 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %16, align 8, !nonnull !4
-  br i1 %.not48, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not47, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph40
+.lr.ph.us.preheader:                              ; preds = %.lr.ph39
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us43.preheader
+  br label %.lr.ph.split.us42.preheader
 
-.lr.ph.split.us43.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next60, %..loopexit_crit_edge.us ]
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %18 = trunc nuw i64 %indvars.iv59 to i32
+.lr.ph.split.us42.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next59, %..loopexit_crit_edge.us ]
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %18 = trunc nuw i64 %indvars.iv58 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
-  br label %.lr.ph.split.us43
+  br label %.lr.ph.split.us42
 
-.lr.ph.split.us43:                                ; preds = %.lr.ph.split.us43.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us43.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us42:                                ; preds = %.lr.ph.split.us42.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us42.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us" ]
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call noundef align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h2bfe2e2e7bce91aeE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %23, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
   %25 = add nuw i64 %22, %indvars.iv
   %.not.i.us = icmp ult i64 %25, %.val3.i
-  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", label %.split.us44
+  br i1 %.not.i.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us", label %.split.us43
 
-"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us": ; preds = %.lr.ph.split.us43
-  %.sroa.0.0.copyload.i.us42 = load i8, ptr %24, align 1
+"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us": ; preds = %.lr.ph.split.us42
+  %.sroa.0.0.copyload.i.us41 = load i8, ptr %24, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = getelementptr inbounds i8, ptr %.val.i, i64 %25
-  store i8 %.sroa.0.0.copyload.i.us42, ptr %26, align 1
+  store i8 %.sroa.0.0.copyload.i.us41, ptr %26, align 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us43
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us42
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h5450df4aef8adb5cE.llvm.1609853135345852838.exit.us"
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %17
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us43.preheader
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %17
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us42.preheader
 
 27:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -11106,14 +11106,14 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hdbf01ba55f2ac4
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %28
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph40, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph39, %.preheader
   store i8 10, ptr %0, align 8
   br label %28
 
 28:                                               ; preds = %._crit_edge, %27
   ret void
 
-.split.us44:                                      ; preds = %.lr.ph.split.us43
+.split.us43:                                      ; preds = %.lr.ph.split.us42
   %29 = add nuw i64 %25, 1
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1081
   unreachable
@@ -11136,57 +11136,57 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hddc10b69fbe62f
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph47
+  br i1 %.not, label %._crit_edge, label %.lr.ph46
 
-.lr.ph47:                                         ; preds = %.preheader
-  %.not59 = icmp eq i32 %5, 0
+.lr.ph46:                                         ; preds = %.preheader
+  %.not58 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not59, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph47
+.lr.ph.us.preheader:                              ; preds = %.lr.ph46
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us50.preheader
+  br label %.lr.ph.split.us49.preheader
 
-.lr.ph.split.us50.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next77, %..loopexit_crit_edge.us ]
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %18 = trunc nuw i64 %indvars.iv76 to i32
+.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv75 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next76, %..loopexit_crit_edge.us ]
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %18 = trunc nuw i64 %indvars.iv75 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
-  br label %.lr.ph.split.us50
+  br label %.lr.ph.split.us49
 
-.lr.ph.split.us50:                                ; preds = %.lr.ph.split.us50.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us50.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %23, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us49 = load i24, ptr %24, align 1
+  %.sroa.0.0.copyload.i.us48 = load i24, ptr %24, align 1
   %25 = add nuw i64 %22, %indvars.iv
   %26 = mul i64 %25, 3
   %27 = add i64 %26, 3
   %28 = icmp ugt i64 %26, -4
-  br i1 %28, label %.split.us51, label %29
+  br i1 %28, label %.split.us50, label %29
 
-29:                                               ; preds = %.lr.ph.split.us50
+29:                                               ; preds = %.lr.ph.split.us49
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split54.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split53.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds i8, ptr %.val.i, i64 %26
-  store i24 %.sroa.0.0.copyload.i.us49, ptr %31, align 1
+  store i24 %.sroa.0.0.copyload.i.us48, ptr %31, align 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us50
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h4c9ee7159b3c2936E.llvm.1609853135345852838.exit.us"
-  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %17
-  br i1 %exitcond80.not, label %._crit_edge, label %.lr.ph.split.us50.preheader
+  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %17
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -11196,18 +11196,18 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hddc10b69fbe62f
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph47, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split.us51:                                      ; preds = %.lr.ph.split.us50
+.split.us50:                                      ; preds = %.lr.ph.split.us49
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %26, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1089
   unreachable
 
-.split54.us:                                      ; preds = %29
+.split53.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1089
   unreachable
 }
@@ -11229,56 +11229,56 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17he75347986b6cb5
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph46
+  br i1 %.not, label %._crit_edge, label %.lr.ph45
 
-.lr.ph46:                                         ; preds = %.preheader
-  %.not57 = icmp eq i32 %5, 0
+.lr.ph45:                                         ; preds = %.preheader
+  %.not56 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not57, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph46
+.lr.ph.us.preheader:                              ; preds = %.lr.ph45
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us49.preheader
+  br label %.lr.ph.split.us48.preheader
 
-.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv71 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next72, %..loopexit_crit_edge.us ]
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %18 = trunc nuw i64 %indvars.iv71 to i32
+.lr.ph.split.us48.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next71, %..loopexit_crit_edge.us ]
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %18 = trunc nuw i64 %indvars.iv70 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
-  br label %.lr.ph.split.us49
+  br label %.lr.ph.split.us48
 
-.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us48:                                ; preds = %.lr.ph.split.us48.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us48.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call noundef align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8633644275b32013E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %23, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us48 = load i16, ptr %24, align 1
+  %.sroa.0.0.copyload.i.us47 = load i16, ptr %24, align 1
   %25 = add nuw i64 %22, %indvars.iv
   %26 = shl i64 %25, 1
   %27 = add i64 %26, 2
   %28 = icmp eq i64 %26, -2
-  br i1 %28, label %.split.us50, label %29
+  br i1 %28, label %.split.us49, label %29
 
-29:                                               ; preds = %.lr.ph.split.us49
+29:                                               ; preds = %.lr.ph.split.us48
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split52.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split51.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds i8, ptr %.val.i, i64 %26
-  store i16 %.sroa.0.0.copyload.i.us48, ptr %31, align 1
+  store i16 %.sroa.0.0.copyload.i.us47, ptr %31, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us48
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h8876bfa1e80d20e7E.llvm.1609853135345852838.exit.us"
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %17
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %17
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.split.us48.preheader
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -11288,18 +11288,18 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17he75347986b6cb5
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph45, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split.us50:                                      ; preds = %.lr.ph.split.us49
+.split.us49:                                      ; preds = %.lr.ph.split.us48
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef -2, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1097
   unreachable
 
-.split52.us:                                      ; preds = %29
+.split51.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1097
   unreachable
 }
@@ -11321,57 +11321,57 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hec8d27641da2ab
 
 .preheader:                                       ; preds = %3
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph47
+  br i1 %.not, label %._crit_edge, label %.lr.ph46
 
-.lr.ph47:                                         ; preds = %.preheader
-  %.not59 = icmp eq i32 %5, 0
+.lr.ph46:                                         ; preds = %.preheader
+  %.not58 = icmp eq i32 %5, 0
   %14 = zext i32 %5 to i64
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %15, align 8, !nonnull !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val3.i = load i64, ptr %16, align 8
-  br i1 %.not59, label %._crit_edge, label %.lr.ph.us.preheader
+  br i1 %.not58, label %._crit_edge, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph47
+.lr.ph.us.preheader:                              ; preds = %.lr.ph46
   %17 = zext i32 %7 to i64
-  br label %.lr.ph.split.us50.preheader
+  br label %.lr.ph.split.us49.preheader
 
-.lr.ph.split.us50.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next77, %..loopexit_crit_edge.us ]
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %18 = trunc nuw i64 %indvars.iv76 to i32
+.lr.ph.split.us49.preheader:                      ; preds = %..loopexit_crit_edge.us, %.lr.ph.us.preheader
+  %indvars.iv75 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next76, %..loopexit_crit_edge.us ]
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %18 = trunc nuw i64 %indvars.iv75 to i32
   %19 = xor i32 %18, -1
   %20 = add i32 %7, %19
   %21 = zext i32 %20 to i64
   %22 = mul nuw i64 %21, %14
-  br label %.lr.ph.split.us50
+  br label %.lr.ph.split.us49
 
-.lr.ph.split.us50:                                ; preds = %.lr.ph.split.us50.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us50.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us" ]
+.lr.ph.split.us49:                                ; preds = %.lr.ph.split.us49.preheader, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.us49.preheader ], [ %indvars.iv.next, %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us" ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call noundef align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hc4a40bd0c7ce1bc8E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %23, i32 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
-  %.sroa.0.0.copyload.i.us49 = load i48, ptr %24, align 2
+  %.sroa.0.0.copyload.i.us48 = load i48, ptr %24, align 2
   %25 = add nuw i64 %22, %indvars.iv
   %26 = mul i64 %25, 3
   %27 = add i64 %26, 3
   %28 = icmp ugt i64 %26, -4
-  br i1 %28, label %.split.us51, label %29
+  br i1 %28, label %.split.us50, label %29
 
-29:                                               ; preds = %.lr.ph.split.us50
+29:                                               ; preds = %.lr.ph.split.us49
   %30 = icmp ugt i64 %27, %.val3.i
-  br i1 %30, label %.split54.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
+  br i1 %30, label %.split53.us, label %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
 
 "_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us": ; preds = %29
   %31 = getelementptr inbounds i16, ptr %.val.i, i64 %26
-  store i48 %.sroa.0.0.copyload.i.us49, ptr %31, align 2
+  store i48 %.sroa.0.0.copyload.i.us48, ptr %31, align 2
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us50
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.lr.ph.split.us49
 
 ..loopexit_crit_edge.us:                          ; preds = %"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$13get_pixel_mut17h2821037eb8914c08E.llvm.1609853135345852838.exit.us"
-  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %17
-  br i1 %exitcond80.not, label %._crit_edge, label %.lr.ph.split.us50.preheader
+  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %17
+  br i1 %exitcond79.not, label %._crit_edge, label %.lr.ph.split.us49.preheader
 
 32:                                               ; preds = %3
   store i8 6, ptr %0, align 8
@@ -11381,18 +11381,18 @@ define hidden void @_ZN5image8imageops6affine16flip_vertical_in17hec8d27641da2ab
   store ptr null, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %33
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph47, %.preheader
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph46, %.preheader
   store i8 10, ptr %0, align 8
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
   ret void
 
-.split.us51:                                      ; preds = %.lr.ph.split.us50
+.split.us50:                                      ; preds = %.lr.ph.split.us49
   tail call void @_ZN4core5slice5index22slice_index_order_fail17hcfcb08cd5efc8d4cE(i64 noundef %26, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1105
   unreachable
 
-.split54.us:                                      ; preds = %29
+.split53.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %.val3.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.17) #18, !noalias !1105
   unreachable
 }
@@ -30290,7 +30290,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h72061bd2896f76b2E(ptr noal
 
 15:                                               ; preds = %9
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dbc83011fcb707429349569d3c6bc524.100.llvm.10180119082961779398, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.126.llvm.10180119082961779398) #18
-          to label %.noexc unwind label %92
+          to label %.noexc unwind label %86
 
 .noexc:                                           ; preds = %15
   unreachable
@@ -30310,7 +30310,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h72061bd2896f76b2E(ptr noal
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 133
   %26 = load i8, ptr %25, align 1, !range !2517, !alias.scope !3561
   %..i.i.i = or disjoint i8 %26, 2
-  br i1 %24, label %43, label %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
+  br i1 %24, label %.thread, label %switch.lookup
 
 27:                                               ; preds = %9
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 428
@@ -30322,201 +30322,175 @@ define hidden void @_ZN5image5image14decoder_to_vec17h72061bd2896f76b2E(ptr noal
   %32 = mul nuw i64 %31, %30
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 744
   %34 = load i8, ptr %33, align 8, !range !14, !noalias !3564, !noundef !4
-  br label %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
+  br label %switch.lookup
 
-"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i": ; preds = %27, %16
+switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
-  switch i8 %.0.i.i, label %default.unreachable [
-    i8 0, label %43
-    i8 1, label %36
-    i8 2, label %37
-    i8 3, label %38
-    i8 4, label %36
-    i8 5, label %38
-    i8 6, label %39
-    i8 7, label %40
-    i8 8, label %41
-    i8 9, label %42
-  ]
+  %36 = sext i8 %.0.i.i to i64
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %36
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)
+  %38 = extractvalue { i64, i1 } %37, 1
+  %39 = extractvalue { i64, i1 } %37, 0
+  %40 = icmp slt i64 %39, 0
+  %41 = or i1 %38, %40
+  br i1 %41, label %76, label %43
 
-default.unreachable:                              ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  unreachable
+.thread:                                          ; preds = %16
+  %42 = icmp slt i64 %21, 0
+  br i1 %42, label %.thread47, label %43
 
-36:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
+.thread47:                                        ; preds = %.thread
+  store i8 7, ptr %0, align 8
+  %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 3, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx48, align 8
+  br label %77
 
-37:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-38:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-39:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-40:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-41:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-42:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
-  %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
-  %46 = extractvalue { i64, i1 } %45, 1
-  %47 = extractvalue { i64, i1 } %45, 0
-  %spec.select.i = select i1 %46, i64 -1, i64 %47
-  %48 = icmp slt i64 %spec.select.i, 0
-  br i1 %48, label %82, label %49
-
-49:                                               ; preds = %43
+43:                                               ; preds = %.thread, %switch.lookup
+  %spec.select.i46 = phi i64 [ %21, %.thread ], [ %39, %switch.lookup ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %50 = lshr i64 %spec.select.i, 1
-  %51 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he3778b9b0ca1f850E"(i64 noundef range(i64 0, -9223372036854775808) %50, i1 noundef zeroext true)
-          to label %54 unwind label %92
+  %44 = lshr i64 %spec.select.i46, 1
+  %45 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he3778b9b0ca1f850E"(i64 noundef range(i64 0, -9223372036854775808) %44, i1 noundef zeroext true)
+          to label %48 unwind label %86
 
-52:                                               ; preds = %61
-  %53 = landingpad { ptr, i32 }
+46:                                               ; preds = %55
+  %47 = landingpad { ptr, i32 }
           cleanup
-  br label %76
+  br label %70
 
-54:                                               ; preds = %49
-  %55 = extractvalue { i64, ptr } %51, 0
-  %56 = extractvalue { i64, ptr } %51, 1
-  store i64 %55, ptr %6, align 8, !alias.scope !3565
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %56, ptr %57, align 8, !alias.scope !3565
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %50, ptr %58, align 8, !alias.scope !3565
+48:                                               ; preds = %43
+  %49 = extractvalue { i64, ptr } %45, 0
+  %50 = extractvalue { i64, ptr } %45, 1
+  store i64 %49, ptr %6, align 8, !alias.scope !3565
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %50, ptr %51, align 8, !alias.scope !3565
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %44, ptr %52, align 8, !alias.scope !3565
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
-  %59 = and i64 %spec.select.i, 9223372036854775806
-  %60 = icmp eq ptr %56, null
-  br i1 %60, label %62, label %61
+  %53 = and i64 %spec.select.i46, 9223372036854775806
+  %54 = icmp eq ptr %50, null
+  br i1 %54, label %56, label %55
 
-61:                                               ; preds = %54
-  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %56, i64 noundef %59)
-          to label %63 unwind label %52
+55:                                               ; preds = %48
+  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %50, i64 noundef %53)
+          to label %57 unwind label %46
 
-62:                                               ; preds = %54
-  %.sroa.4.8.extract.trunc = trunc i64 %59 to i8
+56:                                               ; preds = %48
+  %.sroa.4.8.extract.trunc = trunc i64 %53 to i8
   invoke void @_ZN8bytemuck8internal20something_went_wrong17h42df4266370cbc12E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.88, i64 noundef 14, i8 noundef %.sroa.4.8.extract.trunc) #18
-          to label %75 unwind label %78
+          to label %69 unwind label %72
 
-63:                                               ; preds = %61
+57:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
-  %64 = load i8, ptr %5, align 8, !range !29, !noundef !4
-  %65 = icmp eq i8 %64, 10
-  br i1 %65, label %66, label %.noexc27
+  %58 = load i8, ptr %5, align 8, !range !29, !noundef !4
+  %59 = icmp eq i8 %58, 10
+  br i1 %59, label %60, label %.noexc27
 
-66:                                               ; preds = %63
+60:                                               ; preds = %57
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-.noexc27:                                         ; preds = %63
+.noexc27:                                         ; preds = %57
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.419.0..sroa_idx, i64 63, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  store i8 %64, ptr %0, align 8
+  store i8 %58, ptr %0, align 8
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3568
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he36ffc2ca7f096a5E.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %69 = load i64, ptr %68, align 8, !range !2403, !noalias !3568, !noundef !4
-  %.not.i.i.i = icmp eq i64 %69, 0
-  br i1 %.not.i.i.i, label %74, label %70
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %63 = load i64, ptr %62, align 8, !range !2403, !noalias !3568, !noundef !4
+  %.not.i.i.i = icmp eq i64 %63, 0
+  br i1 %.not.i.i.i, label %68, label %64
 
-70:                                               ; preds = %.noexc27
-  %71 = load ptr, ptr %3, align 8, !noalias !3568, !nonnull !4, !noundef !4
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %73 = load i64, ptr %72, align 8, !noalias !3568, !noundef !4
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %58, ptr noundef nonnull %71, i64 noundef %69, i64 noundef %73)
-  br label %74
+64:                                               ; preds = %.noexc27
+  %65 = load ptr, ptr %3, align 8, !noalias !3568, !nonnull !4, !noundef !4
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %67 = load i64, ptr %66, align 8, !noalias !3568, !noundef !4
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %52, ptr noundef nonnull %65, i64 noundef %63, i64 noundef %67)
+  br label %68
 
-"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit": ; preds = %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i", %83, %74, %66
+"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit": ; preds = %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i", %77, %68, %60
   ret void
 
-74:                                               ; preds = %70, %.noexc27
+68:                                               ; preds = %64, %.noexc27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3568
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-75:                                               ; preds = %62
+69:                                               ; preds = %56
   unreachable
 
-76:                                               ; preds = %52, %78
-  %77 = phi { ptr, i32 } [ %79, %78 ], [ %53, %52 ]
+70:                                               ; preds = %46, %72
+  %71 = phi { ptr, i32 } [ %73, %72 ], [ %47, %46 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17h6540701bf0cd0dcfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #19
-          to label %common.resume unwind label %80
+          to label %common.resume unwind label %74
 
-78:                                               ; preds = %62
-  %79 = landingpad { ptr, i32 }
+72:                                               ; preds = %56
+  %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %4) #19
-          to label %76 unwind label %80
+          to label %70 unwind label %74
 
-80:                                               ; preds = %92, %78, %76
-  %81 = landingpad { ptr, i32 }
+74:                                               ; preds = %86, %72, %70
+  %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
 
-82:                                               ; preds = %43
+76:                                               ; preds = %switch.lookup
   store i8 7, ptr %0, align 8
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 3, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3575)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3578)
-  br i1 %8, label %84, label %83
+  br i1 %8, label %78, label %77
 
-83:                                               ; preds = %82
+77:                                               ; preds = %.thread47, %76
   tail call void @"_ZN4core3ptr128drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8a8a289e2b235770E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %1)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3581)
-  %86 = load ptr, ptr %85, align 8, !alias.scope !3584, !noundef !4
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  invoke void @"_ZN4core3ptr109drop_in_place$LT$png..decoder..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h9e00774c73443febE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %87)
-          to label %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i" unwind label %88, !noalias !3584
+  %80 = load ptr, ptr %79, align 8, !alias.scope !3584, !noundef !4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  invoke void @"_ZN4core3ptr109drop_in_place$LT$png..decoder..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h9e00774c73443febE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %81)
+          to label %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i" unwind label %82, !noalias !3584
 
-88:                                               ; preds = %84
-  %89 = landingpad { ptr, i32 }
+82:                                               ; preds = %78
+  %83 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %85) #19
-          to label %common.resume unwind label %90
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %79) #19
+          to label %common.resume unwind label %84
 
-90:                                               ; preds = %88
-  %91 = landingpad { ptr, i32 }
+84:                                               ; preds = %82
+  %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
 
-common.resume:                                    ; preds = %92, %76, %88
-  %common.resume.op = phi { ptr, i32 } [ %89, %88 ], [ %lpad.thr_comm, %92 ], [ %77, %76 ]
+common.resume:                                    ; preds = %86, %70, %82
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %lpad.thr_comm, %86 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i": ; preds = %84
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %85)
+"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i": ; preds = %78
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %79)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-92:                                               ; preds = %15, %49
+86:                                               ; preds = %15, %43
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %1) #19
-          to label %common.resume unwind label %80
+          to label %common.resume unwind label %74
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -31722,7 +31696,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8a238c77828ef4fbE(ptr noal
 
 15:                                               ; preds = %9
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dbc83011fcb707429349569d3c6bc524.100.llvm.10180119082961779398, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.126.llvm.10180119082961779398) #18
-          to label %.noexc unwind label %90
+          to label %.noexc unwind label %84
 
 .noexc:                                           ; preds = %15
   unreachable
@@ -31742,7 +31716,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8a238c77828ef4fbE(ptr noal
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 133
   %26 = load i8, ptr %25, align 1, !range !2517, !alias.scope !3831
   %..i.i.i = or disjoint i8 %26, 2
-  br i1 %24, label %43, label %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
+  br i1 %24, label %.thread, label %switch.lookup
 
 27:                                               ; preds = %9
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 428
@@ -31754,199 +31728,173 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8a238c77828ef4fbE(ptr noal
   %32 = mul nuw i64 %31, %30
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 744
   %34 = load i8, ptr %33, align 8, !range !14, !noalias !3834, !noundef !4
-  br label %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
+  br label %switch.lookup
 
-"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i": ; preds = %27, %16
+switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
-  switch i8 %.0.i.i, label %default.unreachable [
-    i8 0, label %43
-    i8 1, label %36
-    i8 2, label %37
-    i8 3, label %38
-    i8 4, label %36
-    i8 5, label %38
-    i8 6, label %39
-    i8 7, label %40
-    i8 8, label %41
-    i8 9, label %42
-  ]
+  %36 = sext i8 %.0.i.i to i64
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %36
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)
+  %38 = extractvalue { i64, i1 } %37, 1
+  %39 = extractvalue { i64, i1 } %37, 0
+  %40 = icmp slt i64 %39, 0
+  %41 = or i1 %38, %40
+  br i1 %41, label %74, label %43
 
-default.unreachable:                              ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  unreachable
+.thread:                                          ; preds = %16
+  %42 = icmp slt i64 %21, 0
+  br i1 %42, label %.thread47, label %43
 
-36:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
+.thread47:                                        ; preds = %.thread
+  store i8 7, ptr %0, align 8
+  %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 3, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx48, align 8
+  br label %75
 
-37:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-38:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-39:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-40:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-41:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-42:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
-  %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
-  %46 = extractvalue { i64, i1 } %45, 1
-  %47 = extractvalue { i64, i1 } %45, 0
-  %spec.select.i = select i1 %46, i64 -1, i64 %47
-  %48 = icmp slt i64 %spec.select.i, 0
-  br i1 %48, label %80, label %49
-
-49:                                               ; preds = %43
+43:                                               ; preds = %.thread, %switch.lookup
+  %spec.select.i46 = phi i64 [ %21, %.thread ], [ %39, %switch.lookup ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %50 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef %spec.select.i, i1 noundef zeroext true)
-          to label %53 unwind label %90
+  %44 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef %spec.select.i46, i1 noundef zeroext true)
+          to label %47 unwind label %84
 
-51:                                               ; preds = %59
-  %52 = landingpad { ptr, i32 }
+45:                                               ; preds = %53
+  %46 = landingpad { ptr, i32 }
           cleanup
-  br label %74
+  br label %68
 
-53:                                               ; preds = %49
-  %54 = extractvalue { i64, ptr } %50, 0
-  %55 = extractvalue { i64, ptr } %50, 1
-  store i64 %54, ptr %6, align 8, !alias.scope !3835
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %55, ptr %56, align 8, !alias.scope !3835
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %spec.select.i, ptr %57, align 8, !alias.scope !3835
+47:                                               ; preds = %43
+  %48 = extractvalue { i64, ptr } %44, 0
+  %49 = extractvalue { i64, ptr } %44, 1
+  store i64 %48, ptr %6, align 8, !alias.scope !3835
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %49, ptr %50, align 8, !alias.scope !3835
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %spec.select.i46, ptr %51, align 8, !alias.scope !3835
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
-  %58 = icmp eq ptr %55, null
-  br i1 %58, label %60, label %59
+  %52 = icmp eq ptr %49, null
+  br i1 %52, label %54, label %53
 
-59:                                               ; preds = %53
-  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %55, i64 noundef %spec.select.i)
-          to label %61 unwind label %51
+53:                                               ; preds = %47
+  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %49, i64 noundef %spec.select.i46)
+          to label %55 unwind label %45
 
-60:                                               ; preds = %53
-  %.sroa.4.8.extract.trunc = trunc i64 %spec.select.i to i8
+54:                                               ; preds = %47
+  %.sroa.4.8.extract.trunc = trunc i64 %spec.select.i46 to i8
   invoke void @_ZN8bytemuck8internal20something_went_wrong17h42df4266370cbc12E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.88, i64 noundef 14, i8 noundef %.sroa.4.8.extract.trunc) #18
-          to label %73 unwind label %76
+          to label %67 unwind label %70
 
-61:                                               ; preds = %59
+55:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
-  %62 = load i8, ptr %5, align 8, !range !29, !noundef !4
-  %63 = icmp eq i8 %62, 10
-  br i1 %63, label %64, label %.noexc27
+  %56 = load i8, ptr %5, align 8, !range !29, !noundef !4
+  %57 = icmp eq i8 %56, 10
+  br i1 %57, label %58, label %.noexc27
 
-64:                                               ; preds = %61
+58:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-.noexc27:                                         ; preds = %61
+.noexc27:                                         ; preds = %55
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.419.0..sroa_idx, i64 63, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  store i8 %62, ptr %0, align 8
+  store i8 %56, ptr %0, align 8
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !3838
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf92e389c95c4703bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %67 = load i64, ptr %66, align 8, !range !2403, !noalias !3838, !noundef !4
-  %.not.i.i.i = icmp eq i64 %67, 0
-  br i1 %.not.i.i.i, label %72, label %68
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %61 = load i64, ptr %60, align 8, !range !2403, !noalias !3838, !noundef !4
+  %.not.i.i.i = icmp eq i64 %61, 0
+  br i1 %.not.i.i.i, label %66, label %62
 
-68:                                               ; preds = %.noexc27
-  %69 = load ptr, ptr %3, align 8, !noalias !3838, !nonnull !4, !noundef !4
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %71 = load i64, ptr %70, align 8, !noalias !3838, !noundef !4
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %57, ptr noundef nonnull %69, i64 noundef %67, i64 noundef %71)
-  br label %72
+62:                                               ; preds = %.noexc27
+  %63 = load ptr, ptr %3, align 8, !noalias !3838, !nonnull !4, !noundef !4
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %65 = load i64, ptr %64, align 8, !noalias !3838, !noundef !4
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %51, ptr noundef nonnull %63, i64 noundef %61, i64 noundef %65)
+  br label %66
 
-"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit": ; preds = %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i", %81, %72, %64
+"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit": ; preds = %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i", %75, %66, %58
   ret void
 
-72:                                               ; preds = %68, %.noexc27
+66:                                               ; preds = %62, %.noexc27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !3838
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-73:                                               ; preds = %60
+67:                                               ; preds = %54
   unreachable
 
-74:                                               ; preds = %51, %76
-  %75 = phi { ptr, i32 } [ %77, %76 ], [ %52, %51 ]
+68:                                               ; preds = %45, %70
+  %69 = phi { ptr, i32 } [ %71, %70 ], [ %46, %45 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h232faed5db661fa9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #19
-          to label %common.resume unwind label %78
+          to label %common.resume unwind label %72
 
-76:                                               ; preds = %60
-  %77 = landingpad { ptr, i32 }
+70:                                               ; preds = %54
+  %71 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %4) #19
-          to label %74 unwind label %78
+          to label %68 unwind label %72
 
-78:                                               ; preds = %90, %76, %74
-  %79 = landingpad { ptr, i32 }
+72:                                               ; preds = %84, %70, %68
+  %73 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
 
-80:                                               ; preds = %43
+74:                                               ; preds = %switch.lookup
   store i8 7, ptr %0, align 8
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 3, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3845)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3848)
-  br i1 %8, label %82, label %81
+  br i1 %8, label %76, label %75
 
-81:                                               ; preds = %80
+75:                                               ; preds = %.thread47, %74
   tail call void @"_ZN4core3ptr128drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8a8a289e2b235770E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %1)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3851)
-  %84 = load ptr, ptr %83, align 8, !alias.scope !3854, !noundef !4
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  invoke void @"_ZN4core3ptr109drop_in_place$LT$png..decoder..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h9e00774c73443febE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %85)
-          to label %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i" unwind label %86, !noalias !3854
+  %78 = load ptr, ptr %77, align 8, !alias.scope !3854, !noundef !4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  invoke void @"_ZN4core3ptr109drop_in_place$LT$png..decoder..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h9e00774c73443febE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %79)
+          to label %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i" unwind label %80, !noalias !3854
 
-86:                                               ; preds = %82
-  %87 = landingpad { ptr, i32 }
+80:                                               ; preds = %76
+  %81 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %83) #19
-          to label %common.resume unwind label %88
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %77) #19
+          to label %common.resume unwind label %82
 
-88:                                               ; preds = %86
-  %89 = landingpad { ptr, i32 }
+82:                                               ; preds = %80
+  %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
 
-common.resume:                                    ; preds = %90, %74, %86
-  %common.resume.op = phi { ptr, i32 } [ %87, %86 ], [ %lpad.thr_comm, %90 ], [ %75, %74 ]
+common.resume:                                    ; preds = %84, %68, %80
+  %common.resume.op = phi { ptr, i32 } [ %81, %80 ], [ %lpad.thr_comm, %84 ], [ %69, %68 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i": ; preds = %82
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %83)
+"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i": ; preds = %76
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %77)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-90:                                               ; preds = %15, %49
+84:                                               ; preds = %15, %43
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %1) #19
-          to label %common.resume unwind label %78
+          to label %common.resume unwind label %72
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -34909,7 +34857,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd11d71bcf3edc3eeE(ptr noal
 
 15:                                               ; preds = %9
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dbc83011fcb707429349569d3c6bc524.100.llvm.10180119082961779398, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.126.llvm.10180119082961779398) #18
-          to label %.noexc unwind label %92
+          to label %.noexc unwind label %86
 
 .noexc:                                           ; preds = %15
   unreachable
@@ -34929,7 +34877,7 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd11d71bcf3edc3eeE(ptr noal
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 133
   %26 = load i8, ptr %25, align 1, !range !2517, !alias.scope !4370
   %..i.i.i = or disjoint i8 %26, 2
-  br i1 %24, label %43, label %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
+  br i1 %24, label %.thread, label %switch.lookup
 
 27:                                               ; preds = %9
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 428
@@ -34941,201 +34889,175 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd11d71bcf3edc3eeE(ptr noal
   %32 = mul nuw i64 %31, %30
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 744
   %34 = load i8, ptr %33, align 8, !range !14, !noalias !4373, !noundef !4
-  br label %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
+  br label %switch.lookup
 
-"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i": ; preds = %27, %16
+switch.lookup:                                    ; preds = %16, %27
   %35 = phi i64 [ %32, %27 ], [ %21, %16 ]
   %.0.i.i = phi i8 [ %34, %27 ], [ %..i.i.i, %16 ]
-  switch i8 %.0.i.i, label %default.unreachable [
-    i8 0, label %43
-    i8 1, label %36
-    i8 2, label %37
-    i8 3, label %38
-    i8 4, label %36
-    i8 5, label %38
-    i8 6, label %39
-    i8 7, label %40
-    i8 8, label %41
-    i8 9, label %42
-  ]
+  %36 = sext i8 %.0.i.i to i64
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN5image5image14decoder_to_vec17hffa0053875a713d5E, i64 0, i64 %36
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %35, i64 %switch.load)
+  %38 = extractvalue { i64, i1 } %37, 1
+  %39 = extractvalue { i64, i1 } %37, 0
+  %40 = icmp slt i64 %39, 0
+  %41 = or i1 %38, %40
+  br i1 %41, label %76, label %43
 
-default.unreachable:                              ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  unreachable
+.thread:                                          ; preds = %16
+  %42 = icmp slt i64 %21, 0
+  br i1 %42, label %.thread47, label %43
 
-36:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
+.thread47:                                        ; preds = %.thread
+  store i8 7, ptr %0, align 8
+  %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 3, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx48, align 8
+  br label %77
 
-37:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-38:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-39:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-40:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-41:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-42:                                               ; preds = %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i"
-  br label %43
-
-43:                                               ; preds = %16, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i", %36, %37, %38, %39, %40, %41, %42
-  %44 = phi i64 [ %35, %37 ], [ %35, %36 ], [ %35, %38 ], [ %35, %39 ], [ %35, %40 ], [ %35, %41 ], [ %35, %42 ], [ %35, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
-  %.0.i2.i = phi i64 [ 3, %37 ], [ 2, %36 ], [ 4, %38 ], [ 6, %39 ], [ 8, %40 ], [ 12, %41 ], [ 16, %42 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
-  %45 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %44, i64 %.0.i2.i)
-  %46 = extractvalue { i64, i1 } %45, 1
-  %47 = extractvalue { i64, i1 } %45, 0
-  %spec.select.i = select i1 %46, i64 -1, i64 %47
-  %48 = icmp slt i64 %spec.select.i, 0
-  br i1 %48, label %82, label %49
-
-49:                                               ; preds = %43
+43:                                               ; preds = %.thread, %switch.lookup
+  %spec.select.i46 = phi i64 [ %21, %.thread ], [ %39, %switch.lookup ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %50 = lshr i64 %spec.select.i, 2
-  %51 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb290538f250b710bE"(i64 noundef range(i64 0, 4611686018427387904) %50, i1 noundef zeroext true)
-          to label %54 unwind label %92
+  %44 = lshr i64 %spec.select.i46, 2
+  %45 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb290538f250b710bE"(i64 noundef range(i64 0, 4611686018427387904) %44, i1 noundef zeroext true)
+          to label %48 unwind label %86
 
-52:                                               ; preds = %61
-  %53 = landingpad { ptr, i32 }
+46:                                               ; preds = %55
+  %47 = landingpad { ptr, i32 }
           cleanup
-  br label %76
+  br label %70
 
-54:                                               ; preds = %49
-  %55 = extractvalue { i64, ptr } %51, 0
-  %56 = extractvalue { i64, ptr } %51, 1
-  store i64 %55, ptr %6, align 8, !alias.scope !4374
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %56, ptr %57, align 8, !alias.scope !4374
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %50, ptr %58, align 8, !alias.scope !4374
+48:                                               ; preds = %43
+  %49 = extractvalue { i64, ptr } %45, 0
+  %50 = extractvalue { i64, ptr } %45, 1
+  store i64 %49, ptr %6, align 8, !alias.scope !4374
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %50, ptr %51, align 8, !alias.scope !4374
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %44, ptr %52, align 8, !alias.scope !4374
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
-  %59 = and i64 %spec.select.i, 9223372036854775804
-  %60 = icmp eq ptr %56, null
-  br i1 %60, label %62, label %61
+  %53 = and i64 %spec.select.i46, 9223372036854775804
+  %54 = icmp eq ptr %50, null
+  br i1 %54, label %56, label %55
 
-61:                                               ; preds = %54
-  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %56, i64 noundef %59)
-          to label %63 unwind label %52
+55:                                               ; preds = %48
+  invoke void @"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10read_image17h4dc7407ffa87207fE"(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %4, ptr noalias noundef nonnull align 1 %50, i64 noundef %53)
+          to label %57 unwind label %46
 
-62:                                               ; preds = %54
-  %.sroa.4.8.extract.trunc = trunc i64 %59 to i8
+56:                                               ; preds = %48
+  %.sroa.4.8.extract.trunc = trunc i64 %53 to i8
   invoke void @_ZN8bytemuck8internal20something_went_wrong17h42df4266370cbc12E(ptr noalias noundef nonnull readonly align 1 @anon.f0c04611e5e2b4be9a0dda14dd5d7c38.88, i64 noundef 14, i8 noundef %.sroa.4.8.extract.trunc) #18
-          to label %75 unwind label %78
+          to label %69 unwind label %72
 
-63:                                               ; preds = %61
+57:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
-  %64 = load i8, ptr %5, align 8, !range !29, !noundef !4
-  %65 = icmp eq i8 %64, 10
-  br i1 %65, label %66, label %.noexc27
+  %58 = load i8, ptr %5, align 8, !range !29, !noundef !4
+  %59 = icmp eq i8 %58, 10
+  br i1 %59, label %60, label %.noexc27
 
-66:                                               ; preds = %63
+60:                                               ; preds = %57
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i8 10, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-.noexc27:                                         ; preds = %63
+.noexc27:                                         ; preds = %57
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.419.0..sroa_idx, i64 63, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  store i8 %64, ptr %0, align 8
+  store i8 %58, ptr %0, align 8
   %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.221, i64 63, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4377
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he47cc05bc783287bE.llvm.9832446184049035033"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %69 = load i64, ptr %68, align 8, !range !2403, !noalias !4377, !noundef !4
-  %.not.i.i.i = icmp eq i64 %69, 0
-  br i1 %.not.i.i.i, label %74, label %70
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %63 = load i64, ptr %62, align 8, !range !2403, !noalias !4377, !noundef !4
+  %.not.i.i.i = icmp eq i64 %63, 0
+  br i1 %.not.i.i.i, label %68, label %64
 
-70:                                               ; preds = %.noexc27
-  %71 = load ptr, ptr %3, align 8, !noalias !4377, !nonnull !4, !noundef !4
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %73 = load i64, ptr %72, align 8, !noalias !4377, !noundef !4
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %58, ptr noundef nonnull %71, i64 noundef %69, i64 noundef %73)
-  br label %74
+64:                                               ; preds = %.noexc27
+  %65 = load ptr, ptr %3, align 8, !noalias !4377, !nonnull !4, !noundef !4
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %67 = load i64, ptr %66, align 8, !noalias !4377, !noundef !4
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033"(ptr noalias noundef nonnull readonly align 1 %52, ptr noundef nonnull %65, i64 noundef %63, i64 noundef %67)
+  br label %68
 
-"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit": ; preds = %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i", %83, %74, %66
+"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit": ; preds = %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i", %77, %68, %60
   ret void
 
-74:                                               ; preds = %70, %.noexc27
+68:                                               ; preds = %64, %.noexc27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4377
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-75:                                               ; preds = %62
+69:                                               ; preds = %56
   unreachable
 
-76:                                               ; preds = %52, %78
-  %77 = phi { ptr, i32 } [ %79, %78 ], [ %53, %52 ]
+70:                                               ; preds = %46, %72
+  %71 = phi { ptr, i32 } [ %73, %72 ], [ %47, %46 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17hc7015d4d3bde46c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #19
-          to label %common.resume unwind label %80
+          to label %common.resume unwind label %74
 
-78:                                               ; preds = %62
-  %79 = landingpad { ptr, i32 }
+72:                                               ; preds = %56
+  %73 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %4) #19
-          to label %76 unwind label %80
+          to label %70 unwind label %74
 
-80:                                               ; preds = %92, %78, %76
-  %81 = landingpad { ptr, i32 }
+74:                                               ; preds = %86, %72, %70
+  %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
 
-82:                                               ; preds = %43
+76:                                               ; preds = %switch.lookup
   store i8 7, ptr %0, align 8
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 3, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4384)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4387)
-  br i1 %8, label %84, label %83
+  br i1 %8, label %78, label %77
 
-83:                                               ; preds = %82
+77:                                               ; preds = %.thread47, %76
   tail call void @"_ZN4core3ptr128drop_in_place$LT$image..codecs..bmp..decoder..BmpDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8a8a289e2b235770E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %1)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4390)
-  %86 = load ptr, ptr %85, align 8, !alias.scope !4393, !noundef !4
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  invoke void @"_ZN4core3ptr109drop_in_place$LT$png..decoder..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h9e00774c73443febE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %87)
-          to label %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i" unwind label %88, !noalias !4393
+  %80 = load ptr, ptr %79, align 8, !alias.scope !4393, !noundef !4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  invoke void @"_ZN4core3ptr109drop_in_place$LT$png..decoder..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h9e00774c73443febE"(ptr noalias noundef nonnull align 8 dereferenceable(712) %81)
+          to label %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i" unwind label %82, !noalias !4393
 
-88:                                               ; preds = %84
-  %89 = landingpad { ptr, i32 }
+82:                                               ; preds = %78
+  %83 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %85) #19
-          to label %common.resume unwind label %90
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %79) #19
+          to label %common.resume unwind label %84
 
-90:                                               ; preds = %88
-  %91 = landingpad { ptr, i32 }
+84:                                               ; preds = %82
+  %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
 
-common.resume:                                    ; preds = %92, %76, %88
-  %common.resume.op = phi { ptr, i32 } [ %89, %88 ], [ %lpad.thr_comm, %92 ], [ %77, %76 ]
+common.resume:                                    ; preds = %86, %70, %82
+  %common.resume.op = phi { ptr, i32 } [ %83, %82 ], [ %lpad.thr_comm, %86 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i": ; preds = %84
-  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %85)
+"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$image..codecs..png..PngDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$$GT$17h892373c70debbb2cE.llvm.9832446184049035033.exit.i.i": ; preds = %78
+  tail call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7a6a2a7786cfc819E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %79)
   br label %"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE.exit"
 
-92:                                               ; preds = %15, %49
+86:                                               ; preds = %15, %43
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr128drop_in_place$LT$image..codecs..ico..decoder..IcoDecoder$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h8f119384c76cc8fcE"(ptr noalias noundef nonnull align 8 dereferenceable(160) %1) #19
-          to label %common.resume unwind label %80
+          to label %common.resume unwind label %74
 }
 
 ; Function Attrs: nonlazybind uwtable

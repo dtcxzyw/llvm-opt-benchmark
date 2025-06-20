@@ -3275,16 +3275,16 @@ define hidden void @"_ZN135_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   store ptr null, ptr %12, align 8, !noalias !782
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 538
   store i16 0, ptr %13, align 2, !noalias !782
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %.sroa.693.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 64
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %10), !noalias !784
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 23
-  store i8 -37, ptr %.sroa.4.0..sroa_idx.i, align 1, !noalias !789
-  %.sroa.590.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.sroa.691.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i64 0, ptr %.sroa.691.0..sroa_idx.i, align 8, !noalias !789
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i64 1, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !789
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.693.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  %.sroa.3.0..sroa_idx90.i = getelementptr inbounds nuw i8, ptr %10, i64 23
+  store i8 -37, ptr %.sroa.3.0..sroa_idx90.i, align 1, !noalias !789
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sroa.491.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store i64 0, ptr %.sroa.491.0..sroa_idx.i, align 8, !noalias !789
+  %.sroa.592.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 56
+  store i64 1, ptr %.sroa.592.0..sroa_idx.i, align 8, !noalias !789
   %.sroa.6.0..sroa_idx14.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 87
   %.sroa.9.0..sroa_idx16.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %.sroa.4.0..sroa_idx18.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 23
@@ -3307,8 +3307,8 @@ define hidden void @"_ZN135_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
 17:                                               ; preds = %.noexc.i.i, %16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !793
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0.i.i.i)
-  %.sroa.4.0.copyload.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !790, !noalias !795
-  store i8 -37, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !790, !noalias !795
+  %.sroa.4.0.copyload.i.i.i = load i8, ptr %.sroa.3.0..sroa_idx90.i, align 1, !alias.scope !790, !noalias !795
+  store i8 -37, ptr %.sroa.3.0..sroa_idx90.i, align 1, !alias.scope !790, !noalias !795
   %.not.i.i.i = icmp eq i8 %.sroa.4.0.copyload.i.i.i, -37
   br i1 %.not.i.i.i, label %19, label %18
 
@@ -3319,21 +3319,21 @@ define hidden void @"_ZN135_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
 19:                                               ; preds = %17
   call void @llvm.experimental.noalias.scope.decl(metadata !796)
   call void @llvm.experimental.noalias.scope.decl(metadata !799)
-  %20 = load i64, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !805, !noundef !3
-  %21 = load i64, ptr %.sroa.691.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !805, !noundef !3
+  %20 = load i64, ptr %.sroa.592.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !805, !noundef !3
+  %21 = load i64, ptr %.sroa.491.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !805, !noundef !3
   %.not.i.i.i.i.i = icmp eq i64 %20, %21
   br i1 %.not.i.i.i.i.i, label %.thread.i.i, label %22
 
 22:                                               ; preds = %19
-  store i64 1, ptr %.sroa.691.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !805
+  store i64 1, ptr %.sroa.491.0..sroa_idx.i, align 8, !alias.scope !802, !noalias !805
   %23 = icmp eq i64 %21, 0
   call void @llvm.assume(i1 %23)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.8.0..sroa_idx.i, i64 23, i1 false), !alias.scope !806, !noalias !795
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.693.0..sroa_idx.i, i64 23, i1 false), !alias.scope !806, !noalias !795
   %.sroa.6.0.copyload15.i.i.i = load i8, ptr %.sroa.6.0..sroa_idx14.i.i.i, align 1, !alias.scope !807, !noalias !795
   br label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b487b4c82c23403E.exit.i.i.i"
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b487b4c82c23403E.exit.i.i.i": ; preds = %22, %18
-  %.sroa.9.0..sroa_idx16.sink.i.i.i = phi ptr [ %.sroa.9.0..sroa_idx16.i.i.i, %22 ], [ %.sroa.590.0..sroa_idx.i, %18 ]
+  %.sroa.9.0..sroa_idx16.sink.i.i.i = phi ptr [ %.sroa.9.0..sroa_idx16.i.i.i, %22 ], [ %.sroa.4.0..sroa_idx.i, %18 ]
   %.sroa.6.0.i.i.i = phi i8 [ %.sroa.6.0.copyload15.i.i.i, %22 ], [ %.sroa.4.0.copyload.i.i.i, %18 ]
   %.not12.i.i.i = icmp eq i8 %.sroa.6.0.i.i.i, -38
   br i1 %.not12.i.i.i, label %.thread.i.i, label %24
@@ -3350,16 +3350,16 @@ define hidden void @"_ZN135_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   call void @llvm.experimental.noalias.scope.decl(metadata !813)
   call void @llvm.experimental.noalias.scope.decl(metadata !816)
   call void @llvm.experimental.noalias.scope.decl(metadata !819)
-  %25 = load i64, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !822, !noalias !826, !noundef !3
-  %26 = load i64, ptr %.sroa.691.0..sroa_idx.i, align 8, !alias.scope !822, !noalias !826, !noundef !3
+  %25 = load i64, ptr %.sroa.592.0..sroa_idx.i, align 8, !alias.scope !822, !noalias !826, !noundef !3
+  %26 = load i64, ptr %.sroa.491.0..sroa_idx.i, align 8, !alias.scope !822, !noalias !826, !noundef !3
   %.not.i.i.i.i.i.i.i = icmp eq i64 %25, %26
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %27
 
 27:                                               ; preds = %24
-  store i64 1, ptr %.sroa.691.0..sroa_idx.i, align 8, !alias.scope !822, !noalias !826
+  store i64 1, ptr %.sroa.491.0..sroa_idx.i, align 8, !alias.scope !822, !noalias !826
   %28 = icmp eq i64 %26, 0
   call void @llvm.assume(i1 %28)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.8.0..sroa_idx.i, i64 23, i1 false), !noalias !827
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.693.0..sroa_idx.i, i64 23, i1 false), !noalias !827
   %.sroa.4.0.copyload5.i.i.i.i = load i8, ptr %.sroa.6.0..sroa_idx14.i.i.i, align 1, !alias.scope !828, !noalias !827
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9.0..sroa_idx16.i.i.i, i64 24, i1 false), !noalias !827
   br label %31
@@ -3378,8 +3378,8 @@ define hidden void @"_ZN135_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
 31:                                               ; preds = %27, %24
   %.sroa.4.0.i.i.i.i = phi i8 [ %.sroa.4.0.copyload5.i.i.i.i, %27 ], [ -38, %24 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i.i.i, i64 23, i1 false), !noalias !829
-  store i8 %.sroa.4.0.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !830, !noalias !829
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.590.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i.i.i.i, i64 24, i1 false), !noalias !829
+  store i8 %.sroa.4.0.i.i.i.i, ptr %.sroa.3.0..sroa_idx90.i, align 1, !alias.scope !830, !noalias !829
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i.i.i.i, i64 24, i1 false), !noalias !829
   %32 = icmp ne i8 %.sroa.4.0.i.i.i.i, -37
   call void @llvm.assume(i1 %32)
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0.i.i.i.i)
@@ -3804,17 +3804,17 @@ define hidden void @"_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   %35 = icmp sgt i64 %.sroa.014.0.copyload.i, -1
   call void @llvm.assume(i1 %35)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11), !noalias !906
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 23
-  store i8 -37, ptr %.sroa.4.0..sroa_idx.i, align 1, !noalias !911
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr %.sroa.415.0.copyload.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !911
-  %.sroa.7.0..sroa_idx93.i = getelementptr inbounds nuw i8, ptr %11, i64 56
-  store ptr %.sroa.415.0.copyload.i, ptr %.sroa.7.0..sroa_idx93.i, align 8, !noalias !911
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store i64 %.sroa.014.0.copyload.i, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !911
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr %34, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !911
+  %.sroa.3.0..sroa_idx93.i = getelementptr inbounds nuw i8, ptr %11, i64 23
+  store i8 -37, ptr %.sroa.3.0..sroa_idx93.i, align 1, !noalias !911
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.494.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 48
+  store ptr %.sroa.415.0.copyload.i, ptr %.sroa.494.0..sroa_idx.i, align 8, !noalias !911
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 56
+  store ptr %.sroa.415.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !911
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 64
+  store i64 %.sroa.014.0.copyload.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !911
+  %.sroa.7.0..sroa_idx95.i = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr %34, ptr %.sroa.7.0..sroa_idx95.i, align 8, !noalias !911
   %.sroa.4.0..sroa_idx18.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 23
   %.sroa.520.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3835,8 +3835,8 @@ define hidden void @"_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
 39:                                               ; preds = %.noexc.i.i, %38
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !915
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.0.i.i.i)
-  %.sroa.4.0.copyload.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !912, !noalias !917
-  store i8 -37, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !912, !noalias !917
+  %.sroa.4.0.copyload.i.i.i = load i8, ptr %.sroa.3.0..sroa_idx93.i, align 1, !alias.scope !912, !noalias !917
+  store i8 -37, ptr %.sroa.3.0..sroa_idx93.i, align 1, !alias.scope !912, !noalias !917
   %.not.i.i.i = icmp eq i8 %.sroa.4.0.copyload.i.i.i, -37
   br i1 %.not.i.i.i, label %41, label %40
 
@@ -3846,14 +3846,14 @@ define hidden void @"_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
 
 41:                                               ; preds = %39
   call void @llvm.experimental.noalias.scope.decl(metadata !918)
-  %42 = load ptr, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !921, !noalias !922, !nonnull !3, !noundef !3
-  %43 = load ptr, ptr %.sroa.7.0..sroa_idx93.i, align 8, !alias.scope !921, !noalias !922, !nonnull !3, !noundef !3
+  %42 = load ptr, ptr %.sroa.7.0..sroa_idx95.i, align 8, !alias.scope !921, !noalias !922, !nonnull !3, !noundef !3
+  %43 = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !921, !noalias !922, !nonnull !3, !noundef !3
   %44 = icmp eq ptr %43, %42
   br i1 %44, label %.thread.i.i, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  store ptr %46, ptr %.sroa.7.0..sroa_idx93.i, align 8, !alias.scope !921, !noalias !922
+  store ptr %46, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !921, !noalias !922
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(23) %43, i64 23, i1 false), !noalias !924
   %.sroa.6.0..sroa_idx14.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 23
   %.sroa.6.0.copyload15.i.i.i = load i8, ptr %.sroa.6.0..sroa_idx14.i.i.i, align 1, !noalias !924
@@ -3861,7 +3861,7 @@ define hidden void @"_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h61d0004ec4226efbE.exit.i.i.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h61d0004ec4226efbE.exit.i.i.i": ; preds = %45, %40
-  %.sroa.9.0..sroa_idx16.sink.i.i.i = phi ptr [ %.sroa.9.0..sroa_idx16.i.i.i, %45 ], [ %.sroa.5.0..sroa_idx.i, %40 ]
+  %.sroa.9.0..sroa_idx16.sink.i.i.i = phi ptr [ %.sroa.9.0..sroa_idx16.i.i.i, %45 ], [ %.sroa.4.0..sroa_idx.i, %40 ]
   %.sroa.6.0.i.i.i = phi i8 [ %.sroa.6.0.copyload15.i.i.i, %45 ], [ %.sroa.4.0.copyload.i.i.i, %40 ]
   %.not12.i.i.i = icmp eq i8 %.sroa.6.0.i.i.i, -38
   br i1 %.not12.i.i.i, label %.thread.i.i, label %47
@@ -3877,14 +3877,14 @@ define hidden void @"_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5.i.i.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !930)
   call void @llvm.experimental.noalias.scope.decl(metadata !933)
-  %48 = load ptr, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !936, !noalias !937, !nonnull !3, !noundef !3
-  %49 = load ptr, ptr %.sroa.7.0..sroa_idx93.i, align 8, !alias.scope !936, !noalias !937, !nonnull !3, !noundef !3
+  %48 = load ptr, ptr %.sroa.7.0..sroa_idx95.i, align 8, !alias.scope !936, !noalias !937, !nonnull !3, !noundef !3
+  %49 = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !936, !noalias !937, !nonnull !3, !noundef !3
   %50 = icmp eq ptr %49, %48
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  store ptr %52, ptr %.sroa.7.0..sroa_idx93.i, align 8, !alias.scope !936, !noalias !937
+  store ptr %52, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !936, !noalias !937
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(23) %49, i64 23, i1 false), !noalias !940
   %.sroa.4.0..sroa_idx4.i.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 23
   %.sroa.4.0.copyload5.i.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx4.i.i.i.i, align 1, !noalias !941
@@ -3906,8 +3906,8 @@ define hidden void @"_ZN136_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$
 55:                                               ; preds = %51, %47
   %.sroa.4.0.i.i.i.i = phi i8 [ %.sroa.4.0.copyload5.i.i.i.i, %51 ], [ -38, %47 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull align 8 dereferenceable(23) %.sroa.0.i.i.i.i, i64 23, i1 false), !noalias !942
-  store i8 %.sroa.4.0.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !943, !noalias !942
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i.i.i.i, i64 24, i1 false), !noalias !942
+  store i8 %.sroa.4.0.i.i.i.i, ptr %.sroa.3.0..sroa_idx93.i, align 1, !alias.scope !943, !noalias !942
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.i.i.i.i, i64 24, i1 false), !noalias !942
   %56 = icmp ne i8 %.sroa.4.0.i.i.i.i, -37
   call void @llvm.assume(i1 %56)
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.0.i.i.i.i)
@@ -152720,12 +152720,12 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$alloc..collections..btree..map..BTr
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %2
-  %.sroa.4.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
-  store ptr null, ptr %.sroa.4.0..sroa_idx15, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -152769,9 +152769,9 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %.not = icmp ne ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
-  %.sroa.15.0 = select i1 %.not, i64 %5, i64 0
-  %.sroa.14.0 = select i1 %.not, i64 %12, i64 undef
-  %.sroa.9.0 = zext i1 %.not to i64
+  %.sroa.12.0 = select i1 %.not, i64 %12, i64 undef
+  %.sroa.8.0 = zext i1 %.not to i64
+  %.sroa.13.0 = select i1 %.not, i64 %5, i64 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28233)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28236)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28238)
@@ -152784,23 +152784,23 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %.sink.i.i = select i1 %.not.i.i, i64 %5, i64 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28246)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28249)
-  store i64 %.sroa.9.0, ptr %3, align 8, !alias.scope !28251, !noalias !28253
-  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.519.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %10, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.14.0, ptr %.sroa.8.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr null, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %10, ptr %.sroa.13.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 %.sroa.14.0, ptr %.sroa.14.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
-  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i64 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
+  store i64 %.sroa.8.0, ptr %3, align 8, !alias.scope !28251, !noalias !28253
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
+  %.sroa.6.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %10, ptr %.sroa.6.0..sroa_idx19, align 8, !alias.scope !28251, !noalias !28253
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 %.sroa.12.0, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr %10, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store i64 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store i64 %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 8, !alias.scope !28251, !noalias !28253
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %.sink19.i.i, ptr %16, align 8, !alias.scope !28254, !noalias !28255
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 80

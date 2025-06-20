@@ -620,11 +620,11 @@ _ZNK8rawspeed20AbstractLJpegDecoder21getPrefixCodeDecodersEi.exit: ; preds = %49
 .lr.ph.i59:                                       ; preds = %_ZNK8rawspeed20AbstractLJpegDecoder21getPrefixCodeDecodersEi.exit
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i = load ptr, ptr %56, align 8, !tbaa !133
-  %.pre = load ptr, ptr %20, align 8, !tbaa !134
+  %.pre10.i = load ptr, ptr %20, align 8, !tbaa !134
   br label %57
 
 57:                                               ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i, %.lr.ph.i59
-  %58 = phi ptr [ %.pre, %.lr.ph.i59 ], [ %96, %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i ]
+  %58 = phi ptr [ %.pre10.i, %.lr.ph.i59 ], [ %96, %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i ]
   %59 = phi ptr [ %.pre.i, %.lr.ph.i59 ], [ %97, %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i ]
   %.09.i = phi i32 [ %10, %.lr.ph.i59 ], [ %98, %_ZNSt20back_insert_iteratorISt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS3_EEEaSEOS3_.exit.i ]
   %60 = load ptr, ptr %3, align 8, !tbaa !149

@@ -26142,14 +26142,14 @@ define void @"_ZN130_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core.
   %.sroa.040.1 = phi i8 [ 5, %20 ], [ 6, %42 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !568
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false)
-  %.sroa.458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %.sroa.216.0.copyload, ptr %.sroa.458.0..sroa_idx, align 8
-  %.sroa.559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i32 %.sroa.319.0.copyload, ptr %.sroa.559.0..sroa_idx, align 4
-  %.sroa.660.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store i32 %.sroa.216.0.copyload, ptr %.sroa.660.0..sroa_idx, align 8
-  %.sroa.761.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 52
-  store i8 0, ptr %.sroa.761.0..sroa_idx, align 4
+  %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i32 %.sroa.216.0.copyload, ptr %.sroa.457.0..sroa_idx, align 8
+  %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 44
+  store i32 %.sroa.319.0.copyload, ptr %.sroa.558.0..sroa_idx, align 4
+  %.sroa.659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store i32 %.sroa.216.0.copyload, ptr %.sroa.659.0..sroa_idx, align 8
+  %.sroa.760.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 52
+  store i8 0, ptr %.sroa.760.0..sroa_idx, align 4
   %45 = invoke { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17h240c11b5eea2c07aE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %3)
           to label %51 unwind label %29
 

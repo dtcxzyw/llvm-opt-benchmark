@@ -2504,8 +2504,8 @@ define hidden { ptr, ptr } @"_ZN5sqlez22thread_safe_connection23background_threa
   ret { ptr, ptr } %212
 
 .body:                                            ; preds = %206, %213
-  %eh.lpad-body26 = phi { ptr, i32 } [ %eh.lpad-body.ph, %213 ], [ %207, %206 ]
-  resume { ptr, i32 } %eh.lpad-body26
+  %eh.lpad-body25 = phi { ptr, i32 } [ %eh.lpad-body.ph, %213 ], [ %207, %206 ]
+  resume { ptr, i32 } %eh.lpad-body25
 
 213:                                              ; preds = %188, %148, %153, %187, %.thread44.i.i, %191
   %eh.lpad-body.ph = phi { ptr, i32 } [ %189, %188 ], [ %149, %148 ], [ %149, %153 ], [ %.pn.pn.pn20.i.i, %187 ], [ %.pn354348.i.i, %.thread44.i.i ], [ %192, %191 ]

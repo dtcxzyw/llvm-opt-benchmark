@@ -1840,7 +1840,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$core..op
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i8, ptr %10, align 8, !alias.scope !364, !noalias !365, !noundef !6
   %12 = load i64, ptr %5, align 8, !alias.scope !364, !noalias !365, !noundef !6
-  br label %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit.sink.split"
+  br label %.sink.split.i
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %5, align 8, !alias.scope !364, !noalias !365, !nonnull !6, !noundef !6
@@ -1850,7 +1850,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$core..op
 
 17:                                               ; preds = %13
   %18 = ptrtoint ptr %14 to i64
-  br label %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit.sink.split"
+  br label %.sink.split.i
 
 19:                                               ; preds = %13
   tail call void @llvm.trap()
@@ -1869,7 +1869,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$core..op
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i8, ptr %26, align 8, !alias.scope !375, !noalias !376, !noundef !6
   %28 = load i64, ptr %21, align 8, !alias.scope !375, !noalias !376, !noundef !6
-  br label %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit.sink.split"
+  br label %.sink.split.i
 
 29:                                               ; preds = %20
   %30 = load ptr, ptr %21, align 8, !alias.scope !375, !noalias !376, !nonnull !6, !noundef !6
@@ -1879,25 +1879,25 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$core..op
 
 33:                                               ; preds = %29
   %34 = ptrtoint ptr %30 to i64
-  br label %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit.sink.split"
+  br label %.sink.split.i
 
 35:                                               ; preds = %29
   tail call void @llvm.trap()
   unreachable
 
-"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit.sink.split": ; preds = %25, %33, %9, %17
-  %.sroa.0.0.i.i.sink = phi i64 [ %18, %17 ], [ %12, %9 ], [ %34, %33 ], [ %28, %25 ]
-  %.sroa.5.0.i.i.sink = phi i8 [ undef, %17 ], [ %11, %9 ], [ undef, %33 ], [ %27, %25 ]
-  %.sink14 = phi i8 [ %7, %17 ], [ %7, %9 ], [ %23, %33 ], [ %23, %25 ]
+.sink.split.i:                                    ; preds = %33, %25, %17, %9
+  %.sroa.0.0.i2.sink.i = phi i64 [ %18, %17 ], [ %12, %9 ], [ %34, %33 ], [ %28, %25 ]
+  %.sroa.5.0.i1.sink.i = phi i8 [ undef, %17 ], [ %11, %9 ], [ undef, %33 ], [ %27, %25 ]
+  %.sink11.i = phi i8 [ 0, %17 ], [ %7, %9 ], [ 0, %33 ], [ %23, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.i.i.sink, ptr %36, align 8, !alias.scope !353, !noalias !356
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sroa.5.0.i.i.sink, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !353, !noalias !356
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 %.sink14, ptr %.sroa.5.0..sroa_idx.i, align 1, !alias.scope !353, !noalias !356
+  store i64 %.sroa.0.0.i2.sink.i, ptr %36, align 8, !alias.scope !353, !noalias !356
+  %.sroa.47.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sroa.5.0.i1.sink.i, ptr %.sroa.47.0..sroa_idx.i, align 8, !alias.scope !353, !noalias !356
+  %.sroa.58.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 17
+  store i8 %.sink11.i, ptr %.sroa.58.0..sroa_idx.i, align 1, !alias.scope !353, !noalias !356
   br label %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit"
 
-"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit": ; preds = %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit.sink.split", %2
+"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit": ; preds = %2, %.sink.split.i
   store i64 %3, ptr %0, align 8, !alias.scope !353, !noalias !356
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
@@ -1906,7 +1906,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$core..op
   switch i64 %38, label %default.unreachable [
     i64 0, label %39
     i64 1, label %55
-    i64 2, label %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit12"
+    i64 2, label %72
   ]
 
 39:                                               ; preds = %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit"
@@ -1922,7 +1922,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$core..op
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load i8, ptr %45, align 8, !alias.scope !391, !noalias !392, !noundef !6
   %47 = load i64, ptr %40, align 8, !alias.scope !391, !noalias !392, !noundef !6
-  br label %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit12.sink.split"
+  br label %.sink.split.i2
 
 48:                                               ; preds = %39
   %49 = load ptr, ptr %40, align 8, !alias.scope !391, !noalias !392, !nonnull !6, !noundef !6
@@ -1932,7 +1932,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$core..op
 
 52:                                               ; preds = %48
   %53 = ptrtoint ptr %49 to i64
-  br label %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit12.sink.split"
+  br label %.sink.split.i2
 
 54:                                               ; preds = %48
   tail call void @llvm.trap()
@@ -1951,7 +1951,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$core..op
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %62 = load i8, ptr %61, align 8, !alias.scope !402, !noalias !403, !noundef !6
   %63 = load i64, ptr %56, align 8, !alias.scope !402, !noalias !403, !noundef !6
-  br label %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit12.sink.split"
+  br label %.sink.split.i2
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %56, align 8, !alias.scope !402, !noalias !403, !nonnull !6, !noundef !6
@@ -1961,27 +1961,27 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$core..op
 
 68:                                               ; preds = %64
   %69 = ptrtoint ptr %65 to i64
-  br label %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit12.sink.split"
+  br label %.sink.split.i2
 
 70:                                               ; preds = %64
   tail call void @llvm.trap()
   unreachable
 
-"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit12.sink.split": ; preds = %60, %68, %44, %52
-  %.sroa.0.0.i2.i3.sink = phi i64 [ %53, %52 ], [ %47, %44 ], [ %69, %68 ], [ %63, %60 ]
-  %.sroa.5.0.i1.i2.sink = phi i8 [ undef, %52 ], [ %46, %44 ], [ undef, %68 ], [ %62, %60 ]
-  %.sink16 = phi i8 [ %42, %52 ], [ %42, %44 ], [ %58, %68 ], [ %58, %60 ]
+.sink.split.i2:                                   ; preds = %68, %60, %52, %44
+  %.sroa.0.0.i2.sink.i3 = phi i64 [ %53, %52 ], [ %47, %44 ], [ %69, %68 ], [ %63, %60 ]
+  %.sroa.5.0.i1.sink.i4 = phi i8 [ undef, %52 ], [ %46, %44 ], [ undef, %68 ], [ %62, %60 ]
+  %.sink11.i5 = phi i8 [ 0, %52 ], [ %42, %44 ], [ 0, %68 ], [ %58, %60 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.0.0.i2.i3.sink, ptr %71, align 8, !alias.scope !380, !noalias !383
-  %.sroa.47.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %.sroa.5.0.i1.i2.sink, ptr %.sroa.47.0..sroa_idx.i4, align 8, !alias.scope !380, !noalias !383
-  %.sroa.58.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 %.sink16, ptr %.sroa.58.0..sroa_idx.i5, align 1, !alias.scope !380, !noalias !383
-  br label %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit12"
+  store i64 %.sroa.0.0.i2.sink.i3, ptr %71, align 8, !alias.scope !380, !noalias !383
+  %.sroa.47.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 %.sroa.5.0.i1.sink.i4, ptr %.sroa.47.0..sroa_idx.i6, align 8, !alias.scope !380, !noalias !383
+  %.sroa.58.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  store i8 %.sink11.i5, ptr %.sroa.58.0..sroa_idx.i7, align 1, !alias.scope !380, !noalias !383
+  br label %72
 
-"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit12": ; preds = %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit12.sink.split", %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit"
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %38, ptr %72, align 8, !alias.scope !380, !noalias !383
+72:                                               ; preds = %.sink.split.i2, %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1c2f519ca5ce5302E.llvm.7220102503332299125.exit"
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %38, ptr %73, align 8, !alias.scope !380, !noalias !383
   ret void
 }
 

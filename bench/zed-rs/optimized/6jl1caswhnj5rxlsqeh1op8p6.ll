@@ -12546,10 +12546,10 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1964
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %14, i64 %.sroa.4.0.copyload, i1 false), !noalias !1970
   store i64 %23, ptr %0, align 8, !alias.scope !1963, !noalias !1971
-  %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %27, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !alias.scope !1963, !noalias !1971
-  %.sroa.57.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.57.0..sroa_idx.i.i, align 8, !alias.scope !1963, !noalias !1971
+  %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %27, ptr %.sroa.45.0..sroa_idx.i.i, align 8, !alias.scope !1963, !noalias !1971
+  %.sroa.56.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.4.0.copyload, ptr %.sroa.56.0..sroa_idx.i.i, align 8, !alias.scope !1963, !noalias !1971
   br label %_ZN5serde2de7Visitor18visit_borrowed_str17h1e339b2199396b1bE.exit
 
 28:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc0cf95d61fe39376E.exit.i.i"
@@ -12586,10 +12586,10 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapKey$LT$R$GT$$u20$as$u20$serde.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1979
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %14, i64 %.sroa.4.0.copyload, i1 false), !noalias !1984
   store i64 %33, ptr %0, align 8, !alias.scope !1972, !noalias !1985
-  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %37, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !1972, !noalias !1985
-  %.sroa.57.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.57.0..sroa_idx.i, align 8, !alias.scope !1972, !noalias !1985
+  %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %37, ptr %.sroa.45.0..sroa_idx.i, align 8, !alias.scope !1972, !noalias !1985
+  %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.4.0.copyload, ptr %.sroa.56.0..sroa_idx.i, align 8, !alias.scope !1972, !noalias !1985
   br label %_ZN5serde2de7Visitor18visit_borrowed_str17h1e339b2199396b1bE.exit
 
 38:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc0cf95d61fe39376E.exit.i"
@@ -13425,10 +13425,10 @@ define hidden void @"_ZN83_$LT$serde_json_lenient..de..MapKey$LT$R$GT$$u20$as$u2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2092
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %14, i64 %.sroa.4.0.copyload, i1 false), !noalias !2098
   store i64 %23, ptr %0, align 8, !alias.scope !2091, !noalias !2099
-  %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %27, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !alias.scope !2091, !noalias !2099
-  %.sroa.57.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.57.0..sroa_idx.i.i, align 8, !alias.scope !2091, !noalias !2099
+  %.sroa.45.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %27, ptr %.sroa.45.0..sroa_idx.i.i, align 8, !alias.scope !2091, !noalias !2099
+  %.sroa.56.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.4.0.copyload, ptr %.sroa.56.0..sroa_idx.i.i, align 8, !alias.scope !2091, !noalias !2099
   br label %_ZN5serde2de7Visitor18visit_borrowed_str17h900a86eda76e7325E.exit
 
 28:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc0cf95d61fe39376E.exit.i.i"
@@ -13465,10 +13465,10 @@ define hidden void @"_ZN83_$LT$serde_json_lenient..de..MapKey$LT$R$GT$$u20$as$u2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !2107
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %14, i64 %.sroa.4.0.copyload, i1 false), !noalias !2112
   store i64 %33, ptr %0, align 8, !alias.scope !2100, !noalias !2113
-  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %37, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !2100, !noalias !2113
-  %.sroa.57.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.57.0..sroa_idx.i, align 8, !alias.scope !2100, !noalias !2113
+  %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %37, ptr %.sroa.45.0..sroa_idx.i, align 8, !alias.scope !2100, !noalias !2113
+  %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.4.0.copyload, ptr %.sroa.56.0..sroa_idx.i, align 8, !alias.scope !2100, !noalias !2113
   br label %_ZN5serde2de7Visitor18visit_borrowed_str17h900a86eda76e7325E.exit
 
 38:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc0cf95d61fe39376E.exit.i"
@@ -14347,8 +14347,8 @@ define void @"_ZN105_$LT$settings_ui..appearance_settings_controls..ThemeModeCon
   store i8 3, ptr %42, align 4, !alias.scope !2203, !noalias !2206
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 872
   store i64 0, ptr %43, align 8, !alias.scope !2203, !noalias !2206
-  %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 880
-  store ptr @anon.a050df5c7e2521aae4fe1e95dff000af.105, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !2203, !noalias !2206
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 880
+  store ptr @anon.a050df5c7e2521aae4fe1e95dff000af.105, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2203, !noalias !2206
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 888
   store i64 5, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2203, !noalias !2206
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 896
@@ -14423,8 +14423,8 @@ define void @"_ZN105_$LT$settings_ui..appearance_settings_controls..ThemeModeCon
   store i8 3, ptr %57, align 4, !alias.scope !2215, !noalias !2218
   %58 = getelementptr inbounds nuw i8, ptr %16, i64 872
   store i64 0, ptr %58, align 8, !alias.scope !2215, !noalias !2218
-  %.sroa.44.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %16, i64 880
-  store ptr @anon.a050df5c7e2521aae4fe1e95dff000af.106, ptr %.sroa.44.0..sroa_idx.i6, align 8, !alias.scope !2215, !noalias !2218
+  %.sroa.4.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %16, i64 880
+  store ptr @anon.a050df5c7e2521aae4fe1e95dff000af.106, ptr %.sroa.4.0..sroa_idx.i6, align 8, !alias.scope !2215, !noalias !2218
   %.sroa.5.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %16, i64 888
   store i64 6, ptr %.sroa.5.0..sroa_idx.i7, align 8, !alias.scope !2215, !noalias !2218
   %59 = getelementptr inbounds nuw i8, ptr %16, i64 896
@@ -14499,8 +14499,8 @@ define void @"_ZN105_$LT$settings_ui..appearance_settings_controls..ThemeModeCon
   store i8 3, ptr %72, align 4, !alias.scope !2227, !noalias !2230
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 872
   store i64 0, ptr %73, align 8, !alias.scope !2227, !noalias !2230
-  %.sroa.44.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %10, i64 880
-  store ptr @anon.a050df5c7e2521aae4fe1e95dff000af.107, ptr %.sroa.44.0..sroa_idx.i11, align 8, !alias.scope !2227, !noalias !2230
+  %.sroa.4.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %10, i64 880
+  store ptr @anon.a050df5c7e2521aae4fe1e95dff000af.107, ptr %.sroa.4.0..sroa_idx.i11, align 8, !alias.scope !2227, !noalias !2230
   %.sroa.5.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %10, i64 888
   store i64 4, ptr %.sroa.5.0..sroa_idx.i12, align 8, !alias.scope !2227, !noalias !2230
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 896

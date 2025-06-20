@@ -277,19 +277,19 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
 99:                                               ; preds = %120, %96
   %.sroa.04.0.i33 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i32, %96 ], [ %121, %120 ]
   %100 = icmp ult i64 %.sroa.04.0.i33, %.sroa.03.sroa.15.0.copyload
-  br i1 %100, label %101, label %.preheader80
+  br i1 %100, label %101, label %.preheader79
 
 101:                                              ; preds = %99
   %102 = add i64 %.sroa.04.0.i33, %86
   %103 = icmp ult i64 %102, %.sroa.03.sroa.13.0.copyload
   br i1 %103, label %120, label %126
 
-.preheader80:                                     ; preds = %99, %112
+.preheader79:                                     ; preds = %99, %112
   %.sroa.59.0.i34 = phi i64 [ %106, %112 ], [ %.sroa.03.sroa.4.0.copyload, %99 ]
   %104 = icmp ult i64 %84, %.sroa.59.0.i34
   br i1 %104, label %105, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc39c817243408a4fE.exit"
 
-105:                                              ; preds = %.preheader80
+105:                                              ; preds = %.preheader79
   %106 = add i64 %.sroa.59.0.i34, -1
   %107 = icmp ult i64 %106, %.sroa.03.sroa.15.0.copyload
   br i1 %107, label %108, label %111
@@ -309,7 +309,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   %115 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %109
   %116 = load i8, ptr %115, align 1, !alias.scope !32, !noalias !37, !noundef !12
   %.not.i35 = icmp eq i8 %114, %116
-  br i1 %.not.i35, label %.preheader80, label %118
+  br i1 %.not.i35, label %.preheader79, label %118
 
 117:                                              ; preds = %108
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %109, i64 noundef %.sroa.03.sroa.13.0.copyload, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a4eb5c511ad4151089a8cb979824708d.4) #13, !noalias !40
@@ -360,7 +360,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   %139 = shl nuw i64 1, %138
   %140 = and i64 %139, %.sroa.03.sroa.7.0.copyload
   %141 = icmp eq i64 %140, 0
-  br i1 %141, label %142, label %.preheader78
+  br i1 %141, label %142, label %.preheader77
 
 142:                                              ; preds = %.lr.ph.i
   %143 = add i64 %134, %.sroa.03.sroa.15.0.copyload
@@ -372,20 +372,20 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   %147 = icmp ult i64 %146, %.sroa.03.sroa.13.0.copyload
   br i1 %147, label %.lr.ph.i, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc39c817243408a4fE.exit"
 
-.preheader78:                                     ; preds = %.lr.ph.i, %166
+.preheader77:                                     ; preds = %.lr.ph.i, %166
   %.sroa.04.0.i = phi i64 [ %167, %166 ], [ %.sroa.03.sroa.4.0.copyload, %.lr.ph.i ]
   %148 = icmp ult i64 %.sroa.04.0.i, %.sroa.03.sroa.15.0.copyload
   br i1 %148, label %149, label %.preheader
 
-149:                                              ; preds = %.preheader78
+149:                                              ; preds = %.preheader77
   %150 = add i64 %.sroa.04.0.i, %134
   %151 = icmp ult i64 %150, %.sroa.03.sroa.13.0.copyload
   br i1 %151, label %166, label %172
 
-.preheader:                                       ; preds = %.preheader78, %158
-  %.sroa.59.0.i = phi i64 [ %153, %158 ], [ %.sroa.03.sroa.4.0.copyload, %.preheader78 ]
-  %.not75 = icmp eq i64 %.sroa.59.0.i, 0
-  br i1 %.not75, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc39c817243408a4fE.exit", label %152
+.preheader:                                       ; preds = %.preheader77, %158
+  %.sroa.59.0.i = phi i64 [ %153, %158 ], [ %.sroa.03.sroa.4.0.copyload, %.preheader77 ]
+  %.not74 = icmp eq i64 %.sroa.59.0.i, 0
+  br i1 %.not74, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc39c817243408a4fE.exit", label %152
 
 152:                                              ; preds = %.preheader
   %153 = add i64 %.sroa.59.0.i, -1
@@ -423,7 +423,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   %170 = getelementptr inbounds [0 x i8], ptr %.sroa.03.sroa.12.0.copyload, i64 0, i64 %150
   %171 = load i8, ptr %170, align 1, !alias.scope !42, !noalias !47, !noundef !12
   %.not24.i = icmp eq i8 %169, %171
-  br i1 %.not24.i, label %.preheader78, label %174
+  br i1 %.not24.i, label %.preheader77, label %174
 
 172:                                              ; preds = %149
   %173 = add i64 %134, %.sroa.03.sroa.4.0.copyload
@@ -432,13 +432,13 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   unreachable
 
 174:                                              ; preds = %166
-  %reass.sub116 = sub i64 %134, %.sroa.03.sroa.4.0.copyload
-  %175 = add i64 %reass.sub116, 1
+  %reass.sub115 = sub i64 %134, %.sroa.03.sroa.4.0.copyload
+  %175 = add i64 %reass.sub115, 1
   %176 = add i64 %175, %.sroa.04.0.i
   br label %144
 
-"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc39c817243408a4fE.exit": ; preds = %66, %.sink.split.i, %.preheader80, %144, %.preheader, %65, %131, %81, %.preheader.i.i
-  %.sroa.4.1.i = phi i64 [ %10, %131 ], [ %10, %81 ], [ %10, %.preheader.i.i ], [ %spec.select, %65 ], [ %134, %.preheader ], [ %10, %144 ], [ %86, %.preheader80 ], [ %10, %.sink.split.i ], [ %16, %66 ]
+"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hc39c817243408a4fE.exit": ; preds = %66, %.sink.split.i, %.preheader79, %144, %.preheader, %65, %131, %81, %.preheader.i.i
+  %.sroa.4.1.i = phi i64 [ %10, %131 ], [ %10, %81 ], [ %10, %.preheader.i.i ], [ %spec.select, %65 ], [ %134, %.preheader ], [ %10, %144 ], [ %86, %.preheader79 ], [ %10, %.sink.split.i ], [ %16, %66 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %178 = load i64, ptr %177, align 8, !alias.scope !52, !noalias !55, !noundef !12

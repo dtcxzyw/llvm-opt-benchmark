@@ -32327,8 +32327,8 @@ declare void @_ZN18ImDrawListSplitter5MergeEP10ImDrawList(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN19ExampleAppDocumentsC2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNK8ImVectorI10MyDocumentE14_grow_capacityEi.exit.i:
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 0, i64 41, i1 false)
   %2 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 448)
           to label %.noexc unwind label %145
 

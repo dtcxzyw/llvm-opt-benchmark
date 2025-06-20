@@ -9094,7 +9094,6 @@ define dso_local i64 @_ZN5clang6Parser36ParseLambdaExpressionAfterIntroducerERNS
   %26 = alloca %"class.clang::DiagnosticBuilder", align 8
   %27 = alloca [2 x i16], align 2
   %28 = alloca %"class.clang::DiagnosticBuilder", align 8
-  %.sroa.8 = alloca [7 x i8], align 1
   %29 = alloca %"class.clang::SourceLocation", align 4
   %30 = alloca %"class.clang::SourceLocation", align 4
   %31 = alloca %"class.llvm::SmallVector.1054", align 8
@@ -10159,7 +10158,6 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit133:         ; preds = %_ZNSt7__cxx1112basi
   br label %535
 
 535:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit133, %430
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #19
   store i32 0, ptr %29, align 4, !tbaa !1082
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #19
@@ -11261,8 +11259,6 @@ _ZNK5clang5Token7isOneOfIJNS_3tok9TokenKindES3_S3_S3_EEEbS3_DpT_.exit.thread: ; 
   store ptr %.sroa.0299.0, ptr %47, align 8, !tbaa !313
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i8 %.sroa.5.1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !986
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8, i64 7, i1 false), !tbaa.struct !975
   call void @_ZN5clang15DeclaratorChunk11getFunctionEbbNS_14SourceLocationEPNS0_9ParamInfoEjS1_S1_bS1_S1_NS_26ExceptionSpecificationTypeENS_11SourceRangeEPNS_9OpaquePtrINS_8QualTypeEEEPS5_jPNS_4ExprEPN4llvm11SmallVectorINS_5TokenELj4EEENSD_8ArrayRefIPNS_9NamedDeclEEES1_S1_RNS_10DeclaratorENS_12ActionResultIS8_Lb0EEES1_PNS_8DeclSpecE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::DeclaratorChunk") align 8 %45, i1 noundef zeroext true, i1 noundef zeroext false, i32 %.sroa.0296.0, ptr noundef %947, i32 noundef %948, i32 %.sroa.024.0.copyload, i32 %.sroa.0295.0, i1 noundef zeroext true, i32 0, i32 %.sroa.021.0.copyload, i32 noundef %926, i64 %.sroa.020.0.copyload, ptr noundef %949, ptr noundef %950, i32 noundef %951, ptr noundef %956, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1052") align 8 %46, i32 %.sroa.0296.0, i32 %.sroa.031.0, ptr noundef nonnull align 8 dereferenceable(4584) %19, ptr noundef nonnull byval(%"class.clang::ActionResult.1053") align 8 %47, i32 %.sroa.0298.0, ptr noundef nonnull %18) #19
   call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang15DeclaratorChunkELb0EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %254, ptr noundef nonnull align 8 dereferenceable(176) %45)
   %957 = load ptr, ptr %254, align 8, !tbaa !310
@@ -11627,7 +11623,6 @@ _ZN5clang6Parser10ParseScopeD2Ev.exit221:         ; preds = %1107, %_ZN4llvm23Sm
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %31) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #19
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.8)
   br label %1108
 
 1108:                                             ; preds = %_ZN4llvm11SmallVectorIPN5clang9NamedDeclELj4EED2Ev.exit, %_ZN5clang6Parser10ParseScopeD2Ev.exit221

@@ -10216,7 +10216,7 @@ _ZN5serde2de9MapAccess10next_value17h9d954be3a8fc7d6cE.exit.i.i: ; preds = %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.566.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.621.0..sroa_idx22.i, i64 16, i1 false)
   br label %87
 
-87:                                               ; preds = %36, %86
+87:                                               ; preds = %86, %36
   %.sroa.064.0.i = phi i64 [ %37, %86 ], [ -9223372036854775808, %36 ]
   %88 = icmp eq i64 %.ph169, 2
   br i1 %88, label %108, label %89
@@ -10297,9 +10297,9 @@ common.resume:                                    ; preds = %119, %92, %107
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h98cdfb041300bf68E"(ptr noalias noundef align 8 dereferenceable(24) %14) #34
           to label %common.resume unwind label %105, !noalias !2093
 
-108:                                              ; preds = %87, %89
-  %.sroa.381.i.sroa.0.0 = phi ptr [ %.sroa.555.0.copyload152.i.ph, %89 ], [ undef, %87 ]
-  %.sroa.079.0.i = phi i64 [ %.ph169, %89 ], [ 0, %87 ]
+108:                                              ; preds = %89, %87
+  %.sroa.381.i.sroa.0.0 = phi ptr [ undef, %87 ], [ %.sroa.555.0.copyload152.i.ph, %89 ]
+  %.sroa.079.0.i = phi i64 [ 0, %87 ], [ %.ph169, %89 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !2091
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !2091
   store i64 %.sroa.079.0.i, ptr %15, align 8

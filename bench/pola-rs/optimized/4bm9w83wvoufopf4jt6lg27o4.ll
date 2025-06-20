@@ -1861,18 +1861,18 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$halfbrown..SizedHashMap$LT$K$C$V$C$
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8, !alias.scope !199, !noalias !200, !noundef !3
-  %.sroa.614.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i16 %21, ptr %.sroa.614.0..sroa_idx.i, align 8, !alias.scope !191, !noalias !194
-  %.sroa.816.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %24, ptr %.sroa.816.0..sroa_idx.i, align 8, !alias.scope !191, !noalias !194
+  %.sroa.613.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i16 %21, ptr %.sroa.613.0..sroa_idx.i, align 8, !alias.scope !191, !noalias !194
+  %.sroa.815.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 %24, ptr %.sroa.815.0..sroa_idx.i, align 8, !alias.scope !191, !noalias !194
   br label %"_ZN9halfbrown33SizedHashMap$LT$K$C$V$C$S$C$_$GT$4iter17hab5196f182af68c7E.exit"
 
 "_ZN9halfbrown33SizedHashMap$LT$K$C$V$C$S$C$_$GT$4iter17hab5196f182af68c7E.exit": ; preds = %7, %13
-  %.sink17.i = phi ptr [ %9, %7 ], [ %22, %13 ]
+  %.sink16.i = phi ptr [ %9, %7 ], [ %22, %13 ]
   %.sink.i = phi ptr [ %12, %7 ], [ %17, %13 ]
   store ptr %5, ptr %3, align 8, !alias.scope !191, !noalias !194
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sink17.i, ptr %25, align 8, !alias.scope !191, !noalias !194
+  store ptr %.sink16.i, ptr %25, align 8, !alias.scope !191, !noalias !194
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sink.i, ptr %26, align 8, !alias.scope !191, !noalias !194
   %27 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap7entries17hb49876e445b9599eE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
@@ -1909,18 +1909,18 @@ define hidden void @"_ZN9halfbrown33SizedHashMap$LT$K$C$V$C$S$C$_$GT$4iter17hab5
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8, !alias.scope !203, !noalias !206, !noundef !3
-  %.sroa.614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i16 %19, ptr %.sroa.614.0..sroa_idx, align 8
-  %.sroa.816.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %22, ptr %.sroa.816.0..sroa_idx, align 8
+  %.sroa.613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i16 %19, ptr %.sroa.613.0..sroa_idx, align 8
+  %.sroa.815.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %22, ptr %.sroa.815.0..sroa_idx, align 8
   br label %23
 
 23:                                               ; preds = %5, %11
-  %.sink17 = phi ptr [ %7, %5 ], [ %20, %11 ]
+  %.sink16 = phi ptr [ %7, %5 ], [ %20, %11 ]
   %.sink = phi ptr [ %10, %5 ], [ %15, %11 ]
   store ptr %3, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink17, ptr %24, align 8
+  store ptr %.sink16, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %25, align 8
   ret void

@@ -6626,7 +6626,6 @@ define void @"_ZN75_$LT$uv_dev..compile..CompileArgs$u20$as$u20$clap_builder..de
   %17 = alloca [672 x i8], align 8
   %18 = alloca [776 x i8], align 8
   %19 = alloca [672 x i8], align 8
-  %.sroa.386 = alloca [16 x i8], align 8
   %20 = alloca [672 x i8], align 8
   %21 = alloca [672 x i8], align 8
   %22 = alloca [672 x i8], align 8
@@ -6808,7 +6807,6 @@ define void @"_ZN75_$LT$uv_dev..compile..CompileArgs$u20$as$u20$clap_builder..de
   %62 = landingpad { ptr, i32 }
           cleanup
   store i64 3, ptr %57, align 8, !alias.scope !1114, !noalias !1111
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.386, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17h115c1131d7478d94E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %21) #27
           to label %149 unwind label %63, !noalias !1111
 
@@ -6820,8 +6818,6 @@ define void @"_ZN75_$LT$uv_dev..compile..CompileArgs$u20$as$u20$clap_builder..de
 
 65:                                               ; preds = %53, %53, %53, %53, %53, %59
   store i64 3, ptr %57, align 8, !alias.scope !1114, !noalias !1111
-  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %21, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.386, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %22, ptr noundef nonnull align 8 dereferenceable(668) %21, i64 668, i1 false)
   %.sroa.583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 669
   %.sroa.583.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %22, i64 669
@@ -7083,7 +7079,6 @@ define void @"_ZN75_$LT$uv_dev..compile..CompileArgs$u20$as$u20$clap_builder..de
   %137 = landingpad { ptr, i32 }
           cleanup
   store i64 3, ptr %132, align 8, !alias.scope !1200, !noalias !1197
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.386, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17h115c1131d7478d94E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %17) #27
           to label %146 unwind label %138, !noalias !1197
 
@@ -7095,8 +7090,6 @@ define void @"_ZN75_$LT$uv_dev..compile..CompileArgs$u20$as$u20$clap_builder..de
 
 140:                                              ; preds = %131, %131, %131, %131, %131, %134
   store i64 3, ptr %132, align 8, !alias.scope !1200, !noalias !1197
-  %.sroa.6.0..sroa_idx4.i62 = getelementptr inbounds nuw i8, ptr %17, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i62, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.386, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %3, ptr noundef nonnull align 8 dereferenceable(668) %17, i64 668, i1 false)
   %.sroa.591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 669
@@ -7171,7 +7164,6 @@ define void @"_ZN75_$LT$uv_dev..compile..CompileArgs$u20$as$u20$clap_builder..de
   %17 = alloca [672 x i8], align 8
   %18 = alloca [776 x i8], align 8
   %19 = alloca [672 x i8], align 8
-  %.sroa.386 = alloca [16 x i8], align 8
   %20 = alloca [672 x i8], align 8
   %21 = alloca [672 x i8], align 8
   %22 = alloca [672 x i8], align 8
@@ -7353,7 +7345,6 @@ define void @"_ZN75_$LT$uv_dev..compile..CompileArgs$u20$as$u20$clap_builder..de
   %62 = landingpad { ptr, i32 }
           cleanup
   store i64 3, ptr %57, align 8, !alias.scope !1269, !noalias !1266
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.386, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17h115c1131d7478d94E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %21) #27
           to label %151 unwind label %63, !noalias !1266
 
@@ -7365,8 +7356,6 @@ define void @"_ZN75_$LT$uv_dev..compile..CompileArgs$u20$as$u20$clap_builder..de
 
 65:                                               ; preds = %53, %53, %53, %53, %53, %59
   store i64 3, ptr %57, align 8, !alias.scope !1269, !noalias !1266
-  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %21, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.386, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %22, ptr noundef nonnull align 8 dereferenceable(668) %21, i64 668, i1 false)
   %.sroa.583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 669
   %.sroa.583.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %22, i64 669
@@ -7639,7 +7628,6 @@ define void @"_ZN75_$LT$uv_dev..compile..CompileArgs$u20$as$u20$clap_builder..de
   %138 = landingpad { ptr, i32 }
           cleanup
   store i64 3, ptr %133, align 8, !alias.scope !1365, !noalias !1363
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.386, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17h115c1131d7478d94E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %17) #27
           to label %148 unwind label %139, !noalias !1363
 
@@ -7651,8 +7639,6 @@ define void @"_ZN75_$LT$uv_dev..compile..CompileArgs$u20$as$u20$clap_builder..de
 
 141:                                              ; preds = %132, %132, %132, %132, %132, %135
   store i64 3, ptr %133, align 8, !alias.scope !1365, !noalias !1363
-  %.sroa.6.0..sroa_idx4.i62 = getelementptr inbounds nuw i8, ptr %17, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i62, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.386, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %3, ptr noundef nonnull align 8 dereferenceable(664) %17, i64 664, i1 false)
   %.sroa.094.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 664

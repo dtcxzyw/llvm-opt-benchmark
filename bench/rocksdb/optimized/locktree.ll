@@ -3313,8 +3313,8 @@ _ZZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.04.i, i64 88, i1 false), !tbaa.struct !126
   %.sroa.45.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 88
   store i64 %11, ptr %.sroa.45.0..sroa_idx.i, align 8, !tbaa !38
-  %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 96
-  store i8 %13, ptr %.sroa.56.0..sroa_idx.i, align 8, !tbaa !103
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 96
+  store i8 %13, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !103
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 104
   store ptr %15, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !117
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.04.i)
@@ -3386,8 +3386,8 @@ _ZZN4tokuL37iterate_and_get_overlapping_row_locksEPKNS_15concurrent_tree15locked
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %59, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.04.i26, i64 88, i1 false), !tbaa.struct !126
   %.sroa.45.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %59, i64 88
   store i64 %39, ptr %.sroa.45.0..sroa_idx.i31, align 8, !tbaa !38
-  %.sroa.56.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %59, i64 96
-  store i8 %41, ptr %.sroa.56.0..sroa_idx.i32, align 8, !tbaa !103
+  %.sroa.5.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %59, i64 96
+  store i8 %41, ptr %.sroa.5.0..sroa_idx.i32, align 8, !tbaa !103
   %.sroa.7.0..sroa_idx.i33 = getelementptr inbounds nuw i8, ptr %59, i64 104
   store ptr %43, ptr %.sroa.7.0..sroa_idx.i33, align 8, !tbaa !117
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.04.i26)
@@ -3658,8 +3658,8 @@ _ZN4toku13GrowableArrayINS_8row_lockEE4pushES1_.exit: ; preds = %70, %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %85, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.017, i64 88, i1 false), !tbaa.struct !126
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 88
   store i64 %2, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !38
-  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 96
-  store i8 %83, ptr %.sroa.519.0..sroa_idx, align 8, !tbaa !103
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 96
+  store i8 %83, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !103
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 104
   store ptr %4, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !117
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.017)

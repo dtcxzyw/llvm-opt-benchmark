@@ -58,13 +58,13 @@ define hidden void @"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for
 define hidden void @"_ZN3nom8internal44Err$LT$$LP$T$C$nom..error..ErrorKind$RP$$GT$9map_input17h6b41c7f56c3d53c3E"(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !21, !noundef !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i64 %3, label %default.unreachable14 [
+  switch i64 %3, label %default.unreachable13 [
     i64 0, label %5
     i64 1, label %8
     i64 2, label %19
   ]
 
-default.unreachable14:                            ; preds = %2
+default.unreachable13:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -126,13 +126,13 @@ default.unreachable14:                            ; preds = %2
 define hidden void @"_ZN3nom8internal44Err$LT$$LP$T$C$nom..error..ErrorKind$RP$$GT$9map_input17h9b027c9c5d26bac3E"(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !21, !noundef !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i64 %3, label %default.unreachable14 [
+  switch i64 %3, label %default.unreachable13 [
     i64 0, label %5
     i64 1, label %8
     i64 2, label %19
   ]
 
-default.unreachable14:                            ; preds = %2
+default.unreachable13:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -194,13 +194,13 @@ default.unreachable14:                            ; preds = %2
 define hidden void @"_ZN3nom8internal37Err$LT$nom..error..Error$LT$T$GT$$GT$9map_input17h1f62dbf3e2bf18bfE"(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !21, !noundef !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i64 %3, label %default.unreachable14 [
+  switch i64 %3, label %default.unreachable13 [
     i64 0, label %5
     i64 1, label %8
     i64 2, label %19
   ]
 
-default.unreachable14:                            ; preds = %2
+default.unreachable13:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -262,13 +262,13 @@ default.unreachable14:                            ; preds = %2
 define hidden void @"_ZN3nom8internal37Err$LT$nom..error..Error$LT$T$GT$$GT$9map_input17h80d84b75b2ff0ec0E"(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !21, !noundef !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i64 %3, label %default.unreachable14 [
+  switch i64 %3, label %default.unreachable13 [
     i64 0, label %5
     i64 1, label %8
     i64 2, label %19
   ]
 
-default.unreachable14:                            ; preds = %2
+default.unreachable13:                            ; preds = %2
   unreachable
 
 5:                                                ; preds = %2

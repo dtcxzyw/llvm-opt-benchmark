@@ -12249,8 +12249,8 @@ _ZNK4llvm10DIVariable13getSignednessEv.exit.us:   ; preds = %45, %45, %48, %49
   br i1 %or.cond.i.i.i.us, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us, label %.thread44.us
 
 .thread44.us:                                     ; preds = %.thread.us, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us, %58, %57, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us
-  %.sroa.8.250.us = phi i8 [ %.sroa.2.0.i, %58 ], [ 1, %57 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us ], [ 1, %.thread.us ]
-  %.sroa.036.248.us = phi i64 [ %.sroa.0.0.i, %58 ], [ %.sroa.speculated.us, %57 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us ], [ %56, %.thread.us ]
+  %.sroa.8.250.us = phi i8 [ %.sroa.2.0.i, %58 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us ], [ 1, %57 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us ], [ 1, %.thread.us ]
+  %.sroa.036.248.us = phi i64 [ %.sroa.0.0.i, %58 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us ], [ %.sroa.speculated.us, %57 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us ], [ %56, %.thread.us ]
   switch i64 %41, label %61 [
     i64 4097, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us
     i64 4096, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us
@@ -12349,9 +12349,9 @@ _ZNK4llvm10DIVariable13getSignednessEv.exit:      ; preds = %69, %69, %72, %73
   %or.cond.i.i.i = icmp ult i64 %83, 32
   br i1 %or.cond.i.i.i, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit, label %.thread44
 
-.thread44:                                        ; preds = %.thread, %_ZNK4llvm10DIVariable7getTypeEv.exit.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit, %81, %82
-  %.sroa.8.250 = phi i8 [ %.sroa.2.0.i, %82 ], [ 1, %81 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i ], [ 1, %.thread ]
-  %.sroa.036.248 = phi i64 [ %.sroa.0.0.i, %82 ], [ %.sroa.speculated, %81 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i ], [ %80, %.thread ]
+.thread44:                                        ; preds = %.thread, %_ZNK4llvm10DIVariable7getTypeEv.exit.i, %81, %_ZNK4llvm10DIVariable13getSignednessEv.exit, %82
+  %.sroa.8.250 = phi i8 [ %.sroa.2.0.i, %82 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit ], [ 1, %81 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i ], [ 1, %.thread ]
+  %.sroa.036.248 = phi i64 [ %.sroa.0.0.i, %82 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit ], [ %.sroa.speculated, %81 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i ], [ %80, %.thread ]
   switch i64 %63, label %85 [
     i64 4097, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
     i64 4096, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit

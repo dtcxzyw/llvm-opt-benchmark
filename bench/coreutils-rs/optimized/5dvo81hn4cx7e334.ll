@@ -2269,7 +2269,7 @@ define { ptr, ptr } @_ZN6uu_cat9cat_files17haf5123c846a83d69E(ptr noalias nounde
   %114 = add nsw i32 %113, -4096
   %115 = lshr exact i32 %114, 12
   switch i32 %115, label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.i [
-    i32 5, label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread141.i
+    i32 5, label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread140.i
     i32 1, label %120
     i32 0, label %121
     i32 11, label %122
@@ -2284,27 +2284,27 @@ define { ptr, ptr } @_ZN6uu_cat9cat_files17haf5123c846a83d69E(ptr noalias nounde
   %118 = ptrtoint ptr %117 to i64
   %119 = and i64 %118, -4294967293
   %or.cond.i.i = icmp eq i64 %119, 171798691842
-  br i1 %or.cond.i.i, label %126, label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread134.i
+  br i1 %or.cond.i.i, label %126, label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread133.i
 
 120:                                              ; preds = %112
-  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread141.i
+  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread140.i
 
 121:                                              ; preds = %112
-  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread141.i
+  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread140.i
 
 122:                                              ; preds = %112
-  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread141.i
+  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread140.i
 
 123:                                              ; preds = %112
-  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread141.i
+  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread140.i
 
 124:                                              ; preds = %112
-  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread141.i
+  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread140.i
 
 125:                                              ; preds = %112
-  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread141.i
+  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread140.i
 
-_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread134.i: ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hcabb0cc8ada17cf5E.exit.i.i", %116
+_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread133.i: ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hcabb0cc8ada17cf5E.exit.i.i", %116
   %.sroa.0.1.i = phi i64 [ -9223372036854775803, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hcabb0cc8ada17cf5E.exit.i.i" ], [ -9223372036854775808, %116 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18), !noalias !660
   br label %131
@@ -2325,9 +2325,9 @@ _ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread134.i: ; preds = %"_ZN
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hcabb0cc8ada17cf5E.exit.i.i": ; preds = %128, %.noexc39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !674
-  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread134.i
+  br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread133.i
 
-_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread141.i: ; preds = %125, %124, %123, %122, %121, %120, %112
+_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread140.i: ; preds = %125, %124, %123, %122, %121, %120, %112
   %.sroa.14.0.ph.i = phi ptr [ inttoptr (i64 4 to ptr), %112 ], [ inttoptr (i64 3 to ptr), %125 ], [ inttoptr (i64 1 to ptr), %124 ], [ null, %123 ], [ inttoptr (i64 7 to ptr), %122 ], [ inttoptr (i64 6 to ptr), %121 ], [ inttoptr (i64 5 to ptr), %120 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18), !noalias !660
   br label %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread.i
@@ -2361,9 +2361,9 @@ _ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i: ; preds = %.no
   %.pre.i = ptrtoint ptr %.sroa.14.0.copyload.i to i64
   br label %131
 
-_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread.i: ; preds = %.noexc41, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread141.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb2c9d8561a0c18bE.exit.i.i"
-  %.sroa.14.2133.i = phi ptr [ %.sroa.14.0.copyload.i, %.noexc41 ], [ %.sroa.14.0.ph.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread141.i ], [ inttoptr (i64 2 to ptr), %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb2c9d8561a0c18bE.exit.i.i" ]
-  %130 = ptrtoint ptr %.sroa.14.2133.i to i64
+_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread.i: ; preds = %.noexc41, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread140.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb2c9d8561a0c18bE.exit.i.i"
+  %.sroa.14.2132.i = phi ptr [ %.sroa.14.0.copyload.i, %.noexc41 ], [ %.sroa.14.0.ph.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread140.i ], [ inttoptr (i64 2 to ptr), %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb2c9d8561a0c18bE.exit.i.i" ]
+  %130 = ptrtoint ptr %.sroa.14.2132.i to i64
   %.sroa.14.0.extract.trunc91.i = trunc i64 %130 to i8
   switch i8 %.sroa.14.0.extract.trunc91.i, label %132 [
     i8 0, label %136
@@ -2371,17 +2371,17 @@ _ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread.i: ; preds = %.noexc4
     i8 7, label %144
   ]
 
-131:                                              ; preds = %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread134.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i ], [ %118, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread134.i ]
-  %.sroa.0.2140.i = phi i64 [ %.sroa.0.0.copyload.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i ], [ %.sroa.0.1.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread134.i ]
-  %.sroa.26.1139.i = phi i64 [ %.sroa.26.0.copyload.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i ], [ undef, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread134.i ]
+131:                                              ; preds = %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread133.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i ], [ %118, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread133.i ]
+  %.sroa.0.2139.i = phi i64 [ %.sroa.0.0.copyload.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i ], [ %.sroa.0.1.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread133.i ]
+  %.sroa.26.1138.i = phi i64 [ %.sroa.26.0.copyload.i, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit._crit_edge.i ], [ undef, %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread133.i ]
   %.sroa.14.0.extract.trunc.i = trunc i64 %.pre-phi.i to i8
   %.sroa.14.1.extract.shift.i = lshr i64 %.pre-phi.i, 8
   %.sroa.14.1.extract.trunc.i = trunc nuw i64 %.sroa.14.1.extract.shift.i to i56
-  store i64 %.sroa.0.2140.i, ptr %38, align 8, !alias.scope !646, !noalias !697
+  store i64 %.sroa.0.2139.i, ptr %38, align 8, !alias.scope !646, !noalias !697
   store i8 %.sroa.14.0.extract.trunc.i, ptr %.sroa.235.0..sroa_idx.i, align 8, !alias.scope !646, !noalias !697
   store i56 %.sroa.14.1.extract.trunc.i, ptr %.sroa.336.0..sroa_idx.i, align 1, !alias.scope !646, !noalias !697
-  store i64 %.sroa.26.1139.i, ptr %.sroa.336.sroa.2.0..sroa.336.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !646, !noalias !697
+  store i64 %.sroa.26.1138.i, ptr %.sroa.336.sroa.2.0..sroa.336.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !646, !noalias !697
   br label %_ZN6uu_cat8cat_path17h20a45fe1b6137f26E.exit.thread
 
 132:                                              ; preds = %_ZN6uu_cat14get_input_type17h5485037cbbe00a1aE.exit.thread.i

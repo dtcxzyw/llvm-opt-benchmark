@@ -9450,7 +9450,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 .thread109:                                       ; preds = %30
   %38 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h543e4e11378a8efeE"(ptr noalias noundef align 8 dereferenceable(56) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b404096ecf2c9d698bdb2ea4e90442e9.26)
-  br label %.thread102.thread232
+  br label %.thread102.thread
 
 39:                                               ; preds = %30
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -9564,14 +9564,12 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 82:                                               ; preds = %78
   %trunc37 = trunc nuw i8 %storemerge.i to i1
-  %.not142 = icmp eq ptr %79, null
-  br i1 %trunc37, label %.thread98, label %83
-
-83:                                               ; preds = %82
-  br i1 %.not142, label %.thread102.thread227, label %.thread102.thread232
+  %83 = icmp eq ptr %79, null
+  %or.cond = or i1 %83, %trunc37
+  br i1 %or.cond, label %.thread98, label %.thread102.thread
 
 .thread98:                                        ; preds = %82
-  br i1 %.not142, label %.thread102.thread232, label %84
+  br i1 %83, label %.thread102, label %84
 
 84:                                               ; preds = %.thread98
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2497)
@@ -9612,9 +9610,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54"
 
 common.resume.sink.split:                         ; preds = %94, %193
-  %.sink286 = phi ptr [ %178, %193 ], [ %79, %94 ]
+  %.sink276 = phi ptr [ %178, %193 ], [ %79, %94 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %194, %193 ], [ %95, %94 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.sink286, i64 noundef 40, i64 noundef 8) #22, !noalias !7
+  call void @__rust_dealloc(ptr noundef nonnull %.sink276, i64 noundef 40, i64 noundef 8) #22, !noalias !7
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %179, %80
@@ -9628,7 +9626,10 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 "_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54": ; preds = %84, %86, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hffa22d746206d8c0E.exit.i.i.i.i53"
   call void @__rust_dealloc(ptr noundef nonnull %79, i64 noundef 40, i64 noundef 8) #22, !noalias !2523
-  br label %.thread102.thread232
+  br i1 %trunc37, label %.thread102.thread, label %.thread133
+
+.thread102:                                       ; preds = %.thread98
+  br i1 %trunc37, label %.thread102.thread, label %.thread133
 
 96:                                               ; preds = %80, %179
   %97 = landingpad { ptr, i32 }
@@ -9920,10 +9921,10 @@ _ZN5serde2de9MapAccess10next_value17h7e101aeec5b60f44E.exit.i: ; preds = %154
   br i1 %trunc36, label %.thread128, label %182
 
 182:                                              ; preds = %181
-  br i1 %.not, label %.thread102.thread227, label %.thread102.thread232
+  br i1 %.not, label %.thread133, label %.thread102.thread
 
 .thread128:                                       ; preds = %181
-  br i1 %.not, label %.thread102.thread232, label %183
+  br i1 %.not, label %.thread102.thread, label %183
 
 183:                                              ; preds = %.thread128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2637)
@@ -9970,24 +9971,24 @@ _ZN5serde2de9MapAccess10next_value17h7e101aeec5b60f44E.exit.i: ; preds = %154
 
 "_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit69": ; preds = %183, %185, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hffa22d746206d8c0E.exit.i.i.i.i68"
   call void @__rust_dealloc(ptr noundef nonnull %178, i64 noundef 40, i64 noundef 8) #22, !noalias !2663
-  br label %.thread102.thread232
+  br label %.thread102.thread
 
-.thread102.thread227:                             ; preds = %182, %83
-  %.sroa.9.1231 = phi i8 [ %.sroa.4.0, %83 ], [ %.sroa.478.0, %182 ]
+.thread133:                                       ; preds = %182, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54", %.thread102
+  %.sroa.9.1226 = phi i8 [ %.sroa.4.0, %.thread102 ], [ %.sroa.4.0, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54" ], [ %.sroa.478.0, %182 ]
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %196 = and i8 %.sroa.9.1231, 1
+  %196 = and i8 %.sroa.9.1226, 1
   store i8 %196, ptr %195, align 1
   br label %199
 
-.thread102.thread232:                             ; preds = %.thread128, %83, %.thread98, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54", %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit69", %182, %.thread109
-  %.sroa.1214.1114 = phi ptr [ %38, %.thread109 ], [ %.sroa.580.0, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit69" ], [ %178, %182 ], [ %79, %83 ], [ %.sroa.573.0, %.thread98 ], [ %.sroa.573.0, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54" ], [ %.sroa.580.0, %.thread128 ]
+.thread102.thread:                                ; preds = %182, %.thread128, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit69", %82, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54", %.thread109, %.thread102
+  %.sroa.1214.1114 = phi ptr [ %38, %.thread109 ], [ %.sroa.573.0, %.thread102 ], [ %.sroa.573.0, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit54" ], [ %79, %82 ], [ %178, %182 ], [ %.sroa.580.0, %.thread128 ], [ %.sroa.580.0, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h2fd2fa9605c17223E.exit69" ]
   %197 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17h0c07930dd41e1db9E(ptr noalias noundef nonnull align 8 %.sroa.1214.1114, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %197, ptr %198, align 8
   br label %199
 
-199:                                              ; preds = %.thread102.thread227, %.thread102.thread232, %.loopexit, %72
-  %storemerge.sink = phi i8 [ 1, %.loopexit ], [ 1, %72 ], [ 1, %.thread102.thread232 ], [ 0, %.thread102.thread227 ]
+199:                                              ; preds = %.thread133, %.thread102.thread, %.loopexit, %72
+  %storemerge.sink = phi i8 [ 1, %.loopexit ], [ 1, %72 ], [ 1, %.thread102.thread ], [ 0, %.thread133 ]
   store i8 %storemerge.sink, ptr %0, align 8
   ret void
 }

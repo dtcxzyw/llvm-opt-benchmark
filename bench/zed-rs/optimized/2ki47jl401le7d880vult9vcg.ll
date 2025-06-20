@@ -18505,7 +18505,6 @@ define internal void @"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace.
   %27 = alloca [24 x i8], align 8
   %28 = alloca [40 x i8], align 8
   %29 = alloca [24 x i8], align 8
-  %.sroa.7 = alloca [232 x i8], align 8
   %30 = alloca [32 x i8], align 8
   %31 = alloca [32 x i8], align 8
   %32 = alloca [48 x i8], align 8
@@ -18940,7 +18939,6 @@ _ZN4gpui6window13WindowContext5defer17h00359c10a4e028e4E.exit.i: ; preds = %.noe
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   store ptr %182, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %.sroa.7)
   %183 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3473
   %184 = call noalias noundef align 8 dereferenceable_or_null(264) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 264, i64 noundef 8) #40, !noalias !3473
   %185 = icmp eq ptr %184, null
@@ -18974,9 +18972,6 @@ _ZN4gpui6window13WindowContext5defer17h00359c10a4e028e4E.exit.i: ; preds = %.noe
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 24
   store i64 4, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(232) %.sroa.7, i64 232, i1 false)
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %.sroa.7)
   store ptr %184, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
   store i64 3, ptr %41, align 8
@@ -22413,8 +22408,8 @@ define hidden void @"_ZN9workspace13notifications38_$LT$impl$u20$workspace..Work
           to label %32 unwind label %.thread.i.i, !noalias !4046
 
 30:                                               ; preds = %64, %33
-  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn18.i.i, %64 ], [ %.pn.i.i, %33 ]
-  %.sroa.02.0.i.i = phi i1 [ %.sroa.02.119.i.i, %64 ], [ %.sroa.02.3.i.i, %33 ]
+  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn17.i.i, %64 ], [ %.pn.i.i, %33 ]
+  %.sroa.02.0.i.i = phi i1 [ %.sroa.02.118.i.i, %64 ], [ %.sroa.02.3.i.i, %33 ]
   br i1 %.sroa.02.0.i.i, label %65, label %.thread59
 
 .thread.i.i:                                      ; preds = %26
@@ -22426,12 +22421,12 @@ define hidden void @"_ZN9workspace13notifications38_$LT$impl$u20$workspace..Work
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !4046
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !4046
   invoke void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %19)
-          to label %35 unwind label %.thread14.i.i, !noalias !4046
+          to label %35 unwind label %.thread13.i.i, !noalias !4046
 
 33:                                               ; preds = %.body.thread.i.i
   br i1 %.sroa.01.1.i.i, label %64, label %30
 
-.thread14.i.i:                                    ; preds = %32
+.thread13.i.i:                                    ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %64
@@ -22445,10 +22440,10 @@ define hidden void @"_ZN9workspace13notifications38_$LT$impl$u20$workspace..Work
   %38 = invoke { ptr, ptr } @_ZN4gpui6window13WindowContext3new17h8380c92dfb0b5e46E(ptr noalias noundef nonnull align 8 dereferenceable(1176) %28, ptr noalias noundef nonnull align 8 dereferenceable(3920) %37)
           to label %41 unwind label %39, !noalias !4046
 
-.body.thread.i.i:                                 ; preds = %60, %51, %.body.thread22.i.i, %39
-  %.pn.i.i = phi { ptr, i32 } [ %40, %39 ], [ %lpad.thr_comm.i.i, %.body.thread22.i.i ], [ %52, %51 ], [ %lpad.thr_comm.split-lp.i.i, %60 ]
-  %.sroa.02.3.i.i = phi i1 [ true, %39 ], [ false, %.body.thread22.i.i ], [ false, %51 ], [ false, %60 ]
-  %.sroa.01.1.i.i = phi i1 [ true, %39 ], [ false, %.body.thread22.i.i ], [ false, %51 ], [ true, %60 ]
+.body.thread.i.i:                                 ; preds = %60, %51, %.body.thread21.i.i, %39
+  %.pn.i.i = phi { ptr, i32 } [ %40, %39 ], [ %lpad.thr_comm.i.i, %.body.thread21.i.i ], [ %52, %51 ], [ %lpad.thr_comm.split-lp.i.i, %60 ]
+  %.sroa.02.3.i.i = phi i1 [ true, %39 ], [ false, %.body.thread21.i.i ], [ false, %51 ], [ false, %60 ]
+  %.sroa.01.1.i.i = phi i1 [ true, %39 ], [ false, %.body.thread21.i.i ], [ false, %51 ], [ true, %60 ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$gpui..view..View$LT$auto_update..update_notification..UpdateNotification$GT$$GT$17hcf6d44947a503436E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18) #39
           to label %33 unwind label %62, !noalias !4050
 
@@ -22473,7 +22468,7 @@ define hidden void @"_ZN9workspace13notifications38_$LT$impl$u20$workspace..Work
   %47 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
           to label %48 unwind label %60, !noalias !4046
 
-.body.thread22.i.i:                               ; preds = %57, %"_ZN4core3ptr109drop_in_place$LT$gpui..app..entity_map..Model$LT$auto_update..update_notification..UpdateNotification$GT$$GT$17hca769b52c0b04453E.exit.i.i", %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hab3f6db864f7aa7bE.exit.i.i.i", %48
+.body.thread21.i.i:                               ; preds = %57, %"_ZN4core3ptr109drop_in_place$LT$gpui..app..entity_map..Model$LT$auto_update..update_notification..UpdateNotification$GT$$GT$17hca769b52c0b04453E.exit.i.i", %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hab3f6db864f7aa7bE.exit.i.i.i", %48
   %lpad.thr_comm.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i.i
@@ -22485,7 +22480,7 @@ define hidden void @"_ZN9workspace13notifications38_$LT$impl$u20$workspace..Work
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13), !noalias !4046
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef nonnull align 8 dereferenceable(56) %16, i64 56, i1 false), !noalias !4046
   invoke void @_ZN4gpui3app10entity_map9EntityMap6insert17he56c7694951c8a8aE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(40) %49, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %13)
-          to label %50 unwind label %.body.thread22.i.i, !noalias !4046
+          to label %50 unwind label %.body.thread21.i.i, !noalias !4046
 
 50:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13), !noalias !4046
@@ -22509,13 +22504,13 @@ define hidden void @"_ZN9workspace13notifications38_$LT$impl$u20$workspace..Work
 "_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hab3f6db864f7aa7bE.exit.i.i.i": ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bfe1d41d6216184E.llvm.11611006770570263672"(ptr noalias noundef nonnull align 8 dereferenceable(8) %56)
-          to label %"_ZN4core3ptr109drop_in_place$LT$gpui..app..entity_map..Model$LT$auto_update..update_notification..UpdateNotification$GT$$GT$17hca769b52c0b04453E.exit.i.i" unwind label %.body.thread22.i.i, !noalias !4046
+          to label %"_ZN4core3ptr109drop_in_place$LT$gpui..app..entity_map..Model$LT$auto_update..update_notification..UpdateNotification$GT$$GT$17hca769b52c0b04453E.exit.i.i" unwind label %.body.thread21.i.i, !noalias !4046
 
 "_ZN4core3ptr109drop_in_place$LT$gpui..app..entity_map..Model$LT$auto_update..update_notification..UpdateNotification$GT$$GT$17hca769b52c0b04453E.exit.i.i": ; preds = %"_ZN4core3ptr52drop_in_place$LT$gpui..app..entity_map..AnyModel$GT$17hab3f6db864f7aa7bE.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !4046
   call void @llvm.lifetime.start.p0(i64 608, ptr nonnull %12), !noalias !4046
   invoke void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %18)
-          to label %57 unwind label %.body.thread22.i.i, !noalias !4046
+          to label %57 unwind label %.body.thread21.i.i, !noalias !4046
 
 57:                                               ; preds = %"_ZN4core3ptr109drop_in_place$LT$gpui..app..entity_map..Model$LT$auto_update..update_notification..UpdateNotification$GT$$GT$17hca769b52c0b04453E.exit.i.i"
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 568
@@ -22524,7 +22519,7 @@ define hidden void @"_ZN9workspace13notifications38_$LT$impl$u20$workspace..Work
   store ptr @_ZN4gpui4view8any_view6render17heb323a5a822216f5E, ptr %59, align 8, !noalias !4046
   store i64 2, ptr %12, align 8, !noalias !4046
   invoke void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$8new_view16notify_observers17h7fd8554589957462E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 8510741275390391839, i64 noundef -6973975753540100399, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(608) %12)
-          to label %67 unwind label %.body.thread22.i.i, !noalias !4050
+          to label %67 unwind label %.body.thread21.i.i, !noalias !4050
 
 60:                                               ; preds = %41
   %lpad.thr_comm.split-lp.i.i = landingpad { ptr, i32 }
@@ -22539,14 +22534,14 @@ define hidden void @"_ZN9workspace13notifications38_$LT$impl$u20$workspace..Work
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #38, !noalias !4054
   unreachable
 
-64:                                               ; preds = %.thread14.i.i, %33
-  %.sroa.02.119.i.i = phi i1 [ true, %.thread14.i.i ], [ %.sroa.02.3.i.i, %33 ]
-  %.pn.pn18.i.i = phi { ptr, i32 } [ %34, %.thread14.i.i ], [ %.pn.i.i, %33 ]
+64:                                               ; preds = %.thread13.i.i, %33
+  %.sroa.02.118.i.i = phi i1 [ true, %.thread13.i.i ], [ %.sroa.02.3.i.i, %33 ]
+  %.pn.pn17.i.i = phi { ptr, i32 } [ %34, %.thread13.i.i ], [ %.pn.i.i, %33 ]
   invoke void @"_ZN4core3ptr108drop_in_place$LT$gpui..app..entity_map..Slot$LT$auto_update..update_notification..UpdateNotification$GT$$GT$17h99024e47795f0229E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19) #39
           to label %30 unwind label %62, !noalias !4050
 
 65:                                               ; preds = %.thread.i.i, %30
-  %.pn.pn.pn13.i.i = phi { ptr, i32 } [ %31, %.thread.i.i ], [ %.pn.pn.pn.i.i, %30 ]
+  %.pn.pn.pn12.i.i = phi { ptr, i32 } [ %31, %.thread.i.i ], [ %.pn.pn.pn.i.i, %30 ]
   %66 = getelementptr inbounds nuw i8, ptr %20, i64 16
   invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4bfe1d41d6216184E.llvm.11611006770570263672"(ptr noalias noundef nonnull align 8 dereferenceable(8) %66)
           to label %.thread59 unwind label %62, !noalias !4054
@@ -22911,7 +22906,7 @@ default.unreachable:                              ; preds = %74
   resume { ptr, i32 } %.pn.pn3562
 
 .thread59:                                        ; preds = %184, %65, %30, %.thread46
-  %.pn.pn3563 = phi { ptr, i32 } [ %eh.lpad-body1250, %.thread46 ], [ %.pn.pn.pn13.i.i, %65 ], [ %.pn.pn.pn.i.i, %30 ], [ %185, %184 ]
+  %.pn.pn3563 = phi { ptr, i32 } [ %eh.lpad-body1250, %.thread46 ], [ %.pn.pn.pn12.i.i, %65 ], [ %.pn.pn.pn.i.i, %30 ], [ %185, %184 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$workspace..notifications..NotificationId$GT$17ha84ac93d70d9ecafE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1) #39
           to label %.thread65 unwind label %182
 }

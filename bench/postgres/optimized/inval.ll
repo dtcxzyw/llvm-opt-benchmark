@@ -1326,7 +1326,6 @@ define dso_local void @CacheInvalidateHeapTuple(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @CacheInvalidateHeapTupleCommon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
-  %.sroa.4.i.i = alloca [3 x i8], align 1
   %5 = load i32, ptr @Mode, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.thread, label %7
@@ -1350,7 +1349,6 @@ define internal fastcc void @CacheInvalidateHeapTupleCommon(ptr noundef %0, ptr 
   %17 = tail call zeroext i1 @IsSharedRelation(i32 noundef %14) #7
   %18 = load i32, ptr @MyDatabaseId, align 4
   %19 = select i1 %17, i32 0, i32 %18
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4.i.i)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -1415,8 +1413,6 @@ AddInvalidationMessage.exit.i.i:                  ; preds = %.sink.split.i.i.i, 
   %46 = sext i32 %23 to i64
   %47 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %45, i64 %46
   store i8 -5, ptr %47, align 4
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %47, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4.i.i, i64 3, i1 false)
   %.sroa.417.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %19, ptr %.sroa.417.0..sroa_idx.i.i, align 4
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -1426,88 +1422,84 @@ AddInvalidationMessage.exit.i.i:                  ; preds = %.sink.split.i.i.i, 
   store i32 %49, ptr %22, align 4
   br label %RegisterSnapshotInvalidation.exit
 
-RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidationMessage.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4.i.i)
-  br label %51
-
 50:                                               ; preds = %11
   tail call void @PrepareToInvalidateCacheTuple(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @RegisterCatcacheInvalidation, ptr noundef %12) #7
-  br label %51
+  br label %RegisterSnapshotInvalidation.exit
 
-51:                                               ; preds = %50, %RegisterSnapshotInvalidation.exit
+RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidationMessage.exit.i.i, %50
   switch i32 %14, label %.thread [
-    i32 1259, label %52
-    i32 1249, label %63
-    i32 2610, label %71
-    i32 2606, label %79
+    i32 1259, label %51
+    i32 1249, label %62
+    i32 2610, label %70
+    i32 2606, label %78
   ]
 
-52:                                               ; preds = %51
-  %53 = getelementptr i8, ptr %1, i64 16
-  %.val = load ptr, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %55 = load i8, ptr %54, align 2
-  %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %.val, i64 %56
-  %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 113
-  %60 = load i8, ptr %59, align 1, !range !11, !noundef !12
-  %61 = trunc nuw i8 %60 to i1
-  %62 = load i32, ptr @MyDatabaseId, align 4
-  %.1 = select i1 %61, i32 0, i32 %62
-  br label %93
+51:                                               ; preds = %RegisterSnapshotInvalidation.exit
+  %52 = getelementptr i8, ptr %1, i64 16
+  %.val = load ptr, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %54 = load i8, ptr %53, align 2
+  %55 = zext i8 %54 to i64
+  %56 = getelementptr inbounds nuw i8, ptr %.val, i64 %55
+  %57 = load i32, ptr %56, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 113
+  %59 = load i8, ptr %58, align 1, !range !11, !noundef !12
+  %60 = trunc nuw i8 %59 to i1
+  %61 = load i32, ptr @MyDatabaseId, align 4
+  %.1 = select i1 %60, i32 0, i32 %61
+  br label %92
 
-63:                                               ; preds = %51
-  %64 = getelementptr i8, ptr %1, i64 16
-  %.val36 = load ptr, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %.val36, i64 22
-  %66 = load i8, ptr %65, align 2
-  %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds nuw i8, ptr %.val36, i64 %67
-  %69 = load i32, ptr %68, align 4
-  %70 = load i32, ptr @MyDatabaseId, align 4
-  br label %93
+62:                                               ; preds = %RegisterSnapshotInvalidation.exit
+  %63 = getelementptr i8, ptr %1, i64 16
+  %.val36 = load ptr, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %.val36, i64 22
+  %65 = load i8, ptr %64, align 2
+  %66 = zext i8 %65 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %.val36, i64 %66
+  %68 = load i32, ptr %67, align 4
+  %69 = load i32, ptr @MyDatabaseId, align 4
+  br label %92
 
-71:                                               ; preds = %51
-  %72 = getelementptr i8, ptr %1, i64 16
-  %.val37 = load ptr, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %.val37, i64 22
-  %74 = load i8, ptr %73, align 2
-  %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %.val37, i64 %75
-  %77 = load i32, ptr %76, align 4
-  %78 = load i32, ptr @MyDatabaseId, align 4
-  br label %93
+70:                                               ; preds = %RegisterSnapshotInvalidation.exit
+  %71 = getelementptr i8, ptr %1, i64 16
+  %.val37 = load ptr, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %.val37, i64 22
+  %73 = load i8, ptr %72, align 2
+  %74 = zext i8 %73 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %.val37, i64 %74
+  %76 = load i32, ptr %75, align 4
+  %77 = load i32, ptr @MyDatabaseId, align 4
+  br label %92
 
-79:                                               ; preds = %51
-  %80 = getelementptr i8, ptr %1, i64 16
-  %.val38 = load ptr, ptr %80, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %.val38, i64 22
-  %82 = load i8, ptr %81, align 2
-  %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw i8, ptr %.val38, i64 %83
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 72
-  %86 = load i8, ptr %85, align 4
-  %87 = icmp eq i8 %86, 102
-  br i1 %87, label %88, label %.thread
+78:                                               ; preds = %RegisterSnapshotInvalidation.exit
+  %79 = getelementptr i8, ptr %1, i64 16
+  %.val38 = load ptr, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %.val38, i64 22
+  %81 = load i8, ptr %80, align 2
+  %82 = zext i8 %81 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %.val38, i64 %82
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 72
+  %85 = load i8, ptr %84, align 4
+  %86 = icmp eq i8 %85, 102
+  br i1 %86, label %87, label %.thread
 
-88:                                               ; preds = %79
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 80
-  %90 = load i32, ptr %89, align 4
-  %.not = icmp eq i32 %90, 0
-  br i1 %.not, label %.thread, label %91
+87:                                               ; preds = %78
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 80
+  %89 = load i32, ptr %88, align 4
+  %.not = icmp eq i32 %89, 0
+  br i1 %.not, label %.thread, label %90
 
-91:                                               ; preds = %88
-  %92 = load i32, ptr @MyDatabaseId, align 4
-  br label %93
+90:                                               ; preds = %87
+  %91 = load i32, ptr @MyDatabaseId, align 4
+  br label %92
 
-93:                                               ; preds = %91, %63, %71, %52
-  %.031 = phi i32 [ %58, %52 ], [ %69, %63 ], [ %77, %71 ], [ %90, %91 ]
-  %.2 = phi i32 [ %.1, %52 ], [ %70, %63 ], [ %78, %71 ], [ %92, %91 ]
+92:                                               ; preds = %90, %62, %70, %51
+  %.031 = phi i32 [ %57, %51 ], [ %68, %62 ], [ %76, %70 ], [ %89, %90 ]
+  %.2 = phi i32 [ %.1, %51 ], [ %69, %62 ], [ %77, %70 ], [ %91, %90 ]
   tail call fastcc void @RegisterRelcacheInvalidation(ptr noundef %12, i32 noundef %.2, i32 noundef %.031)
   br label %.thread
 
-.thread:                                          ; preds = %79, %88, %51, %9, %7, %4, %93
+.thread:                                          ; preds = %78, %87, %RegisterSnapshotInvalidation.exit, %9, %7, %4, %92
   ret void
 }
 
@@ -1637,11 +1629,9 @@ define internal ptr @PrepareInplaceInvalidationState() #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CacheInvalidateCatalog(i32 noundef %0) local_unnamed_addr #0 {
-  %.sroa.4.i.i = alloca [3 x i8], align 1
   %2 = tail call zeroext i1 @IsSharedRelation(i32 noundef %0) #7
   %3 = load i32, ptr @MyDatabaseId, align 4
   %4 = tail call ptr @PrepareInvalidationState()
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4.i.i)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr @InvalMessageArrays.1, align 8
@@ -1678,8 +1668,6 @@ RegisterCatalogInvalidation.exit:                 ; preds = %1, %.sink.split.i.i
   %19 = sext i32 %6 to i64
   %20 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %18, i64 %19
   store i8 -1, ptr %20, align 4
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4.i.i, i64 3, i1 false)
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %.0, ptr %.sroa.42.0..sroa_idx.i.i, align 4
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -1687,7 +1675,6 @@ RegisterCatalogInvalidation.exit:                 ; preds = %1, %.sink.split.i.i
   %21 = load i32, ptr %5, align 4
   %22 = add i32 %21, 1
   store i32 %22, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4.i.i)
   ret void
 }
 
@@ -1711,8 +1698,6 @@ define dso_local void @CacheInvalidateRelcache(ptr noundef readonly captures(non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RegisterRelcacheInvalidation(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %.sroa.4.i = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4.i)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1779,8 +1764,6 @@ AddInvalidationMessage.exit.i:                    ; preds = %.sink.split.i.i, %.
   %31 = sext i32 %7 to i64
   %32 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %30, i64 %31
   store i8 -2, ptr %32, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4.i, i64 3, i1 false)
   %.sroa.419.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %1, ptr %.sroa.419.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1791,7 +1774,6 @@ AddInvalidationMessage.exit.i:                    ; preds = %.sink.split.i.i, %.
   br label %AddRelcacheInvalidationMessage.exit
 
 AddRelcacheInvalidationMessage.exit:              ; preds = %14, %AddInvalidationMessage.exit.i
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4.i)
   %35 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #7
   %36 = icmp eq i32 %2, 0
   br i1 %36, label %39, label %37
@@ -2019,8 +2001,6 @@ declare void @PrepareToInvalidateCacheTuple(ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @RegisterCatcacheInvalidation(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #0 {
-  %.sroa.4.i = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.4.i)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr @InvalMessageArrays.1, align 8
@@ -2057,8 +2037,6 @@ AddCatcacheInvalidationMessage.exit:              ; preds = %4, %.sink.split.i.i
   %20 = sext i32 %6 to i64
   %21 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %18, i64 %20
   store i8 %19, ptr %21, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4.i, i64 3, i1 false)
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %2, ptr %.sroa.43.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -2066,7 +2044,6 @@ AddCatcacheInvalidationMessage.exit:              ; preds = %4, %.sink.split.i.i
   %22 = load i32, ptr %5, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4.i)
   ret void
 }
 

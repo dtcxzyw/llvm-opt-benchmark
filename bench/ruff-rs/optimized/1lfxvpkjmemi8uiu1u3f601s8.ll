@@ -19501,7 +19501,6 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %20, ptr %22, align 8
   store i8 22, ptr %15, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 1
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %4, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -19517,6 +19516,7 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
 .lr.ph.i.i.lr.ph.i:                               ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %.sroa.6.0..sroa_idx.i.i55.i = getelementptr inbounds nuw i8, ptr %15, i64 1
   %.sroa.2.0..sroa_idx.i.i56.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.628.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -19642,7 +19642,7 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
 
 52:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !2013
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, i64 31, i1 false), !noalias !1986
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx.i.i55.i, i64 31, i1 false), !noalias !1986
   store i8 %.sroa.01.0.copyload.i.i.i, ptr %8, align 8, !noalias !2013
   %53 = invoke noundef align 8 ptr @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$23deserialize_ignored_any17h85cc11963639e84dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
           to label %_ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !1986
@@ -19671,7 +19671,7 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
 
 61:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !2024
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i56.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, i64 31, i1 false), !noalias !2021
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i56.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx.i.i55.i, i64 31, i1 false), !noalias !2021
   store i8 %.sroa.0.0.copyload.i.i.i, ptr %7, align 8, !noalias !2024
   invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17ha055c6e406316068E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
           to label %_ZN5serde2de9MapAccess10next_value17h315d788c489ac87dE.exit.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !1986
@@ -19741,7 +19741,7 @@ _ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.thread.i: ; preds = 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.336.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.617.0..sroa_idx18.i, i64 16, i1 false), !noalias !1991
   br label %.loopexit87.i.thread
 
-.loopexit87.i.thread:                             ; preds = %6, %.loopexit87.i, %76
+.loopexit87.i.thread:                             ; preds = %6, %76, %.loopexit87.i
   %.sroa.034.0.i = phi i64 [ %.pr, %76 ], [ -9223372036854775807, %.loopexit87.i ], [ -9223372036854775807, %6 ]
   store i64 %.sroa.034.0.i, ptr %0, align 8, !alias.scope !1986, !noalias !1989
   %.sroa.439.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19814,7 +19814,6 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %22, ptr %24, align 8
   store i8 22, ptr %17, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 1
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %4, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -19830,6 +19829,7 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
 .lr.ph.i.i.lr.ph.i:                               ; preds = %6
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %.sroa.6.0..sroa_idx.i.i73.i = getelementptr inbounds nuw i8, ptr %17, i64 1
   %.sroa.2.0..sroa_idx.i.i74.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   %.sroa.539.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.640.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -19989,7 +19989,7 @@ default.unreachable:                              ; preds = %52
 
 61:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !2058
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, i64 31, i1 false), !noalias !2031
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx.i.i73.i, i64 31, i1 false), !noalias !2031
   store i8 %.sroa.01.0.copyload.i.i.i, ptr %9, align 8, !noalias !2058
   %62 = invoke noundef align 8 ptr @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$23deserialize_ignored_any17h85cc11963639e84dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %9)
           to label %_ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.i unwind label %.loopexit.split-lp.loopexit.loopexit.i, !noalias !2031
@@ -20009,7 +20009,7 @@ default.unreachable:                              ; preds = %52
 
 66:                                               ; preds = %65
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !2069
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i68.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, i64 31, i1 false), !noalias !2066
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i68.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx.i.i73.i, i64 31, i1 false), !noalias !2066
   store i8 %.sroa.0.0.copyload.i.i.i, ptr %8, align 8, !noalias !2069
   invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h8572a7de60c629f6E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
           to label %_ZN5serde2de9MapAccess10next_value17h3c35076964b23d7cE.exit.i unwind label %.loopexit.split-lp.loopexit.loopexit.i, !noalias !2031
@@ -20062,7 +20062,7 @@ _ZN5serde2de9MapAccess10next_value17h3c35076964b23d7cE.exit.i: ; preds = %66
 
 81:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !2083
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i74.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, i64 31, i1 false), !noalias !2080
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i74.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx.i.i73.i, i64 31, i1 false), !noalias !2080
   store i8 %.sroa.0.0.copyload.i.i71.i, ptr %7, align 8, !noalias !2083
   invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hc25abf3165fad37bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
           to label %_ZN5serde2de9MapAccess10next_value17h32a257d97134745bE.exit.i unwind label %.loopexit.split-lp.loopexit.loopexit.i, !noalias !2031
@@ -20127,7 +20127,7 @@ _ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.thread.i: ; preds = 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.349.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.349.0..sroa_idx.i, i64 16, i1 false), !noalias !2036
   br label %93
 
-93:                                               ; preds = %54, %92
+93:                                               ; preds = %92, %54
   %.sroa.047.0.i = phi i64 [ %56, %92 ], [ -9223372036854775808, %54 ]
   store i64 %.sroa.047.0.i, ptr %0, align 8, !alias.scope !2031, !noalias !2034
   %.sroa.033.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20203,7 +20203,6 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %23, ptr %25, align 8
   store i8 22, ptr %18, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 1
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %4, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -20222,6 +20221,7 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
 .lr.ph.i.i.lr.ph.i:                               ; preds = %6
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %.sroa.6.0..sroa_idx.i.i86.i = getelementptr inbounds nuw i8, ptr %18, i64 1
   %.sroa.2.0..sroa_idx.i.i87.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -20383,7 +20383,7 @@ default.unreachable:                              ; preds = %56
 
 63:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !2114
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, i64 31, i1 false), !noalias !2087
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx.i.i86.i, i64 31, i1 false), !noalias !2087
   store i8 %.sroa.01.0.copyload.i.i.i, ptr %9, align 8, !noalias !2114
   %64 = invoke noundef align 8 ptr @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$23deserialize_ignored_any17h85cc11963639e84dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %9)
           to label %_ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.i unwind label %.loopexit.split-lp.loopexit.loopexit.i, !noalias !2087
@@ -20408,7 +20408,7 @@ default.unreachable:                              ; preds = %56
 
 70:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !2125
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i80.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, i64 31, i1 false), !noalias !2122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i80.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx.i.i86.i, i64 31, i1 false), !noalias !2122
   store i8 %.sroa.0.0.copyload.i.i.i, ptr %8, align 8, !noalias !2125
   invoke void @"_ZN9lsp_types1_86_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..TextDocumentIdentifier$GT$11deserialize17h3f1de14a421d253aE"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
           to label %_ZN5serde2de9MapAccess10next_value17hda1077bc1b83d3e9E.exit.i unwind label %.loopexit.split-lp.loopexit.loopexit.i, !noalias !2087
@@ -20489,7 +20489,7 @@ _ZN5serde2de9MapAccess10next_value17hda1077bc1b83d3e9E.exit.i: ; preds = %70
 
 91:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !2142
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i87.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, i64 31, i1 false), !noalias !2139
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i87.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx.i.i86.i, i64 31, i1 false), !noalias !2139
   store i8 %.sroa.0.0.copyload.i.i84.i, ptr %7, align 8, !noalias !2142
   invoke void @"_ZN9lsp_types1_72_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..Position$GT$11deserialize17hfdf6b6f1a2cfa31dE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
           to label %_ZN5serde2de9MapAccess10next_value17h739796f7e2a1c05eE.exit.i unwind label %.loopexit.split-lp.loopexit.loopexit.i, !noalias !2087
@@ -20650,7 +20650,6 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %20, ptr %22, align 8
   store i8 22, ptr %15, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 1
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %4, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -20666,6 +20665,7 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
 .lr.ph.i.i.lr.ph.i:                               ; preds = %6
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %.sroa.6.0..sroa_idx.i.i55.i = getelementptr inbounds nuw i8, ptr %15, i64 1
   %.sroa.2.0..sroa_idx.i.i56.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.628.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -20791,7 +20791,7 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
 
 52:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !2170
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, i64 31, i1 false), !noalias !2143
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx.i.i55.i, i64 31, i1 false), !noalias !2143
   store i8 %.sroa.01.0.copyload.i.i.i, ptr %8, align 8, !noalias !2170
   %53 = invoke noundef align 8 ptr @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$23deserialize_ignored_any17h85cc11963639e84dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
           to label %_ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !2143
@@ -20820,7 +20820,7 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
 
 61:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !2181
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i56.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx, i64 31, i1 false), !noalias !2178
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i56.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6.0..sroa_idx.i.i55.i, i64 31, i1 false), !noalias !2178
   store i8 %.sroa.0.0.copyload.i.i.i, ptr %7, align 8, !noalias !2181
   invoke void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17ha055c6e406316068E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %7)
           to label %_ZN5serde2de9MapAccess10next_value17h315d788c489ac87dE.exit.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !2143
@@ -20890,7 +20890,7 @@ _ZN5serde2de9MapAccess10next_value17h2626998bcfd1721eE.exit.thread.i: ; preds = 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.336.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.617.0..sroa_idx18.i, i64 16, i1 false), !noalias !2148
   br label %.loopexit87.i.thread
 
-.loopexit87.i.thread:                             ; preds = %6, %.loopexit87.i, %76
+.loopexit87.i.thread:                             ; preds = %6, %76, %.loopexit87.i
   %.sroa.034.0.i = phi i64 [ %.pr, %76 ], [ -9223372036854775807, %.loopexit87.i ], [ -9223372036854775807, %6 ]
   store i64 %.sroa.034.0.i, ptr %0, align 8, !alias.scope !2143, !noalias !2146
   %.sroa.439.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8

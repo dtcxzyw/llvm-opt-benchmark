@@ -1117,7 +1117,7 @@ define dso_local void @_ZN3igl7tinyply7PlyFile11PlyFileImpl26make_property_looku
   ret void
 
 22:                                               ; preds = %.lr.ph127, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit
-  %.sroa.087.0125 = phi ptr [ %8, %.lr.ph127 ], [ %241, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit ]
+  %.sroa.087.0125 = phi ptr [ %8, %.lr.ph127 ], [ %240, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.087.0125, i64 40
@@ -1132,7 +1132,7 @@ define dso_local void @_ZN3igl7tinyply7PlyFile11PlyFileImpl26make_property_looku
   br label %50
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE9push_backERKS4_.exit, %22
-  %28 = phi ptr [ null, %22 ], [ %233, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE9push_backERKS4_.exit ]
+  %28 = phi ptr [ null, %22 ], [ %232, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE9push_backERKS4_.exit ]
   %29 = load ptr, ptr %20, align 8, !tbaa !55
   %30 = load ptr, ptr %21, align 8, !tbaa !58
   %.not.i = icmp eq ptr %29, %30
@@ -1201,7 +1201,7 @@ _ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EEC2ERKS6_
   br label %_ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6_EE9push_backERKS6_.exit
 
 50:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE9push_backERKS4_.exit
-  %.sroa.083.0123 = phi ptr [ %24, %.lr.ph ], [ %234, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE9push_backERKS4_.exit ]
+  %.sroa.083.0123 = phi ptr [ %24, %.lr.ph ], [ %233, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE9push_backERKS4_.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %51 = load ptr, ptr %.sroa.087.0125, align 8, !tbaa !28, !noalias !71
@@ -1624,7 +1624,7 @@ _ZNSt8_Rb_treeIN3igl7tinyply4TypeESt4pairIKS2_NS1_12PropertyInfoEESt10_Select1st
           cleanup
   br label %.body54
 
-.loopexit.split-lp99:                             ; preds = %219
+.loopexit.split-lp99:                             ; preds = %218
   %lpad.loopexit.split-lp101 = landingpad { ptr, i32 }
           cleanup
   br label %.body54
@@ -1634,7 +1634,7 @@ _ZNSt8_Rb_treeIN3igl7tinyply4TypeESt4pairIKS2_NS1_12PropertyInfoEESt10_Select1st
   %208 = load ptr, ptr %18, align 8, !tbaa !63
   %209 = load ptr, ptr %19, align 8, !tbaa !64
   %.not.i44 = icmp eq ptr %208, %209
-  br i1 %.not.i44, label %213, label %210
+  br i1 %.not.i44, label %212, label %210
 
 210:                                              ; preds = %207
   store ptr %.sroa.071.0, ptr %208, align 8, !tbaa !67
@@ -1644,100 +1644,99 @@ _ZNSt8_Rb_treeIN3igl7tinyply4TypeESt4pairIKS2_NS1_12PropertyInfoEESt10_Select1st
   store i64 %156, ptr %.sroa.976.0..sroa_idx, align 8, !tbaa !27
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %208, i64 24
   store i64 %.sroa.11.2, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !27
-  %211 = load ptr, ptr %18, align 8, !tbaa !63
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 32
-  store ptr %212, ptr %18, align 8, !tbaa !63
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 32
+  store ptr %211, ptr %18, align 8, !tbaa !63
   br label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE9push_backERKS4_.exit
 
-213:                                              ; preds = %207
-  %214 = load ptr, ptr %5, align 8, !tbaa !59
-  %215 = ptrtoint ptr %208 to i64
-  %216 = ptrtoint ptr %214 to i64
-  %217 = sub i64 %215, %216
-  %218 = icmp eq i64 %217, 9223372036854775776
-  br i1 %218, label %219, label %_ZNKSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE12_M_check_lenEmPKc.exit.i.i
+212:                                              ; preds = %207
+  %213 = load ptr, ptr %5, align 8, !tbaa !59
+  %214 = ptrtoint ptr %208 to i64
+  %215 = ptrtoint ptr %213 to i64
+  %216 = sub i64 %214, %215
+  %217 = icmp eq i64 %216, 9223372036854775776
+  br i1 %217, label %218, label %_ZNKSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
-219:                                              ; preds = %213
+218:                                              ; preds = %212
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.52) #33
           to label %.noexc46 unwind label %.loopexit.split-lp99
 
-.noexc46:                                         ; preds = %219
+.noexc46:                                         ; preds = %218
   unreachable
 
-_ZNKSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %213
-  %220 = ashr exact i64 %217, 5
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %220, i64 1)
-  %221 = add nsw i64 %.sroa.speculated.i.i.i, %220
-  %222 = icmp ult i64 %221, %220
-  %223 = call i64 @llvm.umin.i64(i64 %221, i64 288230376151711743)
-  %224 = select i1 %222, i64 288230376151711743, i64 %223
-  %.not.i.i.i = icmp ne i64 %224, 0
+_ZNKSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %212
+  %219 = ashr exact i64 %216, 5
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %219, i64 1)
+  %220 = add nsw i64 %.sroa.speculated.i.i.i, %219
+  %221 = icmp ult i64 %220, %219
+  %222 = call i64 @llvm.umin.i64(i64 %220, i64 288230376151711743)
+  %223 = select i1 %221, i64 288230376151711743, i64 %222
+  %.not.i.i.i = icmp ne i64 %223, 0
   call void @llvm.assume(i1 %.not.i.i.i)
-  %225 = shl nuw nsw i64 %224, 5
-  %226 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %225) #29
+  %224 = shl nuw nsw i64 %223, 5
+  %225 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %224) #29
           to label %.noexc47 unwind label %.loopexit98
 
 .noexc47:                                         ; preds = %_ZNKSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE12_M_check_lenEmPKc.exit.i.i
-  %227 = getelementptr inbounds nuw i8, ptr %226, i64 %217
-  store ptr %.sroa.071.0, ptr %227, align 8, !tbaa !67
-  %.sroa.7.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %227, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 %216
+  store ptr %.sroa.071.0, ptr %226, align 8, !tbaa !67
+  %.sroa.7.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i8 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx73, align 8, !tbaa !69
-  %.sroa.976.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %227, i64 16
+  %.sroa.976.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %226, i64 16
   store i64 %156, ptr %.sroa.976.0..sroa_idx77, align 8, !tbaa !27
-  %.sroa.11.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %227, i64 24
+  %.sroa.11.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %226, i64 24
   store i64 %.sroa.11.2, ptr %.sroa.11.0..sroa_idx79, align 8, !tbaa !27
-  %.not10.i.i.i.i.i = icmp eq ptr %214, %208
+  %.not10.i.i.i.i.i = icmp eq ptr %213, %208
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc47, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi ptr [ %229, %.lr.ph.i.i.i.i.i ], [ %226, %.noexc47 ]
-  %.0911.i.i.i.i.i = phi ptr [ %228, %.lr.ph.i.i.i.i.i ], [ %214, %.noexc47 ]
+  %.012.i.i.i.i.i = phi ptr [ %228, %.lr.ph.i.i.i.i.i ], [ %225, %.noexc47 ]
+  %.0911.i.i.i.i.i = phi ptr [ %227, %.lr.ph.i.i.i.i.i ], [ %213, %.noexc47 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0911.i.i.i.i.i, i64 32, i1 false), !tbaa.struct !66, !alias.scope !103
-  %228 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 32
-  %229 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i45 = icmp eq ptr %228, %208
+  %227 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 32
+  %228 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i45 = icmp eq ptr %227, %208
   br i1 %.not.i.i.i.i.i45, label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !107
 
 _ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc47
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %226, %.noexc47 ], [ %229, %.lr.ph.i.i.i.i.i ]
-  %230 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
-  %.not.i23.i.i = icmp eq ptr %214, null
-  br i1 %.not.i23.i.i, label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %231
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %225, %.noexc47 ], [ %228, %.lr.ph.i.i.i.i.i ]
+  %229 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
+  %.not.i23.i.i = icmp eq ptr %213, null
+  br i1 %.not.i23.i.i, label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %230
 
-231:                                              ; preds = %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %214, i64 noundef %217) #32
+230:                                              ; preds = %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %213, i64 noundef %216) #32
   br label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
-_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %231, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
-  store ptr %226, ptr %5, align 8, !tbaa !59
-  store ptr %230, ptr %18, align 8, !tbaa !63
-  %232 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup", ptr %226, i64 %224
-  store ptr %232, ptr %19, align 8, !tbaa !64
+_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %230, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
+  store ptr %225, ptr %5, align 8, !tbaa !59
+  store ptr %229, ptr %18, align 8, !tbaa !63
+  %231 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup", ptr %225, i64 %223
+  store ptr %231, ptr %19, align 8, !tbaa !64
   br label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE9push_backERKS4_.exit
 
 _ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE9push_backERKS4_.exit: ; preds = %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %210
-  %233 = phi ptr [ %230, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %212, %210 ]
-  %234 = getelementptr inbounds nuw i8, ptr %.sroa.083.0123, i64 48
-  %.not94 = icmp eq ptr %234, %26
+  %232 = phi ptr [ %229, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %211, %210 ]
+  %233 = getelementptr inbounds nuw i8, ptr %.sroa.083.0123, i64 48
+  %.not94 = icmp eq ptr %233, %26
   br i1 %.not94, label %._crit_edge, label %50
 
 _ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6_EE9push_backERKS6_.exit: ; preds = %._ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6_EE9push_backERKS6_.exit_crit_edge, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EEC2ERKS6_.exit.i
-  %235 = phi ptr [ %.pre, %._ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6_EE9push_backERKS6_.exit_crit_edge ], [ %43, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EEC2ERKS6_.exit.i ]
-  %.not.i.i.i48 = icmp eq ptr %235, null
-  br i1 %.not.i.i.i48, label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit, label %236
+  %234 = phi ptr [ %.pre, %._ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6_EE9push_backERKS6_.exit_crit_edge ], [ %43, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EEC2ERKS6_.exit.i ]
+  %.not.i.i.i48 = icmp eq ptr %234, null
+  br i1 %.not.i.i.i48, label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit, label %235
 
-236:                                              ; preds = %_ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6_EE9push_backERKS6_.exit
-  %237 = load ptr, ptr %19, align 8, !tbaa !64
-  %238 = ptrtoint ptr %237 to i64
-  %239 = ptrtoint ptr %235 to i64
-  %240 = sub i64 %238, %239
-  call void @_ZdlPvm(ptr noundef nonnull %235, i64 noundef %240) #32
+235:                                              ; preds = %_ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6_EE9push_backERKS6_.exit
+  %236 = load ptr, ptr %19, align 8, !tbaa !64
+  %237 = ptrtoint ptr %236 to i64
+  %238 = ptrtoint ptr %234 to i64
+  %239 = sub i64 %237, %238
+  call void @_ZdlPvm(ptr noundef nonnull %234, i64 noundef %239) #32
   br label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6_EE9push_backERKS6_.exit, %236
+_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6_EE9push_backERKS6_.exit, %235
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #30
-  %241 = getelementptr inbounds nuw i8, ptr %.sroa.087.0125, i64 64
-  %.not = icmp eq ptr %241, %10
+  %240 = getelementptr inbounds nuw i8, ptr %.sroa.087.0125, i64 64
+  %.not = icmp eq ptr %240, %10
   br i1 %.not, label %._crit_edge128, label %22
 
 .loopexit103:                                     ; preds = %_ZNSt15__new_allocatorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupEE8allocateEmPKv.exit.i.i.i.i.i, %49
@@ -1750,21 +1749,21 @@ _ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exi
           cleanup
   br label %.body54
 
-.body54:                                          ; preds = %.body, %194, %144, %.loopexit.split-lp99, %.loopexit98, %.loopexit103, %.loopexit.split-lp104
-  %.pn17.pn = phi { ptr, i32 } [ %lpad.loopexit105, %.loopexit103 ], [ %lpad.loopexit.split-lp106, %.loopexit.split-lp104 ], [ %lpad.phi, %.body ], [ %145, %144 ], [ %195, %194 ], [ %lpad.loopexit100, %.loopexit98 ], [ %lpad.loopexit.split-lp101, %.loopexit.split-lp99 ]
-  %242 = load ptr, ptr %5, align 8, !tbaa !59
-  %.not.i.i.i49 = icmp eq ptr %242, null
-  br i1 %.not.i.i.i49, label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit50, label %243
+.body54:                                          ; preds = %.loopexit103, %.loopexit.split-lp104, %.loopexit98, %.loopexit.split-lp99, %.body, %194, %144
+  %.pn17.pn = phi { ptr, i32 } [ %lpad.phi, %.body ], [ %145, %144 ], [ %195, %194 ], [ %lpad.loopexit100, %.loopexit98 ], [ %lpad.loopexit.split-lp101, %.loopexit.split-lp99 ], [ %lpad.loopexit105, %.loopexit103 ], [ %lpad.loopexit.split-lp106, %.loopexit.split-lp104 ]
+  %241 = load ptr, ptr %5, align 8, !tbaa !59
+  %.not.i.i.i49 = icmp eq ptr %241, null
+  br i1 %.not.i.i.i49, label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit50, label %242
 
-243:                                              ; preds = %.body54
-  %244 = load ptr, ptr %19, align 8, !tbaa !64
-  %245 = ptrtoint ptr %244 to i64
-  %246 = ptrtoint ptr %242 to i64
-  %247 = sub i64 %245, %246
-  call void @_ZdlPvm(ptr noundef nonnull %242, i64 noundef %247) #32
+242:                                              ; preds = %.body54
+  %243 = load ptr, ptr %19, align 8, !tbaa !64
+  %244 = ptrtoint ptr %243 to i64
+  %245 = ptrtoint ptr %241 to i64
+  %246 = sub i64 %244, %245
+  call void @_ZdlPvm(ptr noundef nonnull %241, i64 noundef %246) #32
   br label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit50
 
-_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit50: ; preds = %.body54, %243
+_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EED2Ev.exit50: ; preds = %.body54, %242
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #30
   call void @_ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #30
   resume { ptr, i32 } %.pn17.pn

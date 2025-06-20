@@ -9042,7 +9042,7 @@ _ZN5serde2de9MapAccess10next_value17h3bb53408c056bc26E.exit.i: ; preds = %321
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4350.0..sroa_idx.i, i64 16, i1 false), !noalias !1909
   br label %343
 
-343:                                              ; preds = %337, %342
+343:                                              ; preds = %342, %337
   %.sroa.0346.0.i = phi i64 [ %338, %342 ], [ -9223372036854775808, %337 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.13.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58), !noalias !1909

@@ -288,8 +288,8 @@ define hidden void @_ZN15pingora_timeout5timer12TimerManager12clock_thread17he08
   br label %44
 
 44:                                               ; preds = %43, %40
-  %.sink = phi i64 [ 0, %43 ], [ %42, %40 ]
-  store i64 %.sink, ptr %10, align 8
+  %storemerge = phi i64 [ %42, %40 ], [ 0, %43 ]
+  store i64 %storemerge, ptr %10, align 8
   %45 = invoke { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c6654ceb291f4c4E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4)
           to label %50 unwind label %.loopexit
 

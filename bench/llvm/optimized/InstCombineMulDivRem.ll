@@ -9410,7 +9410,6 @@ define hidden noundef ptr @_ZN4llvm16InstCombinerImpl20commonIDivTransformsERNS_
   %26 = alloca %"class.llvm::Twine", align 8
   %27 = alloca %"class.llvm::Twine", align 8
   %28 = alloca %"struct.llvm::PatternMatch::match_combine_or.144", align 8
-  %.sroa.7437 = alloca [7 x i8], align 1
   %29 = alloca %"class.llvm::Twine", align 8
   %30 = alloca %"struct.llvm::PatternMatch::match_combine_or.148", align 8
   %31 = alloca %"class.llvm::APInt", align 8
@@ -10049,7 +10048,6 @@ _ZNK4llvm5APInt3ultEm.exit:                       ; preds = %340, %_ZNK4llvm5API
 
 _ZNK4llvm5APInt3ultEm.exit228.thread.thread603:   ; preds = %301, %_ZNK4llvm5APInt3ultEm.exit, %295, %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i.i347, %319, %315, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i348, %327, %337, %335, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #17
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7437)
   br label %474
 
 _ZN4llvm12PatternMatch25OverflowingBinaryOp_matchINS0_7bind_tyINS_5ValueEEENS0_11apint_matchELj25ELj2ELb0EE5matchIS3_EEbPT_.exit.thread: ; preds = %217, %222, %237, %233, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i337, %245, %255, %253, %_ZN4llvm12PatternMatch25OverflowingBinaryOp_matchINS0_7bind_tyINS_5ValueEEENS0_11apint_matchELj17ELj1ELb0EE5matchIS3_EEbPT_.exit.thread
@@ -10292,22 +10290,16 @@ _ZN4llvm5APIntD2Ev.exit229:                       ; preds = %466, %469, %472
 
 _ZNK4llvm5APInt3ultEm.exit228.thread.thread:      ; preds = %359, %_ZNK4llvm5APInt3ultEm.exit228, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i225, %393, %395, %385, %_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_5ValueEEEDcPT0_.exit.i359, %373, %377, %_ZN4llvm25OverflowingBinaryOperator7classofEPKNS_11InstructionE.exit.i.i.i.i.i.i.i.i.i358, %353
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #17
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7437)
   br label %.critedge21
 
 _ZNK4llvm5APInt3ultEm.exit228.thread:             ; preds = %_ZN4llvm5APIntD2Ev.exit229
   %.pre592 = load i8, ptr %17, align 1, !tbaa !27, !range !156
   %473 = trunc nuw i8 %.pre592 to i1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #17
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.7437)
   br i1 %473, label %474, label %.critedge21
 
 474:                                              ; preds = %_ZNK4llvm5APInt3ultEm.exit228.thread.thread603, %_ZNK4llvm5APInt3ultEm.exit228.thread
   %.7605 = phi ptr [ %.3, %_ZNK4llvm5APInt3ultEm.exit228.thread.thread603 ], [ %.8, %_ZNK4llvm5APInt3ultEm.exit228.thread ]
-  %.sroa.7514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7514.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7437, i64 7, i1 false)
-  %.sroa.7509.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7509.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7437, i64 7, i1 false)
   store ptr %18, ptr %28, align 8, !tbaa !42
   %.sroa.4511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %82, ptr %.sroa.4511.0..sroa_idx, align 8, !tbaa !73
@@ -10385,7 +10377,6 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_25OverflowingB
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_25OverflowingBinaryOp_matchINS4_INS0_7bind_tyIS2_EENS0_15specific_intvalILb0EEELj17ELj2ELb0EEENS0_11apint_matchELj13ELj2ELb0EEENS0_16DisjointOr_matchIS9_SA_Lb0EEEEEEEbPT_RKT0_.exit.thread: ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_25OverflowingBinaryOp_matchINS4_INS0_7bind_tyIS2_EENS0_15specific_intvalILb0EEELj17ELj2ELb0EEENS0_11apint_matchELj13ELj2ELb0EEENS0_16DisjointOr_matchIS9_SA_Lb0EEEEEEEbPT_RKT0_.exit, %474
   %509 = load ptr, ptr %19, align 8, !tbaa !73
   %510 = call fastcc noundef zeroext i1 @_ZL10isMultipleRKN4llvm5APIntES2_RS0_b(ptr noundef nonnull align 8 dereferenceable(12) %509, ptr noundef nonnull align 8 dereferenceable(12) %82, ptr noundef nonnull align 8 dereferenceable(12) %22, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7437)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28) #17
   br i1 %510, label %511, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_25OverflowingBinaryOp_matchINS4_INS0_7bind_tyIS2_EENS0_15specific_intvalILb0EEELj17ELj2ELb0EEENS0_11apint_matchELj13ELj2ELb0EEENS0_16DisjointOr_matchIS9_SA_Lb0EEEEEEEbPT_RKT0_.exit.thread._crit_edge
 
@@ -10406,7 +10397,6 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_25OverflowingB
 .critedge21:                                      ; preds = %_ZNK4llvm5APInt3ultEm.exit228.thread.thread, %500, %504, %492, %483, %479, %477, %_ZNK4llvm5APInt3ultEm.exit228.thread
   %.7602 = phi ptr [ %.3, %_ZNK4llvm5APInt3ultEm.exit228.thread.thread ], [ %.7605, %500 ], [ %.7605, %504 ], [ %.7605, %492 ], [ %.7605, %483 ], [ %.7605, %479 ], [ %.7605, %477 ], [ %.8, %_ZNK4llvm5APInt3ultEm.exit228.thread ]
   %516 = phi i8 [ 0, %_ZNK4llvm5APInt3ultEm.exit228.thread.thread ], [ 1, %500 ], [ 1, %504 ], [ 1, %492 ], [ 1, %483 ], [ 1, %479 ], [ 1, %477 ], [ 0, %_ZNK4llvm5APInt3ultEm.exit228.thread ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7437)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28) #17
   br label %517
 

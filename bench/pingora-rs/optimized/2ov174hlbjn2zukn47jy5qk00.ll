@@ -1230,12 +1230,12 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br i1 %.not.i, label %"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a4c9a2aa8468b75E.exit", label %7
 
 7:                                                ; preds = %2
-  %.sroa.4.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8, !alias.scope !72, !noalias !77, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !72, !noalias !77, !noundef !3
-  store ptr null, ptr %.sroa.4.0..sroa_idx15.i, align 8, !noalias !75
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !75
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !75
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -10712,14 +10712,14 @@ define void @_ZN12pingora_core9protocols4http2v14body10BodyReader17parse_chunked
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [24 x i8], align 8
-  %.sroa.12258 = alloca [24 x i8], align 8
+  %.sroa.12257 = alloca [24 x i8], align 8
   %14 = alloca [24 x i8], align 8
   %15 = alloca [32 x i8], align 8
   %16 = alloca [16 x i8], align 8
   %17 = alloca [24 x i8], align 8
-  %.sroa.12189 = alloca [24 x i8], align 8
-  %.sroa.10127 = alloca [16 x i8], align 8
-  %.sroa.12110 = alloca [24 x i8], align 8
+  %.sroa.12188 = alloca [24 x i8], align 8
+  %.sroa.10126 = alloca [16 x i8], align 8
+  %.sroa.12109 = alloca [24 x i8], align 8
   %18 = alloca [24 x i8], align 8
   %19 = alloca [48 x i8], align 8
   %20 = alloca [8 x i8], align 8
@@ -10876,7 +10876,7 @@ define void @_ZN12pingora_core9protocols4http2v14body10BodyReader17parse_chunked
   br label %46
 
 73:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.12110)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.12109)
   call void @llvm.experimental.noalias.scope.decl(metadata !671)
   %74 = load i64, ptr %1, align 8, !range !642, !alias.scope !674, !noalias !671, !noundef !3
   switch i64 %74, label %default.unreachable [
@@ -10910,28 +10910,28 @@ default.unreachable:                              ; preds = %182, %142, %130, %1
   unreachable
 
 87:                                               ; preds = %73
-  %.sroa.9.0..sroa_idx108 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9.0.copyload109 = load i64, ptr %.sroa.9.0..sroa_idx108, align 8, !alias.scope !676
-  %.sroa.12110.0..sroa_idx112 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12110, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12110.0..sroa_idx112, i64 24, i1 false), !alias.scope !676
+  %.sroa.9.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9.0.copyload108 = load i64, ptr %.sroa.9.0..sroa_idx107, align 8, !alias.scope !676
+  %.sroa.12109.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12109, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12109.0..sroa_idx111, i64 24, i1 false), !alias.scope !676
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState6finish17h3d58474fae75fe5bE.exit
 
 88:                                               ; preds = %73
-  %.sroa.9.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9.0.copyload107 = load i64, ptr %.sroa.9.0..sroa_idx106, align 8, !alias.scope !676
-  %.sroa.12110.0..sroa_idx111 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12110, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12110.0..sroa_idx111, i64 24, i1 false), !alias.scope !676
+  %.sroa.9.0..sroa_idx105 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9.0.copyload106 = load i64, ptr %.sroa.9.0..sroa_idx105, align 8, !alias.scope !676
+  %.sroa.12109.0..sroa_idx110 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12109, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12109.0..sroa_idx110, i64 24, i1 false), !alias.scope !676
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState6finish17h3d58474fae75fe5bE.exit
 
 _ZN12pingora_core9protocols4http2v14body10ParseState6finish17h3d58474fae75fe5bE.exit: ; preds = %73, %75, %81, %84, %87, %88
-  %.sroa.9.0 = phi i64 [ %80, %75 ], [ %83, %81 ], [ %86, %84 ], [ %.sroa.9.0.copyload109, %87 ], [ %.sroa.9.0.copyload107, %88 ], [ undef, %73 ]
-  %.sroa.0103.0 = phi i64 [ 1, %75 ], [ 1, %81 ], [ 1, %84 ], [ 1, %87 ], [ 4, %88 ], [ %74, %73 ]
-  store i64 %.sroa.0103.0, ptr %1, align 8
+  %.sroa.9.0 = phi i64 [ %80, %75 ], [ %83, %81 ], [ %86, %84 ], [ %.sroa.9.0.copyload108, %87 ], [ %.sroa.9.0.copyload106, %88 ], [ undef, %73 ]
+  %.sroa.0102.0 = phi i64 [ 1, %75 ], [ 1, %81 ], [ 1, %84 ], [ 1, %87 ], [ 4, %88 ], [ %74, %73 ]
+  store i64 %.sroa.0102.0, ptr %1, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.12110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12110.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12110, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12110)
+  %.sroa.12109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12109.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12109, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12109)
   store i64 0, ptr %0, align 8
   br label %127
 
@@ -10964,62 +10964,62 @@ _ZN12pingora_core9protocols4http2v14body10ParseState6finish17h3d58474fae75fe5bE.
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState11multi_chunk17h1e83b98fc417daf5E.exit
 
 102:                                              ; preds = %93
-  %.sroa.9145.0..sroa_idx152 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9145.0.copyload153 = load i64, ptr %.sroa.9145.0..sroa_idx152, align 8, !alias.scope !682
-  %.sroa.10154.0..sroa_idx161 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.10154.0.copyload162 = load i64, ptr %.sroa.10154.0..sroa_idx161, align 8, !alias.scope !682
-  %.sroa.11163.0..sroa_idx170 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.11163.0.copyload171 = load i64, ptr %.sroa.11163.0..sroa_idx170, align 8, !alias.scope !682
-  %.sroa.12172.0..sroa_idx179 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.12172.0.copyload180 = load i64, ptr %.sroa.12172.0..sroa_idx179, align 8, !alias.scope !682
+  %.sroa.9144.0..sroa_idx151 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9144.0.copyload152 = load i64, ptr %.sroa.9144.0..sroa_idx151, align 8, !alias.scope !682
+  %.sroa.10153.0..sroa_idx160 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.10153.0.copyload161 = load i64, ptr %.sroa.10153.0..sroa_idx160, align 8, !alias.scope !682
+  %.sroa.11162.0..sroa_idx169 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.11162.0.copyload170 = load i64, ptr %.sroa.11162.0..sroa_idx169, align 8, !alias.scope !682
+  %.sroa.12171.0..sroa_idx178 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.12171.0.copyload179 = load i64, ptr %.sroa.12171.0..sroa_idx178, align 8, !alias.scope !682
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState11multi_chunk17h1e83b98fc417daf5E.exit
 
 103:                                              ; preds = %93
-  %.sroa.9145.0..sroa_idx150 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9145.0.copyload151 = load i64, ptr %.sroa.9145.0..sroa_idx150, align 8, !alias.scope !682
-  %.sroa.10154.0..sroa_idx159 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.10154.0.copyload160 = load i64, ptr %.sroa.10154.0..sroa_idx159, align 8, !alias.scope !682
-  %.sroa.11163.0..sroa_idx168 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.11163.0.copyload169 = load i64, ptr %.sroa.11163.0..sroa_idx168, align 8, !alias.scope !682
-  %.sroa.12172.0..sroa_idx177 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.12172.0.copyload178 = load i64, ptr %.sroa.12172.0..sroa_idx177, align 8, !alias.scope !682
+  %.sroa.9144.0..sroa_idx149 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9144.0.copyload150 = load i64, ptr %.sroa.9144.0..sroa_idx149, align 8, !alias.scope !682
+  %.sroa.10153.0..sroa_idx158 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.10153.0.copyload159 = load i64, ptr %.sroa.10153.0..sroa_idx158, align 8, !alias.scope !682
+  %.sroa.11162.0..sroa_idx167 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.11162.0.copyload168 = load i64, ptr %.sroa.11162.0..sroa_idx167, align 8, !alias.scope !682
+  %.sroa.12171.0..sroa_idx176 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.12171.0.copyload177 = load i64, ptr %.sroa.12171.0..sroa_idx176, align 8, !alias.scope !682
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState11multi_chunk17h1e83b98fc417daf5E.exit
 
 104:                                              ; preds = %93
-  %.sroa.9145.0..sroa_idx146 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9145.0.copyload147 = load i64, ptr %.sroa.9145.0..sroa_idx146, align 8, !alias.scope !682
-  %.sroa.10154.0..sroa_idx155 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.10154.0.copyload156 = load i64, ptr %.sroa.10154.0..sroa_idx155, align 8, !alias.scope !682
-  %.sroa.11163.0..sroa_idx164 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.11163.0.copyload165 = load i64, ptr %.sroa.11163.0..sroa_idx164, align 8, !alias.scope !682
-  %.sroa.12172.0..sroa_idx173 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.12172.0.copyload174 = load i64, ptr %.sroa.12172.0..sroa_idx173, align 8, !alias.scope !682
+  %.sroa.9144.0..sroa_idx145 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9144.0.copyload146 = load i64, ptr %.sroa.9144.0..sroa_idx145, align 8, !alias.scope !682
+  %.sroa.10153.0..sroa_idx154 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.10153.0.copyload155 = load i64, ptr %.sroa.10153.0..sroa_idx154, align 8, !alias.scope !682
+  %.sroa.11162.0..sroa_idx163 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.11162.0.copyload164 = load i64, ptr %.sroa.11162.0..sroa_idx163, align 8, !alias.scope !682
+  %.sroa.12171.0..sroa_idx172 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.12171.0.copyload173 = load i64, ptr %.sroa.12171.0..sroa_idx172, align 8, !alias.scope !682
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState11multi_chunk17h1e83b98fc417daf5E.exit
 
 105:                                              ; preds = %93
-  %.sroa.9145.0..sroa_idx148 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9145.0.copyload149 = load i64, ptr %.sroa.9145.0..sroa_idx148, align 8, !alias.scope !682
-  %.sroa.10154.0..sroa_idx157 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.10154.0.copyload158 = load i64, ptr %.sroa.10154.0..sroa_idx157, align 8, !alias.scope !682
-  %.sroa.11163.0..sroa_idx166 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.11163.0.copyload167 = load i64, ptr %.sroa.11163.0..sroa_idx166, align 8, !alias.scope !682
-  %.sroa.12172.0..sroa_idx175 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.12172.0.copyload176 = load i64, ptr %.sroa.12172.0..sroa_idx175, align 8, !alias.scope !682
+  %.sroa.9144.0..sroa_idx147 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9144.0.copyload148 = load i64, ptr %.sroa.9144.0..sroa_idx147, align 8, !alias.scope !682
+  %.sroa.10153.0..sroa_idx156 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.10153.0.copyload157 = load i64, ptr %.sroa.10153.0..sroa_idx156, align 8, !alias.scope !682
+  %.sroa.11162.0..sroa_idx165 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.11162.0.copyload166 = load i64, ptr %.sroa.11162.0..sroa_idx165, align 8, !alias.scope !682
+  %.sroa.12171.0..sroa_idx174 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.12171.0.copyload175 = load i64, ptr %.sroa.12171.0..sroa_idx174, align 8, !alias.scope !682
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState11multi_chunk17h1e83b98fc417daf5E.exit
 
 _ZN12pingora_core9protocols4http2v14body10ParseState11multi_chunk17h1e83b98fc417daf5E.exit: ; preds = %93, %95, %102, %103, %104, %105
-  %.sroa.10154.0 = phi i64 [ %96, %95 ], [ %.sroa.10154.0.copyload162, %102 ], [ %.sroa.10154.0.copyload160, %103 ], [ %.sroa.10154.0.copyload158, %105 ], [ %.sroa.10154.0.copyload156, %104 ], [ undef, %93 ]
-  %.sroa.9145.0 = phi i64 [ %99, %95 ], [ %.sroa.9145.0.copyload153, %102 ], [ %.sroa.9145.0.copyload151, %103 ], [ %.sroa.9145.0.copyload149, %105 ], [ %.sroa.9145.0.copyload147, %104 ], [ undef, %93 ]
-  %.sroa.11163.0 = phi i64 [ %101, %95 ], [ %.sroa.11163.0.copyload171, %102 ], [ %.sroa.11163.0.copyload169, %103 ], [ %.sroa.11163.0.copyload167, %105 ], [ %.sroa.11163.0.copyload165, %104 ], [ undef, %93 ]
-  %.sroa.12172.0 = phi i64 [ 0, %95 ], [ %.sroa.12172.0.copyload180, %102 ], [ %.sroa.12172.0.copyload178, %103 ], [ %.sroa.12172.0.copyload176, %105 ], [ %.sroa.12172.0.copyload174, %104 ], [ undef, %93 ]
-  %.sroa.9145.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.sroa.9145.0, ptr %.sroa.9145.0..sroa_idx, align 8
-  %.sroa.10154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %.sroa.10154.0, ptr %.sroa.10154.0..sroa_idx, align 8
-  %.sroa.11163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %.sroa.11163.0, ptr %.sroa.11163.0..sroa_idx, align 8
-  %.sroa.12172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %.sroa.12172.0, ptr %.sroa.12172.0..sroa_idx, align 8
+  %.sroa.10153.0 = phi i64 [ %96, %95 ], [ %.sroa.10153.0.copyload161, %102 ], [ %.sroa.10153.0.copyload159, %103 ], [ %.sroa.10153.0.copyload157, %105 ], [ %.sroa.10153.0.copyload155, %104 ], [ undef, %93 ]
+  %.sroa.9144.0 = phi i64 [ %99, %95 ], [ %.sroa.9144.0.copyload152, %102 ], [ %.sroa.9144.0.copyload150, %103 ], [ %.sroa.9144.0.copyload148, %105 ], [ %.sroa.9144.0.copyload146, %104 ], [ undef, %93 ]
+  %.sroa.11162.0 = phi i64 [ %101, %95 ], [ %.sroa.11162.0.copyload170, %102 ], [ %.sroa.11162.0.copyload168, %103 ], [ %.sroa.11162.0.copyload166, %105 ], [ %.sroa.11162.0.copyload164, %104 ], [ undef, %93 ]
+  %.sroa.12171.0 = phi i64 [ 0, %95 ], [ %.sroa.12171.0.copyload179, %102 ], [ %.sroa.12171.0.copyload177, %103 ], [ %.sroa.12171.0.copyload175, %105 ], [ %.sroa.12171.0.copyload173, %104 ], [ undef, %93 ]
+  %.sroa.9144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.sroa.9144.0, ptr %.sroa.9144.0..sroa_idx, align 8
+  %.sroa.10153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %.sroa.10153.0, ptr %.sroa.10153.0..sroa_idx, align 8
+  %.sroa.11162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %.sroa.11162.0, ptr %.sroa.11162.0..sroa_idx, align 8
+  %.sroa.12171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 %.sroa.12171.0, ptr %.sroa.12171.0..sroa_idx, align 8
   %106 = add i64 %90, %2
   %107 = call { i64, i64 } @_ZN12pingora_core5utils6BufRef3new17hd7b1a586bc07d0a7E(i64 noundef %106, i64 noundef %47)
   %108 = extractvalue { i64, i64 } %107, 0
@@ -11035,7 +11035,7 @@ _ZN12pingora_core9protocols4http2v14body10ParseState11multi_chunk17h1e83b98fc417
   %111 = icmp ugt i64 %91, %33
   %112 = sub i64 %33, %90
   %spec.select = select i1 %111, i64 %112, i64 %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10127)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10126)
   call void @llvm.experimental.noalias.scope.decl(metadata !683)
   call void @llvm.experimental.noalias.scope.decl(metadata !686)
   %113 = load i64, ptr %1, align 8, !range !642, !alias.scope !686, !noalias !683, !noundef !3
@@ -11053,56 +11053,56 @@ _ZN12pingora_core9protocols4http2v14body10ParseState11multi_chunk17h1e83b98fc417
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %117 = load i64, ptr %116, align 8, !alias.scope !686, !noalias !683, !noundef !3
   %118 = add i64 %117, %spec.select
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10127, i8 0, i64 16, i1 false), !alias.scope !683, !noalias !686
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10126, i8 0, i64 16, i1 false), !alias.scope !683, !noalias !686
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState13partial_chunk17hdfd6256e33f3e4d9E.exit
 
 119:                                              ; preds = %110
-  %.sroa.9118.0..sroa_idx125 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9118.0.copyload126 = load i64, ptr %.sroa.9118.0..sroa_idx125, align 8, !alias.scope !688
-  %.sroa.10127.0..sroa_idx131 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10127, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10127.0..sroa_idx131, i64 16, i1 false), !alias.scope !688
-  %.sroa.11.0..sroa_idx138 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.11.0.copyload139 = load i64, ptr %.sroa.11.0..sroa_idx138, align 8, !alias.scope !688
+  %.sroa.9117.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9117.0.copyload125 = load i64, ptr %.sroa.9117.0..sroa_idx124, align 8, !alias.scope !688
+  %.sroa.10126.0..sroa_idx130 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10126, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10126.0..sroa_idx130, i64 16, i1 false), !alias.scope !688
+  %.sroa.11.0..sroa_idx137 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.11.0.copyload138 = load i64, ptr %.sroa.11.0..sroa_idx137, align 8, !alias.scope !688
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState13partial_chunk17hdfd6256e33f3e4d9E.exit
 
 120:                                              ; preds = %110
-  %.sroa.9118.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9118.0.copyload124 = load i64, ptr %.sroa.9118.0..sroa_idx123, align 8, !alias.scope !688
-  %.sroa.10127.0..sroa_idx130 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10127, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10127.0..sroa_idx130, i64 16, i1 false), !alias.scope !688
-  %.sroa.11.0..sroa_idx136 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.11.0.copyload137 = load i64, ptr %.sroa.11.0..sroa_idx136, align 8, !alias.scope !688
+  %.sroa.9117.0..sroa_idx122 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9117.0.copyload123 = load i64, ptr %.sroa.9117.0..sroa_idx122, align 8, !alias.scope !688
+  %.sroa.10126.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10126, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10126.0..sroa_idx129, i64 16, i1 false), !alias.scope !688
+  %.sroa.11.0..sroa_idx135 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.11.0.copyload136 = load i64, ptr %.sroa.11.0..sroa_idx135, align 8, !alias.scope !688
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState13partial_chunk17hdfd6256e33f3e4d9E.exit
 
 121:                                              ; preds = %110
-  %.sroa.9118.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9118.0.copyload120 = load i64, ptr %.sroa.9118.0..sroa_idx119, align 8, !alias.scope !688
-  %.sroa.10127.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10127, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10127.0..sroa_idx128, i64 16, i1 false), !alias.scope !688
-  %.sroa.11.0..sroa_idx132 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.11.0.copyload133 = load i64, ptr %.sroa.11.0..sroa_idx132, align 8, !alias.scope !688
+  %.sroa.9117.0..sroa_idx118 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9117.0.copyload119 = load i64, ptr %.sroa.9117.0..sroa_idx118, align 8, !alias.scope !688
+  %.sroa.10126.0..sroa_idx127 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10126, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10126.0..sroa_idx127, i64 16, i1 false), !alias.scope !688
+  %.sroa.11.0..sroa_idx131 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.11.0.copyload132 = load i64, ptr %.sroa.11.0..sroa_idx131, align 8, !alias.scope !688
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState13partial_chunk17hdfd6256e33f3e4d9E.exit
 
 122:                                              ; preds = %110
-  %.sroa.9118.0..sroa_idx121 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9118.0.copyload122 = load i64, ptr %.sroa.9118.0..sroa_idx121, align 8, !alias.scope !688
-  %.sroa.10127.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10127, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10127.0..sroa_idx129, i64 16, i1 false), !alias.scope !688
-  %.sroa.11.0..sroa_idx134 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.11.0.copyload135 = load i64, ptr %.sroa.11.0..sroa_idx134, align 8, !alias.scope !688
+  %.sroa.9117.0..sroa_idx120 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9117.0.copyload121 = load i64, ptr %.sroa.9117.0..sroa_idx120, align 8, !alias.scope !688
+  %.sroa.10126.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10126, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10126.0..sroa_idx128, i64 16, i1 false), !alias.scope !688
+  %.sroa.11.0..sroa_idx133 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.11.0.copyload134 = load i64, ptr %.sroa.11.0..sroa_idx133, align 8, !alias.scope !688
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState13partial_chunk17hdfd6256e33f3e4d9E.exit
 
 _ZN12pingora_core9protocols4http2v14body10ParseState13partial_chunk17hdfd6256e33f3e4d9E.exit: ; preds = %110, %114, %119, %120, %121, %122
-  %.sroa.11.0 = phi i64 [ %115, %114 ], [ %.sroa.11.0.copyload139, %119 ], [ %.sroa.11.0.copyload137, %120 ], [ %.sroa.11.0.copyload135, %122 ], [ %.sroa.11.0.copyload133, %121 ], [ undef, %110 ]
-  %.sroa.9118.0 = phi i64 [ %118, %114 ], [ %.sroa.9118.0.copyload126, %119 ], [ %.sroa.9118.0.copyload124, %120 ], [ %.sroa.9118.0.copyload122, %122 ], [ %.sroa.9118.0.copyload120, %121 ], [ undef, %110 ]
+  %.sroa.11.0 = phi i64 [ %115, %114 ], [ %.sroa.11.0.copyload138, %119 ], [ %.sroa.11.0.copyload136, %120 ], [ %.sroa.11.0.copyload134, %122 ], [ %.sroa.11.0.copyload132, %121 ], [ undef, %110 ]
+  %.sroa.9117.0 = phi i64 [ %118, %114 ], [ %.sroa.9117.0.copyload125, %119 ], [ %.sroa.9117.0.copyload123, %120 ], [ %.sroa.9117.0.copyload121, %122 ], [ %.sroa.9117.0.copyload119, %121 ], [ undef, %110 ]
   store i64 %113, ptr %1, align 8
-  %.sroa.9118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.sroa.9118.0, ptr %.sroa.9118.0..sroa_idx, align 8
-  %.sroa.10127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10127.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10127, i64 16, i1 false)
+  %.sroa.9117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.sroa.9117.0, ptr %.sroa.9117.0..sroa_idx, align 8
+  %.sroa.10126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10126.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10126, i64 16, i1 false)
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10127)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10126)
   %123 = add i64 %90, %2
   %124 = call { i64, i64 } @_ZN12pingora_core5utils6BufRef3new17hd7b1a586bc07d0a7E(i64 noundef %123, i64 noundef %spec.select)
   %125 = extractvalue { i64, i64 } %124, 0
@@ -11125,7 +11125,7 @@ _ZN12pingora_core9protocols4http2v14body10ParseState13partial_chunk17hdfd6256e33
   unreachable
 
 common.resume:                                    ; preds = %165, %169, %172, %175, %.thread, %57, %53, %229, %233, %236, %239
-  %common.resume.op = phi { ptr, i32 } [ %.pn279, %.thread ], [ %54, %57 ], [ %54, %53 ], [ %230, %229 ], [ %234, %233 ], [ %234, %236 ], [ %234, %239 ], [ %166, %165 ], [ %170, %169 ], [ %170, %172 ], [ %170, %175 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn278, %.thread ], [ %54, %57 ], [ %54, %53 ], [ %230, %229 ], [ %234, %233 ], [ %234, %236 ], [ %234, %239 ], [ %166, %165 ], [ %170, %169 ], [ %170, %172 ], [ %170, %175 ]
   resume { ptr, i32 } %common.resume.op
 
 130:                                              ; preds = %40
@@ -11146,62 +11146,62 @@ common.resume:                                    ; preds = %165, %169, %172, %1
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState18partial_chunk_head17h179b245a3988520fE.exit
 
 135:                                              ; preds = %130
-  %.sroa.9197.0..sroa_idx204 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9197.0.copyload205 = load i64, ptr %.sroa.9197.0..sroa_idx204, align 8, !alias.scope !694
-  %.sroa.10206.0..sroa_idx213 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.10206.0.copyload214 = load i64, ptr %.sroa.10206.0..sroa_idx213, align 8, !alias.scope !694
-  %.sroa.11215.0..sroa_idx222 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.11215.0.copyload223 = load i64, ptr %.sroa.11215.0..sroa_idx222, align 8, !alias.scope !694
-  %.sroa.12224.0..sroa_idx231 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.12224.0.copyload232 = load i64, ptr %.sroa.12224.0..sroa_idx231, align 8, !alias.scope !694
+  %.sroa.9196.0..sroa_idx203 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9196.0.copyload204 = load i64, ptr %.sroa.9196.0..sroa_idx203, align 8, !alias.scope !694
+  %.sroa.10205.0..sroa_idx212 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.10205.0.copyload213 = load i64, ptr %.sroa.10205.0..sroa_idx212, align 8, !alias.scope !694
+  %.sroa.11214.0..sroa_idx221 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.11214.0.copyload222 = load i64, ptr %.sroa.11214.0..sroa_idx221, align 8, !alias.scope !694
+  %.sroa.12223.0..sroa_idx230 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.12223.0.copyload231 = load i64, ptr %.sroa.12223.0..sroa_idx230, align 8, !alias.scope !694
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState18partial_chunk_head17h179b245a3988520fE.exit
 
 136:                                              ; preds = %130
-  %.sroa.9197.0..sroa_idx202 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9197.0.copyload203 = load i64, ptr %.sroa.9197.0..sroa_idx202, align 8, !alias.scope !694
-  %.sroa.10206.0..sroa_idx211 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.10206.0.copyload212 = load i64, ptr %.sroa.10206.0..sroa_idx211, align 8, !alias.scope !694
-  %.sroa.11215.0..sroa_idx220 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.11215.0.copyload221 = load i64, ptr %.sroa.11215.0..sroa_idx220, align 8, !alias.scope !694
-  %.sroa.12224.0..sroa_idx229 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.12224.0.copyload230 = load i64, ptr %.sroa.12224.0..sroa_idx229, align 8, !alias.scope !694
+  %.sroa.9196.0..sroa_idx201 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9196.0.copyload202 = load i64, ptr %.sroa.9196.0..sroa_idx201, align 8, !alias.scope !694
+  %.sroa.10205.0..sroa_idx210 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.10205.0.copyload211 = load i64, ptr %.sroa.10205.0..sroa_idx210, align 8, !alias.scope !694
+  %.sroa.11214.0..sroa_idx219 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.11214.0.copyload220 = load i64, ptr %.sroa.11214.0..sroa_idx219, align 8, !alias.scope !694
+  %.sroa.12223.0..sroa_idx228 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.12223.0.copyload229 = load i64, ptr %.sroa.12223.0..sroa_idx228, align 8, !alias.scope !694
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState18partial_chunk_head17h179b245a3988520fE.exit
 
 137:                                              ; preds = %130
-  %.sroa.9197.0..sroa_idx198 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9197.0.copyload199 = load i64, ptr %.sroa.9197.0..sroa_idx198, align 8, !alias.scope !694
-  %.sroa.10206.0..sroa_idx207 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.10206.0.copyload208 = load i64, ptr %.sroa.10206.0..sroa_idx207, align 8, !alias.scope !694
-  %.sroa.11215.0..sroa_idx216 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.11215.0.copyload217 = load i64, ptr %.sroa.11215.0..sroa_idx216, align 8, !alias.scope !694
-  %.sroa.12224.0..sroa_idx225 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.12224.0.copyload226 = load i64, ptr %.sroa.12224.0..sroa_idx225, align 8, !alias.scope !694
+  %.sroa.9196.0..sroa_idx197 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9196.0.copyload198 = load i64, ptr %.sroa.9196.0..sroa_idx197, align 8, !alias.scope !694
+  %.sroa.10205.0..sroa_idx206 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.10205.0.copyload207 = load i64, ptr %.sroa.10205.0..sroa_idx206, align 8, !alias.scope !694
+  %.sroa.11214.0..sroa_idx215 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.11214.0.copyload216 = load i64, ptr %.sroa.11214.0..sroa_idx215, align 8, !alias.scope !694
+  %.sroa.12223.0..sroa_idx224 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.12223.0.copyload225 = load i64, ptr %.sroa.12223.0..sroa_idx224, align 8, !alias.scope !694
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState18partial_chunk_head17h179b245a3988520fE.exit
 
 138:                                              ; preds = %130
-  %.sroa.9197.0..sroa_idx200 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9197.0.copyload201 = load i64, ptr %.sroa.9197.0..sroa_idx200, align 8, !alias.scope !694
-  %.sroa.10206.0..sroa_idx209 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.10206.0.copyload210 = load i64, ptr %.sroa.10206.0..sroa_idx209, align 8, !alias.scope !694
-  %.sroa.11215.0..sroa_idx218 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.11215.0.copyload219 = load i64, ptr %.sroa.11215.0..sroa_idx218, align 8, !alias.scope !694
-  %.sroa.12224.0..sroa_idx227 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.12224.0.copyload228 = load i64, ptr %.sroa.12224.0..sroa_idx227, align 8, !alias.scope !694
+  %.sroa.9196.0..sroa_idx199 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9196.0.copyload200 = load i64, ptr %.sroa.9196.0..sroa_idx199, align 8, !alias.scope !694
+  %.sroa.10205.0..sroa_idx208 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.10205.0.copyload209 = load i64, ptr %.sroa.10205.0..sroa_idx208, align 8, !alias.scope !694
+  %.sroa.11214.0..sroa_idx217 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.11214.0.copyload218 = load i64, ptr %.sroa.11214.0..sroa_idx217, align 8, !alias.scope !694
+  %.sroa.12223.0..sroa_idx226 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.12223.0.copyload227 = load i64, ptr %.sroa.12223.0..sroa_idx226, align 8, !alias.scope !694
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState18partial_chunk_head17h179b245a3988520fE.exit
 
 _ZN12pingora_core9protocols4http2v14body10ParseState18partial_chunk_head17h179b245a3988520fE.exit: ; preds = %130, %132, %135, %136, %137, %138
-  %.sroa.9197.0 = phi i64 [ %134, %132 ], [ %.sroa.9197.0.copyload205, %135 ], [ %.sroa.9197.0.copyload203, %136 ], [ %.sroa.9197.0.copyload201, %138 ], [ %.sroa.9197.0.copyload199, %137 ], [ undef, %130 ]
-  %.sroa.10206.0 = phi i64 [ 0, %132 ], [ %.sroa.10206.0.copyload214, %135 ], [ %.sroa.10206.0.copyload212, %136 ], [ %.sroa.10206.0.copyload210, %138 ], [ %.sroa.10206.0.copyload208, %137 ], [ undef, %130 ]
-  %.sroa.11215.0 = phi i64 [ %3, %132 ], [ %.sroa.11215.0.copyload223, %135 ], [ %.sroa.11215.0.copyload221, %136 ], [ %.sroa.11215.0.copyload219, %138 ], [ %.sroa.11215.0.copyload217, %137 ], [ undef, %130 ]
-  %.sroa.12224.0 = phi i64 [ %33, %132 ], [ %.sroa.12224.0.copyload232, %135 ], [ %.sroa.12224.0.copyload230, %136 ], [ %.sroa.12224.0.copyload228, %138 ], [ %.sroa.12224.0.copyload226, %137 ], [ undef, %130 ]
-  %.sroa.9197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.sroa.9197.0, ptr %.sroa.9197.0..sroa_idx, align 8
-  %.sroa.10206.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %.sroa.10206.0, ptr %.sroa.10206.0..sroa_idx, align 8
-  %.sroa.11215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %.sroa.11215.0, ptr %.sroa.11215.0..sroa_idx, align 8
-  %.sroa.12224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %.sroa.12224.0, ptr %.sroa.12224.0..sroa_idx, align 8
+  %.sroa.9196.0 = phi i64 [ %134, %132 ], [ %.sroa.9196.0.copyload204, %135 ], [ %.sroa.9196.0.copyload202, %136 ], [ %.sroa.9196.0.copyload200, %138 ], [ %.sroa.9196.0.copyload198, %137 ], [ undef, %130 ]
+  %.sroa.10205.0 = phi i64 [ 0, %132 ], [ %.sroa.10205.0.copyload213, %135 ], [ %.sroa.10205.0.copyload211, %136 ], [ %.sroa.10205.0.copyload209, %138 ], [ %.sroa.10205.0.copyload207, %137 ], [ undef, %130 ]
+  %.sroa.11214.0 = phi i64 [ %3, %132 ], [ %.sroa.11214.0.copyload222, %135 ], [ %.sroa.11214.0.copyload220, %136 ], [ %.sroa.11214.0.copyload218, %138 ], [ %.sroa.11214.0.copyload216, %137 ], [ undef, %130 ]
+  %.sroa.12223.0 = phi i64 [ %33, %132 ], [ %.sroa.12223.0.copyload231, %135 ], [ %.sroa.12223.0.copyload229, %136 ], [ %.sroa.12223.0.copyload227, %138 ], [ %.sroa.12223.0.copyload225, %137 ], [ undef, %130 ]
+  %.sroa.9196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.sroa.9196.0, ptr %.sroa.9196.0..sroa_idx, align 8
+  %.sroa.10205.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %.sroa.10205.0, ptr %.sroa.10205.0..sroa_idx, align 8
+  %.sroa.11214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %.sroa.11214.0, ptr %.sroa.11214.0..sroa_idx, align 8
+  %.sroa.12223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 %.sroa.12223.0, ptr %.sroa.12223.0..sroa_idx, align 8
   %139 = tail call { i64, i64 } @_ZN12pingora_core5utils6BufRef3new17hd7b1a586bc07d0a7E(i64 noundef 0, i64 noundef 0)
   %140 = extractvalue { i64, i64 } %139, 0
   %141 = extractvalue { i64, i64 } %139, 1
@@ -11213,7 +11213,7 @@ _ZN12pingora_core9protocols4http2v14body10ParseState18partial_chunk_head17h179b2
   br label %127
 
 142:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.12189)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.12188)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !695)
   %143 = load i64, ptr %1, align 8, !range !642, !alias.scope !698, !noalias !695, !noundef !3
   switch i64 %143, label %default.unreachable [
@@ -11241,35 +11241,35 @@ _ZN12pingora_core9protocols4http2v14body10ParseState18partial_chunk_head17h179b2
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit
 
 153:                                              ; preds = %142
-  %.sroa.9184.0..sroa_idx187 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9184.0.copyload188 = load i64, ptr %.sroa.9184.0..sroa_idx187, align 8, !alias.scope !700
-  %.sroa.12189.0..sroa_idx191 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12189, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12189.0..sroa_idx191, i64 24, i1 false), !alias.scope !700
+  %.sroa.9183.0..sroa_idx186 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9183.0.copyload187 = load i64, ptr %.sroa.9183.0..sroa_idx186, align 8, !alias.scope !700
+  %.sroa.12188.0..sroa_idx190 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12188, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12188.0..sroa_idx190, i64 24, i1 false), !alias.scope !700
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit
 
 154:                                              ; preds = %142
-  %.sroa.9184.0..sroa_idx185 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9184.0.copyload186 = load i64, ptr %.sroa.9184.0..sroa_idx185, align 8, !alias.scope !700
-  %.sroa.12189.0..sroa_idx190 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12189, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12189.0..sroa_idx190, i64 24, i1 false), !alias.scope !700
+  %.sroa.9183.0..sroa_idx184 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9183.0.copyload185 = load i64, ptr %.sroa.9183.0..sroa_idx184, align 8, !alias.scope !700
+  %.sroa.12188.0..sroa_idx189 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12188, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12188.0..sroa_idx189, i64 24, i1 false), !alias.scope !700
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit
 
 _ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit: ; preds = %142, %144, %147, %150, %153, %154
-  %.sroa.0181.0 = phi i64 [ 4, %144 ], [ 4, %147 ], [ 4, %150 ], [ 1, %153 ], [ 4, %154 ], [ %143, %142 ]
-  %.sroa.9184.0 = phi i64 [ %146, %144 ], [ %149, %147 ], [ %152, %150 ], [ %.sroa.9184.0.copyload188, %153 ], [ %.sroa.9184.0.copyload186, %154 ], [ undef, %142 ]
-  store i64 %.sroa.0181.0, ptr %1, align 8
-  %.sroa.9184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.sroa.9184.0, ptr %.sroa.9184.0..sroa_idx, align 8
-  %.sroa.12189.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12189.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12189, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12189)
+  %.sroa.0180.0 = phi i64 [ 4, %144 ], [ 4, %147 ], [ 4, %150 ], [ 1, %153 ], [ 4, %154 ], [ %143, %142 ]
+  %.sroa.9183.0 = phi i64 [ %146, %144 ], [ %149, %147 ], [ %152, %150 ], [ %.sroa.9183.0.copyload187, %153 ], [ %.sroa.9183.0.copyload185, %154 ], [ undef, %142 ]
+  store i64 %.sroa.0180.0, ptr %1, align 8
+  %.sroa.9183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.sroa.9183.0, ptr %.sroa.9183.0..sroa_idx, align 8
+  %.sroa.12188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12188.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12188, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12188)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @"_ZN89_$LT$pingora_error..immut_str..ImmutStr$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h3dd15727f5debf00E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 @anon.e7500836e724f5eafa96e7ccf286267f.274, i64 noundef 20)
-  %.sroa.0261.0.copyload = load i64, ptr %12, align 8
-  %.sroa.5263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.5263.0.copyload = load ptr, ptr %.sroa.5263.0..sroa_idx, align 8
-  %.sroa.6266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.6266.0.copyload = load i64, ptr %.sroa.6266.0..sroa_idx, align 8
+  %.sroa.0260.0.copyload = load i64, ptr %12, align 8
+  %.sroa.5262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sroa.5262.0.copyload = load ptr, ptr %.sroa.5262.0..sroa_idx, align 8
+  %.sroa.6265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.6265.0.copyload = load i64, ptr %.sroa.6265.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %155 = invoke noundef i8 @"_ZN76_$LT$pingora_error..RetryType$u20$as$u20$core..convert..From$LT$bool$GT$$GT$4from17h714a125d92dedb15E"(i1 noundef zeroext false)
           to label %156 unwind label %169, !noalias !701
@@ -11284,11 +11284,11 @@ _ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.ex
   store i8 %155, ptr %159, align 8, !noalias !701
   %160 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr null, ptr %160, align 8, !noalias !701
-  store i64 %.sroa.0261.0.copyload, ptr %8, align 8, !noalias !706
-  %.sroa.5263.0..sroa_idx264 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sroa.5263.0.copyload, ptr %.sroa.5263.0..sroa_idx264, align 8, !noalias !706
-  %.sroa.6266.0..sroa_idx267 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %.sroa.6266.0.copyload, ptr %.sroa.6266.0..sroa_idx267, align 8, !noalias !706
+  store i64 %.sroa.0260.0.copyload, ptr %8, align 8, !noalias !706
+  %.sroa.5262.0..sroa_idx263 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %.sroa.5262.0.copyload, ptr %.sroa.5262.0..sroa_idx263, align 8, !noalias !706
+  %.sroa.6265.0..sroa_idx266 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 %.sroa.6265.0.copyload, ptr %.sroa.6265.0..sroa_idx266, align 8, !noalias !706
   %161 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !707
   %162 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 73) 72, i64 noundef 8) #30, !noalias !707
   %163 = icmp eq ptr %162, null
@@ -11316,19 +11316,19 @@ _ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.ex
 169:                                              ; preds = %_ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit
   %170 = landingpad { ptr, i32 }
           cleanup
-  %171 = icmp eq i64 %.sroa.0261.0.copyload, 2
+  %171 = icmp eq i64 %.sroa.0260.0.copyload, 2
   br i1 %171, label %common.resume, label %172
 
 172:                                              ; preds = %169
-  %173 = icmp eq i64 %.sroa.0261.0.copyload, 0
-  %174 = icmp eq i64 %.sroa.6266.0.copyload, 0
+  %173 = icmp eq i64 %.sroa.0260.0.copyload, 0
+  %174 = icmp eq i64 %.sroa.6265.0.copyload, 0
   %or.cond = select i1 %173, i1 true, i1 %174
   br i1 %or.cond, label %common.resume, label %175
 
 175:                                              ; preds = %172
-  %176 = icmp ne ptr %.sroa.5263.0.copyload, null
+  %176 = icmp ne ptr %.sroa.5262.0.copyload, null
   tail call void @llvm.assume(i1 %176)
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.5263.0.copyload, i64 noundef range(i64 1, 0) %.sroa.6266.0.copyload, i64 noundef 1) #30, !noalias !710
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.5262.0.copyload, i64 noundef range(i64 1, 0) %.sroa.6265.0.copyload, i64 noundef 1) #30, !noalias !710
   br label %common.resume
 
 _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %156
@@ -11339,7 +11339,7 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %156
   store i64 2, ptr %0, align 8
   br label %127
 
-.thread283:                                       ; preds = %195, %218
+.thread282:                                       ; preds = %195, %218
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -11352,12 +11352,12 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %156
   store ptr @"_ZN63_$LT$httparse..InvalidChunkSize$u20$as$u20$core..fmt..Debug$GT$3fmt17hfbc3a13ccc51fd1aE", ptr %.sroa.423.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !715
   store ptr @anon.e7500836e724f5eafa96e7ccf286267f.278, ptr %10, align 8, !noalias !722
-  %.sroa.4234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 1, ptr %.sroa.4234.0..sroa_idx, align 8, !noalias !722
-  %.sroa.5.0..sroa_idx235 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %16, ptr %.sroa.5.0..sroa_idx235, align 8, !noalias !722
-  %.sroa.6237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 1, ptr %.sroa.6237.0..sroa_idx, align 8, !noalias !722
+  %.sroa.4233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 1, ptr %.sroa.4233.0..sroa_idx, align 8, !noalias !722
+  %.sroa.5.0..sroa_idx234 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %16, ptr %.sroa.5.0..sroa_idx234, align 8, !noalias !722
+  %.sroa.6236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 1, ptr %.sroa.6236.0..sroa_idx, align 8, !noalias !722
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !722
   call void @_ZN5alloc3fmt6format12format_inner17hbc00c97fd665fffbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
@@ -11370,7 +11370,7 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %156
   br i1 %181, label %195, label %182
 
 182:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e41c04fdf508539E.exit89", %178
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.12258)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.12257)
   call void @llvm.experimental.noalias.scope.decl(metadata !723)
   %183 = load i64, ptr %1, align 8, !range !642, !alias.scope !726, !noalias !723, !noundef !3
   switch i64 %183, label %default.unreachable [
@@ -11398,24 +11398,24 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %156
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit61
 
 193:                                              ; preds = %182
-  %.sroa.9253.0..sroa_idx256 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9253.0.copyload257 = load i64, ptr %.sroa.9253.0..sroa_idx256, align 8, !alias.scope !728
-  %.sroa.12258.0..sroa_idx260 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12258, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12258.0..sroa_idx260, i64 24, i1 false), !alias.scope !728
+  %.sroa.9252.0..sroa_idx255 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9252.0.copyload256 = load i64, ptr %.sroa.9252.0..sroa_idx255, align 8, !alias.scope !728
+  %.sroa.12257.0..sroa_idx259 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12257, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12257.0..sroa_idx259, i64 24, i1 false), !alias.scope !728
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit61
 
 194:                                              ; preds = %182
-  %.sroa.9253.0..sroa_idx254 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.9253.0.copyload255 = load i64, ptr %.sroa.9253.0..sroa_idx254, align 8, !alias.scope !728
-  %.sroa.12258.0..sroa_idx259 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12258, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12258.0..sroa_idx259, i64 24, i1 false), !alias.scope !728
+  %.sroa.9252.0..sroa_idx253 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.9252.0.copyload254 = load i64, ptr %.sroa.9252.0..sroa_idx253, align 8, !alias.scope !728
+  %.sroa.12257.0..sroa_idx258 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12257, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12257.0..sroa_idx258, i64 24, i1 false), !alias.scope !728
   br label %_ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit61
 
 195:                                              ; preds = %178
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   invoke void @_ZN5alloc6string6String15from_utf8_lossy17h2d240686c53984d0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %33)
-          to label %196 unwind label %.thread283
+          to label %196 unwind label %.thread282
 
 196:                                              ; preds = %195
   store ptr %17, ptr %15, align 8
@@ -11490,7 +11490,7 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %156
 
 218:                                              ; preds = %215
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
-          to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e41c04fdf508539E.exit89" unwind label %.thread283
+          to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e41c04fdf508539E.exit89" unwind label %.thread282
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h4e41c04fdf508539E.exit89": ; preds = %215, %218
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
@@ -11498,23 +11498,23 @@ _ZN13pingora_error5Error6create17h955b51aae75e18f9E.exit: ; preds = %156
   br label %182
 
 _ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit61: ; preds = %194, %193, %190, %187, %184, %182
-  %.sroa.0250.0 = phi i64 [ 4, %184 ], [ 4, %187 ], [ 4, %190 ], [ 1, %193 ], [ 4, %194 ], [ %183, %182 ]
-  %.sroa.9253.0 = phi i64 [ %186, %184 ], [ %189, %187 ], [ %192, %190 ], [ %.sroa.9253.0.copyload257, %193 ], [ %.sroa.9253.0.copyload255, %194 ], [ undef, %182 ]
-  store i64 %.sroa.0250.0, ptr %1, align 8
-  %.sroa.9253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.sroa.9253.0, ptr %.sroa.9253.0..sroa_idx, align 8
-  %.sroa.12258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12258.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12258, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12258)
+  %.sroa.0249.0 = phi i64 [ 4, %184 ], [ 4, %187 ], [ 4, %190 ], [ 1, %193 ], [ 4, %194 ], [ %183, %182 ]
+  %.sroa.9252.0 = phi i64 [ %186, %184 ], [ %189, %187 ], [ %192, %190 ], [ %.sroa.9252.0.copyload256, %193 ], [ %.sroa.9252.0.copyload254, %194 ], [ undef, %182 ]
+  store i64 %.sroa.0249.0, ptr %1, align 8
+  %.sroa.9252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.sroa.9252.0, ptr %.sroa.9252.0..sroa_idx, align 8
+  %.sroa.12257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12257.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12257, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.12257)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   call void @"_ZN103_$LT$pingora_error..immut_str..ImmutStr$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h0edb9c45e3def6a8E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
-  %.sroa.0269.0.copyload = load i64, ptr %11, align 8
-  %.sroa.5271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.5271.0.copyload = load ptr, ptr %.sroa.5271.0..sroa_idx, align 8
-  %.sroa.6274.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sroa.6274.0.copyload = load i64, ptr %.sroa.6274.0..sroa_idx, align 8
+  %.sroa.0268.0.copyload = load i64, ptr %11, align 8
+  %.sroa.5270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.5270.0.copyload = load ptr, ptr %.sroa.5270.0..sroa_idx, align 8
+  %.sroa.6273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.6273.0.copyload = load i64, ptr %.sroa.6273.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %219 = invoke noundef i8 @"_ZN76_$LT$pingora_error..RetryType$u20$as$u20$core..convert..From$LT$bool$GT$$GT$4from17h714a125d92dedb15E"(i1 noundef zeroext false)
           to label %220 unwind label %233, !noalias !743
@@ -11529,11 +11529,11 @@ _ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.ex
   store i8 %219, ptr %223, align 8, !noalias !743
   %224 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr null, ptr %224, align 8, !noalias !743
-  store i64 %.sroa.0269.0.copyload, ptr %6, align 8, !noalias !748
-  %.sroa.5271.0..sroa_idx272 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %.sroa.5271.0.copyload, ptr %.sroa.5271.0..sroa_idx272, align 8, !noalias !748
-  %.sroa.6274.0..sroa_idx275 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.sroa.6274.0.copyload, ptr %.sroa.6274.0..sroa_idx275, align 8, !noalias !748
+  store i64 %.sroa.0268.0.copyload, ptr %6, align 8, !noalias !748
+  %.sroa.5270.0..sroa_idx271 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %.sroa.5270.0.copyload, ptr %.sroa.5270.0..sroa_idx271, align 8, !noalias !748
+  %.sroa.6273.0..sroa_idx274 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %.sroa.6273.0.copyload, ptr %.sroa.6273.0..sroa_idx274, align 8, !noalias !748
   %225 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !749
   %226 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 73) 72, i64 noundef 8) #30, !noalias !749
   %227 = icmp eq ptr %226, null
@@ -11561,19 +11561,19 @@ _ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.ex
 233:                                              ; preds = %_ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.exit61
   %234 = landingpad { ptr, i32 }
           cleanup
-  %235 = icmp eq i64 %.sroa.0269.0.copyload, 2
+  %235 = icmp eq i64 %.sroa.0268.0.copyload, 2
   br i1 %235, label %common.resume, label %236
 
 236:                                              ; preds = %233
-  %237 = icmp eq i64 %.sroa.0269.0.copyload, 0
-  %238 = icmp eq i64 %.sroa.6274.0.copyload, 0
-  %or.cond286 = select i1 %237, i1 true, i1 %238
-  br i1 %or.cond286, label %common.resume, label %239
+  %237 = icmp eq i64 %.sroa.0268.0.copyload, 0
+  %238 = icmp eq i64 %.sroa.6273.0.copyload, 0
+  %or.cond285 = select i1 %237, i1 true, i1 %238
+  br i1 %or.cond285, label %common.resume, label %239
 
 239:                                              ; preds = %236
-  %240 = icmp ne ptr %.sroa.5271.0.copyload, null
+  %240 = icmp ne ptr %.sroa.5270.0.copyload, null
   call void @llvm.assume(i1 %240)
-  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.5271.0.copyload, i64 noundef range(i64 1, 0) %.sroa.6274.0.copyload, i64 noundef 1) #30, !noalias !752
+  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.5270.0.copyload, i64 noundef range(i64 1, 0) %.sroa.6273.0.copyload, i64 noundef 1) #30, !noalias !752
   br label %common.resume
 
 241:                                              ; preds = %220
@@ -11586,8 +11586,8 @@ _ZN12pingora_core9protocols4http2v14body10ParseState4done17ha0800ed74e9b893dE.ex
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %127
 
-.thread:                                          ; preds = %203, %199, %.thread283
-  %.pn279 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread283 ], [ %200, %199 ], [ %200, %203 ]
+.thread:                                          ; preds = %203, %199, %.thread282
+  %.pn278 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread282 ], [ %200, %199 ], [ %200, %203 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he2e2c010ce1ff569E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #28
           to label %common.resume unwind label %128
 }
@@ -11773,11 +11773,11 @@ define noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26client12Http2Ses
           to label %.noexc66 unwind label %117
 
 .noexc66:                                         ; preds = %46
-  %.sroa.043.0.copyload.i = load i64, ptr %12, align 8, !noalias !758
-  %.sroa.545.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.545.0.copyload.i = load ptr, ptr %.sroa.545.0..sroa_idx.i, align 8, !noalias !758
-  %.sroa.648.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sroa.648.0.copyload.i = load i64, ptr %.sroa.648.0..sroa_idx.i, align 8, !noalias !758
+  %.sroa.042.0.copyload.i = load i64, ptr %12, align 8, !noalias !758
+  %.sroa.544.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sroa.544.0.copyload.i = load ptr, ptr %.sroa.544.0..sroa_idx.i, align 8, !noalias !758
+  %.sroa.647.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.647.0.copyload.i = load i64, ptr %.sroa.647.0..sroa_idx.i, align 8, !noalias !758
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !758
   %47 = invoke noundef i8 @"_ZN76_$LT$pingora_error..RetryType$u20$as$u20$core..convert..From$LT$bool$GT$$GT$4from17h714a125d92dedb15E"(i1 noundef zeroext false)
           to label %48 unwind label %61, !noalias !761
@@ -11792,11 +11792,11 @@ define noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26client12Http2Ses
   store i8 %47, ptr %51, align 8, !noalias !765
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr null, ptr %52, align 8, !noalias !765
-  store i64 %.sroa.043.0.copyload.i, ptr %9, align 8, !noalias !767
-  %.sroa.545.0..sroa_idx46.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %.sroa.545.0.copyload.i, ptr %.sroa.545.0..sroa_idx46.i, align 8, !noalias !767
-  %.sroa.648.0..sroa_idx49.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %.sroa.648.0.copyload.i, ptr %.sroa.648.0..sroa_idx49.i, align 8, !noalias !767
+  store i64 %.sroa.042.0.copyload.i, ptr %9, align 8, !noalias !767
+  %.sroa.544.0..sroa_idx45.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %.sroa.544.0.copyload.i, ptr %.sroa.544.0..sroa_idx45.i, align 8, !noalias !767
+  %.sroa.647.0..sroa_idx48.i = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %.sroa.647.0.copyload.i, ptr %.sroa.647.0..sroa_idx48.i, align 8, !noalias !767
   %53 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !768
   %54 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 73) 72, i64 noundef 8) #30, !noalias !771
   %55 = icmp eq ptr %54, null
@@ -11824,19 +11824,19 @@ define noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26client12Http2Ses
 61:                                               ; preds = %.noexc66
   %62 = landingpad { ptr, i32 }
           cleanup
-  %63 = icmp eq i64 %.sroa.043.0.copyload.i, 2
+  %63 = icmp eq i64 %.sroa.042.0.copyload.i, 2
   br i1 %63, label %.body73, label %64
 
 64:                                               ; preds = %61
-  %65 = icmp eq i64 %.sroa.043.0.copyload.i, 0
-  %66 = icmp eq i64 %.sroa.648.0.copyload.i, 0
+  %65 = icmp eq i64 %.sroa.042.0.copyload.i, 0
+  %66 = icmp eq i64 %.sroa.647.0.copyload.i, 0
   %or.cond.i = select i1 %65, i1 true, i1 %66
   br i1 %or.cond.i, label %.body73, label %67
 
 67:                                               ; preds = %64
-  %68 = icmp ne ptr %.sroa.545.0.copyload.i, null
+  %68 = icmp ne ptr %.sroa.544.0.copyload.i, null
   tail call void @llvm.assume(i1 %68)
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.545.0.copyload.i, i64 noundef range(i64 1, 0) %.sroa.648.0.copyload.i, i64 noundef 1) #30, !noalias !772
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.544.0.copyload.i, i64 noundef range(i64 1, 0) %.sroa.647.0.copyload.i, i64 noundef 1) #30, !noalias !772
   br label %.body73
 
 .thread86:                                        ; preds = %48
@@ -11894,8 +11894,8 @@ define noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26client12Http2Ses
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h65a60391a6d8613eE", ptr %.sroa.424.0..sroa_idx.i, align 8, !noalias !758
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !778
   store ptr @anon.e7500836e724f5eafa96e7ccf286267f.290, ptr %8, align 8, !noalias !785
-  %.sroa.442.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 1, ptr %.sroa.442.0..sroa_idx.i, align 8, !noalias !785
+  %.sroa.441.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 1, ptr %.sroa.441.0..sroa_idx.i, align 8, !noalias !785
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %13, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !785
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -11913,11 +11913,11 @@ define noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26client12Http2Ses
           to label %.noexc70 unwind label %117
 
 .noexc70:                                         ; preds = %.noexc69
-  %.sroa.051.0.copyload.i = load i64, ptr %11, align 8, !noalias !758
-  %.sroa.553.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.553.0.copyload.i = load ptr, ptr %.sroa.553.0..sroa_idx.i, align 8, !noalias !758
-  %.sroa.656.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sroa.656.0.copyload.i = load i64, ptr %.sroa.656.0..sroa_idx.i, align 8, !noalias !758
+  %.sroa.050.0.copyload.i = load i64, ptr %11, align 8, !noalias !758
+  %.sroa.552.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.552.0.copyload.i = load ptr, ptr %.sroa.552.0..sroa_idx.i, align 8, !noalias !758
+  %.sroa.655.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.655.0.copyload.i = load i64, ptr %.sroa.655.0..sroa_idx.i, align 8, !noalias !758
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !758
   %88 = invoke noundef i8 @"_ZN76_$LT$pingora_error..RetryType$u20$as$u20$core..convert..From$LT$bool$GT$$GT$4from17h714a125d92dedb15E"(i1 noundef zeroext false)
           to label %89 unwind label %102, !noalias !786
@@ -11932,11 +11932,11 @@ define noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26client12Http2Ses
   store i8 %88, ptr %92, align 8, !noalias !790
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %93, align 8, !noalias !790
-  store i64 %.sroa.051.0.copyload.i, ptr %7, align 8, !noalias !792
-  %.sroa.553.0..sroa_idx54.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.sroa.553.0.copyload.i, ptr %.sroa.553.0..sroa_idx54.i, align 8, !noalias !792
-  %.sroa.656.0..sroa_idx57.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %.sroa.656.0.copyload.i, ptr %.sroa.656.0..sroa_idx57.i, align 8, !noalias !792
+  store i64 %.sroa.050.0.copyload.i, ptr %7, align 8, !noalias !792
+  %.sroa.552.0..sroa_idx53.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %.sroa.552.0.copyload.i, ptr %.sroa.552.0..sroa_idx53.i, align 8, !noalias !792
+  %.sroa.655.0..sroa_idx56.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 %.sroa.655.0.copyload.i, ptr %.sroa.655.0..sroa_idx56.i, align 8, !noalias !792
   %94 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !793
   %95 = call noalias noundef align 8 dereferenceable_or_null(72) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 73) 72, i64 noundef 8) #30, !noalias !796
   %96 = icmp eq ptr %95, null
@@ -11964,19 +11964,19 @@ define noundef align 8 ptr @_ZN12pingora_core9protocols4http2v26client12Http2Ses
 102:                                              ; preds = %.noexc70
   %103 = landingpad { ptr, i32 }
           cleanup
-  %104 = icmp eq i64 %.sroa.051.0.copyload.i, 2
+  %104 = icmp eq i64 %.sroa.050.0.copyload.i, 2
   br i1 %104, label %.body73, label %105
 
 105:                                              ; preds = %102
-  %106 = icmp eq i64 %.sroa.051.0.copyload.i, 0
-  %107 = icmp eq i64 %.sroa.656.0.copyload.i, 0
-  %or.cond66.i = select i1 %106, i1 true, i1 %107
-  br i1 %or.cond66.i, label %.body73, label %108
+  %106 = icmp eq i64 %.sroa.050.0.copyload.i, 0
+  %107 = icmp eq i64 %.sroa.655.0.copyload.i, 0
+  %or.cond65.i = select i1 %106, i1 true, i1 %107
+  br i1 %or.cond65.i, label %.body73, label %108
 
 108:                                              ; preds = %105
-  %109 = icmp ne ptr %.sroa.553.0.copyload.i, null
+  %109 = icmp ne ptr %.sroa.552.0.copyload.i, null
   call void @llvm.assume(i1 %109)
-  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.553.0.copyload.i, i64 noundef range(i64 1, 0) %.sroa.656.0.copyload.i, i64 noundef 1) #30, !noalias !797
+  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.552.0.copyload.i, i64 noundef range(i64 1, 0) %.sroa.655.0.copyload.i, i64 noundef 1) #30, !noalias !797
   br label %.body73
 
 110:                                              ; preds = %.noexc68
@@ -12560,8 +12560,8 @@ define void @_ZN12pingora_core9protocols4http2v26client12Http2Session27check_res
 
 56:                                               ; preds = %55
   %.sroa.017.0.copyload = load i64, ptr %7, align 8
-  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.519.0.copyload = load ptr, ptr %.sroa.519.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -12579,10 +12579,10 @@ define void @_ZN12pingora_core9protocols4http2v26client12Http2Session27check_res
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %62, align 8, !noalias !857
   store i64 %.sroa.017.0.copyload, ptr %3, align 8, !noalias !862
-  %.sroa.519.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sroa.519.0.copyload, ptr %.sroa.519.0..sroa_idx20, align 8, !noalias !862
-  %.sroa.6.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx22, align 8, !noalias !862
+  %.sroa.5.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx19, align 8, !noalias !862
+  %.sroa.6.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx21, align 8, !noalias !862
   %63 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !863
   %64 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 16, 73) 72, i64 noundef 8) #30, !noalias !863
   %65 = icmp eq ptr %64, null
@@ -12620,9 +12620,9 @@ define void @_ZN12pingora_core9protocols4http2v26client12Http2Session27check_res
   br i1 %or.cond, label %.body, label %77
 
 77:                                               ; preds = %74
-  %78 = icmp ne ptr %.sroa.519.0.copyload, null
+  %78 = icmp ne ptr %.sroa.5.0.copyload, null
   tail call void @llvm.assume(i1 %78)
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.519.0.copyload, i64 noundef range(i64 1, 0) %.sroa.6.0.copyload, i64 noundef 1) #30, !noalias !866
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.sroa.5.0.copyload, i64 noundef range(i64 1, 0) %.sroa.6.0.copyload, i64 noundef 1) #30, !noalias !866
   br label %.body
 
 79:                                               ; preds = %58

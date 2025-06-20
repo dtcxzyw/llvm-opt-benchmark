@@ -369,7 +369,6 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   %35 = alloca [24 x i8], align 8
   %36 = alloca [24 x i8], align 8
   %37 = alloca [64 x i8], align 8
-  %.sroa.6457 = alloca [6 x i8], align 2
   %38 = alloca [64 x i8], align 8
   %39 = alloca [104 x i8], align 8
   %.sroa.4969 = alloca [24 x i8], align 8
@@ -448,7 +447,6 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   %110 = alloca [16 x i8], align 8
   %111 = alloca [16 x i8], align 8
   %112 = alloca [16 x i8], align 8
-  %.sroa.657 = alloca [40 x i8], align 8
   %113 = alloca [24 x i8], align 8
   %114 = alloca [16 x i8], align 8
   %115 = alloca [104 x i8], align 8
@@ -866,7 +864,6 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   br i1 %245, label %261, label %257
 
 "_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.thread992": ; preds = %231, %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit"
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.657)
   %246 = and i64 %234, 1
   %247 = icmp eq i64 %246, 0
   br i1 %247, label %248, label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.exit"
@@ -906,7 +903,6 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
 .thread1105:                                      ; preds = %263
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %112)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %111)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.6457)
   br label %270
 
 266:                                              ; preds = %261
@@ -919,7 +915,6 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   %.pre1101 = load i8, ptr %.phi.trans.insert, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %112)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %111)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.6457)
   %269 = icmp eq i8 %.pre1101, 0
   br i1 %269, label %277, label %270
 
@@ -947,9 +942,6 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   store i8 %.sroa.5451.0, ptr %.sroa.5451.0..sroa_idx452, align 8
   %.sroa.5454.0..sroa_idx455 = getelementptr inbounds nuw i8, ptr %111, i64 9
   store i8 %282, ptr %.sroa.5454.0..sroa_idx455, align 1
-  %.sroa.6457.0..sroa_idx458 = getelementptr inbounds nuw i8, ptr %111, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.6457.0..sroa_idx458, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.6457, i64 6, i1 false)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.6457)
   invoke fastcc void @_ZN9uv_pep4407version7Version13without_local17heb1720d5cea04adbE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %112, ptr noalias noundef align 8 captures(none) dereferenceable(16) %111)
           to label %287 unwind label %238
 
@@ -2849,9 +2841,6 @@ common.resume:                                    ; preds = %857, %"_ZN4core3ptr
   store ptr %.val, ptr %.sroa.455.0..sroa_idx, align 8
   %.sroa.556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.val879, ptr %.sroa.556.0..sroa_idx, align 8
-  %.sroa.657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.657.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.657, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.657)
   br label %812
 
 "_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17h3f627b8589c184a4E.exit917": ; preds = %815, %812, %819, %787, %826

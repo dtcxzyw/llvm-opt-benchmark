@@ -349,8 +349,8 @@ define hidden void @"_ZN104_$LT$ruff_formatter..builders..Group$LT$Context$GT$$u
 
 37:                                               ; preds = %.lr.ph.i
   %.sroa.7.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.215.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx6, i64 20, i1 false)
+  %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.214.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx6, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !10
   br label %38
 
@@ -504,8 +504,8 @@ define internal void @"_ZN109_$LT$ruff_formatter..builders..LineSuffix$LT$Contex
 
 26:                                               ; preds = %.lr.ph.i
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.213.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx5, i64 20, i1 false)
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.212.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx5, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !29
   br label %27
 
@@ -564,8 +564,8 @@ define hidden void @"_ZN110_$LT$ruff_formatter..builders..BestFitting$LT$Context
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %33 = getelementptr inbounds nuw { { ptr, ptr } }, ptr %13, i64 %15
-  %.not1037 = icmp eq i64 %15, 0
-  br i1 %.not1037, label %._crit_edge, label %.lr.ph
+  %.not1036 = icmp eq i64 %15, 0
+  br i1 %.not1036, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h712c76d0a8d1ecdfE.exit"
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -575,8 +575,8 @@ define hidden void @"_ZN110_$LT$ruff_formatter..builders..BestFitting$LT$Context
 
 37:                                               ; preds = %.lr.ph, %76
   %38 = phi i64 [ 0, %.lr.ph ], [ %79, %76 ]
-  %.sroa.07.038 = phi ptr [ %13, %.lr.ph ], [ %39, %76 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.07.038, i64 16
+  %.sroa.07.037 = phi ptr [ %13, %.lr.ph ], [ %39, %76 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.07.037, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   store i8 26, ptr %34, align 8
   store i8 10, ptr %11, align 8
@@ -639,8 +639,8 @@ define hidden void @"_ZN110_$LT$ruff_formatter..builders..BestFitting$LT$Context
   store ptr @anon.93b0b4dae9c7f65659addb40567bf4a2.4, ptr %35, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !46)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !49
-  %60 = load ptr, ptr %.sroa.07.038, align 8, !alias.scope !46, !noalias !52, !nonnull !3, !align !4, !noundef !3
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.07.038, i64 8
+  %60 = load ptr, ptr %.sroa.07.037, align 8, !alias.scope !46, !noalias !52, !nonnull !3, !align !4, !noundef !3
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.07.037, i64 8
   %62 = load ptr, ptr %61, align 8, !alias.scope !46, !noalias !52, !nonnull !3, !align !5, !noundef !3
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !invariant.load !3, !noalias !53, !nonnull !3
@@ -666,8 +666,8 @@ define hidden void @"_ZN110_$LT$ruff_formatter..builders..BestFitting$LT$Context
 
 70:                                               ; preds = %.noexc
   %.sroa.7.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.224.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx15, i64 20, i1 false)
+  %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.223.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx15, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -706,10 +706,10 @@ define hidden void @"_ZN110_$LT$ruff_formatter..builders..BestFitting$LT$Context
   ret void
 
 81:                                               ; preds = %.body.thread
-  resume { ptr, i32 } %eh.lpad-body26
+  resume { ptr, i32 } %eh.lpad-body25
 
 .body.thread:                                     ; preds = %.loopexit, %72, %43
-  %eh.lpad-body26 = phi { ptr, i32 } [ %44, %43 ], [ %lpad.loopexit, %.loopexit ], [ %73, %72 ]
+  %eh.lpad-body25 = phi { ptr, i32 } [ %44, %43 ], [ %lpad.loopexit, %.loopexit ], [ %73, %72 ]
   invoke void @"_ZN4core3ptr109drop_in_place$LT$ruff_formatter..buffer..VecBuffer$LT$ruff_python_formatter..context..PyFormatContext$GT$$GT$17h71d59a33989463c6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #26
           to label %81 unwind label %82
 
@@ -1029,9 +1029,9 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   ret void
 
 133:                                              ; preds = %.noexc31
-  %.sroa.7.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.sroa.2105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.2105.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx67, i64 20, i1 false)
+  %.sroa.7.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sroa.2104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.2104.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx66, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !84
   store i32 %63, ptr %0, align 8
   %.val11 = load ptr, ptr %15, align 8, !noundef !3
@@ -1089,32 +1089,32 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i39
-  %lpad.loopexit118 = landingpad { ptr, i32 }
+  %lpad.loopexit117 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph.i45
-  %lpad.loopexit121 = landingpad { ptr, i32 }
+  %lpad.loopexit120 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.lr.ph.i27
-  %lpad.loopexit123 = landingpad { ptr, i32 }
+  %lpad.loopexit122 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.lr.ph.i
-  %lpad.loopexit126 = landingpad { ptr, i32 }
+  %lpad.loopexit125 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.lr.ph.i15
-  %lpad.loopexit128 = landingpad { ptr, i32 }
+  %lpad.loopexit127 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.lr.ph.i21
-  %lpad.loopexit131 = landingpad { ptr, i32 }
+  %lpad.loopexit130 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -1124,7 +1124,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit118, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit121, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit123, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit126, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit128, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit131, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit117, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit120, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit122, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit125, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit127, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit130, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.val13 = load ptr, ptr %15, align 8, !noundef !3
   %159 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.val14 = load ptr, ptr %159, align 8
@@ -1787,8 +1787,8 @@ define hidden void @"_ZN112_$LT$ruff_formatter..builders..IfGroupBreaks$LT$Conte
 
 36:                                               ; preds = %.lr.ph.i
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.214.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx5, i64 20, i1 false)
+  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.213.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx5, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !262
   br label %37
 
@@ -1847,8 +1847,8 @@ define hidden void @"_ZN118_$LT$ruff_formatter..builders..BestFitParenthesize$LT
 
 26:                                               ; preds = %.lr.ph.i
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.213.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx5, i64 20, i1 false)
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.212.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx5, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !270
   br label %27
 
@@ -1907,8 +1907,8 @@ define hidden void @"_ZN118_$LT$ruff_formatter..builders..IndentIfGroupBreaks$LT
 
 26:                                               ; preds = %.lr.ph.i
   %.sroa.7.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.213.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx5, i64 20, i1 false)
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.212.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx5, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !279
   br label %27
 

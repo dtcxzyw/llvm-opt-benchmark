@@ -2002,7 +2002,6 @@ define hidden void @_ZN10xmp_writer5types7Element20language_alternative17h9e2740
   %12 = alloca [2 x { ptr, ptr }], align 8
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %14 = alloca { ptr, i64 }, align 8
-  %.sroa.839 = alloca [2 x i64], align 8
   %15 = alloca { { i64, [4 x i64] }, ptr, { ptr, i64 }, i8, [7 x i8] }, align 8
   %16 = alloca { { i64, [4 x i64] }, ptr, { ptr, i64 } }, align 8
   %17 = alloca { { i64, [4 x i64] }, ptr, { ptr, i64 }, i8, [7 x i8] }, align 8
@@ -2025,7 +2024,6 @@ _ZN10xmp_writer5types9Namespace6prefix17hf8693f8835811e55E.exit.i: ; preds = %"_
   %. = select i1 %19, i64 9, i64 %.sroa.028.sroa.4.0.copyload
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !align !131, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.839)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !427)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !430)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
@@ -2152,10 +2150,7 @@ _ZN10xmp_writer5types9Namespace6prefix17hf8693f8835811e55E.exit.i: ; preds = %"_
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i64 %50, ptr %53, align 8, !alias.scope !427, !noalias !457
   store i64 0, ptr %16, align 8, !alias.scope !458, !noalias !459
-  %.sroa.839.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.839.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.839, i64 16, i1 false), !alias.scope !458, !noalias !459
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.839)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %.sroa.028.sroa.5.0.copyload, ptr %3, align 8, !noalias !460
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 8

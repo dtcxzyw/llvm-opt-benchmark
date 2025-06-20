@@ -320,8 +320,8 @@ default.unreachable:                              ; preds = %17
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h28160b8830080f9bE.llvm.14766313156815909311.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h28160b8830080f9bE.llvm.14766313156815909311.exit": ; preds = %47, %50
-  %.sink.i9 = phi i64 [ -9223372036854775804, %50 ], [ -9223372036854775806, %47 ]
-  store i64 %.sink.i9, ptr %0, align 8, !alias.scope !46, !noalias !49
+  %.sink.i8 = phi i64 [ -9223372036854775804, %50 ], [ -9223372036854775806, %47 ]
+  store i64 %.sink.i8, ptr %0, align 8, !alias.scope !46, !noalias !49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %53
 

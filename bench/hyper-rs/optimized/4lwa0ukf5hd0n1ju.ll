@@ -134,7 +134,7 @@ define noalias noundef ptr @_ZN5hyper7upgrade9OnUpgrade4none17h1325e06a43bd5fdeE
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..future..Future$GT$4poll17h34471d8b64ebc9d9E"(ptr noalias noundef writeonly sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i8 }, align 8
-  %.sroa.820 = alloca [4 x i64], align 8
+  %.sroa.819 = alloca [4 x i64], align 8
   %5 = alloca { i64, [6 x i64] }, align 8
   %6 = load ptr, ptr %1, align 8, !noundef !18
   %7 = icmp eq ptr %6, null
@@ -229,17 +229,17 @@ common.resume:                                    ; preds = %34, %27
   br i1 %38, label %48, label %39
 
 39:                                               ; preds = %36
-  %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.427.0.copyload = load ptr, ptr %.sroa.427.0..sroa_idx, align 8
-  %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.528.0.copyload = load ptr, ptr %.sroa.528.0..sroa_idx, align 8
-  %.sroa.629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.820)
+  %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.426.0.copyload = load ptr, ptr %.sroa.426.0..sroa_idx, align 8
+  %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sroa.527.0.copyload = load ptr, ptr %.sroa.527.0..sroa_idx, align 8
+  %.sroa.628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.819)
   %trunc.i8 = trunc nuw i64 %37 to i1
   br i1 %trunc.i8, label %42, label %40
 
 40:                                               ; preds = %39
-  %41 = icmp eq ptr %.sroa.427.0.copyload, null
+  %41 = icmp eq ptr %.sroa.426.0.copyload, null
   br i1 %41, label %46, label %45
 
 42:                                               ; preds = %39
@@ -254,11 +254,11 @@ common.resume:                                    ; preds = %34, %27
           to label %"_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h602be501d17ab61aE.exit" unwind label %34
 
 45:                                               ; preds = %40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.820, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.629.0..sroa_idx, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.819, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.628.0..sroa_idx, i64 32, i1 false)
   br label %"_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h602be501d17ab61aE.exit"
 
 46:                                               ; preds = %40
-  %47 = icmp ne ptr %.sroa.528.0.copyload, null
+  %47 = icmp ne ptr %.sroa.527.0.copyload, null
   tail call void @llvm.assume(i1 %47)
   br label %"_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h602be501d17ab61aE.exit"
 
@@ -267,16 +267,16 @@ common.resume:                                    ; preds = %34, %27
   br label %50
 
 "_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h602be501d17ab61aE.exit": ; preds = %46, %45, %.noexc
-  %.sroa.016.0 = phi ptr [ null, %46 ], [ %.sroa.427.0.copyload, %45 ], [ null, %.noexc ]
-  %.sroa.6.0 = phi ptr [ %.sroa.528.0.copyload, %46 ], [ %.sroa.528.0.copyload, %45 ], [ %44, %.noexc ]
+  %.sroa.015.0 = phi ptr [ null, %46 ], [ %.sroa.426.0.copyload, %45 ], [ null, %.noexc ]
+  %.sroa.6.0 = phi ptr [ %.sroa.527.0.copyload, %46 ], [ %.sroa.527.0.copyload, %45 ], [ %44, %.noexc ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.016.0, ptr %49, align 8
+  store ptr %.sroa.015.0, ptr %49, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.820.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.820.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.820, i64 32, i1 false)
+  %.sroa.819.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.819.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.819, i64 32, i1 false)
   store i64 0, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.820)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.819)
   br label %50
 
 50:                                               ; preds = %"_ZN74_$LT$hyper..upgrade..OnUpgrade$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h602be501d17ab61aE.exit", %48

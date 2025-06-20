@@ -2512,9 +2512,9 @@ define hidden void @_ZN5ecdsa6hazmat14sign_prehashed17hacfaddf9b3feb6e3E(ptr noa
   %.sroa.4.8.copyload = load ptr, ptr %23, align 8, !alias.scope !734
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.6.8.copyload = load ptr, ptr %.sroa.6.8..sroa_idx, align 8, !alias.scope !734
-  %.sroa.753.8..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %.sroa.7.8..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 16
   %.sroa.12.8..sroa_idx4 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.8..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.753.8..sroa_idx, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.8..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.8..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23)
   store ptr %.sroa.4.8.copyload, ptr %22, align 8
   %.sroa.10.8..sroa_idx2 = getelementptr inbounds nuw i8, ptr %22, i64 8

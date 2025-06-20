@@ -2592,10 +2592,10 @@ define hidden void @"_ZN2h25proto7streams5store14Queue$LT$N$GT$3pop17h8d25fab8ca
   call void @llvm.experimental.noalias.scope.decl(metadata !404)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %.sroa.017.0.copyload = load i32, ptr %15, align 8, !alias.scope !407
-  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 188
-  %.sroa.418.0.copyload = load i32, ptr %.sroa.418.0..sroa_idx, align 4, !alias.scope !407
-  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 192
-  %.sroa.519.0.copyload = load i32, ptr %.sroa.519.0..sroa_idx, align 8, !alias.scope !407
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 188
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !alias.scope !407
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 192
+  %.sroa.518.0.copyload = load i32, ptr %.sroa.518.0..sroa_idx, align 8, !alias.scope !407
   store i32 0, ptr %15, align 8, !alias.scope !409, !noalias !404
   %trunc = trunc nuw i32 %.sroa.017.0.copyload to i1
   br i1 %trunc, label %20, label %19
@@ -2613,8 +2613,8 @@ define hidden void @"_ZN2h25proto7streams5store14Queue$LT$N$GT$3pop17h8d25fab8ca
 
 20:                                               ; preds = %13
   store i32 1, ptr %1, align 4
-  store i32 %.sroa.418.0.copyload, ptr %7, align 4
-  store i32 %.sroa.519.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4
+  store i32 %.sroa.4.0.copyload, ptr %7, align 4
+  store i32 %.sroa.518.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4
   br label %21
 
 21:                                               ; preds = %25, %20
@@ -2673,10 +2673,10 @@ define hidden void @"_ZN2h25proto7streams5store14Queue$LT$N$GT$3pop17hb1172367ce
   call void @llvm.experimental.noalias.scope.decl(metadata !418)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 196
   %.sroa.017.0.copyload = load i32, ptr %15, align 4, !alias.scope !421
-  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 200
-  %.sroa.418.0.copyload = load i32, ptr %.sroa.418.0..sroa_idx, align 8, !alias.scope !421
-  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 204
-  %.sroa.519.0.copyload = load i32, ptr %.sroa.519.0..sroa_idx, align 4, !alias.scope !421
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 200
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !421
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 204
+  %.sroa.518.0.copyload = load i32, ptr %.sroa.518.0..sroa_idx, align 4, !alias.scope !421
   store i32 0, ptr %15, align 4, !alias.scope !423, !noalias !418
   %trunc = trunc nuw i32 %.sroa.017.0.copyload to i1
   br i1 %trunc, label %20, label %19
@@ -2694,8 +2694,8 @@ define hidden void @"_ZN2h25proto7streams5store14Queue$LT$N$GT$3pop17hb1172367ce
 
 20:                                               ; preds = %13
   store i32 1, ptr %1, align 4
-  store i32 %.sroa.418.0.copyload, ptr %7, align 4
-  store i32 %.sroa.519.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4
+  store i32 %.sroa.4.0.copyload, ptr %7, align 4
+  store i32 %.sroa.518.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4
   br label %21
 
 21:                                               ; preds = %25, %20
@@ -2754,10 +2754,10 @@ define hidden void @"_ZN2h25proto7streams5store14Queue$LT$N$GT$3pop17he472c8fe59
   call void @llvm.experimental.noalias.scope.decl(metadata !432)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 232
   %.sroa.017.0.copyload = load i32, ptr %15, align 8, !alias.scope !435
-  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 236
-  %.sroa.418.0.copyload = load i32, ptr %.sroa.418.0..sroa_idx, align 4, !alias.scope !435
-  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 240
-  %.sroa.519.0.copyload = load i32, ptr %.sroa.519.0..sroa_idx, align 8, !alias.scope !435
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 236
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !alias.scope !435
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 240
+  %.sroa.518.0.copyload = load i32, ptr %.sroa.518.0..sroa_idx, align 8, !alias.scope !435
   store i32 0, ptr %15, align 8, !alias.scope !437, !noalias !432
   %trunc = trunc nuw i32 %.sroa.017.0.copyload to i1
   br i1 %trunc, label %20, label %19
@@ -2775,8 +2775,8 @@ define hidden void @"_ZN2h25proto7streams5store14Queue$LT$N$GT$3pop17he472c8fe59
 
 20:                                               ; preds = %13
   store i32 1, ptr %1, align 4
-  store i32 %.sroa.418.0.copyload, ptr %7, align 4
-  store i32 %.sroa.519.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4
+  store i32 %.sroa.4.0.copyload, ptr %7, align 4
+  store i32 %.sroa.518.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4
   br label %21
 
 21:                                               ; preds = %25, %20

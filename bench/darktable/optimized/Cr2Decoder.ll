@@ -2394,7 +2394,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK8rawspeed10Cr2Decoder20decodeCanonColorDataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.071.i = alloca %"struct.std::_Optional_payload.90", align 8
-  %.sroa.082 = alloca %"struct.std::_Optional_payload.90", align 8
+  %.sroa.083 = alloca %"struct.std::_Optional_payload.90", align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %3, i16 noundef zeroext 16385) #30
@@ -2402,7 +2402,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10Cr2Decoder20decodeCanonColorDat
   br i1 %.not, label %94, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.082)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.083)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.071.i)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !85
@@ -2413,8 +2413,8 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10Cr2Decoder20decodeCanonColorDat
 
 8:                                                ; preds = %5
   store i8 0, ptr %.sroa.071.i, align 8
-  %.sroa.071.i.4.i.4.i.4..sroa_idx149 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
-  store i64 0, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx149, align 4
+  %.sroa.071.i.4.i.4.i.4..sroa_idx134 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
+  store i64 0, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx134, align 4
   br label %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
 
 9:                                                ; preds = %5
@@ -2447,26 +2447,26 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10Cr2Decoder20decodeCanonColorDat
 
 13:                                               ; preds = %10
   store i8 2, ptr %.sroa.071.i, align 8
-  %.sroa.071.i.4.i.4.i.4..sroa_idx155 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
-  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx155, align 4
-  %.sroa.071.i.8.i.8.i.8..sroa_idx160 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
-  store i8 1, ptr %.sroa.071.i.8.i.8.i.8..sroa_idx160, align 8
+  %.sroa.071.i.4.i.4.i.4..sroa_idx140 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
+  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx140, align 4
+  %.sroa.071.i.8.i.8.i.8..sroa_idx145 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
+  store i8 1, ptr %.sroa.071.i.8.i.8.i.8..sroa_idx145, align 8
   br label %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
 
 14:                                               ; preds = %10, %10, %10, %10, %10, %10, %10
   store i8 3, ptr %.sroa.071.i, align 8
-  %.sroa.071.i.4.i.4.i.4..sroa_idx154 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
-  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx154, align 4
-  %.sroa.071.i.8.i.8.i.8..sroa_idx159 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
-  store i8 1, ptr %.sroa.071.i.8.i.8.i.8..sroa_idx159, align 8
+  %.sroa.071.i.4.i.4.i.4..sroa_idx139 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
+  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx139, align 4
+  %.sroa.071.i.8.i.8.i.8..sroa_idx144 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
+  store i8 1, ptr %.sroa.071.i.8.i.8.i.8..sroa_idx144, align 8
   br label %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
 
 15:                                               ; preds = %10, %10
   store i8 4, ptr %.sroa.071.i, align 8
-  %.sroa.071.i.4.i.4.i.4..sroa_idx153 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
-  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx153, align 4
-  %.sroa.071.i.8.i.8.i.8..sroa_idx158 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
-  store i8 1, ptr %.sroa.071.i.8.i.8.i.8..sroa_idx158, align 8
+  %.sroa.071.i.4.i.4.i.4..sroa_idx138 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
+  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx138, align 4
+  %.sroa.071.i.8.i.8.i.8..sroa_idx143 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
+  store i8 1, ptr %.sroa.071.i.8.i.8.i.8..sroa_idx143, align 8
   br label %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
 
 16:                                               ; preds = %10
@@ -2476,47 +2476,47 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10Cr2Decoder20decodeCanonColorDat
   %switch.selectcmp.i.i = icmp eq i32 %switch.and.i.i, 0
   %19 = select i1 %switch.selectcmp.i.i, i8 5, i8 6
   store i8 %19, ptr %.sroa.071.i, align 8
-  %.sroa.071.i.4.i.4.i.4..sroa_idx152 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
-  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx152, align 4
-  %.sroa.071.i.8.i.8.i.8..sroa_idx157 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
-  store i8 1, ptr %.sroa.071.i.8.i.8.i.8..sroa_idx157, align 8
+  %.sroa.071.i.4.i.4.i.4..sroa_idx137 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
+  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx137, align 4
+  %.sroa.071.i.8.i.8.i.8..sroa_idx142 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
+  store i8 1, ptr %.sroa.071.i.8.i.8.i.8..sroa_idx142, align 8
   br label %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
 
 20:                                               ; preds = %10
   store i8 6, ptr %.sroa.071.i, align 8
-  %.sroa.071.i.4.i.4.i.4..sroa_idx151 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
-  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx151, align 4
-  %.sroa.071.i.8.i.8.i.8..sroa_idx156 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
-  store i8 1, ptr %.sroa.071.i.8.i.8.i.8..sroa_idx156, align 8
+  %.sroa.071.i.4.i.4.i.4..sroa_idx136 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
+  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx136, align 4
+  %.sroa.071.i.8.i.8.i.8..sroa_idx141 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
+  store i8 1, ptr %.sroa.071.i.8.i.8.i.8..sroa_idx141, align 8
   br label %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
 
 21:                                               ; preds = %10, %10, %10, %10
   store i8 7, ptr %.sroa.071.i, align 8
-  %.sroa.071.i.4.i.4.i.4..sroa_idx150 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
-  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx150, align 4
+  %.sroa.071.i.4.i.4.i.4..sroa_idx135 = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 4
+  store i32 %12, ptr %.sroa.071.i.4.i.4.i.4..sroa_idx135, align 4
   %.sroa.071.i.8.i.8.i.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
   store i8 1, ptr %.sroa.071.i.8.i.8.i.8..sroa_idx, align 8
   br label %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
 
-_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit: ; preds = %10, %8, %9, %13, %14, %15, %16, %20, %21
-  %.sink = phi i8 [ 1, %8 ], [ 1, %9 ], [ 1, %13 ], [ 1, %14 ], [ 1, %15 ], [ 1, %16 ], [ 1, %20 ], [ 1, %21 ], [ 0, %10 ]
+_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit: ; preds = %8, %9, %10, %13, %14, %15, %16, %20, %21
+  %.sink.i = phi i8 [ 1, %21 ], [ 1, %20 ], [ 1, %16 ], [ 1, %15 ], [ 1, %14 ], [ 1, %13 ], [ 1, %9 ], [ 1, %8 ], [ 0, %10 ]
   %.sroa.071.i.12.i.12.i.12..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 12
-  store i8 %.sink, ptr %.sroa.071.i.12.i.12.i.12..sroa_idx, align 4, !tbaa !227
+  store i8 %.sink.i, ptr %.sroa.071.i.12.i.12.i.12..sroa_idx, align 4, !tbaa !227
   %.sroa.071.i.0..sroa.071.i.0..sroa.071.i.0..sroa.071.0..sroa.071.0..sroa.071.0..fca.0.load.i = load i64, ptr %.sroa.071.i, align 8
   %.sroa.071.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.071.i, i64 8
   %.sroa.071.i.8..sroa.071.i.8..sroa.071.i.8..sroa.071.8..sroa.071.8..sroa.071.8..fca.1.load.i = load i64, ptr %.sroa.071.i.8.i.8.i.8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.071.i)
-  store i64 %.sroa.071.i.0..sroa.071.i.0..sroa.071.i.0..sroa.071.0..sroa.071.0..sroa.071.0..fca.0.load.i, ptr %.sroa.082, align 8
-  %.sroa.082.8..sroa_idx148 = getelementptr inbounds nuw i8, ptr %.sroa.082, i64 8
-  store i64 %.sroa.071.i.8..sroa.071.i.8..sroa.071.i.8..sroa.071.8..sroa.071.8..sroa.071.8..fca.1.load.i, ptr %.sroa.082.8..sroa_idx148, align 8
+  store i64 %.sroa.071.i.0..sroa.071.i.0..sroa.071.i.0..sroa.071.0..sroa.071.0..sroa.071.0..fca.0.load.i, ptr %.sroa.083, align 8
+  %.sroa.083.8..sroa_idx133 = getelementptr inbounds nuw i8, ptr %.sroa.083, i64 8
+  store i64 %.sroa.071.i.8..sroa.071.i.8..sroa.071.i.8..sroa.071.8..sroa.071.8..sroa.071.8..fca.1.load.i, ptr %.sroa.083.8..sroa_idx133, align 8
   %22 = and i64 %.sroa.071.i.8..sroa.071.i.8..sroa.071.i.8..sroa.071.8..sroa.071.8..sroa.071.8..fca.1.load.i, 4294967296
-  %.not146 = icmp eq i64 %22, 0
+  %.not131 = icmp eq i64 %22, 0
   %23 = trunc i64 %.sroa.071.i.0..sroa.071.i.0..sroa.071.i.0..sroa.071.0..sroa.071.0..sroa.071.0..fca.0.load.i to i8
-  br i1 %.not146, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread114, label %switch.lookup
+  br i1 %.not131, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107, label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
-  %.sroa.082.4..sroa_idx147 = getelementptr inbounds nuw i8, ptr %.sroa.082, i64 4
-  %.sroa.082.4..sroa.082.4..sroa.082.4..sroa.082.4..sroa.680.0.copyload = load i64, ptr %.sroa.082.4..sroa_idx147, align 4
+  %.sroa.083.4..sroa_idx132 = getelementptr inbounds nuw i8, ptr %.sroa.083, i64 4
+  %.sroa.083.4..sroa.083.4..sroa.083.4..sroa.083.4..sroa.681.0.copyload = load i64, ptr %.sroa.083.4..sroa_idx132, align 4
   %sext = shl i64 %.sroa.071.i.0..sroa.071.i.0..sroa.071.i.0..sroa.071.0..sroa.071.0..sroa.071.0..fca.0.load.i, 56
   %24 = ashr exact i64 %sext, 56
   %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZNK8rawspeed10Cr2Decoder20decodeCanonColorDataEv, i64 0, i64 %24
@@ -2539,12 +2539,12 @@ switch.lookup:                                    ; preds = %_ZN8rawspeed12_GLOB
   %38 = load ptr, ptr %27, align 8, !tbaa !33
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 264
   store float %37, ptr %39, align 4, !tbaa !229
-  %.sroa.042.0.extract.trunc.i = trunc i64 %.sroa.082.4..sroa.082.4..sroa.082.4..sroa.082.4..sroa.680.0.copyload to i32
-  %.sroa.5.0.extract.shift.i = lshr i64 %.sroa.082.4..sroa.082.4..sroa.082.4..sroa.082.4..sroa.680.0.copyload, 32
+  %.sroa.042.0.extract.trunc.i = trunc i64 %.sroa.083.4..sroa.083.4..sroa.083.4..sroa.083.4..sroa.681.0.copyload to i32
+  %.sroa.5.0.extract.shift.i = lshr i64 %.sroa.083.4..sroa.083.4..sroa.083.4..sroa.083.4..sroa.681.0.copyload, 32
   switch i8 %23, label %53 [
-    i8 0, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread114
-    i8 1, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread114
-    i8 2, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread114
+    i8 0, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
+    i8 1, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
+    i8 2, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
     i8 3, label %40
     i8 4, label %45
     i8 5, label %47
@@ -2556,8 +2556,8 @@ switch.lookup:                                    ; preds = %_ZN8rawspeed12_GLOB
   %41 = trunc i64 %.sroa.5.0.extract.shift.i to i1
   tail call void @llvm.assume(i1 %41)
   switch i32 %.sroa.042.0.extract.trunc.i, label %44 [
-    i32 2, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread114
-    i32 3, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread114
+    i32 2, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
+    i32 3, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
     i32 4, label %54
     i32 5, label %54
     i32 6, label %42
@@ -2605,14 +2605,14 @@ switch.lookup:                                    ; preds = %_ZN8rawspeed12_GLOB
 
 54:                                               ; preds = %40, %40, %42, %43, %47, %45, %49, %51
   %.sroa.050.0.i.ph = phi i64 [ %spec.select52.i, %51 ], [ %spec.select51.i, %49 ], [ %spec.select.i, %45 ], [ 2078764171743, %47 ], [ 3109556323023, %43 ], [ 3092376453835, %42 ], [ 2993592206004, %40 ], [ 2993592206004, %40 ]
-  %.sroa.071.4.extract.shift = lshr i64 %.sroa.050.0.i.ph, 32
-  %.sroa.071.4.extract.trunc = trunc nuw nsw i64 %.sroa.071.4.extract.shift to i32
-  %55 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %.sroa.071.4.extract.trunc)
+  %.sroa.072.4.extract.shift = lshr i64 %.sroa.050.0.i.ph, 32
+  %.sroa.072.4.extract.trunc = trunc nuw nsw i64 %.sroa.072.4.extract.shift to i32
+  %55 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %.sroa.072.4.extract.trunc)
   %56 = load ptr, ptr %27, align 8, !tbaa !33
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 160
-  %.sroa.068.0.insert.ext = zext i16 %55 to i64
-  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.068.0.insert.ext, 4294967296
-  store i64 %.sroa.068.0.insert.insert, ptr %57, align 8
+  %.sroa.069.0.insert.ext = zext i16 %55 to i64
+  %.sroa.069.0.insert.insert = or disjoint i64 %.sroa.069.0.insert.ext, 4294967296
+  store i64 %.sroa.069.0.insert.insert, ptr %57, align 8
   %58 = load ptr, ptr %27, align 8, !tbaa !33
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 100
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 120
@@ -2641,7 +2641,7 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %71 = load i32, ptr %70, align 8, !tbaa !64
   %72 = icmp slt i32 %71, 14
-  br i1 %72, label %79, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread114
+  br i1 %72, label %79, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
 
 73:                                               ; preds = %_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit, %73
   %indvars.iv = phi i64 [ 0, %_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit ], [ %indvars.iv.next, %73 ]
@@ -2658,19 +2658,19 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
 79:                                               ; preds = %69
   %80 = sub nsw i32 14, %71
   %.not.i = icmp ne i8 %23, 4
-  %81 = and i64 %.sroa.082.4..sroa.082.4..sroa.082.4..sroa.082.4..sroa.680.0.copyload, 8589934591
+  %81 = and i64 %.sroa.083.4..sroa.083.4..sroa.083.4..sroa.083.4..sroa.681.0.copyload, 8589934591
   %82 = icmp ne i64 %81, 8589934589
   %83 = select i1 %.not.i, i1 true, i1 %82
   br i1 %83, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %79, %.preheader
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.preheader ], [ 0, %79 ]
-  %84 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv123
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.preheader ], [ 0, %79 ]
+  %84 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv116
   %85 = load i32, ptr %84, align 4, !tbaa !113
   %86 = ashr i32 %85, %80
   store i32 %86, ptr %84, align 4, !tbaa !113
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %.not33 = icmp eq i64 %indvars.iv.next124, 4
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %.not33 = icmp eq i64 %indvars.iv.next117, 4
   br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !234
 
 .loopexit:                                        ; preds = %.preheader, %79
@@ -2685,15 +2685,15 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
   %.sroa.0.0.insert.ext.i = zext i32 %93 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, 4294967296
   store i64 %.sroa.0.0.insert.insert.i, ptr %88, align 4
-  br label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread114
+  br label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
 
-_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread114: ; preds = %.loopexit, %69, %switch.lookup, %switch.lookup, %switch.lookup, %40, %40, %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
+_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107: ; preds = %.loopexit, %69, %switch.lookup, %switch.lookup, %switch.lookup, %40, %40, %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
   %.1 = phi i1 [ false, %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit ], [ true, %.loopexit ], [ true, %69 ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %40 ], [ false, %40 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.082)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.083)
   br label %94
 
-94:                                               ; preds = %1, %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread114
-  %.028 = phi i1 [ %.1, %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread114 ], [ false, %1 ]
+94:                                               ; preds = %1, %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
+  %.028 = phi i1 [ %.1, %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107 ], [ false, %1 ]
   ret i1 %.028
 }
 

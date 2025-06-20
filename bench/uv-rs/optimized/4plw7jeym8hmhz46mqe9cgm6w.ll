@@ -10774,7 +10774,6 @@ define void @_ZN12uv_installer4plan7Planner5build17h93ac9a0d73a0fe51E(ptr dead_o
   %.sroa.5.i.i = alloca [112 x i8], align 8
   %95 = alloca [16 x i8], align 8
   %96 = alloca [8 x i8], align 8
-  %.sroa.12.i = alloca [7 x i8], align 1
   %97 = alloca [24 x i8], align 8
   %98 = alloca [48 x i8], align 8
   %99 = alloca [24 x i8], align 8
@@ -11228,7 +11227,6 @@ define void @_ZN12uv_installer4plan7Planner5build17h93ac9a0d73a0fe51E(ptr dead_o
   %.sroa.857.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %334, i64 224
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %334, i64 232
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %334, i64 256
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %334, i64 257
   %.sroa.55.0..sroa_idx6.i.i = getelementptr inbounds nuw i8, ptr %95, i64 8
   %.sroa.58.0..sroa_idx9.i.i = getelementptr inbounds nuw i8, ptr %95, i64 9
   %.sroa.5.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -12623,7 +12621,6 @@ select.unfold.i:                                  ; preds = %.noexc1357, %837
   br label %1400
 
 933:                                              ; preds = %.thread1679
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.12.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3914)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91), !noalias !3917
   %934 = getelementptr inbounds nuw i8, ptr %870, i64 208
@@ -13219,8 +13216,6 @@ select.unfold.i:                                  ; preds = %.noexc1357, %837
   store ptr %1116, ptr %.sroa.857.0..sroa_idx.i, align 8, !alias.scope !3888, !noalias !3891
   store i64 %1117, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !3888, !noalias !3891
   store i8 %1106, ptr %.sroa.11.0..sroa_idx.i, align 8, !alias.scope !3888, !noalias !3891
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12.i, i64 7, i1 false), !noalias !3891
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.12.i)
   br label %1400
 
 1128:                                             ; preds = %.thread1679

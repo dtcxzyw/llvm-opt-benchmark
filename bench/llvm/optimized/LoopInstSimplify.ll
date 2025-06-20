@@ -108,7 +108,6 @@ $_ZN4llvm17PreservedAnalyses8preserveEPNS_11AnalysisKeyE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm20LoopInstSimplifyPass3runERNS_4LoopERNS_15AnalysisManagerIS1_JRNS_27LoopStandardAnalysisResultsEEEES5_RNS_10LPMUpdaterE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %4, ptr noundef nonnull readnone align 1 captures(none) %5) local_unnamed_addr #0 align 2 {
-  %.sroa.12.i = alloca [6 x i8], align 2
   %7 = alloca %"class.llvm::SmallPtrSet.126", align 8
   %8 = alloca %"class.llvm::SmallPtrSet.126", align 8
   %9 = alloca %"class.llvm::SmallPtrSet.129", align 8
@@ -260,7 +259,6 @@ _ZN4llvm16MemorySSAUpdaterD2Ev.exit:              ; preds = %_ZN4llvm23SmallVect
   %78 = load ptr, ptr %77, align 8, !tbaa !77
   %79 = load ptr, ptr %78, align 8, !tbaa !80
   %80 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm10BasicBlock13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(80) %79) #8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.12.i)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #8
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %81, ptr %7, align 8, !tbaa !52
@@ -313,7 +311,6 @@ _ZN4llvm16MemorySSAUpdaterD2Ev.exit:              ; preds = %_ZN4llvm23SmallVect
   %.sroa.7241.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.sroa.10242.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 56
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 57
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 58
   %102 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %103 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %104 = getelementptr inbounds nuw i8, ptr %68, i64 24
@@ -576,7 +573,6 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_11InstructionEE5countES3_.exit.thread247.i: ; pr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, i8 0, i64 16, i1 false)
   store i8 1, ptr %.sroa.10242.0..sroa_idx.i, align 8, !tbaa !72
   store i8 1, ptr %.sroa.11.0..sroa_idx.i, align 1, !tbaa !72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.12.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.12.i, i64 6, i1 false), !tbaa.struct !63
   store ptr %138, ptr %.sroa.7241.0..sroa_idx.i, align 8, !tbaa !120, !alias.scope !126
   %207 = call noundef ptr @_ZN4llvm19simplifyInstructionEPNS_11InstructionERKNS_13SimplifyQueryE(ptr noundef nonnull %138, ptr noundef nonnull align 8 dereferenceable(58) %13) #8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #8
@@ -1356,7 +1352,6 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit207.i:      ; preds = %533, %_ZN4llvm19Sma
 
 _ZL16simplifyLoopInstRN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoERNS_15AssumptionCacheERKNS_17TargetLibraryInfoEPNS_16MemorySSAUpdaterE.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit207.i, %537
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.12.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   br i1 %.6.i, label %550, label %539
 

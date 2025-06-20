@@ -155,7 +155,6 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack3new17hb265b6db89da91a8E
   %17 = tail call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},~{memory}"(ptr nonnull inttoptr (i64 10 to ptr), ptr %15, ptr %16, ptr nonnull inttoptr (i64 3 to ptr)) #8, !srcloc !13
   %18 = extractvalue { ptr, i32, i32 } %17, 0
   %.not.i.not = icmp eq ptr %18, null
-  %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not.i.not, label %25, label %27
 
 19:                                               ; preds = %2
@@ -168,17 +167,18 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack3new17hb265b6db89da91a8E
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   store i8 2, ptr %0, align 8
-  br label %32
+  br label %33
 
 25:                                               ; preds = %14
   %26 = getelementptr inbounds i8, ptr %12, i64 %9
   store i8 0, ptr %0, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %.sroa.410.0..sroa_idx, align 1
+  %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %.sroa.511.0..sroa_idx, align 8
   %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %.sroa.612.0..sroa_idx, align 8
-  br label %32
+  br label %33
 
 27:                                               ; preds = %14
   %28 = ptrtoint ptr %18 to i64
@@ -187,11 +187,12 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack3new17hb265b6db89da91a8E
   %.neg31 = mul nsw i64 %29, -4294967296
   %30 = or disjoint i64 %.neg31, 2
   %31 = inttoptr i64 %30 to ptr
-  store ptr %31, ptr %.sroa.511.0..sroa_idx, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %31, ptr %32, align 8
   store i8 2, ptr %0, align 8
-  br label %32
+  br label %33
 
-32:                                               ; preds = %27, %25, %19
+33:                                               ; preds = %27, %25, %19
   ret void
 }
 

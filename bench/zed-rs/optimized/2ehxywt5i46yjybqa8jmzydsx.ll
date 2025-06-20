@@ -2231,12 +2231,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 %.val2.i.i, ptr %36, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 %.val3.i.i, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i64 %.val.i.i, ptr %.sroa.420.0..sroa_idx, align 8
-  %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store i32 %.val1.i.i, ptr %.sroa.521.0..sroa_idx, align 8
-  %.sroa.723.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store i8 %29, ptr %.sroa.723.0..sroa_idx, align 8
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store i64 %.val.i.i, ptr %.sroa.421.0..sroa_idx, align 8
+  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 24
+  store i32 %.val1.i.i, ptr %.sroa.522.0..sroa_idx, align 8
+  %.sroa.724.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 32
+  store i8 %29, ptr %.sroa.724.0..sroa_idx, align 8
   store i64 %32, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %36, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2288,12 +2288,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 %.val2.i.i.i.i, ptr %54, align 8, !noalias !617
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 %.val3.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !617
-  %.sroa.417.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i64 %.val.i.i.i.i, ptr %.sroa.417.0..sroa_idx.i.i, align 8, !noalias !617
-  %.sroa.518.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store i32 %.val1.i.i.i.i, ptr %.sroa.518.0..sroa_idx.i.i, align 8, !noalias !617
-  %.sroa.720.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %54, i64 32
-  store i8 %49, ptr %.sroa.720.0..sroa_idx.i.i, align 8, !noalias !617
+  %.sroa.418.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store i64 %.val.i.i.i.i, ptr %.sroa.418.0..sroa_idx.i.i, align 8, !noalias !617
+  %.sroa.519.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %54, i64 24
+  store i32 %.val1.i.i.i.i, ptr %.sroa.519.0..sroa_idx.i.i, align 8, !noalias !617
+  %.sroa.721.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %54, i64 32
+  store i8 %49, ptr %.sroa.721.0..sroa_idx.i.i, align 8, !noalias !617
   %55 = add i64 %50, 1
   store i64 %55, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !616, !noalias !617
   br label %.backedge
@@ -3473,11 +3473,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 5:                                                ; preds = %3
   %6 = tail call noundef zeroext i1 @"_ZN100_$LT$futures_util..future..future..fuse..Fuse$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf160ff488f6fc66aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !838
-  %spec.select.i = select i1 %6, i64 -9223372036854775793, i64 -9223372036854775794
+  %spec.select.i.i = select i1 %6, i64 -9223372036854775793, i64 -9223372036854775794
   br label %_ZN4core3ops8function6FnOnce9call_once17hbde61df74507162dE.exit
 
 _ZN4core3ops8function6FnOnce9call_once17hbde61df74507162dE.exit: ; preds = %3, %5
-  %storemerge.i.i = phi i64 [ -9223372036854775792, %3 ], [ %spec.select.i, %5 ]
+  %storemerge.i.i = phi i64 [ %spec.select.i.i, %5 ], [ -9223372036854775792, %3 ]
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !841, !noalias !842
   ret void
 }

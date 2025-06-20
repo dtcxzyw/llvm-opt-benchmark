@@ -13154,7 +13154,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
   %47 = icmp eq ptr %.fca.0.extract.i9.i.i, null
   %.fca.1.extract.i10.i.i = extractvalue { ptr, i64 } %46, 1
   %spec.select.i.i.i = select i1 %47, i64 undef, i64 %.fca.1.extract.i10.i.i
-  %spec.select75.i.i.i = select i1 %47, i64 2, i64 1
+  %spec.select69.i.i.i = select i1 %47, i64 2, i64 1
   %48 = invoke { ptr, i64 } @_ZN12tracing_core8metadata8Metadata4file17h0e791c2f6b972bacE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %27)
           to label %.noexc15.i.i unwind label %83
 
@@ -13196,15 +13196,15 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
   store i64 13, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8, !alias.scope !4890, !noalias !4892
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr @anon.8d3862fd6b8b4bb6238cc316e4c7dbb9.42, ptr %59, align 8, !alias.scope !4893, !noalias !4886
-  %.sroa.29.80..sroa_idx3.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i64 2, ptr %.sroa.29.80..sroa_idx3.i.i.i, align 8, !alias.scope !4893, !noalias !4886
-  %.sroa.30.80..sroa_idx5.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store ptr %4, ptr %.sroa.30.80..sroa_idx5.i.i.i, align 8, !alias.scope !4893, !noalias !4886
-  %.sroa.31.80..sroa_idx7.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i64 2, ptr %.sroa.31.80..sroa_idx7.i.i.i, align 8, !alias.scope !4893, !noalias !4886
-  %.sroa.32.80..sroa_idx9.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store ptr null, ptr %.sroa.32.80..sroa_idx9.i.i.i, align 8, !alias.scope !4893, !noalias !4886
-  store i64 %spec.select75.i.i.i, ptr %5, align 8, !alias.scope !4890, !noalias !4892
+  %.sroa.27.80..sroa_idx3.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store i64 2, ptr %.sroa.27.80..sroa_idx3.i.i.i, align 8, !alias.scope !4893, !noalias !4886
+  %.sroa.28.80..sroa_idx5.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 96
+  store ptr %4, ptr %.sroa.28.80..sroa_idx5.i.i.i, align 8, !alias.scope !4893, !noalias !4886
+  %.sroa.29.80..sroa_idx7.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store i64 2, ptr %.sroa.29.80..sroa_idx7.i.i.i, align 8, !alias.scope !4893, !noalias !4886
+  %.sroa.30.80..sroa_idx9.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 112
+  store ptr null, ptr %.sroa.30.80..sroa_idx9.i.i.i, align 8, !alias.scope !4893, !noalias !4886
+  store i64 %spec.select69.i.i.i, ptr %5, align 8, !alias.scope !4890, !noalias !4892
   %.sroa.53.0..sroa_idx4.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.fca.0.extract.i9.i.i, ptr %.sroa.53.0..sroa_idx4.i.i.i.i, align 8, !noalias !4892
   %.sroa.53.i.sroa.4.0..sroa.53.0..sroa_idx4.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -13243,8 +13243,8 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
   %.fca.0.extract12.i.i.i = extractvalue { ptr, i64 } %67, 0
   %68 = icmp eq ptr %.fca.0.extract12.i.i.i, null
   %.fca.1.extract13.i.i.i = extractvalue { ptr, i64 } %67, 1
-  %spec.select76.i.i.i = select i1 %68, i64 undef, i64 %.fca.1.extract13.i.i.i
-  %spec.select77.i.i.i = select i1 %68, i64 2, i64 1
+  %spec.select70.i.i.i = select i1 %68, i64 undef, i64 %.fca.1.extract13.i.i.i
+  %spec.select71.i.i.i = select i1 %68, i64 2, i64 1
   %69 = invoke { ptr, i64 } @_ZN12tracing_core8metadata8Metadata4file17h0e791c2f6b972bacE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %27)
           to label %.noexc20.i.i unwind label %83
 
@@ -13271,19 +13271,19 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ockam_core..error..
   store i64 13, ptr %.sroa.5.0..sroa_idx.i123.i.i.i, align 8, !alias.scope !4897, !noalias !4899
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr @anon.8d3862fd6b8b4bb6238cc316e4c7dbb9.36, ptr %75, align 8, !alias.scope !4900, !noalias !4886
-  %.sroa.2930.80..sroa_idx31.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 88
-  store i64 2, ptr %.sroa.2930.80..sroa_idx31.i.i.i, align 8, !alias.scope !4900, !noalias !4886
-  %.sroa.3033.80..sroa_idx34.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store ptr %8, ptr %.sroa.3033.80..sroa_idx34.i.i.i, align 8, !alias.scope !4900, !noalias !4886
-  %.sroa.3136.80..sroa_idx37.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i64 1, ptr %.sroa.3136.80..sroa_idx37.i.i.i, align 8, !alias.scope !4900, !noalias !4886
-  %.sroa.3239.80..sroa_idx40.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store ptr null, ptr %.sroa.3239.80..sroa_idx40.i.i.i, align 8, !alias.scope !4900, !noalias !4886
-  store i64 %spec.select77.i.i.i, ptr %2, align 8, !alias.scope !4897, !noalias !4899
+  %.sroa.2731.80..sroa_idx32.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 88
+  store i64 2, ptr %.sroa.2731.80..sroa_idx32.i.i.i, align 8, !alias.scope !4900, !noalias !4886
+  %.sroa.2834.80..sroa_idx35.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store ptr %8, ptr %.sroa.2834.80..sroa_idx35.i.i.i, align 8, !alias.scope !4900, !noalias !4886
+  %.sroa.2937.80..sroa_idx38.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 104
+  store i64 1, ptr %.sroa.2937.80..sroa_idx38.i.i.i, align 8, !alias.scope !4900, !noalias !4886
+  %.sroa.3040.80..sroa_idx41.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store ptr null, ptr %.sroa.3040.80..sroa_idx41.i.i.i, align 8, !alias.scope !4900, !noalias !4886
+  store i64 %spec.select71.i.i.i, ptr %2, align 8, !alias.scope !4897, !noalias !4899
   %.sroa.53.0..sroa_idx4.i124.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.fca.0.extract12.i.i.i, ptr %.sroa.53.0..sroa_idx4.i124.i.i.i, align 8, !noalias !4899
   %.sroa.53.i117.sroa.4.0..sroa.53.0..sroa_idx4.i124.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %spec.select76.i.i.i, ptr %.sroa.53.i117.sroa.4.0..sroa.53.0..sroa_idx4.i124.sroa_idx.i.i.i, align 8, !noalias !4899
+  store i64 %spec.select70.i.i.i, ptr %.sroa.53.i117.sroa.4.0..sroa.53.0..sroa_idx4.i124.sroa_idx.i.i.i, align 8, !noalias !4899
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %.sroa.0108.0.i.i.i, ptr %76, align 8, !alias.scope !4897, !noalias !4899
   %.sroa.57.0..sroa_idx8.i125.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32

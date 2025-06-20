@@ -8335,7 +8335,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h0dad62820a69
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !110, !alias.scope !2206, !noalias !2203
   %48 = trunc nuw i8 %.pre.i to i1
-  br i1 %48, label %.thread72.i, label %75
+  br i1 %48, label %.thread71.i, label %75
 
 49:                                               ; preds = %38
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !2203, !noalias !2206
@@ -8345,7 +8345,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h0dad62820a69
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load i8, ptr %51, align 8, !range !110, !alias.scope !2206, !noalias !2203, !noundef !5
   %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %.thread72.i, label %54
+  br i1 %53, label %.thread71.i, label %54
 
 54:                                               ; preds = %50
   store i8 0, ptr %14, align 8, !alias.scope !2241, !noalias !2237
@@ -8353,7 +8353,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h0dad62820a69
   %.phi.trans.insert.i.i.i21.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %55
 
-55:                                               ; preds = %.critedge82.i, %54
+55:                                               ; preds = %.critedge81.i, %54
   call void @llvm.experimental.noalias.scope.decl(metadata !2247)
   call void @llvm.experimental.noalias.scope.decl(metadata !2250)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !2253
@@ -8387,9 +8387,9 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h0dad62820a69
   %62 = icmp eq i8 %61, 10
   %63 = load i64, ptr %15, align 8, !alias.scope !2266, !noalias !2265, !noundef !5
   %64 = add i64 %63, 1
-  br i1 %62, label %.thread83.i, label %69
+  br i1 %62, label %.thread82.i, label %69
 
-.thread83.i:                                      ; preds = %60
+.thread82.i:                                      ; preds = %60
   %65 = load i64, ptr %16, align 8, !alias.scope !2266, !noalias !2265, !noundef !5
   %66 = add i64 %65, %64
   store i64 %66, ptr %16, align 8, !alias.scope !2266, !noalias !2265
@@ -8399,7 +8399,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h0dad62820a69
   store i64 0, ptr %15, align 8, !alias.scope !2266, !noalias !2265
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2253
   store i8 10, ptr %18, align 1, !alias.scope !2267, !noalias !2268
-  br label %.critedge82.i
+  br label %.critedge81.i
 
 69:                                               ; preds = %60
   store i64 %64, ptr %15, align 8, !alias.scope !2266, !noalias !2265
@@ -8407,12 +8407,12 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h0dad62820a69
   store i8 1, ptr %14, align 8, !alias.scope !2267, !noalias !2268
   store i8 %61, ptr %18, align 1, !alias.scope !2267, !noalias !2268
   switch i8 %61, label %.loopexit.i [
-    i8 32, label %.critedge82.i
-    i8 13, label %.critedge82.i
-    i8 9, label %.critedge82.i
+    i8 32, label %.critedge81.i
+    i8 13, label %.critedge81.i
+    i8 9, label %.critedge81.i
   ]
 
-.critedge82.i:                                    ; preds = %69, %69, %69, %.thread83.i
+.critedge81.i:                                    ; preds = %69, %69, %69, %.thread82.i
   store i8 0, ptr %14, align 8, !alias.scope !2269, !noalias !2272
   br label %55
 
@@ -8438,7 +8438,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h0dad62820a69
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !2203, !noalias !2206
   br label %"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h7d2b26ee49411c95E.exit"
 
-.thread72.i:                                      ; preds = %50, %47
+.thread71.i:                                      ; preds = %50, %47
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 0, ptr %78, align 8, !alias.scope !2206, !noalias !2203
   br label %.loopexit.i
@@ -8456,9 +8456,9 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h0dad62820a69
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !2203, !noalias !2206
   br label %"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h7d2b26ee49411c95E.exit"
 
-.loopexit.i:                                      ; preds = %69, %.thread72.i
-  %.sroa.3.076.i = phi i8 [ %.sroa.9.1.ph.ph.i.i, %.thread72.i ], [ %61, %69 ]
-  %82 = icmp eq i8 %.sroa.3.076.i, 93
+.loopexit.i:                                      ; preds = %69, %.thread71.i
+  %.sroa.3.075.i = phi i8 [ %.sroa.9.1.ph.ph.i.i, %.thread71.i ], [ %61, %69 ]
+  %82 = icmp eq i8 %.sroa.3.075.i, 93
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %.loopexit.i

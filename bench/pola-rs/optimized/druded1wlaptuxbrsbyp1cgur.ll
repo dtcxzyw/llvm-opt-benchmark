@@ -47454,8 +47454,8 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..collections.
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !10361
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !10361
-  %.sroa.4.0..sroa_idx19.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i.i.i, align 8, !alias.scope !10362, !noalias !10365
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !10362, !noalias !10365
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i, align 8, !alias.scope !10362, !noalias !10365
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -62775,7 +62775,7 @@ define internal void @"_ZN7stacker4grow28_$u7b$$u7b$closure$u7d$$u7d$17hfe7d8f30
   br label %"_ZN11polars_plan5plans7visitor8visitors10TreeWalker7rewrite28_$u7b$$u7b$closure$u7d$$u7d$17hd37bb52f4ec26013E.exit"
 
 "_ZN11polars_plan5plans7visitor8visitors10TreeWalker7rewrite28_$u7b$$u7b$closure$u7d$$u7d$17hd37bb52f4ec26013E.exit": ; preds = %13, %19
-  %.sroa.09.0 = phi i64 [ -9223372036854775780, %13 ], [ %.sroa.0.0.i.i64.i, %19 ]
+  %.sroa.08.0 = phi i64 [ -9223372036854775780, %13 ], [ %.sroa.0.0.i.i64.i, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !6, !align !269, !noundef !6
   %22 = load i64, ptr %21, align 16, !range !2188, !alias.scope !13166, !noundef !6
@@ -62800,15 +62800,15 @@ define internal void @"_ZN7stacker4grow28_$u7b$$u7b$closure$u7d$$u7d$17hfe7d8f30
 27:                                               ; preds = %24, %23
   %28 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.09.0, ptr %21, align 16
-  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.513.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.5, i64 184, i1 false)
+  store i64 %.sroa.08.0, ptr %21, align 16
+  %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.5, i64 184, i1 false)
   resume { ptr, i32 } %28
 
 "_ZN4core3ptr133drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$polars_plan..dsl..expr..Expr$C$polars_error..PolarsError$GT$$GT$$GT$17h07530bba153d7ba3E.exit": ; preds = %"_ZN11polars_plan5plans7visitor8visitors10TreeWalker7rewrite28_$u7b$$u7b$closure$u7d$$u7d$17hd37bb52f4ec26013E.exit", %23, %24
-  store i64 %.sroa.09.0, ptr %21, align 16
-  %.sroa.513.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.513.0..sroa_idx14, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.5, i64 184, i1 false)
+  store i64 %.sroa.08.0, ptr %21, align 16
+  %.sroa.512.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.512.0..sroa_idx13, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.5, i64 184, i1 false)
   ret void
 }
 
@@ -63435,8 +63435,8 @@ define hidden noundef zeroext i1 @_ZN11polars_lazy13physical_plan9streaming4tree
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !13198
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !13198
-  %.sroa.4.0..sroa_idx19.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i.i.i.i, align 8, !alias.scope !13199, !noalias !13202
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !alias.scope !13199, !noalias !13202
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i, align 8, !alias.scope !13199, !noalias !13202
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -63530,8 +63530,8 @@ define hidden noundef zeroext i1 @_ZN11polars_lazy13physical_plan9streaming4tree
   %.sroa.5.0.copyload.i.i.i25 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !13218
   %.sroa.4.0..sroa_idx.i.i.i26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.4.0.copyload.i.i.i27 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i26, align 8, !alias.scope !13218
-  %.sroa.4.0..sroa_idx19.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i.i.i.i28, align 8, !alias.scope !13219, !noalias !13222
+  %.sroa.2.0..sroa_idx.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i.i.i.i28, align 8, !alias.scope !13219, !noalias !13222
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sroa.0.0.copyload.i.i.i22, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i29, align 8, !alias.scope !13219, !noalias !13222
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %4, i64 24

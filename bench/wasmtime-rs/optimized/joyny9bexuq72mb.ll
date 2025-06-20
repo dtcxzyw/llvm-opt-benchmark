@@ -14447,7 +14447,7 @@ define hidden void @"_ZN187_$LT$wasmtime_environ..module.._..$LT$impl$u20$serde.
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !16, !align !98
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  switch i8 %7, label %default.unreachable11 [
+  switch i8 %7, label %default.unreachable9 [
     i8 4, label %10
     i8 0, label %12
     i8 1, label %13
@@ -14455,7 +14455,7 @@ define hidden void @"_ZN187_$LT$wasmtime_environ..module.._..$LT$impl$u20$serde.
     i8 3, label %31
   ]
 
-default.unreachable11:                            ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
@@ -14519,8 +14519,8 @@ default.unreachable11:                            ; preds = %2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc8196b82eafce492E.llvm.5246528701130514578.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hc8196b82eafce492E.llvm.5246528701130514578.exit": ; preds = %25, %28
-  %.sink.i7 = phi i64 [ -9223372036854775805, %28 ], [ -9223372036854775807, %25 ]
-  store i64 %.sink.i7, ptr %0, align 8, !alias.scope !9052, !noalias !9055
+  %.sink.i6 = phi i64 [ -9223372036854775805, %28 ], [ -9223372036854775807, %25 ]
+  store i64 %.sink.i6, ptr %0, align 8, !alias.scope !9052, !noalias !9055
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %40
 
@@ -14530,9 +14530,9 @@ default.unreachable11:                            ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9057)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9060)
   %32 = load i32, ptr %3, align 8, !range !238, !alias.scope !9060, !noalias !9057, !noundef !16
-  %trunc.i8 = trunc nuw i32 %32 to i1
+  %trunc.i7 = trunc nuw i32 %32 to i1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %trunc.i8, label %37, label %34
+  br i1 %trunc.i7, label %37, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -14547,8 +14547,8 @@ default.unreachable11:                            ; preds = %2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1c103d24f01799eaE.llvm.5246528701130514578.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h1c103d24f01799eaE.llvm.5246528701130514578.exit": ; preds = %34, %37
-  %.sink.i10 = phi i64 [ -9223372036854775805, %37 ], [ -9223372036854775806, %34 ]
-  store i64 %.sink.i10, ptr %0, align 8, !alias.scope !9057, !noalias !9060
+  %.sink.i8 = phi i64 [ -9223372036854775805, %37 ], [ -9223372036854775806, %34 ]
+  store i64 %.sink.i8, ptr %0, align 8, !alias.scope !9057, !noalias !9060
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %40
 
@@ -14878,7 +14878,7 @@ define hidden void @"_ZN194_$LT$wasmtime_environ..component..info.._..$LT$impl$u
     i8 1, label %12
     i8 2, label %21
     i8 3, label %22
-    i8 4, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h3549076d43536092E.llvm.5246528701130514578.exit"
+    i8 4, label %23
   ]
 
 default.unreachable7:                             ; preds = %2
@@ -14888,11 +14888,11 @@ default.unreachable7:                             ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %10, align 8
   store i64 -9223372036854775803, ptr %0, align 8
-  br label %29
+  br label %30
 
 11:                                               ; preds = %2
   tail call void @"_ZN255_$LT$$LT$wasmtime_environ..component..info.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_environ..component..info..Export$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_enum..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h2a132fb294a03b16E.llvm.7452288157325931747"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %8, i64 noundef 3)
-  br label %29
+  br label %30
 
 12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -14920,37 +14920,37 @@ default.unreachable7:                             ; preds = %2
   %.sink.i = phi i64 [ -9223372036854775803, %18 ], [ -9223372036854775807, %15 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !9135, !noalias !9138
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %29
+  br label %30
 
 21:                                               ; preds = %2
   tail call void @"_ZN255_$LT$$LT$wasmtime_environ..component..info.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_environ..component..info..Export$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_enum..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17he057ea07f8f475d8E.llvm.7452288157325931747"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %8, i64 noundef 2)
-  br label %29
+  br label %30
 
 22:                                               ; preds = %2
   tail call void @"_ZN255_$LT$$LT$wasmtime_environ..component..info.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_environ..component..info..Export$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_enum..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17ha4766a3528723432E.llvm.7452288157325931747"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %8, i64 noundef 2)
-  br label %29
+  br label %30
 
-"_ZN4core6result19Result$LT$T$C$E$GT$3map17h3549076d43536092E.llvm.5246528701130514578.exit": ; preds = %2
+23:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @"_ZN197_$LT$wasmtime_environ..component..types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_environ..component..types..TypeDef$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hd069bd189c07192dE"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9140)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9143)
-  %23 = load i32, ptr %3, align 8, !range !238, !alias.scope !9143, !noalias !9140, !noundef !16
-  %trunc.i5 = trunc nuw i32 %23 to i1
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %25 = load ptr, ptr %24, align 8, !nonnull !16, !align !98
-  %26 = ptrtoint ptr %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.sroa.01.0.copyload.i = load i64, ptr %27, align 4
-  %.sroa.01.0.copyload.sink.i = select i1 %trunc.i5, i64 %26, i64 %.sroa.01.0.copyload.i
+  %24 = load i32, ptr %3, align 8, !range !238, !alias.scope !9143, !noalias !9140, !noundef !16
+  %trunc.i5 = trunc nuw i32 %24 to i1
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %26 = load ptr, ptr %25, align 8, !alias.scope !9143, !noalias !9140, !nonnull !16, !align !98
+  %27 = ptrtoint ptr %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.sroa.01.0.copyload.i = load i64, ptr %28, align 4, !alias.scope !9143, !noalias !9140
+  %.sroa.01.0.copyload.sink.i = select i1 %trunc.i5, i64 %27, i64 %.sroa.01.0.copyload.i
   %.sink.i6 = select i1 %trunc.i5, i64 -9223372036854775803, i64 -9223372036854775804
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.01.0.copyload.sink.i, ptr %28, align 8, !alias.scope !9140, !noalias !9143
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.01.0.copyload.sink.i, ptr %29, align 8, !alias.scope !9140, !noalias !9143
   store i64 %.sink.i6, ptr %0, align 8, !alias.scope !9140, !noalias !9143
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %29
+  br label %30
 
-29:                                               ; preds = %11, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h595d760ade6d5203E.llvm.5246528701130514578.exit", %21, %22, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h3549076d43536092E.llvm.5246528701130514578.exit", %9
+30:                                               ; preds = %11, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h595d760ade6d5203E.llvm.5246528701130514578.exit", %21, %22, %23, %9
   ret void
 }
 
@@ -14966,14 +14966,14 @@ define hidden void @"_ZN195_$LT$wasmtime_environ..component..info.._..$LT$impl$u
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !16, !align !98
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  switch i8 %7, label %default.unreachable23 [
+  switch i8 %7, label %default.unreachable22 [
     i8 3, label %10
     i8 0, label %12
     i8 1, label %20
     i8 2, label %29
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable22:                            ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
@@ -15055,8 +15055,8 @@ default.unreachable23:                            ; preds = %2
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hff1978d9be90a877E.llvm.5246528701130514578.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hff1978d9be90a877E.llvm.5246528701130514578.exit": ; preds = %36, %37
-  %.sink.i9 = phi i64 [ -9223372036854775805, %37 ], [ -9223372036854775806, %36 ]
-  store i64 %.sink.i9, ptr %0, align 8, !alias.scope !9197, !noalias !9200
+  %.sink.i8 = phi i64 [ -9223372036854775805, %37 ], [ -9223372036854775806, %36 ]
+  store i64 %.sink.i8, ptr %0, align 8, !alias.scope !9197, !noalias !9200
   br label %38
 
 38:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h146d96f5316e46f9E.llvm.5246528701130514578.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h93780c4a941fb5e5E.llvm.5246528701130514578.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hff1978d9be90a877E.llvm.5246528701130514578.exit", %10

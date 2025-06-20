@@ -9557,8 +9557,8 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   %5 = alloca ptr, align 8
   %6 = alloca { i64, [1 x i64] }, align 8
   %7 = alloca { { i64, [1 x i64] }, { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
-  %.sroa.48 = alloca [2 x i64], align 8
-  %.sroa.59 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
+  %.sroa.4 = alloca [2 x i64], align 8
+  %.sroa.58 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
   %8 = alloca { { i64, [1 x i64] }, { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
@@ -9579,8 +9579,8 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
           to label %13 unwind label %27
 
 13:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.48)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.59)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1723)
@@ -9604,9 +9604,9 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
 19:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1726
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !1726
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.48, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !1723
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !noalias !1723
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   %21 = atomicrmw sub ptr %15, i64 1 release, align 8, !noalias !1729
   %22 = icmp eq i64 %21, 1
   br i1 %22, label %23, label %26
@@ -9626,18 +9626,18 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   store i64 2, ptr %0, align 8
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.48.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.48, i64 16, i1 false)
-  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.48)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.59)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
+  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   ret void
 
 .body.thread:                                     ; preds = %17, %27
-  %eh.lpad-body12 = phi { ptr, i32 } [ %28, %27 ], [ %18, %17 ]
-  resume { ptr, i32 } %eh.lpad-body12
+  %eh.lpad-body11 = phi { ptr, i32 } [ %28, %27 ], [ %18, %17 ]
+  resume { ptr, i32 } %eh.lpad-body11
 
 27:                                               ; preds = %11
   %28 = landingpad { ptr, i32 }
@@ -9899,19 +9899,19 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   %21 = zext i1 %12 to i8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
-  %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %18, ptr %.sroa.47.0..sroa_idx, align 8
-  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %20, ptr %.sroa.58.0..sroa_idx, align 8
-  %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 %21, ptr %.sroa.69.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %18, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 %20, ptr %.sroa.57.0..sroa_idx, align 8
+  %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 %21, ptr %.sroa.68.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   ret void
 
 .body:                                            ; preds = %13, %22
-  %eh.lpad-body12 = phi { ptr, i32 } [ %23, %22 ], [ %14, %13 ]
-  resume { ptr, i32 } %eh.lpad-body12
+  %eh.lpad-body11 = phi { ptr, i32 } [ %23, %22 ], [ %14, %13 ]
+  resume { ptr, i32 } %eh.lpad-body11
 
 22:                                               ; preds = %8
   %23 = landingpad { ptr, i32 }
@@ -9930,7 +9930,7 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
 define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h73852f0a2113a4c7E"(ptr noalias noundef writeonly sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca { { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
-  %.sroa.59 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
+  %.sroa.58 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
   %6 = alloca { { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
@@ -9951,7 +9951,7 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
           to label %11 unwind label %31
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.59)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1764)
@@ -9999,22 +9999,22 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   %.sink.i.i = select i1 %28, ptr %23, ptr %29
   %storemerge.i.i = zext i1 %28 to i64
   %30 = load ptr, ptr %16, align 8, !alias.scope !1767, !noalias !1764, !nonnull !55, !align !137, !noundef !55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !alias.scope !1779
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !alias.scope !1779
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   store i64 %storemerge.i.i, ptr %0, align 8
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink.i.i, ptr %.sroa.48.0..sroa_idx, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, i64 32, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink.i.i, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, i64 32, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %30, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.59)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %18, %31
-  %eh.lpad-body12 = phi { ptr, i32 } [ %32, %31 ], [ %19, %18 ]
-  resume { ptr, i32 } %eh.lpad-body12
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %19, %18 ]
+  resume { ptr, i32 } %eh.lpad-body11
 
 31:                                               ; preds = %9
   %32 = landingpad { ptr, i32 }
@@ -10033,7 +10033,7 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
 define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h77f30834b38a43f5E"(ptr noalias noundef writeonly sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca { { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
-  %.sroa.59 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
+  %.sroa.58 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
   %6 = alloca { { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
@@ -10054,7 +10054,7 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
           to label %11 unwind label %31
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.59)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1780)
@@ -10102,22 +10102,22 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   %.sink.i.i = select i1 %28, ptr %23, ptr %29
   %storemerge.i.i = zext i1 %28 to i64
   %30 = load ptr, ptr %16, align 8, !alias.scope !1783, !noalias !1780, !nonnull !55, !align !137, !noundef !55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !alias.scope !1795
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !alias.scope !1795
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   store i64 %storemerge.i.i, ptr %0, align 8
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink.i.i, ptr %.sroa.48.0..sroa_idx, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, i64 32, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink.i.i, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, i64 32, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %30, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.59)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %18, %31
-  %eh.lpad-body12 = phi { ptr, i32 } [ %32, %31 ], [ %19, %18 ]
-  resume { ptr, i32 } %eh.lpad-body12
+  %eh.lpad-body11 = phi { ptr, i32 } [ %32, %31 ], [ %19, %18 ]
+  resume { ptr, i32 } %eh.lpad-body11
 
 31:                                               ; preds = %9
   %32 = landingpad { ptr, i32 }
@@ -10137,8 +10137,8 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   %4 = alloca ptr, align 8
   %5 = alloca { i64, [1 x i64] }, align 8
   %6 = alloca { { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
-  %.sroa.48 = alloca [2 x i64], align 8
-  %.sroa.59 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
+  %.sroa.4 = alloca [2 x i64], align 8
+  %.sroa.58 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
   %7 = alloca { { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
@@ -10159,8 +10159,8 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
           to label %12 unwind label %26
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.48)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.59)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1796)
@@ -10182,8 +10182,8 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
 
 18:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !1801
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.48, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !1799
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !alias.scope !1801
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !1799
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !alias.scope !1801
   call void @llvm.experimental.noalias.scope.decl(metadata !1802)
   call void @llvm.experimental.noalias.scope.decl(metadata !1805)
   %19 = load ptr, ptr %13, align 8, !alias.scope !1808, !noalias !1796, !nonnull !55, !noundef !55
@@ -10206,18 +10206,18 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   store i64 0, ptr %0, align 8
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.48.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.48, i64 16, i1 false)
-  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.48)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.59)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
+  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   ret void
 
 .body.thread:                                     ; preds = %16, %26
-  %eh.lpad-body12 = phi { ptr, i32 } [ %27, %26 ], [ %17, %16 ]
-  resume { ptr, i32 } %eh.lpad-body12
+  %eh.lpad-body11 = phi { ptr, i32 } [ %27, %26 ], [ %17, %16 ]
+  resume { ptr, i32 } %eh.lpad-body11
 
 26:                                               ; preds = %10
   %27 = landingpad { ptr, i32 }
@@ -10235,7 +10235,7 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17ha6ecfe22f7899505E"(ptr noalias noundef writeonly sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
-  %.sroa.59 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
+  %.sroa.58 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
   %5 = alloca { { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
@@ -10256,7 +10256,7 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
           to label %10 unwind label %20
 
 10:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.59)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1810)
@@ -10280,22 +10280,22 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   %18 = icmp ne ptr %12, null
   %spec.select.i.i = zext i1 %18 to i64
   %19 = load ptr, ptr %11, align 8, !alias.scope !1813, !noalias !1810, !nonnull !55, !align !137, !noundef !55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !1815
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !1815
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   store i64 %spec.select.i.i, ptr %0, align 8
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %.sroa.48.0..sroa_idx, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, i64 32, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, i64 32, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %19, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.59)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret void
 
 .body:                                            ; preds = %13, %20
-  %eh.lpad-body12 = phi { ptr, i32 } [ %21, %20 ], [ %14, %13 ]
-  resume { ptr, i32 } %eh.lpad-body12
+  %eh.lpad-body11 = phi { ptr, i32 } [ %21, %20 ], [ %14, %13 ]
+  resume { ptr, i32 } %eh.lpad-body11
 
 20:                                               ; preds = %8
   %21 = landingpad { ptr, i32 }
@@ -10399,7 +10399,7 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd31899b0eb73dec2E"(ptr noalias noundef writeonly sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
-  %.sroa.59 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
+  %.sroa.58 = alloca { { { i64, ptr }, i64 }, i64 }, align 8
   %5 = alloca { { { { i64, ptr }, i64 }, i64 }, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
@@ -10420,7 +10420,7 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
           to label %10 unwind label %20
 
 10:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.59)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1831)
@@ -10444,22 +10444,22 @@ define hidden void @"_ZN102_$LT$tokio..runtime..blocking..task..BlockingTask$LT$
   %18 = icmp ne ptr %12, null
   %spec.select.i.i = zext i1 %18 to i64
   %19 = load ptr, ptr %11, align 8, !alias.scope !1834, !noalias !1831, !nonnull !55, !align !137, !noundef !55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !1836
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !alias.scope !1836
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   store i64 %spec.select.i.i, ptr %0, align 8
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %.sroa.48.0..sroa_idx, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59, i64 32, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.58, i64 32, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %19, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.59)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.58)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   ret void
 
 .body:                                            ; preds = %13, %20
-  %eh.lpad-body12 = phi { ptr, i32 } [ %21, %20 ], [ %14, %13 ]
-  resume { ptr, i32 } %eh.lpad-body12
+  %eh.lpad-body11 = phi { ptr, i32 } [ %21, %20 ], [ %14, %13 ]
+  resume { ptr, i32 } %eh.lpad-body11
 
 20:                                               ; preds = %8
   %21 = landingpad { ptr, i32 }

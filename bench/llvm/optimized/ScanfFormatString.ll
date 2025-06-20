@@ -118,9 +118,9 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
   store i32 5, ptr %0, align 8, !tbaa !26
   %.sroa.4350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4350.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.7354.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.7354.0..sroa_idx, align 4, !tbaa !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4350.0..sroa_idx, i8 0, i64 16, i1 false)
   store i8 1, ptr %.sroa.6352.0..sroa_idx, align 8, !tbaa !29, !alias.scope !33
   br label %147
 
@@ -490,9 +490,9 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
   store i32 5, ptr %0, align 8, !tbaa !26
   %.sroa.4192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4192.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.7196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.7196.0..sroa_idx, align 4, !tbaa !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4192.0..sroa_idx, i8 0, i64 16, i1 false)
   store i8 1, ptr %.sroa.6194.0..sroa_idx, align 8, !tbaa !29, !alias.scope !108
   br label %147
 
@@ -514,9 +514,9 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
   store i32 6, ptr %0, align 8, !tbaa !26
   %.sroa.4178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6180.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4178.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.7182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.7182.0..sroa_idx, align 4, !tbaa !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4178.0..sroa_idx, i8 0, i64 16, i1 false)
   store i8 1, ptr %.sroa.6180.0..sroa_idx, align 8, !tbaa !29, !alias.scope !114
   br label %147
 
@@ -539,9 +539,9 @@ _ZNK4llvm6Triple10isOSMSVCRTEv.exit.thread:       ; preds = %80
   store i32 5, ptr %0, align 8, !tbaa !26
   %.sroa.4171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4171.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.7175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.7175.0..sroa_idx, align 4, !tbaa !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4171.0..sroa_idx, i8 0, i64 16, i1 false)
   store i8 1, ptr %.sroa.6173.0..sroa_idx, align 8, !tbaa !29, !alias.scope !481
   br label %147
 
@@ -609,9 +609,9 @@ _ZNK4llvm6Triple10isOSMSVCRTEv.exit77.thread:     ; preds = %101
   store i32 5, ptr %0, align 8, !tbaa !26
   %.sroa.4150.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4150.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.7154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.7154.0..sroa_idx, align 4, !tbaa !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4150.0..sroa_idx, i8 0, i64 16, i1 false)
   store i8 1, ptr %.sroa.6152.0..sroa_idx, align 8, !tbaa !29, !alias.scope !493
   br label %147
 
@@ -627,9 +627,9 @@ _ZNK4llvm6Triple10isOSMSVCRTEv.exit77.thread:     ; preds = %101
   store i32 4, ptr %0, align 8, !tbaa !26
   %.sroa.4143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6145.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4143.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.7147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %.sroa.7147.0..sroa_idx, align 4, !tbaa !28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4143.0..sroa_idx, i8 0, i64 16, i1 false)
   store i8 1, ptr %.sroa.6145.0..sroa_idx, align 8, !tbaa !29, !alias.scope !499
   br label %147
 

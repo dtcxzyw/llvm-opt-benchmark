@@ -15691,28 +15691,28 @@ default.unreachable1.i.i:                         ; preds = %20
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %11, %20, %21, %26, %35, %36
-  %.sroa.02.0 = phi i8 [ 4, %35 ], [ 5, %36 ], [ 1, %26 ], [ 0, %21 ], [ %12, %20 ], [ 3, %11 ]
-  %.sroa.73.0 = phi i8 [ undef, %35 ], [ undef, %36 ], [ %32, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.84.0 = phi i16 [ undef, %35 ], [ undef, %36 ], [ %34, %26 ], [ %25, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.136.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %28, %26 ], [ %23, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.147.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %30, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.01.0 = phi i8 [ 4, %35 ], [ 5, %36 ], [ 1, %26 ], [ 0, %21 ], [ %12, %20 ], [ 3, %11 ]
+  %.sroa.72.0 = phi i8 [ undef, %35 ], [ undef, %36 ], [ %32, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.83.0 = phi i16 [ undef, %35 ], [ undef, %36 ], [ %34, %26 ], [ %25, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.135.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %28, %26 ], [ %23, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.146.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %30, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
   store i8 62, ptr %4, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 52, ptr %.sroa.43.0..sroa_idx, align 1
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %2, ptr %.sroa.55.0..sroa_idx, align 4
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %.sroa.02.0, ptr %.sroa.66.0..sroa_idx, align 8
+  store i8 %.sroa.01.0, ptr %.sroa.66.0..sroa_idx, align 8
   %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 %.sroa.73.0, ptr %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.72.0, ptr %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx, align 1
   %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i16 %.sroa.84.0, ptr %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.83.0, ptr %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx, align 2
   %.sroa.66.sroa.6.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %18, ptr %.sroa.66.sroa.6.0..sroa.66.0..sroa_idx.sroa_idx, align 4
   %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %.sroa.136.0, ptr %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.135.0, ptr %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx, align 8
   %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %.sroa.147.0, ptr %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.146.0, ptr %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx, align 4
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i8 103, ptr %37, align 8
   invoke fastcc void @"_ZN115_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..SideEffectNoResult$u20$as$u20$core..clone..Clone$GT$5clone17hc6accb67862b9aebE"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %4)
@@ -15775,7 +15775,7 @@ default.unreachable1.i.i21:                       ; preds = %47
   %.sroa.14.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %57, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.13.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ %50, %48 ], [ %55, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.8.0 = phi i16 [ undef, %62 ], [ undef, %63 ], [ %52, %48 ], [ %61, %53 ], [ undef, %47 ], [ undef, %38 ]
-  %.sroa.71.0 = phi i8 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %59, %53 ], [ undef, %47 ], [ undef, %38 ]
+  %.sroa.7.0 = phi i8 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %59, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.0.0 = phi i8 [ 4, %62 ], [ 5, %63 ], [ 0, %48 ], [ 1, %53 ], [ %39, %47 ], [ 3, %38 ]
   store i8 49, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -15785,7 +15785,7 @@ default.unreachable1.i.i21:                       ; preds = %47
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.0.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
-  store i8 %.sroa.71.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.7.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 1
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i16 %.sroa.8.0, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx, align 2
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -16192,28 +16192,28 @@ default.unreachable1.i.i:                         ; preds = %20
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %11, %20, %21, %26, %35, %36
-  %.sroa.02.0 = phi i8 [ 4, %35 ], [ 5, %36 ], [ 1, %26 ], [ 0, %21 ], [ %12, %20 ], [ 3, %11 ]
-  %.sroa.73.0 = phi i8 [ undef, %35 ], [ undef, %36 ], [ %32, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.84.0 = phi i16 [ undef, %35 ], [ undef, %36 ], [ %34, %26 ], [ %25, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.136.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %28, %26 ], [ %23, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.147.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %30, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.01.0 = phi i8 [ 4, %35 ], [ 5, %36 ], [ 1, %26 ], [ 0, %21 ], [ %12, %20 ], [ 3, %11 ]
+  %.sroa.72.0 = phi i8 [ undef, %35 ], [ undef, %36 ], [ %32, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.83.0 = phi i16 [ undef, %35 ], [ undef, %36 ], [ %34, %26 ], [ %25, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.135.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %28, %26 ], [ %23, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.146.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %30, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
   store i8 62, ptr %4, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 53, ptr %.sroa.43.0..sroa_idx, align 1
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %2, ptr %.sroa.55.0..sroa_idx, align 4
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %.sroa.02.0, ptr %.sroa.66.0..sroa_idx, align 8
+  store i8 %.sroa.01.0, ptr %.sroa.66.0..sroa_idx, align 8
   %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 %.sroa.73.0, ptr %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.72.0, ptr %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx, align 1
   %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i16 %.sroa.84.0, ptr %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.83.0, ptr %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx, align 2
   %.sroa.66.sroa.6.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %18, ptr %.sroa.66.sroa.6.0..sroa.66.0..sroa_idx.sroa_idx, align 4
   %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %.sroa.136.0, ptr %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.135.0, ptr %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx, align 8
   %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %.sroa.147.0, ptr %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.146.0, ptr %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx, align 4
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i8 103, ptr %37, align 8
   invoke fastcc void @"_ZN115_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..SideEffectNoResult$u20$as$u20$core..clone..Clone$GT$5clone17hc6accb67862b9aebE"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %4)
@@ -16276,7 +16276,7 @@ default.unreachable1.i.i21:                       ; preds = %47
   %.sroa.14.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %57, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.13.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ %50, %48 ], [ %55, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.8.0 = phi i16 [ undef, %62 ], [ undef, %63 ], [ %52, %48 ], [ %61, %53 ], [ undef, %47 ], [ undef, %38 ]
-  %.sroa.71.0 = phi i8 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %59, %53 ], [ undef, %47 ], [ undef, %38 ]
+  %.sroa.7.0 = phi i8 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %59, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.0.0 = phi i8 [ 4, %62 ], [ 5, %63 ], [ 0, %48 ], [ 1, %53 ], [ %39, %47 ], [ 3, %38 ]
   store i8 49, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -16286,7 +16286,7 @@ default.unreachable1.i.i21:                       ; preds = %47
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.0.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
-  store i8 %.sroa.71.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.7.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 1
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i16 %.sroa.8.0, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx, align 2
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -16693,28 +16693,28 @@ default.unreachable1.i.i:                         ; preds = %20
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %11, %20, %21, %26, %35, %36
-  %.sroa.02.0 = phi i8 [ 4, %35 ], [ 5, %36 ], [ 1, %26 ], [ 0, %21 ], [ %12, %20 ], [ 3, %11 ]
-  %.sroa.73.0 = phi i8 [ undef, %35 ], [ undef, %36 ], [ %32, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.84.0 = phi i16 [ undef, %35 ], [ undef, %36 ], [ %34, %26 ], [ %25, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.136.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %28, %26 ], [ %23, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.147.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %30, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.01.0 = phi i8 [ 4, %35 ], [ 5, %36 ], [ 1, %26 ], [ 0, %21 ], [ %12, %20 ], [ 3, %11 ]
+  %.sroa.72.0 = phi i8 [ undef, %35 ], [ undef, %36 ], [ %32, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.83.0 = phi i16 [ undef, %35 ], [ undef, %36 ], [ %34, %26 ], [ %25, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.135.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %28, %26 ], [ %23, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.146.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %30, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
   store i8 62, ptr %4, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 54, ptr %.sroa.43.0..sroa_idx, align 1
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %2, ptr %.sroa.55.0..sroa_idx, align 4
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %.sroa.02.0, ptr %.sroa.66.0..sroa_idx, align 8
+  store i8 %.sroa.01.0, ptr %.sroa.66.0..sroa_idx, align 8
   %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 %.sroa.73.0, ptr %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.72.0, ptr %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx, align 1
   %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i16 %.sroa.84.0, ptr %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.83.0, ptr %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx, align 2
   %.sroa.66.sroa.6.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %18, ptr %.sroa.66.sroa.6.0..sroa.66.0..sroa_idx.sroa_idx, align 4
   %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %.sroa.136.0, ptr %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.135.0, ptr %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx, align 8
   %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %.sroa.147.0, ptr %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.146.0, ptr %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx, align 4
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i8 103, ptr %37, align 8
   invoke fastcc void @"_ZN115_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..SideEffectNoResult$u20$as$u20$core..clone..Clone$GT$5clone17hc6accb67862b9aebE"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %4)
@@ -16777,7 +16777,7 @@ default.unreachable1.i.i21:                       ; preds = %47
   %.sroa.14.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %57, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.13.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ %50, %48 ], [ %55, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.8.0 = phi i16 [ undef, %62 ], [ undef, %63 ], [ %52, %48 ], [ %61, %53 ], [ undef, %47 ], [ undef, %38 ]
-  %.sroa.71.0 = phi i8 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %59, %53 ], [ undef, %47 ], [ undef, %38 ]
+  %.sroa.7.0 = phi i8 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %59, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.0.0 = phi i8 [ 4, %62 ], [ 5, %63 ], [ 0, %48 ], [ 1, %53 ], [ %39, %47 ], [ 3, %38 ]
   store i8 49, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -16787,7 +16787,7 @@ default.unreachable1.i.i21:                       ; preds = %47
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.0.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
-  store i8 %.sroa.71.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.7.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 1
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i16 %.sroa.8.0, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx, align 2
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -17194,28 +17194,28 @@ default.unreachable1.i.i:                         ; preds = %20
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %11, %20, %21, %26, %35, %36
-  %.sroa.02.0 = phi i8 [ 4, %35 ], [ 5, %36 ], [ 1, %26 ], [ 0, %21 ], [ %12, %20 ], [ 3, %11 ]
-  %.sroa.73.0 = phi i8 [ undef, %35 ], [ undef, %36 ], [ %32, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.84.0 = phi i16 [ undef, %35 ], [ undef, %36 ], [ %34, %26 ], [ %25, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.136.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %28, %26 ], [ %23, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.147.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %30, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.01.0 = phi i8 [ 4, %35 ], [ 5, %36 ], [ 1, %26 ], [ 0, %21 ], [ %12, %20 ], [ 3, %11 ]
+  %.sroa.72.0 = phi i8 [ undef, %35 ], [ undef, %36 ], [ %32, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.83.0 = phi i16 [ undef, %35 ], [ undef, %36 ], [ %34, %26 ], [ %25, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.135.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %28, %26 ], [ %23, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.146.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %30, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
   store i8 62, ptr %4, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 55, ptr %.sroa.43.0..sroa_idx, align 1
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %2, ptr %.sroa.55.0..sroa_idx, align 4
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %.sroa.02.0, ptr %.sroa.66.0..sroa_idx, align 8
+  store i8 %.sroa.01.0, ptr %.sroa.66.0..sroa_idx, align 8
   %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 %.sroa.73.0, ptr %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.72.0, ptr %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx, align 1
   %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i16 %.sroa.84.0, ptr %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.83.0, ptr %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx, align 2
   %.sroa.66.sroa.6.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %18, ptr %.sroa.66.sroa.6.0..sroa.66.0..sroa_idx.sroa_idx, align 4
   %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %.sroa.136.0, ptr %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.135.0, ptr %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx, align 8
   %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %.sroa.147.0, ptr %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.146.0, ptr %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx, align 4
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i8 103, ptr %37, align 8
   invoke fastcc void @"_ZN115_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..SideEffectNoResult$u20$as$u20$core..clone..Clone$GT$5clone17hc6accb67862b9aebE"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %4)
@@ -17278,7 +17278,7 @@ default.unreachable1.i.i21:                       ; preds = %47
   %.sroa.14.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %57, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.13.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ %50, %48 ], [ %55, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.8.0 = phi i16 [ undef, %62 ], [ undef, %63 ], [ %52, %48 ], [ %61, %53 ], [ undef, %47 ], [ undef, %38 ]
-  %.sroa.71.0 = phi i8 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %59, %53 ], [ undef, %47 ], [ undef, %38 ]
+  %.sroa.7.0 = phi i8 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %59, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.0.0 = phi i8 [ 4, %62 ], [ 5, %63 ], [ 0, %48 ], [ 1, %53 ], [ %39, %47 ], [ 3, %38 ]
   store i8 49, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -17288,7 +17288,7 @@ default.unreachable1.i.i21:                       ; preds = %47
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.0.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
-  store i8 %.sroa.71.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.7.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 1
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i16 %.sroa.8.0, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx, align 2
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -17530,28 +17530,28 @@ default.unreachable1.i.i:                         ; preds = %20
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %11, %20, %21, %26, %35, %36
-  %.sroa.02.0 = phi i8 [ 4, %35 ], [ 5, %36 ], [ 1, %26 ], [ 0, %21 ], [ %12, %20 ], [ 3, %11 ]
-  %.sroa.73.0 = phi i8 [ undef, %35 ], [ undef, %36 ], [ %32, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.84.0 = phi i16 [ undef, %35 ], [ undef, %36 ], [ %34, %26 ], [ %25, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.136.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %28, %26 ], [ %23, %21 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.147.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %30, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.01.0 = phi i8 [ 4, %35 ], [ 5, %36 ], [ 1, %26 ], [ 0, %21 ], [ %12, %20 ], [ 3, %11 ]
+  %.sroa.72.0 = phi i8 [ undef, %35 ], [ undef, %36 ], [ %32, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.83.0 = phi i16 [ undef, %35 ], [ undef, %36 ], [ %34, %26 ], [ %25, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.135.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %28, %26 ], [ %23, %21 ], [ undef, %20 ], [ undef, %11 ]
+  %.sroa.146.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %30, %26 ], [ undef, %21 ], [ undef, %20 ], [ undef, %11 ]
   store i8 62, ptr %4, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 47, ptr %.sroa.43.0..sroa_idx, align 1
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %2, ptr %.sroa.55.0..sroa_idx, align 4
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %.sroa.02.0, ptr %.sroa.66.0..sroa_idx, align 8
+  store i8 %.sroa.01.0, ptr %.sroa.66.0..sroa_idx, align 8
   %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 %.sroa.73.0, ptr %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.72.0, ptr %.sroa.66.sroa.4.0..sroa.66.0..sroa_idx.sroa_idx, align 1
   %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i16 %.sroa.84.0, ptr %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.83.0, ptr %.sroa.66.sroa.5.0..sroa.66.0..sroa_idx.sroa_idx, align 2
   %.sroa.66.sroa.6.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %18, ptr %.sroa.66.sroa.6.0..sroa.66.0..sroa_idx.sroa_idx, align 4
   %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %.sroa.136.0, ptr %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.135.0, ptr %.sroa.66.sroa.7.0..sroa.66.0..sroa_idx.sroa_idx, align 8
   %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %.sroa.147.0, ptr %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.146.0, ptr %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx, align 4
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i8 103, ptr %37, align 8
   invoke fastcc void @"_ZN115_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..SideEffectNoResult$u20$as$u20$core..clone..Clone$GT$5clone17hc6accb67862b9aebE"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %4)
@@ -17614,7 +17614,7 @@ default.unreachable1.i.i21:                       ; preds = %47
   %.sroa.14.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %57, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.13.0 = phi i32 [ undef, %62 ], [ undef, %63 ], [ %50, %48 ], [ %55, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.8.0 = phi i16 [ undef, %62 ], [ undef, %63 ], [ %52, %48 ], [ %61, %53 ], [ undef, %47 ], [ undef, %38 ]
-  %.sroa.71.0 = phi i8 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %59, %53 ], [ undef, %47 ], [ undef, %38 ]
+  %.sroa.7.0 = phi i8 [ undef, %62 ], [ undef, %63 ], [ undef, %48 ], [ %59, %53 ], [ undef, %47 ], [ undef, %38 ]
   %.sroa.0.0 = phi i8 [ 4, %62 ], [ 5, %63 ], [ 0, %48 ], [ 1, %53 ], [ %39, %47 ], [ 3, %38 ]
   store i8 49, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -17624,7 +17624,7 @@ default.unreachable1.i.i21:                       ; preds = %47
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.0.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
-  store i8 %.sroa.71.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.7.0, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, align 1
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i16 %.sroa.8.0, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx, align 2
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -21709,7 +21709,7 @@ default.unreachable1.i.i.i:                       ; preds = %21
 "_ZN89_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..clone..Clone$GT$5clone17hca47d08cc42ad89dE.exit": ; preds = %12, %21, %22, %27, %36, %37, %9, %38
   %.sroa.12.0 = phi i32 [ undef, %9 ], [ undef, %38 ], [ undef, %36 ], [ undef, %37 ], [ undef, %22 ], [ %31, %27 ], [ undef, %21 ], [ undef, %12 ]
   %.sroa.11.0 = phi i32 [ undef, %9 ], [ undef, %38 ], [ undef, %36 ], [ undef, %37 ], [ %24, %22 ], [ %29, %27 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.83.0 = phi i32 [ %11, %9 ], [ %40, %38 ], [ %19, %36 ], [ %19, %37 ], [ %19, %22 ], [ %19, %27 ], [ %19, %21 ], [ %19, %12 ]
+  %.sroa.8.0 = phi i32 [ %11, %9 ], [ %40, %38 ], [ %19, %36 ], [ %19, %37 ], [ %19, %22 ], [ %19, %27 ], [ %19, %21 ], [ %19, %12 ]
   %.sroa.72.0 = phi i16 [ undef, %9 ], [ undef, %38 ], [ undef, %36 ], [ undef, %37 ], [ %26, %22 ], [ %35, %27 ], [ undef, %21 ], [ undef, %12 ]
   %.sroa.6.0 = phi i8 [ undef, %9 ], [ undef, %38 ], [ undef, %36 ], [ undef, %37 ], [ undef, %22 ], [ %33, %27 ], [ undef, %21 ], [ undef, %12 ]
   %.sroa.0.0 = phi i8 [ 6, %9 ], [ 8, %38 ], [ 4, %36 ], [ 5, %37 ], [ 0, %22 ], [ 1, %27 ], [ %5, %21 ], [ 3, %12 ]
@@ -21727,7 +21727,7 @@ default.unreachable1.i.i.i:                       ; preds = %21
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 %.sroa.72.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 2
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %.sroa.83.0, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.8.0, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 4
   %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %.sroa.11.0, ptr %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -22423,7 +22423,7 @@ default.unreachable1.i.i.i:                       ; preds = %21
 "_ZN89_$LT$cranelift_codegen..isa..x64..inst..args..RegMemImm$u20$as$u20$core..clone..Clone$GT$5clone17hca47d08cc42ad89dE.exit": ; preds = %12, %21, %22, %27, %36, %37, %9, %38
   %.sroa.12.0 = phi i32 [ undef, %9 ], [ undef, %38 ], [ undef, %36 ], [ undef, %37 ], [ undef, %22 ], [ %31, %27 ], [ undef, %21 ], [ undef, %12 ]
   %.sroa.11.0 = phi i32 [ undef, %9 ], [ undef, %38 ], [ undef, %36 ], [ undef, %37 ], [ %24, %22 ], [ %29, %27 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.83.0 = phi i32 [ %11, %9 ], [ %40, %38 ], [ %19, %36 ], [ %19, %37 ], [ %19, %22 ], [ %19, %27 ], [ %19, %21 ], [ %19, %12 ]
+  %.sroa.8.0 = phi i32 [ %11, %9 ], [ %40, %38 ], [ %19, %36 ], [ %19, %37 ], [ %19, %22 ], [ %19, %27 ], [ %19, %21 ], [ %19, %12 ]
   %.sroa.72.0 = phi i16 [ undef, %9 ], [ undef, %38 ], [ undef, %36 ], [ undef, %37 ], [ %26, %22 ], [ %35, %27 ], [ undef, %21 ], [ undef, %12 ]
   %.sroa.6.0 = phi i8 [ undef, %9 ], [ undef, %38 ], [ undef, %36 ], [ undef, %37 ], [ undef, %22 ], [ %33, %27 ], [ undef, %21 ], [ undef, %12 ]
   %.sroa.0.0 = phi i8 [ 6, %9 ], [ 8, %38 ], [ 4, %36 ], [ 5, %37 ], [ 0, %22 ], [ 1, %27 ], [ %5, %21 ], [ 3, %12 ]
@@ -22441,7 +22441,7 @@ default.unreachable1.i.i.i:                       ; preds = %21
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 %.sroa.72.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 2
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %.sroa.83.0, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.8.0, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 4
   %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %.sroa.11.0, ptr %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -37557,11 +37557,11 @@ default.unreachable1.i.i:                         ; preds = %21
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %12, %21, %22, %27, %36, %37
-  %.sroa.03.0 = phi i8 [ 4, %36 ], [ 5, %37 ], [ 1, %27 ], [ 0, %22 ], [ %13, %21 ], [ 3, %12 ]
+  %.sroa.02.0 = phi i8 [ 4, %36 ], [ 5, %37 ], [ 1, %27 ], [ 0, %22 ], [ %13, %21 ], [ 3, %12 ]
   %.sroa.7.0 = phi i8 [ undef, %36 ], [ undef, %37 ], [ %33, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.84.0 = phi i16 [ undef, %36 ], [ undef, %37 ], [ %35, %27 ], [ %26, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.136.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %29, %27 ], [ %24, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.147.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %31, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.83.0 = phi i16 [ undef, %36 ], [ undef, %37 ], [ %35, %27 ], [ %26, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.135.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %29, %27 ], [ %24, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.146.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %31, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
   store i8 63, ptr %5, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %3, ptr %.sroa.43.0..sroa_idx, align 1
@@ -37570,17 +37570,17 @@ default.unreachable1.i.i:                         ; preds = %21
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %.sroa.66.0..sroa_idx, align 4
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 %.sroa.03.0, ptr %.sroa.77.0..sroa_idx, align 8
+  store i8 %.sroa.02.0, ptr %.sroa.77.0..sroa_idx, align 8
   %.sroa.77.sroa.4.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
   store i8 %.sroa.7.0, ptr %.sroa.77.sroa.4.0..sroa.77.0..sroa_idx.sroa_idx, align 1
   %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i16 %.sroa.84.0, ptr %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.83.0, ptr %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx, align 2
   %.sroa.77.sroa.6.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %.sroa.77.sroa.6.0..sroa.77.0..sroa_idx.sroa_idx, align 4
   %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %.sroa.136.0, ptr %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.135.0, ptr %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx, align 8
   %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %.sroa.147.0, ptr %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.146.0, ptr %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx, align 4
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i8 103, ptr %38, align 8
   invoke fastcc void @"_ZN115_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..SideEffectNoResult$u20$as$u20$core..clone..Clone$GT$5clone17hc6accb67862b9aebE"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %5)
@@ -37642,7 +37642,7 @@ default.unreachable1.i.i22:                       ; preds = %48
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit23": ; preds = %39, %48, %49, %54, %63, %64
   %.sroa.14.0 = phi i32 [ undef, %63 ], [ undef, %64 ], [ undef, %49 ], [ %58, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.13.0 = phi i32 [ undef, %63 ], [ undef, %64 ], [ %51, %49 ], [ %56, %54 ], [ undef, %48 ], [ undef, %39 ]
-  %.sroa.82.0 = phi i16 [ undef, %63 ], [ undef, %64 ], [ %53, %49 ], [ %62, %54 ], [ undef, %48 ], [ undef, %39 ]
+  %.sroa.8.0 = phi i16 [ undef, %63 ], [ undef, %64 ], [ %53, %49 ], [ %62, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.71.0 = phi i8 [ undef, %63 ], [ undef, %64 ], [ undef, %49 ], [ %60, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.0.0 = phi i8 [ 4, %63 ], [ 5, %64 ], [ 0, %49 ], [ 1, %54 ], [ %40, %48 ], [ 3, %39 ]
   store i8 50, ptr %6, align 8
@@ -37657,7 +37657,7 @@ default.unreachable1.i.i22:                       ; preds = %48
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %.sroa.71.0, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 1
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i16 %.sroa.82.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.8.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 2
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %46, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 4
   %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -37797,11 +37797,11 @@ default.unreachable1.i.i:                         ; preds = %21
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %12, %21, %22, %27, %36, %37
-  %.sroa.03.0 = phi i8 [ 4, %36 ], [ 5, %37 ], [ 1, %27 ], [ 0, %22 ], [ %13, %21 ], [ 3, %12 ]
+  %.sroa.02.0 = phi i8 [ 4, %36 ], [ 5, %37 ], [ 1, %27 ], [ 0, %22 ], [ %13, %21 ], [ 3, %12 ]
   %.sroa.7.0 = phi i8 [ undef, %36 ], [ undef, %37 ], [ %33, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.84.0 = phi i16 [ undef, %36 ], [ undef, %37 ], [ %35, %27 ], [ %26, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.136.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %29, %27 ], [ %24, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.147.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %31, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.83.0 = phi i16 [ undef, %36 ], [ undef, %37 ], [ %35, %27 ], [ %26, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.135.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %29, %27 ], [ %24, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.146.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %31, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
   store i8 63, ptr %5, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %3, ptr %.sroa.43.0..sroa_idx, align 1
@@ -37810,17 +37810,17 @@ default.unreachable1.i.i:                         ; preds = %21
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %.sroa.66.0..sroa_idx, align 4
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 %.sroa.03.0, ptr %.sroa.77.0..sroa_idx, align 8
+  store i8 %.sroa.02.0, ptr %.sroa.77.0..sroa_idx, align 8
   %.sroa.77.sroa.4.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
   store i8 %.sroa.7.0, ptr %.sroa.77.sroa.4.0..sroa.77.0..sroa_idx.sroa_idx, align 1
   %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i16 %.sroa.84.0, ptr %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.83.0, ptr %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx, align 2
   %.sroa.77.sroa.6.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %.sroa.77.sroa.6.0..sroa.77.0..sroa_idx.sroa_idx, align 4
   %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %.sroa.136.0, ptr %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.135.0, ptr %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx, align 8
   %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %.sroa.147.0, ptr %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.146.0, ptr %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx, align 4
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i8 103, ptr %38, align 8
   invoke fastcc void @"_ZN115_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..SideEffectNoResult$u20$as$u20$core..clone..Clone$GT$5clone17hc6accb67862b9aebE"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %5)
@@ -37882,7 +37882,7 @@ default.unreachable1.i.i22:                       ; preds = %48
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit23": ; preds = %39, %48, %49, %54, %63, %64
   %.sroa.14.0 = phi i32 [ undef, %63 ], [ undef, %64 ], [ undef, %49 ], [ %58, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.13.0 = phi i32 [ undef, %63 ], [ undef, %64 ], [ %51, %49 ], [ %56, %54 ], [ undef, %48 ], [ undef, %39 ]
-  %.sroa.82.0 = phi i16 [ undef, %63 ], [ undef, %64 ], [ %53, %49 ], [ %62, %54 ], [ undef, %48 ], [ undef, %39 ]
+  %.sroa.8.0 = phi i16 [ undef, %63 ], [ undef, %64 ], [ %53, %49 ], [ %62, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.71.0 = phi i8 [ undef, %63 ], [ undef, %64 ], [ undef, %49 ], [ %60, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.0.0 = phi i8 [ 4, %63 ], [ 5, %64 ], [ 0, %49 ], [ 1, %54 ], [ %40, %48 ], [ 3, %39 ]
   store i8 50, ptr %6, align 8
@@ -37897,7 +37897,7 @@ default.unreachable1.i.i22:                       ; preds = %48
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %.sroa.71.0, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 1
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i16 %.sroa.82.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.8.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 2
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %46, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 4
   %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -38037,11 +38037,11 @@ default.unreachable1.i.i:                         ; preds = %21
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %12, %21, %22, %27, %36, %37
-  %.sroa.03.0 = phi i8 [ 4, %36 ], [ 5, %37 ], [ 1, %27 ], [ 0, %22 ], [ %13, %21 ], [ 3, %12 ]
+  %.sroa.02.0 = phi i8 [ 4, %36 ], [ 5, %37 ], [ 1, %27 ], [ 0, %22 ], [ %13, %21 ], [ 3, %12 ]
   %.sroa.7.0 = phi i8 [ undef, %36 ], [ undef, %37 ], [ %33, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.84.0 = phi i16 [ undef, %36 ], [ undef, %37 ], [ %35, %27 ], [ %26, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.136.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %29, %27 ], [ %24, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.147.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %31, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.83.0 = phi i16 [ undef, %36 ], [ undef, %37 ], [ %35, %27 ], [ %26, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.135.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %29, %27 ], [ %24, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.146.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %31, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
   store i8 63, ptr %5, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %3, ptr %.sroa.43.0..sroa_idx, align 1
@@ -38050,17 +38050,17 @@ default.unreachable1.i.i:                         ; preds = %21
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %.sroa.66.0..sroa_idx, align 4
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 %.sroa.03.0, ptr %.sroa.77.0..sroa_idx, align 8
+  store i8 %.sroa.02.0, ptr %.sroa.77.0..sroa_idx, align 8
   %.sroa.77.sroa.4.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
   store i8 %.sroa.7.0, ptr %.sroa.77.sroa.4.0..sroa.77.0..sroa_idx.sroa_idx, align 1
   %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i16 %.sroa.84.0, ptr %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.83.0, ptr %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx, align 2
   %.sroa.77.sroa.6.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %.sroa.77.sroa.6.0..sroa.77.0..sroa_idx.sroa_idx, align 4
   %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %.sroa.136.0, ptr %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.135.0, ptr %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx, align 8
   %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %.sroa.147.0, ptr %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.146.0, ptr %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx, align 4
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i8 103, ptr %38, align 8
   invoke fastcc void @"_ZN115_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..SideEffectNoResult$u20$as$u20$core..clone..Clone$GT$5clone17hc6accb67862b9aebE"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %5)
@@ -38122,7 +38122,7 @@ default.unreachable1.i.i22:                       ; preds = %48
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit23": ; preds = %39, %48, %49, %54, %63, %64
   %.sroa.14.0 = phi i32 [ undef, %63 ], [ undef, %64 ], [ undef, %49 ], [ %58, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.13.0 = phi i32 [ undef, %63 ], [ undef, %64 ], [ %51, %49 ], [ %56, %54 ], [ undef, %48 ], [ undef, %39 ]
-  %.sroa.82.0 = phi i16 [ undef, %63 ], [ undef, %64 ], [ %53, %49 ], [ %62, %54 ], [ undef, %48 ], [ undef, %39 ]
+  %.sroa.8.0 = phi i16 [ undef, %63 ], [ undef, %64 ], [ %53, %49 ], [ %62, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.71.0 = phi i8 [ undef, %63 ], [ undef, %64 ], [ undef, %49 ], [ %60, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.0.0 = phi i8 [ 4, %63 ], [ 5, %64 ], [ 0, %49 ], [ 1, %54 ], [ %40, %48 ], [ 3, %39 ]
   store i8 50, ptr %6, align 8
@@ -38137,7 +38137,7 @@ default.unreachable1.i.i22:                       ; preds = %48
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %.sroa.71.0, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 1
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i16 %.sroa.82.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.8.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 2
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %46, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 4
   %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -38277,11 +38277,11 @@ default.unreachable1.i.i:                         ; preds = %21
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %12, %21, %22, %27, %36, %37
-  %.sroa.03.0 = phi i8 [ 4, %36 ], [ 5, %37 ], [ 1, %27 ], [ 0, %22 ], [ %13, %21 ], [ 3, %12 ]
+  %.sroa.02.0 = phi i8 [ 4, %36 ], [ 5, %37 ], [ 1, %27 ], [ 0, %22 ], [ %13, %21 ], [ 3, %12 ]
   %.sroa.7.0 = phi i8 [ undef, %36 ], [ undef, %37 ], [ %33, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.84.0 = phi i16 [ undef, %36 ], [ undef, %37 ], [ %35, %27 ], [ %26, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.136.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %29, %27 ], [ %24, %22 ], [ undef, %21 ], [ undef, %12 ]
-  %.sroa.147.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %31, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.83.0 = phi i16 [ undef, %36 ], [ undef, %37 ], [ %35, %27 ], [ %26, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.135.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %29, %27 ], [ %24, %22 ], [ undef, %21 ], [ undef, %12 ]
+  %.sroa.146.0 = phi i32 [ undef, %36 ], [ undef, %37 ], [ %31, %27 ], [ undef, %22 ], [ undef, %21 ], [ undef, %12 ]
   store i8 63, ptr %5, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %3, ptr %.sroa.43.0..sroa_idx, align 1
@@ -38290,17 +38290,17 @@ default.unreachable1.i.i:                         ; preds = %21
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %.sroa.66.0..sroa_idx, align 4
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 %.sroa.03.0, ptr %.sroa.77.0..sroa_idx, align 8
+  store i8 %.sroa.02.0, ptr %.sroa.77.0..sroa_idx, align 8
   %.sroa.77.sroa.4.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
   store i8 %.sroa.7.0, ptr %.sroa.77.sroa.4.0..sroa.77.0..sroa_idx.sroa_idx, align 1
   %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i16 %.sroa.84.0, ptr %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.83.0, ptr %.sroa.77.sroa.5.0..sroa.77.0..sroa_idx.sroa_idx, align 2
   %.sroa.77.sroa.6.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %19, ptr %.sroa.77.sroa.6.0..sroa.77.0..sroa_idx.sroa_idx, align 4
   %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %.sroa.136.0, ptr %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.135.0, ptr %.sroa.77.sroa.7.0..sroa.77.0..sroa_idx.sroa_idx, align 8
   %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %.sroa.147.0, ptr %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.146.0, ptr %.sroa.77.sroa.8.0..sroa.77.0..sroa_idx.sroa_idx, align 4
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i8 103, ptr %38, align 8
   invoke fastcc void @"_ZN115_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..SideEffectNoResult$u20$as$u20$core..clone..Clone$GT$5clone17hc6accb67862b9aebE"(ptr noalias noundef align 8 captures(none) dereferenceable(120) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %5)
@@ -38362,7 +38362,7 @@ default.unreachable1.i.i22:                       ; preds = %48
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit23": ; preds = %39, %48, %49, %54, %63, %64
   %.sroa.14.0 = phi i32 [ undef, %63 ], [ undef, %64 ], [ undef, %49 ], [ %58, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.13.0 = phi i32 [ undef, %63 ], [ undef, %64 ], [ %51, %49 ], [ %56, %54 ], [ undef, %48 ], [ undef, %39 ]
-  %.sroa.82.0 = phi i16 [ undef, %63 ], [ undef, %64 ], [ %53, %49 ], [ %62, %54 ], [ undef, %48 ], [ undef, %39 ]
+  %.sroa.8.0 = phi i16 [ undef, %63 ], [ undef, %64 ], [ %53, %49 ], [ %62, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.71.0 = phi i8 [ undef, %63 ], [ undef, %64 ], [ undef, %49 ], [ %60, %54 ], [ undef, %48 ], [ undef, %39 ]
   %.sroa.0.0 = phi i8 [ 4, %63 ], [ 5, %64 ], [ 0, %49 ], [ 1, %54 ], [ %40, %48 ], [ 3, %39 ]
   store i8 50, ptr %6, align 8
@@ -38377,7 +38377,7 @@ default.unreachable1.i.i22:                       ; preds = %48
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %.sroa.71.0, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 1
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i16 %.sroa.82.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.8.0, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 2
   %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %46, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 4
   %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -75170,7 +75170,7 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen3isa3x645lower4isle14gen
   %.sink1.i.sroa.gep = getelementptr inbounds nuw i8, ptr %26, i64 48
   %.sink1.i.sroa.gep105 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sink1.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %.sink1.i.i.sroa.gep114 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sink1.i.i.sroa.gep113 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br i1 %33, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit", label %34, !prof !756
 
 34:                                               ; preds = %4
@@ -75205,8 +75205,8 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen3isa3x645lower4isle14gen
 43:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit"
   %44 = icmp eq i8 %.sroa.5.0.copyload, 1
   %45 = icmp eq i64 %3, 1
-  %or.cond129 = and i1 %45, %44
-  br i1 %or.cond129, label %283, label %"_ZN4core3ptr200drop_in_place$LT$core..option..Option$LT$$LP$cranelift_codegen..machinst..buffer..MachLabel$C$alloc..boxed..Box$LT$alloc..vec..Vec$LT$cranelift_codegen..machinst..buffer..MachLabel$GT$$GT$$RP$$GT$$GT$17h92761f6b73707f6bE.exit"
+  %or.cond128 = and i1 %45, %44
+  br i1 %or.cond128, label %283, label %"_ZN4core3ptr200drop_in_place$LT$core..option..Option$LT$$LP$cranelift_codegen..machinst..buffer..MachLabel$C$alloc..boxed..Box$LT$alloc..vec..Vec$LT$cranelift_codegen..machinst..buffer..MachLabel$GT$$GT$$RP$$GT$$GT$17h92761f6b73707f6bE.exit"
 
 46:                                               ; preds = %38
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10511)
@@ -75428,15 +75428,15 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
   invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..ConsumesFlags$GT$17h029461dc9de2efcaE"(ptr noalias noundef align 8 dereferenceable(168) %24) #22
           to label %107 unwind label %168
 
-113:                                              ; preds = %.invoke131, %.invoke, %136, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit8.i", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit.i", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit76", %116, %111, %149
+113:                                              ; preds = %.invoke130, %.invoke, %136, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit8.i", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit.i", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit76", %116, %111, %149
   %114 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 115:                                              ; preds = %111
-  %.sroa.0115.0.extract.trunc = trunc i64 %112 to i32
-  %.not130 = icmp eq i64 %112, 36028779847483388
-  br i1 %.not130, label %116, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit", !prof !1020
+  %.sroa.0114.0.extract.trunc = trunc i64 %112 to i32
+  %.not129 = icmp eq i64 %112, 36028779847483388
+  br i1 %.not129, label %116, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit", !prof !1020
 
 116:                                              ; preds = %115
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2cddbf5bcaf761a71b3f633d4eb1e193.639) #20
@@ -75446,12 +75446,12 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
   unreachable
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit": ; preds = %115
-  %117 = and i32 %.sroa.0115.0.extract.trunc, 3
+  %117 = and i32 %.sroa.0114.0.extract.trunc, 3
   switch i32 %117, label %default.unreachable [
     i32 0, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit76"
     i32 1, label %.invoke
     i32 2, label %.invoke
-    i32 3, label %.invoke131
+    i32 3, label %.invoke130
   ]
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit76": ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit"
@@ -75477,7 +75477,7 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
     i32 0, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit.i"
     i32 1, label %.invoke
     i32 2, label %.invoke
-    i32 3, label %.invoke131
+    i32 3, label %.invoke130
   ]
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit.i": ; preds = %124
@@ -75499,14 +75499,14 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
     i32 0, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit8.i"
     i32 1, label %.invoke
     i32 2, label %.invoke
-    i32 3, label %.invoke131
+    i32 3, label %.invoke130
   ]
 
-.invoke131:                                       ; preds = %131, %124, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit"
+.invoke130:                                       ; preds = %131, %124, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit"
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750) #20
-          to label %.cont132 unwind label %113
+          to label %.cont131 unwind label %113
 
-.cont132:                                         ; preds = %.invoke131
+.cont131:                                         ; preds = %.invoke130
   unreachable
 
 .invoke:                                          ; preds = %131, %131, %.noexc82, %124, %124, %.noexc78, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit"
@@ -75559,7 +75559,7 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
   store i64 %.val5.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !10539
   store i8 85, ptr %23, align 8, !alias.scope !10539
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i32 %.sroa.0115.0.extract.trunc, ptr %.sroa.21.0..sroa_idx.i, align 4, !alias.scope !10539
+  store i32 %.sroa.0114.0.extract.trunc, ptr %.sroa.21.0..sroa_idx.i, align 4, !alias.scope !10539
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %.sroa.04.0.extract.trunc.i.i.i.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !10539
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 12
@@ -75741,16 +75741,16 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
   %211 = getelementptr inbounds nuw i8, ptr %204, i64 40
   %212 = load ptr, ptr %211, align 8, !alias.scope !10596, !noalias !10597, !nonnull !4, !noundef !4
   %213 = getelementptr inbounds nuw [0 x { i8, [15 x i8] }], ptr %212, i64 0, i64 %206
-  %.sroa.0109.0.copyload = load i8, ptr %213, align 8
-  %.sroa.5110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 1
-  %.sroa.5110.0.copyload = load i8, ptr %.sroa.5110.0..sroa_idx, align 1
-  %.sroa.7112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 2
-  %.sroa.7112.0.copyload = load i8, ptr %.sroa.7112.0..sroa_idx, align 2
-  %.sroa.9113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 4
-  %.sroa.9113.0.copyload = load i32, ptr %.sroa.9113.0..sroa_idx, align 4
+  %.sroa.0108.0.copyload = load i8, ptr %213, align 8
+  %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 1
+  %.sroa.5109.0.copyload = load i8, ptr %.sroa.5109.0..sroa_idx, align 1
+  %.sroa.7111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 2
+  %.sroa.7111.0.copyload = load i8, ptr %.sroa.7111.0..sroa_idx, align 2
+  %.sroa.9112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 4
+  %.sroa.9112.0.copyload = load i32, ptr %.sroa.9112.0..sroa_idx, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %213, i64 8
   %.sroa.11.0.copyload = load i32, ptr %.sroa.11.0..sroa_idx, align 8
-  switch i8 %.sroa.0109.0.copyload, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$13maybe_uextend17h3468bfaf1e599ae3E.exit._crit_edge" [
+  switch i8 %.sroa.0108.0.copyload, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$13maybe_uextend17h3468bfaf1e599ae3E.exit._crit_edge" [
     i8 12, label %226
     i8 15, label %228
   ]
@@ -75787,16 +75787,16 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
   ]
 
 226:                                              ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit92"
-  %227 = icmp eq i8 %.sroa.5110.0.copyload, -122
+  %227 = icmp eq i8 %.sroa.5109.0.copyload, -122
   br i1 %227, label %230, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$13maybe_uextend17h3468bfaf1e599ae3E.exit._crit_edge"
 
 228:                                              ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit92"
-  %229 = icmp eq i8 %.sroa.5110.0.copyload, 75
+  %229 = icmp eq i8 %.sroa.5109.0.copyload, 75
   br i1 %229, label %239, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$13maybe_uextend17h3468bfaf1e599ae3E.exit._crit_edge"
 
 230:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %22)
-  call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_emit_fcmp17hc4aca8577852c905E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %22, ptr noalias noundef align 8 dereferenceable(16) %0, i8 %.sroa.7112.0.copyload, i32 noundef %.sroa.9113.0.copyload, i32 noundef %.sroa.11.0.copyload)
+  call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_emit_fcmp17hc4aca8577852c905E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %22, ptr noalias noundef align 8 dereferenceable(16) %0, i8 %.sroa.7111.0.copyload, i32 noundef %.sroa.9112.0.copyload, i32 noundef %.sroa.11.0.copyload)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %21)
   invoke fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_fcmp17hed8b143f6a65a526E(ptr noalias noundef align 8 captures(none) dereferenceable(120) %21, ptr noalias noundef readonly align 8 dereferenceable(96) %22, i32 noundef %171, i32 noundef %173)
           to label %234 unwind label %232
@@ -75834,7 +75834,7 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
 
 239:                                              ; preds = %228
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %20)
-  call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %20, ptr noalias noundef align 8 dereferenceable(16) %0, i8 %.sroa.7112.0.copyload, i32 noundef %.sroa.9113.0.copyload, i32 noundef %.sroa.11.0.copyload)
+  call fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code20constructor_emit_cmp17h28f4f167a86240f9E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %20, ptr noalias noundef align 8 dereferenceable(16) %0, i8 %.sroa.7111.0.copyload, i32 noundef %.sroa.9112.0.copyload, i32 noundef %.sroa.11.0.copyload)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %19)
   invoke fastcc void @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_jmp_cond_icmp17hc159d5e7084f4154E(ptr noalias noundef align 8 captures(none) dereferenceable(120) %19, ptr noalias noundef readonly align 8 dereferenceable(96) %20, i32 noundef %171, i32 noundef %173)
           to label %243 unwind label %241
@@ -75927,12 +75927,12 @@ default.unreachable:                              ; preds = %131, %124, %"_ZN17c
   ]
 
 .sink.split.i.i:                                  ; preds = %264, %262
-  %.sink1.i.i.sroa.phi = phi ptr [ %.sink1.i.i.sroa.gep, %264 ], [ %.sink1.i.i.sroa.gep114, %262 ]
+  %.sink1.i.i.sroa.phi = phi ptr [ %.sink1.i.i.sroa.gep, %264 ], [ %.sink1.i.i.sroa.gep113, %262 ]
   call fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %.sink1.i.i.sroa.phi)
   br label %"_ZN4core3ptr93drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..IcmpCondResult$GT$17h09eb2e43f5dbe77cE.exit"
 
 264:                                              ; preds = %262
-  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %.sink1.i.i.sroa.gep114)
+  invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E"(ptr noalias noundef align 8 dereferenceable(40) %.sink1.i.i.sroa.gep113)
           to label %.sink.split.i.i unwind label %265
 
 265:                                              ; preds = %264

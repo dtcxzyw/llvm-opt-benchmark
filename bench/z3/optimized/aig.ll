@@ -12830,12 +12830,12 @@ define linkonce_odr hidden void @_ZN11aig_manager3imp8aig2expr15visit_and_childE
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call noundef zeroext i1 @_ZN11aig_manager3imp8aig2expr9is_cachedEP3aig(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %6)
-  br i1 %7, label %66, label %8
+  br i1 %7, label %55, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8, !tbaa !271
   %10 = tail call noundef zeroext i1 @_ZNK11aig_manager3imp6is_iteEP3aig(ptr noundef nonnull align 8 dereferenceable(680) %9, ptr noundef %6)
-  br i1 %10, label %11, label %26
+  br i1 %10, label %11, label %22
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12853,105 +12853,82 @@ define linkonce_odr hidden void @_ZN11aig_manager3imp8aig2expr15visit_and_childE
 
 21:                                               ; preds = %15, %11
   tail call void @_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %.pre.i = load ptr, ptr %12, align 8, !tbaa !258
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
-  %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !23
-  br label %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit
+  br label %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit.sink.split
 
-_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit: ; preds = %15, %21
-  %22 = phi i32 [ %.pre2.i, %21 ], [ %17, %15 ]
-  %23 = phi ptr [ %.pre.i, %21 ], [ %13, %15 ]
-  %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw %"struct.aig_manager::imp::aig2expr::frame", ptr %23, i64 %24
-  store ptr %6, ptr %25, align 8, !tbaa !24
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i8 6, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !134
-  br label %62
+22:                                               ; preds = %8
+  %23 = and i64 %4, 1
+  %.not = icmp eq i64 %23, 0
+  br i1 %.not, label %24, label %39
 
-26:                                               ; preds = %8
-  %27 = and i64 %4, 1
-  %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %28, label %47
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !13
+  %27 = icmp eq i32 %26, 1
+  br i1 %27, label %28, label %39
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !13
-  %31 = icmp eq i32 %30, 1
-  br i1 %31, label %32, label %47
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %30 = load ptr, ptr %29, align 8, !tbaa !258
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %38, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !258
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %42, label %36
+  %33 = getelementptr inbounds i8, ptr %30, i64 -4
+  %34 = load i32, ptr %33, align 4, !tbaa !23
+  %35 = getelementptr inbounds i8, ptr %30, i64 -8
+  %36 = load i32, ptr %35, align 4, !tbaa !23
+  %37 = icmp eq i32 %34, %36
+  br i1 %37, label %38, label %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %34, i64 -4
-  %38 = load i32, ptr %37, align 4, !tbaa !23
-  %39 = getelementptr inbounds i8, ptr %34, i64 -8
-  %40 = load i32, ptr %39, align 4, !tbaa !23
-  %41 = icmp eq i32 %38, %40
-  br i1 %41, label %42, label %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit11
+38:                                               ; preds = %32, %28
+  tail call void @_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %29)
+  br label %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit.sink.split
 
-42:                                               ; preds = %36, %32
-  tail call void @_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %33)
-  %.pre.i8 = load ptr, ptr %33, align 8, !tbaa !258
-  %.phi.trans.insert.i9 = getelementptr inbounds i8, ptr %.pre.i8, i64 -4
-  %.pre2.i10 = load i32, ptr %.phi.trans.insert.i9, align 4, !tbaa !23
-  br label %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit11
+39:                                               ; preds = %24, %22
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !258
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %49, label %43
 
-_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit11: ; preds = %36, %42
-  %43 = phi i32 [ %.pre2.i10, %42 ], [ %38, %36 ]
-  %44 = phi ptr [ %.pre.i8, %42 ], [ %34, %36 ]
-  %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw %"struct.aig_manager::imp::aig2expr::frame", ptr %44, i64 %45
-  store ptr %6, ptr %46, align 8, !tbaa !24
-  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i8 5, ptr %.sroa.417.0..sroa_idx, align 8, !tbaa !134
-  br label %62
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %41, i64 -4
+  %45 = load i32, ptr %44, align 4, !tbaa !23
+  %46 = getelementptr inbounds i8, ptr %41, i64 -8
+  %47 = load i32, ptr %46, align 4, !tbaa !23
+  %48 = icmp eq i32 %45, %47
+  br i1 %48, label %49, label %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit
 
-47:                                               ; preds = %28, %26
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !258
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %57, label %51
+49:                                               ; preds = %43, %39
+  tail call void @_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %40)
+  br label %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit.sink.split
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %49, i64 -4
-  %53 = load i32, ptr %52, align 4, !tbaa !23
-  %54 = getelementptr inbounds i8, ptr %49, i64 -8
-  %55 = load i32, ptr %54, align 4, !tbaa !23
-  %56 = icmp eq i32 %53, %55
-  br i1 %56, label %57, label %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit15
-
-57:                                               ; preds = %51, %47
-  tail call void @_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %48)
-  %.pre.i12 = load ptr, ptr %48, align 8, !tbaa !258
-  %.phi.trans.insert.i13 = getelementptr inbounds i8, ptr %.pre.i12, i64 -4
+_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit.sink.split: ; preds = %21, %38, %49
+  %.sink.ph = phi i8 [ 4, %49 ], [ 5, %38 ], [ 6, %21 ]
+  %.sink26.in.ph = phi ptr [ %40, %49 ], [ %29, %38 ], [ %12, %21 ]
+  %.pre.i12.sink = load ptr, ptr %.sink26.in.ph, align 8, !tbaa !258
+  %.phi.trans.insert.i13 = getelementptr inbounds i8, ptr %.pre.i12.sink, i64 -4
   %.pre2.i14 = load i32, ptr %.phi.trans.insert.i13, align 4, !tbaa !23
-  br label %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit15
+  br label %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit
 
-_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit15: ; preds = %51, %57
-  %58 = phi i32 [ %.pre2.i14, %57 ], [ %53, %51 ]
-  %59 = phi ptr [ %.pre.i12, %57 ], [ %49, %51 ]
-  %60 = zext i32 %58 to i64
-  %61 = getelementptr inbounds nuw %"struct.aig_manager::imp::aig2expr::frame", ptr %59, i64 %60
-  store ptr %6, ptr %61, align 8, !tbaa !24
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i8 4, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !134
-  br label %62
-
-62:                                               ; preds = %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit11, %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit15, %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit
-  %.sink26.in = phi ptr [ %33, %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit11 ], [ %48, %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit15 ], [ %12, %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit ]
+_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit: ; preds = %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit.sink.split, %43, %32, %15
+  %.sink31 = phi i32 [ %17, %15 ], [ %34, %32 ], [ %45, %43 ], [ %.pre2.i14, %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit.sink.split ]
+  %.sink29 = phi ptr [ %13, %15 ], [ %30, %32 ], [ %41, %43 ], [ %.pre.i12.sink, %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit.sink.split ]
+  %.sink = phi i8 [ 6, %15 ], [ 5, %32 ], [ 4, %43 ], [ %.sink.ph, %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit.sink.split ]
+  %.sink26.in = phi ptr [ %12, %15 ], [ %29, %32 ], [ %40, %43 ], [ %.sink26.in.ph, %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit.sink.split ]
+  %50 = zext i32 %.sink31 to i64
+  %51 = getelementptr inbounds nuw %"struct.aig_manager::imp::aig2expr::frame", ptr %.sink29, i64 %50
+  store ptr %6, ptr %51, align 8, !tbaa !24
+  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i8 %.sink, ptr %.sroa.417.0..sroa_idx, align 8, !tbaa !134
   %.sink26 = load ptr, ptr %.sink26.in, align 8, !tbaa !258
-  %63 = getelementptr inbounds i8, ptr %.sink26, i64 -4
-  %64 = load i32, ptr %63, align 4, !tbaa !23
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %63, align 4, !tbaa !23
+  %52 = getelementptr inbounds i8, ptr %.sink26, i64 -4
+  %53 = load i32, ptr %52, align 4, !tbaa !23
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %52, align 4, !tbaa !23
   store i8 0, ptr %2, align 1, !tbaa !279
-  br label %66
+  br label %55
 
-66:                                               ; preds = %3, %62
+55:                                               ; preds = %3, %_ZN6vectorIN11aig_manager3imp8aig2expr5frameELb0EjE9push_backEOS3_.exit
   ret void
 }
 

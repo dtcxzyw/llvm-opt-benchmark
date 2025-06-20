@@ -4202,7 +4202,7 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   %100 = trunc nuw i64 %99 to i1
   br i1 %100, label %119, label %127
 
-.loopexit148:                                     ; preds = %285, %288
+.loopexit147:                                     ; preds = %285, %288
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4212,8 +4212,8 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit148, %.loopexit.split-lp, %305, %266, %231, %201, %171, %141, %111
-  %eh.lpad-body = phi { ptr, i32 } [ %112, %111 ], [ %142, %141 ], [ %172, %171 ], [ %202, %201 ], [ %232, %231 ], [ %267, %266 ], [ %306, %305 ], [ %lpad.loopexit, %.loopexit148 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit147, %.loopexit.split-lp, %305, %266, %231, %201, %171, %141, %111
+  %eh.lpad-body = phi { ptr, i32 } [ %112, %111 ], [ %142, %141 ], [ %172, %171 ], [ %202, %201 ], [ %232, %231 ], [ %267, %266 ], [ %306, %305 ], [ %lpad.loopexit, %.loopexit147 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$qlog..events..h3..Setting$GT$$GT$17h2a8e675a7add4819E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #20
           to label %316 unwind label %314
 
@@ -4226,10 +4226,10 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %105 = load i64, ptr %104, align 8, !noundef !7
   store i64 %91, ptr %22, align 8
-  %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %102, ptr %.sroa.488.0..sroa_idx, align 8
-  %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i64 22, ptr %.sroa.589.0..sroa_idx, align 8
+  %.sroa.487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr %102, ptr %.sroa.487.0..sroa_idx, align 8
+  %.sroa.588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store i64 22, ptr %.sroa.588.0..sroa_idx, align 8
   %106 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 %105, ptr %106, align 8
   %107 = load i64, ptr %40, align 8, !alias.scope !345, !noalias !348, !noundef !7
@@ -4295,10 +4295,10 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %135 = load i64, ptr %134, align 8, !noundef !7
   store i64 %123, ptr %21, align 8
-  %.sroa.494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %132, ptr %.sroa.494.0..sroa_idx, align 8
-  %.sroa.595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i64 24, ptr %.sroa.595.0..sroa_idx, align 8
+  %.sroa.493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %132, ptr %.sroa.493.0..sroa_idx, align 8
+  %.sroa.594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i64 24, ptr %.sroa.594.0..sroa_idx, align 8
   %136 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %135, ptr %136, align 8
   %137 = load i64, ptr %40, align 8, !alias.scope !357, !noalias !360, !noundef !7
@@ -4364,10 +4364,10 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %165 = load i64, ptr %164, align 8, !noundef !7
   store i64 %153, ptr %20, align 8
-  %.sroa.4100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %162, ptr %.sroa.4100.0..sroa_idx, align 8
-  %.sroa.5101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i64 21, ptr %.sroa.5101.0..sroa_idx, align 8
+  %.sroa.499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %162, ptr %.sroa.499.0..sroa_idx, align 8
+  %.sroa.5100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store i64 21, ptr %.sroa.5100.0..sroa_idx, align 8
   %166 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 %165, ptr %166, align 8
   %167 = load i64, ptr %40, align 8, !alias.scope !369, !noalias !372, !noundef !7
@@ -4433,10 +4433,10 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %195 = load i64, ptr %194, align 8, !noundef !7
   store i64 %183, ptr %19, align 8
-  %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %192, ptr %.sroa.4106.0..sroa_idx, align 8
-  %.sroa.5107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i64 32, ptr %.sroa.5107.0..sroa_idx, align 8
+  %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %192, ptr %.sroa.4105.0..sroa_idx, align 8
+  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i64 32, ptr %.sroa.5106.0..sroa_idx, align 8
   %196 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %195, ptr %196, align 8
   %197 = load i64, ptr %40, align 8, !alias.scope !381, !noalias !384, !noundef !7
@@ -4502,10 +4502,10 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %225 = load i64, ptr %224, align 8, !noundef !7
   store i64 %213, ptr %18, align 8
-  %.sroa.4112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %222, ptr %.sroa.4112.0..sroa_idx, align 8
-  %.sroa.5113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 11, ptr %.sroa.5113.0..sroa_idx, align 8
+  %.sroa.4111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr %222, ptr %.sroa.4111.0..sroa_idx, align 8
+  %.sroa.5112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i64 11, ptr %.sroa.5112.0..sroa_idx, align 8
   %226 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 %225, ptr %226, align 8
   %227 = load i64, ptr %40, align 8, !alias.scope !393, !noalias !396, !noundef !7
@@ -4581,10 +4581,10 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %260 = load i64, ptr %259, align 8, !noundef !7
   store i64 %252, ptr %17, align 8
-  %.sroa.4118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %257, ptr %.sroa.4118.0..sroa_idx, align 8
-  %.sroa.5119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %248, ptr %.sroa.5119.0..sroa_idx, align 8
+  %.sroa.4117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %257, ptr %.sroa.4117.0..sroa_idx, align 8
+  %.sroa.5118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i64 %248, ptr %.sroa.5118.0..sroa_idx, align 8
   %261 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 %260, ptr %261, align 8
   %262 = load i64, ptr %40, align 8, !alias.scope !405, !noalias !408, !noundef !7
@@ -4627,11 +4627,11 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   br i1 %280, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %274
-  %.sroa.023.1153 = getelementptr inbounds nuw i8, ptr %276, i64 16
+  %.sroa.023.1152 = getelementptr inbounds nuw i8, ptr %276, i64 16
   %281 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %282 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.4124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.5125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.4123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.5124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   %283 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br label %285
 
@@ -4643,20 +4643,20 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   br label %86
 
 285:                                              ; preds = %.lr.ph, %309
-  %.sroa.023.1155 = phi ptr [ %.sroa.023.1153, %.lr.ph ], [ %.sroa.023.1, %309 ]
-  %.sroa.023.0154 = phi ptr [ %276, %.lr.ph ], [ %.sroa.023.1155, %309 ]
+  %.sroa.023.1154 = phi ptr [ %.sroa.023.1152, %.lr.ph ], [ %.sroa.023.1, %309 ]
+  %.sroa.023.0153 = phi ptr [ %276, %.lr.ph ], [ %.sroa.023.1154, %309 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12)
-  %286 = load i64, ptr %.sroa.023.0154, align 8, !noundef !7
+  %286 = load i64, ptr %.sroa.023.0153, align 8, !noundef !7
   %287 = invoke { ptr, i64 } @"_ZN4core3fmt3num3imp21_$LT$impl$u20$u64$GT$4_fmt17hce74c1d373f191beE"(i64 noundef %286, ptr noalias noundef nonnull align 1 %12, i64 noundef 20)
-          to label %288 unwind label %.loopexit148
+          to label %288 unwind label %.loopexit147
 
 288:                                              ; preds = %285
   %289 = extractvalue { ptr, i64 } %287, 0
   %290 = extractvalue { ptr, i64 } %287, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !412
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h0f8c69e4eeea8ee1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %290, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc73 unwind label %.loopexit148
+          to label %.noexc73 unwind label %.loopexit147
 
 .noexc73:                                         ; preds = %288
   %291 = load i64, ptr %5, align 8, !range !15, !noalias !412, !noundef !7
@@ -4675,11 +4675,11 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !412
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %297, ptr nonnull readonly align 1 %289, i64 %290, i1 false), !noalias !416
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12)
-  %299 = getelementptr inbounds nuw i8, ptr %.sroa.023.0154, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %.sroa.023.0153, i64 8
   %300 = load i64, ptr %299, align 8, !noundef !7
   store i64 %293, ptr %16, align 8
-  store ptr %297, ptr %.sroa.4124.0..sroa_idx, align 8
-  store i64 %290, ptr %.sroa.5125.0..sroa_idx, align 8
+  store ptr %297, ptr %.sroa.4123.0..sroa_idx, align 8
+  store i64 %290, ptr %.sroa.5124.0..sroa_idx, align 8
   store i64 %300, ptr %283, align 8
   %301 = load i64, ptr %40, align 8, !alias.scope !417, !noalias !420, !noundef !7
   %302 = load i64, ptr %23, align 8, !range !311, !alias.scope !417, !noalias !420, !noundef !7
@@ -4709,9 +4709,9 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   %312 = add i64 %301, 1
   store i64 %312, ptr %40, align 8, !alias.scope !417, !noalias !420
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  %313 = icmp eq ptr %.sroa.023.1155, %279
+  %313 = icmp eq ptr %.sroa.023.1154, %279
   %.sroa.023.1.idx = select i1 %313, i64 0, i64 16
-  %.sroa.023.1 = getelementptr inbounds nuw i8, ptr %.sroa.023.1155, i64 %.sroa.023.1.idx
+  %.sroa.023.1 = getelementptr inbounds nuw i8, ptr %.sroa.023.1154, i64 %.sroa.023.1.idx
   br i1 %313, label %.loopexit, label %285
 
 314:                                              ; preds = %.body
@@ -4747,7 +4747,7 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   br label %327
 
 327:                                              ; preds = %55, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc578e763d027eb1aE.exit81"
-  %.sroa.0129.0 = phi i64 [ %321, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc578e763d027eb1aE.exit81" ], [ %62, %55 ]
+  %.sroa.0128.0 = phi i64 [ %321, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc578e763d027eb1aE.exit81" ], [ %62, %55 ]
   %.sroa.3.0 = phi ptr [ %325, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc578e763d027eb1aE.exit81" ], [ %64, %55 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4755,11 +4755,11 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %57, ptr %329, align 8
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0129.0, ptr %330, align 8
-  %.sroa.3.0..sroa_idx131 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.3.0, ptr %.sroa.3.0..sroa_idx131, align 8
-  %.sroa.4133.0..sroa_idx134 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %66, ptr %.sroa.4133.0..sroa_idx134, align 8
+  store i64 %.sroa.0128.0, ptr %330, align 8
+  %.sroa.3.0..sroa_idx130 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.3.0, ptr %.sroa.3.0..sroa_idx130, align 8
+  %.sroa.4132.0..sroa_idx133 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %66, ptr %.sroa.4132.0..sroa_idx133, align 8
   store i64 10, ptr %0, align 8
   br label %86
 
@@ -4787,19 +4787,19 @@ define void @_ZN6quiche2h35frame5Frame7to_qlog17hb94d2a9253e3796bE(ptr dead_on_u
   br label %341
 
 341:                                              ; preds = %67, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc578e763d027eb1aE.exit84"
-  %.sroa.0139.0 = phi i64 [ %335, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc578e763d027eb1aE.exit84" ], [ %74, %67 ]
-  %.sroa.3141.0 = phi ptr [ %339, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc578e763d027eb1aE.exit84" ], [ %76, %67 ]
+  %.sroa.0138.0 = phi i64 [ %335, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc578e763d027eb1aE.exit84" ], [ %74, %67 ]
+  %.sroa.3140.0 = phi ptr [ %339, %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hc578e763d027eb1aE.exit84" ], [ %76, %67 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %342, align 8
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %69, ptr %343, align 8
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.0139.0, ptr %344, align 8
-  %.sroa.3141.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.3141.0, ptr %.sroa.3141.0..sroa_idx142, align 8
-  %.sroa.4144.0..sroa_idx145 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %78, ptr %.sroa.4144.0..sroa_idx145, align 8
+  store i64 %.sroa.0138.0, ptr %344, align 8
+  %.sroa.3140.0..sroa_idx141 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.3140.0, ptr %.sroa.3140.0..sroa_idx141, align 8
+  %.sroa.4143.0..sroa_idx144 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %78, ptr %.sroa.4143.0..sroa_idx144, align 8
   store i64 10, ptr %0, align 8
   br label %86
 }

@@ -627,7 +627,7 @@ define hidden void @_ZN10serde_yaml2de12Deserializer2de17h2edc521355a9c820E(ptr 
   %11 = alloca [48 x i8], align 8
   %12 = alloca [72 x i8], align 8
   %13 = alloca [304 x i8], align 8
-  %.sroa.567 = alloca [288 x i8], align 8
+  %.sroa.566 = alloca [288 x i8], align 8
   %14 = alloca [8 x i8], align 8
   %15 = load i64, ptr %1, align 8, !range !3, !noundef !4
   %16 = icmp eq i64 %15, 3
@@ -690,15 +690,15 @@ define hidden void @_ZN10serde_yaml2de12Deserializer2de17h2edc521355a9c820E(ptr 
 
 43:                                               ; preds = %"_ZN72_$LT$serde_yaml..de..Deserializer$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17hf56591103cb7fa68E.exit"
   %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.567, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.638.0..sroa_idx, i64 288, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.566, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.638.0..sroa_idx, i64 288, i1 false)
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
   %44 = load i64, ptr %14, align 8, !noundef !4
   store atomic i64 %44, ptr %25 monotonic, align 8
-  %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %40, ptr %.sroa.469.0..sroa_idx, align 8
-  %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.570.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.567, i64 288, i1 false)
+  %.sroa.468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %40, ptr %.sroa.468.0..sroa_idx, align 8
+  %.sroa.569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.569.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.566, i64 288, i1 false)
   br label %89
 
 45:                                               ; preds = %.thread56, %82, %62

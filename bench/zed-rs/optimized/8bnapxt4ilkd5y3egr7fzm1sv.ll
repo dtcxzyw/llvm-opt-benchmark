@@ -22570,10 +22570,10 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$11add_padding17h
   %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph, %45
-  %22 = phi i64 [ %.promoted24, %.lr.ph ], [ %40, %45 ]
-  %.sroa.019.023 = phi i64 [ 0, %.lr.ph ], [ %23, %45 ]
-  %.promoted12.i2122 = phi i64 [ %7, %.lr.ph ], [ %46, %45 ]
+21:                                               ; preds = %.lr.ph, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit
+  %22 = phi i64 [ %.promoted24, %.lr.ph ], [ %40, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit ]
+  %.sroa.019.023 = phi i64 [ 0, %.lr.ph ], [ %23, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit ]
+  %.promoted12.i2122 = phi i64 [ %7, %.lr.ph ], [ %44, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit ]
   %23 = add nuw i64 %.sroa.019.023, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5973)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5974)
@@ -22616,24 +22616,24 @@ _ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i: ; preds 
   %40 = add i64 %22, 1
   %41 = load i64, ptr %18, align 8, !alias.scope !5976, !noalias !5980, !noundef !4
   %42 = icmp ugt i64 %40, %41
-  br i1 %42, label %43, label %45
+  br i1 %42, label %43, label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit
 
 43:                                               ; preds = %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i
   store i64 %40, ptr %18, align 8, !alias.scope !5976, !noalias !5980
-  br label %45
+  br label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit
 
-.loopexit:                                        ; preds = %45, %3
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %13, ptr %44, align 8
-  store i64 14, ptr %0, align 8
-  ret void
-
-45:                                               ; preds = %43, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i
+_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit: ; preds = %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i, %43
   store i64 %40, ptr %16, align 8, !alias.scope !5962, !noalias !5967
-  %46 = add i64 %.promoted12.i2122, 1
-  store i64 %46, ptr %6, align 8, !alias.scope !5954, !noalias !5959
+  %44 = add i64 %.promoted12.i2122, 1
+  store i64 %44, ptr %6, align 8, !alias.scope !5954, !noalias !5959
   %exitcond.not = icmp eq i64 %23, %13
   br i1 %exitcond.not, label %.loopexit, label %21
+
+.loopexit:                                        ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit, %3
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %13, ptr %45, align 8
+  store i64 14, ptr %0, align 8
+  ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -22670,7 +22670,7 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   call void @_ZN8zvariant16signature_parser15SignatureParser10skip_chars17h22fa1f3782620e9dE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
   %4 = load i64, ptr %3, align 8, !range !40, !noundef !4
   %5 = icmp eq i64 %4, 14
-  br i1 %5, label %6, label %44
+  br i1 %5, label %6, label %43
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -22697,11 +22697,11 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   %.pre15.pre = load i64, ptr %18, align 8, !alias.scope !6014, !noalias !6017
   br label %20
 
-20:                                               ; preds = %42, %.lr.ph.i
-  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %42 ]
-  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %42 ]
-  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %42 ]
-  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %43, %42 ]
+20:                                               ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %.lr.ph.i
+  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %42, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
   %22 = add nuw i64 %.sroa.019.023.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6018)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6019)
@@ -22744,30 +22744,30 @@ _ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i: ; pred
   %38 = add i64 %21, 1
   %39 = load i64, ptr %18, align 8, !alias.scope !6021, !noalias !6017, !noundef !4
   %40 = icmp ugt i64 %38, %39
-  br i1 %40, label %41, label %42
+  br i1 %40, label %41, label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
 41:                                               ; preds = %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   store i64 %38, ptr %18, align 8, !alias.scope !6021, !noalias !6017
-  br label %42
+  br label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
-42:                                               ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
+_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i: ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   %.pre1517 = phi i64 [ %38, %41 ], [ %39, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i ]
   store i64 %38, ptr %17, align 8, !alias.scope !6003, !noalias !6008
-  %43 = add i64 %.promoted12.i2122.i, 1
-  store i64 %43, ptr %9, align 8, !alias.scope !5995, !noalias !6000
+  %42 = add i64 %.promoted12.i2122.i, 1
+  store i64 %42, ptr %9, align 8, !alias.scope !5995, !noalias !6000
   %exitcond.not.i = icmp eq i64 %22, %14
   br i1 %exitcond.not.i, label %.loopexit, label %20
 
-44:                                               ; preds = %2
+43:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  br label %45
+  br label %44
 
-.loopexit:                                        ; preds = %42, %6
+.loopexit:                                        ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %6
   store i64 14, ptr %0, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit, %44
+44:                                               ; preds = %.loopexit, %43
   ret void
 }
 
@@ -22817,7 +22817,7 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   call void @_ZN8zvariant16signature_parser15SignatureParser10skip_chars17h22fa1f3782620e9dE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
   %4 = load i64, ptr %3, align 8, !range !40, !noundef !4
   %5 = icmp eq i64 %4, 14
-  br i1 %5, label %6, label %44
+  br i1 %5, label %6, label %43
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -22844,11 +22844,11 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   %.pre15.pre = load i64, ptr %18, align 8, !alias.scope !6060, !noalias !6063
   br label %20
 
-20:                                               ; preds = %42, %.lr.ph.i
-  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %42 ]
-  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %42 ]
-  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %42 ]
-  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %43, %42 ]
+20:                                               ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %.lr.ph.i
+  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %42, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
   %22 = add nuw i64 %.sroa.019.023.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6064)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6065)
@@ -22891,30 +22891,30 @@ _ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i: ; pred
   %38 = add i64 %21, 1
   %39 = load i64, ptr %18, align 8, !alias.scope !6067, !noalias !6063, !noundef !4
   %40 = icmp ugt i64 %38, %39
-  br i1 %40, label %41, label %42
+  br i1 %40, label %41, label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
 41:                                               ; preds = %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   store i64 %38, ptr %18, align 8, !alias.scope !6067, !noalias !6063
-  br label %42
+  br label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
-42:                                               ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
+_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i: ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   %.pre1517 = phi i64 [ %38, %41 ], [ %39, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i ]
   store i64 %38, ptr %17, align 8, !alias.scope !6049, !noalias !6054
-  %43 = add i64 %.promoted12.i2122.i, 1
-  store i64 %43, ptr %9, align 8, !alias.scope !6041, !noalias !6046
+  %42 = add i64 %.promoted12.i2122.i, 1
+  store i64 %42, ptr %9, align 8, !alias.scope !6041, !noalias !6046
   %exitcond.not.i = icmp eq i64 %22, %14
   br i1 %exitcond.not.i, label %.loopexit, label %20
 
-44:                                               ; preds = %2
+43:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  br label %45
+  br label %44
 
-.loopexit:                                        ; preds = %42, %6
+.loopexit:                                        ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %6
   store i64 14, ptr %0, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit, %44
+44:                                               ; preds = %.loopexit, %43
   ret void
 }
 
@@ -22964,7 +22964,7 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   call void @_ZN8zvariant16signature_parser15SignatureParser10skip_chars17h22fa1f3782620e9dE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
   %4 = load i64, ptr %3, align 8, !range !40, !noundef !4
   %5 = icmp eq i64 %4, 14
-  br i1 %5, label %6, label %44
+  br i1 %5, label %6, label %43
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -22991,11 +22991,11 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   %.pre15.pre = load i64, ptr %18, align 8, !alias.scope !6106, !noalias !6109
   br label %20
 
-20:                                               ; preds = %42, %.lr.ph.i
-  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %42 ]
-  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %42 ]
-  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %42 ]
-  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %43, %42 ]
+20:                                               ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %.lr.ph.i
+  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %42, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
   %22 = add nuw i64 %.sroa.019.023.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6110)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6111)
@@ -23038,30 +23038,30 @@ _ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i: ; pred
   %38 = add i64 %21, 1
   %39 = load i64, ptr %18, align 8, !alias.scope !6113, !noalias !6109, !noundef !4
   %40 = icmp ugt i64 %38, %39
-  br i1 %40, label %41, label %42
+  br i1 %40, label %41, label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
 41:                                               ; preds = %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   store i64 %38, ptr %18, align 8, !alias.scope !6113, !noalias !6109
-  br label %42
+  br label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
-42:                                               ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
+_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i: ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   %.pre1517 = phi i64 [ %38, %41 ], [ %39, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i ]
   store i64 %38, ptr %17, align 8, !alias.scope !6095, !noalias !6100
-  %43 = add i64 %.promoted12.i2122.i, 1
-  store i64 %43, ptr %9, align 8, !alias.scope !6087, !noalias !6092
+  %42 = add i64 %.promoted12.i2122.i, 1
+  store i64 %42, ptr %9, align 8, !alias.scope !6087, !noalias !6092
   %exitcond.not.i = icmp eq i64 %22, %14
   br i1 %exitcond.not.i, label %.loopexit, label %20
 
-44:                                               ; preds = %2
+43:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  br label %45
+  br label %44
 
-.loopexit:                                        ; preds = %42, %6
+.loopexit:                                        ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %6
   store i64 14, ptr %0, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit, %44
+44:                                               ; preds = %.loopexit, %43
   ret void
 }
 
@@ -23072,7 +23072,7 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   call void @_ZN8zvariant16signature_parser15SignatureParser10skip_chars17h22fa1f3782620e9dE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
   %4 = load i64, ptr %3, align 8, !range !40, !noundef !4
   %5 = icmp eq i64 %4, 14
-  br i1 %5, label %6, label %44
+  br i1 %5, label %6, label %43
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -23099,11 +23099,11 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   %.pre15.pre = load i64, ptr %18, align 8, !alias.scope !6142, !noalias !6145
   br label %20
 
-20:                                               ; preds = %42, %.lr.ph.i
-  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %42 ]
-  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %42 ]
-  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %42 ]
-  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %43, %42 ]
+20:                                               ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %.lr.ph.i
+  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %42, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
   %22 = add nuw i64 %.sroa.019.023.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6146)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6147)
@@ -23146,30 +23146,30 @@ _ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i: ; pred
   %38 = add i64 %21, 1
   %39 = load i64, ptr %18, align 8, !alias.scope !6149, !noalias !6145, !noundef !4
   %40 = icmp ugt i64 %38, %39
-  br i1 %40, label %41, label %42
+  br i1 %40, label %41, label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
 41:                                               ; preds = %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   store i64 %38, ptr %18, align 8, !alias.scope !6149, !noalias !6145
-  br label %42
+  br label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
-42:                                               ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
+_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i: ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   %.pre1517 = phi i64 [ %38, %41 ], [ %39, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i ]
   store i64 %38, ptr %17, align 8, !alias.scope !6131, !noalias !6136
-  %43 = add i64 %.promoted12.i2122.i, 1
-  store i64 %43, ptr %9, align 8, !alias.scope !6123, !noalias !6128
+  %42 = add i64 %.promoted12.i2122.i, 1
+  store i64 %42, ptr %9, align 8, !alias.scope !6123, !noalias !6128
   %exitcond.not.i = icmp eq i64 %22, %14
   br i1 %exitcond.not.i, label %.loopexit, label %20
 
-44:                                               ; preds = %2
+43:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  br label %45
+  br label %44
 
-.loopexit:                                        ; preds = %42, %6
+.loopexit:                                        ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %6
   store i64 14, ptr %0, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit, %44
+44:                                               ; preds = %.loopexit, %43
   ret void
 }
 
@@ -23219,7 +23219,7 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   call void @_ZN8zvariant16signature_parser15SignatureParser10skip_chars17h22fa1f3782620e9dE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
   %4 = load i64, ptr %3, align 8, !range !40, !noundef !4
   %5 = icmp eq i64 %4, 14
-  br i1 %5, label %6, label %44
+  br i1 %5, label %6, label %43
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -23246,11 +23246,11 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   %.pre15.pre = load i64, ptr %18, align 8, !alias.scope !6188, !noalias !6191
   br label %20
 
-20:                                               ; preds = %42, %.lr.ph.i
-  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %42 ]
-  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %42 ]
-  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %42 ]
-  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %43, %42 ]
+20:                                               ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %.lr.ph.i
+  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %42, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
   %22 = add nuw i64 %.sroa.019.023.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6192)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6193)
@@ -23293,30 +23293,30 @@ _ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i: ; pred
   %38 = add i64 %21, 1
   %39 = load i64, ptr %18, align 8, !alias.scope !6195, !noalias !6191, !noundef !4
   %40 = icmp ugt i64 %38, %39
-  br i1 %40, label %41, label %42
+  br i1 %40, label %41, label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
 41:                                               ; preds = %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   store i64 %38, ptr %18, align 8, !alias.scope !6195, !noalias !6191
-  br label %42
+  br label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
-42:                                               ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
+_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i: ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   %.pre1517 = phi i64 [ %38, %41 ], [ %39, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i ]
   store i64 %38, ptr %17, align 8, !alias.scope !6177, !noalias !6182
-  %43 = add i64 %.promoted12.i2122.i, 1
-  store i64 %43, ptr %9, align 8, !alias.scope !6169, !noalias !6174
+  %42 = add i64 %.promoted12.i2122.i, 1
+  store i64 %42, ptr %9, align 8, !alias.scope !6169, !noalias !6174
   %exitcond.not.i = icmp eq i64 %22, %14
   br i1 %exitcond.not.i, label %.loopexit, label %20
 
-44:                                               ; preds = %2
+43:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  br label %45
+  br label %44
 
-.loopexit:                                        ; preds = %42, %6
+.loopexit:                                        ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %6
   store i64 14, ptr %0, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit, %44
+44:                                               ; preds = %.loopexit, %43
   ret void
 }
 
@@ -23428,7 +23428,7 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   call void @_ZN8zvariant16signature_parser15SignatureParser10skip_chars17h22fa1f3782620e9dE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
   %4 = load i64, ptr %3, align 8, !range !40, !noundef !4
   %5 = icmp eq i64 %4, 14
-  br i1 %5, label %6, label %44
+  br i1 %5, label %6, label %43
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -23455,11 +23455,11 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   %.pre15.pre = load i64, ptr %18, align 8, !alias.scope !6244, !noalias !6247
   br label %20
 
-20:                                               ; preds = %42, %.lr.ph.i
-  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %42 ]
-  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %42 ]
-  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %42 ]
-  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %43, %42 ]
+20:                                               ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %.lr.ph.i
+  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %42, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
   %22 = add nuw i64 %.sroa.019.023.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6248)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6249)
@@ -23502,30 +23502,30 @@ _ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i: ; pred
   %38 = add i64 %21, 1
   %39 = load i64, ptr %18, align 8, !alias.scope !6251, !noalias !6247, !noundef !4
   %40 = icmp ugt i64 %38, %39
-  br i1 %40, label %41, label %42
+  br i1 %40, label %41, label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
 41:                                               ; preds = %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   store i64 %38, ptr %18, align 8, !alias.scope !6251, !noalias !6247
-  br label %42
+  br label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
-42:                                               ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
+_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i: ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   %.pre1517 = phi i64 [ %38, %41 ], [ %39, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i ]
   store i64 %38, ptr %17, align 8, !alias.scope !6233, !noalias !6238
-  %43 = add i64 %.promoted12.i2122.i, 1
-  store i64 %43, ptr %9, align 8, !alias.scope !6225, !noalias !6230
+  %42 = add i64 %.promoted12.i2122.i, 1
+  store i64 %42, ptr %9, align 8, !alias.scope !6225, !noalias !6230
   %exitcond.not.i = icmp eq i64 %22, %14
   br i1 %exitcond.not.i, label %.loopexit, label %20
 
-44:                                               ; preds = %2
+43:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  br label %45
+  br label %44
 
-.loopexit:                                        ; preds = %42, %6
+.loopexit:                                        ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %6
   store i64 14, ptr %0, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit, %44
+44:                                               ; preds = %.loopexit, %43
   ret void
 }
 
@@ -23637,7 +23637,7 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   call void @_ZN8zvariant16signature_parser15SignatureParser10skip_chars17h22fa1f3782620e9dE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
   %4 = load i64, ptr %3, align 8, !range !40, !noundef !4
   %5 = icmp eq i64 %4, 14
-  br i1 %5, label %6, label %44
+  br i1 %5, label %6, label %43
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -23664,11 +23664,11 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   %.pre15.pre = load i64, ptr %18, align 8, !alias.scope !6300, !noalias !6303
   br label %20
 
-20:                                               ; preds = %42, %.lr.ph.i
-  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %42 ]
-  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %42 ]
-  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %42 ]
-  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %43, %42 ]
+20:                                               ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %.lr.ph.i
+  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %42, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
   %22 = add nuw i64 %.sroa.019.023.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6304)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6305)
@@ -23711,30 +23711,30 @@ _ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i: ; pred
   %38 = add i64 %21, 1
   %39 = load i64, ptr %18, align 8, !alias.scope !6307, !noalias !6303, !noundef !4
   %40 = icmp ugt i64 %38, %39
-  br i1 %40, label %41, label %42
+  br i1 %40, label %41, label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
 41:                                               ; preds = %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   store i64 %38, ptr %18, align 8, !alias.scope !6307, !noalias !6303
-  br label %42
+  br label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
-42:                                               ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
+_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i: ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   %.pre1517 = phi i64 [ %38, %41 ], [ %39, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i ]
   store i64 %38, ptr %17, align 8, !alias.scope !6289, !noalias !6294
-  %43 = add i64 %.promoted12.i2122.i, 1
-  store i64 %43, ptr %9, align 8, !alias.scope !6281, !noalias !6286
+  %42 = add i64 %.promoted12.i2122.i, 1
+  store i64 %42, ptr %9, align 8, !alias.scope !6281, !noalias !6286
   %exitcond.not.i = icmp eq i64 %22, %14
   br i1 %exitcond.not.i, label %.loopexit, label %20
 
-44:                                               ; preds = %2
+43:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  br label %45
+  br label %44
 
-.loopexit:                                        ; preds = %42, %6
+.loopexit:                                        ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %6
   store i64 14, ptr %0, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit, %44
+44:                                               ; preds = %.loopexit, %43
   ret void
 }
 
@@ -23745,7 +23745,7 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   call void @_ZN8zvariant16signature_parser15SignatureParser10skip_chars17h22fa1f3782620e9dE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i64 noundef 1)
   %4 = load i64, ptr %3, align 8, !range !40, !noundef !4
   %5 = icmp eq i64 %4, 14
-  br i1 %5, label %6, label %44
+  br i1 %5, label %6, label %43
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -23772,11 +23772,11 @@ define hidden void @"_ZN8zvariant3ser25SerializerCommon$LT$W$GT$20prep_serialize
   %.pre15.pre = load i64, ptr %18, align 8, !alias.scope !6336, !noalias !6339
   br label %20
 
-20:                                               ; preds = %42, %.lr.ph.i
-  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %42 ]
-  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %42 ]
-  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %42 ]
-  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %43, %42 ]
+20:                                               ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %.lr.ph.i
+  %.pre15 = phi i64 [ %.pre15.pre, %.lr.ph.i ], [ %.pre1517, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %21 = phi i64 [ %.promoted24.i, %.lr.ph.i ], [ %38, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.sroa.019.023.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
+  %.promoted12.i2122.i = phi i64 [ %10, %.lr.ph.i ], [ %42, %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i ]
   %22 = add nuw i64 %.sroa.019.023.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6340)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6341)
@@ -23819,30 +23819,30 @@ _ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i: ; pred
   %38 = add i64 %21, 1
   %39 = load i64, ptr %18, align 8, !alias.scope !6343, !noalias !6339, !noundef !4
   %40 = icmp ugt i64 %38, %39
-  br i1 %40, label %41, label %42
+  br i1 %40, label %41, label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
 41:                                               ; preds = %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   store i64 %38, ptr %18, align 8, !alias.scope !6343, !noalias !6339
-  br label %42
+  br label %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i
 
-42:                                               ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
+_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i: ; preds = %41, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i
   %.pre1517 = phi i64 [ %38, %41 ], [ %39, %_ZN3std2io6cursor15reserve_and_pad17h576e8bd116882fc7E.exit.i.i.i.us.i.i ]
   store i64 %38, ptr %17, align 8, !alias.scope !6325, !noalias !6330
-  %43 = add i64 %.promoted12.i2122.i, 1
-  store i64 %43, ptr %9, align 8, !alias.scope !6317, !noalias !6322
+  %42 = add i64 %.promoted12.i2122.i, 1
+  store i64 %42, ptr %9, align 8, !alias.scope !6317, !noalias !6322
   %exitcond.not.i = icmp eq i64 %22, %14
   br i1 %exitcond.not.i, label %.loopexit, label %20
 
-44:                                               ; preds = %2
+43:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  br label %45
+  br label %44
 
-.loopexit:                                        ; preds = %42, %6
+.loopexit:                                        ; preds = %_ZN3std2io5Write9write_all17hf3f7adf1dac055e3E.exit.i, %6
   store i64 14, ptr %0, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.loopexit, %44
+44:                                               ; preds = %.loopexit, %43
   ret void
 }
 
@@ -27333,10 +27333,10 @@ define hidden void @"_ZN37_$LT$fs..RealFs$u20$as$u20$fs..Fs$GT$5watch28_$u7b$$u7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !7024
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull readonly align 1 %17, i64 %18, i1 false), !noalias !7028
   store i64 %21, ptr %10, align 8
-  %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %26, ptr %.sroa.437.0..sroa_idx, align 8
-  %.sroa.538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %18, ptr %.sroa.538.0..sroa_idx, align 8
+  %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %26, ptr %.sroa.436.0..sroa_idx, align 8
+  %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i64 %18, ptr %.sroa.537.0..sroa_idx, align 8
   %27 = icmp eq i64 %21, -9223372036854775808
   br i1 %27, label %51, label %28
 
@@ -27403,8 +27403,8 @@ define hidden void @"_ZN37_$LT$fs..RealFs$u20$as$u20$fs..Fs$GT$5watch28_$u7b$$u7
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %63 = load i64, ptr %10, align 8, !range !17, !noundef !4
-  %.not70 = icmp eq i64 %63, -9223372036854775808
-  br i1 %.not70, label %.body.thread, label %100
+  %.not69 = icmp eq i64 %63, -9223372036854775808
+  br i1 %.not69, label %.body.thread, label %100
 
 64:                                               ; preds = %47, %43, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !7039
@@ -27418,7 +27418,7 @@ define hidden void @"_ZN37_$LT$fs..RealFs$u20$as$u20$fs..Fs$GT$5watch28_$u7b$$u7
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %67 = load i64, ptr %66, align 8, !range !17, !noalias !7063, !noundef !4
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br i1 %trunc.i.i14, label %.noexc18, label %.thread68
+  br i1 %trunc.i.i14, label %.noexc18, label %.thread67
 
 .noexc18:                                         ; preds = %.noexc17
   %69 = load i64, ptr %68, align 8, !noalias !7063
@@ -27430,7 +27430,7 @@ define hidden void @"_ZN37_$LT$fs..RealFs$u20$as$u20$fs..Fs$GT$5watch28_$u7b$$u7
   store i64 -9223372036854775808, ptr %0, align 8
   br label %88
 
-.thread68:                                        ; preds = %.noexc17
+.thread67:                                        ; preds = %.noexc17
   %71 = load ptr, ptr %68, align 8, !noalias !7063, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !7063
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull readonly align 1 %30, i64 %32, i1 false), !noalias !7070
@@ -27491,7 +27491,7 @@ _ZN3std4path4Path11starts_with17h31b826404d56b699E.exit: ; preds = %51
 88:                                               ; preds = %89, %70
   ret void
 
-89:                                               ; preds = %.thread68, %75, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit26"
+89:                                               ; preds = %.thread67, %75, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit26"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %88
 
@@ -27519,8 +27519,8 @@ _ZN3std4path4Path11starts_with17h31b826404d56b699E.exit: ; preds = %51
   br label %89
 
 .body.thread:                                     ; preds = %38, %100, %.body
-  %eh.lpad-body64 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %100 ], [ %lpad.thr_comm.split-lp, %.body ], [ %39, %38 ]
-  resume { ptr, i32 } %eh.lpad-body64
+  %eh.lpad-body63 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %100 ], [ %lpad.thr_comm.split-lp, %.body ], [ %39, %38 ]
+  resume { ptr, i32 } %eh.lpad-body63
 
 100:                                              ; preds = %.body
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #37

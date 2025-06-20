@@ -6108,7 +6108,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %92 = alloca [672 x i8], align 8
   %93 = alloca [672 x i8], align 8
   %94 = alloca [776 x i8], align 8
-  %.sroa.5722 = alloca [16 x i8], align 8
   %95 = alloca [672 x i8], align 8
   %96 = alloca [672 x i8], align 8
   %97 = alloca [776 x i8], align 8
@@ -6130,7 +6129,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %113 = alloca [672 x i8], align 8
   %114 = alloca [672 x i8], align 8
   %115 = alloca [776 x i8], align 8
-  %.sroa.10 = alloca [16 x i8], align 8
   %116 = alloca [672 x i8], align 8
   %117 = alloca [672 x i8], align 8
   %118 = alloca [672 x i8], align 8
@@ -6391,7 +6389,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %176 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %171, align 8, !alias.scope !919, !noalias !916
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %117) #22
           to label %748 unwind label %177, !noalias !916
 
@@ -6403,8 +6400,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 179:                                              ; preds = %167, %167, %167, %167, %167, %173
   store i64 0, ptr %171, align 8, !alias.scope !919, !noalias !916
-  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %117, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %118, ptr noundef nonnull align 8 dereferenceable(668) %117, i64 668, i1 false)
   %.sroa.5623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 669
   %.sroa.5623.0..sroa_idx624 = getelementptr inbounds nuw i8, ptr %118, i64 669
@@ -6560,7 +6555,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %215 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %210, align 8, !alias.scope !980, !noalias !977
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %213, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %113) #22
           to label %747 unwind label %216, !noalias !977
 
@@ -6572,8 +6566,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 218:                                              ; preds = %206, %206, %206, %206, %206, %212
   store i64 0, ptr %210, align 8, !alias.scope !980, !noalias !977
-  %.sroa.6.0..sroa_idx4.i211 = getelementptr inbounds nuw i8, ptr %113, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i211, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %114, ptr noundef nonnull align 8 dereferenceable(668) %113, i64 668, i1 false)
   %.sroa.5650.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 669
   %.sroa.5650.0..sroa_idx651 = getelementptr inbounds nuw i8, ptr %114, i64 669
@@ -6729,7 +6721,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %254 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %249, align 8, !alias.scope !1041, !noalias !1038
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %252, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %109) #22
           to label %746 unwind label %255, !noalias !1038
 
@@ -6741,8 +6732,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 257:                                              ; preds = %245, %245, %245, %245, %245, %251
   store i64 0, ptr %249, align 8, !alias.scope !1041, !noalias !1038
-  %.sroa.6.0..sroa_idx4.i241 = getelementptr inbounds nuw i8, ptr %109, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i241, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %110, ptr noundef nonnull align 8 dereferenceable(668) %109, i64 668, i1 false)
   %.sroa.5663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 669
   %.sroa.5663.0..sroa_idx664 = getelementptr inbounds nuw i8, ptr %110, i64 669
@@ -6898,7 +6887,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %293 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %288, align 8, !alias.scope !1102, !noalias !1099
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %291, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %105) #22
           to label %745 unwind label %294, !noalias !1099
 
@@ -6910,8 +6898,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 296:                                              ; preds = %284, %284, %284, %284, %284, %290
   store i64 0, ptr %288, align 8, !alias.scope !1102, !noalias !1099
-  %.sroa.6.0..sroa_idx4.i271 = getelementptr inbounds nuw i8, ptr %105, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i271, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %106, ptr noundef nonnull align 8 dereferenceable(668) %105, i64 668, i1 false)
   %.sroa.5676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 669
   %.sroa.5676.0..sroa_idx677 = getelementptr inbounds nuw i8, ptr %106, i64 669
@@ -7420,7 +7406,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %409 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %404, align 8, !alias.scope !1285, !noalias !1282
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %407, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %95) #22
           to label %741 unwind label %410, !noalias !1282
 
@@ -7432,8 +7417,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 412:                                              ; preds = %403, %403, %403, %403, %403, %406
   store i64 1, ptr %404, align 8, !alias.scope !1285, !noalias !1282
-  %.sroa.6.0..sroa_idx4.i358 = getelementptr inbounds nuw i8, ptr %95, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i358, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %96, ptr noundef nonnull align 8 dereferenceable(668) %95, i64 668, i1 false)
   %.sroa.5717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 669
   %.sroa.5717.0..sroa_idx718 = getelementptr inbounds nuw i8, ptr %96, i64 669
@@ -7582,7 +7565,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %445 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %440, align 8, !alias.scope !1346, !noalias !1343
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %443, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %92) #22
           to label %740 unwind label %446, !noalias !1343
 
@@ -7594,8 +7576,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 448:                                              ; preds = %439, %439, %439, %439, %439, %442
   store i64 1, ptr %440, align 8, !alias.scope !1346, !noalias !1343
-  %.sroa.6.0..sroa_idx4.i388 = getelementptr inbounds nuw i8, ptr %92, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i388, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %93, ptr noundef nonnull align 8 dereferenceable(668) %92, i64 668, i1 false)
   %.sroa.5736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 669
   %.sroa.5736.0..sroa_idx737 = getelementptr inbounds nuw i8, ptr %93, i64 669
@@ -7751,7 +7731,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %484 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %479, align 8, !alias.scope !1407, !noalias !1404
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %482, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %89) #22
           to label %739 unwind label %485, !noalias !1404
 
@@ -7763,8 +7742,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 487:                                              ; preds = %475, %475, %475, %475, %475, %481
   store i64 0, ptr %479, align 8, !alias.scope !1407, !noalias !1404
-  %.sroa.6.0..sroa_idx4.i418 = getelementptr inbounds nuw i8, ptr %89, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i418, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %90, ptr noundef nonnull align 8 dereferenceable(668) %89, i64 668, i1 false)
   %.sroa.5749.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 669
   %.sroa.5749.0..sroa_idx750 = getelementptr inbounds nuw i8, ptr %90, i64 669
@@ -7920,7 +7897,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %523 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %518, align 8, !alias.scope !1468, !noalias !1465
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %521, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %85) #22
           to label %738 unwind label %524, !noalias !1465
 
@@ -7932,8 +7908,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 526:                                              ; preds = %514, %514, %514, %514, %514, %520
   store i64 0, ptr %518, align 8, !alias.scope !1468, !noalias !1465
-  %.sroa.6.0..sroa_idx4.i448 = getelementptr inbounds nuw i8, ptr %85, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i448, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %86, ptr noundef nonnull align 8 dereferenceable(668) %85, i64 668, i1 false)
   %.sroa.5762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 669
   %.sroa.5762.0..sroa_idx763 = getelementptr inbounds nuw i8, ptr %86, i64 669
@@ -8082,7 +8056,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %559 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %554, align 8, !alias.scope !1529, !noalias !1526
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %557, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %81) #22
           to label %737 unwind label %560, !noalias !1526
 
@@ -8094,8 +8067,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 562:                                              ; preds = %553, %553, %553, %553, %553, %556
   store i64 1, ptr %554, align 8, !alias.scope !1529, !noalias !1526
-  %.sroa.6.0..sroa_idx4.i478 = getelementptr inbounds nuw i8, ptr %81, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i478, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %82, ptr noundef nonnull align 8 dereferenceable(668) %81, i64 668, i1 false)
   %.sroa.5775.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 669
   %.sroa.5775.0..sroa_idx776 = getelementptr inbounds nuw i8, ptr %82, i64 669
@@ -8251,7 +8222,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %598 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %593, align 8, !alias.scope !1590, !noalias !1587
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %596, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %78) #22
           to label %736 unwind label %599, !noalias !1587
 
@@ -8263,8 +8233,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 601:                                              ; preds = %589, %589, %589, %589, %589, %595
   store i64 0, ptr %593, align 8, !alias.scope !1590, !noalias !1587
-  %.sroa.6.0..sroa_idx4.i508 = getelementptr inbounds nuw i8, ptr %78, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i508, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %79, ptr noundef nonnull align 8 dereferenceable(668) %78, i64 668, i1 false)
   %.sroa.5788.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 669
   %.sroa.5788.0..sroa_idx789 = getelementptr inbounds nuw i8, ptr %79, i64 669
@@ -8420,7 +8388,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %637 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %632, align 8, !alias.scope !1651, !noalias !1648
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %635, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %74) #22
           to label %735 unwind label %638, !noalias !1648
 
@@ -8432,8 +8399,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 640:                                              ; preds = %628, %628, %628, %628, %628, %634
   store i64 0, ptr %632, align 8, !alias.scope !1651, !noalias !1648
-  %.sroa.6.0..sroa_idx4.i538 = getelementptr inbounds nuw i8, ptr %74, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i538, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %75, ptr noundef nonnull align 8 dereferenceable(668) %74, i64 668, i1 false)
   %.sroa.5801.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 669
   %.sroa.5801.0..sroa_idx802 = getelementptr inbounds nuw i8, ptr %75, i64 669
@@ -8589,7 +8554,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %676 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %671, align 8, !alias.scope !1712, !noalias !1709
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %674, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %70) #22
           to label %734 unwind label %677, !noalias !1709
 
@@ -8601,8 +8565,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 679:                                              ; preds = %667, %667, %667, %667, %667, %673
   store i64 0, ptr %671, align 8, !alias.scope !1712, !noalias !1709
-  %.sroa.6.0..sroa_idx4.i568 = getelementptr inbounds nuw i8, ptr %70, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i568, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %71, ptr noundef nonnull align 8 dereferenceable(668) %70, i64 668, i1 false)
   %.sroa.5814.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 669
   %.sroa.5814.0..sroa_idx815 = getelementptr inbounds nuw i8, ptr %71, i64 669
@@ -8751,7 +8713,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %712 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %707, align 8, !alias.scope !1773, !noalias !1770
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %710, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %65) #22
           to label %731 unwind label %713, !noalias !1770
 
@@ -8763,8 +8724,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 715:                                              ; preds = %706, %706, %706, %706, %706, %709
   store i64 1, ptr %707, align 8, !alias.scope !1773, !noalias !1770
-  %.sroa.6.0..sroa_idx4.i598 = getelementptr inbounds nuw i8, ptr %65, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i598, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %66, ptr noundef nonnull align 8 dereferenceable(668) %65, i64 668, i1 false)
   %.sroa.5827.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 669
   %.sroa.5827.0..sroa_idx828 = getelementptr inbounds nuw i8, ptr %66, i64 669
@@ -9036,7 +8995,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %92 = alloca [672 x i8], align 8
   %93 = alloca [672 x i8], align 8
   %94 = alloca [776 x i8], align 8
-  %.sroa.5722 = alloca [16 x i8], align 8
   %95 = alloca [672 x i8], align 8
   %96 = alloca [672 x i8], align 8
   %97 = alloca [776 x i8], align 8
@@ -9058,7 +9016,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %113 = alloca [672 x i8], align 8
   %114 = alloca [672 x i8], align 8
   %115 = alloca [776 x i8], align 8
-  %.sroa.10 = alloca [16 x i8], align 8
   %116 = alloca [672 x i8], align 8
   %117 = alloca [672 x i8], align 8
   %118 = alloca [672 x i8], align 8
@@ -9319,7 +9276,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %176 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %171, align 8, !alias.scope !1858, !noalias !1855
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %117) #22
           to label %763 unwind label %177, !noalias !1855
 
@@ -9331,8 +9287,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 179:                                              ; preds = %167, %167, %167, %167, %167, %173
   store i64 0, ptr %171, align 8, !alias.scope !1858, !noalias !1855
-  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %117, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %118, ptr noundef nonnull align 8 dereferenceable(668) %117, i64 668, i1 false)
   %.sroa.5623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 669
   %.sroa.5623.0..sroa_idx624 = getelementptr inbounds nuw i8, ptr %118, i64 669
@@ -9489,7 +9443,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %216 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %211, align 8, !alias.scope !1919, !noalias !1916
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %214, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %113) #22
           to label %762 unwind label %217, !noalias !1916
 
@@ -9501,8 +9454,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 219:                                              ; preds = %207, %207, %207, %207, %207, %213
   store i64 0, ptr %211, align 8, !alias.scope !1919, !noalias !1916
-  %.sroa.6.0..sroa_idx4.i211 = getelementptr inbounds nuw i8, ptr %113, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i211, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %114, ptr noundef nonnull align 8 dereferenceable(668) %113, i64 668, i1 false)
   %.sroa.5650.0..sroa_idx = getelementptr inbounds nuw i8, ptr %113, i64 669
   %.sroa.5650.0..sroa_idx651 = getelementptr inbounds nuw i8, ptr %114, i64 669
@@ -9659,7 +9610,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %256 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %251, align 8, !alias.scope !1980, !noalias !1977
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %254, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %109) #22
           to label %761 unwind label %257, !noalias !1977
 
@@ -9671,8 +9621,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 259:                                              ; preds = %247, %247, %247, %247, %247, %253
   store i64 0, ptr %251, align 8, !alias.scope !1980, !noalias !1977
-  %.sroa.6.0..sroa_idx4.i241 = getelementptr inbounds nuw i8, ptr %109, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i241, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %110, ptr noundef nonnull align 8 dereferenceable(668) %109, i64 668, i1 false)
   %.sroa.5663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 669
   %.sroa.5663.0..sroa_idx664 = getelementptr inbounds nuw i8, ptr %110, i64 669
@@ -9829,7 +9777,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %296 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %291, align 8, !alias.scope !2041, !noalias !2038
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %294, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %105) #22
           to label %760 unwind label %297, !noalias !2038
 
@@ -9841,8 +9788,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 299:                                              ; preds = %287, %287, %287, %287, %287, %293
   store i64 0, ptr %291, align 8, !alias.scope !2041, !noalias !2038
-  %.sroa.6.0..sroa_idx4.i271 = getelementptr inbounds nuw i8, ptr %105, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i271, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %106, ptr noundef nonnull align 8 dereferenceable(668) %105, i64 668, i1 false)
   %.sroa.5676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 669
   %.sroa.5676.0..sroa_idx677 = getelementptr inbounds nuw i8, ptr %106, i64 669
@@ -10354,7 +10299,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %415 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %410, align 8, !alias.scope !2224, !noalias !2221
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %413, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %95) #22
           to label %756 unwind label %416, !noalias !2221
 
@@ -10366,8 +10310,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 418:                                              ; preds = %409, %409, %409, %409, %409, %412
   store i64 1, ptr %410, align 8, !alias.scope !2224, !noalias !2221
-  %.sroa.6.0..sroa_idx4.i358 = getelementptr inbounds nuw i8, ptr %95, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i358, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %96, ptr noundef nonnull align 8 dereferenceable(668) %95, i64 668, i1 false)
   %.sroa.5717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 669
   %.sroa.5717.0..sroa_idx718 = getelementptr inbounds nuw i8, ptr %96, i64 669
@@ -10517,7 +10459,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %452 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %447, align 8, !alias.scope !2285, !noalias !2282
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %450, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %92) #22
           to label %755 unwind label %453, !noalias !2282
 
@@ -10529,8 +10470,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 455:                                              ; preds = %446, %446, %446, %446, %446, %449
   store i64 1, ptr %447, align 8, !alias.scope !2285, !noalias !2282
-  %.sroa.6.0..sroa_idx4.i388 = getelementptr inbounds nuw i8, ptr %92, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i388, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %93, ptr noundef nonnull align 8 dereferenceable(668) %92, i64 668, i1 false)
   %.sroa.5736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 669
   %.sroa.5736.0..sroa_idx737 = getelementptr inbounds nuw i8, ptr %93, i64 669
@@ -10687,7 +10626,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %492 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %487, align 8, !alias.scope !2346, !noalias !2343
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %490, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %89) #22
           to label %754 unwind label %493, !noalias !2343
 
@@ -10699,8 +10637,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 495:                                              ; preds = %483, %483, %483, %483, %483, %489
   store i64 0, ptr %487, align 8, !alias.scope !2346, !noalias !2343
-  %.sroa.6.0..sroa_idx4.i418 = getelementptr inbounds nuw i8, ptr %89, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i418, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %90, ptr noundef nonnull align 8 dereferenceable(668) %89, i64 668, i1 false)
   %.sroa.5749.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 669
   %.sroa.5749.0..sroa_idx750 = getelementptr inbounds nuw i8, ptr %90, i64 669
@@ -10857,7 +10793,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %532 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %527, align 8, !alias.scope !2407, !noalias !2404
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %530, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %85) #22
           to label %753 unwind label %533, !noalias !2404
 
@@ -10869,8 +10804,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 535:                                              ; preds = %523, %523, %523, %523, %523, %529
   store i64 0, ptr %527, align 8, !alias.scope !2407, !noalias !2404
-  %.sroa.6.0..sroa_idx4.i448 = getelementptr inbounds nuw i8, ptr %85, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i448, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %86, ptr noundef nonnull align 8 dereferenceable(668) %85, i64 668, i1 false)
   %.sroa.5762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 669
   %.sroa.5762.0..sroa_idx763 = getelementptr inbounds nuw i8, ptr %86, i64 669
@@ -11020,7 +10953,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %569 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %564, align 8, !alias.scope !2468, !noalias !2465
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %567, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %81) #22
           to label %752 unwind label %570, !noalias !2465
 
@@ -11032,8 +10964,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 572:                                              ; preds = %563, %563, %563, %563, %563, %566
   store i64 1, ptr %564, align 8, !alias.scope !2468, !noalias !2465
-  %.sroa.6.0..sroa_idx4.i478 = getelementptr inbounds nuw i8, ptr %81, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i478, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %82, ptr noundef nonnull align 8 dereferenceable(668) %81, i64 668, i1 false)
   %.sroa.5775.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 669
   %.sroa.5775.0..sroa_idx776 = getelementptr inbounds nuw i8, ptr %82, i64 669
@@ -11190,7 +11120,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %609 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %604, align 8, !alias.scope !2529, !noalias !2526
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %607, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %78) #22
           to label %751 unwind label %610, !noalias !2526
 
@@ -11202,8 +11131,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 612:                                              ; preds = %600, %600, %600, %600, %600, %606
   store i64 0, ptr %604, align 8, !alias.scope !2529, !noalias !2526
-  %.sroa.6.0..sroa_idx4.i508 = getelementptr inbounds nuw i8, ptr %78, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i508, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %79, ptr noundef nonnull align 8 dereferenceable(668) %78, i64 668, i1 false)
   %.sroa.5788.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 669
   %.sroa.5788.0..sroa_idx789 = getelementptr inbounds nuw i8, ptr %79, i64 669
@@ -11360,7 +11287,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %649 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %644, align 8, !alias.scope !2590, !noalias !2587
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %647, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %74) #22
           to label %750 unwind label %650, !noalias !2587
 
@@ -11372,8 +11298,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 652:                                              ; preds = %640, %640, %640, %640, %640, %646
   store i64 0, ptr %644, align 8, !alias.scope !2590, !noalias !2587
-  %.sroa.6.0..sroa_idx4.i538 = getelementptr inbounds nuw i8, ptr %74, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i538, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %75, ptr noundef nonnull align 8 dereferenceable(668) %74, i64 668, i1 false)
   %.sroa.5801.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 669
   %.sroa.5801.0..sroa_idx802 = getelementptr inbounds nuw i8, ptr %75, i64 669
@@ -11530,7 +11454,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %689 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %684, align 8, !alias.scope !2651, !noalias !2648
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %687, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %70) #22
           to label %749 unwind label %690, !noalias !2648
 
@@ -11542,8 +11465,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 692:                                              ; preds = %680, %680, %680, %680, %680, %686
   store i64 0, ptr %684, align 8, !alias.scope !2651, !noalias !2648
-  %.sroa.6.0..sroa_idx4.i568 = getelementptr inbounds nuw i8, ptr %70, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i568, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %71, ptr noundef nonnull align 8 dereferenceable(668) %70, i64 668, i1 false)
   %.sroa.5814.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 669
   %.sroa.5814.0..sroa_idx815 = getelementptr inbounds nuw i8, ptr %71, i64 669
@@ -11693,7 +11614,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
   %726 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %721, align 8, !alias.scope !2712, !noalias !2709
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %724, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %65) #22
           to label %746 unwind label %727, !noalias !2709
 
@@ -11705,8 +11625,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipCompileCompatArgs$u20$as$u20$clap_bui
 
 729:                                              ; preds = %720, %720, %720, %720, %720, %723
   store i64 1, ptr %721, align 8, !alias.scope !2712, !noalias !2709
-  %.sroa.6.0..sroa_idx4.i598 = getelementptr inbounds nuw i8, ptr %65, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i598, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5722, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %66, ptr noundef nonnull align 8 dereferenceable(668) %65, i64 668, i1 false)
   %.sroa.5827.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 669
   %.sroa.5827.0..sroa_idx828 = getelementptr inbounds nuw i8, ptr %66, i64 669
@@ -14399,12 +14317,10 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %55 = alloca [672 x i8], align 8
   %56 = alloca [672 x i8], align 8
   %57 = alloca [776 x i8], align 8
-  %.sroa.6361 = alloca [16 x i8], align 8
   %58 = alloca [672 x i8], align 8
   %59 = alloca [672 x i8], align 8
   %60 = alloca [776 x i8], align 8
   %61 = alloca [672 x i8], align 8
-  %.sroa.4342 = alloca [16 x i8], align 8
   %62 = alloca [672 x i8], align 8
   %63 = alloca [672 x i8], align 8
   %64 = alloca [776 x i8], align 8
@@ -14623,7 +14539,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %114 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %109, align 8, !alias.scope !3297, !noalias !3295
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %63) #22
           to label %402 unwind label %115, !noalias !3295
 
@@ -14635,8 +14550,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 117:                                              ; preds = %111, %105, %105, %105, %105, %105
   store i64 0, ptr %109, align 8, !alias.scope !3297, !noalias !3295
-  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %63, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %61)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(656) %61, ptr noundef nonnull align 8 dereferenceable(656) %63, i64 656, i1 false)
   %.sroa.5339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 660
@@ -14799,7 +14712,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %152 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %147, align 8, !alias.scope !3360, !noalias !3357
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %58) #22
           to label %401 unwind label %153, !noalias !3357
 
@@ -14811,8 +14723,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 155:                                              ; preds = %146, %146, %146, %146, %146, %149
   store i64 1, ptr %147, align 8, !alias.scope !3360, !noalias !3357
-  %.sroa.6.0..sroa_idx4.i132 = getelementptr inbounds nuw i8, ptr %58, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %59, ptr noundef nonnull align 8 dereferenceable(668) %58, i64 668, i1 false)
   %.sroa.5355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 669
   %.sroa.5355.0..sroa_idx356 = getelementptr inbounds nuw i8, ptr %59, i64 669
@@ -14968,7 +14878,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %191 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %186, align 8, !alias.scope !3421, !noalias !3418
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %55) #22
           to label %400 unwind label %192, !noalias !3418
 
@@ -14980,8 +14889,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 194:                                              ; preds = %182, %182, %182, %182, %182, %188
   store i64 0, ptr %186, align 8, !alias.scope !3421, !noalias !3418
-  %.sroa.6.0..sroa_idx4.i162 = getelementptr inbounds nuw i8, ptr %55, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i162, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %56, ptr noundef nonnull align 8 dereferenceable(668) %55, i64 668, i1 false)
   %.sroa.5376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 669
   %.sroa.5376.0..sroa_idx377 = getelementptr inbounds nuw i8, ptr %56, i64 669
@@ -15130,7 +15037,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %227 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %222, align 8, !alias.scope !3482, !noalias !3479
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %225, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %51) #22
           to label %399 unwind label %228, !noalias !3479
 
@@ -15142,8 +15048,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 230:                                              ; preds = %221, %221, %221, %221, %221, %224
   store i64 1, ptr %222, align 8, !alias.scope !3482, !noalias !3479
-  %.sroa.6.0..sroa_idx4.i192 = getelementptr inbounds nuw i8, ptr %51, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i192, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %52, ptr noundef nonnull align 8 dereferenceable(668) %51, i64 668, i1 false)
   %.sroa.5389.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 669
   %.sroa.5389.0..sroa_idx390 = getelementptr inbounds nuw i8, ptr %52, i64 669
@@ -15292,7 +15196,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %263 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %258, align 8, !alias.scope !3543, !noalias !3540
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %261, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %48) #22
           to label %398 unwind label %264, !noalias !3540
 
@@ -15304,8 +15207,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 266:                                              ; preds = %257, %257, %257, %257, %257, %260
   store i64 1, ptr %258, align 8, !alias.scope !3543, !noalias !3540
-  %.sroa.6.0..sroa_idx4.i222 = getelementptr inbounds nuw i8, ptr %48, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i222, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %49, ptr noundef nonnull align 8 dereferenceable(668) %48, i64 668, i1 false)
   %.sroa.5402.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 669
   %.sroa.5402.0..sroa_idx403 = getelementptr inbounds nuw i8, ptr %49, i64 669
@@ -15454,7 +15355,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %299 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %294, align 8, !alias.scope !3604, !noalias !3601
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %297, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %45) #22
           to label %397 unwind label %300, !noalias !3601
 
@@ -15466,8 +15366,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 302:                                              ; preds = %293, %293, %293, %293, %293, %296
   store i64 1, ptr %294, align 8, !alias.scope !3604, !noalias !3601
-  %.sroa.6.0..sroa_idx4.i252 = getelementptr inbounds nuw i8, ptr %45, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i252, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %46, ptr noundef nonnull align 8 dereferenceable(668) %45, i64 668, i1 false)
   %.sroa.5415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 669
   %.sroa.5415.0..sroa_idx416 = getelementptr inbounds nuw i8, ptr %46, i64 669
@@ -15623,7 +15521,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %338 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %333, align 8, !alias.scope !3665, !noalias !3662
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %336, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %42) #22
           to label %396 unwind label %339, !noalias !3662
 
@@ -15635,8 +15532,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 341:                                              ; preds = %329, %329, %329, %329, %329, %335
   store i64 0, ptr %333, align 8, !alias.scope !3665, !noalias !3662
-  %.sroa.6.0..sroa_idx4.i282 = getelementptr inbounds nuw i8, ptr %42, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i282, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %43, ptr noundef nonnull align 8 dereferenceable(668) %42, i64 668, i1 false)
   %.sroa.5428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 669
   %.sroa.5428.0..sroa_idx429 = getelementptr inbounds nuw i8, ptr %43, i64 669
@@ -15785,7 +15680,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %374 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %369, align 8, !alias.scope !3726, !noalias !3723
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %372, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %37) #22
           to label %393 unwind label %375, !noalias !3723
 
@@ -15797,8 +15691,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 377:                                              ; preds = %368, %368, %368, %368, %368, %371
   store i64 1, ptr %369, align 8, !alias.scope !3726, !noalias !3723
-  %.sroa.6.0..sroa_idx4.i312 = getelementptr inbounds nuw i8, ptr %37, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i312, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %38, ptr noundef nonnull align 8 dereferenceable(668) %37, i64 668, i1 false)
   %.sroa.5441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 669
   %.sroa.5441.0..sroa_idx442 = getelementptr inbounds nuw i8, ptr %38, i64 669
@@ -15992,12 +15884,10 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %55 = alloca [672 x i8], align 8
   %56 = alloca [672 x i8], align 8
   %57 = alloca [776 x i8], align 8
-  %.sroa.6361 = alloca [16 x i8], align 8
   %58 = alloca [672 x i8], align 8
   %59 = alloca [672 x i8], align 8
   %60 = alloca [776 x i8], align 8
   %61 = alloca [672 x i8], align 8
-  %.sroa.4342 = alloca [16 x i8], align 8
   %62 = alloca [672 x i8], align 8
   %63 = alloca [672 x i8], align 8
   %64 = alloca [776 x i8], align 8
@@ -16216,7 +16106,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %114 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %109, align 8, !alias.scope !3812, !noalias !3810
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %63) #22
           to label %410 unwind label %115, !noalias !3810
 
@@ -16228,8 +16117,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 117:                                              ; preds = %111, %105, %105, %105, %105, %105
   store i64 0, ptr %109, align 8, !alias.scope !3812, !noalias !3810
-  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %63, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %61)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(656) %61, ptr noundef nonnull align 8 dereferenceable(656) %63, i64 656, i1 false)
   %.sroa.5339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 660
@@ -16393,7 +16280,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %153 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %148, align 8, !alias.scope !3875, !noalias !3872
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %58) #22
           to label %409 unwind label %154, !noalias !3872
 
@@ -16405,8 +16291,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 156:                                              ; preds = %147, %147, %147, %147, %147, %150
   store i64 1, ptr %148, align 8, !alias.scope !3875, !noalias !3872
-  %.sroa.6.0..sroa_idx4.i132 = getelementptr inbounds nuw i8, ptr %58, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %59, ptr noundef nonnull align 8 dereferenceable(668) %58, i64 668, i1 false)
   %.sroa.5355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 669
   %.sroa.5355.0..sroa_idx356 = getelementptr inbounds nuw i8, ptr %59, i64 669
@@ -16563,7 +16447,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %193 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %188, align 8, !alias.scope !3936, !noalias !3933
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %55) #22
           to label %408 unwind label %194, !noalias !3933
 
@@ -16575,8 +16458,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 196:                                              ; preds = %184, %184, %184, %184, %184, %190
   store i64 0, ptr %188, align 8, !alias.scope !3936, !noalias !3933
-  %.sroa.6.0..sroa_idx4.i162 = getelementptr inbounds nuw i8, ptr %55, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i162, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %56, ptr noundef nonnull align 8 dereferenceable(668) %55, i64 668, i1 false)
   %.sroa.5376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 669
   %.sroa.5376.0..sroa_idx377 = getelementptr inbounds nuw i8, ptr %56, i64 669
@@ -16726,7 +16607,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %230 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %225, align 8, !alias.scope !3997, !noalias !3994
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %228, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %51) #22
           to label %407 unwind label %231, !noalias !3994
 
@@ -16738,8 +16618,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 233:                                              ; preds = %224, %224, %224, %224, %224, %227
   store i64 1, ptr %225, align 8, !alias.scope !3997, !noalias !3994
-  %.sroa.6.0..sroa_idx4.i192 = getelementptr inbounds nuw i8, ptr %51, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i192, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %52, ptr noundef nonnull align 8 dereferenceable(668) %51, i64 668, i1 false)
   %.sroa.5389.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 669
   %.sroa.5389.0..sroa_idx390 = getelementptr inbounds nuw i8, ptr %52, i64 669
@@ -16889,7 +16767,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %267 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %262, align 8, !alias.scope !4058, !noalias !4055
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %265, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %48) #22
           to label %406 unwind label %268, !noalias !4055
 
@@ -16901,8 +16778,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 270:                                              ; preds = %261, %261, %261, %261, %261, %264
   store i64 1, ptr %262, align 8, !alias.scope !4058, !noalias !4055
-  %.sroa.6.0..sroa_idx4.i222 = getelementptr inbounds nuw i8, ptr %48, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i222, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %49, ptr noundef nonnull align 8 dereferenceable(668) %48, i64 668, i1 false)
   %.sroa.5402.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 669
   %.sroa.5402.0..sroa_idx403 = getelementptr inbounds nuw i8, ptr %49, i64 669
@@ -17052,7 +16927,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %304 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %299, align 8, !alias.scope !4119, !noalias !4116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %302, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %45) #22
           to label %405 unwind label %305, !noalias !4116
 
@@ -17064,8 +16938,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 307:                                              ; preds = %298, %298, %298, %298, %298, %301
   store i64 1, ptr %299, align 8, !alias.scope !4119, !noalias !4116
-  %.sroa.6.0..sroa_idx4.i252 = getelementptr inbounds nuw i8, ptr %45, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i252, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %46, ptr noundef nonnull align 8 dereferenceable(668) %45, i64 668, i1 false)
   %.sroa.5415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 669
   %.sroa.5415.0..sroa_idx416 = getelementptr inbounds nuw i8, ptr %46, i64 669
@@ -17222,7 +17094,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %344 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %339, align 8, !alias.scope !4180, !noalias !4177
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %342, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %42) #22
           to label %404 unwind label %345, !noalias !4177
 
@@ -17234,8 +17105,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 347:                                              ; preds = %335, %335, %335, %335, %335, %341
   store i64 0, ptr %339, align 8, !alias.scope !4180, !noalias !4177
-  %.sroa.6.0..sroa_idx4.i282 = getelementptr inbounds nuw i8, ptr %42, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i282, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4342, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %43, ptr noundef nonnull align 8 dereferenceable(668) %42, i64 668, i1 false)
   %.sroa.5428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 669
   %.sroa.5428.0..sroa_idx429 = getelementptr inbounds nuw i8, ptr %43, i64 669
@@ -17385,7 +17254,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
   %381 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %376, align 8, !alias.scope !4241, !noalias !4238
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %379, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %37) #22
           to label %401 unwind label %382, !noalias !4238
 
@@ -17397,8 +17265,6 @@ define void @"_ZN80_$LT$uv_cli..compat..PipSyncCompatArgs$u20$as$u20$clap_builde
 
 384:                                              ; preds = %375, %375, %375, %375, %375, %378
   store i64 1, ptr %376, align 8, !alias.scope !4241, !noalias !4238
-  %.sroa.6.0..sroa_idx4.i312 = getelementptr inbounds nuw i8, ptr %37, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i312, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6361, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %38, ptr noundef nonnull align 8 dereferenceable(668) %37, i64 668, i1 false)
   %.sroa.5441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 669
   %.sroa.5441.0..sroa_idx442 = getelementptr inbounds nuw i8, ptr %38, i64 669
@@ -17545,13 +17411,13 @@ define { ptr, i64 } @"_ZN76_$LT$uv_cli..compat..Resolver$u20$as$u20$clap_builder
 define void @"_ZN76_$LT$uv_cli..compat..Resolver$u20$as$u20$clap_builder..derive..ValueEnum$GT$17to_possible_value17hc21d9210c894cc53E"(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) initializes((0, 56), (72, 73)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !range !81, !noundef !4
   %trunc = trunc nuw i8 %3 to i1
-  %anon.3e2219da4ba11055463271668b48d2e8.185.llvm.12128343169516372004.anon.3e2219da4ba11055463271668b48d2e8.184.llvm.12128343169516372004 = select i1 %trunc, ptr @anon.3e2219da4ba11055463271668b48d2e8.185.llvm.12128343169516372004, ptr @anon.3e2219da4ba11055463271668b48d2e8.184.llvm.12128343169516372004
-  %. = select i1 %trunc, i64 6, i64 12
+  %spec.select = select i1 %trunc, ptr @anon.3e2219da4ba11055463271668b48d2e8.185.llvm.12128343169516372004, ptr @anon.3e2219da4ba11055463271668b48d2e8.184.llvm.12128343169516372004
+  %spec.select16 = select i1 %trunc, i64 6, i64 12
   store i64 0, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %anon.3e2219da4ba11055463271668b48d2e8.185.llvm.12128343169516372004.anon.3e2219da4ba11055463271668b48d2e8.184.llvm.12128343169516372004, ptr %4, align 8
+  store ptr %spec.select, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %., ptr %5, align 8
+  store i64 %spec.select16, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -18358,7 +18224,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %39 = alloca [672 x i8], align 8
   %40 = alloca [672 x i8], align 8
   %41 = alloca [776 x i8], align 8
-  %.sroa.6 = alloca [16 x i8], align 8
   %42 = alloca [672 x i8], align 8
   %43 = alloca [672 x i8], align 8
   %44 = alloca [672 x i8], align 8
@@ -18559,7 +18424,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %92 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %87, align 8, !alias.scope !4402, !noalias !4399
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %43) #22
           to label %273 unwind label %93, !noalias !4399
 
@@ -18571,8 +18435,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 
 95:                                               ; preds = %83, %83, %83, %83, %83, %89
   store i64 0, ptr %87, align 8, !alias.scope !4402, !noalias !4399
-  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %43, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %44, ptr noundef nonnull align 8 dereferenceable(668) %43, i64 668, i1 false)
   %.sroa.5215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 669
   %.sroa.5215.0..sroa_idx216 = getelementptr inbounds nuw i8, ptr %44, i64 669
@@ -18728,7 +18590,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %131 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %126, align 8, !alias.scope !4463, !noalias !4460
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %39) #22
           to label %272 unwind label %132, !noalias !4460
 
@@ -18740,8 +18601,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 
 134:                                              ; preds = %122, %122, %122, %122, %122, %128
   store i64 0, ptr %126, align 8, !alias.scope !4463, !noalias !4460
-  %.sroa.6.0..sroa_idx4.i100 = getelementptr inbounds nuw i8, ptr %39, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i100, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %40, ptr noundef nonnull align 8 dereferenceable(668) %39, i64 668, i1 false)
   %.sroa.5234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 669
   %.sroa.5234.0..sroa_idx235 = getelementptr inbounds nuw i8, ptr %40, i64 669
@@ -18897,7 +18756,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %170 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %165, align 8, !alias.scope !4524, !noalias !4521
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %35) #22
           to label %271 unwind label %171, !noalias !4521
 
@@ -18909,8 +18767,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 
 173:                                              ; preds = %161, %161, %161, %161, %161, %167
   store i64 0, ptr %165, align 8, !alias.scope !4524, !noalias !4521
-  %.sroa.6.0..sroa_idx4.i130 = getelementptr inbounds nuw i8, ptr %35, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i130, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %36, ptr noundef nonnull align 8 dereferenceable(668) %35, i64 668, i1 false)
   %.sroa.5247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 669
   %.sroa.5247.0..sroa_idx248 = getelementptr inbounds nuw i8, ptr %36, i64 669
@@ -19066,7 +18922,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %209 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %204, align 8, !alias.scope !4585, !noalias !4582
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %207, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %31) #22
           to label %270 unwind label %210, !noalias !4582
 
@@ -19078,8 +18933,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 
 212:                                              ; preds = %200, %200, %200, %200, %200, %206
   store i64 0, ptr %204, align 8, !alias.scope !4585, !noalias !4582
-  %.sroa.6.0..sroa_idx4.i160 = getelementptr inbounds nuw i8, ptr %31, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i160, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %32, ptr noundef nonnull align 8 dereferenceable(668) %31, i64 668, i1 false)
   %.sroa.5260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 669
   %.sroa.5260.0..sroa_idx261 = getelementptr inbounds nuw i8, ptr %32, i64 669
@@ -19235,7 +19088,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %248 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %243, align 8, !alias.scope !4646, !noalias !4643
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %246, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %26) #22
           to label %267 unwind label %249, !noalias !4643
 
@@ -19247,8 +19099,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 
 251:                                              ; preds = %239, %239, %239, %239, %239, %245
   store i64 0, ptr %243, align 8, !alias.scope !4646, !noalias !4643
-  %.sroa.6.0..sroa_idx4.i190 = getelementptr inbounds nuw i8, ptr %26, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i190, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %27, ptr noundef nonnull align 8 dereferenceable(668) %26, i64 668, i1 false)
   %.sroa.5273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 669
   %.sroa.5273.0..sroa_idx274 = getelementptr inbounds nuw i8, ptr %27, i64 669
@@ -19411,7 +19261,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %39 = alloca [672 x i8], align 8
   %40 = alloca [672 x i8], align 8
   %41 = alloca [776 x i8], align 8
-  %.sroa.6 = alloca [16 x i8], align 8
   %42 = alloca [672 x i8], align 8
   %43 = alloca [672 x i8], align 8
   %44 = alloca [672 x i8], align 8
@@ -19612,7 +19461,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %92 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %87, align 8, !alias.scope !4731, !noalias !4728
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %43) #22
           to label %278 unwind label %93, !noalias !4728
 
@@ -19624,8 +19472,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 
 95:                                               ; preds = %83, %83, %83, %83, %83, %89
   store i64 0, ptr %87, align 8, !alias.scope !4731, !noalias !4728
-  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %43, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %44, ptr noundef nonnull align 8 dereferenceable(668) %43, i64 668, i1 false)
   %.sroa.5215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 669
   %.sroa.5215.0..sroa_idx216 = getelementptr inbounds nuw i8, ptr %44, i64 669
@@ -19782,7 +19628,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %132 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %127, align 8, !alias.scope !4792, !noalias !4789
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %39) #22
           to label %277 unwind label %133, !noalias !4789
 
@@ -19794,8 +19639,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 
 135:                                              ; preds = %123, %123, %123, %123, %123, %129
   store i64 0, ptr %127, align 8, !alias.scope !4792, !noalias !4789
-  %.sroa.6.0..sroa_idx4.i100 = getelementptr inbounds nuw i8, ptr %39, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i100, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %40, ptr noundef nonnull align 8 dereferenceable(668) %39, i64 668, i1 false)
   %.sroa.5234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 669
   %.sroa.5234.0..sroa_idx235 = getelementptr inbounds nuw i8, ptr %40, i64 669
@@ -19952,7 +19795,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %172 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %167, align 8, !alias.scope !4853, !noalias !4850
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %35) #22
           to label %276 unwind label %173, !noalias !4850
 
@@ -19964,8 +19806,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 
 175:                                              ; preds = %163, %163, %163, %163, %163, %169
   store i64 0, ptr %167, align 8, !alias.scope !4853, !noalias !4850
-  %.sroa.6.0..sroa_idx4.i130 = getelementptr inbounds nuw i8, ptr %35, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i130, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %36, ptr noundef nonnull align 8 dereferenceable(668) %35, i64 668, i1 false)
   %.sroa.5247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 669
   %.sroa.5247.0..sroa_idx248 = getelementptr inbounds nuw i8, ptr %36, i64 669
@@ -20122,7 +19962,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %212 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %207, align 8, !alias.scope !4914, !noalias !4911
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %210, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %31) #22
           to label %275 unwind label %213, !noalias !4911
 
@@ -20134,8 +19973,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 
 215:                                              ; preds = %203, %203, %203, %203, %203, %209
   store i64 0, ptr %207, align 8, !alias.scope !4914, !noalias !4911
-  %.sroa.6.0..sroa_idx4.i160 = getelementptr inbounds nuw i8, ptr %31, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i160, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %32, ptr noundef nonnull align 8 dereferenceable(668) %31, i64 668, i1 false)
   %.sroa.5260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 669
   %.sroa.5260.0..sroa_idx261 = getelementptr inbounds nuw i8, ptr %32, i64 669
@@ -20292,7 +20129,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
   %252 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %247, align 8, !alias.scope !4975, !noalias !4972
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %250, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %26) #22
           to label %272 unwind label %253, !noalias !4972
 
@@ -20304,8 +20140,6 @@ define void @"_ZN77_$LT$uv_cli..compat..VenvCompatArgs$u20$as$u20$clap_builder..
 
 255:                                              ; preds = %243, %243, %243, %243, %243, %249
   store i64 0, ptr %247, align 8, !alias.scope !4975, !noalias !4972
-  %.sroa.6.0..sroa_idx4.i190 = getelementptr inbounds nuw i8, ptr %26, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i190, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %27, ptr noundef nonnull align 8 dereferenceable(668) %26, i64 668, i1 false)
   %.sroa.5273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 669
   %.sroa.5273.0..sroa_idx274 = getelementptr inbounds nuw i8, ptr %27, i64 669
@@ -20834,7 +20668,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
   %15 = alloca [672 x i8], align 8
   %16 = alloca [776 x i8], align 8
   %17 = alloca [776 x i8], align 8
-  %.sroa.3 = alloca [16 x i8], align 8
   %18 = alloca [672 x i8], align 8
   %19 = alloca [672 x i8], align 8
   %20 = alloca [672 x i8], align 8
@@ -21017,7 +20850,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
   %65 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %60, align 8, !alias.scope !5100, !noalias !5097
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %19) #22
           to label %126 unwind label %66, !noalias !5097
 
@@ -21029,8 +20861,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
 
 68:                                               ; preds = %56, %56, %56, %56, %56, %62
   store i64 0, ptr %60, align 8, !alias.scope !5100, !noalias !5097
-  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %19, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %20, ptr noundef nonnull align 8 dereferenceable(668) %19, i64 668, i1 false)
   %.sroa.595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 669
   %.sroa.595.0..sroa_idx96 = getelementptr inbounds nuw i8, ptr %20, i64 669
@@ -21186,7 +21016,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
   %104 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %99, align 8, !alias.scope !5161, !noalias !5158
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %14) #22
           to label %123 unwind label %105, !noalias !5158
 
@@ -21198,8 +21027,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
 
 107:                                              ; preds = %95, %95, %95, %95, %95, %101
   store i64 0, ptr %99, align 8, !alias.scope !5161, !noalias !5158
-  %.sroa.6.0..sroa_idx4.i70 = getelementptr inbounds nuw i8, ptr %14, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i70, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %15, ptr noundef nonnull align 8 dereferenceable(668) %14, i64 668, i1 false)
   %.sroa.5108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 669
   %.sroa.5108.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %15, i64 669
@@ -21323,7 +21150,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
   %15 = alloca [672 x i8], align 8
   %16 = alloca [776 x i8], align 8
   %17 = alloca [776 x i8], align 8
-  %.sroa.3 = alloca [16 x i8], align 8
   %18 = alloca [672 x i8], align 8
   %19 = alloca [672 x i8], align 8
   %20 = alloca [672 x i8], align 8
@@ -21506,7 +21332,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
   %65 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %60, align 8, !alias.scope !5246, !noalias !5243
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %19) #22
           to label %127 unwind label %66, !noalias !5243
 
@@ -21518,8 +21343,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
 
 68:                                               ; preds = %56, %56, %56, %56, %56, %62
   store i64 0, ptr %60, align 8, !alias.scope !5246, !noalias !5243
-  %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %19, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %20, ptr noundef nonnull align 8 dereferenceable(668) %19, i64 668, i1 false)
   %.sroa.595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 669
   %.sroa.595.0..sroa_idx96 = getelementptr inbounds nuw i8, ptr %20, i64 669
@@ -21676,7 +21499,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
   %105 = landingpad { ptr, i32 }
           cleanup
   store i64 0, ptr %100, align 8, !alias.scope !5307, !noalias !5304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false)
   invoke void @"_ZN4core3ptr52drop_in_place$LT$clap_builder..builder..arg..Arg$GT$17hb8d1ecac979776c2E"(ptr noalias noundef nonnull align 8 dereferenceable(672) %14) #22
           to label %124 unwind label %106, !noalias !5304
 
@@ -21688,8 +21510,6 @@ define void @"_ZN83_$LT$uv_cli..compat..PipInstallCompatArgs$u20$as$u20$clap_bui
 
 108:                                              ; preds = %96, %96, %96, %96, %96, %102
   store i64 0, ptr %100, align 8, !alias.scope !5307, !noalias !5304
-  %.sroa.6.0..sroa_idx4.i70 = getelementptr inbounds nuw i8, ptr %14, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx4.i70, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(668) %15, ptr noundef nonnull align 8 dereferenceable(668) %14, i64 668, i1 false)
   %.sroa.5108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 669
   %.sroa.5108.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %15, i64 669

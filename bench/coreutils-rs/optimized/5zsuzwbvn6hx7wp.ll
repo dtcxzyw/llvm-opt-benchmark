@@ -1447,7 +1447,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   %.sroa.5.0..sroa_idx2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.7.0..sroa_idx3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 24
   %.sroa.9.0..sroa_idx4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sroa.115.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %.sroa.11.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 40
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -1491,7 +1491,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   store i64 %.val11.i.i.i.i, ptr %.sroa.5.0..sroa_idx2.i.i.i.i.i.i, align 8, !noalias !359
   store i64 0, ptr %.sroa.7.0..sroa_idx3.i.i.i.i.i.i, align 8, !noalias !359
   store i64 %.val11.i.i.i.i, ptr %.sroa.9.0..sroa_idx4.i.i.i.i.i.i, align 8, !noalias !359
-  store i8 1, ptr %.sroa.115.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !359
+  store i8 1, ptr %.sroa.11.0..sroa_idx.i.i.i.i.i.i, align 8, !noalias !359
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !359
   %44 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !362)

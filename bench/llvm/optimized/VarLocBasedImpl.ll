@@ -29844,10 +29844,10 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_15DILocalVariableENS_23DbgVaria
   %68 = icmp ne i64 %.sroa.0.0.copyload17, %67
   %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm13DebugVariable15DefaultFragmentE, i64 8), align 8
   %70 = icmp ne i64 %.sroa.519.0.copyload, %69
-  %.not63 = select i1 %68, i1 true, i1 %70
-  %.sroa.015.sroa.0.1 = select i1 %.not63, i64 %.sroa.0.0.copyload17, i64 %.sroa.015.sroa.0.056
-  %.sroa.416.0 = zext i1 %.not63 to i8
-  %.sroa.015.sroa.4.1 = select i1 %.not63, i64 %.sroa.519.0.copyload, i64 %.sroa.015.sroa.4.057
+  %.not61 = select i1 %68, i1 true, i1 %70
+  %.sroa.015.sroa.0.1 = select i1 %.not61, i64 %.sroa.0.0.copyload17, i64 %.sroa.015.sroa.0.056
+  %.sroa.416.0 = zext i1 %.not61 to i8
+  %.sroa.015.sroa.4.1 = select i1 %.not61, i64 %.sroa.519.0.copyload, i64 %.sroa.015.sroa.4.057
   store ptr %.sroa.031.0.copyload, ptr %4, align 8, !tbaa !279
   store i64 %.sroa.015.sroa.0.1, ptr %64, align 8
   store i64 %.sroa.015.sroa.4.1, ptr %.sroa.450.0..sroa_idx, align 8
@@ -33911,7 +33911,7 @@ declare { i64, i8 } @_ZNK4llvm12MachineInstr18getFoldedSpillSizeEPKNS_15TargetIn
 declare { i64, i8 } @_ZNK4llvm12MachineInstr14getRestoreSizeEPKNS_15TargetInstrInfoE(ptr noundef nonnull align 8 dereferenceable(70), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_13DebugVariableENS_11SmallVectorIN12_GLOBAL__N_18LocIndexELj2EEELj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEES2_S6_S8_SB_E5clearEv(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_13DebugVariableENS_11SmallVectorIN12_GLOBAL__N_18LocIndexELj2EEELj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEES2_S6_S8_SB_E5clearEv(ptr noundef nonnull align 1 captures(address) dereferenceable(1) %0) unnamed_addr #0 align 2 {
   %.val14 = load i32, ptr %0, align 8
   %2 = lshr i32 %.val14, 1
   %3 = icmp ult i32 %.val14, 2

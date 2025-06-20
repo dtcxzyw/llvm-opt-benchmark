@@ -948,8 +948,8 @@ define void @_ZN6statrs12distribution14hypergeometric14Hypergeometric3new17haf2b
   br label %9
 
 9:                                                ; preds = %4, %7
-  %.sink = phi i64 [ 21, %7 ], [ 0, %4 ]
-  store i64 %.sink, ptr %0, align 8
+  %storemerge = phi i64 [ 21, %7 ], [ 0, %4 ]
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 

@@ -1429,8 +1429,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %34 = load ptr, ptr %33, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
-  %.not39 = icmp eq i64 %30, 0
-  br i1 %.not39, label %51, label %35
+  %.not41 = icmp eq i64 %30, 0
+  br i1 %.not41, label %51, label %35
 
 35:                                               ; preds = %25
   store ptr %28, ptr %9, align 8
@@ -1459,8 +1459,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  %.pre = load i64, ptr %7, align 8, !range !16, !alias.scope !188, !noalias !191
-  %38 = icmp eq i64 %.pre, 2
+  %.pr = load i64, ptr %7, align 8, !alias.scope !188, !noalias !191
+  %38 = icmp eq i64 %.pr, 2
   br i1 %38, label %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit, label %39
 
 39:                                               ; preds = %35
@@ -1484,7 +1484,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr43drop
   %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %61, %60 ], [ %.pn, %"_ZN4core3ptr43drop_in_place$LT$parser..parser..Parser$GT$17hffffad464c2b98c1E.exit" ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %35, %39
+_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %35, %.thread, %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !noalias !4
   %44 = load ptr, ptr %13, align 8, !nonnull !4, !align !187, !noundef !4
   %45 = load i8, ptr %44, align 1, !range !194, !noundef !4

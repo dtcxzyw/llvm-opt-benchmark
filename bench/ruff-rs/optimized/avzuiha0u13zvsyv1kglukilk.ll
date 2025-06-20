@@ -4338,7 +4338,6 @@ define range(i64 0, -4294967294) i64 @_ZN7ruff_db5files5Files8vendored17h9640ca5
   %10 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [48 x i8], align 16
   %.sroa.8 = alloca [12 x i8], align 1
-  %.sroa.9 = alloca [11 x i8], align 1
   %11 = alloca [80 x i8], align 16
   %12 = alloca [80 x i8], align 16
   %13 = alloca [16 x i8], align 8
@@ -4566,7 +4565,6 @@ _ZN7ruff_db8vendored18VendoredFileSystem8metadata17h88ceedfe5bcdc229E.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.8)
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   invoke void @_ZN7ruff_db8vendored4path12VendoredPath11to_path_buf17ha41b0ecf3103ec0bE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %108, i64 noundef %107)
           to label %109 unwind label %.thread86
@@ -4615,11 +4613,8 @@ _ZN7ruff_db8vendored18VendoredFileSystem8metadata17h88ceedfe5bcdc229E.exit: ; pr
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !303
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(12) %.sroa.8, i64 12, i1 false), !alias.scope !303
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.9, i64 11, i1 false), !alias.scope !303
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.8)
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.9)
   %118 = invoke noundef i128 @_ZN7ruff_db8vendored8Metadata8revision17h650691d1b921c9dbE(ptr noalias noundef nonnull readonly align 16 dereferenceable(32) %21)
           to label %119 unwind label %124
 
@@ -5579,11 +5574,11 @@ define void @_ZN7ruff_db5files5Files16sync_recursively17h5c78b3b5bb060296E(ptr n
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
   store ptr %140, ptr %14, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   %141 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %142 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %143 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %144 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %146
 
 145:                                              ; preds = %134
@@ -6169,9 +6164,9 @@ define void @_ZN7ruff_db5files5Files8sync_all17h839a3d624c2adf17E(ptr noundef no
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
   store ptr %118, ptr %12, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %120 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %122
 
 121:                                              ; preds = %82
@@ -6455,9 +6450,9 @@ define noundef zeroext i1 @"_ZN58_$LT$ruff_db..files..Files$u20$as$u20$core..fmt
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   store ptr %8, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %11
 
 11:                                               ; preds = %26, %2
@@ -10306,8 +10301,8 @@ common.resume:                                    ; preds = %40, %35
   store ptr %13, ptr %5, align 8, !alias.scope !698, !noalias !702
   %.sroa.4.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %13, ptr %.sroa.4.0..sroa_idx21, align 8, !alias.scope !698, !noalias !702
-  %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 1, ptr %.sroa.622.0..sroa_idx, align 8, !alias.scope !698, !noalias !702
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 1, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !698, !noalias !702
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !698, !noalias !702
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h1f09d17fe962ed63E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c657d2cb10fd2d3a22dd98b245d1417f.21)
@@ -10507,8 +10502,8 @@ common.resume:                                    ; preds = %39, %34
   store ptr %12, ptr %4, align 8, !alias.scope !716, !noalias !720
   %.sroa.4.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %12, ptr %.sroa.4.0..sroa_idx20, align 8, !alias.scope !716, !noalias !720
-  %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i64 1, ptr %.sroa.621.0..sroa_idx, align 8, !alias.scope !716, !noalias !720
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store i64 1, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !716, !noalias !720
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !716, !noalias !720
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h2230cd2b4c8bc2deE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c657d2cb10fd2d3a22dd98b245d1417f.21)

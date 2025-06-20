@@ -360,7 +360,6 @@ define hidden void @_ZN6parser7grammar11expressions4atom9atom_expr17hc51b3c9c21f
   %45 = alloca { { { { i64, [2 x i64] }, i8, [7 x i8] } }, i32, [1 x i32] }, align 8
   %46 = alloca { { { { i64, [2 x i64] }, i8, [7 x i8] } }, i32, [1 x i32] }, align 8
   %47 = alloca { { i32, i16, [1 x i16] }, i8, [3 x i8] }, align 4
-  %.sroa.7 = alloca [3 x i8], align 1
   %48 = tail call { i32, i16 } @_ZN6parser7grammar11expressions4atom7literal17h25af000b116b6ba3E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   %49 = extractvalue { i32, i16 } %48, 1
   %.not = icmp eq i16 %49, 273
@@ -412,7 +411,6 @@ define hidden void @_ZN6parser7grammar11expressions4atom9atom_expr17hc51b3c9c21f
   br i1 %63, label %336, label %302
 
 64:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27), !noalias !67
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
@@ -1630,15 +1628,11 @@ _ZN6parser7grammar9BlockLike12is_blocklike17hd3a14046a29f94baE.exit: ; preds = %
   store i16 %.sroa.5.0.i, ptr %.sroa.56.0..sroa_idx, align 4
   %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %.sroa.68.0..sroa_idx, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.7, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.7)
   br label %59
 
 441:                                              ; preds = %_ZN6parser7grammar11expressions4atom12builtin_expr17ha4dc409baf8a9169E.exit.thread, %_ZN6parser7grammar11expressions4atom12builtin_expr17ha4dc409baf8a9169E.exit
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 273, ptr %442, align 4
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.7)
   br label %59
 }
 

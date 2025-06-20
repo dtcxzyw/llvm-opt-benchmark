@@ -1717,7 +1717,6 @@ define dso_local noundef ptr @_ZN5clang8BodyFarm7getBodyEPKNS_14ObjCMethodDeclE(
   %3 = alloca %"class.clang::QualType", align 8
   %4 = alloca %"class.(anonymous namespace)::ASTMaker", align 8
   %5 = alloca ptr, align 8
-  %.sroa.5 = alloca [7 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load i24, ptr %6, align 8
   %8 = and i24 %7, 524288
@@ -1898,7 +1897,6 @@ _ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thre
   br i1 %.not.i.i, label %.critedge37, label %.lr.ph.i.i, !llvm.loop !507
 
 .critedge37:                                      ; preds = %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i.i.i, %.critedge, %_ZN5clang17ObjCInterfaceDecl16isKnownExtensionEPNS_16ObjCCategoryDeclE.exit.thread.i.i, %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i.i, %_ZNK5clang17ObjCInterfaceDecl18getCategoryListRawEv.exit.i.i, %_ZNK5clang11DeclContext9getParentEv.exit
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5)
   %90 = load ptr, ptr %0, align 8, !tbaa !27
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %92 = load i24, ptr %91, align 8
@@ -2365,9 +2363,6 @@ _ZL24createObjCPropertyGetterRN5clang10ASTContextEPKNS_14ObjCMethodDeclE.exit: ;
   %.0.i = phi ptr [ null, %_ZL15findBackingIvarPKN5clang16ObjCPropertyDeclE.exit.i ], [ null, %172 ], [ %.5.i, %315 ], [ null, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i ], [ null, %259 ], [ %195, %.thread141.i ], [ null, %.thread.i ], [ null, %133 ], [ null, %.thread.i.i ], [ null, %153 ]
   store ptr %.0.i, ptr %19, align 8
   store i8 1, ptr %20, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5, i64 7, i1 false)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %23, %_ZNSt8optionalIPN5clang4StmtEEaSIDnEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit, %_ZL24createObjCPropertyGetterRN5clang10ASTContextEPKNS_14ObjCMethodDeclE.exit, %9, %2

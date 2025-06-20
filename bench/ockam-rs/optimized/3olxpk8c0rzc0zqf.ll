@@ -12009,10 +12009,10 @@ define void @_ZN19ockam_transport_tcp7options20TcpConnectionOptions18setup_flow_
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 %9, ptr %22, align 8
   store ptr %.sroa.0.0.i.i.i, ptr %6, align 8
-  %.sroa.4.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %12, ptr %.sroa.4.0..sroa_idx20, align 8
-  %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %12, ptr %.sroa.521.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %12, ptr %.sroa.4.0..sroa_idx18, align 8
+  %.sroa.519.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %12, ptr %.sroa.519.0..sroa_idx, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -12022,9 +12022,9 @@ define void @_ZN19ockam_transport_tcp7options20TcpConnectionOptions18setup_flow_
 
 27:                                               ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d56e67808efff59E.exit"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 8, i64 noundef 32) #37
-          to label %.noexc unwind label %.thread31
+          to label %.noexc unwind label %.thread29
 
-.thread31:                                        ; preds = %27
+.thread29:                                        ; preds = %27
   %28 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -12100,18 +12100,18 @@ define void @_ZN19ockam_transport_tcp7options20TcpConnectionOptions18setup_flow_
 
 .lr.ph:                                           ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %38, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d56e67808efff59E.exit15.us", label %.lr.ph.split.split
 
 "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d56e67808efff59E.exit15.us": ; preds = %.lr.ph, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d56e67808efff59E.exit15.us"
-  %.sroa.017.035.us = phi ptr [ %54, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d56e67808efff59E.exit15.us" ], [ %.val4, %.lr.ph ]
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.017.035.us, i64 24
+  %.sroa.016.033.us = phi ptr [ %54, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d56e67808efff59E.exit15.us" ], [ %.val4, %.lr.ph ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.016.033.us, i64 24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store i8 %34, ptr %53, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.425.0..sroa_idx, i8 0, i64 16, i1 false)
-  call void @"_ZN10ockam_core12flow_control13flow_controls17flow_controls_api86_$LT$impl$u20$ockam_core..flow_control..flow_controls..flow_controls..FlowControls$GT$12add_consumer17h737cd40859342b01E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.017.035.us)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.423.0..sroa_idx, i8 0, i64 16, i1 false)
+  call void @"_ZN10ockam_core12flow_control13flow_controls17flow_controls_api86_$LT$impl$u20$ockam_core..flow_control..flow_controls..flow_controls..FlowControls$GT$12add_consumer17h737cd40859342b01E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.016.033.us)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %55 = icmp eq ptr %54, %51
   br i1 %55, label %._crit_edge, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d56e67808efff59E.exit15.us"
@@ -12120,7 +12120,7 @@ define void @_ZN19ockam_transport_tcp7options20TcpConnectionOptions18setup_flow_
   ret void
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d56e67808efff59E.exit15"
-  %.sroa.017.035 = phi ptr [ %60, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d56e67808efff59E.exit15" ], [ %.val4, %.lr.ph ]
+  %.sroa.016.033 = phi ptr [ %60, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d56e67808efff59E.exit15" ], [ %.val4, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %56 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !2485
   %57 = tail call noundef ptr @__rust_alloc(i64 noundef %37, i64 noundef range(i64 1, 0) 1) #35, !noalias !2485
@@ -12132,13 +12132,13 @@ define void @_ZN19ockam_transport_tcp7options20TcpConnectionOptions18setup_flow_
   unreachable
 
 "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7d56e67808efff59E.exit15": ; preds = %.lr.ph.split.split
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.017.035, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.016.033, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull readonly align 1 %36, i64 %37, i1 false), !noalias !2492
   store i8 %34, ptr %53, align 8
   store ptr %57, ptr %4, align 8
-  store i64 %37, ptr %.sroa.425.0..sroa_idx, align 8
-  store i64 %37, ptr %.sroa.526.0..sroa_idx, align 8
-  call void @"_ZN10ockam_core12flow_control13flow_controls17flow_controls_api86_$LT$impl$u20$ockam_core..flow_control..flow_controls..flow_controls..FlowControls$GT$12add_consumer17h737cd40859342b01E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.017.035)
+  store i64 %37, ptr %.sroa.423.0..sroa_idx, align 8
+  store i64 %37, ptr %.sroa.524.0..sroa_idx, align 8
+  call void @"_ZN10ockam_core12flow_control13flow_controls17flow_controls_api86_$LT$impl$u20$ockam_core..flow_control..flow_controls..flow_controls..FlowControls$GT$12add_consumer17h737cd40859342b01E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.016.033)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %61 = icmp eq ptr %60, %51
   br i1 %61, label %._crit_edge, label %.lr.ph.split.split
@@ -12150,10 +12150,10 @@ define void @_ZN19ockam_transport_tcp7options20TcpConnectionOptions18setup_flow_
   unreachable
 
 64:                                               ; preds = %.thread
-  resume { ptr, i32 } %.pn30
+  resume { ptr, i32 } %.pn28
 
-.thread:                                          ; preds = %29, %.thread31
-  %.pn30 = phi { ptr, i32 } [ %28, %.thread31 ], [ %30, %29 ]
+.thread:                                          ; preds = %29, %.thread29
+  %.pn28 = phi { ptr, i32 } [ %28, %.thread29 ], [ %30, %29 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h031c37a5e1c30fdfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #34
           to label %64 unwind label %62
 }
@@ -12410,7 +12410,7 @@ define hidden void @_ZN19ockam_transport_tcp7options18TcpListenerOptions33setup_
   br i1 %14, label %26, label %18
 
 15:                                               ; preds = %33, %.thread, %16
-  %.pn.pn = phi { ptr, i32 } [ %.pn21, %.thread ], [ %34, %33 ], [ %17, %16 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn19, %.thread ], [ %34, %33 ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$ockam_core..flow_control..flow_control_id..FlowControlId$GT$17hd5c197b907a498e2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #34
           to label %59 unwind label %57
 
@@ -12449,10 +12449,10 @@ define hidden void @_ZN19ockam_transport_tcp7options18TcpListenerOptions33setup_
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 %10, ptr %27, align 8
   store ptr %.sroa.0.0.i.i.i, ptr %6, align 8
-  %.sroa.4.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %13, ptr %.sroa.4.0..sroa_idx14, align 8
-  %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %13, ptr %.sroa.515.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %13, ptr %.sroa.4.0..sroa_idx13, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %13, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %29 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #35
@@ -12461,9 +12461,9 @@ define hidden void @_ZN19ockam_transport_tcp7options18TcpListenerOptions33setup_
 
 31:                                               ; preds = %26
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h047bf044e422c00fE(i64 noundef 8, i64 noundef 32) #37
-          to label %.noexc5 unwind label %.thread22
+          to label %.noexc5 unwind label %.thread20
 
-.thread22:                                        ; preds = %31
+.thread20:                                        ; preds = %31
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -12548,8 +12548,8 @@ define hidden void @_ZN19ockam_transport_tcp7options18TcpListenerOptions33setup_
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-.thread:                                          ; preds = %35, %.thread22
-  %.pn21 = phi { ptr, i32 } [ %32, %.thread22 ], [ %36, %35 ]
+.thread:                                          ; preds = %35, %.thread20
+  %.pn19 = phi { ptr, i32 } [ %32, %.thread20 ], [ %36, %35 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h031c37a5e1c30fdfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #34
           to label %15 unwind label %57
 

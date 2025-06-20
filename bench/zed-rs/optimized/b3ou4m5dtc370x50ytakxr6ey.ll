@@ -1246,8 +1246,8 @@ _ZN10async_task5utils14abort_on_panic17h04d8707fa896b6a1E.exit: ; preds = %23
 
 93:                                               ; preds = %91, %89, %82
   %.sroa.10.0 = phi ptr [ %92, %91 ], [ %79, %89 ], [ %83, %82 ]
-  %.sroa.6.0272 = phi ptr [ null, %91 ], [ %78, %89 ], [ null, %82 ]
-  store ptr %.sroa.6.0272, ptr %5, align 8
+  %.sroa.6.0266 = phi ptr [ null, %91 ], [ %78, %89 ], [ null, %82 ]
+  store ptr %.sroa.6.0266, ptr %5, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.10.0, ptr %.sroa.10.8..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -3922,8 +3922,8 @@ _ZN10async_task5utils14abort_on_panic17habf44412a47cff36E.exit: ; preds = %23
 
 91:                                               ; preds = %89, %87, %80
   %.sroa.10.0 = phi ptr [ %90, %89 ], [ %77, %87 ], [ %81, %80 ]
-  %.sroa.6.0275 = phi ptr [ null, %89 ], [ %76, %87 ], [ null, %80 ]
-  store ptr %.sroa.6.0275, ptr %5, align 8
+  %.sroa.6.0269 = phi ptr [ null, %89 ], [ %76, %87 ], [ null, %80 ]
+  store ptr %.sroa.6.0269, ptr %5, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.10.0, ptr %.sroa.10.8..sroa_idx, align 8
   %.val96.val = load ptr, ptr %10, align 8, !alias.scope !143, !noundef !11

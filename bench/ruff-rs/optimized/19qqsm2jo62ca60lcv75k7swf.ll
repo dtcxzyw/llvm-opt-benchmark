@@ -6369,15 +6369,15 @@ define hidden void @_ZN5ctrlc20init_and_set_handler17h844660a2ccc56c47E(ptr dead
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %"_ZN4core3ptr73drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17hf7a5d81cd6d84eb1E.exit"
 
-.thread47:                                        ; preds = %22, %116, %121
+.thread46:                                        ; preds = %22, %116, %121
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.thread43
+  br label %.thread42
 
 22:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   invoke void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$4lock17h15196165be15a305E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noundef nonnull align 4 @_ZN5ctrlc9INIT_LOCK17h926d40f29b02a40fE)
-          to label %23 unwind label %.thread47
+          to label %23 unwind label %.thread46
 
 23:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
@@ -6401,7 +6401,7 @@ define hidden void @_ZN5ctrlc20init_and_set_handler17h844660a2ccc56c47E(ptr dead
   %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr111drop_in_place$LT$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$17h8c8368e1211426dbE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17) #22
-          to label %.thread43 unwind label %35, !noalias !287
+          to label %.thread42 unwind label %35, !noalias !287
 
 34:                                               ; preds = %26
   unreachable
@@ -6643,9 +6643,9 @@ _ZN5ctrlc8platform4unix15init_os_handler17h7cf363fc04d8e13fE.exit.thread.i: ; pr
   %101 = load ptr, ptr %15, align 8, !noalias !291, !noundef !7
   %102 = icmp eq ptr %101, null
   %103 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  br i1 %102, label %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread54, label %105
+  br i1 %102, label %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread53, label %105
 
-_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread54: ; preds = %.noexc
+_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread53: ; preds = %.noexc
   %104 = load ptr, ptr %103, align 8, !noalias !291, !nonnull !7, !noundef !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !291
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !291
@@ -6713,7 +6713,7 @@ _ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread: ; preds = %105
 
 116:                                              ; preds = %112
   %117 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h48eb64b570eb50ddE()
-          to label %.noexc13 unwind label %.thread47
+          to label %.noexc13 unwind label %.thread46
 
 .noexc13:                                         ; preds = %116
   br i1 %117, label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i, label %118
@@ -6729,22 +6729,22 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %118, %.no
 
 121:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h0439a4c6ca014734E(ptr noundef nonnull align 4 %41)
-          to label %"_ZN4core3ptr73drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17hf7a5d81cd6d84eb1E.exit" unwind label %.thread47
+          to label %"_ZN4core3ptr73drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17hf7a5d81cd6d84eb1E.exit" unwind label %.thread46
 
 _ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit: ; preds = %109
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   %.not = icmp eq i32 %.sroa.022.0.copyload23, 3
   br i1 %.not, label %123, label %122
 
-122:                                              ; preds = %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread54, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit
-  %.sroa.826.061 = phi ptr [ %104, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread54 ], [ %.sroa.826.0.copyload28, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit ]
-  %.sroa.8.060 = phi i32 [ undef, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread54 ], [ %.sroa.8.0.copyload25, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit ]
-  %.sroa.022.059 = phi i32 [ 2, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread54 ], [ %.sroa.022.0.copyload23, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit ]
-  store i32 %.sroa.022.059, ptr %0, align 8
-  %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.8.060, ptr %.sroa.238.0..sroa_idx, align 4
-  %.sroa.339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.826.061, ptr %.sroa.339.0..sroa_idx, align 8
+122:                                              ; preds = %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread53, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit
+  %.sroa.826.060 = phi ptr [ %104, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread53 ], [ %.sroa.826.0.copyload28, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit ]
+  %.sroa.8.059 = phi i32 [ undef, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread53 ], [ %.sroa.8.0.copyload25, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit ]
+  %.sroa.022.058 = phi i32 [ 2, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread53 ], [ %.sroa.022.0.copyload23, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit ]
+  store i32 %.sroa.022.058, ptr %0, align 8
+  %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sroa.8.059, ptr %.sroa.237.0..sroa_idx, align 4
+  %.sroa.338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.826.060, ptr %.sroa.338.0..sroa_idx, align 8
   br label %124
 
 123:                                              ; preds = %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit, %_ZN5ctrlc17set_handler_inner17hd80612864496a83fE.exit.thread
@@ -6787,18 +6787,18 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i15: ; preds = %131, %.
   tail call void @"_ZN4core3ptr117drop_in_place$LT$std..sync..poison..mutex..Mutex$LT$core..option..Option$LT$ty..MainLoopCancellationToken$GT$$GT$$GT$17h1e97f57216f321baE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %"_ZN4core3ptr73drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17hf7a5d81cd6d84eb1E.exit18"
 
-135:                                              ; preds = %.thread43, %.body11
+135:                                              ; preds = %.thread42, %.body11
   %136 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #23
   unreachable
 
-.thread:                                          ; preds = %.thread43, %.body11
-  %.pn42 = phi { ptr, i32 } [ %eh.lpad-body12, %.body11 ], [ %eh.lpad-body46, %.thread43 ]
-  resume { ptr, i32 } %.pn42
+.thread:                                          ; preds = %.thread42, %.body11
+  %.pn41 = phi { ptr, i32 } [ %eh.lpad-body12, %.body11 ], [ %eh.lpad-body45, %.thread42 ]
+  resume { ptr, i32 } %.pn41
 
-.thread43:                                        ; preds = %32, %.thread47
-  %eh.lpad-body46 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread47 ], [ %33, %32 ]
+.thread42:                                        ; preds = %32, %.thread46
+  %eh.lpad-body45 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread46 ], [ %33, %32 ]
   invoke void @"_ZN4core3ptr117drop_in_place$LT$std..sync..poison..mutex..Mutex$LT$core..option..Option$LT$ty..MainLoopCancellationToken$GT$$GT$$GT$17h1e97f57216f321baE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %.thread unwind label %135
 }

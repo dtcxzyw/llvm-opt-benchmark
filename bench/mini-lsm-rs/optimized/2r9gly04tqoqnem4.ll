@@ -145,8 +145,8 @@ define void @"_ZN16mini_lsm_starter7compact64_$LT$impl$u20$mini_lsm_starter..lsm
   store i64 0, ptr %8, align 8, !noalias !6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !6
   store i64 %2, ptr %7, align 8, !noalias !10
-  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %3, ptr %.sroa.44.0..sroa_idx, align 8, !noalias !10
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %3, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !10
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %11, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !11
@@ -188,10 +188,10 @@ define void @"_ZN16mini_lsm_starter7compact64_$LT$impl$u20$mini_lsm_starter..lsm
 _ZN3std6thread5spawn17hd93274c52df70ba5E.exit:    ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8686e217696c5b48E.exit"
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %22, ptr %33, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %25, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.57.0..sroa_idx, align 8
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %25, ptr %.sroa.45.0..sroa_idx, align 8
+  %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.56.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   br label %34
 
@@ -467,14 +467,14 @@ define void @_ZN16mini_lsm_starter11lsm_storage15LsmStorageState6create17h93b591
   %4 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = load i64, ptr %1, align 8, !range !5, !noundef !4
-  switch i64 %5, label %default.unreachable23 [
+  switch i64 %5, label %default.unreachable22 [
     i64 0, label %16
     i64 1, label %6
     i64 2, label %16
     i64 3, label %9
   ]
 
-default.unreachable23:                            ; preds = %2
+default.unreachable22:                            ; preds = %2
   unreachable
 
 6:                                                ; preds = %2

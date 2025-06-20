@@ -11666,12 +11666,12 @@ define void @_ZN12pingora_core9listeners9Listeners7add_tcp17h078eff0e8ca7c915E(p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1129)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !1132
   store i64 2, ptr %4, align 8, !noalias !1135
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i64 %9, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !1135
-  %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr %13, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8, !noalias !1135
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store i64 %2, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8, !noalias !1135
+  %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i64 %9, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8, !noalias !1135
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store ptr %13, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8, !noalias !1135
+  %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 96
+  store i64 %2, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 8, !noalias !1135
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i8 0, ptr %15, align 8, !noalias !1132
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14055,8 +14055,8 @@ _ZN12pingora_core9upstreams4peer9BasicPeer17new_from_sockaddr17ha18509f7b29a9ecc
   store i64 %15, ptr %21, align 8, !alias.scope !1279, !noalias !1282
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %19, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1279, !noalias !1282
-  %.sroa.520.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store i64 0, ptr %.sroa.520.0..sroa_idx.i, align 8, !alias.scope !1279, !noalias !1282
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 368
+  store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1279, !noalias !1282
   store i64 0, ptr %0, align 8, !alias.scope !1279, !noalias !1282
   %.sroa.41.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -9223372036854775808, ptr %.sroa.41.0..sroa_idx.i, align 8, !alias.scope !1279, !noalias !1282
@@ -14136,8 +14136,8 @@ define void @_ZN12pingora_core9upstreams4peer9BasicPeer17new_from_sockaddr17ha18
   store i64 %7, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store i64 0, ptr %.sroa.520.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 368
+  store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -9223372036854775808, ptr %.sroa.41.0..sroa_idx, align 8
@@ -15030,10 +15030,10 @@ define void @_ZN12pingora_core9upstreams4peer8HttpPeer9new_proxy17he886a39a2c7ee
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !1349
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull readonly align 1 %6, i64 %7, i1 false), !noalias !1355
   store i64 %27, ptr %16, align 8
-  %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %32, ptr %.sroa.459.0..sroa_idx, align 8
-  %.sroa.560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 %7, ptr %.sroa.560.0..sroa_idx, align 8
+  %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %32, ptr %.sroa.457.0..sroa_idx, align 8
+  %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i64 %7, ptr %.sroa.558.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !1356
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h84bfd2396eef2dc9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, i64 noundef %2, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
           to label %.noexc27 unwind label %41
@@ -15071,10 +15071,10 @@ define void @_ZN12pingora_core9upstreams4peer8HttpPeer9new_proxy17he886a39a2c7ee
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !1356
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %44, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !1362
   store i64 %37, ptr %15, align 8
-  %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %44, ptr %.sroa.465.0..sroa_idx, align 8
-  %.sroa.566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 %2, ptr %.sroa.566.0..sroa_idx, align 8
+  %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %44, ptr %.sroa.463.0..sroa_idx, align 8
+  %.sroa.564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i64 %2, ptr %.sroa.564.0..sroa_idx, align 8
   %46 = invoke { ptr, i64 } @_ZN3std3ffi6os_str8OsString17into_boxed_os_str17h45665b67e9a08aa2E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
           to label %47 unwind label %41
 
@@ -15139,8 +15139,8 @@ define void @_ZN12pingora_core9upstreams4peer8HttpPeer9new_proxy17he886a39a2c7ee
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1363
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !1363
-  %.sroa.673.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.673.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  %.sroa.670.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 416
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.670.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.16)
   %.sroa.16.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.16, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.16.8..sroa_idx, i8 0, i64 16, i1 false), !alias.scope !1368
@@ -15165,51 +15165,51 @@ define void @_ZN12pingora_core9upstreams4peer8HttpPeer9new_proxy17he886a39a2c7ee
   store i8 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  %.sroa.4.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr %48, ptr %.sroa.4.0..sroa_idx71, align 8
-  %.sroa.572.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i64 %49, ptr %.sroa.572.0..sroa_idx, align 8
-  %.sroa.774.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store i16 %4, ptr %.sroa.774.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  store ptr %48, ptr %.sroa.4.0..sroa_idx69, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 408
+  store i64 %49, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  store i16 %4, ptr %.sroa.7.0..sroa_idx71, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store i64 0, ptr %0, align 8
-  %.sroa.438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
-  store i64 -9223372036854775808, ptr %.sroa.438.0..sroa_idx, align 8
-  %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 1000000000, ptr %.sroa.540.0..sroa_idx, align 8
-  %.sroa.642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 1000000000, ptr %.sroa.642.0..sroa_idx, align 8
-  %.sroa.744.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 1000000000, ptr %.sroa.744.0..sroa_idx, align 8
-  %.sroa.846.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 1000000000, ptr %.sroa.846.0..sroa_idx, align 8
-  %.sroa.947.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 1000000000, ptr %.sroa.947.0..sroa_idx, align 8
-  %.sroa.1048.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 1000000000, ptr %.sroa.1048.0..sroa_idx, align 8
-  %.sroa.1149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 1000000000, ptr %.sroa.1149.0..sroa_idx, align 8
-  %.sroa.1250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i16 2, ptr %.sroa.1250.0..sroa_idx, align 8
-  %.sroa.1351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr null, ptr %.sroa.1351.0..sroa_idx, align 8
-  %.sroa.1452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 1, ptr %.sroa.1452.0..sroa_idx, align 8
+  store i64 -9223372036854775808, ptr %.sroa.437.0..sroa_idx, align 8
+  %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 1000000000, ptr %.sroa.539.0..sroa_idx, align 8
+  %.sroa.641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 1000000000, ptr %.sroa.641.0..sroa_idx, align 8
+  %.sroa.743.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 1000000000, ptr %.sroa.743.0..sroa_idx, align 8
+  %.sroa.844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 1000000000, ptr %.sroa.844.0..sroa_idx, align 8
+  %.sroa.945.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 1000000000, ptr %.sroa.945.0..sroa_idx, align 8
+  %.sroa.1046.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i32 1000000000, ptr %.sroa.1046.0..sroa_idx, align 8
+  %.sroa.1147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i32 1000000000, ptr %.sroa.1147.0..sroa_idx, align 8
+  %.sroa.1248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i16 2, ptr %.sroa.1248.0..sroa_idx, align 8
+  %.sroa.1349.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store ptr null, ptr %.sroa.1349.0..sroa_idx, align 8
+  %.sroa.1450.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i64 1, ptr %.sroa.1450.0..sroa_idx, align 8
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr null, ptr %.sroa.15.0..sroa_idx, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16, i64 24, i1 false)
-  %.sroa.1753.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store ptr null, ptr %.sroa.1753.0..sroa_idx, align 8
-  %.sroa.1854.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store ptr null, ptr %.sroa.1854.0..sroa_idx, align 8
-  %.sroa.1955.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr null, ptr %.sroa.1955.0..sroa_idx, align 8
-  %.sroa.2056.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i8 0, ptr %.sroa.2056.0..sroa_idx, align 8
-  %.sroa.2157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 346
-  store i8 1, ptr %.sroa.2157.0..sroa_idx, align 2
+  %.sroa.1751.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store ptr null, ptr %.sroa.1751.0..sroa_idx, align 8
+  %.sroa.1852.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store ptr null, ptr %.sroa.1852.0..sroa_idx, align 8
+  %.sroa.1953.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store ptr null, ptr %.sroa.1953.0..sroa_idx, align 8
+  %.sroa.2054.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 344
+  store i8 0, ptr %.sroa.2054.0..sroa_idx, align 8
+  %.sroa.2155.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 346
+  store i8 1, ptr %.sroa.2155.0..sroa_idx, align 2
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 347
   store i8 1, ptr %.sroa.22.0..sroa_idx, align 1
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 348
@@ -15229,10 +15229,10 @@ define void @_ZN12pingora_core9upstreams4peer8HttpPeer9new_proxy17he886a39a2c7ee
   unreachable
 
 71:                                               ; preds = %72
-  resume { ptr, i32 } %.pn.pn70
+  resume { ptr, i32 } %.pn.pn68
 
 72:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$17h6476044248ff5966E.exit", %.thread
-  %.pn.pn70 = phi { ptr, i32 } [ %22, %.thread ], [ %.pn, %"_ZN4core3ptr61drop_in_place$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$17h6476044248ff5966E.exit" ]
+  %.pn.pn68 = phi { ptr, i32 } [ %22, %.thread ], [ %.pn, %"_ZN4core3ptr61drop_in_place$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$17h6476044248ff5966E.exit" ]
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h86994e786587cc85E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #28
           to label %71 unwind label %69
 }
