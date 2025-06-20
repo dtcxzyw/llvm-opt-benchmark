@@ -66,30 +66,30 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
 .preheader:                                       ; preds = %25
   %38 = icmp samesign ugt i32 %5, 2
   %39 = mul nuw nsw i64 %33, 3
-  br label %40
+  br label %41
 
-40:                                               ; preds = %.preheader, %_ZN7meshoptL15estimateChannelEPKhmmmmmii.exit
+41:                                               ; preds = %.preheader, %_ZN7meshoptL15estimateChannelEPKhmmmmmii.exit
   %.091182 = phi i64 [ 0, %.preheader ], [ %260, %_ZN7meshoptL15estimateChannelEPKhmmmmmii.exit ]
-  br i1 %38, label %41, label %113
+  br i1 %38, label %42, label %113
 
-41:                                               ; preds = %40
+42:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %11, i8 0, i64 64, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 %.091182
-  %43 = load i32, ptr %42, align 1
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 %.091182
+  %44 = load i32, ptr %43, align 1
   br label %.preheader53.i
 
-.preheader53.i:                                   ; preds = %64, %41
-  %.04461.i = phi ptr [ %42, %41 ], [ %59, %64 ]
-  %.04660.i = phi i32 [ %43, %41 ], [ %56, %64 ]
-  %.04859.i = phi i64 [ 0, %41 ], [ %65, %64 ]
+.preheader53.i:                                   ; preds = %64, %42
+  %indvars.iv.i = phi ptr [ %42, %41 ], [ %59, %64 ]
+  %.04461.i = phi i32 [ %43, %41 ], [ %56, %64 ]
+  %.04660.i = phi i64 [ 0, %41 ], [ %65, %64 ]
   br label %44
 
-44:                                               ; preds = %44, %.preheader53.i
+44:; preds = %44, %.preheader53.i
   %.157.i = phi ptr [ %.04461.i, %.preheader53.i ], [ %59, %44 ]
   %.14756.i = phi i32 [ %.04660.i, %.preheader53.i ], [ %56, %44 ]
-  %.04955.i = phi i64 [ 0, %.preheader53.i ], [ %60, %44 ]
-  %.05054.i = phi i32 [ 0, %.preheader53.i ], [ %58, %44 ]
+  %.157.i = phi i64 [ 0, %.preheader53.i ], [ %60, %44 ]
+  %.14756.i = phi i32 [ 0, %.preheader53.i ], [ %57, %44 ]
   %45 = load i16, ptr %.157.i, align 1
   %46 = zext i16 %45 to i32
   %47 = getelementptr inbounds nuw i8, ptr %.157.i, i64 2
@@ -103,23 +103,23 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
   %55 = shl nuw i32 %54, 24
   %56 = or disjoint i32 %51, %55
   %57 = xor i32 %56, %.14756.i
-  %58 = or i32 %57, %.05054.i
+  %57 = or i32 %57, %.14756.i
   %59 = getelementptr inbounds nuw i8, ptr %.157.i, i64 %4
   %60 = add nuw nsw i64 %.04955.i, 1
-  %61 = icmp samesign ult i64 %.04955.i, 15
+  %61 = icmp samesign ult i64 %.157.i, 15
   %62 = or disjoint i64 %60, %.04859.i
-  %63 = icmp ult i64 %62, %3
-  %or.cond.i = select i1 %61, i1 %63, i1 false
+  %exitcond.not.i = icmp ult i64 %62, %3
+  %or.cond.i = select i1 %61, i1 %exitcond.not.i, i1 false
   br i1 %or.cond.i, label %44, label %.critedge.i, !llvm.loop !9
 
-64:                                               ; preds = %.critedge.i
+64:; preds = %.critedge.i
   %65 = add nuw i64 %.04859.i, 16
   %66 = icmp ult i64 %65, %3
   br i1 %66, label %.preheader53.i, label %.preheader.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %44, %.critedge.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge.i ], [ 0, %44 ]
-  %67 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.critedge.i ], [ 0, %44 ]
+  %67 = trunc nuw nsw i64 %indvars.iv67.i to i32
   %68 = tail call noundef i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 %67)
   %69 = trunc i32 %68 to i8
   %70 = icmp ult i8 %69, 16
@@ -136,7 +136,7 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
   %81 = select i1 %80, i64 0, i64 2
   %82 = select i1 %79, i64 %81, i64 4
   %83 = select i1 %78, i64 %82, i64 8
-  %84 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %indvars.iv67.i
   %85 = load i64, ptr %84, align 8, !tbaa !12
   %86 = lshr i32 %68, 16
   %87 = trunc i32 %86 to i8
@@ -157,31 +157,31 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
   %102 = add i64 %101, %93
   %103 = add i64 %102, %83
   store i64 %103, ptr %84, align 8, !tbaa !12
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %64, label %.critedge.i, !llvm.loop !14
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, 8
+  br i1 %exitcond70.not.i, label %64, label %.critedge.i, !llvm.loop !14
 
 .preheader.i:                                     ; preds = %64, %.preheader.i
-  %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %.preheader.i ], [ 1, %64 ]
+  %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %.preheader.i ], [ 1, %64 ]
   %.04362.i = phi i32 [ %111, %.preheader.i ], [ 0, %64 ]
-  %104 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %indvars.iv68.i
+  %104 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %indvars.iv71.i
   %105 = load i64, ptr %104, align 8, !tbaa !12
   %106 = zext nneg i32 %.04362.i to i64
   %107 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %106
   %108 = load i64, ptr %107, align 8, !tbaa !12
   %109 = icmp ult i64 %105, %108
-  %110 = trunc nuw nsw i64 %indvars.iv68.i to i32
+  %110 = trunc nuw nsw i64 %indvars.iv71.i to i32
   %111 = select i1 %109, i32 %110, i32 %.04362.i
-  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, 8
-  br i1 %exitcond71.not.i, label %_ZN7meshoptL14estimateRotateEPKhmmmm.exit, label %.preheader.i, !llvm.loop !15
+  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
+  %exitcond74.not.i = icmp eq i64 %indvars.iv.next72.i, 8
+  br i1 %exitcond74.not.i, label %_ZN7meshoptL14estimateRotateEPKhmmmm.exit, label %.preheader.i, !llvm.loop !15
 
 _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #12
   %112 = shl i32 %111, 4
   br label %113
 
-113:                                              ; preds = %40, %_ZN7meshoptL14estimateRotateEPKhmmmm.exit
+113:                                              ; preds = %41, %_ZN7meshoptL14estimateRotateEPKhmmmm.exit
   %wide.trip.count.i = phi i64 [ 3, %_ZN7meshoptL14estimateRotateEPKhmmmm.exit ], [ 2, %40 ]
   %114 = phi i32 [ %112, %_ZN7meshoptL14estimateRotateEPKhmmmm.exit ], [ 0, %40 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #12
@@ -478,7 +478,7 @@ _ZN7meshoptL15estimateChannelEPKhmmmmmii.exit:    ; preds = %.preheader.i104
   store i8 %257, ptr %259, align 1, !tbaa !8
   %260 = add i64 %.091182, 4
   %261 = icmp ult i64 %260, %4
-  br i1 %261, label %40, label %.loopexit150, !llvm.loop !27
+  br i1 %261, label %41, label %.loopexit150, !llvm.loop !27
 
 .loopexit150:                                     ; preds = %_ZN7meshoptL15estimateChannelEPKhmmmmmii.exit, %25
   %262 = icmp eq i32 %20, 0

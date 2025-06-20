@@ -1621,14 +1621,14 @@ define internal fastcc void @dump_buffer(ptr noundef readonly captures(none) %0,
   %.not40 = icmp eq i64 %2, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph39
 
-.lr.ph39:                                         ; preds = %3, %.critedge2
+27:                                               ; preds = %3, %.critedge2
   %.02338 = phi ptr [ %10, %.critedge2 ], [ %0, %3 ]
   %.02637 = phi i64 [ %34, %.critedge2 ], [ 0, %3 ]
   %4 = add i64 %.02637, %1
   %5 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.34, i64 noundef %4) #26
   br label %6
 
-6:                                                ; preds = %.lr.ph39, %6
+29:                                               ; preds = %27, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next, %6 ]
   %.134 = phi ptr [ %.02338, %.lr.ph39 ], [ %10, %6 ]
   %7 = load i8, ptr %.134, align 1
@@ -1670,14 +1670,14 @@ define internal fastcc void @dump_buffer(ptr noundef readonly captures(none) %0,
 
 28:                                               ; preds = %23, %26
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %29 = getelementptr inbounds nuw i8, ptr %.036, i64 1
-  %30 = icmp samesign ult i64 %indvars.iv42, 15
+  %30 = getelementptr inbounds nuw i8, ptr %.036, i64 1
+  %exitcond.not = icmp samesign ult i64 %indvars.iv42, 15
   %31 = or disjoint i64 %.02637, %indvars.iv.next43
   %32 = icmp ult i64 %31, %2
   %or.cond32 = select i1 %30, i1 %32, i1 false
   br i1 %or.cond32, label %16, label %.critedge2, !llvm.loop !14
 
-.critedge2:                                       ; preds = %28
+.critedge2:; preds = %28
   %33 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.38) #26
   %34 = add i64 %.02637, 16
   %35 = icmp ult i64 %34, %2

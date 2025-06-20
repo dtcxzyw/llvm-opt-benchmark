@@ -5165,7 +5165,7 @@ define internal fastcc ptr @uriParseIpFutureA(ptr noundef nonnull captures(none)
   store ptr %2, ptr %8, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %9, align 8, !tbaa !29
-  br label %53
+  br label %54
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -5179,7 +5179,7 @@ define internal fastcc ptr @uriParseIpFutureA(ptr noundef nonnull captures(none)
   store ptr %2, ptr %15, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %16, align 8, !tbaa !29
-  br label %53
+  br label %54
 
 17:                                               ; preds = %10
   %18 = load i8, ptr %11, align 1, !tbaa !11
@@ -5257,7 +5257,7 @@ uriParseHexZeroA.exit.thread:                     ; preds = %tailrecurse.i, %19,
   store ptr %2, ptr %25, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %26, align 8, !tbaa !29
-  br label %53
+  br label %54
 
 27:                                               ; preds = %uriParseHexZeroA.exit
   %.not50 = icmp eq i8 %21, 46
@@ -5270,7 +5270,7 @@ uriParseHexZeroA.exit.thread:                     ; preds = %tailrecurse.i, %19,
   store ptr %.tr3.i, ptr %31, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %32, align 8, !tbaa !29
-  br label %53
+  br label %54
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -5286,97 +5286,97 @@ uriParseHexZeroA.exit.thread:                     ; preds = %tailrecurse.i, %19,
   br label %.lr.ph.i52
 
 .lr.ph.i52:                                       ; preds = %.lr.ph.i52.backedge, %.lr.ph.preheader.i
-  %37 = phi i8 [ %.pre.i, %.lr.ph.preheader.i ], [ %41, %.lr.ph.i52.backedge ]
-  %.tr1622.i = phi ptr [ %36, %.lr.ph.preheader.i ], [ %39, %.lr.ph.i52.backedge ]
-  switch i8 %37, label %uriParseIpFutLoopA.exit [
-    i8 33, label %38
-    i8 36, label %38
-    i8 38, label %38
-    i8 40, label %38
-    i8 41, label %38
-    i8 45, label %38
-    i8 42, label %38
-    i8 44, label %38
-    i8 46, label %38
-    i8 58, label %38
-    i8 59, label %38
-    i8 39, label %38
-    i8 95, label %38
-    i8 126, label %38
-    i8 43, label %38
-    i8 61, label %38
-    i8 48, label %38
-    i8 49, label %38
-    i8 50, label %38
-    i8 51, label %38
-    i8 52, label %38
-    i8 53, label %38
-    i8 54, label %38
-    i8 55, label %38
-    i8 56, label %38
-    i8 57, label %38
-    i8 65, label %38
-    i8 66, label %38
-    i8 67, label %38
-    i8 68, label %38
-    i8 69, label %38
-    i8 70, label %38
-    i8 97, label %38
-    i8 98, label %38
-    i8 99, label %38
-    i8 100, label %38
-    i8 101, label %38
-    i8 102, label %38
-    i8 103, label %38
-    i8 71, label %38
-    i8 104, label %38
-    i8 72, label %38
-    i8 105, label %38
-    i8 73, label %38
-    i8 106, label %38
-    i8 74, label %38
-    i8 107, label %38
-    i8 75, label %38
-    i8 108, label %38
-    i8 76, label %38
-    i8 109, label %38
-    i8 77, label %38
-    i8 110, label %38
-    i8 78, label %38
-    i8 111, label %38
-    i8 79, label %38
-    i8 112, label %38
-    i8 80, label %38
-    i8 113, label %38
-    i8 81, label %38
-    i8 114, label %38
-    i8 82, label %38
-    i8 115, label %38
-    i8 83, label %38
-    i8 116, label %38
-    i8 84, label %38
-    i8 117, label %38
-    i8 85, label %38
-    i8 118, label %38
-    i8 86, label %38
-    i8 119, label %38
-    i8 87, label %38
-    i8 120, label %38
-    i8 88, label %38
-    i8 121, label %38
-    i8 89, label %38
-    i8 122, label %38
-    i8 90, label %38
+  %38 = phi i8 [ %.pre.i, %.lr.ph.preheader.i ], [ %42, %.lr.ph.i52.backedge ]
+  %.tr1622.i = phi ptr [ %36, %.lr.ph.preheader.i ], [ %40, %.lr.ph.i52.backedge ]
+  switch i8 %38, label %uriParseIpFutLoopA.exit [
+    i8 33, label %39
+    i8 36, label %39
+    i8 38, label %39
+    i8 40, label %39
+    i8 41, label %39
+    i8 45, label %39
+    i8 42, label %39
+    i8 44, label %39
+    i8 46, label %39
+    i8 58, label %39
+    i8 59, label %39
+    i8 39, label %39
+    i8 95, label %39
+    i8 126, label %39
+    i8 43, label %39
+    i8 61, label %39
+    i8 48, label %39
+    i8 49, label %39
+    i8 50, label %39
+    i8 51, label %39
+    i8 52, label %39
+    i8 53, label %39
+    i8 54, label %39
+    i8 55, label %39
+    i8 56, label %39
+    i8 57, label %39
+    i8 65, label %39
+    i8 66, label %39
+    i8 67, label %39
+    i8 68, label %39
+    i8 69, label %39
+    i8 70, label %39
+    i8 97, label %39
+    i8 98, label %39
+    i8 99, label %39
+    i8 100, label %39
+    i8 101, label %39
+    i8 102, label %39
+    i8 103, label %39
+    i8 71, label %39
+    i8 104, label %39
+    i8 72, label %39
+    i8 105, label %39
+    i8 73, label %39
+    i8 106, label %39
+    i8 74, label %39
+    i8 107, label %39
+    i8 75, label %39
+    i8 108, label %39
+    i8 76, label %39
+    i8 109, label %39
+    i8 77, label %39
+    i8 110, label %39
+    i8 78, label %39
+    i8 111, label %39
+    i8 79, label %39
+    i8 112, label %39
+    i8 80, label %39
+    i8 113, label %39
+    i8 81, label %39
+    i8 114, label %39
+    i8 82, label %39
+    i8 115, label %39
+    i8 83, label %39
+    i8 116, label %39
+    i8 84, label %39
+    i8 117, label %39
+    i8 85, label %39
+    i8 118, label %39
+    i8 86, label %39
+    i8 119, label %39
+    i8 87, label %39
+    i8 120, label %39
+    i8 88, label %39
+    i8 121, label %39
+    i8 89, label %39
+    i8 122, label %39
+    i8 90, label %39
   ]
 
-38:                                               ; preds = %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52
-  %39 = getelementptr inbounds nuw i8, ptr %.tr1622.i, i64 1
-  %.not.i.i = icmp ult ptr %39, %2
-  br i1 %.not.i.i, label %40, label %45
+39:                                               ; preds = %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52, %.lr.ph.i52
+  %40 = getelementptr inbounds nuw i8, ptr %.tr1622.i, i64 1
+  %exitcond.not.i53 = icmp ult ptr %39, %2
+  br i1 %exitcond.not.i53, label %40, label %45
 
-40:                                               ; preds = %38
-  %41 = load i8, ptr %39, align 1, !tbaa !11
-  switch i8 %41, label %45 [
+41:                                               ; preds = %39
+  %42 = load i8, ptr %40, align 1, !tbaa !11
+  switch i8 %42, label %45 [
     i8 33, label %.lr.ph.i52.backedge
     i8 36, label %.lr.ph.i52.backedge
     i8 38, label %.lr.ph.i52.backedge
@@ -5457,36 +5457,36 @@ uriParseHexZeroA.exit.thread:                     ; preds = %tailrecurse.i, %19,
     i8 90, label %.lr.ph.i52.backedge
   ]
 
-.lr.ph.i52.backedge:                              ; preds = %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40
+.lr.ph.i52.backedge:                              ; preds = %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41
   br label %.lr.ph.i52
 
 uriParseIpFutLoopA.exit:                          ; preds = %.lr.ph.i52, %33
   %.tr1622.lcssa.sink.i = phi ptr [ %2, %33 ], [ %.tr1622.i, %.lr.ph.i52 ]
-  %42 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %28, ptr noundef %3)
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.tr1622.lcssa.sink.i, ptr %43, align 8, !tbaa !28
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %44, align 8, !tbaa !29
-  br label %53
+  %43 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %28, ptr noundef %3)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.tr1622.lcssa.sink.i, ptr %44, align 8, !tbaa !28
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 1, ptr %45, align 8, !tbaa !29
+  br label %54
 
-45:                                               ; preds = %40, %38
-  %.0.i51.ph = phi ptr [ %2, %38 ], [ %39, %40 ]
-  %46 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store ptr %.0.i51.ph, ptr %46, align 8, !tbaa !40
-  %47 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  store ptr %.0.i51.ph, ptr %47, align 8, !tbaa !36
-  br label %53
+46:                                               ; preds = %41, %39
+  %.0.i51.ph = phi ptr [ %2, %38 ], [ %40, %40 ]
+  %47 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store ptr %.0.i51.ph, ptr %47, align 8, !tbaa !40
+  %48 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  store ptr %.0.i51.ph, ptr %48, align 8, !tbaa !36
+  br label %54
 
-48:                                               ; preds = %17
-  %49 = load ptr, ptr %0, align 8, !tbaa !3
-  %50 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %49, ptr noundef %3)
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %51, align 8, !tbaa !28
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %52, align 8, !tbaa !29
-  br label %53
+49:                                               ; preds = %17
+  %50 = load ptr, ptr %0, align 8, !tbaa !3
+  %51 = tail call i32 @uriFreeUriMembersMmA(ptr noundef %50, ptr noundef %3)
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %11, ptr %52, align 8, !tbaa !28
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 1, ptr %53, align 8, !tbaa !29
+  br label %54
 
-53:                                               ; preds = %uriParseIpFutLoopA.exit, %uriParseHexZeroA.exit.thread, %29, %45, %48, %12, %5
+54:                                               ; preds = %uriParseIpFutLoopA.exit, %uriParseHexZeroA.exit.thread, %29, %46, %49, %12, %5
   %.0 = phi ptr [ null, %5 ], [ null, %12 ], [ null, %48 ], [ null, %uriParseHexZeroA.exit.thread ], [ null, %29 ], [ %.0.i51.ph, %45 ], [ null, %uriParseIpFutLoopA.exit ]
   ret ptr %.0
 }

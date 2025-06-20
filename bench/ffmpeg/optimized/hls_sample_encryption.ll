@@ -518,8 +518,8 @@ decrypt_nal_unit.exit.i:                          ; preds = %81
 .lr.ph.split.split.i.preheader:                   ; preds = %.lr.ph.i14, %.lr.ph.i14
   br label %.lr.ph.split.split.i
 
-.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i14, %191
-  %.sroa.06.020.us.i = phi ptr [ %193, %191 ], [ %.val, %.lr.ph.i14 ]
+.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i14, %190
+  %.sroa.06.020.us.i = phi ptr [ %192, %191 ], [ %.val, %.lr.ph.i14 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   store ptr null, ptr %5, align 8, !tbaa !51
   %157 = icmp ult ptr %.sroa.06.020.us.i, %153
@@ -535,133 +535,133 @@ decrypt_nal_unit.exit.i:                          ; preds = %81
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.us.i, i64 1
   %162 = load i8, ptr %161, align 1, !tbaa !4
   %163 = icmp ugt i8 %162, -17
-  br i1 %163, label %167, label %164
+  br i1 %163, label %166, label %164
 
 164:                                              ; preds = %160, %.lr.ph.i.i.us.i
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.us.i, i64 1
-  %166 = icmp ult ptr %165, %153
-  br i1 %166, label %.lr.ph.i.i.us.i, label %get_next_adts_frame.exit.i.us.thread.i, !llvm.loop !53
+  %exitcond.not.i.i.us.i = icmp ult ptr %165, %153
+  br i1 %exitcond.not.i.i.us.i, label %.lr.ph.i.i.us.i, label %get_next_adts_frame.exit.i.us.thread.i, !llvm.loop !53
 
-167:                                              ; preds = %160
-  %168 = ptrtoint ptr %.sroa.06.1.us.i to i64
-  %169 = sub i64 %154, %168
-  %170 = call i32 @avpriv_adts_header_parse(ptr noundef nonnull %5, ptr noundef nonnull %.sroa.06.1.us.i, i64 noundef %169) #6
-  %171 = icmp slt i32 %170, 0
-  br i1 %171, label %get_next_adts_frame.exit.i.us.thread.i, label %172
+166:                                              ; preds = %160
+  %167 = ptrtoint ptr %.sroa.06.1.us.i to i64
+  %168 = sub i64 %154, %167
+  %169 = call i32 @avpriv_adts_header_parse(ptr noundef nonnull %5, ptr noundef nonnull %.sroa.06.1.us.i, i64 noundef %168) #6
+  %170 = icmp slt i32 %169, 0
+  br i1 %170, label %get_next_adts_frame.exit.i.us.thread.i, label %171
 
-get_next_adts_frame.exit.i.us.thread.i:           ; preds = %167, %.lr.ph.split.split.us.i, %164
-  %.0.i.i.us.ph.i = phi i32 [ -1, %164 ], [ -1, %.lr.ph.split.split.us.i ], [ %170, %167 ]
+get_next_adts_frame.exit.i.us.thread.i:           ; preds = %166, %.lr.ph.split.split.us.i, %164
+  %.0.i.i.us.ph.i = phi i32 [ -1, %164 ], [ -1, %.lr.ph.split.split.us.i ], [ %169, %167 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   br label %decrypt_video_frame.exit
 
-172:                                              ; preds = %167
-  %173 = load ptr, ptr %5, align 8, !tbaa !51
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 12
-  %175 = load i8, ptr %174, align 4, !tbaa !54
-  %.not19.i.i.us.i = icmp eq i8 %175, 0
-  %176 = select i1 %.not19.i.i.us.i, i32 9, i32 7
-  %177 = getelementptr inbounds nuw i8, ptr %173, i64 20
-  %178 = load i32, ptr %177, align 4, !tbaa !56
-  call void @av_free(ptr noundef %173) #6
+171:                                              ; preds = %166
+  %172 = load ptr, ptr %5, align 8, !tbaa !51
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 12
+  %174 = load i8, ptr %173, align 4, !tbaa !54
+  %.not19.i.i.us.i = icmp eq i8 %174, 0
+  %175 = select i1 %.not19.i.i.us.i, i32 9, i32 7
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 20
+  %177 = load i32, ptr %176, align 4, !tbaa !56
+  call void @av_free(ptr noundef %172) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  %179 = sub nsw i32 %178, %176
-  %180 = icmp sgt i32 %179, 31
-  br i1 %180, label %181, label %191
+  %178 = sub nsw i32 %177, %175
+  %179 = icmp sgt i32 %178, 31
+  br i1 %179, label %180, label %190
 
-181:                                              ; preds = %172
-  %182 = load ptr, ptr %1, align 8, !tbaa !45
-  %183 = call i32 @av_aes_init(ptr noundef %182, ptr noundef nonnull %155, i32 noundef 128, i32 noundef 1) #6
-  %184 = icmp slt i32 %183, 0
-  br i1 %184, label %decrypt_video_frame.exit, label %decrypt_sync_frame.exit.us.i
+180:                                              ; preds = %171
+  %181 = load ptr, ptr %1, align 8, !tbaa !45
+  %182 = call i32 @av_aes_init(ptr noundef %181, ptr noundef nonnull %155, i32 noundef 128, i32 noundef 1) #6
+  %183 = icmp slt i32 %182, 0
+  br i1 %183, label %decrypt_video_frame.exit, label %decrypt_sync_frame.exit.us.i
 
-decrypt_sync_frame.exit.us.i:                     ; preds = %181
-  %185 = zext nneg i32 %176 to i64
-  %186 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.us.i, i64 %185
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %188 = add nsw i32 %179, -16
-  %189 = lshr i32 %188, 4
-  %190 = load ptr, ptr %1, align 8, !tbaa !45
-  call void @av_aes_crypt(ptr noundef %190, ptr noundef nonnull %187, ptr noundef nonnull %187, i32 noundef %189, ptr noundef nonnull %156, i32 noundef 1) #6
-  br label %191
+decrypt_sync_frame.exit.us.i:                     ; preds = %180
+  %184 = zext nneg i32 %175 to i64
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.us.i, i64 %184
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  %187 = add nsw i32 %178, -16
+  %188 = lshr i32 %187, 4
+  %189 = load ptr, ptr %1, align 8, !tbaa !45
+  call void @av_aes_crypt(ptr noundef %189, ptr noundef nonnull %186, ptr noundef nonnull %186, i32 noundef %188, ptr noundef nonnull %156, i32 noundef 1) #6
+  br label %190
 
-191:                                              ; preds = %decrypt_sync_frame.exit.us.i, %172
-  %192 = sext i32 %178 to i64
-  %193 = getelementptr inbounds i8, ptr %.sroa.06.1.us.i, i64 %192
-  %194 = icmp ult ptr %193, %151
-  br i1 %194, label %.lr.ph.split.split.us.i, label %decrypt_video_frame.exit, !llvm.loop !57
+190:                                              ; preds = %decrypt_sync_frame.exit.us.i, %171
+  %191 = sext i32 %177 to i64
+  %192 = getelementptr inbounds i8, ptr %.sroa.06.1.us.i, i64 %191
+  %193 = icmp ult ptr %192, %151
+  br i1 %193, label %.lr.ph.split.split.us.i, label %decrypt_video_frame.exit, !llvm.loop !57
 
-.lr.ph.split.split.i:                             ; preds = %.lr.ph.split.split.i.preheader, %224
-  %.sroa.06.020.i = phi ptr [ %226, %224 ], [ %.val, %.lr.ph.split.split.i.preheader ]
+.lr.ph.split.split.i:                             ; preds = %.lr.ph.split.split.i.preheader, %222
+  %.sroa.06.020.i = phi ptr [ %224, %224 ], [ %.val, %.lr.ph.split.split.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   store ptr null, ptr %4, align 8, !tbaa !31
-  %195 = icmp ult ptr %.sroa.06.020.i, %153
-  br i1 %195, label %.lr.ph.i11.i.i, label %get_next_ac3_eac3_sync_frame.exit.i.thread.i
+  %194 = icmp ult ptr %.sroa.06.020.i, %153
+  br i1 %194, label %.lr.ph.i13.i.i, label %get_next_ac3_eac3_sync_frame.exit.i.thread.i
 
-.lr.ph.i11.i.i:                                   ; preds = %.lr.ph.split.split.i, %202
-  %.sroa.06.3.i = phi ptr [ %203, %202 ], [ %.sroa.06.020.i, %.lr.ph.split.split.i ]
-  %196 = load i8, ptr %.sroa.06.3.i, align 1, !tbaa !4
-  %197 = icmp eq i8 %196, 11
-  br i1 %197, label %198, label %202
+.lr.ph.i13.i.i:                                   ; preds = %.lr.ph.split.split.i, %201
+  %.sroa.06.3.i = phi ptr [ %202, %202 ], [ %.sroa.06.020.i, %.lr.ph.split.split.i ]
+  %195 = load i8, ptr %.sroa.06.3.i, align 1, !tbaa !4
+  %196 = icmp eq i8 %195, 11
+  br i1 %196, label %197, label %201
 
-198:                                              ; preds = %.lr.ph.i11.i.i
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.06.3.i, i64 1
-  %200 = load i8, ptr %199, align 1, !tbaa !4
-  %201 = icmp eq i8 %200, 119
-  br i1 %201, label %205, label %202
+197:                                              ; preds = %.lr.ph.i13.i.i
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.06.3.i, i64 1
+  %199 = load i8, ptr %198, align 1, !tbaa !4
+  %200 = icmp eq i8 %199, 119
+  br i1 %200, label %203, label %201
 
-202:                                              ; preds = %198, %.lr.ph.i11.i.i
-  %203 = getelementptr inbounds nuw i8, ptr %.sroa.06.3.i, i64 1
-  %204 = icmp ult ptr %203, %153
-  br i1 %204, label %.lr.ph.i11.i.i, label %get_next_ac3_eac3_sync_frame.exit.i.thread.i, !llvm.loop !58
+201:                                              ; preds = %197, %.lr.ph.i13.i.i
+  %202 = getelementptr inbounds nuw i8, ptr %.sroa.06.3.i, i64 1
+  %exitcond.not.i14.i.i = icmp ult ptr %202, %153
+  br i1 %exitcond.not.i14.i.i, label %.lr.ph.i11.i.i, label %get_next_ac3_eac3_sync_frame.exit.i.thread.i, !llvm.loop !58
 
-205:                                              ; preds = %198
-  %206 = ptrtoint ptr %.sroa.06.3.i to i64
-  %207 = sub i64 %154, %206
-  %208 = call i32 @avpriv_ac3_parse_header(ptr noundef nonnull %4, ptr noundef nonnull %.sroa.06.3.i, i64 noundef %207) #6
-  %209 = icmp slt i32 %208, 0
-  %210 = load ptr, ptr %4, align 8, !tbaa !31
-  br i1 %209, label %get_next_ac3_eac3_sync_frame.exit.i.thread42.i, label %211
+203:                                              ; preds = %197
+  %204 = ptrtoint ptr %.sroa.06.3.i to i64
+  %205 = sub i64 %154, %204
+  %206 = call i32 @avpriv_ac3_parse_header(ptr noundef nonnull %4, ptr noundef nonnull %.sroa.06.3.i, i64 noundef %205) #6
+  %207 = icmp slt i32 %206, 0
+  %208 = load ptr, ptr %4, align 8, !tbaa !31
+  br i1 %207, label %get_next_ac3_eac3_sync_frame.exit.i.thread42.i, label %209
 
-get_next_ac3_eac3_sync_frame.exit.i.thread42.i:   ; preds = %205
-  call void @av_free(ptr noundef %210) #6
+get_next_ac3_eac3_sync_frame.exit.i.thread42.i:   ; preds = %203
+  call void @av_free(ptr noundef %208) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   br label %decrypt_video_frame.exit
 
-get_next_ac3_eac3_sync_frame.exit.i.thread.i:     ; preds = %.lr.ph.split.split.i, %202
+get_next_ac3_eac3_sync_frame.exit.i.thread.i:     ; preds = %.lr.ph.split.split.i, %201
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   br label %decrypt_video_frame.exit
 
-211:                                              ; preds = %205
-  %212 = getelementptr inbounds nuw i8, ptr %210, i64 46
-  %213 = load i16, ptr %212, align 2, !tbaa !59
-  %214 = zext i16 %213 to i32
-  call void @av_free(ptr noundef %210) #6
+209:                                              ; preds = %203
+  %210 = getelementptr inbounds nuw i8, ptr %208, i64 46
+  %211 = load i16, ptr %210, align 2, !tbaa !59
+  %212 = zext i16 %211 to i32
+  call void @av_free(ptr noundef %208) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  %215 = icmp ugt i16 %213, 31
-  br i1 %215, label %216, label %224
+  %213 = icmp ugt i16 %211, 31
+  br i1 %213, label %214, label %222
 
-216:                                              ; preds = %211
-  %217 = load ptr, ptr %1, align 8, !tbaa !45
-  %218 = call i32 @av_aes_init(ptr noundef %217, ptr noundef nonnull %155, i32 noundef 128, i32 noundef 1) #6
-  %219 = icmp slt i32 %218, 0
-  br i1 %219, label %decrypt_video_frame.exit, label %decrypt_sync_frame.exit.i
+214:                                              ; preds = %209
+  %215 = load ptr, ptr %1, align 8, !tbaa !45
+  %216 = call i32 @av_aes_init(ptr noundef %215, ptr noundef nonnull %155, i32 noundef 128, i32 noundef 1) #6
+  %217 = icmp slt i32 %216, 0
+  br i1 %217, label %decrypt_video_frame.exit, label %decrypt_sync_frame.exit.i
 
-decrypt_sync_frame.exit.i:                        ; preds = %216
-  %220 = getelementptr inbounds nuw i8, ptr %.sroa.06.3.i, i64 16
-  %221 = add nsw i32 %214, -16
-  %222 = lshr i32 %221, 4
-  %223 = load ptr, ptr %1, align 8, !tbaa !45
-  call void @av_aes_crypt(ptr noundef %223, ptr noundef nonnull %220, ptr noundef nonnull %220, i32 noundef %222, ptr noundef nonnull %156, i32 noundef 1) #6
-  br label %224
+decrypt_sync_frame.exit.i:                        ; preds = %214
+  %218 = getelementptr inbounds nuw i8, ptr %.sroa.06.3.i, i64 16
+  %219 = add nsw i32 %212, -16
+  %220 = lshr i32 %219, 4
+  %221 = load ptr, ptr %1, align 8, !tbaa !45
+  call void @av_aes_crypt(ptr noundef %221, ptr noundef nonnull %218, ptr noundef nonnull %218, i32 noundef %220, ptr noundef nonnull %156, i32 noundef 1) #6
+  br label %222
 
-224:                                              ; preds = %decrypt_sync_frame.exit.i, %211
-  %225 = zext i16 %213 to i64
-  %226 = getelementptr inbounds nuw i8, ptr %.sroa.06.3.i, i64 %225
-  %227 = icmp ult ptr %226, %151
-  br i1 %227, label %.lr.ph.split.split.i, label %decrypt_video_frame.exit, !llvm.loop !57
+222:                                              ; preds = %decrypt_sync_frame.exit.i, %209
+  %223 = zext i16 %211 to i64
+  %224 = getelementptr inbounds nuw i8, ptr %.sroa.06.3.i, i64 %223
+  %225 = icmp ult ptr %224, %151
+  br i1 %225, label %.lr.ph.split.split.i, label %decrypt_video_frame.exit, !llvm.loop !57
 
-decrypt_video_frame.exit:                         ; preds = %224, %216, %191, %181, %.thread.i.i, %30, %get_next_ac3_eac3_sync_frame.exit.i.thread.i, %get_next_ac3_eac3_sync_frame.exit.i.thread42.i, %get_next_adts_frame.exit.i.us.thread.i, %.lr.ph.i14, %147, %._crit_edge.i, %decrypt_nal_unit.exit.i, %3
-  %.0 = phi i32 [ -1094995529, %3 ], [ %83, %decrypt_nal_unit.exit.i ], [ 0, %._crit_edge.i ], [ 0, %147 ], [ -1094995529, %.lr.ph.i14 ], [ %.0.i.i.us.ph.i, %get_next_adts_frame.exit.i.us.thread.i ], [ -1, %get_next_ac3_eac3_sync_frame.exit.i.thread.i ], [ %208, %get_next_ac3_eac3_sync_frame.exit.i.thread42.i ], [ -1, %30 ], [ -1, %.thread.i.i ], [ 0, %191 ], [ %183, %181 ], [ 0, %224 ], [ %218, %216 ]
+decrypt_video_frame.exit:                         ; preds = %222, %214, %190, %180, %.thread.i.i, %30, %get_next_ac3_eac3_sync_frame.exit.i.thread.i, %get_next_ac3_eac3_sync_frame.exit.i.thread42.i, %get_next_adts_frame.exit.i.us.thread.i, %.lr.ph.i14, %147, %._crit_edge.i, %decrypt_nal_unit.exit.i, %3
+  %.0 = phi i32 [ -1094995529, %3 ], [ %83, %decrypt_nal_unit.exit.i ], [ 0, %._crit_edge.i ], [ 0, %147 ], [ -1094995529, %.lr.ph.i14 ], [ %.0.i.i.us.ph.i, %get_next_adts_frame.exit.i.us.thread.i ], [ -1, %get_next_ac3_eac3_sync_frame.exit.i.thread.i ], [ %206, %get_next_ac3_eac3_sync_frame.exit.i.thread42.i ], [ -1, %30 ], [ -1, %.thread.i.i ], [ 0, %191 ], [ %182, %181 ], [ 0, %224 ], [ %216, %216 ]
   ret i32 %.0
 }
 

@@ -259,55 +259,55 @@ xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.loo
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %69 = and i64 %.037200.i, 7
   %.not145.i = icmp eq i64 %69, 0
-  br label %70
+  br label %72
 
-70:                                               ; preds = %xorbufout.exit78.i, %.lr.ph.i
+72:                                               ; preds = %xorbufout.exit78.i, %.lr.ph.i
   %.1172.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %104, %xorbufout.exit78.i ]
   %.136171.i = phi i32 [ %.035.i, %.lr.ph.i ], [ %102, %xorbufout.exit78.i ]
   %.138168.i = phi ptr [ %.037.i, %.lr.ph.i ], [ %103, %xorbufout.exit78.i ]
   call fastcc void @wc_Chacha_wordtobyte(ptr noundef %5, ptr noundef nonnull %0)
-  %71 = load i32, ptr %68, align 4, !tbaa !8
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %68, align 4, !tbaa !8
-  %73 = ptrtoint ptr %.138168.i to i64
-  %74 = ptrtoint ptr %.1172.i to i64
-  %75 = or i64 %73, %74
-  %76 = and i64 %75, 7
-  %or.cond.i44.i = icmp eq i64 %76, 0
+  %73 = load i32, ptr %68, align 4, !tbaa !8
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %68, align 4, !tbaa !8
+  %75 = ptrtoint ptr %.138168.i to i64
+  %76 = ptrtoint ptr %.1172.i to i64
+  %77 = or i64 %75, %76
+  %78 = and i64 %77, 7
+  %or.cond.i44.i = icmp eq i64 %78, 0
   br i1 %or.cond.i44.i, label %.preheader.i56.i, label %.lr.ph52.preheader.i50.i
 
-.preheader.i56.i:                                 ; preds = %70
+.preheader.i56.i:                                 ; preds = %72
   br i1 %.not145.i, label %.lr.ph.i.i63.preheader.i, label %.lr.ph.i73.i
 
 .lr.ph.i73.i:                                     ; preds = %.preheader.i56.i, %.lr.ph.i73.i
-  %.146.i74.i = phi ptr [ %79, %.lr.ph.i73.i ], [ %5, %.preheader.i56.i ]
-  %.12745.i75.i = phi ptr [ %77, %.lr.ph.i73.i ], [ %.1172.i, %.preheader.i56.i ]
-  %.12944.i76.i = phi ptr [ %82, %.lr.ph.i73.i ], [ %.138168.i, %.preheader.i56.i ]
-  %.13243.i77.i = phi i32 [ %83, %.lr.ph.i73.i ], [ 64, %.preheader.i56.i ]
-  %77 = getelementptr inbounds nuw i8, ptr %.12745.i75.i, i64 1
-  %78 = load i8, ptr %.12745.i75.i, align 1, !tbaa !9
-  %79 = getelementptr inbounds nuw i8, ptr %.146.i74.i, i64 1
-  %80 = load i8, ptr %.146.i74.i, align 1, !tbaa !9
-  %81 = xor i8 %80, %78
-  %82 = getelementptr inbounds nuw i8, ptr %.12944.i76.i, i64 1
-  store i8 %81, ptr %.12944.i76.i, align 1, !tbaa !9
-  %83 = add nsw i32 %.13243.i77.i, -1
+  %.146.i74.i = phi ptr [ %81, %.lr.ph.i73.i ], [ %5, %.preheader.i56.i ]
+  %.12745.i75.i = phi ptr [ %79, %.lr.ph.i73.i ], [ %.1172.i, %.preheader.i56.i ]
+  %.12944.i76.i = phi ptr [ %84, %.lr.ph.i73.i ], [ %.138168.i, %.preheader.i56.i ]
+  %.13243.i77.i = phi i32 [ %85, %.lr.ph.i73.i ], [ 64, %.preheader.i56.i ]
+  %79 = getelementptr inbounds nuw i8, ptr %.12745.i75.i, i64 1
+  %80 = load i8, ptr %.12745.i75.i, align 1, !tbaa !9
+  %81 = getelementptr inbounds nuw i8, ptr %.146.i74.i, i64 1
+  %82 = load i8, ptr %.146.i74.i, align 1, !tbaa !9
+  %83 = xor i8 %82, %80
+  %84 = getelementptr inbounds nuw i8, ptr %.12944.i76.i, i64 1
+  store i8 %83, ptr %.12944.i76.i, align 1, !tbaa !9
+  %85 = add nsw i32 %.13243.i77.i, -1
   %84 = ptrtoint ptr %77 to i64
   %85 = and i64 %84, 7
   %.not201.i = icmp eq i64 %85, 0
   br i1 %.not201.i, label %._crit_edge.i57.i, label %.lr.ph.i73.i, !llvm.loop !10
 
 ._crit_edge.i57.i:                                ; preds = %.lr.ph.i73.i
-  %86 = lshr i32 %83, 3
-  %.not.i.i62.i = icmp ult i32 %83, 8
+  %86 = lshr i32 %85, 3
+  %.not.i.i62.i = icmp ult i32 %85, 8
   br i1 %.not.i.i62.i, label %.loopexit146.i, label %.lr.ph.i.i63.preheader.i
 
 .lr.ph.i.i63.preheader.i:                         ; preds = %._crit_edge.i57.i, %.preheader.i56.i
   %87 = phi i32 [ %86, %._crit_edge.i57.i ], [ 8, %.preheader.i56.i ]
-  %.1.lcssa.i61214.i = phi ptr [ %79, %._crit_edge.i57.i ], [ %5, %.preheader.i56.i ]
-  %.127.lcssa.i60213.i = phi ptr [ %77, %._crit_edge.i57.i ], [ %.1172.i, %.preheader.i56.i ]
-  %.129.lcssa.i59212.i = phi ptr [ %82, %._crit_edge.i57.i ], [ %.138168.i, %.preheader.i56.i ]
-  %.132.lcssa.i58210.i = phi i32 [ %83, %._crit_edge.i57.i ], [ 64, %.preheader.i56.i ]
+  %.1.lcssa.i61214.i = phi ptr [ %81, %._crit_edge.i57.i ], [ %5, %.preheader.i56.i ]
+  %.127.lcssa.i60213.i = phi ptr [ %79, %._crit_edge.i57.i ], [ %.1172.i, %.preheader.i56.i ]
+  %.129.lcssa.i59212.i = phi ptr [ %84, %._crit_edge.i57.i ], [ %.138168.i, %.preheader.i56.i ]
+  %.132.lcssa.i58210.i = phi i32 [ %85, %._crit_edge.i57.i ], [ 64, %.preheader.i56.i ]
   br label %.lr.ph.i.i63.i
 
 .lr.ph.i.i63.i:                                   ; preds = %.lr.ph.i.i63.i, %.lr.ph.i.i63.preheader.i
@@ -327,15 +327,15 @@ xorbufout.exit.i:                                 ; preds = %.lr.ph52.i.i, %.loo
   br i1 %exitcond.not.i.i68.i, label %.loopexit146.i, label %.lr.ph.i.i63.i, !llvm.loop !14
 
 .loopexit146.i:                                   ; preds = %.lr.ph.i.i63.i, %._crit_edge.i57.i
-  %.132.lcssa.i58211.i = phi i32 [ %83, %._crit_edge.i57.i ], [ %.132.lcssa.i58210.i, %.lr.ph.i.i63.i ]
-  %.sroa.039.1.i70.i = phi ptr [ %82, %._crit_edge.i57.i ], [ %93, %.lr.ph.i.i63.i ]
-  %.sroa.037.1.i71.i = phi ptr [ %77, %._crit_edge.i57.i ], [ %88, %.lr.ph.i.i63.i ]
-  %.sroa.0.1.i72.i = phi ptr [ %79, %._crit_edge.i57.i ], [ %90, %.lr.ph.i.i63.i ]
+  %.132.lcssa.i58211.i = phi i32 [ %85, %._crit_edge.i57.i ], [ %.132.lcssa.i58210.i, %.lr.ph.i.i63.i ]
+  %.sroa.039.1.i70.i = phi ptr [ %84, %._crit_edge.i57.i ], [ %93, %.lr.ph.i.i63.i ]
+  %.sroa.037.1.i71.i = phi ptr [ %79, %._crit_edge.i57.i ], [ %88, %.lr.ph.i.i63.i ]
+  %.sroa.0.1.i72.i = phi ptr [ %81, %._crit_edge.i57.i ], [ %90, %.lr.ph.i.i63.i ]
   %95 = and i32 %.132.lcssa.i58211.i, 7
   %.not.i49.i = icmp eq i32 %95, 0
   br i1 %.not.i49.i, label %xorbufout.exit78.i, label %.lr.ph52.preheader.i50.i
 
-.lr.ph52.preheader.i50.i:                         ; preds = %.loopexit146.i, %70
+.lr.ph52.preheader.i50.i:                         ; preds = %.loopexit146.i, %72
   %.0.i48132.i = phi ptr [ %.sroa.0.1.i72.i, %.loopexit146.i ], [ %5, %70 ]
   %.026.i47131.i = phi ptr [ %.sroa.037.1.i71.i, %.loopexit146.i ], [ %.1172.i, %70 ]
   %.028.i46130.i = phi ptr [ %.sroa.039.1.i70.i, %.loopexit146.i ], [ %.138168.i, %70 ]
@@ -361,7 +361,7 @@ xorbufout.exit78.i:                               ; preds = %.lr.ph52.i52.i, %.l
   %103 = getelementptr inbounds nuw i8, ptr %.138168.i, i64 64
   %104 = getelementptr inbounds nuw i8, ptr %.1172.i, i64 64
   %105 = icmp ugt i32 %102, 63
-  br i1 %105, label %70, label %._crit_edge.i, !llvm.loop !16
+  br i1 %105, label %72, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %xorbufout.exit78.i, %66
   %.138.lcssa.i = phi ptr [ %.037.i, %66 ], [ %103, %xorbufout.exit78.i ]

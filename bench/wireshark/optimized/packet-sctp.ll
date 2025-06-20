@@ -8634,75 +8634,75 @@ define internal fastcc void @sctp_ack_block(ptr noundef readonly captures(none) 
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.loopexit, label %.preheader.split
 
-.preheader.splitthread-pre-split:                 ; preds = %sctp_ack.exit
+.preheader.split.preheader:                       ; preds = %sctp_ack.exit
   %63 = add nuw nsw i32 %.088, 1
   %.pr = load ptr, ptr %8, align 8
   br label %.preheader.split
 
-.preheader.split:                                 ; preds = %.preheader, %.preheader.splitthread-pre-split
-  %64 = phi ptr [ %.pr, %.preheader.splitthread-pre-split ], [ %61, %.preheader ]
+.preheader.split:                                 ; preds = %.preheader, %.preheader.split.preheader
+  %.088 = phi ptr [ %.pr, %.preheader.splitthread-pre-split ], [ %61, %.preheader ]
   %.088 = phi i32 [ %63, %.preheader.splitthread-pre-split ], [ 0, %.preheader ]
   %.not.i = icmp eq ptr %64, null
-  br i1 %.not.i, label %sctp_ack.exit, label %65
+  br i1 %.not.i, label %sctp_ack.exit, label %67
 
-65:                                               ; preds = %.preheader.split
-  %66 = add i32 %.088, %.059
-  %67 = load i32, ptr %15, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call ptr @wmem_tree_lookup32(ptr noundef %69, i32 noundef %66)
-  %.not30.i = icmp eq ptr %70, null
-  br i1 %.not30.i, label %sctp_ack.exit, label %71
+67:                                               ; preds = %.preheader.split
+  %68 = add i32 %.088, %.059
+  %69 = load i32, ptr %15, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call ptr @wmem_tree_lookup32(ptr noundef %71, i32 noundef %68)
+  %.not30.i = icmp eq ptr %72, null
+  br i1 %.not30.i, label %sctp_ack.exit, label %73
 
-71:                                               ; preds = %65
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %73 = load i32, ptr %72, align 8
-  %.not31.i = icmp eq i32 %73, 0
-  br i1 %.not31.i, label %74, label %88
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %75 = load i32, ptr %74, align 8
+  %.not31.i = icmp eq i32 %75, 0
+  br i1 %.not31.i, label %76, label %90
 
-74:                                               ; preds = %71
-  store i32 %67, ptr %72, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull readonly align 8 dereferenceable(16) %60, i64 16, i1 false)
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call ptr @wmem_tree_lookup32(ptr noundef %78, i32 noundef %67)
-  %.not32.i = icmp eq ptr %79, null
-  br i1 %.not32.i, label %84, label %.preheader.i
+76:                                               ; preds = %73
+  store i32 %69, ptr %74, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull readonly align 8 dereferenceable(16) %60, i64 16, i1 false)
+  %78 = load ptr, ptr %8, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %80 = load ptr, ptr %79, align 8
+  %81 = tail call ptr @wmem_tree_lookup32(ptr noundef %80, i32 noundef %69)
+  %.not32.i = icmp eq ptr %81, null
+  br i1 %.not32.i, label %86, label %.preheader.i
 
-.preheader.i:                                     ; preds = %74, %.preheader.i
-  %.0.i = phi ptr [ %81, %.preheader.i ], [ %79, %74 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
-  %81 = load ptr, ptr %80, align 8
-  %.not33.i = icmp eq ptr %81, null
-  br i1 %.not33.i, label %82, label %.preheader.i, !llvm.loop !58
+.preheader.i:                                     ; preds = %76, %.preheader.i
+  %.0.i = phi ptr [ %83, %.preheader.i ], [ %81, %74 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
+  %83 = load ptr, ptr %82, align 8
+  %.not33.i = icmp eq ptr %83, null
+  br i1 %.not33.i, label %84, label %.preheader.i, !llvm.loop !58
 
-82:                                               ; preds = %.preheader.i
-  %83 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
-  store ptr %70, ptr %83, align 8
-  br label %88
+84:                                               ; preds = %.preheader.i
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
+  store ptr %72, ptr %85, align 8
+  br label %90
 
-84:                                               ; preds = %74
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %87 = load ptr, ptr %86, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %87, i32 noundef %67, ptr noundef nonnull %70)
-  br label %88
+86:                                               ; preds = %76
+  %87 = load ptr, ptr %8, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
+  %89 = load ptr, ptr %88, align 8
+  tail call void @wmem_tree_insert32(ptr noundef %89, i32 noundef %69, ptr noundef nonnull %72)
+  br label %90
 
-88:                                               ; preds = %84, %82, %71
-  %89 = load i32, ptr %72, align 8
-  %90 = icmp eq i32 %89, %67
-  br i1 %90, label %91, label %sctp_ack.exit
+90:                                               ; preds = %86, %84, %73
+  %91 = load i32, ptr %74, align 8
+  %92 = icmp eq i32 %91, %69
+  br i1 %92, label %93, label %sctp_ack.exit
 
-91:                                               ; preds = %88
+93:                                               ; preds = %90
   %.val.i = load i32, ptr %15, align 4
-  tail call fastcc void @ack_tree(ptr noundef %70, ptr noundef %3, ptr noundef %2, i32 %.val.i)
+  tail call fastcc void @ack_tree(ptr noundef %72, ptr noundef %3, ptr noundef %2, i32 %.val.i)
   br label %sctp_ack.exit
 
-sctp_ack.exit:                                    ; preds = %.preheader.split, %65, %88, %91
+sctp_ack.exit:                                    ; preds = %.preheader.split, %67, %90, %93
   %.not78.not = icmp ult i32 %.088, %51
-  br i1 %.not78.not, label %.preheader.splitthread-pre-split, label %.loopexit, !llvm.loop !59
+  br i1 %.not78.not, label %.preheader.split.preheader, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %40, %sctp_ack.exit, %.preheader, %58, %43, %50, %6, %7, %10
   ret void

@@ -6807,8 +6807,8 @@ ir_merge_to_unhandled.exit.i:                     ; preds = %.critedge.i290.i, %
 
 275:                                              ; preds = %271, %268
   %.1396.i = phi ptr [ %.0395530.i, %268 ], [ %270, %271 ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next671.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %276, label %268
+  %.not238.not.i = icmp eq i64 %indvars.iv.next671.i, %wide.trip.count.i
+  br i1 %.not238.not.i, label %276, label %268
 
 276:                                              ; preds = %275
   %277 = load i32, ptr %15, align 4, !tbaa !40

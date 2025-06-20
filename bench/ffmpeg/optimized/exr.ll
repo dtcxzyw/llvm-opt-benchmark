@@ -6559,9 +6559,9 @@ get_vlc2.exit.i:                                  ; preds = %241, %220, %203
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %280
   %281 = load i16, ptr %gep.i, align 2, !tbaa !41
   %.not.i57 = icmp ult i32 %272, 16777216
-  br i1 %.not.i57, label %.loopexit.i, label %.lr.ph.i58
+  br i1 %.not.i57, label %.loopexit.i, label %.lr.ph.i58.preheader
 
-.lr.ph.i58:                                       ; preds = %279, %.lr.ph.i58
+.lr.ph.i58.preheader:                             ; preds = %279, %.lr.ph.i58
   %indvars.iv.i59 = phi i64 [ %indvars.iv.next.i60, %.lr.ph.i58 ], [ %280, %279 ]
   %.0259.i = phi i32 [ %282, %.lr.ph.i58 ], [ %273, %279 ]
   %282 = add nsw i32 %.0259.i, -1
@@ -6586,16 +6586,16 @@ get_vlc2.exit.i:                                  ; preds = %241, %220, %203
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %285, %279
   %.sroa.6.1.i = phi i32 [ %262, %285 ], [ %275, %279 ], [ %275, %.loopexit.loopexit.i ]
   %.329.i = phi i32 [ %287, %285 ], [ %.02611.i, %279 ], [ %290, %.loopexit.loopexit.i ]
-  %291 = icmp sgt i32 %.018.i.i, %.sroa.6.1.i
-  %292 = icmp slt i32 %.329.i, %4
-  %293 = select i1 %291, i1 %292, i1 false
-  br i1 %293, label %203, label %huf_decode.exit, !llvm.loop !217
+  %289 = icmp sgt i32 %.018.i.i, %.sroa.6.1.i
+  %290 = icmp slt i32 %.329.i, %4
+  %291 = select i1 %289, i1 %290, i1 false
+  br i1 %291, label %203, label %huf_decode.exit, !llvm.loop !217
 
 huf_decode.exit.sink.split:                       ; preds = %149, %.thread.i, %170
   %.str.111.sink = phi ptr [ @.str.112, %170 ], [ @.str.111, %.thread.i ], [ @.str.111, %149 ]
-  %294 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %295 = load ptr, ptr %294, align 8, !tbaa !39
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %295, ptr noundef nonnull %.str.111.sink) #14
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %293 = load ptr, ptr %292, align 8, !tbaa !39
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %293, ptr noundef nonnull %.str.111.sink) #14
   br label %huf_decode.exit
 
 huf_decode.exit:                                  ; preds = %101, %81, %63, %.loopexit.i, %265, %huf_decode.exit.sink.split, %47, %.thread, %.thread71, %194, %huf_build_dec_table.exit, %139, %bytestream2_get_le32.exit

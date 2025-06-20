@@ -31296,20 +31296,20 @@ pm_node_alloc.exit:                               ; preds = %2
   store ptr %13, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !14
   %14 = getelementptr i8, ptr %13, i64 -1
   %15 = icmp ult ptr %11, %14
-  br i1 %15, label %.lr.ph, label %.critedge
+  br i1 %15, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph:                                           ; preds = %pm_node_alloc.exit, %18
+.lr.ph.preheader:                                 ; preds = %pm_node_alloc.exit, %18
   %.05558 = phi ptr [ %19, %18 ], [ %11, %pm_node_alloc.exit ]
   %16 = load i8, ptr %.05558, align 1, !tbaa !65
   %17 = icmp eq i8 %16, 48
   br i1 %17, label %18, label %.critedge
 
-18:                                               ; preds = %.lr.ph
-  %19 = getelementptr i8, ptr %.05558, i64 1
-  %20 = icmp ult ptr %19, %14
-  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !451
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr i8, ptr %.05558, i64 1
+  %exitcond.not = icmp ult ptr %20, %14
+  br i1 %exitcond.not, label %.lr.ph, label %.critedge, !llvm.loop !451
 
-.critedge:                                        ; preds = %.lr.ph, %18, %pm_node_alloc.exit
+.critedge:                                        ; preds = %.lr.ph, %19, %pm_node_alloc.exit
   %.055.lcssa = phi ptr [ %11, %pm_node_alloc.exit ], [ %19, %18 ], [ %.05558, %.lr.ph ]
   br label %21
 

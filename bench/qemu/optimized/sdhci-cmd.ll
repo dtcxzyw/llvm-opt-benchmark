@@ -39,7 +39,7 @@ define dso_local i64 @sdhci_read_cmd(ptr noundef %0, i64 noundef %1, ptr noundef
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %read_fifo.exit, label %.lr.ph30.i
 
-.loopexit.i:                                      ; preds = %22, %.lr.ph30.i
+.loopexit.i:                                      ; preds = %24, %.lr.ph30.i
   %.1.lcssa.i = phi i64 [ %.01929.i, %.lr.ph30.i ], [ %20, %22 ]
   %12 = icmp ult i64 %.1.lcssa.i, %3
   br i1 %12, label %.lr.ph30.i, label %read_fifo.exit, !llvm.loop !4
@@ -56,23 +56,23 @@ define dso_local i64 @sdhci_read_cmd(ptr noundef %0, i64 noundef %1, ptr noundef
   %17 = tail call i32 @llvm.umin.i32(i32 %14, i32 4)
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
-  %.028.i = phi i32 [ %24, %22 ], [ %17, %.lr.ph.preheader.i ]
-  %.01827.i = phi i32 [ %23, %22 ], [ %15, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
+  %.01827.i = phi i32 [ %24, %22 ], [ %17, %.lr.ph.preheader.i ]
+  %.126.i = phi i32 [ %23, %22 ], [ %15, %.lr.ph.preheader.i ]
   %.126.i = phi i64 [ %20, %22 ], [ %.01929.i, %.lr.ph.preheader.i ]
-  %18 = trunc i32 %.01827.i to i8
+  %18 = trunc i32 %.126.i to i8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 %.126.i
   store i8 %18, ptr %19, align 1
   %20 = add i64 %.126.i, 1
   %sext.mask.i = and i32 %.01827.i, 255
-  %21 = icmp eq i32 %sext.mask.i, 0
-  br i1 %21, label %read_fifo.exit, label %22
+  %23 = icmp eq i32 %sext.mask.i, 0
+  br i1 %23, label %read_fifo.exit, label %24
 
-22:                                               ; preds = %.lr.ph.i
-  %23 = lshr i32 %.01827.i, 8
+24:                                               ; preds = %.lr.ph.i
+  %25 = lshr i32 %.01827.i, 8
   %24 = add nsw i32 %.028.i, -1
-  %25 = icmp sgt i32 %.028.i, 1
-  br i1 %25, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !6
+  %exitcond = icmp sgt i32 %.126.i, 1
+  br i1 %exitcond, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !6
 
 read_fifo.exit:                                   ; preds = %.loopexit.i, %.lr.ph.i, %4
   %.020.i = phi i64 [ 0, %4 ], [ %20, %.lr.ph.i ], [ %.1.lcssa.i, %.loopexit.i ]

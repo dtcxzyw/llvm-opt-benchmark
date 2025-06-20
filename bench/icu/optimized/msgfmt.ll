@@ -1522,8 +1522,8 @@ define noundef zeroext i1 @_ZNK6icu_7713MessageFormateqERKNS_6FormatE(ptr nounde
 
 50:                                               ; preds = %40
   %51 = add nuw nsw i32 %.02844, 1
-  %.not = icmp slt i32 %51, %24
-  br i1 %.not, label %31, label %.critedge, !llvm.loop !55
+  %exitcond = icmp slt i32 %51, %24
+  br i1 %exitcond, label %31, label %.critedge, !llvm.loop !55
 
 .critedge:                                        ; preds = %40, %50, %31, %27
   %or.cond.not.lcssa = phi i1 [ true, %27 ], [ false, %31 ], [ true, %50 ], [ false, %40 ]

@@ -285,7 +285,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_netlink_sock_diag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.netlink_sock_diag_info_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %6
 
@@ -295,7 +295,7 @@ define internal i32 @dissect_netlink_sock_diag(ptr noundef %0, ptr noundef %1, p
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %6, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.172, i32 noundef 968, ptr noundef nonnull @.str.173) #5
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.172, i32 noundef 968, ptr noundef nonnull @.str.173) #6
   unreachable
 
 10:                                               ; preds = %6
@@ -694,7 +694,7 @@ dissect_sock_diag_packet_request.exit.i:          ; preds = %245, %243
 
 dissect_sock_diag_by_family.exit:                 ; preds = %287, %dissect_sock_diag_packet_request.exit.i, %199, %dissect_sock_diag_netlink_request.exit.i, %134, %dissect_sock_diag_inet_request.exit.i, %dissect_sock_diag_unix_reply.exit.i, %dissect_sock_diag_unix_request.exit.i, %24, %10
   %.0 = phi i32 [ %21, %10 ], [ %21, %24 ], [ %77, %dissect_sock_diag_unix_request.exit.i ], [ %108, %dissect_sock_diag_unix_reply.exit.i ], [ %133, %dissect_sock_diag_inet_request.exit.i ], [ %155, %134 ], [ %198, %dissect_sock_diag_netlink_request.exit.i ], [ %234, %199 ], [ %286, %dissect_sock_diag_packet_request.exit.i ], [ %310, %287 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   ret i32 %.0
 }
 
@@ -790,14 +790,14 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   br i1 %28, label %29, label %dissect_sock_diag_meminfo.exit
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
   %30 = load i32, ptr @hf_netlink_sock_diag_unix_peer_inode, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %32, ptr noundef nonnull %8)
   %34 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.177, i32 noundef %34)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
   br label %dissect_sock_diag_meminfo.exit
 
 35:                                               ; preds = %7
@@ -829,7 +829,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %50
 
-50:                                               ; preds = %50, %.lr.ph.i
+50:; preds = %50, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
   %.0132.i = phi i32 [ %6, %.lr.ph.i ], [ %57, %50 ]
   %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %56, %50 ]
@@ -841,7 +841,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   %56 = add i32 %.0141.i, 4
   %57 = add nsw i32 %.0132.i, -4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %58 = icmp samesign ugt i32 %.0132.i, 7
+  %exitcond.not = icmp samesign ugt i32 %.0132.i, 7
   %59 = icmp samesign ult i64 %indvars.iv.i, 5
   %60 = select i1 %58, i1 %59, i1 false
   br i1 %60, label %50, label %dissect_sock_diag_meminfo.exit, !llvm.loop !8
@@ -947,7 +947,7 @@ _dissect_padding.exit:                            ; preds = %16, %18
   br label %_dissect_padding.exit47
 
 36:                                               ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.172, i32 noundef 605) #5
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.172, i32 noundef 605) #6
   unreachable
 
 _dissect_padding.exit47:                          ; preds = %27, %25, %30
@@ -1016,7 +1016,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %32
 
-32:                                               ; preds = %32, %.lr.ph.i
+32:; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
   %.0132.i = phi i32 [ %6, %.lr.ph.i ], [ %39, %32 ]
   %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %38, %32 ]
@@ -1028,7 +1028,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
   %38 = add i32 %.0141.i, 4
   %39 = add nsw i32 %.0132.i, -4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %40 = icmp samesign ugt i32 %.0132.i, 7
+  %exitcond.not = icmp samesign ugt i32 %.0132.i, 7
   %41 = icmp samesign ult i64 %indvars.iv.i, 5
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %32, label %dissect_sock_diag_meminfo.exit, !llvm.loop !8
@@ -1071,7 +1071,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_netlink_attributes(ptr no
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %13
 
-13:                                               ; preds = %13, %.lr.ph.i
+13:; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
   %.0132.i = phi i32 [ %6, %.lr.ph.i ], [ %20, %13 ]
   %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %19, %13 ]
@@ -1083,7 +1083,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_netlink_attributes(ptr no
   %19 = add i32 %.0141.i, 4
   %20 = add nsw i32 %.0132.i, -4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %21 = icmp samesign ugt i32 %.0132.i, 7
+  %exitcond.not = icmp samesign ugt i32 %.0132.i, 7
   %22 = icmp samesign ult i64 %indvars.iv.i, 5
   %23 = select i1 %21, i1 %22, i1 false
   br i1 %23, label %13, label %dissect_sock_diag_meminfo.exit, !llvm.loop !8
@@ -1113,7 +1113,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_packet_sock_diag_reply_attr
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %13
 
-13:                                               ; preds = %13, %.lr.ph.i
+13:; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
   %.0132.i = phi i32 [ %6, %.lr.ph.i ], [ %20, %13 ]
   %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %19, %13 ]
@@ -1125,7 +1125,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_packet_sock_diag_reply_attr
   %19 = add i32 %.0141.i, 4
   %20 = add nsw i32 %.0132.i, -4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %21 = icmp samesign ugt i32 %.0132.i, 7
+  %exitcond.not = icmp samesign ugt i32 %.0132.i, 7
   %22 = icmp samesign ult i64 %indvars.iv.i, 5
   %23 = select i1 %21, i1 %22, i1 false
   br i1 %23, label %13, label %dissect_sock_diag_meminfo.exit, !llvm.loop !8
