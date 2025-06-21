@@ -176,6 +176,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.451e762c733db03501c72f969938ebf7.229 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.451e762c733db03501c72f969938ebf7.228, [16 x i8] c"%\00\00\00\00\00\00\00\F2\02\00\00\01\00\00\00" }>, align 8
 @anon.451e762c733db03501c72f969938ebf7.230 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"StateIDError" }>, align 1
 @anon.451e762c733db03501c72f969938ebf7.231 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr74drop_in_place$LT$$RF$regex_automata..util..primitives..SmallIndexError$GT$17h881dd5ed15d43335E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h53a5ce6618f78712E" }>, align 8
+@"switch.table._ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E" = private unnamed_addr constant [18 x i64] [i64 5, i64 3, i64 7, i64 5, i64 9, i64 7, i64 9, i64 15, i64 11, i64 17, i64 14, i64 12, i64 16, i64 14, i64 18, i64 16, i64 20, i64 18], align 8
+@"switch.table._ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.53" = private unnamed_addr constant [18 x ptr] [ptr @anon.451e762c733db03501c72f969938ebf7.208, ptr @anon.451e762c733db03501c72f969938ebf7.209, ptr @anon.451e762c733db03501c72f969938ebf7.210, ptr @anon.451e762c733db03501c72f969938ebf7.211, ptr @anon.451e762c733db03501c72f969938ebf7.212, ptr @anon.451e762c733db03501c72f969938ebf7.213, ptr @anon.451e762c733db03501c72f969938ebf7.214, ptr @anon.451e762c733db03501c72f969938ebf7.215, ptr @anon.451e762c733db03501c72f969938ebf7.216, ptr @anon.451e762c733db03501c72f969938ebf7.217, ptr @anon.451e762c733db03501c72f969938ebf7.218, ptr @anon.451e762c733db03501c72f969938ebf7.219, ptr @anon.451e762c733db03501c72f969938ebf7.220, ptr @anon.451e762c733db03501c72f969938ebf7.221, ptr @anon.451e762c733db03501c72f969938ebf7.222, ptr @anon.451e762c733db03501c72f969938ebf7.223, ptr @anon.451e762c733db03501c72f969938ebf7.224, ptr @anon.451e762c733db03501c72f969938ebf7.225], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.17849184579231348327"(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 {
@@ -215,89 +217,19 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hec7db5ceb1599627E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !10, !noundef !4
+switch.lookup:
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !10, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %4 = load i32, ptr %3, align 4, !range !14, !alias.scope !11, !noalias !15, !noundef !4
-  switch i32 %4, label %5 [
-    i32 1, label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-    i32 2, label %6
-    i32 4, label %7
-    i32 8, label %8
-    i32 16, label %9
-    i32 32, label %10
-    i32 64, label %11
-    i32 128, label %12
-    i32 256, label %13
-    i32 512, label %14
-    i32 1024, label %15
-    i32 2048, label %16
-    i32 4096, label %17
-    i32 8192, label %18
-    i32 16384, label %19
-    i32 32768, label %20
-    i32 65536, label %21
-    i32 131072, label %22
-  ]
-
-5:                                                ; preds = %2
-  unreachable
-
-6:                                                ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-7:                                                ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-8:                                                ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-9:                                                ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-10:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-11:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-12:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-13:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-14:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-15:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-16:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-17:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-18:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-19:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-20:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-21:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-22:                                               ; preds = %2
-  br label %"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit"
-
-"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.exit": ; preds = %2, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22
-  %.sroa.19.0.i = phi i64 [ 3, %6 ], [ 7, %7 ], [ 5, %8 ], [ 9, %9 ], [ 7, %10 ], [ 9, %11 ], [ 15, %12 ], [ 11, %13 ], [ 17, %14 ], [ 14, %15 ], [ 12, %16 ], [ 16, %17 ], [ 14, %18 ], [ 18, %19 ], [ 16, %20 ], [ 20, %21 ], [ 18, %22 ], [ 5, %2 ]
-  %.sroa.0.0.i = phi ptr [ @anon.451e762c733db03501c72f969938ebf7.209, %6 ], [ @anon.451e762c733db03501c72f969938ebf7.210, %7 ], [ @anon.451e762c733db03501c72f969938ebf7.211, %8 ], [ @anon.451e762c733db03501c72f969938ebf7.212, %9 ], [ @anon.451e762c733db03501c72f969938ebf7.213, %10 ], [ @anon.451e762c733db03501c72f969938ebf7.214, %11 ], [ @anon.451e762c733db03501c72f969938ebf7.215, %12 ], [ @anon.451e762c733db03501c72f969938ebf7.216, %13 ], [ @anon.451e762c733db03501c72f969938ebf7.217, %14 ], [ @anon.451e762c733db03501c72f969938ebf7.218, %15 ], [ @anon.451e762c733db03501c72f969938ebf7.219, %16 ], [ @anon.451e762c733db03501c72f969938ebf7.220, %17 ], [ @anon.451e762c733db03501c72f969938ebf7.221, %18 ], [ @anon.451e762c733db03501c72f969938ebf7.222, %19 ], [ @anon.451e762c733db03501c72f969938ebf7.223, %20 ], [ @anon.451e762c733db03501c72f969938ebf7.224, %21 ], [ @anon.451e762c733db03501c72f969938ebf7.225, %22 ], [ @anon.451e762c733db03501c72f969938ebf7.208, %2 ]
-  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.19.0.i), !noalias !11
-  ret i1 %23
+  %3 = load i32, ptr %2, align 4, !range !14, !alias.scope !11, !noalias !15, !noundef !4
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3, i1 true)
+  %5 = zext nneg i32 %4 to i64
+  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @"switch.table._ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E", i64 0, i64 %5
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %6 = zext nneg i32 %4 to i64
+  %switch.gep1 = getelementptr inbounds nuw [18 x ptr], ptr @"switch.table._ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.53", i64 0, i64 %6
+  %switch.load2 = load ptr, ptr %switch.gep1, align 8
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !11
+  ret i1 %7
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -7126,87 +7058,17 @@ define internal noundef zeroext i1 @"_ZN85_$LT$regex_automata..nfa..thompson..er
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
-  %3 = load i32, ptr %0, align 4, !range !14, !noundef !4
-  switch i32 %3, label %4 [
-    i32 1, label %22
-    i32 2, label %5
-    i32 4, label %6
-    i32 8, label %7
-    i32 16, label %8
-    i32 32, label %9
-    i32 64, label %10
-    i32 128, label %11
-    i32 256, label %12
-    i32 512, label %13
-    i32 1024, label %14
-    i32 2048, label %15
-    i32 4096, label %16
-    i32 8192, label %17
-    i32 16384, label %18
-    i32 32768, label %19
-    i32 65536, label %20
-    i32 131072, label %21
-  ]
-
-4:                                                ; preds = %2
-  unreachable
-
-5:                                                ; preds = %2
-  br label %22
-
-6:                                                ; preds = %2
-  br label %22
-
-7:                                                ; preds = %2
-  br label %22
-
-8:                                                ; preds = %2
-  br label %22
-
-9:                                                ; preds = %2
-  br label %22
-
-10:                                               ; preds = %2
-  br label %22
-
-11:                                               ; preds = %2
-  br label %22
-
-12:                                               ; preds = %2
-  br label %22
-
-13:                                               ; preds = %2
-  br label %22
-
-14:                                               ; preds = %2
-  br label %22
-
-15:                                               ; preds = %2
-  br label %22
-
-16:                                               ; preds = %2
-  br label %22
-
-17:                                               ; preds = %2
-  br label %22
-
-18:                                               ; preds = %2
-  br label %22
-
-19:                                               ; preds = %2
-  br label %22
-
-20:                                               ; preds = %2
-  br label %22
-
-21:                                               ; preds = %2
-  br label %22
-
-22:                                               ; preds = %2, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
-  %.sroa.19.0 = phi i64 [ 3, %5 ], [ 7, %6 ], [ 5, %7 ], [ 9, %8 ], [ 7, %9 ], [ 9, %10 ], [ 15, %11 ], [ 11, %12 ], [ 17, %13 ], [ 14, %14 ], [ 12, %15 ], [ 16, %16 ], [ 14, %17 ], [ 18, %18 ], [ 16, %19 ], [ 20, %20 ], [ 18, %21 ], [ 5, %2 ]
-  %.sroa.0.0 = phi ptr [ @anon.451e762c733db03501c72f969938ebf7.209, %5 ], [ @anon.451e762c733db03501c72f969938ebf7.210, %6 ], [ @anon.451e762c733db03501c72f969938ebf7.211, %7 ], [ @anon.451e762c733db03501c72f969938ebf7.212, %8 ], [ @anon.451e762c733db03501c72f969938ebf7.213, %9 ], [ @anon.451e762c733db03501c72f969938ebf7.214, %10 ], [ @anon.451e762c733db03501c72f969938ebf7.215, %11 ], [ @anon.451e762c733db03501c72f969938ebf7.216, %12 ], [ @anon.451e762c733db03501c72f969938ebf7.217, %13 ], [ @anon.451e762c733db03501c72f969938ebf7.218, %14 ], [ @anon.451e762c733db03501c72f969938ebf7.219, %15 ], [ @anon.451e762c733db03501c72f969938ebf7.220, %16 ], [ @anon.451e762c733db03501c72f969938ebf7.221, %17 ], [ @anon.451e762c733db03501c72f969938ebf7.222, %18 ], [ @anon.451e762c733db03501c72f969938ebf7.223, %19 ], [ @anon.451e762c733db03501c72f969938ebf7.224, %20 ], [ @anon.451e762c733db03501c72f969938ebf7.225, %21 ], [ @anon.451e762c733db03501c72f969938ebf7.208, %2 ]
-  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.19.0)
-  ret i1 %23
+switch.lookup:
+  %2 = load i32, ptr %0, align 4, !range !14, !noundef !4
+  %3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
+  %4 = zext nneg i32 %3 to i64
+  %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @"switch.table._ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E", i64 0, i64 %4
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %5 = zext nneg i32 %3 to i64
+  %switch.gep2 = getelementptr inbounds nuw [18 x ptr], ptr @"switch.table._ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E.53", i64 0, i64 %5
+  %switch.load3 = load ptr, ptr %switch.gep2, align 8
+  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  ret i1 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

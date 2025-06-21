@@ -341,10 +341,12 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a9719d92f7b476b29ada79e1ed6e790c.57.llvm.14581243670548862388 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @__rust_no_alloc_shim_is_unstable = external global i8
 @"switch.table._ZN3png7decoder16Decoder$LT$R$GT$9read_info17hdeaf088ff00ab18cE" = private unnamed_addr constant [7 x i64] [i64 1, i64 poison, i64 3, i64 1, i64 2, i64 poison, i64 4], align 8
+@"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17h4a2d49eea0ed4091E" = private unnamed_addr constant [5 x i64] [i64 3, i64 3, i64 4, i64 5, i64 7], align 8
+@"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17h4a2d49eea0ed4091E.308" = private unnamed_addr constant [5 x ptr] [ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.173, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.174, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.175, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.176, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.177], align 8
 @"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17h752083991626e1e2E" = private unnamed_addr constant [7 x i64] [i64 9, i64 poison, i64 3, i64 7, i64 14, i64 poison, i64 4], align 8
-@"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17h752083991626e1e2E.308" = private unnamed_addr constant [7 x ptr] [ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.178, ptr poison, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.179, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.180, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.181, ptr poison, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.182], align 8
+@"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17h752083991626e1e2E.309" = private unnamed_addr constant [7 x ptr] [ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.178, ptr poison, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.179, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.180, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.181, ptr poison, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.182], align 8
 @"switch.table._ZN59_$LT$png..common..DisposeOp$u20$as$u20$core..fmt..Debug$GT$3fmt17he8ac10bd34c058d6E" = private unnamed_addr constant [3 x i64] [i64 4, i64 10, i64 8], align 8
-@"switch.table._ZN59_$LT$png..common..DisposeOp$u20$as$u20$core..fmt..Debug$GT$3fmt17he8ac10bd34c058d6E.309" = private unnamed_addr constant [3 x ptr] [ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.183, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.184, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.185], align 8
+@"switch.table._ZN59_$LT$png..common..DisposeOp$u20$as$u20$core..fmt..Debug$GT$3fmt17he8ac10bd34c058d6E.310" = private unnamed_addr constant [3 x ptr] [ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.183, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.184, ptr @anon.85dc5b59c6df06fdb4f122d3ed669f58.185], align 8
 @"switch.table._ZN114_$LT$language_model..provider..copilot_chat..CopilotChatLanguageModel$u20$as$u20$language_model..LanguageModel$GT$12count_tokens17h5deaa921590b563cE" = private unnamed_addr constant [3 x i64] [i64 -9223372036854775805, i64 -9223372036854775807, i64 -9223372036854775808], align 8
 
 ; Function Attrs: nonlazybind uwtable
@@ -15232,35 +15234,17 @@ _ZN5alloc6string6String8push_str17hf8d74d98e42ef13fE.exit: ; preds = %3, %9
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17h4a2d49eea0ed4091E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #4 {
-  %3 = load i8, ptr %0, align 1, !range !977, !noundef !7
-  switch i8 %3, label %4 [
-    i8 1, label %9
-    i8 2, label %5
-    i8 4, label %6
-    i8 8, label %7
-    i8 16, label %8
-  ]
-
-4:                                                ; preds = %2
-  unreachable
-
-5:                                                ; preds = %2
-  br label %9
-
-6:                                                ; preds = %2
-  br label %9
-
-7:                                                ; preds = %2
-  br label %9
-
-8:                                                ; preds = %2
-  br label %9
-
-9:                                                ; preds = %2, %8, %7, %6, %5
-  %.sroa.8.0 = phi i64 [ 3, %5 ], [ 4, %6 ], [ 5, %7 ], [ 7, %8 ], [ 3, %2 ]
-  %.sroa.0.0 = phi ptr [ @anon.85dc5b59c6df06fdb4f122d3ed669f58.174, %5 ], [ @anon.85dc5b59c6df06fdb4f122d3ed669f58.175, %6 ], [ @anon.85dc5b59c6df06fdb4f122d3ed669f58.176, %7 ], [ @anon.85dc5b59c6df06fdb4f122d3ed669f58.177, %8 ], [ @anon.85dc5b59c6df06fdb4f122d3ed669f58.173, %2 ]
-  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0, i64 noundef %.sroa.8.0)
-  ret i1 %10
+switch.lookup:
+  %2 = load i8, ptr %0, align 1, !range !977, !noundef !7
+  %3 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %2, i1 true)
+  %4 = zext nneg i8 %3 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17h4a2d49eea0ed4091E", i64 0, i64 %4
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %5 = zext nneg i8 %3 to i64
+  %switch.gep2 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN58_$LT$png..common..BitDepth$u20$as$u20$core..fmt..Debug$GT$3fmt17h4a2d49eea0ed4091E.308", i64 0, i64 %5
+  %switch.load3 = load ptr, ptr %switch.gep2, align 8
+  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
+  ret i1 %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -15271,7 +15255,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17h752083991626e1e2E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17h752083991626e1e2E.308", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [7 x ptr], ptr @"switch.table._ZN59_$LT$png..common..ColorType$u20$as$u20$core..fmt..Debug$GT$3fmt17h752083991626e1e2E.309", i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -15285,7 +15269,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN59_$LT$png..common..DisposeOp$u20$as$u20$core..fmt..Debug$GT$3fmt17he8ac10bd34c058d6E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN59_$LT$png..common..DisposeOp$u20$as$u20$core..fmt..Debug$GT$3fmt17he8ac10bd34c058d6E.309", i64 0, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN59_$LT$png..common..DisposeOp$u20$as$u20$core..fmt..Debug$GT$3fmt17he8ac10bd34c058d6E.310", i64 0, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -30870,6 +30854,9 @@ declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec.
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, ptr } @_ZN14language_model8provider7open_ai20count_open_ai_tokens17h925259e29b69a520E(ptr noalias noundef align 8 captures(none) dereferenceable(80), ptr noalias noundef align 8 captures(none) dereferenceable(72), ptr noalias noundef readonly align 8 dereferenceable(1176)) unnamed_addr #0
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #48

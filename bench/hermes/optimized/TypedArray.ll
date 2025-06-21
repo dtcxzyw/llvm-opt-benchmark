@@ -7739,11 +7739,12 @@ _ZN6hermes2vm16JSTypedArrayBase5beginERNS0_7RuntimeE.exit: ; preds = %if.end100
   %37 = load i32, ptr %offset_.i, align 4
   %idx.ext.i = zext i32 %37 to i64
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %36, i64 %idx.ext.i
-  switch i8 %call102, label %sw.default123 [
-    i8 1, label %sw.bb106
-    i8 2, label %sw.bb109
-    i8 4, label %sw.bb113
-    i8 8, label %sw.bb118
+  %38 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %call102, i1 true)
+  switch i8 %38, label %sw.default123 [
+    i8 0, label %sw.bb106
+    i8 1, label %sw.bb109
+    i8 2, label %sw.bb113
+    i8 3, label %sw.bb118
   ]
 
 sw.bb106:                                         ; preds = %_ZN6hermes2vm16JSTypedArrayBase5beginERNS0_7RuntimeE.exit
@@ -7753,20 +7754,20 @@ sw.bb106:                                         ; preds = %_ZN6hermes2vm16JSTy
 if.then.i.i.i:                                    ; preds = %sw.bb106
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr.i, i64 %conv73
   %gepdiff = sub nsw i64 %conv75, %conv73
-  %38 = load i8, ptr %add.ptr, align 1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 %38, i64 %gepdiff, i1 false)
+  %39 = load i8, ptr %add.ptr, align 1
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 %39, i64 %gepdiff, i1 false)
   br label %sw.epilog124
 
 sw.bb109:                                         ; preds = %_ZN6hermes2vm16JSTypedArrayBase5beginERNS0_7RuntimeE.exit
   %add.ptr110 = getelementptr inbounds i16, ptr %add.ptr.i, i64 %conv73
   %add.ptr111 = getelementptr inbounds i16, ptr %add.ptr.i, i64 %conv75
-  %39 = load i16, ptr %add.ptr110, align 2
+  %40 = load i16, ptr %add.ptr110, align 2
   %cmp.not3.i.i.i = icmp eq i64 %conv73, %conv75
   br i1 %cmp.not3.i.i.i, label %sw.epilog124, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %sw.bb109, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i95, %for.body.i.i.i ], [ %add.ptr110, %sw.bb109 ]
-  store i16 %39, ptr %__first.addr.04.i.i.i, align 2
+  store i16 %40, ptr %__first.addr.04.i.i.i, align 2
   %incdec.ptr.i.i.i95 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 2
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i95, %add.ptr111
   br i1 %cmp.not.i.i.i, label %sw.epilog124, label %for.body.i.i.i, !llvm.loop !87
@@ -7774,13 +7775,13 @@ for.body.i.i.i:                                   ; preds = %sw.bb109, %for.body
 sw.bb113:                                         ; preds = %_ZN6hermes2vm16JSTypedArrayBase5beginERNS0_7RuntimeE.exit
   %add.ptr115 = getelementptr inbounds i32, ptr %add.ptr.i, i64 %conv73
   %add.ptr116 = getelementptr inbounds i32, ptr %add.ptr.i, i64 %conv75
-  %40 = load i32, ptr %add.ptr115, align 4
+  %41 = load i32, ptr %add.ptr115, align 4
   %cmp.not3.i.i.i96 = icmp eq i64 %conv73, %conv75
   br i1 %cmp.not3.i.i.i96, label %sw.epilog124, label %for.body.i.i.i97
 
 for.body.i.i.i97:                                 ; preds = %sw.bb113, %for.body.i.i.i97
   %__first.addr.04.i.i.i98 = phi ptr [ %incdec.ptr.i.i.i99, %for.body.i.i.i97 ], [ %add.ptr115, %sw.bb113 ]
-  store i32 %40, ptr %__first.addr.04.i.i.i98, align 4
+  store i32 %41, ptr %__first.addr.04.i.i.i98, align 4
   %incdec.ptr.i.i.i99 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i98, i64 4
   %cmp.not.i.i.i100 = icmp eq ptr %incdec.ptr.i.i.i99, %add.ptr116
   br i1 %cmp.not.i.i.i100, label %sw.epilog124, label %for.body.i.i.i97, !llvm.loop !88
@@ -7788,13 +7789,13 @@ for.body.i.i.i97:                                 ; preds = %sw.bb113, %for.body
 sw.bb118:                                         ; preds = %_ZN6hermes2vm16JSTypedArrayBase5beginERNS0_7RuntimeE.exit
   %add.ptr120 = getelementptr inbounds i64, ptr %add.ptr.i, i64 %conv73
   %add.ptr121 = getelementptr inbounds i64, ptr %add.ptr.i, i64 %conv75
-  %41 = load i64, ptr %add.ptr120, align 8
+  %42 = load i64, ptr %add.ptr120, align 8
   %cmp.not3.i.i.i101 = icmp eq i64 %conv73, %conv75
   br i1 %cmp.not3.i.i.i101, label %sw.epilog124, label %for.body.i.i.i102
 
 for.body.i.i.i102:                                ; preds = %sw.bb118, %for.body.i.i.i102
   %__first.addr.04.i.i.i103 = phi ptr [ %incdec.ptr.i.i.i104, %for.body.i.i.i102 ], [ %add.ptr120, %sw.bb118 ]
-  store i64 %41, ptr %__first.addr.04.i.i.i103, align 8
+  store i64 %42, ptr %__first.addr.04.i.i.i103, align 8
   %incdec.ptr.i.i.i104 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i103, i64 8
   %cmp.not.i.i.i105 = icmp eq ptr %incdec.ptr.i.i.i104, %add.ptr121
   br i1 %cmp.not.i.i.i105, label %sw.epilog124, label %for.body.i.i.i102, !llvm.loop !89
@@ -13626,17 +13627,20 @@ declare ptr @_ZN6hermes2vm12JSTypedArrayImLNS0_8CellKindE45EE12getPrototypeERKNS
 
 declare ptr @_ZN6hermes2vm17NativeConstructor15creatorFunctionINS0_12JSTypedArrayImLNS0_8CellKindE45EEEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEERNS0_7RuntimeENS0_6HandleIS8_EEPv(ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.cttz.i8(i8, i1 immarg) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -13645,9 +13649,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }
 attributes #12 = { builtin nounwind }

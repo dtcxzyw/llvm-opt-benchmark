@@ -159,7 +159,6 @@ $_ZN4llvm23SmallVectorTemplateBaseINS_16MCObjectStreamer14PendingMCFixupELb1EE18
 @.str.17 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.18 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.19 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@switch.table._ZN4llvm16MCObjectStreamer13emitValueImplEPKNS_6MCExprEjNS_5SMLocE = private unnamed_addr constant [8 x i32] [i32 1, i32 2, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 4], align 4
 
 @_ZN4llvm16MCObjectStreamerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm16MCObjectStreamerD2Ev
 
@@ -1191,14 +1190,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit31:                ; preds = %26, %_ZN4llvm6isInt
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %31, ptr %3, ptr noundef nonnull align 8 dereferenceable(34) %6) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #21
-  br label %85
+  br label %88
 
 _ZN4llvm7isUIntNEjm.exit.thread:                  ; preds = %19, %_ZN4llvm6isIntNEjl.exit, %_ZN4llvm7isUIntNEjm.exit
   %38 = load ptr, ptr %0, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 544
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 noundef %21, i32 noundef %2) #21
-  br label %85
+  br label %88
 
 switch.lookup:                                    ; preds = %4
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 96
@@ -1207,15 +1206,13 @@ switch.lookup:                                    ; preds = %4
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %44 = load i64, ptr %43, align 8, !tbaa !301
   %45 = trunc i64 %44 to i32
-  %switch.tableidx = add nsw i32 %2, -1
-  %46 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table._ZN4llvm16MCObjectStreamer13emitValueImplEPKNS_6MCExprEjNS_5SMLocE, i64 0, i64 %46
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %46 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
+  %switch.offset = add nuw nsw i32 %46, 1
   store ptr %1, ptr %8, align 8, !tbaa !331, !alias.scope !332
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %45, ptr %47, align 8, !tbaa !277, !alias.scope !332
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %switch.load, ptr %48, align 4, !tbaa !335, !alias.scope !332
+  store i32 %switch.offset, ptr %48, align 4, !tbaa !335, !alias.scope !332
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %3, ptr %49, align 8, !tbaa !279, !alias.scope !332
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 104
@@ -1262,31 +1259,39 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; pred
   %74 = add i32 %73, 1
   store i32 %74, ptr %50, align 8, !tbaa !73
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #21
-  %75 = zext nneg i32 %2 to i64
+  %75 = zext i32 %2 to i64
   %76 = load i64, ptr %43, align 8, !tbaa !301
   %77 = add i64 %76, %75
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %79 = load i64, ptr %78, align 8, !tbaa !302
   %.not.i.i.i.i = icmp ugt i64 %77, %79
-  br i1 %.not.i.i.i.i, label %80, label %_ZN4llvm27MCEncodedFragmentWithFixupsILj32ELj4EE14appendContentsEmc.exit, !prof !289
+  br i1 %.not.i.i.i.i, label %80, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE28reserveForParamAndGetAddressERcm.exit.i.i, !prof !289
 
 80:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 64
   call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull %81, i64 noundef %77, i64 noundef 1) #21
   %.pre4.pre.i.i = load i64, ptr %43, align 8, !tbaa !301
+  br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE28reserveForParamAndGetAddressERcm.exit.i.i
+
+_ZN4llvm23SmallVectorTemplateBaseIcLb1EE28reserveForParamAndGetAddressERcm.exit.i.i: ; preds = %80, %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit
+  %.pre4.i.i = phi i64 [ %76, %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit ], [ %.pre4.pre.i.i, %80 ]
+  %82 = icmp eq i32 %2, 0
+  br i1 %82, label %_ZN4llvm27MCEncodedFragmentWithFixupsILj32ELj4EE14appendContentsEmc.exit, label %83
+
+83:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE28reserveForParamAndGetAddressERcm.exit.i.i
+  %84 = load ptr, ptr %42, align 8, !tbaa !300
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %.pre4.i.i
+  call void @llvm.memset.p0.i64(ptr align 1 %85, i8 0, i64 %75, i1 false)
+  %.pre.i.i = load i64, ptr %43, align 8, !tbaa !301
   br label %_ZN4llvm27MCEncodedFragmentWithFixupsILj32ELj4EE14appendContentsEmc.exit
 
-_ZN4llvm27MCEncodedFragmentWithFixupsILj32ELj4EE14appendContentsEmc.exit: ; preds = %80, %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit
-  %.pre4.i.i = phi i64 [ %76, %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit ], [ %.pre4.pre.i.i, %80 ]
-  %82 = load ptr, ptr %42, align 8, !tbaa !300
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.pre4.i.i
-  call void @llvm.memset.p0.i64(ptr align 1 %83, i8 0, i64 %75, i1 false)
-  %.pre.i.i = load i64, ptr %43, align 8, !tbaa !301
-  %84 = add i64 %.pre.i.i, %75
-  store i64 %84, ptr %43, align 8, !tbaa !301
-  br label %85
+_ZN4llvm27MCEncodedFragmentWithFixupsILj32ELj4EE14appendContentsEmc.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE28reserveForParamAndGetAddressERcm.exit.i.i, %83
+  %86 = phi i64 [ %.pre4.i.i, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE28reserveForParamAndGetAddressERcm.exit.i.i ], [ %.pre.i.i, %83 ]
+  %87 = add i64 %86, %75
+  store i64 %87, ptr %43, align 8, !tbaa !301
+  br label %88
 
-85:                                               ; preds = %_ZN4llvm27MCEncodedFragmentWithFixupsILj32ELj4EE14appendContentsEmc.exit, %_ZN4llvm7isUIntNEjm.exit.thread, %_ZN4llvmplERKNS_5TwineES2_.exit31
+88:                                               ; preds = %_ZN4llvm27MCEncodedFragmentWithFixupsILj32ELj4EE14appendContentsEmc.exit, %_ZN4llvm7isUIntNEjm.exit.thread, %_ZN4llvmplERKNS_5TwineES2_.exit31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   ret void
 }
@@ -6103,26 +6108,29 @@ _ZN4llvm23SmallVectorTemplateBaseINS_16MCObjectStreamer14PendingMCFixupELb1EE9pu
   ret ptr %38
 }
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #18
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
+declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #19
+declare i64 @llvm.smin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
+declare i32 @llvm.umax.i32(i32, i32) #18
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6142,8 +6150,8 @@ attributes #14 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-prote
 attributes #15 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #21 = { nounwind }
 attributes #22 = { builtin nounwind allocsize(0) }

@@ -62821,67 +62821,68 @@ declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111ExtAddrMode16SetCombinedFieldENS0_9FieldNameEPN4llvm5ValueERKNS2_15SmallVectorImplIS0_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %0, i32 noundef %1, ptr noundef %2, ptr readonly captures(address) %.0.val, i32 %.8.val) unnamed_addr #20 align 2 {
-  switch i32 %1, label %4 [
-    i32 1, label %5
-    i32 2, label %7
-    i32 8, label %9
-    i32 4, label %21
+  %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
+  switch i32 %4, label %5 [
+    i32 0, label %6
+    i32 1, label %8
+    i32 3, label %10
+    i32 2, label %22
   ]
 
-4:                                                ; preds = %3
+5:                                                ; preds = %3
   unreachable
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %2, ptr %6, align 8, !tbaa !1054
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %2, ptr %7, align 8, !tbaa !1054
   br label %.loopexit
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %2, ptr %8, align 8, !tbaa !1054
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %2, ptr %9, align 8, !tbaa !1054
   store ptr null, ptr %0, align 8, !tbaa !1053
   br label %.loopexit
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %2, ptr %10, align 8, !tbaa !1055
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !1056
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %13, label %.loopexit
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %2, ptr %11, align 8, !tbaa !1055
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load i64, ptr %12, align 8, !tbaa !1056
+  %.not = icmp eq i64 %13, 0
+  br i1 %.not, label %14, label %.loopexit
 
-13:                                               ; preds = %9
-  %14 = zext i32 %.8.val to i64
-  %15 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ExtAddrMode", ptr %.0.val, i64 %14
+14:                                               ; preds = %10
+  %15 = zext i32 %.8.val to i64
+  %16 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ExtAddrMode", ptr %.0.val, i64 %15
   %.not171 = icmp eq i32 %.8.val, 0
   br i1 %.not171, label %.loopexit, label %.critedge
 
-16:                                               ; preds = %.critedge
-  %17 = getelementptr inbounds nuw i8, ptr %.02, i64 72
-  %.not17 = icmp eq ptr %17, %15
+17:                                               ; preds = %.critedge
+  %18 = getelementptr inbounds nuw i8, ptr %.02, i64 72
+  %.not17 = icmp eq ptr %18, %16
   br i1 %.not17, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %13, %16
-  %.02 = phi ptr [ %17, %16 ], [ %.0.val, %13 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.02, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !1056
-  %.not18 = icmp eq i64 %19, 0
-  br i1 %.not18, label %16, label %20
+.critedge:                                        ; preds = %14, %17
+  %.02 = phi ptr [ %18, %17 ], [ %.0.val, %14 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.02, i64 24
+  %20 = load i64, ptr %19, align 8, !tbaa !1056
+  %.not18 = icmp eq i64 %20, 0
+  br i1 %.not18, label %17, label %21
 
-20:                                               ; preds = %.critedge
-  store i64 %19, ptr %11, align 8, !tbaa !1056
+21:                                               ; preds = %.critedge
+  store i64 %20, ptr %12, align 8, !tbaa !1056
   br label %.loopexit
 
-21:                                               ; preds = %3
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %2, ptr %22, align 8, !tbaa !1055
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1, ptr %23, align 8, !tbaa !1056
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %24, align 8, !tbaa !564
+22:                                               ; preds = %3
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %2, ptr %23, align 8, !tbaa !1055
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 1, ptr %24, align 8, !tbaa !1056
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %25, align 8, !tbaa !564
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %13, %20, %9, %21, %7, %5
+.loopexit:                                        ; preds = %17, %14, %21, %10, %22, %8, %6
   ret void
 }
 
@@ -75524,6 +75525,9 @@ define internal void @_GLOBAL__sub_I_CodeGenPrepare.cpp() #23 section ".text.sta
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #25

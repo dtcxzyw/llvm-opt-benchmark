@@ -22,12 +22,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PySemaphore_Init(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @sem_init(ptr noundef %0, i32 noundef 0, i32 noundef 0) #9
+  %2 = tail call i32 @sem_init(ptr noundef %0, i32 noundef 0, i32 noundef 0) #10
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %1
-  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Init, ptr noundef nonnull @.str) #10
+  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Init, ptr noundef nonnull @.str) #11
   unreachable
 
 5:                                                ; preds = %1
@@ -42,7 +42,7 @@ declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PySemaphore_Destroy(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @sem_destroy(ptr noundef %0) #9
+  %2 = tail call i32 @sem_destroy(ptr noundef %0) #10
   ret void
 }
 
@@ -69,7 +69,7 @@ define dso_local range(i32 -3, 1) i32 @_PySemaphore_Wait(ptr noundef %0, i64 nou
   br i1 %.not12, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call void @PyEval_ReleaseThread(ptr noundef nonnull %8) #9
+  tail call void @PyEval_ReleaseThread(ptr noundef nonnull %8) #10
   br label %13
 
 13:                                               ; preds = %6, %9, %12, %3
@@ -78,19 +78,19 @@ define dso_local range(i32 -3, 1) i32 @_PySemaphore_Wait(ptr noundef %0, i64 nou
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  %16 = call i32 @PyTime_MonotonicRaw(ptr noundef nonnull %5) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  %16 = call i32 @PyTime_MonotonicRaw(ptr noundef nonnull %5) #10
   %17 = load i64, ptr %5, align 8, !tbaa !9
-  %18 = call i64 @_PyTime_Add(i64 noundef %17, i64 noundef %1) #9
-  call void @_PyTime_AsTimespec_clamp(i64 noundef %18, ptr noundef nonnull %4) #9
-  %19 = call i32 @sem_clockwait(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  %18 = call i64 @_PyTime_Add(i64 noundef %17, i64 noundef %1) #10
+  call void @_PyTime_AsTimespec_clamp(i64 noundef %18, ptr noundef nonnull %4) #10
+  %19 = call i32 @sem_clockwait(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   br label %22
 
 20:                                               ; preds = %13
-  %21 = tail call i32 @sem_wait(ptr noundef %0) #9
+  %21 = tail call i32 @sem_wait(ptr noundef %0) #10
   br label %22
 
 22:                                               ; preds = %20, %15
@@ -99,7 +99,7 @@ define dso_local range(i32 -3, 1) i32 @_PySemaphore_Wait(ptr noundef %0, i64 nou
   br i1 %23, label %24, label %_PySemaphore_PlatformWait.exit
 
 24:                                               ; preds = %22
-  %25 = tail call ptr @__errno_location() #11
+  %25 = tail call ptr @__errno_location() #12
   %26 = load i32, ptr %25, align 4, !tbaa !11
   switch i32 %26, label %28 [
     i32 4, label %_PySemaphore_PlatformWait.exit
@@ -110,7 +110,7 @@ define dso_local range(i32 -3, 1) i32 @_PySemaphore_Wait(ptr noundef %0, i64 nou
   br label %_PySemaphore_PlatformWait.exit
 
 28:                                               ; preds = %24
-  call void (ptr, ptr, ...) @_Py_FatalErrorFormat(ptr noundef nonnull @__func__._PySemaphore_PlatformWait, ptr noundef nonnull @.str.2, i32 noundef %26) #10
+  call void (ptr, ptr, ...) @_Py_FatalErrorFormat(ptr noundef nonnull @__func__._PySemaphore_PlatformWait, ptr noundef nonnull @.str.2, i32 noundef %26) #11
   unreachable
 
 _PySemaphore_PlatformWait.exit:                   ; preds = %22, %24, %27
@@ -119,7 +119,7 @@ _PySemaphore_PlatformWait.exit:                   ; preds = %22, %24, %27
   br i1 %.not11, label %30, label %29
 
 29:                                               ; preds = %_PySemaphore_PlatformWait.exit
-  call void @PyEval_AcquireThread(ptr noundef nonnull %.0) #9
+  call void @PyEval_AcquireThread(ptr noundef nonnull %.0) #10
   br label %30
 
 30:                                               ; preds = %29, %_PySemaphore_PlatformWait.exit
@@ -138,12 +138,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PySemaphore_Wakeup(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @sem_post(ptr noundef %0) #9
+  %2 = tail call i32 @sem_post(ptr noundef %0) #10
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Wakeup, ptr noundef nonnull @.str.1) #10
+  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Wakeup, ptr noundef nonnull @.str.1) #11
   unreachable
 
 4:                                                ; preds = %1
@@ -156,7 +156,7 @@ declare i32 @sem_post(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -3, 1) i32 @_PyParkingLot_Park(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.wait_entry, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #10
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   store ptr %4, ptr %7, align 8, !tbaa !13
@@ -170,211 +170,212 @@ define dso_local range(i32 -3, 1) i32 @_PyParkingLot_Park(ptr noundef %0, ptr no
   br i1 %14, label %_PyRawMutex_Lock.exit, label %15
 
 15:                                               ; preds = %6
-  tail call void @_PyRawMutex_LockSlow(ptr noundef %12) #9
+  tail call void @_PyRawMutex_LockSlow(ptr noundef %12) #10
   br label %_PyRawMutex_Lock.exit
 
 _PyRawMutex_Lock.exit:                            ; preds = %6, %15
-  switch i64 %2, label %28 [
-    i64 1, label %16
-    i64 2, label %20
-    i64 4, label %24
-    i64 8, label %atomic_memcmp.exit
+  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2, i1 true)
+  switch i64 %16, label %29 [
+    i64 0, label %17
+    i64 1, label %21
+    i64 2, label %25
+    i64 3, label %atomic_memcmp.exit
   ]
 
-16:                                               ; preds = %_PyRawMutex_Lock.exit
-  %17 = load atomic i8, ptr %0 seq_cst, align 1
-  %18 = load i8, ptr %1, align 1, !tbaa !20
-  %19 = icmp eq i8 %17, %18
-  br i1 %19, label %36, label %32
+17:                                               ; preds = %_PyRawMutex_Lock.exit
+  %18 = load atomic i8, ptr %0 seq_cst, align 1
+  %19 = load i8, ptr %1, align 1, !tbaa !20
+  %20 = icmp eq i8 %18, %19
+  br i1 %20, label %37, label %33
 
-20:                                               ; preds = %_PyRawMutex_Lock.exit
-  %21 = load atomic i16, ptr %0 seq_cst, align 2
-  %22 = load i16, ptr %1, align 2, !tbaa !21
-  %23 = icmp eq i16 %21, %22
-  br i1 %23, label %36, label %32
+21:                                               ; preds = %_PyRawMutex_Lock.exit
+  %22 = load atomic i16, ptr %0 seq_cst, align 2
+  %23 = load i16, ptr %1, align 2, !tbaa !21
+  %24 = icmp eq i16 %22, %23
+  br i1 %24, label %37, label %33
 
-24:                                               ; preds = %_PyRawMutex_Lock.exit
-  %25 = load atomic i32, ptr %0 seq_cst, align 4
-  %26 = load i32, ptr %1, align 4, !tbaa !11
-  %27 = icmp eq i32 %25, %26
-  br i1 %27, label %36, label %32
+25:                                               ; preds = %_PyRawMutex_Lock.exit
+  %26 = load atomic i32, ptr %0 seq_cst, align 4
+  %27 = load i32, ptr %1, align 4, !tbaa !11
+  %28 = icmp eq i32 %26, %27
+  br i1 %28, label %37, label %33
 
-28:                                               ; preds = %_PyRawMutex_Lock.exit
+29:                                               ; preds = %_PyRawMutex_Lock.exit
   unreachable
 
 atomic_memcmp.exit:                               ; preds = %_PyRawMutex_Lock.exit
-  %29 = load atomic i64, ptr %0 seq_cst, align 8
-  %30 = load i64, ptr %1, align 8, !tbaa !9
-  %31 = icmp eq i64 %29, %30
-  br i1 %31, label %36, label %32
+  %30 = load atomic i64, ptr %0 seq_cst, align 8
+  %31 = load i64, ptr %1, align 8, !tbaa !9
+  %32 = icmp eq i64 %30, %31
+  br i1 %32, label %37, label %33
 
-32:                                               ; preds = %24, %20, %16, %atomic_memcmp.exit
-  %33 = cmpxchg ptr %12, i64 1, i64 0 seq_cst seq_cst, align 8
-  %34 = extractvalue { i64, i1 } %33, 1
-  br i1 %34, label %_PyRawMutex_Unlock.exit, label %35
+33:                                               ; preds = %25, %21, %17, %atomic_memcmp.exit
+  %34 = cmpxchg ptr %12, i64 1, i64 0 seq_cst seq_cst, align 8
+  %35 = extractvalue { i64, i1 } %34, 1
+  br i1 %35, label %_PyRawMutex_Unlock.exit, label %36
 
-35:                                               ; preds = %32
-  tail call void @_PyRawMutex_UnlockSlow(ptr noundef %12) #9
+36:                                               ; preds = %33
+  tail call void @_PyRawMutex_UnlockSlow(ptr noundef %12) #10
   br label %_PyRawMutex_Unlock.exit
 
-36:                                               ; preds = %24, %20, %16, %atomic_memcmp.exit
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %38 = call i32 @sem_init(ptr noundef nonnull %37, i32 noundef 0, i32 noundef 0) #9
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %40, label %_PySemaphore_Init.exit
+37:                                               ; preds = %25, %21, %17, %atomic_memcmp.exit
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %39 = call i32 @sem_init(ptr noundef nonnull %38, i32 noundef 0, i32 noundef 0) #10
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %41, label %_PySemaphore_Init.exit
 
-40:                                               ; preds = %36
-  call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Init, ptr noundef nonnull @.str) #10
+41:                                               ; preds = %37
+  call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Init, ptr noundef nonnull @.str) #11
   unreachable
 
-_PySemaphore_Init.exit:                           ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %43 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %44 = load ptr, ptr %43, align 16, !tbaa !23
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %44, ptr %45, align 8, !tbaa !23
-  store ptr %41, ptr %42, align 8, !tbaa !24
-  store ptr %42, ptr %44, align 8, !tbaa !24
-  store ptr %42, ptr %43, align 16, !tbaa !23
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %47 = load i64, ptr %46, align 8, !tbaa !25
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %46, align 8, !tbaa !25
-  %49 = cmpxchg ptr %12, i64 1, i64 0 seq_cst seq_cst, align 8
-  %50 = extractvalue { i64, i1 } %49, 1
-  br i1 %50, label %_PyRawMutex_Unlock.exit25, label %51
+_PySemaphore_Init.exit:                           ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %45 = load ptr, ptr %44, align 16, !tbaa !23
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store ptr %45, ptr %46, align 8, !tbaa !23
+  store ptr %42, ptr %43, align 8, !tbaa !24
+  store ptr %43, ptr %45, align 8, !tbaa !24
+  store ptr %43, ptr %44, align 16, !tbaa !23
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %48 = load i64, ptr %47, align 8, !tbaa !25
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %47, align 8, !tbaa !25
+  %50 = cmpxchg ptr %12, i64 1, i64 0 seq_cst seq_cst, align 8
+  %51 = extractvalue { i64, i1 } %50, 1
+  br i1 %51, label %_PyRawMutex_Unlock.exit25, label %52
 
-51:                                               ; preds = %_PySemaphore_Init.exit
-  call void @_PyRawMutex_UnlockSlow(ptr noundef %12) #9
+52:                                               ; preds = %_PySemaphore_Init.exit
+  call void @_PyRawMutex_UnlockSlow(ptr noundef %12) #10
   br label %_PyRawMutex_Unlock.exit25
 
-_PyRawMutex_Unlock.exit25:                        ; preds = %_PySemaphore_Init.exit, %51
-  %52 = call i32 @_PySemaphore_Wait(ptr noundef nonnull %37, i64 noundef %3, i32 noundef %5)
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %_PyRawMutex_Unlock.exit29, label %54
+_PyRawMutex_Unlock.exit25:                        ; preds = %_PySemaphore_Init.exit, %52
+  %53 = call i32 @_PySemaphore_Wait(ptr noundef nonnull %38, i64 noundef %3, i32 noundef %5)
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %_PyRawMutex_Unlock.exit29, label %55
 
-54:                                               ; preds = %_PyRawMutex_Unlock.exit25
-  %55 = cmpxchg ptr %12, i64 0, i64 1 seq_cst seq_cst, align 8
-  %56 = extractvalue { i64, i1 } %55, 1
-  br i1 %56, label %_PyRawMutex_Lock.exit26, label %57
+55:                                               ; preds = %_PyRawMutex_Unlock.exit25
+  %56 = cmpxchg ptr %12, i64 0, i64 1 seq_cst seq_cst, align 8
+  %57 = extractvalue { i64, i1 } %56, 1
+  br i1 %57, label %_PyRawMutex_Lock.exit26, label %58
 
-57:                                               ; preds = %54
-  call void @_PyRawMutex_LockSlow(ptr noundef %12) #9
+58:                                               ; preds = %55
+  call void @_PyRawMutex_LockSlow(ptr noundef %12) #10
   br label %_PyRawMutex_Lock.exit26
 
-_PyRawMutex_Lock.exit26:                          ; preds = %54, %57
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %59 = load i8, ptr %58, align 8, !tbaa !28, !range !29, !noundef !30
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %81
+_PyRawMutex_Lock.exit26:                          ; preds = %55, %58
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %60 = load i8, ptr %59, align 8, !tbaa !28, !range !29, !noundef !30
+  %61 = trunc nuw i8 %60 to i1
+  br i1 %61, label %62, label %82
 
-61:                                               ; preds = %_PyRawMutex_Lock.exit26
-  %62 = cmpxchg ptr %12, i64 1, i64 0 seq_cst seq_cst, align 8
-  %63 = extractvalue { i64, i1 } %62, 1
-  br i1 %63, label %_PyRawMutex_Unlock.exit27, label %64
+62:                                               ; preds = %_PyRawMutex_Lock.exit26
+  %63 = cmpxchg ptr %12, i64 1, i64 0 seq_cst seq_cst, align 8
+  %64 = extractvalue { i64, i1 } %63, 1
+  br i1 %64, label %_PyRawMutex_Unlock.exit27, label %65
 
-64:                                               ; preds = %61
-  call void @_PyRawMutex_UnlockSlow(ptr noundef %12) #9
+65:                                               ; preds = %62
+  call void @_PyRawMutex_UnlockSlow(ptr noundef %12) #10
   br label %_PyRawMutex_Unlock.exit27
 
-_PyRawMutex_Unlock.exit27:                        ; preds = %61, %64
+_PyRawMutex_Unlock.exit27:                        ; preds = %62, %65
   %.not.i = icmp eq i32 %5, 0
-  %65 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %66 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   br i1 %.not.i, label %_PyRawMutex_Unlock.exit27.split.us.preheader, label %_PyRawMutex_Unlock.exit27.split
 
 _PyRawMutex_Unlock.exit27.split.us.preheader:     ; preds = %_PyRawMutex_Unlock.exit27
-  %66 = call i32 @sem_wait(ptr noundef nonnull %37) #9
-  %.not.us39 = icmp eq i32 %66, -1
+  %67 = call i32 @sem_wait(ptr noundef nonnull %38) #10
+  %.not.us39 = icmp eq i32 %67, -1
   br i1 %.not.us39, label %.lr.ph.preheader, label %_PyRawMutex_Unlock.exit29
 
 .lr.ph.preheader:                                 ; preds = %_PyRawMutex_Unlock.exit27.split.us.preheader
-  %67 = tail call ptr @__errno_location() #11
+  %68 = tail call ptr @__errno_location() #12
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_PySemaphore_PlatformWait.exit.i.us
-  %68 = load i32, ptr %67, align 4, !tbaa !11
-  switch i32 %68, label %.split.us [
+  %69 = load i32, ptr %68, align 4, !tbaa !11
+  switch i32 %69, label %.split.us [
     i32 4, label %_PySemaphore_PlatformWait.exit.i.us
     i32 110, label %_PySemaphore_PlatformWait.exit.i.us
   ]
 
 _PySemaphore_PlatformWait.exit.i.us:              ; preds = %.lr.ph, %.lr.ph
-  %69 = call i32 @sem_wait(ptr noundef nonnull %37) #9
-  %.not.us = icmp eq i32 %69, -1
+  %70 = call i32 @sem_wait(ptr noundef nonnull %38) #10
+  %.not.us = icmp eq i32 %70, -1
   br i1 %.not.us, label %.lr.ph, label %_PyRawMutex_Unlock.exit29
 
 _PyRawMutex_Unlock.exit27.split:                  ; preds = %_PyRawMutex_Unlock.exit27, %_PySemaphore_Wait.exit
-  %70 = load ptr, ptr %65, align 8, !tbaa !4
-  %.not9.i = icmp eq ptr %70, null
-  br i1 %.not9.i, label %75, label %71
+  %71 = load ptr, ptr %66, align 8, !tbaa !4
+  %.not9.i = icmp eq ptr %71, null
+  br i1 %.not9.i, label %76, label %72
 
-71:                                               ; preds = %_PyRawMutex_Unlock.exit27.split
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  %73 = load atomic i32, ptr %72 monotonic, align 4
-  %.not12.i = icmp eq i32 %73, 1
-  br i1 %.not12.i, label %74, label %75
+72:                                               ; preds = %_PyRawMutex_Unlock.exit27.split
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  %74 = load atomic i32, ptr %73 monotonic, align 4
+  %.not12.i = icmp eq i32 %74, 1
+  br i1 %.not12.i, label %75, label %76
 
-74:                                               ; preds = %71
-  call void @PyEval_ReleaseThread(ptr noundef nonnull %70) #9
-  br label %75
+75:                                               ; preds = %72
+  call void @PyEval_ReleaseThread(ptr noundef nonnull %71) #10
+  br label %76
 
-75:                                               ; preds = %74, %71, %_PyRawMutex_Unlock.exit27.split
-  %.0.i28 = phi ptr [ %70, %74 ], [ null, %71 ], [ null, %_PyRawMutex_Unlock.exit27.split ]
-  %76 = call i32 @sem_wait(ptr noundef nonnull %37) #9
-  %.not = icmp eq i32 %76, -1
-  br i1 %.not, label %77, label %_PySemaphore_PlatformWait.exit.i
+76:                                               ; preds = %75, %72, %_PyRawMutex_Unlock.exit27.split
+  %.0.i28 = phi ptr [ %71, %75 ], [ null, %72 ], [ null, %_PyRawMutex_Unlock.exit27.split ]
+  %77 = call i32 @sem_wait(ptr noundef nonnull %38) #10
+  %.not = icmp eq i32 %77, -1
+  br i1 %.not, label %78, label %_PySemaphore_PlatformWait.exit.i
 
-77:                                               ; preds = %75
-  %78 = tail call ptr @__errno_location() #11
-  %79 = load i32, ptr %78, align 4, !tbaa !11
-  switch i32 %79, label %.split.us [
+78:                                               ; preds = %76
+  %79 = tail call ptr @__errno_location() #12
+  %80 = load i32, ptr %79, align 4, !tbaa !11
+  switch i32 %80, label %.split.us [
     i32 4, label %_PySemaphore_PlatformWait.exit.i
     i32 110, label %_PySemaphore_PlatformWait.exit.i
   ]
 
-.split.us:                                        ; preds = %77, %.lr.ph
-  %.us-phi = phi i32 [ %68, %.lr.ph ], [ %79, %77 ]
-  call void (ptr, ptr, ...) @_Py_FatalErrorFormat(ptr noundef nonnull @__func__._PySemaphore_PlatformWait, ptr noundef nonnull @.str.2, i32 noundef %.us-phi) #10
+.split.us:                                        ; preds = %78, %.lr.ph
+  %.us-phi = phi i32 [ %69, %.lr.ph ], [ %80, %78 ]
+  call void (ptr, ptr, ...) @_Py_FatalErrorFormat(ptr noundef nonnull @__func__._PySemaphore_PlatformWait, ptr noundef nonnull @.str.2, i32 noundef %.us-phi) #11
   unreachable
 
-_PySemaphore_PlatformWait.exit.i:                 ; preds = %77, %77, %75
+_PySemaphore_PlatformWait.exit.i:                 ; preds = %78, %78, %76
   %.not11.i = icmp eq ptr %.0.i28, null
-  br i1 %.not11.i, label %_PySemaphore_Wait.exit, label %80
+  br i1 %.not11.i, label %_PySemaphore_Wait.exit, label %81
 
-80:                                               ; preds = %_PySemaphore_PlatformWait.exit.i
-  call void @PyEval_AcquireThread(ptr noundef nonnull %.0.i28) #9
+81:                                               ; preds = %_PySemaphore_PlatformWait.exit.i
+  call void @PyEval_AcquireThread(ptr noundef nonnull %.0.i28) #10
   br label %_PySemaphore_Wait.exit
 
-_PySemaphore_Wait.exit:                           ; preds = %_PySemaphore_PlatformWait.exit.i, %80
+_PySemaphore_Wait.exit:                           ; preds = %_PySemaphore_PlatformWait.exit.i, %81
   br i1 %.not, label %_PyRawMutex_Unlock.exit27.split, label %_PyRawMutex_Unlock.exit29, !llvm.loop !31
 
-81:                                               ; preds = %_PyRawMutex_Lock.exit26
-  %82 = load ptr, ptr %45, align 8, !tbaa !23
-  %83 = load ptr, ptr %42, align 8, !tbaa !24
-  store ptr %83, ptr %82, align 8, !tbaa !24
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store ptr %82, ptr %84, align 8, !tbaa !23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
-  %85 = load i64, ptr %46, align 8, !tbaa !25
-  %86 = add i64 %85, -1
-  store i64 %86, ptr %46, align 8, !tbaa !25
-  %87 = cmpxchg ptr %12, i64 1, i64 0 seq_cst seq_cst, align 8
-  %88 = extractvalue { i64, i1 } %87, 1
-  br i1 %88, label %_PyRawMutex_Unlock.exit29, label %89
+82:                                               ; preds = %_PyRawMutex_Lock.exit26
+  %83 = load ptr, ptr %46, align 8, !tbaa !23
+  %84 = load ptr, ptr %43, align 8, !tbaa !24
+  store ptr %84, ptr %83, align 8, !tbaa !24
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store ptr %83, ptr %85, align 8, !tbaa !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
+  %86 = load i64, ptr %47, align 8, !tbaa !25
+  %87 = add i64 %86, -1
+  store i64 %87, ptr %47, align 8, !tbaa !25
+  %88 = cmpxchg ptr %12, i64 1, i64 0 seq_cst seq_cst, align 8
+  %89 = extractvalue { i64, i1 } %88, 1
+  br i1 %89, label %_PyRawMutex_Unlock.exit29, label %90
 
-89:                                               ; preds = %81
-  call void @_PyRawMutex_UnlockSlow(ptr noundef %12) #9
+90:                                               ; preds = %82
+  call void @_PyRawMutex_UnlockSlow(ptr noundef %12) #10
   br label %_PyRawMutex_Unlock.exit29
 
-_PyRawMutex_Unlock.exit29:                        ; preds = %_PySemaphore_Wait.exit, %_PySemaphore_PlatformWait.exit.i.us, %_PyRawMutex_Unlock.exit27.split.us.preheader, %89, %81, %_PyRawMutex_Unlock.exit25
-  %.0 = phi i32 [ 0, %_PyRawMutex_Unlock.exit25 ], [ %52, %81 ], [ %52, %89 ], [ 0, %_PyRawMutex_Unlock.exit27.split.us.preheader ], [ 0, %_PySemaphore_PlatformWait.exit.i.us ], [ 0, %_PySemaphore_Wait.exit ]
-  %90 = call i32 @sem_destroy(ptr noundef nonnull %37) #9
+_PyRawMutex_Unlock.exit29:                        ; preds = %_PySemaphore_Wait.exit, %_PySemaphore_PlatformWait.exit.i.us, %_PyRawMutex_Unlock.exit27.split.us.preheader, %90, %82, %_PyRawMutex_Unlock.exit25
+  %.0 = phi i32 [ 0, %_PyRawMutex_Unlock.exit25 ], [ %53, %82 ], [ %53, %90 ], [ 0, %_PyRawMutex_Unlock.exit27.split.us.preheader ], [ 0, %_PySemaphore_PlatformWait.exit.i.us ], [ 0, %_PySemaphore_Wait.exit ]
+  %91 = call i32 @sem_destroy(ptr noundef nonnull %38) #10
   br label %_PyRawMutex_Unlock.exit
 
-_PyRawMutex_Unlock.exit:                          ; preds = %35, %32, %_PyRawMutex_Unlock.exit29
-  %.021 = phi i32 [ %.0, %_PyRawMutex_Unlock.exit29 ], [ -1, %32 ], [ -1, %35 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #9
+_PyRawMutex_Unlock.exit:                          ; preds = %36, %33, %_PyRawMutex_Unlock.exit29
+  %.021 = phi i32 [ %.0, %_PyRawMutex_Unlock.exit29 ], [ -1, %33 ], [ -1, %36 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #10
   ret i32 %.021
 }
 
@@ -391,7 +392,7 @@ define dso_local void @_PyParkingLot_Unpark(ptr noundef %0, ptr noundef readonly
   br i1 %8, label %_PyRawMutex_Lock.exit, label %9
 
 9:                                                ; preds = %3
-  tail call void @_PyRawMutex_LockSlow(ptr noundef %6) #9
+  tail call void @_PyRawMutex_LockSlow(ptr noundef %6) #10
   br label %_PyRawMutex_Lock.exit
 
 _PyRawMutex_Lock.exit:                            ; preds = %3, %9
@@ -432,11 +433,11 @@ dequeue.exit:                                     ; preds = %12
   %25 = icmp ne i64 %22, 0
   %26 = zext i1 %25 to i32
   %27 = load ptr, ptr %15, align 8, !tbaa !13
-  tail call void %1(ptr noundef %2, ptr noundef %27, i32 noundef %26) #9
+  tail call void %1(ptr noundef %2, ptr noundef %27, i32 noundef %26) #10
   br label %28
 
 dequeue.exit.thread:                              ; preds = %11, %dequeue.exit
-  tail call void %1(ptr noundef %2, ptr noundef null, i32 noundef 0) #9
+  tail call void %1(ptr noundef %2, ptr noundef null, i32 noundef 0) #10
   br label %28
 
 28:                                               ; preds = %dequeue.exit.thread, %24
@@ -447,7 +448,7 @@ dequeue.exit.thread:                              ; preds = %11, %dequeue.exit
   br i1 %30, label %_PyRawMutex_Unlock.exit, label %31
 
 31:                                               ; preds = %28
-  tail call void @_PyRawMutex_UnlockSlow(ptr noundef %6) #9
+  tail call void @_PyRawMutex_UnlockSlow(ptr noundef %6) #10
   br label %_PyRawMutex_Unlock.exit
 
 _PyRawMutex_Unlock.exit:                          ; preds = %28, %31
@@ -455,12 +456,12 @@ _PyRawMutex_Unlock.exit:                          ; preds = %28, %31
 
 32:                                               ; preds = %_PyRawMutex_Unlock.exit
   %33 = getelementptr inbounds nuw i8, ptr %.2.i17, i64 16
-  %34 = tail call i32 @sem_post(ptr noundef nonnull %33) #9
+  %34 = tail call i32 @sem_post(ptr noundef nonnull %33) #10
   %.not.i14 = icmp eq i32 %34, 0
   br i1 %.not.i14, label %_PySemaphore_Wakeup.exit, label %35
 
 35:                                               ; preds = %32
-  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Wakeup, ptr noundef nonnull @.str.1) #10
+  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Wakeup, ptr noundef nonnull @.str.1) #11
   unreachable
 
 _PySemaphore_Wakeup.exit:                         ; preds = %32, %_PyRawMutex_Unlock.exit
@@ -470,7 +471,7 @@ _PySemaphore_Wakeup.exit:                         ; preds = %32, %_PyRawMutex_Un
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PyParkingLot_UnparkAll(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.llist_node, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
   store ptr %2, ptr %2, align 8, !tbaa !24
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %3, align 8, !tbaa !23
@@ -482,7 +483,7 @@ define dso_local void @_PyParkingLot_UnparkAll(ptr noundef %0) local_unnamed_add
   br i1 %8, label %_PyRawMutex_Lock.exit, label %9
 
 9:                                                ; preds = %1
-  call void @_PyRawMutex_LockSlow(ptr noundef %6) #9
+  call void @_PyRawMutex_LockSlow(ptr noundef %6) #10
   br label %_PyRawMutex_Lock.exit
 
 _PyRawMutex_Lock.exit:                            ; preds = %1, %9
@@ -532,7 +533,7 @@ dequeue_all.exit:                                 ; preds = %25, %_PyRawMutex_Lo
   br i1 %27, label %_PyRawMutex_Unlock.exit, label %28
 
 28:                                               ; preds = %dequeue_all.exit
-  call void @_PyRawMutex_UnlockSlow(ptr noundef %6) #9
+  call void @_PyRawMutex_UnlockSlow(ptr noundef %6) #10
   br label %_PyRawMutex_Unlock.exit
 
 _PyRawMutex_Unlock.exit:                          ; preds = %dequeue_all.exit, %28
@@ -545,7 +546,7 @@ _PySemaphore_Wakeup.exit:                         ; preds = %31, %_PyRawMutex_Un
   br i1 %.not, label %30, label %31
 
 30:                                               ; preds = %_PySemaphore_Wakeup.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
   ret void
 
 31:                                               ; preds = %_PySemaphore_Wakeup.exit
@@ -557,12 +558,12 @@ _PySemaphore_Wakeup.exit:                         ; preds = %31, %_PyRawMutex_Un
   store ptr %33, ptr %34, align 8, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0, i8 0, i64 16, i1 false)
   %35 = getelementptr i8, ptr %.0, i64 -32
-  %36 = call i32 @sem_post(ptr noundef %35) #9
+  %36 = call i32 @sem_post(ptr noundef %35) #10
   %.not.i14 = icmp eq i32 %36, 0
   br i1 %.not.i14, label %_PySemaphore_Wakeup.exit, label %37, !llvm.loop !34
 
 37:                                               ; preds = %31
-  call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Wakeup, ptr noundef nonnull @.str.1) #10
+  call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Wakeup, ptr noundef nonnull @.str.1) #11
   unreachable
 }
 
@@ -608,6 +609,9 @@ declare void @_PyRawMutex_LockSlow(ptr noundef) local_unnamed_addr #4
 
 declare void @_PyRawMutex_UnlockSlow(ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -617,9 +621,10 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
