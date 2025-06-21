@@ -41219,15 +41219,11 @@ default.unreachable:                              ; preds = %11
   %35 = tail call i40 @_ZN9hayagriva3csl9rendering15choose_children17h11ebc090ab14ca20E.llvm.16978709814855407318(ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %12, ptr noalias noundef nonnull align 8 dereferenceable(664) %.val.i.i), !noalias !10873
   %.sroa.05.0.extract.trunc.i.i = trunc i40 %35 to i8
   %36 = icmp eq i8 %.sroa.05.0.extract.trunc.i.i, 2
-  %.sroa.46.0.extract.shift.i.i = and i40 %35, -256
-  %.sroa.0.0.i.i = select i1 %36, i8 0, i8 %.sroa.05.0.extract.trunc.i.i
-  %.sroa.3.0.insert.ext.i.i = select i1 %36, i40 0, i40 %.sroa.46.0.extract.shift.i.i
-  %.sroa.0.0.insert.ext.i.i = zext i8 %.sroa.0.0.i.i to i40
-  %.sroa.0.0.insert.insert.i.i = or disjoint i40 %.sroa.3.0.insert.ext.i.i, %.sroa.0.0.insert.ext.i.i
+  %.sroa.0.0.insert.insert7.i.i = select i1 %36, i40 0, i40 %35
   br label %"_ZN93_$LT$citationberg..LayoutRenderingElement$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h184a256c22d46976E.exit"
 
 "_ZN93_$LT$citationberg..LayoutRenderingElement$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h184a256c22d46976E.exit": ; preds = %16, %19, %22, %25, %28, %31, %34
-  %.sroa.0.0.i = phi i40 [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %.sroa.0.0.insert.insert.i.i, %34 ]
+  %.sroa.0.0.i = phi i40 [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %.sroa.0.0.insert.insert7.i.i, %34 ]
   %37 = trunc i40 %.sroa.07.0.i.i.i.i to i1
   %.sroa.44.0.extract.shift.i.i.i.i.i.i.i = lshr i40 %.sroa.0.0.i, 8
   %.sroa.44.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i40 %.sroa.44.0.extract.shift.i.i.i.i.i.i.i to i32

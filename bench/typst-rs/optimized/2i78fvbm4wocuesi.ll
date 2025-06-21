@@ -61358,16 +61358,12 @@ _ZN4core4hash4Hash10hash_slice17hd154561a4f89e64eE.exit9: ; preds = %.lr.ph.i7, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i40 @"_ZN77_$LT$citationberg..Choose$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h6b5e3afaff4877bcE.llvm.16978709814855407318"(ptr noalias noundef readonly align 8 dereferenceable(248) %0, ptr noalias noundef align 8 dereferenceable(664) %1) unnamed_addr #7 {
+define hidden range(i40 0, -252) i40 @"_ZN77_$LT$citationberg..Choose$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h6b5e3afaff4877bcE.llvm.16978709814855407318"(ptr noalias noundef readonly align 8 dereferenceable(248) %0, ptr noalias noundef align 8 dereferenceable(664) %1) unnamed_addr #7 {
   %3 = tail call i40 @_ZN9hayagriva3csl9rendering15choose_children17h11ebc090ab14ca20E.llvm.16978709814855407318(ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noalias noundef nonnull align 8 dereferenceable(664) %1)
   %.sroa.05.0.extract.trunc = trunc i40 %3 to i8
   %4 = icmp eq i8 %.sroa.05.0.extract.trunc, 2
-  %.sroa.46.0.extract.shift = and i40 %3, -256
-  %.sroa.0.0 = select i1 %4, i8 0, i8 %.sroa.05.0.extract.trunc
-  %.sroa.3.0.insert.ext = select i1 %4, i40 0, i40 %.sroa.46.0.extract.shift
-  %.sroa.0.0.insert.ext = zext i8 %.sroa.0.0 to i40
-  %.sroa.0.0.insert.insert = or disjoint i40 %.sroa.3.0.insert.ext, %.sroa.0.0.insert.ext
-  ret i40 %.sroa.0.0.insert.insert
+  %.sroa.0.0.insert.insert7 = select i1 %4, i40 0, i40 %3
+  ret i40 %.sroa.0.0.insert.insert7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -71050,7 +71046,7 @@ _ZN9hayagriva3csl9rendering15choose_children17hf313e3490243ad7aE.exit: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i40 @"_ZN93_$LT$citationberg..LayoutRenderingElement$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h184a256c22d46976E"(ptr noalias noundef readonly align 8 dereferenceable(248) %0, ptr noalias noundef align 8 dereferenceable(664) %1) unnamed_addr #7 {
+define hidden range(i40 0, -252) i40 @"_ZN93_$LT$citationberg..LayoutRenderingElement$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h184a256c22d46976E"(ptr noalias noundef readonly align 8 dereferenceable(248) %0, ptr noalias noundef align 8 dereferenceable(664) %1) unnamed_addr #7 {
   %3 = alloca { i32, [3 x i32] }, align 8
   %4 = load i64, ptr %0, align 8, !range !2468, !noundef !4
   %5 = xor i64 %4, -9223372036854775808
@@ -71171,7 +71167,7 @@ default.unreachable19:                            ; preds = %2
   %47 = trunc i40 %46 to i1
   %48 = or i1 %.054.i, %47
   %49 = trunc nuw i8 %.sroa.04.053.i to i1
-  %.not.i.i15 = icmp eq i8 %.sroa.7.052.i, 0
+  %.not.i.i16 = icmp eq i8 %.sroa.7.052.i, 0
   %.not21.i.i = icmp eq i8 %.sroa.9.051.i, 0
   %.not22.i.i = icmp eq i8 %.sroa.11.050.i, 0
   %50 = trunc i40 %.sroa.436.0.extract.shift.i to i8
@@ -71180,7 +71176,7 @@ default.unreachable19:                            ; preds = %2
   %52 = lshr i40 %46, 16
   %53 = trunc i40 %52 to i8
   %54 = and i8 %53, 1
-  %.sroa.438.0.extract.trunc.i = select i1 %.not.i.i15, i8 %54, i8 1
+  %.sroa.438.0.extract.trunc.i = select i1 %.not.i.i16, i8 %54, i8 1
   %55 = lshr i40 %46, 24
   %56 = trunc i40 %55 to i8
   %57 = and i8 %56, 1
@@ -71203,10 +71199,10 @@ default.unreachable19:                            ; preds = %2
   %.sroa.04.0.lcssa.i = phi i8 [ 0, %40 ], [ %.sroa.037.0.extract.trunc.i, %.lr.ph.i ]
   %.0.lcssa.i = phi i1 [ false, %40 ], [ %48, %.lr.ph.i ]
   %63 = trunc nuw i8 %.sroa.04.0.lcssa.i to i1
-  %.not.i16 = xor i1 %63, true
+  %.not.i17 = xor i1 %63, true
   %64 = trunc nuw i8 %.sroa.7.0.lcssa.i to i1
   %65 = trunc nuw i8 %.sroa.9.0.lcssa.i to i1
-  %66 = select i1 %.not.i16, i1 true, i1 %64
+  %66 = select i1 %.not.i17, i1 true, i1 %64
   %or.cond43.i = select i1 %66, i1 true, i1 %65
   %67 = trunc nuw i8 %.sroa.11.0.lcssa.i to i1
   %spec.select44.i = select i1 %or.cond43.i, i1 true, i1 %67
@@ -71223,23 +71219,19 @@ default.unreachable19:                            ; preds = %2
   %.sroa.031.0.insert.insert.i = or disjoint i32 %.sroa.432.0.insert.insert.i, %.sroa.031.0.insert.ext.i
   %.sroa.2.0.insert.ext.i = zext nneg i32 %.sroa.031.0.insert.insert.i to i40
   %.sroa.2.0.insert.shift.i = shl nuw nsw i40 %.sroa.2.0.insert.ext.i, 8
-  %.sroa.0.0.insert.ext.i17 = zext i1 %68 to i40
-  %.sroa.0.0.insert.insert.i18 = or disjoint i40 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i17
+  %.sroa.0.0.insert.ext.i = zext i1 %68 to i40
+  %.sroa.0.0.insert.insert.i18 = or disjoint i40 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   br label %72
 
 69:                                               ; preds = %2
   %70 = tail call i40 @_ZN9hayagriva3csl9rendering15choose_children17h11ebc090ab14ca20E.llvm.16978709814855407318(ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noalias noundef nonnull align 8 dereferenceable(664) %1)
   %.sroa.05.0.extract.trunc.i = trunc i40 %70 to i8
   %71 = icmp eq i8 %.sroa.05.0.extract.trunc.i, 2
-  %.sroa.46.0.extract.shift.i = and i40 %70, -256
-  %.sroa.0.0.i13 = select i1 %71, i8 0, i8 %.sroa.05.0.extract.trunc.i
-  %.sroa.3.0.insert.ext.i = select i1 %71, i40 0, i40 %.sroa.46.0.extract.shift.i
-  %.sroa.0.0.insert.ext.i = zext i8 %.sroa.0.0.i13 to i40
-  %.sroa.0.0.insert.insert.i14 = or disjoint i40 %.sroa.3.0.insert.ext.i, %.sroa.0.0.insert.ext.i
+  %.sroa.0.0.insert.insert.i1415 = select i1 %71, i40 0, i40 %70
   br label %72
 
 72:                                               ; preds = %69, %"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit", %37, %34, %31, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17hd4eb81c7ac9f9cafE.llvm.16978709814855407318.exit", %7
-  %.sroa.0.0 = phi i40 [ %9, %7 ], [ %.sroa.0.0.insert.insert.i, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17hd4eb81c7ac9f9cafE.llvm.16978709814855407318.exit" ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %.sroa.0.0.insert.insert.i18, %"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit" ], [ %.sroa.0.0.insert.insert.i14, %69 ]
+  %.sroa.0.0 = phi i40 [ %9, %7 ], [ %.sroa.0.0.insert.insert.i, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17hd4eb81c7ac9f9cafE.llvm.16978709814855407318.exit" ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %.sroa.0.0.insert.insert.i18, %"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit" ], [ %.sroa.0.0.insert.insert.i1415, %69 ]
   ret i40 %.sroa.0.0
 }
 
