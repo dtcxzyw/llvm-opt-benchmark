@@ -43,13 +43,13 @@ define range(i32 0, 2) i32 @Ptriangulate(ptr noundef readonly captures(none) %0,
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef %5, i64 noundef 8) #11
-  tail call fastcc void @graphviz_exit() #12
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef %5, i64 noundef 8) #10
+  tail call fastcc void @graphviz_exit() #11
   unreachable
 
 9:                                                ; preds = %3
   %10 = icmp ne i64 %5, 0
-  %11 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #13
+  %11 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #12
   %12 = icmp eq ptr %11, null
   %or.cond3.i = and i1 %10, %12
   br i1 %or.cond3.i, label %14, label %gv_calloc.exit.preheader
@@ -65,14 +65,14 @@ gv_calloc.exit.preheader:                         ; preds = %9
 14:                                               ; preds = %9
   %15 = load ptr, ptr @stderr, align 8, !tbaa !10
   %16 = shl nuw i64 %5, 3
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.1, i64 noundef %16) #11
-  tail call fastcc void @graphviz_exit() #12
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.1, i64 noundef %16) #10
+  tail call fastcc void @graphviz_exit() #11
   unreachable
 
 gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv_calloc.exit.preheader
   %18 = tail call fastcc i32 @triangulate(ptr noundef %11, i64 noundef %5, ptr noundef %1, ptr noundef %2)
   %.not = icmp ne i32 %18, 0
-  tail call void @free(ptr noundef %11) #14
+  tail call void @free(ptr noundef %11) #13
   %. = zext i1 %.not to i32
   ret i32 %.
 
@@ -89,7 +89,7 @@ gv_calloc.exit:                                   ; preds = %.lr.ph, %gv_calloc.
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #3 {
   %5 = alloca [3 x %struct.Pxy_t], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #13
   %6 = icmp ugt i64 %1, 3
   br i1 %6, label %.preheader, label %77
 
@@ -204,7 +204,7 @@ isdiagonal.exit:                                  ; preds = %.critedge111.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !19
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !19
-  call void %2(ptr noundef %3, ptr noundef nonnull %5) #14
+  call void %2(ptr noundef %3, ptr noundef nonnull %5) #13
   br label %68
 
 68:                                               ; preds = %isdiagonal.exit, %74
@@ -246,12 +246,12 @@ isdiagonal.exit:                                  ; preds = %.critedge111.i
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %84 = load ptr, ptr %83, align 8, !tbaa !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !19
-  call void %2(ptr noundef %3, ptr noundef nonnull %5) #14
+  call void %2(ptr noundef %3, ptr noundef nonnull %5) #13
   br label %.loopexit120
 
 .loopexit120:                                     ; preds = %.loopexit, %.thread, %77
   %.3 = phi i32 [ 0, %77 ], [ %76, %.thread ], [ -1, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #13
   ret i32 %.3
 }
 
@@ -265,13 +265,13 @@ define noundef zeroext i1 @isdiagonal(i64 noundef %0, i64 noundef %1, ptr nounde
   %8 = add i64 %0, -1
   %9 = add i64 %8, %3
   %10 = urem i64 %9, %3
-  %11 = tail call { double, double } %4(ptr noundef %2, i64 noundef %10) #14
+  %11 = tail call { double, double } %4(ptr noundef %2, i64 noundef %10) #13
   %12 = extractvalue { double, double } %11, 0
   %13 = extractvalue { double, double } %11, 1
-  %14 = tail call { double, double } %4(ptr noundef %2, i64 noundef %0) #14
+  %14 = tail call { double, double } %4(ptr noundef %2, i64 noundef %0) #13
   %15 = extractvalue { double, double } %14, 0
   %16 = extractvalue { double, double } %14, 1
-  %17 = tail call { double, double } %4(ptr noundef %2, i64 noundef %7) #14
+  %17 = tail call { double, double } %4(ptr noundef %2, i64 noundef %7) #13
   %18 = extractvalue { double, double } %17, 0
   %19 = extractvalue { double, double } %17, 1
   %20 = fsub double %13, %16
@@ -282,10 +282,10 @@ define noundef zeroext i1 @isdiagonal(i64 noundef %0, i64 noundef %1, ptr nounde
   %25 = fmul double %22, %24
   %26 = tail call double @llvm.fmuladd.f64(double %20, double %21, double %25)
   %27 = fcmp olt double %26, 0.000000e+00
-  %28 = tail call { double, double } %4(ptr noundef %2, i64 noundef %0) #14
+  %28 = tail call { double, double } %4(ptr noundef %2, i64 noundef %0) #13
   %29 = extractvalue { double, double } %28, 0
   %30 = extractvalue { double, double } %28, 1
-  %31 = tail call { double, double } %4(ptr noundef %2, i64 noundef %1) #14
+  %31 = tail call { double, double } %4(ptr noundef %2, i64 noundef %1) #13
   %32 = extractvalue { double, double } %31, 0
   %33 = extractvalue { double, double } %31, 1
   %34 = fsub double %30, %33
@@ -294,7 +294,7 @@ define noundef zeroext i1 @isdiagonal(i64 noundef %0, i64 noundef %1, ptr nounde
   br i1 %27, label %37, label %46
 
 37:                                               ; preds = %5
-  %38 = tail call { double, double } %4(ptr noundef %2, i64 noundef %10) #14
+  %38 = tail call { double, double } %4(ptr noundef %2, i64 noundef %10) #13
   %39 = extractvalue { double, double } %38, 0
   %40 = extractvalue { double, double } %38, 1
   %41 = fsub double %39, %32
@@ -305,7 +305,7 @@ define noundef zeroext i1 @isdiagonal(i64 noundef %0, i64 noundef %1, ptr nounde
   br i1 %45, label %55, label %.critedge
 
 46:                                               ; preds = %5
-  %47 = tail call { double, double } %4(ptr noundef %2, i64 noundef %7) #14
+  %47 = tail call { double, double } %4(ptr noundef %2, i64 noundef %7) #13
   %48 = extractvalue { double, double } %47, 0
   %49 = extractvalue { double, double } %47, 1
   %50 = fsub double %48, %32
@@ -313,16 +313,16 @@ define noundef zeroext i1 @isdiagonal(i64 noundef %0, i64 noundef %1, ptr nounde
   %52 = fmul double %51, %36
   %53 = tail call double @llvm.fmuladd.f64(double %34, double %50, double %52)
   %54 = fcmp ogt double %53, 0.000000e+00
-  br i1 %54, label %.preheader, label %.critedge
+  br i1 %54, label %.preheader.preheader, label %.critedge
 
 55:                                               ; preds = %37
-  %56 = tail call { double, double } %4(ptr noundef %2, i64 noundef %1) #14
+  %56 = tail call { double, double } %4(ptr noundef %2, i64 noundef %1) #13
   %57 = extractvalue { double, double } %56, 0
   %58 = extractvalue { double, double } %56, 1
-  %59 = tail call { double, double } %4(ptr noundef %2, i64 noundef %0) #14
+  %59 = tail call { double, double } %4(ptr noundef %2, i64 noundef %0) #13
   %60 = extractvalue { double, double } %59, 0
   %61 = extractvalue { double, double } %59, 1
-  %62 = tail call { double, double } %4(ptr noundef %2, i64 noundef %7) #14
+  %62 = tail call { double, double } %4(ptr noundef %2, i64 noundef %7) #13
   %63 = extractvalue { double, double } %62, 0
   %64 = extractvalue { double, double } %62, 1
   %65 = fsub double %58, %61
@@ -333,48 +333,47 @@ define noundef zeroext i1 @isdiagonal(i64 noundef %0, i64 noundef %1, ptr nounde
   %70 = fmul double %67, %69
   %71 = tail call double @llvm.fmuladd.f64(double %65, double %66, double %70)
   %.not113 = fcmp olt double %71, 0.000000e+00
-  br i1 %.not113, label %.preheader, label %.critedge
+  br i1 %.not113, label %.preheader.preheader, label %.critedge
 
-.preheader:                                       ; preds = %55, %46
-  %umax = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
-  br label %72
+.preheader.preheader:                             ; preds = %55, %46
+  br label %.preheader
 
-72:                                               ; preds = %.preheader, %.critedge111
-  %.0103114 = phi i64 [ 0, %.preheader ], [ %73, %.critedge111 ]
-  %73 = add nuw i64 %.0103114, 1
-  %74 = icmp eq i64 %73, %3
-  %75 = select i1 %74, i64 0, i64 %73
-  %76 = icmp eq i64 %.0103114, %0
-  %77 = icmp eq i64 %75, %0
-  %or.cond = or i1 %76, %77
-  %78 = icmp eq i64 %.0103114, %1
-  %or.cond108 = or i1 %78, %or.cond
-  %79 = icmp eq i64 %75, %1
-  %or.cond109 = or i1 %79, %or.cond108
-  br i1 %or.cond109, label %.critedge111, label %80
+.preheader:                                       ; preds = %.preheader.preheader, %.critedge111
+  %.0103114 = phi i64 [ %72, %.critedge111 ], [ 0, %.preheader.preheader ]
+  %72 = add nuw i64 %.0103114, 1
+  %73 = icmp eq i64 %72, %3
+  %74 = select i1 %73, i64 0, i64 %72
+  %75 = icmp eq i64 %.0103114, %0
+  %76 = icmp eq i64 %74, %0
+  %or.cond = or i1 %75, %76
+  %77 = icmp eq i64 %.0103114, %1
+  %or.cond108 = or i1 %77, %or.cond
+  %78 = icmp eq i64 %74, %1
+  %or.cond109 = or i1 %78, %or.cond108
+  br i1 %or.cond109, label %.critedge111, label %79
 
-80:                                               ; preds = %72
-  %81 = tail call { double, double } %4(ptr noundef %2, i64 noundef %0) #14
-  %82 = extractvalue { double, double } %81, 0
-  %83 = extractvalue { double, double } %81, 1
-  %84 = tail call { double, double } %4(ptr noundef %2, i64 noundef %1) #14
-  %85 = extractvalue { double, double } %84, 0
-  %86 = extractvalue { double, double } %84, 1
-  %87 = tail call { double, double } %4(ptr noundef %2, i64 noundef %.0103114) #14
-  %88 = extractvalue { double, double } %87, 0
-  %89 = extractvalue { double, double } %87, 1
-  %90 = tail call { double, double } %4(ptr noundef %2, i64 noundef %75) #14
-  %91 = extractvalue { double, double } %90, 0
-  %92 = extractvalue { double, double } %90, 1
-  %93 = tail call zeroext i1 @intersects(double %82, double %83, double %85, double %86, double %88, double %89, double %91, double %92)
-  br i1 %93, label %.critedge, label %.critedge111
+79:                                               ; preds = %.preheader
+  %80 = tail call { double, double } %4(ptr noundef %2, i64 noundef %0) #13
+  %81 = extractvalue { double, double } %80, 0
+  %82 = extractvalue { double, double } %80, 1
+  %83 = tail call { double, double } %4(ptr noundef %2, i64 noundef %1) #13
+  %84 = extractvalue { double, double } %83, 0
+  %85 = extractvalue { double, double } %83, 1
+  %86 = tail call { double, double } %4(ptr noundef %2, i64 noundef %.0103114) #13
+  %87 = extractvalue { double, double } %86, 0
+  %88 = extractvalue { double, double } %86, 1
+  %89 = tail call { double, double } %4(ptr noundef %2, i64 noundef %74) #13
+  %90 = extractvalue { double, double } %89, 0
+  %91 = extractvalue { double, double } %89, 1
+  %92 = tail call zeroext i1 @intersects(double %81, double %82, double %84, double %85, double %87, double %88, double %90, double %91)
+  br i1 %92, label %.critedge, label %.critedge111
 
-.critedge111:                                     ; preds = %80, %72
-  %exitcond.not = icmp eq i64 %73, %umax
-  br i1 %exitcond.not, label %.critedge, label %72, !llvm.loop !18
+.critedge111:                                     ; preds = %79, %.preheader
+  %exitcond.not = icmp eq i64 %72, %3
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !18
 
-.critedge:                                        ; preds = %.critedge111, %80, %46, %37, %55
-  %.0 = phi i1 [ false, %55 ], [ false, %37 ], [ false, %46 ], [ true, %.critedge111 ], [ false, %80 ]
+.critedge:                                        ; preds = %.critedge111, %79, %46, %37, %55
+  %.0 = phi i1 [ false, %55 ], [ false, %37 ], [ false, %46 ], [ true, %.critedge111 ], [ false, %79 ]
   ret i1 %.0
 }
 
@@ -574,7 +573,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 
 ; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #6 {
-  tail call void @exit(i32 noundef 1) #15
+  tail call void @exit(i32 noundef 1) #14
   unreachable
 }
 
@@ -587,9 +586,6 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -600,12 +596,11 @@ attributes #6 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-ve
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { cold nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { nounwind }
-attributes #15 = { cold noreturn nounwind }
+attributes #10 = { cold nounwind }
+attributes #11 = { noreturn }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { nounwind }
+attributes #14 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

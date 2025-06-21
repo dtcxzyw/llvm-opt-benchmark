@@ -1634,7 +1634,6 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br i1 %or.cond855, label %.loopexit550, label %.preheader548.us.preheader
 
 .preheader548.us.preheader:                       ; preds = %226
-  %wide.trip.count679 = zext i32 %.0414 to i64
   %wide.trip.count = zext i32 %11 to i64
   br label %.preheader548.us
 
@@ -1656,7 +1655,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 
 ._crit_edge.us:                                   ; preds = %229
   %indvars.iv.next677 = add nuw nsw i64 %indvars.iv676, 1
-  %exitcond680.not = icmp eq i64 %indvars.iv.next677, %wide.trip.count679
+  %exitcond680.not = icmp eq i64 %indvars.iv.next677, %188
   br i1 %exitcond680.not, label %.loopexit550, label %.preheader548.us, !llvm.loop !102
 
 .loopexit550:                                     ; preds = %._crit_edge.us, %226, %225
@@ -1713,8 +1712,6 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 268:                                              ; preds = %265, %260
   %269 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %270 = load ptr, ptr %269, align 8, !tbaa !99
-  %umax829 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count830 = zext i32 %umax829 to i64
   br label %271
 
 271:                                              ; preds = %268, %271
@@ -1726,11 +1723,11 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   store i16 %274, ptr %.0450631, align 2, !tbaa !113
   %indvars.iv.next827 = add nuw nsw i64 %indvars.iv826, 1
   %275 = getelementptr inbounds nuw i8, ptr %.0450631, i64 4
-  %exitcond831.not = icmp eq i64 %indvars.iv.next827, %wide.trip.count830
+  %exitcond831.not = icmp eq i64 %indvars.iv.next827, %188
   br i1 %exitcond831.not, label %276, label %271, !llvm.loop !114
 
 276:                                              ; preds = %271
-  %277 = shl i32 %umax829, 2
+  %277 = shl i32 %.0414, 2
   %278 = zext i32 %277 to i64
   br label %490
 
@@ -1743,8 +1740,6 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 
 .preheader:                                       ; preds = %279
   %281 = load ptr, ptr %2, align 8, !tbaa !99
-  %umax823 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count824 = zext i32 %umax823 to i64
   br label %282
 
 282:                                              ; preds = %.preheader, %282
@@ -1756,11 +1751,11 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   %286 = getelementptr inbounds nuw i8, ptr %.0449629, i64 2
   store i16 %285, ptr %.0449629, align 2, !tbaa !113
   %indvars.iv.next821 = add nuw nsw i64 %indvars.iv820, 1
-  %exitcond825.not = icmp eq i64 %indvars.iv.next821, %wide.trip.count824
+  %exitcond825.not = icmp eq i64 %indvars.iv.next821, %188
   br i1 %exitcond825.not, label %287, label %282, !llvm.loop !115
 
 287:                                              ; preds = %282
-  %288 = shl i32 %umax823, 1
+  %288 = shl i32 %.0414, 1
   %289 = zext i32 %288 to i64
   br label %490
 
@@ -1782,8 +1777,6 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 
 .preheader517:                                    ; preds = %294
   %295 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %umax795 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count796 = zext i32 %umax795 to i64
   br label %296
 
 296:                                              ; preds = %.preheader517, %296
@@ -1808,26 +1801,19 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   %312 = getelementptr inbounds nuw [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %311
   store i16 %309, ptr %312, align 2, !tbaa !14
   %indvars.iv.next793 = add nuw nsw i64 %indvars.iv792, 1
-  %exitcond797.not = icmp eq i64 %indvars.iv.next793, %wide.trip.count796
+  %exitcond797.not = icmp eq i64 %indvars.iv.next793, %188
   br i1 %exitcond797.not, label %.loopexit514, label %296, !llvm.loop !116
 
 313:                                              ; preds = %294
-  br i1 %280, label %.preheader513, label %.preheader515.preheader
-
-.preheader515.preheader:                          ; preds = %313
-  %umax803 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count804 = zext i32 %umax803 to i64
-  br label %.preheader515
+  br i1 %280, label %.preheader513, label %.preheader515
 
 .preheader513:                                    ; preds = %313
   %.not645 = icmp eq i32 %11, 0
-  %umax814 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count815 = zext i32 %umax814 to i64
   %wide.trip.count809 = zext i32 %11 to i64
   br label %.preheader512
 
-.preheader515:                                    ; preds = %.preheader515.preheader, %.preheader515
-  %indvars.iv798 = phi i64 [ 0, %.preheader515.preheader ], [ %indvars.iv.next799, %.preheader515 ]
+.preheader515:                                    ; preds = %313, %.preheader515
+  %indvars.iv798 = phi i64 [ %indvars.iv.next799, %.preheader515 ], [ 0, %313 ]
   %314 = load ptr, ptr %2, align 8, !tbaa !99
   %315 = getelementptr inbounds nuw i32, ptr %314, i64 %indvars.iv798
   %316 = load i32, ptr %315, align 4, !tbaa !69
@@ -1836,7 +1822,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   %indvars.iv.next799 = add nuw nsw i64 %indvars.iv798, 1
   %319 = getelementptr inbounds nuw [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %indvars.iv798
   store i16 %318, ptr %319, align 2, !tbaa !14
-  %exitcond805.not = icmp eq i64 %indvars.iv.next799, %wide.trip.count804
+  %exitcond805.not = icmp eq i64 %indvars.iv.next799, %188
   br i1 %exitcond805.not, label %.loopexit514, label %.preheader515, !llvm.loop !117
 
 .preheader512:                                    ; preds = %.preheader513, %._crit_edge622
@@ -1864,7 +1850,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 ._crit_edge622:                                   ; preds = %.lr.ph621, %.preheader512
   %.5425.lcssa = phi i32 [ %.4424624, %.preheader512 ], [ %328, %.lr.ph621 ]
   %indvars.iv.next812 = add nuw nsw i64 %indvars.iv811, 1
-  %exitcond816.not = icmp eq i64 %indvars.iv.next812, %wide.trip.count815
+  %exitcond816.not = icmp eq i64 %indvars.iv.next812, %188
   br i1 %exitcond816.not, label %.loopexit514, label %.preheader512, !llvm.loop !119
 
 329:                                              ; preds = %293
@@ -1872,8 +1858,6 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 
 .preheader524:                                    ; preds = %329
   %330 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %umax770 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count771 = zext i32 %umax770 to i64
   br label %331
 
 331:                                              ; preds = %.preheader524, %331
@@ -1896,26 +1880,19 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   %345 = getelementptr inbounds nuw [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %344
   store i16 %342, ptr %345, align 2, !tbaa !14
   %indvars.iv.next768 = add nuw nsw i64 %indvars.iv767, 1
-  %exitcond772.not = icmp eq i64 %indvars.iv.next768, %wide.trip.count771
+  %exitcond772.not = icmp eq i64 %indvars.iv.next768, %188
   br i1 %exitcond772.not, label %.loopexit514, label %331, !llvm.loop !120
 
 346:                                              ; preds = %329
-  br i1 %280, label %.preheader520, label %.preheader522.preheader
-
-.preheader522.preheader:                          ; preds = %346
-  %umax778 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count779 = zext i32 %umax778 to i64
-  br label %.preheader522
+  br i1 %280, label %.preheader520, label %.preheader522
 
 .preheader520:                                    ; preds = %346
   %.not644 = icmp eq i32 %11, 0
-  %umax789 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count790 = zext i32 %umax789 to i64
   %wide.trip.count784 = zext i32 %11 to i64
   br label %.preheader519
 
-.preheader522:                                    ; preds = %.preheader522.preheader, %.preheader522
-  %indvars.iv773 = phi i64 [ 0, %.preheader522.preheader ], [ %indvars.iv.next774, %.preheader522 ]
+.preheader522:                                    ; preds = %346, %.preheader522
+  %indvars.iv773 = phi i64 [ %indvars.iv.next774, %.preheader522 ], [ 0, %346 ]
   %347 = load ptr, ptr %2, align 8, !tbaa !99
   %348 = getelementptr inbounds nuw i32, ptr %347, i64 %indvars.iv773
   %349 = load i32, ptr %348, align 4, !tbaa !69
@@ -1923,7 +1900,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   %indvars.iv.next774 = add nuw nsw i64 %indvars.iv773, 1
   %351 = getelementptr inbounds nuw [1048560 x i16], ptr @write_callback.ubuf, i64 0, i64 %indvars.iv773
   store i16 %350, ptr %351, align 2, !tbaa !14
-  %exitcond780.not = icmp eq i64 %indvars.iv.next774, %wide.trip.count779
+  %exitcond780.not = icmp eq i64 %indvars.iv.next774, %188
   br i1 %exitcond780.not, label %.loopexit514, label %.preheader522, !llvm.loop !121
 
 .preheader519:                                    ; preds = %.preheader520, %._crit_edge611
@@ -1950,11 +1927,11 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 ._crit_edge611:                                   ; preds = %.lr.ph610, %.preheader519
   %.10430.lcssa = phi i32 [ %.9429613, %.preheader519 ], [ %359, %.lr.ph610 ]
   %indvars.iv.next787 = add nuw nsw i64 %indvars.iv786, 1
-  %exitcond791.not = icmp eq i64 %indvars.iv.next787, %wide.trip.count790
+  %exitcond791.not = icmp eq i64 %indvars.iv.next787, %188
   br i1 %exitcond791.not, label %.loopexit514, label %.preheader519, !llvm.loop !123
 
 .loopexit514:                                     ; preds = %331, %.preheader522, %._crit_edge611, %296, %.preheader515, %._crit_edge622
-  %.6426 = phi i32 [ %.5425.lcssa, %._crit_edge622 ], [ %umax803, %.preheader515 ], [ %310, %296 ], [ %.10430.lcssa, %._crit_edge611 ], [ %umax778, %.preheader522 ], [ %343, %331 ]
+  %.6426 = phi i32 [ %.5425.lcssa, %._crit_edge622 ], [ %.0414, %.preheader515 ], [ %310, %296 ], [ %.10430.lcssa, %._crit_edge611 ], [ %.0414, %.preheader522 ], [ %343, %331 ]
   %360 = shl i32 %.6426, 1
   br i1 %32, label %361, label %.loopexit
 
@@ -1992,8 +1969,6 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br i1 %.not640, label %.loopexit531, label %.preheader532.us.preheader
 
 .preheader532.us.preheader:                       ; preds = %.preheader533
-  %umax736 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count737 = zext i32 %umax736 to i64
   %wide.trip.count731 = zext i32 %11 to i64
   br label %.preheader532.us
 
@@ -2019,12 +1994,10 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 
 ._crit_edge.us587:                                ; preds = %371
   %indvars.iv.next734 = add nuw nsw i64 %indvars.iv733, 1
-  %exitcond738.not = icmp eq i64 %indvars.iv.next734, %wide.trip.count737
+  %exitcond738.not = icmp eq i64 %indvars.iv.next734, %188
   br i1 %exitcond738.not, label %.loopexit531, label %.preheader532.us, !llvm.loop !126
 
 .preheader530:                                    ; preds = %370
-  %umax747 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count748 = zext i32 %umax747 to i64
   %wide.trip.count742 = zext i32 %11 to i64
   br label %.preheader529
 
@@ -2052,7 +2025,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 ._crit_edge:                                      ; preds = %.lr.ph592, %.preheader529
   %.12432.lcssa = phi i32 [ %.11431593, %.preheader529 ], [ %386, %.lr.ph592 ]
   %indvars.iv.next745 = add nuw nsw i64 %indvars.iv744, 1
-  %exitcond749.not = icmp eq i64 %indvars.iv.next745, %wide.trip.count748
+  %exitcond749.not = icmp eq i64 %indvars.iv.next745, %188
   br i1 %exitcond749.not, label %.loopexit531, label %.preheader529, !llvm.loop !128
 
 .loopexit531:                                     ; preds = %._crit_edge.us587, %._crit_edge, %.preheader533
@@ -2162,8 +2135,6 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br i1 %.not638, label %.loopexit537, label %.preheader538.us.preheader
 
 .preheader538.us.preheader:                       ; preds = %.preheader539
-  %umax714 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count715 = zext i32 %umax714 to i64
   %wide.trip.count709 = zext i32 %11 to i64
   br label %.preheader538.us
 
@@ -2190,15 +2161,13 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 
 ._crit_edge.us571:                                ; preds = %436
   %indvars.iv.next712 = add nuw nsw i64 %indvars.iv711, 1
-  %exitcond716.not = icmp eq i64 %indvars.iv.next712, %wide.trip.count715
+  %exitcond716.not = icmp eq i64 %indvars.iv.next712, %188
   br i1 %exitcond716.not, label %.loopexit537, label %.preheader538.us, !llvm.loop !133
 
 .preheader536:                                    ; preds = %435
   br i1 %.not638, label %.loopexit537, label %.preheader535.us.preheader
 
 .preheader535.us.preheader:                       ; preds = %.preheader536
-  %umax725 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count726 = zext i32 %umax725 to i64
   %wide.trip.count720 = zext i32 %11 to i64
   br label %.preheader535.us
 
@@ -2226,7 +2195,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 
 ._crit_edge.us579:                                ; preds = %445
   %indvars.iv.next723 = add nuw nsw i64 %indvars.iv722, 1
-  %exitcond727.not = icmp eq i64 %indvars.iv.next723, %wide.trip.count726
+  %exitcond727.not = icmp eq i64 %indvars.iv.next723, %188
   br i1 %exitcond727.not, label %.loopexit537, label %.preheader535.us, !llvm.loop !135
 
 .loopexit537:                                     ; preds = %._crit_edge.us571, %._crit_edge.us579, %.preheader536, %.preheader539
@@ -2242,8 +2211,6 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
   br i1 %.not635, label %.loopexit544, label %.preheader545.us.preheader
 
 .preheader545.us.preheader:                       ; preds = %.preheader546
-  %umax689 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count690 = zext i32 %umax689 to i64
   %wide.trip.count684 = zext i32 %11 to i64
   br label %.preheader545.us
 
@@ -2269,15 +2236,13 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 
 ._crit_edge.us557:                                ; preds = %457
   %indvars.iv.next687 = add nuw nsw i64 %indvars.iv686, 1
-  %exitcond691.not = icmp eq i64 %indvars.iv.next687, %wide.trip.count690
+  %exitcond691.not = icmp eq i64 %indvars.iv.next687, %188
   br i1 %exitcond691.not, label %.loopexit544, label %.preheader545.us, !llvm.loop !137
 
 .preheader543:                                    ; preds = %456
   br i1 %.not635, label %.loopexit544, label %.preheader542.us.preheader
 
 .preheader542.us.preheader:                       ; preds = %.preheader543
-  %umax700 = call i32 @llvm.umax.i32(i32 %.0414, i32 1)
-  %wide.trip.count701 = zext i32 %umax700 to i64
   %wide.trip.count695 = zext i32 %11 to i64
   br label %.preheader542.us
 
@@ -2303,7 +2268,7 @@ define internal range(i32 0, 2) i32 @write_callback(ptr readnone captures(none) 
 
 ._crit_edge.us562:                                ; preds = %465
   %indvars.iv.next698 = add nuw nsw i64 %indvars.iv697, 1
-  %exitcond702.not = icmp eq i64 %indvars.iv.next698, %wide.trip.count701
+  %exitcond702.not = icmp eq i64 %indvars.iv.next698, %188
   br i1 %exitcond702.not, label %.loopexit544, label %.preheader542.us, !llvm.loop !139
 
 .loopexit544:                                     ; preds = %._crit_edge.us557, %._crit_edge.us562, %.preheader543, %.preheader546
@@ -4307,9 +4272,6 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -852,7 +852,6 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc39, %_ZNSt6ve
   %24 = trunc i64 %10 to i32
   %25 = add nsw i32 %24, -1
   %26 = load ptr, ptr %3, align 8, !tbaa !4
-  %umax = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
   br label %35
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -947,7 +946,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge66, %34
   %58 = getelementptr inbounds nuw double, ptr %26, i64 %.03163
   store double %.135.lcssa, ptr %58, align 8, !tbaa !34
   %59 = add nuw i64 %.03163, 1
-  %exitcond73.not = icmp eq i64 %59, %umax
+  %exitcond73.not = icmp eq i64 %59, %23
   br i1 %exitcond73.not, label %._crit_edge66, label %35, !llvm.loop !48
 }
 
@@ -1038,7 +1037,6 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEC
   %31 = load ptr, ptr @_ZN8LightGBM13DCGCalculator11label_gain_E, align 8
   %32 = load ptr, ptr @_ZN8LightGBM13DCGCalculator9discount_E, align 8
   %33 = load ptr, ptr %4, align 8, !tbaa !4
-  %umax = tail call i64 @llvm.umax.i64(i64 %30, i64 1)
   br label %37
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1081,7 +1079,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge65, %36
   %42 = getelementptr inbounds nuw double, ptr %33, i64 %.03363
   store double %.1.lcssa, ptr %42, align 8, !tbaa !34
   %43 = add nuw i64 %.03363, 1
-  %exitcond76.not = icmp eq i64 %43, %umax
+  %exitcond76.not = icmp eq i64 %43, %30
   br i1 %exitcond76.not, label %._crit_edge65, label %37, !llvm.loop !51
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59

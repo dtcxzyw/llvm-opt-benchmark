@@ -5369,11 +5369,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %86, %_ZNSt6vectorIi
   store i32 %88, ptr %89, align 8, !tbaa !42
   store i32 0, ptr %87, align 4, !tbaa !59
   %.not84 = icmp eq ptr %.sroa.14.3, %.sroa.048.5
-  br i1 %.not84, label %._crit_edge83, label %.lr.ph82.preheader
-
-.lr.ph82.preheader:                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %71, i64 1)
-  br label %.lr.ph82
+  br i1 %.not84, label %._crit_edge83, label %.lr.ph82
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %_ZNSt6vectorIiSaIiEED2Ev.exit
   invoke void @_ZN8LightGBM8Metadata21CalculateQueryWeightsEv(ptr noundef nonnull align 8 dereferenceable(300) %0)
@@ -5390,16 +5386,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %86, %_ZNSt6vectorIi
           cleanup
   br label %105
 
-.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
-  %94 = phi i32 [ %97, %.lr.ph82 ], [ 0, %.lr.ph82.preheader ]
-  %.081 = phi i64 [ %98, %.lr.ph82 ], [ 0, %.lr.ph82.preheader ]
+.lr.ph82:                                         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %.lr.ph82
+  %94 = phi i32 [ %97, %.lr.ph82 ], [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %.081 = phi i64 [ %98, %.lr.ph82 ], [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %95 = getelementptr inbounds nuw i32, ptr %.sroa.048.5, i64 %.081
   %96 = load i32, ptr %95, align 4, !tbaa !59
   %97 = add nsw i32 %96, %94
   %98 = add nuw i64 %.081, 1
   %99 = getelementptr inbounds nuw i32, ptr %87, i64 %98
   store i32 %97, ptr %99, align 4, !tbaa !59
-  %exitcond.not = icmp eq i64 %98, %umax
+  %exitcond.not = icmp eq i64 %98, %71
   br i1 %exitcond.not, label %._crit_edge83, label %.lr.ph82, !llvm.loop !120
 
 100:                                              ; preds = %._crit_edge83
@@ -6659,7 +6655,6 @@ define internal void @_ZN8LightGBM8Metadata16CheckOrPartitionEiRKSt6vectorIiSaIi
   %32 = ashr exact i64 %31, 2
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %34 = load ptr, ptr %33, align 8, !tbaa !95
-  %umax = call i64 @llvm.umax.i64(i64 %32, i64 1)
   %35 = sext i32 %19 to i64
   %36 = add nsw i32 %18, 1
   br label %.lr.ph.us
@@ -6682,7 +6677,7 @@ define internal void @_ZN8LightGBM8Metadata16CheckOrPartitionEiRKSt6vectorIiSaIi
   %47 = getelementptr double, ptr %40, i64 %.025.us
   store double %46, ptr %47, align 8, !tbaa !93
   %48 = add nuw i64 %.025.us, 1
-  %exitcond.not = icmp eq i64 %48, %umax
+  %exitcond.not = icmp eq i64 %48, %32
   br i1 %exitcond.not, label %._crit_edge.us, label %41, !llvm.loop !125
 
 ._crit_edge.us:                                   ; preds = %41

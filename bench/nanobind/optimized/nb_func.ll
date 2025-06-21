@@ -4340,19 +4340,19 @@ define hidden noundef ptr @_ZN8nanobind6detail15nb_func_get_docEP7_objectPv(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = trunc i64 %6 to i32
-  %8 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
-  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
-  %.not.i = icmp eq ptr %8, %9
-  br i1 %.not.i, label %_ZN8nanobind6detail6Buffer5clearEv.exit, label %10
+  %7 = load ptr, ptr @_ZN8nanobind6detail3bufE, align 8
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 16), align 8
+  %.not.i = icmp eq ptr %7, %8
+  br i1 %.not.i, label %_ZN8nanobind6detail6Buffer5clearEv.exit, label %9
 
-10:                                               ; preds = %2
-  store i8 0, ptr %8, align 1
+9:                                                ; preds = %2
+  store i8 0, ptr %7, align 1
   br label %_ZN8nanobind6detail6Buffer5clearEv.exit
 
-_ZN8nanobind6detail6Buffer5clearEv.exit:          ; preds = %2, %10
-  %.not63 = icmp eq i32 %7, 0
+_ZN8nanobind6detail6Buffer5clearEv.exit:          ; preds = %2, %9
+  %10 = and i64 %6, 4294967295
+  %.not63 = icmp eq i64 %10, 0
   br i1 %.not63, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN8nanobind6detail6Buffer5clearEv.exit
@@ -4488,8 +4488,6 @@ _ZN8nanobind6detail6Buffer3putEc.exit31:          ; preds = %_ZN8nanobind6detail
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 22
   store ptr %68, ptr getelementptr inbounds nuw (i8, ptr @_ZN8nanobind6detail3bufE, i64 8), align 8
   store i8 0, ptr %68, align 1
-  %umax = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
-  %wide.trip.count68 = zext i32 %umax to i64
   br label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %149
@@ -4658,7 +4656,7 @@ _ZN8nanobind6detail6Buffer3putEc.exit51:          ; preds = %_ZN8nanobind6detail
   br label %149
 
 149:                                              ; preds = %_ZN8nanobind6detail6Buffer3putEc.exit51, %_ZN8nanobind6detail6Buffer3putILm5EEEvRAT__Kc.exit44
-  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
+  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
   br i1 %exitcond69.not, label %.loopexit, label %.lr.ph62, !llvm.loop !56
 
 .loopexit:                                        ; preds = %149, %_ZN8nanobind6detail6Buffer5clearEv.exit, %_ZN8nanobind6detail6Buffer3putEc.exit31, %._crit_edge

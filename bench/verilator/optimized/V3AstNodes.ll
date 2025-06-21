@@ -133840,16 +133840,15 @@ _ZNK17AstNodeArrayDType13elementsConstEv.exit.i:  ; preds = %_ZN7AstNode11privat
 
 .lr.ph.i:                                         ; preds = %_ZNK17AstNodeArrayDType13elementsConstEv.exit.i
   %221 = sub i32 %220, %219
-  %222 = getelementptr inbounds nuw i8, ptr %88, i64 168
-  %223 = getelementptr inbounds nuw i8, ptr %88, i64 160
-  %224 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %225 = tail call i32 @llvm.umax.i32(i32 %221, i32 1)
-  %umax.i = sext i32 %225 to i64
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr inbounds nuw i8, ptr %88, i64 168
+  %224 = getelementptr inbounds nuw i8, ptr %88, i64 160
+  %225 = getelementptr inbounds nuw i8, ptr %88, i64 24
   br label %228
 
 226:                                              ; preds = %_ZNK12AstInitArray23getIndexDefaultedValuepEm.exit107.i
   %227 = add nuw i64 %.059141.i, 1
-  %exitcond.not.i = icmp eq i64 %227, %umax.i
+  %exitcond.not.i = icmp eq i64 %227, %222
   br i1 %exitcond.not.i, label %.thread112, label %228, !llvm.loop !703
 
 228:                                              ; preds = %226, %.lr.ph.i
@@ -133895,13 +133894,13 @@ _ZNK12AstInitArray14getIndexValuepEm.exit.thread.i.i: ; preds = %_ZNK12AstInitAr
 
 _ZNK12AstInitArray23getIndexDefaultedValuepEm.exit.i: ; preds = %_ZNK12AstInitArray14getIndexValuepEm.exit.thread.i.i, %_ZNK12AstInitArray14getIndexValuepEm.exit.i.i
   %.0.i.i = phi ptr [ %240, %_ZNK12AstInitArray14getIndexValuepEm.exit.i.i ], [ %241, %_ZNK12AstInitArray14getIndexValuepEm.exit.thread.i.i ]
-  %242 = load ptr, ptr %222, align 8, !tbaa !488
+  %242 = load ptr, ptr %223, align 8, !tbaa !488
   %.not10.i.i.i.i.i92.i = icmp eq ptr %242, null
   br i1 %.not10.i.i.i.i.i92.i, label %_ZNK12AstInitArray14getIndexValuepEm.exit.thread.i106.i, label %.lr.ph.i.i.i.i.i93.i
 
 .lr.ph.i.i.i.i.i93.i:                             ; preds = %_ZNK12AstInitArray23getIndexDefaultedValuepEm.exit.i, %.lr.ph.i.i.i.i.i93.i
   %.012.i.i.i.i.i94.i = phi ptr [ %.1.i.i.i.i.i99.i, %.lr.ph.i.i.i.i.i93.i ], [ %242, %_ZNK12AstInitArray23getIndexDefaultedValuepEm.exit.i ]
-  %.0811.i.i.i.i.i95.i = phi ptr [ %.19.i.i.i.i.i96.i, %.lr.ph.i.i.i.i.i93.i ], [ %223, %_ZNK12AstInitArray23getIndexDefaultedValuepEm.exit.i ]
+  %.0811.i.i.i.i.i95.i = phi ptr [ %.19.i.i.i.i.i96.i, %.lr.ph.i.i.i.i.i93.i ], [ %224, %_ZNK12AstInitArray23getIndexDefaultedValuepEm.exit.i ]
   %243 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i94.i, i64 32
   %244 = load i64, ptr %243, align 8, !tbaa !22
   %245 = icmp ult i64 %244, %.059141.i
@@ -133913,7 +133912,7 @@ _ZNK12AstInitArray23getIndexDefaultedValuepEm.exit.i: ; preds = %_ZNK12AstInitAr
   br i1 %.not.i.i.i.i.i100.i, label %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i101.i, label %.lr.ph.i.i.i.i.i93.i, !llvm.loop !704
 
 _ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i101.i: ; preds = %.lr.ph.i.i.i.i.i93.i
-  %246 = icmp eq ptr %.19.i.i.i.i.i96.i, %223
+  %246 = icmp eq ptr %.19.i.i.i.i.i96.i, %224
   br i1 %246, label %_ZNK12AstInitArray14getIndexValuepEm.exit.thread.i106.i, label %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i.i102.i
 
 _ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i.i102.i: ; preds = %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i101.i
@@ -133931,7 +133930,7 @@ _ZNK12AstInitArray14getIndexValuepEm.exit.i103.i: ; preds = %_ZNKSt3mapImP11AstI
   br i1 %.not.i104.i, label %_ZNK12AstInitArray14getIndexValuepEm.exit.thread.i106.i, label %_ZNK12AstInitArray23getIndexDefaultedValuepEm.exit107.i
 
 _ZNK12AstInitArray14getIndexValuepEm.exit.thread.i106.i: ; preds = %_ZNK12AstInitArray14getIndexValuepEm.exit.i103.i, %_ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.i.i102.i, %_ZNKSt8_Rb_treeImSt4pairIKmP11AstInitItemESt10_Select1stIS4_ESt4lessImESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i101.i, %_ZNK12AstInitArray23getIndexDefaultedValuepEm.exit.i
-  %254 = load ptr, ptr %224, align 8, !tbaa !4
+  %254 = load ptr, ptr %225, align 8, !tbaa !4
   br label %_ZNK12AstInitArray23getIndexDefaultedValuepEm.exit107.i
 
 _ZNK12AstInitArray23getIndexDefaultedValuepEm.exit107.i: ; preds = %_ZNK12AstInitArray14getIndexValuepEm.exit.thread.i106.i, %_ZNK12AstInitArray14getIndexValuepEm.exit.i103.i
@@ -236842,9 +236841,6 @@ declare i64 @llvm.umax.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #36
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #34

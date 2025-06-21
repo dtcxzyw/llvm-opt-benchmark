@@ -22985,12 +22985,11 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit.thread: ; preds = %67, 
   %92 = ptrtoint ptr %90 to i64
   %93 = sub i64 %91, %92
   %94 = ashr exact i64 %93, 3
-  %umax.i = call i64 @llvm.umax.i64(i64 %94, i64 1)
   br label %.lr.ph.i
 
 95:                                               ; preds = %.lr.ph.i
   %96 = add nuw i64 %.010.i, 1
-  %exitcond.not.i = icmp eq i64 %96, %umax.i
+  %exitcond.not.i = icmp eq i64 %96, %94
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !196
 
 .lr.ph.i:                                         ; preds = %95, %.lr.ph.preheader.i
@@ -24013,12 +24012,11 @@ define noundef i32 @_ZN7glslang13TIntermediate15checkLocationRTEii(ptr noundef n
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %.lr.ph
 
 14:                                               ; preds = %.lr.ph
   %15 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %15, %umax
+  %exitcond.not = icmp eq i64 %15, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !196
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
@@ -24350,14 +24348,10 @@ define noundef i32 @_ZN7glslang13TIntermediate14addUsedOffsetsEiii(ptr noundef n
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 4
   %.not = icmp eq ptr %9, %10
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %4
-  %umax = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK7glslang12TOffsetRange7overlapERKS0_.exit.thread
-  %.039 = phi i64 [ %28, %_ZNK7glslang12TOffsetRange7overlapERKS0_.exit.thread ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %_ZNK7glslang12TOffsetRange7overlapERKS0_.exit.thread
+  %.039 = phi i64 [ %28, %_ZNK7glslang12TOffsetRange7overlapERKS0_.exit.thread ], [ 0, %4 ]
   %15 = getelementptr inbounds %"struct.glslang::TOffsetRange", ptr %10, i64 %.039
   %16 = load i32, ptr %15, align 4
   %.not.i.i = icmp sge i32 %1, %16
@@ -24383,7 +24377,7 @@ _ZNK7glslang12TOffsetRange7overlapERKS0_.exit:    ; preds = %.lr.ph
 
 _ZNK7glslang12TOffsetRange7overlapERKS0_.exit.thread: ; preds = %.lr.ph, %_ZNK7glslang12TOffsetRange7overlapERKS0_.exit
   %28 = add nuw i64 %.039, 1
-  %exitcond.not = icmp eq i64 %28, %umax
+  %exitcond.not = icmp eq i64 %28, %14
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !215
 
 ._crit_edge:                                      ; preds = %_ZNK7glslang12TOffsetRange7overlapERKS0_.exit.thread
@@ -24671,19 +24665,15 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN7glslang13TIntermediate18addXf
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 3
   %.not = icmp eq ptr %31, %32
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %2
-  %umax = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 37:                                               ; preds = %.lr.ph
   %38 = add nuw i64 %.051, 1
-  %exitcond.not = icmp eq i64 %38, %umax
+  %exitcond.not = icmp eq i64 %38, %36
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !224
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %37
-  %.051 = phi i64 [ %38, %37 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2, %37
+  %.051 = phi i64 [ %38, %37 ], [ 0, %2 ]
   %39 = getelementptr inbounds %"struct.glslang::TRange", ptr %32, i64 %.051
   %40 = load i32, ptr %39, align 4
   %.not.i = icmp sge i32 %29, %40

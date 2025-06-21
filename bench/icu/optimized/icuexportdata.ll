@@ -2169,7 +2169,6 @@ _ZNSt6vectorItSaItEE6insertEN9__gnu_cxx17__normal_iteratorIPKtS1_EEOt.exit: ; pr
   %185 = ptrtoint ptr %183 to i64
   %186 = ptrtoint ptr %184 to i64
   %187 = sub i64 %185, %186
-  %umax = call i64 @llvm.umax.i64(i64 %182, i64 1)
   br label %188
 
 188:                                              ; preds = %.lr.ph140, %_ZSteqItSaItEEbRKSt6vectorIT_T0_ES6_.exit.thread113
@@ -2205,11 +2204,11 @@ _ZSteqItSaItEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %197
 
 _ZSteqItSaItEEbRKSt6vectorIT_T0_ES6_.exit.thread113: ; preds = %188, %_ZSteqItSaItEEbRKSt6vectorIT_T0_ES6_.exit
   %198 = add nuw i64 %.049139, 1
-  %exitcond148.not = icmp eq i64 %198, %umax
+  %exitcond148.not = icmp eq i64 %198, %182
   br i1 %exitcond148.not, label %.critedge, label %188, !llvm.loop !56
 
 .critedge:                                        ; preds = %_ZSteqItSaItEEbRKSt6vectorIT_T0_ES6_.exit.thread113, %_ZNSt6vectorItSaItEE6insertEN9__gnu_cxx17__normal_iteratorIPKtS1_EEOt.exit
-  %.049.lcssa = phi i64 [ 0, %_ZNSt6vectorItSaItEE6insertEN9__gnu_cxx17__normal_iteratorIPKtS1_EEOt.exit ], [ %umax, %_ZSteqItSaItEEbRKSt6vectorIT_T0_ES6_.exit.thread113 ]
+  %.049.lcssa = phi i64 [ 0, %_ZNSt6vectorItSaItEE6insertEN9__gnu_cxx17__normal_iteratorIPKtS1_EEOt.exit ], [ %182, %_ZSteqItSaItEEbRKSt6vectorIT_T0_ES6_.exit.thread113 ]
   %199 = load ptr, ptr %41, align 8, !tbaa !57
   %.not.i91 = icmp eq ptr %177, %199
   br i1 %.not.i91, label %222, label %200

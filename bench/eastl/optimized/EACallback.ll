@@ -801,7 +801,6 @@ for.body.preheader:                               ; preds = %_ZN2EA4StdC15Callba
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -851,7 +850,7 @@ _ZN2EA4StdC8Callback4StopEv.exit:                 ; preds = %if.then7, %if.then.
 
 for.inc:                                          ; preds = %for.body, %_ZN2EA4StdC8Callback4StopEv.exit
   %inc = add nuw i64 %i.010, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
 
 for.end.loopexit:                                 ; preds = %for.inc
@@ -1420,7 +1419,6 @@ if.then:                                          ; preds = %entry
 
 for.body.preheader:                               ; preds = %if.then
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.else
@@ -1446,7 +1444,7 @@ if.else:                                          ; preds = %for.body
   %or.cond = select i1 %tobool7, i1 %cmp8, i1 false
   %spec.select = select i1 %or.cond, i64 %i.038, i64 %found_empty.039
   %inc = add nuw i64 %i.038, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %if.then12, label %for.body, !llvm.loop !9
 
 if.then12:                                        ; preds = %if.else, %if.then6
@@ -1663,7 +1661,6 @@ for.body.preheader:                               ; preds = %if.then3
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -1675,7 +1672,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %i.012, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %if.end12.thread, label %for.body, !llvm.loop !10
 
 if.end12.thread:                                  ; preds = %for.inc, %if.then3, %if.then, %entry
@@ -1784,9 +1781,6 @@ declare noundef i32 @_ZN2EA4StdC24RandomLinearCongruential19RandomUint32UniformE
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #17

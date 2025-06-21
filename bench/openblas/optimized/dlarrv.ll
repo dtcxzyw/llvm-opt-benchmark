@@ -104,10 +104,9 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %80 = shl nuw nsw i64 %umax, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, i8 0, i64 %80, i1 false), !tbaa !7
   %81 = mul i32 %69, 7
-  %82 = tail call i32 @llvm.umax.i32(i32 %81, i32 1)
-  %umax1079 = zext i32 %82 to i64
-  %83 = shl nuw nsw i64 %umax1079, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %23, i8 0, i64 %83, i1 false), !tbaa !3
+  %82 = zext i32 %81 to i64
+  %83 = shl nuw nsw i64 %82, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %83, i1 false), !tbaa !3
   %.pre = load i32, ptr %7, align 4, !tbaa !3
   %84 = load i32, ptr %8, align 4, !tbaa !3
   %85 = tail call i32 @llvm.smax.i32(i32 %84, i32 2)

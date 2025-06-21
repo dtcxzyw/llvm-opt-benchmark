@@ -20,7 +20,7 @@ define hidden void @_ZN4LIEF2PE23init_c_data_directoriesEP11Pe_Binary_tPNS0_6Bin
   %8 = ptrtoint ptr %4 to i64
   %9 = sub i64 %7, %8
   %10 = add i64 %9, 8
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #5
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %11, ptr %12, align 8, !tbaa !13
   %.not = icmp eq ptr %6, %4
@@ -28,7 +28,6 @@ define hidden void @_ZN4LIEF2PE23init_c_data_directoriesEP11Pe_Binary_tPNS0_6Bin
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph: ; preds = %2
   %13 = ashr exact i64 %9, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
 
 ._crit_edge:                                      ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, %2
@@ -38,7 +37,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14defau
 
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit: ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %.021 = phi i64 [ 0, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph ], [ %24, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit ]
-  %15 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #5
+  %15 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #4
   %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %.021
   store ptr %15, ptr %16, align 8, !tbaa !27
   %17 = getelementptr inbounds %"class.std::unique_ptr.107", ptr %4, i64 %.021
@@ -51,7 +50,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14defau
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %22, ptr %23, align 4, !tbaa !39
   %24 = add nuw i64 %.021, 1
-  %exitcond.not = icmp eq i64 %24, %umax
+  %exitcond.not = icmp eq i64 %24, %13
   br i1 %exitcond.not, label %._crit_edge, label %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_2PE13DataDirectoryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, !llvm.loop !40
 }
 
@@ -72,13 +71,13 @@ define hidden void @_ZN4LIEF2PE24destroy_data_directoriesEP11Pe_Binary_t(ptr nou
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %5 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %3, %1 ]
-  tail call void @free(ptr noundef %5) #6
+  tail call void @free(ptr noundef %5) #5
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %6 = phi ptr [ %9, %.lr.ph ], [ %4, %1 ]
   %.08 = phi i64 [ %7, %.lr.ph ], [ 0, %1 ]
-  tail call void @free(ptr noundef nonnull %6) #6
+  tail call void @free(ptr noundef nonnull %6) #5
   %7 = add i64 %.08, 1
   %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !27
@@ -89,16 +88,12 @@ define hidden void @_ZN4LIEF2PE24destroy_data_directoriesEP11Pe_Binary_t(ptr nou
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #4
-
 attributes #0 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind allocsize(0) }
-attributes #6 = { nounwind }
+attributes #4 = { nounwind allocsize(0) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

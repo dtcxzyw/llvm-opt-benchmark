@@ -908,7 +908,7 @@ define internal fastcc void @virtinput_cfg_bits(ptr noundef nonnull readonly cap
   %28 = load i8, ptr %8, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %93, label %30
+  br i1 %29, label %92, label %30
 
 30:                                               ; preds = %5
   %31 = zext i8 %28 to i32
@@ -917,7 +917,7 @@ define internal fastcc void @virtinput_cfg_bits(ptr noundef nonnull readonly cap
   %34 = zext i8 %28 to i64
   %35 = call noalias align 8 ptr @__kmalloc(i64 noundef %34, i32 noundef 3520) #12
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %93, label %37
+  br i1 %36, label %92, label %37
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr %0, align 8
@@ -970,47 +970,46 @@ define internal fastcc void @virtinput_cfg_bits(ptr noundef nonnull readonly cap
   br i1 %66, label %67, label %49, !llvm.loop !11
 
 67:                                               ; preds = %64
-  %68 = call i32 @llvm.umax.i32(i32 %33, i32 1)
-  %69 = zext nneg i32 %68 to i64
-  br label %70
+  %68 = zext nneg i32 %33 to i64
+  br label %69
 
-70:                                               ; preds = %83, %67
-  %71 = phi i64 [ 0, %67 ], [ %84, %83 ]
-  %72 = lshr i64 %71, 3
-  %73 = and i64 %72, 536870911
-  %74 = getelementptr i8, ptr %35, i64 %73
-  %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = trunc i64 %71 to i32
-  %78 = and i32 %77, 7
-  %79 = shl nuw nsw i32 1, %78
-  %80 = and i32 %79, %76
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %83, label %82
+69:                                               ; preds = %82, %67
+  %70 = phi i64 [ 0, %67 ], [ %83, %82 ]
+  %71 = lshr i64 %70, 3
+  %72 = and i64 %71, 536870911
+  %73 = getelementptr i8, ptr %35, i64 %72
+  %74 = load i8, ptr %73, align 1
+  %75 = zext i8 %74 to i32
+  %76 = trunc i64 %70 to i32
+  %77 = and i32 %76, 7
+  %78 = shl nuw nsw i32 1, %77
+  %79 = and i32 %78, %75
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %82, label %81
 
-82:                                               ; preds = %70
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 %71) #10, !srcloc !13
-  br label %83
+81:                                               ; preds = %69
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %3, i64 %70) #10, !srcloc !13
+  br label %82
 
-83:                                               ; preds = %82, %70
-  %84 = add nuw nsw i64 %71, 1
-  %85 = icmp eq i64 %84, %69
-  br i1 %85, label %86, label %70, !llvm.loop !21
+82:                                               ; preds = %81, %69
+  %83 = add nuw nsw i64 %70, 1
+  %84 = icmp eq i64 %83, %68
+  br i1 %84, label %85, label %69, !llvm.loop !21
 
-86:                                               ; preds = %83
+85:                                               ; preds = %82
   call void @kfree(ptr noundef nonnull %35) #10
-  %87 = icmp eq i32 %1, 17
-  br i1 %87, label %88, label %93
+  %86 = icmp eq i32 %1, 17
+  br i1 %86, label %87, label %92
 
-88:                                               ; preds = %86
-  %89 = zext nneg i32 %2 to i64
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %92, i64 %89) #10, !srcloc !13
-  br label %93
+87:                                               ; preds = %85
+  %88 = zext nneg i32 %2 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %91, i64 %88) #10, !srcloc !13
+  br label %92
 
-93:                                               ; preds = %88, %86, %30, %5
+92:                                               ; preds = %87, %85, %30, %5
   ret void
 }
 
@@ -1286,9 +1285,6 @@ declare i8 @llvm.umin.i8(i8, i8) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

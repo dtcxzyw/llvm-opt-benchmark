@@ -12204,8 +12204,6 @@ define internal i32 @tt_var_load_item_variation_store(ptr noundef readonly captu
 
 97:                                               ; preds = %._crit_edge191
   store i32 %22, ptr %2, align 8, !tbaa !513
-  %umax = call i32 @llvm.umax.i32(i32 %22, i32 1)
-  %wide.trip.count217 = zext nneg i32 %umax to i64
   br label %98
 
 98:                                               ; preds = %97, %153
@@ -12316,7 +12314,7 @@ define internal i32 @tt_var_load_item_variation_store(ptr noundef readonly captu
 153:                                              ; preds = %151
   store i32 %107, ptr %100, align 8, !tbaa !518
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
+  %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count
   br i1 %exitcond218.not, label %.thread173, label %98, !llvm.loop !540
 
 .thread173.sink.split:                            ; preds = %151, %121, %116, %142, %50, %44, %24, %15

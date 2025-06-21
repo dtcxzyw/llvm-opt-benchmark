@@ -3919,17 +3919,14 @@ _ZN4llvh9StringRefC2EPKc.exit19:                  ; preds = %_ZN6hermes3hbc21Sma
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit19, %_ZN6hermes3hbc21SmallStringTableEntryC2ERKNS_16StringTableEntryEj.exit
-  %cmp23.not = icmp eq i32 %and.i.i, 0
-  br i1 %cmp23.not, label %for.end, label %_ZN4llvh9StringRefC2EPKc.exit29.preheader
-
-_ZN4llvh9StringRefC2EPKc.exit29.preheader:        ; preds = %if.end
   %call3.lobit = lshr i64 %call3, 63
   %8 = trunc nuw nsw i64 %call3.lobit to i32
   %mul = shl nuw i32 %and.i.i, %8
-  br label %_ZN4llvh9StringRefC2EPKc.exit29
+  %cmp23.not = icmp eq i32 %and.i.i, 0
+  br i1 %cmp23.not, label %for.end, label %_ZN4llvh9StringRefC2EPKc.exit29
 
-_ZN4llvh9StringRefC2EPKc.exit29:                  ; preds = %_ZN4llvh9StringRefC2EPKc.exit29.preheader, %_ZN4llvh9StringRefC2EPKc.exit29
-  %i.024 = phi i32 [ %inc, %_ZN4llvh9StringRefC2EPKc.exit29 ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit29.preheader ]
+_ZN4llvh9StringRefC2EPKc.exit29:                  ; preds = %if.end, %_ZN4llvh9StringRefC2EPKc.exit29
+  %i.024 = phi i32 [ %inc, %_ZN4llvh9StringRefC2EPKc.exit29 ], [ 0, %if.end ]
   %add = add i32 %i.024, %entry2.sroa.0.0.extract.trunc
   tail call fastcc void @_ZN12_GLOBAL__N_112UsageCounter12appendRecordEN4llvh9StringRefEjj(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nonnull @.str.33, i64 17, i32 noundef %add, i32 noundef 1)
   %inc = add nuw i32 %i.024, 1

@@ -4956,7 +4956,6 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array16print_long_array17h022
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %umax100 = tail call i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 1)
   br i1 %20, label %_ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit.thread.us, label %.lr.ph.split
 
 _ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit.thread.us: ; preds = %.lr.ph, %48
@@ -4994,7 +4993,7 @@ _ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit.thread.us: ; preds
   br i1 %47, label %.thread75, label %48
 
 48:                                               ; preds = %46
-  %exitcond101.not = icmp eq i64 %39, %umax100
+  %exitcond101.not = icmp eq i64 %39, %.0.sroa.speculated.i
   br i1 %exitcond101.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit.thread.us
 
 ._crit_edge:                                      ; preds = %136, %48
@@ -5242,7 +5241,7 @@ _ZN11arrow_array5array5Array7is_null17hf1a084515c2f5d41E.exit.thread: ; preds = 
   br i1 %135, label %.thread75, label %136
 
 136:                                              ; preds = %134, %127
-  %exitcond99.not = icmp eq i64 %50, %umax100
+  %exitcond99.not = icmp eq i64 %50, %.0.sroa.speculated.i
   br i1 %exitcond99.not, label %._crit_edge, label %.lr.ph.split
 }
 
@@ -5604,7 +5603,6 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array16print_long_array17h0a6
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %umax99 = tail call i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 1)
   br i1 %20, label %_ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit.thread.us, label %.lr.ph.split
 
 _ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit.thread.us: ; preds = %.lr.ph, %45
@@ -5637,7 +5635,7 @@ _ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit.thread.us: ; preds
   br i1 %44, label %.thread74, label %45
 
 45:                                               ; preds = %43
-  %exitcond100.not = icmp eq i64 %39, %umax99
+  %exitcond100.not = icmp eq i64 %39, %.0.sroa.speculated.i
   br i1 %exitcond100.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit.thread.us
 
 ._crit_edge:                                      ; preds = %124, %45
@@ -5870,7 +5868,7 @@ _ZN11arrow_array5array5Array7is_null17h923570058f66850fE.exit.thread: ; preds = 
   br i1 %123, label %.thread74, label %124
 
 124:                                              ; preds = %122, %118
-  %exitcond98.not = icmp eq i64 %47, %umax99
+  %exitcond98.not = icmp eq i64 %47, %.0.sroa.speculated.i
   br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph.split
 }
 
@@ -6547,7 +6545,6 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array16print_long_array17h309
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %umax100 = tail call i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 1)
   br i1 %20, label %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread.us, label %.lr.ph.split
 
 _ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread.us: ; preds = %.lr.ph, %48
@@ -6585,7 +6582,7 @@ _ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread.us: ; preds
   br i1 %47, label %.thread75, label %48
 
 48:                                               ; preds = %46
-  %exitcond101.not = icmp eq i64 %39, %umax100
+  %exitcond101.not = icmp eq i64 %39, %.0.sroa.speculated.i
   br i1 %exitcond101.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread.us
 
 ._crit_edge:                                      ; preds = %136, %48
@@ -6833,7 +6830,7 @@ _ZN11arrow_array5array5Array7is_null17h3e5eaa9f656c7176E.exit.thread: ; preds = 
   br i1 %135, label %.thread75, label %136
 
 136:                                              ; preds = %134, %127
-  %exitcond99.not = icmp eq i64 %50, %umax100
+  %exitcond99.not = icmp eq i64 %50, %.0.sroa.speculated.i
   br i1 %exitcond99.not, label %._crit_edge, label %.lr.ph.split
 }
 
@@ -8140,7 +8137,6 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array16print_long_array17h429
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %umax99 = tail call i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 1)
   br i1 %20, label %_ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit.thread.us, label %.lr.ph.split
 
 _ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit.thread.us: ; preds = %.lr.ph, %45
@@ -8173,7 +8169,7 @@ _ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit.thread.us: ; preds
   br i1 %44, label %.thread74, label %45
 
 45:                                               ; preds = %43
-  %exitcond100.not = icmp eq i64 %39, %umax99
+  %exitcond100.not = icmp eq i64 %39, %.0.sroa.speculated.i
   br i1 %exitcond100.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit.thread.us
 
 ._crit_edge:                                      ; preds = %124, %45
@@ -8406,7 +8402,7 @@ _ZN11arrow_array5array5Array7is_null17h56a73ce117b5a740E.exit.thread: ; preds = 
   br i1 %123, label %.thread74, label %124
 
 124:                                              ; preds = %122, %118
-  %exitcond98.not = icmp eq i64 %47, %umax99
+  %exitcond98.not = icmp eq i64 %47, %.0.sroa.speculated.i
   br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph.split
 }
 
@@ -10028,7 +10024,6 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array16print_long_array17h81c
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %umax99 = tail call i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 1)
   br i1 %20, label %_ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit.thread.us, label %.lr.ph.split
 
 _ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit.thread.us: ; preds = %.lr.ph, %45
@@ -10061,7 +10056,7 @@ _ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit.thread.us: ; preds
   br i1 %44, label %.thread74, label %45
 
 45:                                               ; preds = %43
-  %exitcond100.not = icmp eq i64 %39, %umax99
+  %exitcond100.not = icmp eq i64 %39, %.0.sroa.speculated.i
   br i1 %exitcond100.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit.thread.us
 
 ._crit_edge:                                      ; preds = %124, %45
@@ -10294,7 +10289,7 @@ _ZN11arrow_array5array5Array7is_null17hf5af29eb426404fcE.exit.thread: ; preds = 
   br i1 %123, label %.thread74, label %124
 
 124:                                              ; preds = %122, %118
-  %exitcond98.not = icmp eq i64 %47, %umax99
+  %exitcond98.not = icmp eq i64 %47, %.0.sroa.speculated.i
   br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph.split
 }
 
@@ -12860,7 +12855,6 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array16print_long_array17hd39
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %umax99 = tail call i64 @llvm.umax.i64(i64 %.0.sroa.speculated.i, i64 1)
   br i1 %20, label %_ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit.thread.us, label %.lr.ph.split
 
 _ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit.thread.us: ; preds = %.lr.ph, %45
@@ -12893,7 +12887,7 @@ _ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit.thread.us: ; preds
   br i1 %44, label %.thread74, label %45
 
 45:                                               ; preds = %43
-  %exitcond100.not = icmp eq i64 %39, %umax99
+  %exitcond100.not = icmp eq i64 %39, %.0.sroa.speculated.i
   br i1 %exitcond100.not, label %._crit_edge, label %_ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit.thread.us
 
 ._crit_edge:                                      ; preds = %124, %45
@@ -13126,7 +13120,7 @@ _ZN11arrow_array5array5Array7is_null17hacf2d0b617f6bf2dE.exit.thread: ; preds = 
   br i1 %123, label %.thread74, label %124
 
 124:                                              ; preds = %122, %118
-  %exitcond98.not = icmp eq i64 %47, %umax99
+  %exitcond98.not = icmp eq i64 %47, %.0.sroa.speculated.i
   br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph.split
 }
 

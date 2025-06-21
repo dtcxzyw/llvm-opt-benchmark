@@ -5958,7 +5958,6 @@ gv_calloc.exit.i:                                 ; preds = %167
 
 gv_calloc.exit192.preheader.i:                    ; preds = %232
   %invariant.gep.i = getelementptr %struct.pointf_s, ptr %157, i64 %225
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %164, i64 1)
   br label %gv_calloc.exit192.i
 
 235:                                              ; preds = %232
@@ -5982,8 +5981,8 @@ gv_calloc.exit192.i:                              ; preds = %gv_calloc.exit192.i
   %245 = getelementptr inbounds nuw i8, ptr %241, i64 8
   store double %244, ptr %245, align 8, !tbaa !139
   %246 = add i64 %.0164206.i, %228
-  %247 = add nuw nsw i64 %.0163207.i, 1
-  %exitcond.not.i = icmp eq i64 %247, %umax.i
+  %247 = add nuw i64 %.0163207.i, 1
+  %exitcond.not.i = icmp eq i64 %247, %164
   br i1 %exitcond.not.i, label %.loopexit.i, label %gv_calloc.exit192.i, !llvm.loop !328
 
 248:                                              ; preds = %223
@@ -6003,7 +6002,6 @@ gv_calloc.exit192.i:                              ; preds = %gv_calloc.exit192.i
 
 gv_calloc.exit196.preheader.i:                    ; preds = %252
   %invariant.gep208.i = getelementptr %struct.pointf_s, ptr %157, i64 %225
-  %umax215.i = tail call i64 @llvm.umax.i64(i64 %spec.select190.i, i64 1)
   br label %gv_calloc.exit196.i
 
 255:                                              ; preds = %252
@@ -6025,8 +6023,8 @@ gv_calloc.exit196.i:                              ; preds = %gv_calloc.exit196.i
   %264 = fadd double %.sroa.12.0.copyload.i, %263
   %265 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store double %264, ptr %265, align 8, !tbaa !139
-  %266 = add nuw nsw i64 %.0210.i, 1
-  %exitcond216.not.i = icmp eq i64 %266, %umax215.i
+  %266 = add nuw i64 %.0210.i, 1
+  %exitcond216.not.i = icmp eq i64 %266, %spec.select190.i
   br i1 %exitcond216.not.i, label %.loopexit.i, label %gv_calloc.exit196.i, !llvm.loop !329
 
 .thread.i:                                        ; preds = %isRect.exit.thread.i, %isFilled.exit.i

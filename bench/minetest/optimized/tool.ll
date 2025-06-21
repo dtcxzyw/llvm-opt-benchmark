@@ -1016,7 +1016,6 @@ for.body.lr.ph:                                   ; preds = %_ZNSt13unordered_ma
   %uses.i = getelementptr inbounds nuw i8, ptr %cap, i64 60
   %18 = getelementptr inbounds nuw i8, ptr %name, i64 16
   %_M_string_length.i.i.i154 = getelementptr inbounds nuw i8, ptr %name, i64 8
-  %umax196 = call i32 @llvm.umax.i32(i32 %or7.i.i.i, i32 1)
   %_M_element_count.i = getelementptr inbounds nuw i8, ptr %cap, i64 24
   br label %for.body
 
@@ -1034,7 +1033,6 @@ for.body59.lr.ph:                                 ; preds = %for.cond.cleanup
   %damageGroups = getelementptr inbounds nuw i8, ptr %this, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %name60, i64 16
   %_M_string_length.i.i.i174 = getelementptr inbounds nuw i8, ptr %name60, i64 8
-  %umax198 = call i32 @llvm.umax.i32(i32 %or7.i.i.i115, i32 1)
   br label %for.body59
 
 for.body:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156, %for.body.lr.ph
@@ -1084,7 +1082,6 @@ _Z7readU32RSi.exit:                               ; preds = %invoke.cont17
 
 for.body27.preheader:                             ; preds = %_Z7readU32RSi.exit
   %or7.i.i.i131 = call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i.i130)
-  %umax = call i32 @llvm.umax.i32(i32 %or7.i.i.i131, i32 1)
   br label %for.body27
 
 for.cond.cleanup26:                               ; preds = %invoke.cont35, %_Z7readU32RSi.exit
@@ -1457,7 +1454,7 @@ invoke.cont35:                                    ; preds = %for.cond.i.i.i.i, %
   %retval.1.i.i = getelementptr inbounds nuw i8, ptr %call7.pn.i.i, i64 12
   store float %retval.0.i, ptr %retval.1.i.i, align 4, !tbaa !26
   %inc = add nuw i32 %i23.0190, 1
-  %exitcond.not = icmp eq i32 %inc, %umax
+  %exitcond.not = icmp eq i32 %inc, %or7.i.i.i131
   br i1 %exitcond.not, label %for.cond.cleanup26, label %for.body27, !llvm.loop !61
 
 lpad28:                                           ; preds = %for.body27
@@ -1531,7 +1528,7 @@ if.then.i.i152:                                   ; preds = %_ZN12ToolGroupCapD2
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %if.then.i.i152, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i153
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name) #26
   %inc51 = add nuw i32 %i.0192, 1
-  %exitcond197.not = icmp eq i32 %inc51, %umax196
+  %exitcond197.not = icmp eq i32 %inc51, %or7.i.i.i
   br i1 %exitcond197.not, label %for.cond.cleanup, label %for.body, !llvm.loop !62
 
 ehcleanup46:                                      ; preds = %lpad32.loopexit, %lpad32.loopexit.split-lp, %cleanup.action.i, %ehcleanup.thread.i, %lpad28, %_ZNSt10_HashtableIiSt4pairIKifESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit33.i.i.body, %lpad20, %lpad13
@@ -1595,7 +1592,7 @@ if.then.i.i172:                                   ; preds = %invoke.cont64
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176: ; preds = %if.then.i.i172, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i173
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name60) #26
   %inc70 = add nuw i32 %i55.0194, 1
-  %exitcond199.not = icmp eq i32 %inc70, %umax198
+  %exitcond199.not = icmp eq i32 %inc70, %or7.i.i.i115
   br i1 %exitcond199.not, label %for.cond.cleanup58, label %for.body59, !llvm.loop !64
 
 lpad61:                                           ; preds = %invoke.cont62, %for.body59
@@ -2863,7 +2860,6 @@ if.end48:                                         ; preds = %if.end27
   store ptr %17, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !87
   %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %colorStops, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !80
-  %umax = call i16 @llvm.umax.i16(i16 %rev.i.i.i, i16 1)
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont78
@@ -3002,7 +2998,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %color) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %key) #26
   %inc = add nuw i16 %i.0150, 1
-  %exitcond.not = icmp eq i16 %inc, %umax
+  %exitcond.not = icmp eq i16 %inc, %rev.i.i.i
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !92
 
 lpad75:                                           ; preds = %invoke.cont76, %if.end74
@@ -8286,12 +8282,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #25

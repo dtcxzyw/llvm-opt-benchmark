@@ -24130,7 +24130,6 @@ common.resume:                                    ; preds = %31, %23
 .lr.ph.i:                                         ; preds = %36
   %42 = sub i64 %41, %39
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %45
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -24156,7 +24155,7 @@ common.resume:                                    ; preds = %31, %23
   store i8 0, ptr %52, align 1, !noalias !4244
   %53 = add i64 %46, 1
   store i64 %53, ptr %12, align 8, !alias.scope !4246, !noalias !4249
-  %exitcond.not.i = icmp eq i64 %47, %umax.i
+  %exitcond.not.i = icmp eq i64 %47, %42
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %45
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %36, %._crit_edge.loopexit.i
@@ -25002,7 +25001,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hc15f894e66d
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hc15f894e66df5a6eE.exit
   %49 = sub i64 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %52
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -25028,7 +25026,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hc15f894e66d
   store i8 0, ptr %59, align 1, !noalias !4342
   %60 = add i64 %53, 1
   store i64 %60, ptr %13, align 8, !alias.scope !4344, !noalias !4347
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %49
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %52
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hc15f894e66df5a6eE.exit, %._crit_edge.loopexit.i
@@ -25192,7 +25190,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h1b63aa40d58
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h1b63aa40d589c00dE.exit
   %49 = sub i64 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %52
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -25218,7 +25215,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h1b63aa40d58
   store i8 0, ptr %59, align 1, !noalias !4377
   %60 = add i64 %53, 1
   store i64 %60, ptr %13, align 8, !alias.scope !4379, !noalias !4382
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %49
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %52
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h1b63aa40d589c00dE.exit, %._crit_edge.loopexit.i
@@ -25378,7 +25375,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hbde08a8835c
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hbde08a8835c753b5E.exit
   %46 = sub i64 %45, %43
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %49
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -25404,7 +25400,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hbde08a8835c
   store i8 0, ptr %56, align 1, !noalias !4412
   %57 = add i64 %50, 1
   store i64 %57, ptr %13, align 8, !alias.scope !4414, !noalias !4417
-  %exitcond.not.i = icmp eq i64 %51, %umax.i
+  %exitcond.not.i = icmp eq i64 %51, %46
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %49
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hbde08a8835c753b5E.exit, %._crit_edge.loopexit.i
@@ -25568,7 +25564,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17ha6ec25e664f
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17ha6ec25e664f6f9e3E.exit
   %49 = sub i64 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %52
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -25594,7 +25589,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17ha6ec25e664f
   store i8 0, ptr %59, align 1, !noalias !4447
   %60 = add i64 %53, 1
   store i64 %60, ptr %13, align 8, !alias.scope !4449, !noalias !4452
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %49
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %52
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17ha6ec25e664f6f9e3E.exit, %._crit_edge.loopexit.i
@@ -25758,7 +25753,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h8498ef714d8
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h8498ef714d8c2903E.exit
   %49 = sub i64 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %52
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -25784,7 +25778,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h8498ef714d8
   store i8 0, ptr %59, align 1, !noalias !4482
   %60 = add i64 %53, 1
   store i64 %60, ptr %13, align 8, !alias.scope !4484, !noalias !4487
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %49
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %52
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h8498ef714d8c2903E.exit, %._crit_edge.loopexit.i
@@ -25948,7 +25942,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hd424db3d50e
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hd424db3d50ee427cE.exit
   %49 = sub i64 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %52
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -25974,7 +25967,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hd424db3d50e
   store i8 0, ptr %59, align 1, !noalias !4517
   %60 = add i64 %53, 1
   store i64 %60, ptr %13, align 8, !alias.scope !4519, !noalias !4522
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %49
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %52
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hd424db3d50ee427cE.exit, %._crit_edge.loopexit.i
@@ -26138,7 +26131,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h08166995d8e
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h08166995d8ef9afaE.exit
   %49 = sub i64 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %52
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -26164,7 +26156,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h08166995d8e
   store i8 0, ptr %59, align 1, !noalias !4552
   %60 = add i64 %53, 1
   store i64 %60, ptr %13, align 8, !alias.scope !4554, !noalias !4557
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %49
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %52
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h08166995d8ef9afaE.exit, %._crit_edge.loopexit.i
@@ -26328,7 +26320,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h9a3a7c65b0c
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h9a3a7c65b0c29988E.exit
   %49 = sub i64 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %52
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -26354,7 +26345,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h9a3a7c65b0c
   store i8 0, ptr %59, align 1, !noalias !4587
   %60 = add i64 %53, 1
   store i64 %60, ptr %13, align 8, !alias.scope !4589, !noalias !4592
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %49
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %52
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h9a3a7c65b0c29988E.exit, %._crit_edge.loopexit.i
@@ -26518,7 +26509,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h49384ad518d
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h49384ad518d4dcf9E.exit
   %49 = sub i64 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %52
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -26544,7 +26534,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h49384ad518d
   store i8 0, ptr %59, align 1, !noalias !4622
   %60 = add i64 %53, 1
   store i64 %60, ptr %13, align 8, !alias.scope !4624, !noalias !4627
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %49
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %52
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h49384ad518d4dcf9E.exit, %._crit_edge.loopexit.i
@@ -26708,7 +26698,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h97863e6184b
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h97863e6184b11558E.exit
   %49 = sub i64 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %52
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -26734,7 +26723,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h97863e6184b
   store i8 0, ptr %59, align 1, !noalias !4657
   %60 = add i64 %53, 1
   store i64 %60, ptr %13, align 8, !alias.scope !4659, !noalias !4662
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %49
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %52
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h97863e6184b11558E.exit, %._crit_edge.loopexit.i
@@ -26894,7 +26883,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h17d149bd5db
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h17d149bd5db087c5E.exit
   %46 = sub i64 %45, %43
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %46, i64 1)
   br label %49
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -26920,7 +26908,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h17d149bd5db
   store i8 0, ptr %56, align 1, !noalias !4692
   %57 = add i64 %50, 1
   store i64 %57, ptr %13, align 8, !alias.scope !4694, !noalias !4697
-  %exitcond.not.i = icmp eq i64 %51, %umax.i
+  %exitcond.not.i = icmp eq i64 %51, %46
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %49
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h17d149bd5db087c5E.exit, %._crit_edge.loopexit.i
@@ -27084,7 +27072,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h7ec0cde0c2d
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h7ec0cde0c2d02820E.exit
   %49 = sub i64 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %52
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -27110,7 +27097,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h7ec0cde0c2d
   store i8 0, ptr %59, align 1, !noalias !4727
   %60 = add i64 %53, 1
   store i64 %60, ptr %13, align 8, !alias.scope !4729, !noalias !4732
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %49
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %52
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17h7ec0cde0c2d02820E.exit, %._crit_edge.loopexit.i
@@ -27274,7 +27261,6 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hfe73134ca34
 .lr.ph.i:                                         ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hfe73134ca34bc369E.exit
   %49 = sub i64 %48, %46
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %umax.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
   br label %52
 
 ._crit_edge.loopexit.i:                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit.i"
@@ -27300,7 +27286,7 @@ _ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hfe73134ca34
   store i8 0, ptr %59, align 1, !noalias !4762
   %60 = add i64 %53, 1
   store i64 %60, ptr %13, align 8, !alias.scope !4764, !noalias !4767
-  %exitcond.not.i = icmp eq i64 %54, %umax.i
+  %exitcond.not.i = icmp eq i64 %54, %49
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %52
 
 _ZN12polars_arrow2io3ipc5write9serialize13finish_buffer17h893008572c22d219E.exit: ; preds = %_ZN12polars_arrow2io3ipc5write9serialize24_write_compressed_buffer17hfe73134ca34bc369E.exit, %._crit_edge.loopexit.i
@@ -27347,7 +27333,6 @@ define hidden { i64, i64 } @_ZN12polars_arrow2io3ipc5write9serialize13finish_buf
 .lr.ph:                                           ; preds = %3
   %10 = sub i64 %9, %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %18
 
 ._crit_edge.loopexit:                             ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h67dbfd9dadf4df3eE.exit"
@@ -27384,7 +27369,7 @@ define hidden { i64, i64 } @_ZN12polars_arrow2io3ipc5write9serialize13finish_buf
   store i8 0, ptr %25, align 1
   %26 = add i64 %19, 1
   store i64 %26, ptr %4, align 8, !alias.scope !4774, !noalias !4777
-  %exitcond.not = icmp eq i64 %20, %umax
+  %exitcond.not = icmp eq i64 %20, %10
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %18
 }
 

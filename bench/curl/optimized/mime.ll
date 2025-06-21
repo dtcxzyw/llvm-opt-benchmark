@@ -2931,7 +2931,6 @@ define internal i64 @encoder_7bit_read(ptr noundef writeonly captures(none) %0, 
   %10 = sub i64 %8, %9
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %umax = tail call i64 @llvm.umax.i64(i64 %spec.select, i64 1)
   br label %12
 
 12:                                               ; preds = %.lr.ph, %18
@@ -2955,11 +2954,11 @@ define internal i64 @encoder_7bit_read(ptr noundef writeonly captures(none) %0, 
   %21 = add i64 %20, 1
   store i64 %21, ptr %5, align 8, !tbaa !68
   %22 = add nuw i64 %.027, 1
-  %exitcond.not = icmp eq i64 %22, %umax
+  %exitcond.not = icmp eq i64 %22, %spec.select
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !97
 
 .loopexit:                                        ; preds = %18, %6, %4, %16
-  %.018 = phi i64 [ %17, %16 ], [ -2, %4 ], [ 0, %6 ], [ %umax, %18 ]
+  %.018 = phi i64 [ %17, %16 ], [ -2, %4 ], [ 0, %6 ], [ %spec.select, %18 ]
   ret i64 %.018
 }
 
@@ -4415,9 +4414,6 @@ define internal fastcc void @mime_unpause(ptr noundef captures(address_is_null) 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #17

@@ -3971,10 +3971,9 @@ define void @init_acc_pos(i32 noundef %0, ptr noundef readonly captures(none) %1
   br label %.lr.ph26
 
 .preheader:                                       ; preds = %.lr.ph26, %6
-  %17 = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
-  %umax = zext i32 %17 to i64
-  %18 = shl nuw nsw i64 %umax, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %18, i1 false), !tbaa !7
+  %17 = zext i32 %0 to i64
+  %18 = shl nuw nsw i64 %17, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %18, i1 false), !tbaa !7
   br label %.loopexit
 
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %.lr.ph26
@@ -6244,9 +6243,6 @@ declare i32 @H5Otoken_cmp(i64 noundef, ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15

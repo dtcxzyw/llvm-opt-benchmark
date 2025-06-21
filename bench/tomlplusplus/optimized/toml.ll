@@ -10342,7 +10342,6 @@ define noundef i64 @_ZNK4toml2v35array16total_leaf_countEv(ptr noundef nonnull r
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %18, %1
@@ -10369,7 +10368,7 @@ define noundef i64 @_ZNK4toml2v35array16total_leaf_countEv(ptr noundef nonnull r
   %19 = phi i64 [ %17, %16 ], [ 1, %.lr.ph ]
   %20 = add i64 %19, %.011
   %21 = add nuw i64 %.0810, 1
-  %exitcond.not = icmp eq i64 %21, %umax
+  %exitcond.not = icmp eq i64 %21, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !267
 }
 
@@ -10388,7 +10387,6 @@ define void @_ZN4toml2v35array13flatten_childEOS1_Rm(ptr noundef nonnull readonl
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %umax = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
   br label %13
 
 ._crit_edge:                                      ; preds = %_ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EEaSEOS5_.exit, %3
@@ -10439,7 +10437,7 @@ _ZNKSt14default_deleteIN4toml2v34nodeEEclEPS2_.exit.i.i.i.i: ; preds = %29
 
 _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %_ZNKSt14default_deleteIN4toml2v34nodeEEclEPS2_.exit.i.i.i.i, %29, %22, %28
   %38 = add nuw i64 %.015, 1
-  %exitcond.not = icmp eq i64 %38, %umax
+  %exitcond.not = icmp eq i64 %38, %11
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !268
 }
 
@@ -11136,14 +11134,10 @@ define noundef zeroext i1 @_ZN4toml2v35array5equalERKS1_S3_(ptr noundef nonnull 
 
 .preheader:                                       ; preds = %4
   %20 = icmp eq ptr %7, %8
-  br i1 %20, label %.critedge, label %.lr.ph.preheader
+  br i1 %20, label %.critedge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31"
-  %.02134 = phi i64 [ %156, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31" ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31"
+  %.02134 = phi i64 [ %156, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31" ], [ 0, %.preheader ]
   %21 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %.02134
   %22 = load ptr, ptr %21, align 8, !tbaa !178
   %23 = load ptr, ptr %22, align 8, !tbaa !44
@@ -11383,7 +11377,7 @@ _ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i:     ; preds = %133
 
 "_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31": ; preds = %_ZN4toml2v34impl10fpclassifyERKd.exit.thread.i.i.i.i, %_ZN4toml2v34impl10fpclassifyERKd.exit13.thr_comm.i.i.i.i, %44, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %_ZN4toml2v34impl10fpclassifyERKd.exit13.i.i.i.i, %151, %98, %74, %58, %47, %36, %34, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit"
   %156 = add nuw i64 %.02134, 1
-  %exitcond.not = icmp eq i64 %156, %umax
+  %exitcond.not = icmp eq i64 %156, %12
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !279
 
 .critedge:                                        ; preds = %_ZN4toml2v34impl10fpclassifyERKd.exit.thread.i.i.i.i, %_ZN4toml2v34impl10fpclassifyERKd.exit13.thr_comm.i.i.i.i, %_ZN4toml2v34impl10fpclassifyERKd.exit13.i.i.i.i, %121, %127, %133, %104, %110, %_ZN4toml2v3eqERKNS0_4dateES3_.exit.i.i.i.i.i, %_ZN4toml2v3eqERKNS0_4timeES3_.exit.i.i.i.i.i, %80, %86, %92, %62, %68, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i, %38, %151, %98, %74, %58, %47, %36, %34, %.lr.ph, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31", %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit", %.preheader, %4, %2
