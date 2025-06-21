@@ -132,7 +132,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %12, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %14, ptr noundef %16, ptr noundef nonnull %21, ptr noundef %2) #6
   %22 = load i8, ptr %18, align 1, !range !6, !noundef !7
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %.loopexit28, label %24
+  br i1 %23, label %.loopexit32, label %24
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 872
@@ -1310,7 +1310,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %823 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %824 = load ptr, ptr %823, align 8
   %825 = icmp eq ptr %824, null
-  br i1 %825, label %.thread27, label %826
+  br i1 %825, label %.thread31, label %826
 
 826:                                              ; preds = %821
   %827 = getelementptr inbounds nuw i8, ptr %6, i64 2232
@@ -1321,9 +1321,9 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %832 = load i64, ptr %831, align 8
   %833 = lshr i64 %832, 3
   %834 = trunc i64 %833 to i32
-  br label %.thread27
+  br label %.thread31
 
-.thread27:                                        ; preds = %821, %826
+.thread31:                                        ; preds = %821, %826
   %835 = phi ptr [ %830, %826 ], [ @.str.35, %821 ]
   %836 = phi i32 [ %834, %826 ], [ 0, %821 ]
   %837 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -1331,15 +1331,15 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %839 = icmp eq ptr %838, null
   br i1 %839, label %845, label %840
 
-840:                                              ; preds = %.thread27
+840:                                              ; preds = %.thread31
   %841 = getelementptr inbounds nuw i8, ptr %838, i64 72
   %842 = load i64, ptr %841, align 8
   %843 = lshr i64 %842, 3
   %844 = trunc i64 %843 to i32
   br label %845
 
-845:                                              ; preds = %840, %.thread27
-  %846 = phi i32 [ %844, %840 ], [ 0, %.thread27 ]
+845:                                              ; preds = %840, %.thread31
+  %846 = phi i32 [ %844, %840 ], [ 0, %.thread31 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %822, i32 noundef 2, ptr noundef nonnull @.str.33, ptr noundef nonnull %835, i32 noundef %836, i32 noundef %846) #6
   %847 = load i16, ptr %706, align 8
   %848 = icmp ugt i16 %847, 10
@@ -1361,7 +1361,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 857:                                              ; preds = %851
   %858 = getelementptr inbounds nuw i8, ptr %0, i64 752
   call fastcc void @ilk_dump_csc(ptr noundef %6, ptr noundef nonnull @.str.37, ptr noundef nonnull %858)
-  br label %.loopexit28
+  br label %.loopexit32
 
 859:                                              ; preds = %851
   %860 = load i32, ptr %781, align 4
@@ -1392,7 +1392,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.38, i32 noundef %871, i32 noundef %875, i32 noundef %879) #6
   %880 = add nuw nsw i64 %867, 1
   %881 = icmp eq i64 %880, 3
-  br i1 %881, label %.loopexit28, label %.split.us, !llvm.loop !15
+  br i1 %881, label %.loopexit32, label %.split.us, !llvm.loop !15
 
 .split:                                           ; preds = %864, %.split
   %882 = phi i64 [ %896, %.split ], [ 0, %864 ]
@@ -1412,20 +1412,20 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %883, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.38, i32 noundef %887, i32 noundef %891, i32 noundef %895) #6
   %896 = add nuw nsw i64 %882, 1
   %897 = icmp eq i64 %896, 3
-  br i1 %897, label %.loopexit28, label %.split, !llvm.loop !15
+  br i1 %897, label %.loopexit32, label %.split, !llvm.loop !15
 
 898:                                              ; preds = %859
   %899 = and i64 %861, 2097152
   %900 = icmp eq i64 %899, 0
-  br i1 %900, label %.loopexit28, label %901
+  br i1 %900, label %.loopexit32, label %901
 
 901:                                              ; preds = %898
   %902 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %903 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %7, label %.split30.us, label %.split30
+  br i1 %7, label %.split34.us, label %.split34
 
-.split30.us:                                      ; preds = %901, %.split30.us
-  %904 = phi i64 [ %917, %.split30.us ], [ 0, %901 ]
+.split34.us:                                      ; preds = %901, %.split34.us
+  %904 = phi i64 [ %917, %.split34.us ], [ 0, %901 ]
   %905 = mul nuw nsw i64 %904, 3
   %906 = getelementptr [9 x i16], ptr %902, i64 0, i64 %905
   %907 = load i16, ptr %906, align 2
@@ -1441,10 +1441,10 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.39, i32 noundef %908, i32 noundef %912, i32 noundef %916) #6
   %917 = add nuw nsw i64 %904, 1
   %918 = icmp eq i64 %917, 3
-  br i1 %918, label %.loopexit28, label %.split30.us, !llvm.loop !15
+  br i1 %918, label %.loopexit32, label %.split34.us, !llvm.loop !15
 
-.split30:                                         ; preds = %901, %.split30
-  %919 = phi i64 [ %933, %.split30 ], [ 0, %901 ]
+.split34:                                         ; preds = %901, %.split34
+  %919 = phi i64 [ %933, %.split34 ], [ 0, %901 ]
   %920 = load ptr, ptr %903, align 8
   %921 = mul nuw nsw i64 %919, 3
   %922 = getelementptr [9 x i16], ptr %902, i64 0, i64 %921
@@ -1461,13 +1461,13 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %920, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.39, i32 noundef %924, i32 noundef %928, i32 noundef %932) #6
   %933 = add nuw nsw i64 %919, 1
   %934 = icmp eq i64 %933, 3
-  br i1 %934, label %.loopexit28, label %.split30, !llvm.loop !15
+  br i1 %934, label %.loopexit32, label %.split34, !llvm.loop !15
 
-.loopexit28:                                      ; preds = %.split, %.split.us, %.split30, %.split30.us, %898, %857, %11
+.loopexit32:                                      ; preds = %.split, %.split.us, %.split34, %.split34.us, %898, %857, %11
   %935 = icmp eq ptr %1, null
   br i1 %935, label %.loopexit, label %936
 
-936:                                              ; preds = %.loopexit28
+936:                                              ; preds = %.loopexit32
   %937 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %938 = load ptr, ptr %937, align 8
   %939 = getelementptr inbounds nuw i8, ptr %938, i64 704
@@ -1634,7 +1634,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
   %1064 = icmp slt i64 %1059, %1063
   br i1 %1064, label %945, label %.loopexit, !llvm.loop !16
 
-.loopexit:                                        ; preds = %1058, %936, %.loopexit28
+.loopexit:                                        ; preds = %1058, %936, %.loopexit32
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
   ret void
 }

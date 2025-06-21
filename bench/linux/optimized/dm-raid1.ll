@@ -1093,7 +1093,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 288
-  %invariant.gep28 = getelementptr i8, ptr %8, i64 312
+  %invariant.gep29 = getelementptr i8, ptr %8, i64 312
   br label %26
 
 26:                                               ; preds = %63, %24
@@ -1107,9 +1107,9 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %32 = getelementptr i8, ptr %3, i64 %31
   %33 = sub nuw i32 %4, %28
   %34 = zext i32 %33 to i64
-  %.idx22 = mul nuw nsw i64 %27, 40
-  %gep29 = getelementptr i8, ptr %invariant.gep28, i64 %.idx22
-  %35 = load ptr, ptr %gep29, align 8
+  %.idx23 = mul nuw nsw i64 %27, 40
+  %gep30 = getelementptr i8, ptr %invariant.gep29, i64 %.idx23
+  %35 = load ptr, ptr %gep30, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %37 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %32, i64 noundef %34, ptr noundef nonnull @.str.40, ptr noundef nonnull %36) #12
   br label %38
@@ -1217,7 +1217,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %114 = load i32, ptr %113, align 8
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %.loopexit23, label %116
+  br i1 %115, label %.loopexit24, label %116
 
 116:                                              ; preds = %110
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 288
@@ -1252,9 +1252,9 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %139 = add nuw nsw i64 %120, 1
   %140 = zext i32 %136 to i64
   %141 = icmp samesign ult i64 %139, %140
-  br i1 %141, label %118, label %.loopexit23, !llvm.loop !19
+  br i1 %141, label %118, label %.loopexit24, !llvm.loop !19
 
-.loopexit23:                                      ; preds = %135, %110
+.loopexit24:                                      ; preds = %135, %110
   %142 = phi i32 [ %112, %110 ], [ %138, %135 ]
   %143 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %144 = load i64, ptr %143, align 8
@@ -1266,7 +1266,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %334, label %151
 
-151:                                              ; preds = %.loopexit23
+151:                                              ; preds = %.loopexit24
   %152 = icmp ult i32 %142, %4
   br i1 %152, label %153, label %159
 
@@ -1276,11 +1276,11 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %156 = sub nuw i32 %4, %142
   %157 = zext i32 %156 to i64
   %158 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %155, i64 noundef %157, ptr noundef nonnull @.str.44, i32 noundef %149) #12
-  %.pre33 = load i64, ptr %143, align 8
+  %.pre34 = load i64, ptr %143, align 8
   br label %159
 
 159:                                              ; preds = %153, %151
-  %160 = phi i64 [ %.pre33, %153 ], [ %144, %151 ]
+  %160 = phi i64 [ %.pre34, %153 ], [ %144, %151 ]
   %161 = phi i32 [ %158, %153 ], [ 0, %151 ]
   %162 = add i32 %161, %142
   %163 = and i64 %160, 1
@@ -1297,17 +1297,17 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %170 = sub nuw i32 %4, %162
   %171 = zext i32 %170 to i64
   %172 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %169, i64 noundef %171, ptr noundef nonnull @.str.45) #12
-  %.pre34.pre = load i64, ptr %143, align 8
+  %.pre35.pre = load i64, ptr %143, align 8
   br label %173
 
 173:                                              ; preds = %167, %165
-  %.pre34 = phi i64 [ %.pre34.pre, %167 ], [ %160, %165 ]
+  %.pre35 = phi i64 [ %.pre35.pre, %167 ], [ %160, %165 ]
   %174 = phi i32 [ %172, %167 ], [ 0, %165 ]
   %175 = add i32 %174, %162
   br label %176
 
 176:                                              ; preds = %173, %159
-  %177 = phi i64 [ %.pre34, %173 ], [ %160, %159 ]
+  %177 = phi i64 [ %.pre35, %173 ], [ %160, %159 ]
   %178 = phi i32 [ %175, %173 ], [ %162, %159 ]
   %179 = and i64 %177, 2
   %180 = icmp ne i64 %179, 0
@@ -1363,7 +1363,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %218 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %219 = load i32, ptr %218, align 8
   %220 = icmp eq i32 %219, 0
-  br i1 %220, label %.loopexit24, label %221
+  br i1 %220, label %.loopexit25, label %221
 
 221:                                              ; preds = %215
   %222 = getelementptr inbounds nuw i8, ptr %8, i64 288
@@ -1445,14 +1445,14 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %275 = load i32, ptr %218, align 8
   %276 = zext i32 %275 to i64
   %277 = icmp samesign ult i64 %274, %276
-  br i1 %277, label %223, label %.loopexit24, !llvm.loop !20
+  br i1 %277, label %223, label %.loopexit25, !llvm.loop !20
 
-.loopexit24:                                      ; preds = %271, %215
+.loopexit25:                                      ; preds = %271, %215
   %278 = phi i32 [ %217, %215 ], [ %273, %271 ]
   %279 = icmp ult i32 %278, %4
   br i1 %279, label %280, label %291
 
-280:                                              ; preds = %.loopexit24
+280:                                              ; preds = %.loopexit25
   %281 = zext i32 %278 to i64
   %282 = getelementptr i8, ptr %3, i64 %281
   %283 = sub nuw i32 %4, %278
@@ -1465,8 +1465,8 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %290 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %282, i64 noundef %284, ptr noundef nonnull @.str.51, i32 noundef %289) #12
   br label %291
 
-291:                                              ; preds = %280, %.loopexit24
-  %292 = phi i32 [ %290, %280 ], [ 0, %.loopexit24 ]
+291:                                              ; preds = %280, %.loopexit25
+  %292 = phi i32 [ %290, %280 ], [ 0, %.loopexit25 ]
   %293 = add i32 %292, %278
   %294 = icmp ult i32 %293, %4
   br i1 %294, label %295, label %306
@@ -1520,7 +1520,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %333 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %330, i64 noundef %332, ptr noundef nonnull @.str.54) #12
   br label %334
 
-334:                                              ; preds = %328, %316, %183, %176, %.loopexit23, %86, %5
+334:                                              ; preds = %328, %316, %183, %176, %.loopexit24, %86, %5
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #12
   ret void
 }
