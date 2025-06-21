@@ -214,7 +214,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %sub.i9 = sub nsw i32 %0, %6
-  %idx.ext6.i = sext i32 %sub.i9 to i64
+  %idx.ext6.i = zext nneg i32 %sub.i9 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext6.i
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
   store ptr %add.ptr7.i, ptr %buffer_end_.i.i, align 8
@@ -251,7 +251,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %sub.i = sub nsw i32 %4, %3
-  %idx.ext6.i = sext i32 %sub.i to i64
+  %idx.ext6.i = zext nneg i32 %sub.i to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext6.i
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
   store ptr %add.ptr7.i, ptr %buffer_end_.i, align 8
@@ -306,7 +306,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   %sub.i9.i = sub nsw i32 %0, %6
-  %idx.ext6.i.i = sext i32 %sub.i9.i to i64
+  %idx.ext6.i.i = zext nneg i32 %sub.i9.i to i64
   %idx.neg.i.i = sub nsw i64 0, %idx.ext6.i.i
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i
   store ptr %add.ptr7.i.i, ptr %buffer_end_.i.i.i, align 8
@@ -374,7 +374,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   %sub.i9.i = sub nsw i32 %1, %7
-  %idx.ext6.i.i = sext i32 %sub.i9.i to i64
+  %idx.ext6.i.i = zext nneg i32 %sub.i9.i to i64
   %idx.neg.i.i = sub nsw i64 0, %idx.ext6.i.i
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i
   store ptr %add.ptr7.i.i, ptr %buffer_end_.i.i.i, align 8
@@ -540,7 +540,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %sub.i.i = sub nsw i32 %5, %4
-  %idx.ext6.i.i = sext i32 %sub.i.i to i64
+  %idx.ext6.i.i = zext nneg i32 %sub.i.i to i64
   %idx.neg.i.i = sub nsw i64 0, %idx.ext6.i.i
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i
   store ptr %add.ptr7.i.i, ptr %buffer_end_.i.i, align 8
@@ -582,7 +582,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %sub.i.i = sub nsw i32 %5, %4
-  %idx.ext6.i.i = sext i32 %sub.i.i to i64
+  %idx.ext6.i.i = zext nneg i32 %sub.i.i to i64
   %idx.neg.i.i = sub nsw i64 0, %idx.ext6.i.i
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i
   store ptr %add.ptr7.i.i, ptr %buffer_end_.i.i, align 8
@@ -656,7 +656,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %sub.i4 = sub nsw i32 %0, %5
-  %idx.ext6.i = sext i32 %sub.i4 to i64
+  %idx.ext6.i = zext nneg i32 %sub.i4 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext6.i
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
   store ptr %add.ptr7.i, ptr %buffer_end_.i.i, align 8
@@ -939,7 +939,7 @@ if.then28:                                        ; preds = %while.end24
 if.else:                                          ; preds = %while.end24
   %sub32 = sub nsw i32 %13, %sub26
   store i32 %sub32, ptr %overflow_bytes_, align 4
-  %idx.ext36 = sext i32 %sub32 to i64
+  %idx.ext36 = zext nneg i32 %sub32 to i64
   %idx.neg = sub nsw i64 0, %idx.ext36
   %add.ptr37 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
   br label %if.end39
@@ -961,7 +961,7 @@ if.end39:                                         ; preds = %if.else, %if.then28
 
 if.then.i:                                        ; preds = %if.end39
   %sub.i = sub nsw i32 %storemerge, %18
-  %idx.ext6.i = sext i32 %sub.i to i64
+  %idx.ext6.i = zext nneg i32 %sub.i to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext6.i
   %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
   store ptr %add.ptr7.i, ptr %buffer_end_, align 8
@@ -3085,8 +3085,7 @@ while.end:                                        ; preds = %while.cond
   %idx.ext.i11 = zext nneg i32 %sub15 to i64
   %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %idx.ext.i11
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i12, i64 -16
-  %idx.ext3.i = sext i32 %sub15 to i64
-  %add.ptr4.i = getelementptr inbounds i8, ptr %buffer_30.i.i, i64 %idx.ext3.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %buffer_30.i.i, i64 %idx.ext.i11
   %add.ptr4.sink.i = select i1 %cmp.i10, ptr %add.ptr2.i, ptr %add.ptr4.i
   %data.sink.i = select i1 %cmp.i10, ptr null, ptr %add.ptr
   %retval.0.i14 = select i1 %cmp.i10, ptr %add.ptr, ptr %buffer_30.i.i
@@ -3444,8 +3443,7 @@ if.then8:                                         ; preds = %if.end7
   %idx.ext.i10 = zext nneg i32 %sub to i64
   %add.ptr.i11 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %idx.ext.i10
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i11, i64 -16
-  %idx.ext3.i = sext i32 %sub to i64
-  %add.ptr4.i = getelementptr inbounds i8, ptr %buffer_30.i.i, i64 %idx.ext3.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %buffer_30.i.i, i64 %idx.ext.i10
   %add.ptr4.sink.i = select i1 %cmp.i9, ptr %add.ptr2.i, ptr %add.ptr4.i
   %data.sink.i = select i1 %cmp.i9, ptr null, ptr %add.ptr
   %retval.0.i12 = select i1 %cmp.i9, ptr %add.ptr, ptr %buffer_30.i.i

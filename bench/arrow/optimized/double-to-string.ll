@@ -450,7 +450,7 @@ _ZN14arrow_vendored17double_conversion13StringBuilder10AddPaddingEci.exit56: ; p
   %87 = load ptr, ptr %5, align 8, !tbaa !22
   %88 = sext i32 %86 to i64
   %89 = getelementptr inbounds i8, ptr %87, i64 %88
-  %90 = sext i32 %85 to i64
+  %90 = zext nneg i32 %85 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 1 %84, i64 %90, i1 false)
   %91 = load i32, ptr %46, align 8, !tbaa !19
   %92 = add nsw i32 %91, %85

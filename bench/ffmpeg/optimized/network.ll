@@ -1222,83 +1222,87 @@ define range(i32 0, 2) i32 @ff_http_match_no_proxy(ptr noundef %0, ptr noundef r
   %.not = icmp eq ptr %0, null
   %.not27 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %.not27
-  br i1 %or.cond, label %35, label %3
+  br i1 %or.cond, label %36, label %3
 
 3:                                                ; preds = %2
   %4 = tail call noalias ptr @av_strdup(ptr noundef nonnull %0) #12
   %.not28 = icmp eq ptr %4, null
-  br i1 %.not28, label %35, label %.preheader
+  br i1 %.not28, label %36, label %.preheader
 
-select.unfold:                                    ; preds = %.tail.thread.i, %31, %24
+.preheader:                                       ; preds = %3
+  %invariant.gep = getelementptr i8, ptr %1, i64 -1
+  br label %5
+
+select.unfold:                                    ; preds = %.tail.thread.i, %32, %25
   %.not29 = icmp eq ptr %.0, null
-  br i1 %.not29, label %match_host_pattern.exit.thread, label %.preheader
+  br i1 %.not29, label %match_host_pattern.exit.thread, label %5
 
-.preheader:                                       ; preds = %3, %select.unfold
-  %.02236 = phi ptr [ %.0, %select.unfold ], [ %4, %3 ]
-  %5 = tail call i64 @strspn(ptr noundef nonnull %.02236, ptr noundef nonnull @.str.14) #15
-  %6 = getelementptr inbounds nuw i8, ptr %.02236, i64 %5
-  %7 = tail call i64 @strcspn(ptr noundef nonnull %6, ptr noundef nonnull @.str.14) #15
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
-  %9 = load i8, ptr %8, align 1, !tbaa !18
-  %.not30 = icmp eq i8 %9, 0
-  br i1 %.not30, label %12, label %10
+5:                                                ; preds = %.preheader, %select.unfold
+  %.02236 = phi ptr [ %4, %.preheader ], [ %.0, %select.unfold ]
+  %6 = tail call i64 @strspn(ptr noundef nonnull %.02236, ptr noundef nonnull @.str.14) #15
+  %7 = getelementptr inbounds nuw i8, ptr %.02236, i64 %6
+  %8 = tail call i64 @strcspn(ptr noundef nonnull %7, ptr noundef nonnull @.str.14) #15
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !18
+  %.not30 = icmp eq i8 %10, 0
+  br i1 %.not30, label %13, label %11
 
-10:                                               ; preds = %.preheader
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 0, ptr %8, align 1, !tbaa !18
-  br label %12
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i8 0, ptr %9, align 1, !tbaa !18
+  br label %13
 
-12:                                               ; preds = %10, %.preheader
-  %.0 = phi ptr [ %11, %10 ], [ null, %.preheader ]
-  %13 = load i8, ptr %6, align 1
-  %.not22.i = icmp eq i8 %13, 42
+13:                                               ; preds = %11, %5
+  %.0 = phi ptr [ %12, %11 ], [ null, %5 ]
+  %14 = load i8, ptr %7, align 1
+  %.not22.i = icmp eq i8 %14, 42
   br i1 %.not22.i, label %.tail.i, label %.tail.thread.i
 
-.tail.i:                                          ; preds = %12
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %15 = load i8, ptr %14, align 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %match_host_pattern.exit.thread, label %.tail.thread.i
+.tail.i:                                          ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %match_host_pattern.exit.thread, label %.tail.thread.i
 
-.tail.thread.i:                                   ; preds = %.tail.i, %12
+.tail.thread.i:                                   ; preds = %.tail.i, %13
   %spec.select.idx.i = zext i1 %.not22.i to i64
-  %spec.select.i = getelementptr inbounds nuw i8, ptr %6, i64 %spec.select.idx.i
-  %17 = load i8, ptr %spec.select.i, align 1, !tbaa !18
-  %18 = icmp eq i8 %17, 46
-  %.1.idx.i = zext i1 %18 to i64
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.idx.i
+  %18 = load i8, ptr %spec.select.i, align 1, !tbaa !18
+  %19 = icmp eq i8 %18, 46
+  %.1.idx.i = zext i1 %19 to i64
   %.1.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.1.idx.i
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.1.i) #15
-  %20 = trunc i64 %19 to i32
-  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #15
-  %22 = trunc i64 %21 to i32
-  %23 = icmp sgt i32 %20, %22
-  br i1 %23, label %select.unfold, label %24
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.1.i) #15
+  %21 = trunc i64 %20 to i32
+  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #15
+  %23 = trunc i64 %22 to i32
+  %24 = icmp sgt i32 %21, %23
+  br i1 %24, label %select.unfold, label %25
 
-24:                                               ; preds = %.tail.thread.i
-  %25 = sub i64 %21, %19
-  %sext.i = shl i64 %25, 32
-  %26 = ashr exact i64 %sext.i, 32
-  %27 = getelementptr inbounds i8, ptr %1, i64 %26
-  %28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.1.i, ptr noundef nonnull readonly dereferenceable(1) %27) #15
-  %.not21.i = icmp eq i32 %28, 0
-  br i1 %.not21.i, label %29, label %select.unfold
+25:                                               ; preds = %.tail.thread.i
+  %26 = sub nsw i32 %23, %21
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
+  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.1.i, ptr noundef nonnull readonly dereferenceable(1) %28) #15
+  %.not21.i = icmp eq i32 %29, 0
+  br i1 %.not21.i, label %30, label %select.unfold
 
-29:                                               ; preds = %24
-  %30 = icmp eq i32 %22, %20
-  br i1 %30, label %match_host_pattern.exit.thread, label %31
+30:                                               ; preds = %25
+  %31 = icmp eq i32 %23, %21
+  br i1 %31, label %match_host_pattern.exit.thread, label %32
 
-31:                                               ; preds = %29
-  %32 = getelementptr i8, ptr %27, i64 -1
-  %33 = load i8, ptr %32, align 1, !tbaa !18
-  %34 = icmp eq i8 %33, 46
-  br i1 %34, label %match_host_pattern.exit.thread, label %select.unfold
+32:                                               ; preds = %30
+  %33 = sext i32 %26 to i64
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %33
+  %34 = load i8, ptr %gep, align 1, !tbaa !18
+  %35 = icmp eq i8 %34, 46
+  br i1 %35, label %match_host_pattern.exit.thread, label %select.unfold
 
-match_host_pattern.exit.thread:                   ; preds = %31, %29, %.tail.i, %select.unfold
-  %.1 = phi i32 [ 0, %select.unfold ], [ 1, %.tail.i ], [ 1, %29 ], [ 1, %31 ]
+match_host_pattern.exit.thread:                   ; preds = %32, %30, %.tail.i, %select.unfold
+  %.1 = phi i32 [ 0, %select.unfold ], [ 1, %.tail.i ], [ 1, %30 ], [ 1, %32 ]
   tail call void @av_free(ptr noundef nonnull %4) #12
-  br label %35
+  br label %36
 
-35:                                               ; preds = %3, %2, %match_host_pattern.exit.thread
+36:                                               ; preds = %3, %2, %match_host_pattern.exit.thread
   %.019 = phi i32 [ %.1, %match_host_pattern.exit.thread ], [ 0, %2 ], [ 0, %3 ]
   ret i32 %.019
 }

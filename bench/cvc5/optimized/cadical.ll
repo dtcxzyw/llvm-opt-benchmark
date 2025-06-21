@@ -4883,7 +4883,7 @@ _ZNSt15_Deque_iteratorIiRiPiEpLEl.exit.i.i.i:     ; preds = %234, %228
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit: ; preds = %_ZStplRKSt15_Deque_iteratorIiRiPiEl.exit
   %248 = sub nsw i64 %4, %57
-  %249 = getelementptr inbounds i32, ptr %2, i64 %248
+  %249 = getelementptr inbounds nuw i32, ptr %2, i64 %248
   %250 = load ptr, ptr %30, align 8, !tbaa !135
   %251 = load ptr, ptr %79, align 8, !tbaa !148
   %252 = load ptr, ptr %50, align 8, !tbaa !149
@@ -10250,7 +10250,7 @@ _ZNSt15_Deque_iteratorIN4cvc58internal4prop10SatLiteralERS3_PS3_EpLEl.exit.i.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal4prop10SatLiteralESt6vectorIS5_SaIS5_EEEElEvRT_T0_.exit: ; preds = %_ZStplRKSt15_Deque_iteratorIN4cvc58internal4prop10SatLiteralERS3_PS3_El.exit
   %246 = sub nsw i64 %4, %41
-  %247 = getelementptr inbounds %"class.cvc5::internal::prop::SatLiteral", ptr %2, i64 %246
+  %247 = getelementptr inbounds nuw %"class.cvc5::internal::prop::SatLiteral", ptr %2, i64 %246
   %248 = load ptr, ptr %14, align 8, !tbaa !511
   %.not12.i.i.i.i.i.i = icmp eq ptr %248, %storemerge.i.i
   br i1 %.not12.i.i.i.i.i.i, label %_ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4cvc58internal4prop10SatLiteralERS4_PS4_ES7_SaIS4_EET0_T_SA_S9_RT1_.exit.i, label %.lr.ph.i.i.i.i.i.i.preheader

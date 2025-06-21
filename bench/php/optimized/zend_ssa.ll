@@ -5325,13 +5325,13 @@ define hidden void @zend_ssa_remove_predecessor(ptr noundef readonly captures(no
 52:                                               ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %54 = sub nsw i32 %50, %23
-  %55 = sext i32 %54 to i64
-  %56 = shl nsw i64 %55, 2
+  %55 = zext nneg i32 %54 to i64
+  %56 = shl nuw nsw i64 %55, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %42, ptr nonnull align 4 %53, i64 %56, i1 false)
   %57 = load ptr, ptr %46, align 8, !tbaa !99
   %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %24
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = shl nsw i64 %55, 3
+  %60 = shl nuw nsw i64 %55, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr nonnull align 8 %59, i64 %60, i1 false)
   br label %61
 
@@ -5467,8 +5467,8 @@ zend_ssa_remove_phi_source.exit:                  ; preds = %105, %.critedge.i.i
   %114 = getelementptr inbounds i32, ptr %110, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %116 = sub nsw i32 %107, %23
-  %117 = sext i32 %116 to i64
-  %118 = shl nsw i64 %117, 2
+  %117 = zext nneg i32 %116 to i64
+  %118 = shl nuw nsw i64 %117, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %114, ptr nonnull align 4 %115, i64 %118, i1 false)
   br label %.thread
 

@@ -42530,8 +42530,7 @@ _ZN4llvm5APIntD2Ev.exit63:                        ; preds = %_ZN4llvm5APInt13get
   %125 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %125, align 8, !tbaa !220
   %126 = sub nsw i64 %.0.in.i, %.0.in.i61
-  %sext175 = shl i64 %126, 32
-  %127 = ashr exact i64 %sext175, 32
+  %127 = and i64 %126, 4294967295
   %128 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %123, ptr noundef nonnull align 8 dereferenceable(20) %22, i64 noundef %127) #19
   %129 = extractvalue { ptr, ptr } %128, 0
   %130 = extractvalue { ptr, ptr } %128, 1
@@ -42610,8 +42609,7 @@ _ZN4llvm5APIntD2Ev.exit63:                        ; preds = %_ZN4llvm5APInt13get
   %152 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 0, ptr %152, align 8, !tbaa !220
   %153 = sub nsw i64 %.0.in.i61, %.0.in.i
-  %sext = shl i64 %153, 32
-  %154 = ashr exact i64 %sext, 32
+  %154 = and i64 %153, 4294967295
   %155 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %123, ptr noundef nonnull align 8 dereferenceable(20) %25, i64 noundef %154) #19
   %156 = extractvalue { ptr, ptr } %155, 0
   %157 = extractvalue { ptr, ptr } %155, 1
@@ -42685,8 +42683,8 @@ _ZN4llvm5APIntD2Ev.exit63:                        ; preds = %_ZN4llvm5APInt13get
   br label %178
 
 178:                                              ; preds = %124, %151, %114
-  %.sink177 = phi { ptr, ptr } [ %150, %124 ], [ %177, %151 ], [ %120, %114 ]
-  %179 = extractvalue { ptr, ptr } %.sink177, 1
+  %.sink176 = phi { ptr, ptr } [ %150, %124 ], [ %177, %151 ], [ %120, %114 ]
+  %179 = extractvalue { ptr, ptr } %.sink176, 1
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 32
   %181 = load ptr, ptr %180, align 8, !tbaa !189
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 4

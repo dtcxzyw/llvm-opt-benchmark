@@ -1253,6 +1253,7 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
 .preheader.lr.ph:                                 ; preds = %10
   %22 = icmp sgt i32 %17, 0
   %23 = sext i32 %0 to i64
+  %invariant.gep = getelementptr i8, ptr %4, i64 -8
   br i1 %22, label %.preheader.us.preheader, label %.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -1263,14 +1264,14 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   %wide.trip.count = zext nneg i32 %17 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %122
-  %indvars.iv206 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next207, %122 ]
-  %.sroa.0.0191.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.0.2.us, %122 ]
-  %.sroa.6.0190.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.6.2.us, %122 ]
-  %.sroa.8.0189.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.8.2.us, %122 ]
-  %.sroa.0126.0188.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sink219.off0, %122 ]
-  %.sroa.8133.sroa.0.0187.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.8133.sroa.0.0.extract.trunc.us, %122 ]
-  %.sroa.8133.sroa.8.0186.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.8133.sroa.8.0.extract.trunc.us, %122 ]
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %121
+  %indvars.iv206 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next207, %121 ]
+  %.sroa.0.0191.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.0.2.us, %121 ]
+  %.sroa.6.0190.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.6.2.us, %121 ]
+  %.sroa.8.0189.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.8.2.us, %121 ]
+  %.sroa.0126.0188.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sink219.off0, %121 ]
+  %.sroa.8133.sroa.0.0187.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.8133.sroa.0.0.extract.trunc.us, %121 ]
+  %.sroa.8133.sroa.8.0186.us = phi i8 [ 0, %.preheader.us.preheader ], [ %.sroa.8133.sroa.8.0.extract.trunc.us, %121 ]
   %27 = trunc nuw nsw i64 %indvars.iv206 to i32
   %28 = shl i32 %27, %2
   %29 = add nsw i32 %28, %14
@@ -1405,8 +1406,8 @@ CopyTileWithColorTransform.exit.us:               ; preds = %68, %56
   br i1 %exitcond205.not, label %._crit_edge180.us, label %37, !llvm.loop !35
 
 73:                                               ; preds = %.lr.ph170.us, %._crit_edge.us
-  %indvars.iv199 = phi i32 [ %124, %.lr.ph170.us ], [ %indvars.iv.next200, %._crit_edge.us ]
-  %indvars.iv = phi i32 [ %123, %.lr.ph170.us ], [ %indvars.iv.next, %._crit_edge.us ]
+  %indvars.iv199 = phi i32 [ %123, %.lr.ph170.us ], [ %indvars.iv.next200, %._crit_edge.us ]
+  %indvars.iv = phi i32 [ %122, %.lr.ph170.us ], [ %indvars.iv.next, %._crit_edge.us ]
   %.0103169.us = phi i32 [ %28, %.lr.ph170.us ], [ %79, %._crit_edge.us ]
   %74 = mul nsw i32 %.0103169.us, %0
   %75 = add nsw i32 %74, %39
@@ -1418,15 +1419,15 @@ CopyTileWithColorTransform.exit.us:               ; preds = %68, %56
   %78 = sext i32 %indvars.iv to i64
   br label %.lr.ph.us
 
-._crit_edge.us:                                   ; preds = %121, %73
+._crit_edge.us:                                   ; preds = %120, %73
   %79 = add nsw i32 %.0103169.us, 1
   %indvars.iv.next = add i32 %indvars.iv, %0
   %indvars.iv.next200 = add i32 %indvars.iv199, %0
   %exitcond202.not = icmp eq i32 %79, %30
   br i1 %exitcond202.not, label %._crit_edge171.us, label %73, !llvm.loop !36
 
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %121
-  %indvars.iv196 = phi i64 [ %78, %.lr.ph.us.preheader ], [ %indvars.iv.next197, %121 ]
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %120
+  %indvars.iv196 = phi i64 [ %78, %.lr.ph.us.preheader ], [ %indvars.iv.next197, %120 ]
   %80 = getelementptr i32, ptr %4, i64 %indvars.iv196
   %81 = load i32, ptr %80, align 4, !tbaa !3
   %82 = icmp sgt i64 %indvars.iv196, 1
@@ -1442,91 +1443,91 @@ CopyTileWithColorTransform.exit.us:               ; preds = %68, %56
   %88 = getelementptr i8, ptr %80, i64 -4
   %89 = load i32, ptr %88, align 4, !tbaa !3
   %90 = icmp eq i32 %81, %89
-  br i1 %90, label %121, label %91
+  br i1 %90, label %120, label %91
 
 91:                                               ; preds = %87, %83, %.lr.ph.us
   %.not114.us = icmp slt i64 %indvars.iv196, %25
-  br i1 %.not114.us, label %109, label %92
+  br i1 %.not114.us, label %108, label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr i8, ptr %80, i64 -8
   %94 = load i32, ptr %93, align 4, !tbaa !3
   %95 = sub nsw i64 %indvars.iv196, %23
-  %96 = getelementptr i32, ptr %4, i64 %95
-  %97 = getelementptr i8, ptr %96, i64 -8
-  %98 = load i32, ptr %97, align 4, !tbaa !3
-  %99 = icmp eq i32 %94, %98
-  br i1 %99, label %100, label %109
+  %gep.us = getelementptr i32, ptr %invariant.gep, i64 %95
+  %96 = load i32, ptr %gep.us, align 4, !tbaa !3
+  %97 = icmp eq i32 %94, %96
+  br i1 %97, label %98, label %108
 
-100:                                              ; preds = %92
-  %101 = getelementptr i8, ptr %80, i64 -4
-  %102 = load i32, ptr %101, align 4, !tbaa !3
-  %103 = getelementptr i8, ptr %96, i64 -4
-  %104 = load i32, ptr %103, align 4, !tbaa !3
-  %105 = icmp eq i32 %102, %104
-  br i1 %105, label %106, label %109
+98:                                               ; preds = %92
+  %99 = getelementptr i8, ptr %80, i64 -4
+  %100 = load i32, ptr %99, align 4, !tbaa !3
+  %101 = getelementptr i32, ptr %4, i64 %95
+  %102 = getelementptr i8, ptr %101, i64 -4
+  %103 = load i32, ptr %102, align 4, !tbaa !3
+  %104 = icmp eq i32 %100, %103
+  br i1 %104, label %105, label %108
 
-106:                                              ; preds = %100
-  %107 = load i32, ptr %96, align 4, !tbaa !3
-  %108 = icmp eq i32 %81, %107
-  br i1 %108, label %121, label %109
+105:                                              ; preds = %98
+  %106 = load i32, ptr %101, align 4, !tbaa !3
+  %107 = icmp eq i32 %81, %106
+  br i1 %107, label %120, label %108
 
-109:                                              ; preds = %106, %100, %92, %91
-  %110 = lshr i32 %81, 16
-  %111 = and i32 %110, 255
-  %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !3
-  %115 = add i32 %114, 1
-  store i32 %115, ptr %113, align 4, !tbaa !3
-  %116 = and i32 %81, 255
-  %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %117
-  %119 = load i32, ptr %118, align 4, !tbaa !3
-  %120 = add i32 %119, 1
-  store i32 %120, ptr %118, align 4, !tbaa !3
-  br label %121
+108:                                              ; preds = %105, %98, %92, %91
+  %109 = lshr i32 %81, 16
+  %110 = and i32 %109, 255
+  %111 = zext nneg i32 %110 to i64
+  %112 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %111
+  %113 = load i32, ptr %112, align 4, !tbaa !3
+  %114 = add i32 %113, 1
+  store i32 %114, ptr %112, align 4, !tbaa !3
+  %115 = and i32 %81, 255
+  %116 = zext nneg i32 %115 to i64
+  %117 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %116
+  %118 = load i32, ptr %117, align 4, !tbaa !3
+  %119 = add i32 %118, 1
+  store i32 %119, ptr %117, align 4, !tbaa !3
+  br label %120
 
-121:                                              ; preds = %109, %106, %87
+120:                                              ; preds = %108, %105, %87
   %indvars.iv.next197 = add nsw i64 %indvars.iv196, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next197 to i32
   %exitcond201.not = icmp eq i32 %indvars.iv199, %lftr.wideiv
   br i1 %exitcond201.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !37
 
-122:                                              ; preds = %._crit_edge180.us
+121:                                              ; preds = %._crit_edge180.us
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count208
   br i1 %exitcond209.not, label %._crit_edge193, label %.preheader.us, !llvm.loop !38
 
 .lr.ph170.us:                                     ; preds = %CopyTileWithColorTransform.exit.us
-  %123 = add i32 %35, %39
-  %124 = add i32 %35, %41
+  %122 = add i32 %35, %39
+  %123 = add i32 %35, %41
   br label %73
 
 ._crit_edge180.us:                                ; preds = %._crit_edge171.us
-  %125 = trunc i64 %indvars.iv206 to i32
-  %126 = mul i32 %7, %125
-  %127 = sdiv i32 %126, %19
-  %128 = add nsw i32 %127, %20
-  %129 = call i32 @WebPReportProgress(ptr noundef %6, i32 noundef %128, ptr noundef nonnull %8) #11
-  %.not.us = icmp eq i32 %129, 0
-  br i1 %.not.us, label %.loopexit, label %122
+  %124 = trunc i64 %indvars.iv206 to i32
+  %125 = mul i32 %7, %124
+  %126 = sdiv i32 %125, %19
+  %127 = add nsw i32 %126, %20
+  %128 = call i32 @WebPReportProgress(ptr noundef %6, i32 noundef %127, ptr noundef nonnull %8) #11
+  %.not.us = icmp eq i32 %128, 0
+  br i1 %.not.us, label %.loopexit, label %121
 
-130:                                              ; preds = %.preheader
-  %131 = add nuw nsw i32 %.0102192, 1
-  %exitcond.not = icmp eq i32 %131, %19
+129:                                              ; preds = %.preheader
+  %130 = add nuw nsw i32 %.0102192, 1
+  %exitcond.not = icmp eq i32 %130, %19
   br i1 %exitcond.not, label %._crit_edge193, label %.preheader, !llvm.loop !38
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %130
-  %.0102192 = phi i32 [ %131, %130 ], [ 0, %.preheader.lr.ph ]
-  %132 = mul nsw i32 %.0102192, %7
-  %133 = sdiv i32 %132, %19
-  %134 = add nsw i32 %133, %20
-  %135 = tail call i32 @WebPReportProgress(ptr noundef %6, i32 noundef %134, ptr noundef nonnull %8) #11
-  %.not = icmp eq i32 %135, 0
-  br i1 %.not, label %.loopexit, label %130
+.preheader:                                       ; preds = %.preheader.lr.ph, %129
+  %.0102192 = phi i32 [ %130, %129 ], [ 0, %.preheader.lr.ph ]
+  %131 = mul nsw i32 %.0102192, %7
+  %132 = sdiv i32 %131, %19
+  %133 = add nsw i32 %132, %20
+  %134 = tail call i32 @WebPReportProgress(ptr noundef %6, i32 noundef %133, ptr noundef nonnull %8) #11
+  %.not = icmp eq i32 %134, 0
+  br i1 %.not, label %.loopexit, label %129
 
-._crit_edge193:                                   ; preds = %130, %122, %10
+._crit_edge193:                                   ; preds = %129, %121, %10
   call void @VP8LOptimizeSampling(ptr noundef %5, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 9, ptr noundef %9)
   br label %.loopexit
 

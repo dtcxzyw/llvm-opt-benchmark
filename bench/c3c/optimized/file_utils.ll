@@ -787,8 +787,8 @@ define dso_local noundef zeroext i1 @file_has_suffix_in_list(ptr noundef readonl
 
 10:                                               ; preds = %.lr.ph
   %11 = sub nsw i32 %1, %9
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %12 = zext nneg i32 %11 to i64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %sext = shl i64 %8, 32
   %14 = ashr exact i64 %sext, 32
   %15 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull %7, i64 noundef %14) #18
@@ -1007,9 +1007,8 @@ define dso_local void @file_add_wildcard_files(ptr noundef captures(none) %0, pt
 
 32:                                               ; preds = %.lr.ph.i.us
   %33 = sub i64 %20, %30
-  %sext.us = shl i64 %33, 32
-  %34 = ashr exact i64 %sext.us, 32
-  %35 = getelementptr inbounds i8, ptr %19, i64 %34
+  %34 = and i64 %33, 4294967295
+  %35 = getelementptr inbounds nuw i8, ptr %19, i64 %34
   %sext.i.us = shl i64 %30, 32
   %36 = ashr exact i64 %sext.i.us, 32
   %37 = tail call i32 @strncmp(ptr noundef nonnull readonly %35, ptr noundef nonnull %29, i64 noundef %36) #18

@@ -1955,122 +1955,106 @@ define range(i32 -12, 1) i32 @ff_cbs_insert_unit_content(ptr noundef captures(no
   unreachable
 
 16:                                               ; preds = %12
-  %17 = tail call fastcc i32 @cbs_insert_unit(ptr noundef nonnull %0, i32 noundef %.019)
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %29, label %19
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %18 = load i32, ptr %17, align 4, !tbaa !42
+  %19 = icmp slt i32 %14, %18
+  br i1 %19, label %20, label %31
 
-19:                                               ; preds = %16
-  %.not24 = icmp eq ptr %4, null
-  br i1 %.not24, label %22, label %20
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load ptr, ptr %21, align 8, !tbaa !38
+  %23 = icmp samesign ult i32 %.019, %14
+  br i1 %23, label %24, label %61
 
-20:                                               ; preds = %19
-  %21 = tail call ptr @av_refstruct_ref(ptr noundef nonnull %4) #10
-  br label %22
-
-22:                                               ; preds = %20, %19
-  %.020 = phi ptr [ %21, %20 ], [ null, %19 ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !38
+24:                                               ; preds = %20
   %25 = zext nneg i32 %.019 to i64
-  %26 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %24, i64 %25
-  store i32 %2, ptr %26, align 8, !tbaa !57
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %3, ptr %27, align 8, !tbaa !39
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  store ptr %.020, ptr %28, align 8, !tbaa !109
-  br label %29
+  %26 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %22, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
+  %28 = sub nuw nsw i32 %14, %.019
+  %29 = zext nneg i32 %28 to i64
+  %30 = mul nuw nsw i64 %29, 56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %26, i64 %30, i1 false)
+  br label %61
 
-29:                                               ; preds = %16, %22
-  ret i32 %17
-}
+31:                                               ; preds = %16
+  %32 = shl nuw nsw i32 %14, 1
+  %33 = or disjoint i32 %32, 1
+  %34 = zext nneg i32 %33 to i64
+  %35 = tail call ptr @av_malloc_array(i64 noundef %34, i64 noundef 56) #10
+  %.not.i = icmp eq ptr %35, null
+  br i1 %.not.i, label %cbs_insert_unit.exit.thread, label %36
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 1) i32 @cbs_insert_unit(ptr noundef captures(none) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !34
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !42
-  %7 = icmp slt i32 %4, %6
-  br i1 %7, label %8, label %19
+36:                                               ; preds = %31
+  %37 = load i32, ptr %17, align 4, !tbaa !42
+  %38 = shl nsw i32 %37, 1
+  %39 = or disjoint i32 %38, 1
+  store i32 %39, ptr %17, align 4, !tbaa !42
+  %.not39.i = icmp eq i32 %.019, 0
+  br i1 %.not39.i, label %45, label %40
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !38
-  %11 = icmp slt i32 %1, %4
-  br i1 %11, label %12, label %49
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %42 = load ptr, ptr %41, align 8, !tbaa !38
+  %43 = zext nneg i32 %.019 to i64
+  %44 = mul nuw nsw i64 %43, 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %42, i64 %44, i1 false)
+  br label %45
 
-12:                                               ; preds = %8
-  %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %10, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %16 = sub nsw i32 %4, %1
-  %17 = sext i32 %16 to i64
-  %18 = mul nsw i64 %17, 56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %15, ptr align 8 %14, i64 %18, i1 false)
-  br label %49
+45:                                               ; preds = %40, %36
+  %46 = load i32, ptr %13, align 8, !tbaa !34
+  %47 = icmp slt i32 %.019, %46
+  br i1 %47, label %48, label %58
 
-19:                                               ; preds = %2
-  %20 = shl nsw i32 %4, 1
-  %21 = or disjoint i32 %20, 1
-  %22 = sext i32 %21 to i64
-  %23 = tail call ptr @av_malloc_array(i64 noundef %22, i64 noundef 56) #10
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %54, label %24
+48:                                               ; preds = %45
+  %49 = zext nneg i32 %.019 to i64
+  %50 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %35, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %53 = load ptr, ptr %52, align 8, !tbaa !38
+  %54 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %53, i64 %49
+  %55 = sub nsw i32 %46, %.019
+  %56 = zext nneg i32 %55 to i64
+  %57 = mul nuw nsw i64 %56, 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %54, i64 %57, i1 false)
+  br label %58
 
-24:                                               ; preds = %19
-  %25 = load i32, ptr %5, align 4, !tbaa !42
-  %26 = shl nsw i32 %25, 1
-  %27 = or disjoint i32 %26, 1
-  store i32 %27, ptr %5, align 4, !tbaa !42
-  %.not39 = icmp eq i32 %1, 0
-  br i1 %.not39, label %33, label %28
+58:                                               ; preds = %48, %45
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %60 = load ptr, ptr %59, align 8, !tbaa !38
+  tail call void @av_free(ptr noundef %60) #10
+  store ptr %35, ptr %59, align 8, !tbaa !38
+  br label %61
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !38
-  %31 = zext nneg i32 %1 to i64
-  %32 = mul nuw nsw i64 %31, 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %30, i64 %32, i1 false)
-  br label %33
+61:                                               ; preds = %58, %24, %20
+  %.0.i = phi ptr [ %22, %24 ], [ %22, %20 ], [ %35, %58 ]
+  %62 = zext nneg i32 %.019 to i64
+  %63 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %.0.i, i64 %62
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %63, i8 0, i64 56, i1 false)
+  %64 = load i32, ptr %13, align 8, !tbaa !34
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %13, align 8, !tbaa !34
+  %.not24 = icmp eq ptr %4, null
+  br i1 %.not24, label %68, label %66
 
-33:                                               ; preds = %28, %24
-  %34 = load i32, ptr %3, align 8, !tbaa !34
-  %35 = icmp slt i32 %1, %34
-  br i1 %35, label %36, label %46
+66:                                               ; preds = %61
+  %67 = tail call ptr @av_refstruct_ref(ptr noundef nonnull %4) #10
+  br label %68
 
-36:                                               ; preds = %33
-  %37 = zext nneg i32 %1 to i64
-  %38 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %23, i64 %37
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !38
-  %42 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %41, i64 %37
-  %43 = sub nsw i32 %34, %1
-  %44 = sext i32 %43 to i64
-  %45 = mul nsw i64 %44, 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr align 8 %42, i64 %45, i1 false)
-  br label %46
+68:                                               ; preds = %66, %61
+  %.020 = phi ptr [ %67, %66 ], [ null, %61 ]
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %70 = load ptr, ptr %69, align 8, !tbaa !38
+  %71 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %70, i64 %62
+  store i32 %2, ptr %71, align 8, !tbaa !57
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  store ptr %3, ptr %72, align 8, !tbaa !39
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 48
+  store ptr %.020, ptr %73, align 8, !tbaa !109
+  br label %cbs_insert_unit.exit.thread
 
-46:                                               ; preds = %36, %33
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = load ptr, ptr %47, align 8, !tbaa !38
-  tail call void @av_free(ptr noundef %48) #10
-  store ptr %23, ptr %47, align 8, !tbaa !38
-  br label %49
-
-49:                                               ; preds = %8, %12, %46
-  %.0 = phi ptr [ %10, %12 ], [ %10, %8 ], [ %23, %46 ]
-  %50 = zext nneg i32 %1 to i64
-  %51 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %.0, i64 %50
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %51, i8 0, i64 56, i1 false)
-  %52 = load i32, ptr %3, align 8, !tbaa !34
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %3, align 8, !tbaa !34
-  br label %54
-
-54:                                               ; preds = %19, %49
-  %.033 = phi i32 [ 0, %49 ], [ -12, %19 ]
-  ret i32 %.033
+cbs_insert_unit.exit.thread:                      ; preds = %31, %68
+  %.0 = phi i32 [ 0, %68 ], [ -12, %31 ]
+  ret i32 %.0
 }
 
 declare ptr @av_refstruct_ref(ptr noundef) local_unnamed_addr #2
@@ -2111,30 +2095,103 @@ define range(i32 -12, 1) i32 @ff_cbs_append_unit_data(ptr noundef captures(none)
 
 16:                                               ; preds = %.thread.i, %12
   %17 = phi ptr [ %14, %.thread.i ], [ %13, %12 ]
-  %18 = tail call fastcc i32 @cbs_insert_unit(ptr noundef nonnull %0, i32 noundef %8)
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %21
+  %18 = load i32, ptr %7, align 8, !tbaa !34
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %20 = load i32, ptr %19, align 4, !tbaa !42
+  %21 = icmp slt i32 %18, %20
+  br i1 %21, label %22, label %33
 
-20:                                               ; preds = %16
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = load ptr, ptr %23, align 8, !tbaa !38
+  %25 = icmp slt i32 %8, %18
+  br i1 %25, label %26, label %64
+
+26:                                               ; preds = %22
+  %27 = zext nneg i32 %8 to i64
+  %28 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %24, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %30 = sub nsw i32 %18, %8
+  %31 = zext nneg i32 %30 to i64
+  %32 = mul nuw nsw i64 %31, 56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr align 8 %28, i64 %32, i1 false)
+  br label %64
+
+33:                                               ; preds = %16
+  %34 = shl nsw i32 %18, 1
+  %35 = or disjoint i32 %34, 1
+  %36 = sext i32 %35 to i64
+  %37 = tail call ptr @av_malloc_array(i64 noundef %36, i64 noundef 56) #10
+  %.not.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i, label %63, label %38
+
+38:                                               ; preds = %33
+  %39 = load i32, ptr %19, align 4, !tbaa !42
+  %40 = shl nsw i32 %39, 1
+  %41 = or disjoint i32 %40, 1
+  store i32 %41, ptr %19, align 4, !tbaa !42
+  %.not39.i.i = icmp eq i32 %8, 0
+  br i1 %.not39.i.i, label %47, label %42
+
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %44 = load ptr, ptr %43, align 8, !tbaa !38
+  %45 = zext nneg i32 %8 to i64
+  %46 = mul nuw nsw i64 %45, 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr align 8 %44, i64 %46, i1 false)
+  br label %47
+
+47:                                               ; preds = %42, %38
+  %48 = load i32, ptr %7, align 8, !tbaa !34
+  %49 = icmp slt i32 %8, %48
+  br i1 %49, label %50, label %60
+
+50:                                               ; preds = %47
+  %51 = zext nneg i32 %8 to i64
+  %52 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %37, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %55 = load ptr, ptr %54, align 8, !tbaa !38
+  %56 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %55, i64 %51
+  %57 = sub nsw i32 %48, %8
+  %58 = zext nneg i32 %57 to i64
+  %59 = mul nuw nsw i64 %58, 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr align 8 %56, i64 %59, i1 false)
+  br label %60
+
+60:                                               ; preds = %50, %47
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %62 = load ptr, ptr %61, align 8, !tbaa !38
+  tail call void @av_free(ptr noundef %62) #10
+  store ptr %37, ptr %61, align 8, !tbaa !38
+  br label %64
+
+63:                                               ; preds = %33
   call void @av_buffer_unref(ptr noundef nonnull %6) #10
   br label %cbs_insert_unit_data.exit
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !38
-  %24 = zext nneg i32 %8 to i64
-  %25 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %23, i64 %24
-  store i32 %1, ptr %25, align 8, !tbaa !57
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %2, ptr %26, align 8, !tbaa !60
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 %3, ptr %27, align 8, !tbaa !93
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store ptr %17, ptr %28, align 8, !tbaa !61
+64:                                               ; preds = %60, %26, %22
+  %.0.i.i = phi ptr [ %24, %26 ], [ %24, %22 ], [ %37, %60 ]
+  %65 = zext nneg i32 %8 to i64
+  %66 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %.0.i.i, i64 %65
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, i8 0, i64 56, i1 false)
+  %67 = load i32, ptr %7, align 8, !tbaa !34
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %7, align 8, !tbaa !34
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %70 = load ptr, ptr %69, align 8, !tbaa !38
+  %71 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %70, i64 %65
+  store i32 %1, ptr %71, align 8, !tbaa !57
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store ptr %2, ptr %72, align 8, !tbaa !60
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  store i64 %3, ptr %73, align 8, !tbaa !93
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  store ptr %17, ptr %74, align 8, !tbaa !61
   br label %cbs_insert_unit_data.exit
 
-cbs_insert_unit_data.exit:                        ; preds = %.thread.i, %15, %20, %21
-  %.0.i = phi i32 [ %18, %20 ], [ 0, %21 ], [ -12, %15 ], [ -12, %.thread.i ]
+cbs_insert_unit_data.exit:                        ; preds = %.thread.i, %15, %63, %64
+  %.0.i = phi i32 [ -12, %63 ], [ 0, %64 ], [ -12, %15 ], [ -12, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   ret i32 %.0.i
 }

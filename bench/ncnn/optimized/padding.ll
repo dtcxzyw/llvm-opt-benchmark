@@ -1350,7 +1350,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
 .lr.ph485:                                        ; preds = %.preheader384, %.lr.ph485
   %indvars.iv628 = phi i64 [ %indvars.iv.next629, %.lr.ph485 ], [ 0, %.preheader384 ]
   %214 = sub nsw i64 %203, %indvars.iv628
-  %215 = getelementptr inbounds i8, ptr %.4343497, i64 %214
+  %215 = getelementptr inbounds nuw i8, ptr %.4343497, i64 %214
   %216 = load i8, ptr %215, align 1, !tbaa !60
   %217 = getelementptr inbounds nuw i8, ptr %.8498, i64 %indvars.iv628
   store i8 %216, ptr %217, align 1, !tbaa !60
@@ -1454,7 +1454,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
 .lr.ph504:                                        ; preds = %.preheader380, %.lr.ph504
   %indvars.iv642 = phi i64 [ %indvars.iv.next643, %.lr.ph504 ], [ 0, %.preheader380 ]
   %253 = sub nsw i64 %212, %indvars.iv642
-  %254 = getelementptr inbounds i8, ptr %.5344516, i64 %253
+  %254 = getelementptr inbounds nuw i8, ptr %.5344516, i64 %253
   %255 = load i8, ptr %254, align 1, !tbaa !60
   %256 = getelementptr inbounds nuw i8, ptr %.9517, i64 %indvars.iv642
   store i8 %255, ptr %256, align 1, !tbaa !60
@@ -1578,7 +1578,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
 .lr.ph524:                                        ; preds = %.preheader376, %.lr.ph524
   %indvars.iv655 = phi i64 [ %indvars.iv.next656, %.lr.ph524 ], [ 0, %.preheader376 ]
   %303 = sub nsw i64 %300, %indvars.iv655
-  %304 = getelementptr inbounds i8, ptr %.6345536, i64 %303
+  %304 = getelementptr inbounds nuw i8, ptr %.6345536, i64 %303
   %305 = load i8, ptr %304, align 1, !tbaa !60
   %306 = getelementptr inbounds nuw i8, ptr %.10537, i64 %indvars.iv655
   store i8 %305, ptr %306, align 1, !tbaa !60
@@ -2233,7 +2233,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
 .lr.ph485:                                        ; preds = %.preheader384, %.lr.ph485
   %indvars.iv662 = phi i64 [ %indvars.iv.next663, %.lr.ph485 ], [ 0, %.preheader384 ]
   %195 = sub nsw i64 %184, %indvars.iv662
-  %196 = getelementptr inbounds i16, ptr %.4343497, i64 %195
+  %196 = getelementptr inbounds nuw i16, ptr %.4343497, i64 %195
   %197 = load i16, ptr %196, align 2, !tbaa !88
   %198 = getelementptr inbounds nuw i16, ptr %.8498, i64 %indvars.iv662
   store i16 %197, ptr %198, align 2, !tbaa !88
@@ -2321,7 +2321,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
 .lr.ph504:                                        ; preds = %.preheader380, %.lr.ph504
   %indvars.iv681 = phi i64 [ %indvars.iv.next682, %.lr.ph504 ], [ 0, %.preheader380 ]
   %227 = sub nsw i64 %193, %indvars.iv681
-  %228 = getelementptr inbounds i16, ptr %.5344518, i64 %227
+  %228 = getelementptr inbounds nuw i16, ptr %.5344518, i64 %227
   %229 = load i16, ptr %228, align 2, !tbaa !88
   %230 = getelementptr inbounds nuw i16, ptr %.9519, i64 %indvars.iv681
   store i16 %229, ptr %230, align 2, !tbaa !88
@@ -2429,7 +2429,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
 .lr.ph526:                                        ; preds = %.preheader376, %.lr.ph526
   %indvars.iv699 = phi i64 [ %indvars.iv.next700, %.lr.ph526 ], [ 0, %.preheader376 ]
   %270 = sub nsw i64 %267, %indvars.iv699
-  %271 = getelementptr inbounds i16, ptr %.6345540, i64 %270
+  %271 = getelementptr inbounds nuw i16, ptr %.6345540, i64 %270
   %272 = load i16, ptr %271, align 2, !tbaa !88
   %273 = getelementptr inbounds nuw i16, ptr %.10541, i64 %indvars.iv699
   store i16 %272, ptr %273, align 2, !tbaa !88
@@ -3070,7 +3070,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
 .lr.ph485:                                        ; preds = %.preheader384, %.lr.ph485
   %indvars.iv662 = phi i64 [ %indvars.iv.next663, %.lr.ph485 ], [ 0, %.preheader384 ]
   %195 = sub nsw i64 %184, %indvars.iv662
-  %196 = getelementptr inbounds float, ptr %.4343497, i64 %195
+  %196 = getelementptr inbounds nuw float, ptr %.4343497, i64 %195
   %197 = load float, ptr %196, align 4, !tbaa !122
   %198 = getelementptr inbounds nuw float, ptr %.8498, i64 %indvars.iv662
   store float %197, ptr %198, align 4, !tbaa !122
@@ -3158,7 +3158,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
 .lr.ph504:                                        ; preds = %.preheader380, %.lr.ph504
   %indvars.iv681 = phi i64 [ %indvars.iv.next682, %.lr.ph504 ], [ 0, %.preheader380 ]
   %227 = sub nsw i64 %193, %indvars.iv681
-  %228 = getelementptr inbounds float, ptr %.5344518, i64 %227
+  %228 = getelementptr inbounds nuw float, ptr %.5344518, i64 %227
   %229 = load float, ptr %228, align 4, !tbaa !122
   %230 = getelementptr inbounds nuw float, ptr %.9519, i64 %indvars.iv681
   store float %229, ptr %230, align 4, !tbaa !122
@@ -3266,7 +3266,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
 .lr.ph526:                                        ; preds = %.preheader376, %.lr.ph526
   %indvars.iv699 = phi i64 [ %indvars.iv.next700, %.lr.ph526 ], [ 0, %.preheader376 ]
   %270 = sub nsw i64 %267, %indvars.iv699
-  %271 = getelementptr inbounds float, ptr %.6345540, i64 %270
+  %271 = getelementptr inbounds nuw float, ptr %.6345540, i64 %270
   %272 = load float, ptr %271, align 4, !tbaa !122
   %273 = getelementptr inbounds nuw float, ptr %.10541, i64 %indvars.iv699
   store float %272, ptr %273, align 4, !tbaa !122

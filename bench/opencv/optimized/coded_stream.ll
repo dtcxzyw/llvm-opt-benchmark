@@ -203,7 +203,7 @@ define hidden noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(
 
 27:                                               ; preds = %19
   %28 = sub nsw i32 %4, %25
-  %29 = sext i32 %28 to i64
+  %29 = zext nneg i32 %28 to i64
   %30 = sub nsw i64 0, %29
   %31 = getelementptr inbounds i8, ptr %22, i64 %30
   store ptr %31, ptr %5, align 8, !tbaa !14
@@ -239,7 +239,7 @@ define hidden void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr noun
 
 16:                                               ; preds = %2
   %17 = sub nsw i32 %14, %12
-  %18 = sext i32 %17 to i64
+  %18 = zext nneg i32 %17 to i64
   %19 = sub nsw i64 0, %18
   %20 = getelementptr inbounds i8, ptr %9, i64 %19
   store ptr %20, ptr %6, align 8, !tbaa !14
@@ -293,7 +293,7 @@ define hidden i64 @_ZN6google8protobuf2io16CodedInputStream35IncrementRecursionD
 
 27:                                               ; preds = %19
   %28 = sub nsw i32 %4, %25
-  %29 = sext i32 %28 to i64
+  %29 = zext nneg i32 %28 to i64
   %30 = sub nsw i64 0, %29
   %31 = getelementptr inbounds i8, ptr %22, i64 %30
   store ptr %31, ptr %5, align 8, !tbaa !14
@@ -470,7 +470,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %54, %
 
 86:                                               ; preds = %78
   %87 = sub nsw i32 %64, %84
-  %88 = sext i32 %87 to i64
+  %88 = zext nneg i32 %87 to i64
   %89 = sub nsw i64 0, %88
   %90 = getelementptr inbounds i8, ptr %81, i64 %89
   store ptr %90, ptr %3, align 8, !tbaa !14
@@ -508,7 +508,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream34Decr
 
 18:                                               ; preds = %2
   %19 = sub nsw i32 %16, %14
-  %20 = sext i32 %19 to i64
+  %20 = zext nneg i32 %19 to i64
   %21 = sub nsw i64 0, %20
   %22 = getelementptr inbounds i8, ptr %11, i64 %21
   store ptr %22, ptr %8, align 8, !tbaa !14
@@ -558,7 +558,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37Chec
 
 18:                                               ; preds = %2
   %19 = sub nsw i32 %16, %14
-  %20 = sext i32 %19 to i64
+  %20 = zext nneg i32 %19 to i64
   %21 = sub nsw i64 0, %20
   %22 = getelementptr inbounds i8, ptr %11, i64 %21
   store ptr %22, ptr %8, align 8, !tbaa !14
@@ -630,7 +630,7 @@ define hidden void @_ZN6google8protobuf2io16CodedInputStream18SetTotalBytesLimit
 
 20:                                               ; preds = %2
   %21 = sub nsw i32 %4, %18
-  %22 = sext i32 %21 to i64
+  %22 = zext nneg i32 %21 to i64
   %23 = sub nsw i64 0, %22
   %24 = getelementptr inbounds i8, ptr %15, i64 %23
   store ptr %24, ptr %5, align 8, !tbaa !14
@@ -958,7 +958,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7Refre
   %61 = sub nsw i32 %51, %52
   store i32 %61, ptr %10, align 4, !tbaa !17
   %62 = load ptr, ptr %43, align 8, !tbaa !14
-  %63 = sext i32 %61 to i64
+  %63 = zext nneg i32 %61 to i64
   %64 = sub nsw i64 0, %63
   %65 = getelementptr inbounds i8, ptr %62, i64 %64
   store ptr %65, ptr %43, align 8, !tbaa !14
@@ -981,7 +981,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7Refre
 
 76:                                               ; preds = %66
   %77 = sub nsw i32 %storemerge, %74
-  %78 = sext i32 %77 to i64
+  %78 = zext nneg i32 %77 to i64
   %79 = sub nsw i64 0, %78
   %80 = getelementptr inbounds i8, ptr %70, i64 %79
   store ptr %80, ptr %43, align 8, !tbaa !14
@@ -2781,7 +2781,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream4Sk
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = icmp slt i32 %1, 0
-  br i1 %8, label %95, label %9
+  br i1 %8, label %94, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2792,7 +2792,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream4Sk
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %2, align 8, !tbaa !62
-  br label %95
+  br label %94
 
 15:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
@@ -2915,7 +2915,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %25
 
 _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
   store ptr %19, ptr %2, align 8, !tbaa !62
-  br label %94
+  br label %93
 
 70:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread45, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
@@ -2941,7 +2941,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN
 81:                                               ; preds = %74
   store i8 1, ptr %10, align 8, !tbaa !60
   store ptr %21, ptr %0, align 8, !tbaa !57
-  br label %93
+  br label %92
 
 82:                                               ; preds = %72
   %83 = load ptr, ptr %7, align 8, !tbaa !33
@@ -2952,28 +2952,27 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN
   %88 = zext nneg i32 %86 to i64
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 %88
   %90 = getelementptr inbounds i8, ptr %89, i64 -16
-  %91 = sext i32 %86 to i64
-  %92 = getelementptr inbounds i8, ptr %19, i64 %91
-  %.sink9.i = select i1 %87, ptr %90, ptr %92
+  %91 = getelementptr inbounds nuw i8, ptr %19, i64 %88
+  %.sink9.i = select i1 %87, ptr %90, ptr %91
   %.sink.i = select i1 %87, ptr null, ptr %85
   %.0.i15 = select i1 %87, ptr %85, ptr %19
   store ptr %.sink9.i, ptr %0, align 8, !tbaa !57
   store ptr %.sink.i, ptr %17, align 8, !tbaa !58
-  br label %93
+  br label %92
 
-93:                                               ; preds = %82, %81
+92:                                               ; preds = %82, %81
   %storemerge = phi ptr [ %.0.i15, %82 ], [ %19, %81 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  br label %93
+
+93:                                               ; preds = %92, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
+  %.1 = phi i1 [ false, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread ], [ %.not.not.not.not.not, %92 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
   br label %94
 
-94:                                               ; preds = %93, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
-  %.1 = phi i1 [ false, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread ], [ %.not.not.not.not.not, %93 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
-  br label %95
-
-95:                                               ; preds = %3, %94, %13
-  %.0 = phi i1 [ false, %13 ], [ %.1, %94 ], [ false, %3 ]
+94:                                               ; preds = %3, %93, %13
+  %.0 = phi i1 [ false, %13 ], [ %.1, %93 ], [ false, %3 ]
   ret i1 %.0
 }
 
@@ -3289,7 +3288,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %21
   %.0.i43 = trunc i64 %.0.i43.in to i32
   %.not = icmp sgt i32 %1, %.0.i43
   %67 = load ptr, ptr %13, align 8, !tbaa !58
-  br i1 %.not, label %78, label %68
+  br i1 %.not, label %77, label %68
 
 68:                                               ; preds = %66
   %69 = sext i32 %1 to i64
@@ -3299,33 +3298,32 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %21
   %73 = zext nneg i32 %71 to i64
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 %73
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
-  %76 = sext i32 %71 to i64
-  %77 = getelementptr inbounds i8, ptr %15, i64 %76
-  %.sink9.i = select i1 %72, ptr %75, ptr %77
+  %76 = getelementptr inbounds nuw i8, ptr %15, i64 %73
+  %.sink9.i = select i1 %72, ptr %75, ptr %76
   %.sink.i = select i1 %72, ptr null, ptr %70
   %.0.i16 = select i1 %72, ptr %70, ptr %15
   store ptr %.sink9.i, ptr %0, align 8, !tbaa !57
   store ptr %.sink.i, ptr %13, align 8, !tbaa !58
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
 
-78:                                               ; preds = %66
-  %79 = icmp sgt i32 %.0.i43, 16
-  %80 = and i64 %.0.i43.in, 4294967295
-  %81 = getelementptr inbounds nuw i8, ptr %67, i64 %80
-  %82 = getelementptr inbounds i8, ptr %81, i64 -16
+77:                                               ; preds = %66
+  %78 = icmp sgt i32 %.0.i43, 16
+  %79 = and i64 %.0.i43.in, 4294967295
+  %80 = getelementptr inbounds nuw i8, ptr %67, i64 %79
+  %81 = getelementptr inbounds i8, ptr %80, i64 -16
   %sext = shl i64 %.0.i43.in, 32
-  %83 = ashr exact i64 %sext, 32
-  %84 = getelementptr inbounds i8, ptr %15, i64 %83
-  %.sink9.i17 = select i1 %79, ptr %82, ptr %84
-  %.sink.i18 = select i1 %79, ptr null, ptr %67
-  %.0.i19 = select i1 %79, ptr %67, ptr %15
+  %82 = ashr exact i64 %sext, 32
+  %83 = getelementptr inbounds i8, ptr %15, i64 %82
+  %.sink9.i17 = select i1 %78, ptr %81, ptr %83
+  %.sink.i18 = select i1 %78, ptr null, ptr %67
+  %.0.i19 = select i1 %78, ptr %67, ptr %15
   store ptr %.sink9.i17, ptr %0, align 8, !tbaa !57
   store ptr %.sink.i18, ptr %13, align 8, !tbaa !58
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
 
-_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i, %68, %78, %9
-  %.sink = phi ptr [ %.0.i16, %68 ], [ %.0.i19, %78 ], [ %10, %9 ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i ]
-  %.0 = phi ptr [ %67, %68 ], [ null, %78 ], [ null, %9 ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i ]
+_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i, %68, %77, %9
+  %.sink = phi ptr [ %.0.i16, %68 ], [ %.0.i19, %77 ], [ %10, %9 ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i ]
+  %.0 = phi ptr [ %67, %68 ], [ null, %77 ], [ null, %9 ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i ]
   store ptr %.sink, ptr %2, align 8, !tbaa !62
   ret ptr %.0
 }

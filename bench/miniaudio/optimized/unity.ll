@@ -130951,7 +130951,7 @@ define internal noundef range(i32 0, 2) i32 @ma_dr_flac__on_seek_ogg(ptr noundef
 
 .preheader49:                                     ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  br label %53
+  br label %51
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -131026,74 +131026,70 @@ ma_dr_flac_oggbs__seek_physical.exit:             ; preds = %35, %18
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 624
   br label %40
 
-40:                                               ; preds = %.preheader, %51
-  %.024.i = phi i32 [ %.226.i, %51 ], [ 0, %.preheader ]
+40:                                               ; preds = %.preheader, %49
+  %.024.i = phi i32 [ %.226.i, %49 ], [ 0, %.preheader ]
   %41 = icmp slt i32 %.024.i, %1
   br i1 %41, label %42, label %ma_dr_flac__on_seek_ogg.exit
 
 42:                                               ; preds = %40
   %43 = sub nsw i32 %1, %.024.i
   %44 = load i32, ptr %39, align 8, !tbaa !1312
-  %45 = zext i32 %44 to i64
-  %46 = sext i32 %43 to i64
-  %.not.i = icmp ult i64 %45, %46
-  br i1 %.not.i, label %48, label %.thread38
+  %.not.i = icmp ult i32 %44, %43
+  br i1 %.not.i, label %46, label %.thread38
 
 .thread38:                                        ; preds = %42
-  %47 = sub i32 %44, %43
-  store i32 %47, ptr %39, align 8, !tbaa !1312
+  %45 = sub nuw i32 %44, %43
+  store i32 %45, ptr %39, align 8, !tbaa !1312
   br label %ma_dr_flac__on_seek_ogg.exit
 
-48:                                               ; preds = %42
+46:                                               ; preds = %42
   %.not29.i = icmp eq i32 %44, 0
-  br i1 %.not29.i, label %51, label %49
+  br i1 %.not29.i, label %49, label %47
 
-49:                                               ; preds = %48
-  %50 = add nsw i32 %44, %.024.i
+47:                                               ; preds = %46
+  %48 = add nsw i32 %44, %.024.i
   store i32 0, ptr %39, align 8, !tbaa !1312
-  br label %51
+  br label %49
 
-51:                                               ; preds = %49, %48
-  %.226.i = phi i32 [ %50, %49 ], [ %.024.i, %48 ]
-  %52 = tail call fastcc i32 @ma_dr_flac_oggbs__goto_next_page(ptr noundef nonnull %0, i32 noundef 1)
-  %.not30.i = icmp eq i32 %52, 0
+49:                                               ; preds = %47, %46
+  %.226.i = phi i32 [ %48, %47 ], [ %.024.i, %46 ]
+  %50 = tail call fastcc i32 @ma_dr_flac_oggbs__goto_next_page(ptr noundef nonnull %0, i32 noundef 1)
+  %.not30.i = icmp eq i32 %50, 0
   br i1 %.not30.i, label %ma_dr_flac__on_seek_ogg.exit, label %40
 
-53:                                               ; preds = %.preheader49, %64
-  %.024 = phi i32 [ %.226, %64 ], [ 0, %.preheader49 ]
-  %54 = icmp slt i32 %.024, %1
-  br i1 %54, label %55, label %ma_dr_flac__on_seek_ogg.exit
+51:                                               ; preds = %.preheader49, %60
+  %.024 = phi i32 [ %.226, %60 ], [ 0, %.preheader49 ]
+  %52 = icmp slt i32 %.024, %1
+  br i1 %52, label %53, label %ma_dr_flac__on_seek_ogg.exit
 
-55:                                               ; preds = %53
-  %56 = sub nsw i32 %1, %.024
-  %57 = load i32, ptr %5, align 8, !tbaa !1312
-  %58 = zext i32 %57 to i64
-  %59 = sext i32 %56 to i64
-  %.not = icmp ult i64 %58, %59
-  br i1 %.not, label %61, label %.thread45
+53:                                               ; preds = %51
+  %54 = sub nsw i32 %1, %.024
+  %55 = load i32, ptr %5, align 8, !tbaa !1312
+  %.not = icmp ult i32 %55, %54
+  br i1 %.not, label %57, label %.thread45
 
-.thread45:                                        ; preds = %55
-  %60 = sub i32 %57, %56
-  store i32 %60, ptr %5, align 8, !tbaa !1312
+.thread45:                                        ; preds = %53
+  %56 = sub nuw i32 %55, %54
+  store i32 %56, ptr %5, align 8, !tbaa !1312
   br label %ma_dr_flac__on_seek_ogg.exit
 
-61:                                               ; preds = %55
-  %.not29 = icmp eq i32 %57, 0
-  br i1 %.not29, label %64, label %62
+57:                                               ; preds = %53
+  %.not29 = icmp eq i32 %55, 0
+  br i1 %.not29, label %60, label %58
 
-62:                                               ; preds = %61
-  %63 = add nsw i32 %57, %.024
+58:                                               ; preds = %57
+  %59 = add nsw i32 %55, %.024
   store i32 0, ptr %5, align 8, !tbaa !1312
-  br label %64
+  br label %60
 
-64:                                               ; preds = %62, %61
-  %.226 = phi i32 [ %63, %62 ], [ %.024, %61 ]
-  %65 = tail call fastcc i32 @ma_dr_flac_oggbs__goto_next_page(ptr noundef nonnull %0, i32 noundef 1)
-  %.not30 = icmp eq i32 %65, 0
-  br i1 %.not30, label %ma_dr_flac__on_seek_ogg.exit, label %53
+60:                                               ; preds = %58, %57
+  %.226 = phi i32 [ %59, %58 ], [ %.024, %57 ]
+  %61 = tail call fastcc i32 @ma_dr_flac_oggbs__goto_next_page(ptr noundef nonnull %0, i32 noundef 1)
+  %.not30 = icmp eq i32 %61, 0
+  br i1 %.not30, label %ma_dr_flac__on_seek_ogg.exit, label %51
 
-ma_dr_flac__on_seek_ogg.exit:                     ; preds = %64, %53, %.lr.ph35.i, %51, %40, %._crit_edge36.i, %20, %15, %.thread45, %.thread38, %ma_dr_flac_oggbs__seek_physical.exit
-  %.0 = phi i32 [ 0, %ma_dr_flac_oggbs__seek_physical.exit ], [ 1, %.thread38 ], [ 1, %.thread45 ], [ 0, %15 ], [ 0, %20 ], [ 0, %._crit_edge36.i ], [ 0, %51 ], [ 1, %40 ], [ 0, %.lr.ph35.i ], [ 0, %64 ], [ 1, %53 ]
+ma_dr_flac__on_seek_ogg.exit:                     ; preds = %60, %51, %.lr.ph35.i, %49, %40, %._crit_edge36.i, %20, %15, %.thread45, %.thread38, %ma_dr_flac_oggbs__seek_physical.exit
+  %.0 = phi i32 [ 0, %ma_dr_flac_oggbs__seek_physical.exit ], [ 1, %.thread38 ], [ 1, %.thread45 ], [ 0, %15 ], [ 0, %20 ], [ 0, %._crit_edge36.i ], [ 0, %49 ], [ 1, %40 ], [ 0, %.lr.ph35.i ], [ 0, %60 ], [ 1, %51 ]
   ret i32 %.0
 }
 

@@ -4539,9 +4539,8 @@ strbuf_setlen.exit:                               ; preds = %9, %17
 
 41:                                               ; preds = %32
   %42 = sub i64 %33, %38
-  %sext = shl i64 %42, 32
-  %43 = ashr exact i64 %sext, 32
-  %44 = getelementptr inbounds i8, ptr %5, i64 %43
+  %43 = and i64 %42, 4294967295
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 %43
   %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %37) #19
   %.not32 = icmp eq i32 %45, 0
   br i1 %.not32, label %47, label %46
@@ -4552,7 +4551,7 @@ strbuf_setlen.exit:                               ; preds = %9, %17
 
 47:                                               ; preds = %41
   %48 = call ptr @xstrdup(ptr noundef nonnull %5) #18
-  %49 = getelementptr inbounds i8, ptr %48, i64 %43
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %43
   store i8 0, ptr %49, align 1, !tbaa !51
   %50 = call ptr @strbuf_realpath(ptr noundef %0, ptr noundef %48, i32 noundef 1) #18
   call void @free(ptr noundef %48) #18

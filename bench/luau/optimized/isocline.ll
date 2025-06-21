@@ -1574,7 +1574,7 @@ ic_strlen.exit.split:                             ; preds = %ic_strlen.exit.spli
 
 11:                                               ; preds = %.preheader.i
   %12 = sub nsw i64 %.028, %.1.i
-  %13 = getelementptr inbounds i8, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !4
   %or.cond4.i = icmp sgt i8 %14, -65
   %15 = add nuw i64 %.1.i, 1
@@ -1784,7 +1784,7 @@ ic_strlen.exit:                                   ; preds = %6, %11
 
 58:                                               ; preds = %.preheader.i
   %59 = sub nsw i64 %.7179, %.1.i
-  %60 = getelementptr inbounds i8, ptr %1, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !4
   %or.cond4.i = icmp sgt i8 %61, -65
   %62 = add nuw i64 %.1.i, 1
@@ -2877,7 +2877,7 @@ ic_strlen.exit:                                   ; preds = %2, %4
 
 12:                                               ; preds = %.preheader.i
   %13 = sub nsw i64 %1, %.1.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %or.cond4.i = icmp sgt i8 %15, -65
   %16 = add nuw i64 %.1.i, 1
@@ -11370,7 +11370,7 @@ ic_strlen.exit.i:                                 ; preds = %121
   %140 = getelementptr inbounds i8, ptr %34, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !4
   %142 = sub nsw i64 %133, %.01825.i.i
-  %143 = getelementptr inbounds i8, ptr %132, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %132, i64 %142
   %144 = load i8, ptr %143, align 1, !tbaa !4
   %.not24.i.i = icmp eq i8 %141, %144
   br i1 %.not24.i.i, label %137, label %ends_with_n.exit.i
@@ -14229,7 +14229,7 @@ hsearch_pop.exit.i.i:                             ; preds = %823
 
 843:                                              ; preds = %.preheader.i.i.i.i.i.i
   %844 = sub nsw i64 %840, %.1.i.i.i.i.i.i
-  %845 = getelementptr inbounds i8, ptr %.val.i.i234.i.i, i64 %844
+  %845 = getelementptr inbounds nuw i8, ptr %.val.i.i234.i.i, i64 %844
   %846 = load i8, ptr %845, align 1, !tbaa !4
   %or.cond4.i.i.i.i.i.i = icmp sgt i8 %846, -65
   %847 = add nuw i64 %.1.i.i.i.i.i.i, 1
@@ -14750,7 +14750,7 @@ edit_multiline_eol.exit.backedge:                 ; preds = %1039, %1787, %1792,
 
 1044:                                             ; preds = %.preheader.i.i.i.i
   %1045 = sub nsw i64 %1041, %.1.i.i.i.i
-  %1046 = getelementptr inbounds i8, ptr %.val.i216, i64 %1045
+  %1046 = getelementptr inbounds nuw i8, ptr %.val.i216, i64 %1045
   %1047 = load i8, ptr %1046, align 1, !tbaa !4
   %or.cond4.i.i.i.i = icmp sgt i8 %1047, -65
   %1048 = add nuw i64 %.1.i.i.i.i, 1
@@ -14939,7 +14939,7 @@ edit_cursor_row_down.exit:                        ; preds = %1128, %1129
 
 1135:                                             ; preds = %.preheader.i45.i.i.i.i
   %1136 = sub nsw i64 %.3.i.i.i.i, %.1.i46.i.i.i.i
-  %1137 = getelementptr inbounds i8, ptr %.val.i231, i64 %1136
+  %1137 = getelementptr inbounds nuw i8, ptr %.val.i231, i64 %1136
   %1138 = load i8, ptr %1137, align 1, !tbaa !4
   %or.cond4.i48.i.i.i.i = icmp sgt i8 %1138, -65
   %1139 = add nuw i64 %.1.i46.i.i.i.i, 1
@@ -15222,7 +15222,7 @@ editor_start_modify.exit510:                      ; preds = %1238, %editor_undo_
 
 1248:                                             ; preds = %.preheader.i.i.i.i256
   %1249 = sub nsw i64 %1245, %.1.i.i.i.i257
-  %1250 = getelementptr inbounds i8, ptr %.val.i.i253, i64 %1249
+  %1250 = getelementptr inbounds nuw i8, ptr %.val.i.i253, i64 %1249
   %1251 = load i8, ptr %1250, align 1, !tbaa !4
   %or.cond4.i.i.i.i259 = icmp sgt i8 %1251, -65
   %1252 = add nuw i64 %.1.i.i.i.i257, 1
@@ -15586,7 +15586,7 @@ sbuf_delete_from_to.exit.i:                       ; preds = %ic_memmove.exit.i.i
 
 1401:                                             ; preds = %.preheader.i.i.i.i.i
   %1402 = sub nsw i64 %.135.i.i.i.i, %.1.i.i.i.i.i
-  %1403 = getelementptr inbounds i8, ptr %.val.i284, i64 %1402
+  %1403 = getelementptr inbounds nuw i8, ptr %.val.i284, i64 %1402
   %1404 = load i8, ptr %1403, align 1, !tbaa !4
   %or.cond4.i.i.i.i.i = icmp sgt i8 %1404, -65
   %1405 = add nuw i64 %.1.i.i.i.i.i, 1
@@ -15628,7 +15628,7 @@ ic_char_is_white.exit7.i.i.i:                     ; preds = %1406, %1406, %1406,
 
 1410:                                             ; preds = %.preheader.i45.i.i.i.i297
   %1411 = sub nsw i64 %.3.i.i.i.i291, %.1.i46.i.i.i.i298
-  %1412 = getelementptr inbounds i8, ptr %.val.i284, i64 %1411
+  %1412 = getelementptr inbounds nuw i8, ptr %.val.i284, i64 %1411
   %1413 = load i8, ptr %1412, align 1, !tbaa !4
   %or.cond4.i48.i.i.i.i300 = icmp sgt i8 %1413, -65
   %1414 = add nuw i64 %.1.i46.i.i.i.i298, 1
@@ -15923,7 +15923,7 @@ edit_delete_to_start_of_word.exit:                ; preds = %editor_start_modify
 
 1526:                                             ; preds = %.preheader.i45.i.i.i.i319
   %1527 = sub nsw i64 %.3.i.i.i.i317, %.1.i46.i.i.i.i320
-  %1528 = getelementptr inbounds i8, ptr %.val26.i, i64 %1527
+  %1528 = getelementptr inbounds nuw i8, ptr %.val26.i, i64 %1527
   %1529 = load i8, ptr %1528, align 1, !tbaa !4
   %or.cond4.i48.i.i.i.i322 = icmp sgt i8 %1529, -65
   %1530 = add nuw i64 %.1.i46.i.i.i.i320, 1
@@ -16192,7 +16192,7 @@ sbuf_delete_from_to.exit41.i:                     ; preds = %ic_memmove.exit.i.i
 
 1619:                                             ; preds = %.preheader.i45.i.i.i.i349
   %1620 = sub nsw i64 %.3.i.i.i.i347, %.1.i46.i.i.i.i350
-  %1621 = getelementptr inbounds i8, ptr %.val24.i339, i64 %1620
+  %1621 = getelementptr inbounds nuw i8, ptr %.val24.i339, i64 %1620
   %1622 = load i8, ptr %1621, align 1, !tbaa !4
   %or.cond4.i48.i.i.i.i352 = icmp sgt i8 %1622, -65
   %1623 = add nuw i64 %.1.i46.i.i.i.i350, 1
@@ -16541,7 +16541,7 @@ editor_start_modify.exit622:                      ; preds = %1750, %editor_undo_
 
 1764:                                             ; preds = %.preheader.i.i.i.i375
   %1765 = sub nsw i64 %1757, %.1.i.i.i.i376
-  %1766 = getelementptr inbounds i8, ptr %.val.i.i373, i64 %1765
+  %1766 = getelementptr inbounds nuw i8, ptr %.val.i.i373, i64 %1765
   %1767 = load i8, ptr %1766, align 1, !tbaa !4
   %or.cond4.i.i.i.i378 = icmp sgt i8 %1767, -65
   %1768 = add nuw i64 %.1.i.i.i.i376, 1
@@ -25585,7 +25585,7 @@ define internal fastcc range(i64 0, -9223372036854775808) i64 @sbuf_find_word_st
 
 2:                                                ; preds = %.preheader.i.i.i
   %3 = sub nsw i64 %.135.i.i, %.1.i.i.i
-  %4 = getelementptr inbounds i8, ptr %.0.val, i64 %3
+  %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %3
   %5 = load i8, ptr %4, align 1, !tbaa !4
   %or.cond4.i.i.i = icmp sgt i8 %5, -65
   %6 = add nuw i64 %.1.i.i.i, 1
@@ -25645,7 +25645,7 @@ ic_char_is_idletter.exit15.thread.i:              ; preds = %ic_char_is_idletter
 
 22:                                               ; preds = %.preheader.i45.i.i
   %23 = sub nsw i64 %.3.i.i, %.1.i46.i.i
-  %24 = getelementptr inbounds i8, ptr %.0.val, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %or.cond4.i48.i.i = icmp sgt i8 %25, -65
   %26 = add nuw i64 %.1.i46.i.i, 1

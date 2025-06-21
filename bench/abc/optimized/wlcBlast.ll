@@ -3323,153 +3323,154 @@ define void @Wlc_BlastDivider(ptr noundef %0, ptr noundef readonly captures(none
   %14 = add nsw i32 %2, -1
   %15 = add nsw i64 %9, -1
   %16 = zext nneg i32 %14 to i64
+  %17 = zext nneg i32 %14 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
   %wide.trip.count150 = zext nneg i32 %2 to i64
   br label %.preheader120
 
 .preheader120:                                    ; preds = %.preheader120.lr.ph, %.loopexit
   %indvars.iv152 = phi i64 [ %15, %.preheader120.lr.ph ], [ %indvars.iv.next153, %.loopexit ]
-  %17 = sub nuw nsw i64 %16, %indvars.iv152
-  %18 = icmp sgt i64 %indvars.iv152, 0
-  br i1 %18, label %.lr.ph, label %.lr.ph129
+  %18 = sub nuw nsw i64 %17, %indvars.iv152
+  %19 = icmp sgt i64 %indvars.iv152, 0
+  br i1 %19, label %.lr.ph, label %.lr.ph129
 
-19:                                               ; preds = %.lr.ph
+20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %20 = icmp sgt i64 %indvars.iv.next, %17
-  br i1 %20, label %.lr.ph, label %.lr.ph129, !llvm.loop !90
+  %21 = icmp sgt i64 %indvars.iv.next, %18
+  br i1 %21, label %.lr.ph, label %.lr.ph129, !llvm.loop !90
 
-.lr.ph:                                           ; preds = %.preheader120, %19
-  %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ %15, %.preheader120 ]
-  %.0105122 = phi i32 [ %23, %19 ], [ 0, %.preheader120 ]
-  %21 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
-  %22 = load i32, ptr %21, align 4, !tbaa !3
-  %23 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.0105122, i32 noundef %22) #23
-  %24 = icmp eq i32 %23, 1
-  br i1 %24, label %.thread, label %19
+.lr.ph:                                           ; preds = %.preheader120, %20
+  %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ %15, %.preheader120 ]
+  %.0105122 = phi i32 [ %24, %20 ], [ 0, %.preheader120 ]
+  %22 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %23 = load i32, ptr %22, align 4, !tbaa !3
+  %24 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.0105122, i32 noundef %23) #23
+  %25 = icmp eq i32 %24, 1
+  br i1 %25, label %.thread, label %20
 
 .thread:                                          ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv152
-  store i32 0, ptr %25, align 4, !tbaa !3
+  %26 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv152
+  store i32 0, ptr %26, align 4, !tbaa !3
   br label %.loopexit
 
-.lr.ph129:                                        ; preds = %19, %.preheader120
-  %.promoted.ph = phi i32 [ 0, %.preheader120 ], [ %23, %19 ]
-  %26 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv152
-  br label %27
+.lr.ph129:                                        ; preds = %20, %.preheader120
+  %.promoted.ph = phi i32 [ 0, %.preheader120 ], [ %24, %20 ]
+  %27 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv152
+  br label %28
 
-27:                                               ; preds = %.lr.ph129, %33
-  %indvars.iv141 = phi i64 [ %15, %.lr.ph129 ], [ %indvars.iv.next142, %33 ]
-  %28 = phi i32 [ %.promoted.ph, %.lr.ph129 ], [ %39, %33 ]
-  %.2127 = phi i32 [ %.promoted.ph, %.lr.ph129 ], [ %42, %33 ]
+28:                                               ; preds = %.lr.ph129, %34
+  %indvars.iv141 = phi i64 [ %16, %.lr.ph129 ], [ %indvars.iv.next142, %34 ]
+  %29 = phi i32 [ %.promoted.ph, %.lr.ph129 ], [ %40, %34 ]
+  %.2127 = phi i32 [ %.promoted.ph, %.lr.ph129 ], [ %43, %34 ]
   %.not117 = icmp slt i64 %indvars.iv141, %indvars.iv152
-  br i1 %.not117, label %33, label %29
+  br i1 %.not117, label %34, label %30
 
-29:                                               ; preds = %27
-  %30 = sub nsw i64 %indvars.iv141, %indvars.iv152
-  %31 = getelementptr inbounds i32, ptr %3, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !3
-  br label %33
+30:                                               ; preds = %28
+  %31 = sub nsw i64 %indvars.iv141, %indvars.iv152
+  %32 = getelementptr inbounds nuw i32, ptr %3, i64 %31
+  %33 = load i32, ptr %32, align 4, !tbaa !3
+  br label %34
 
-33:                                               ; preds = %27, %29
-  %34 = phi i32 [ %32, %29 ], [ 0, %27 ]
-  %35 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv141
-  %36 = load i32, ptr %35, align 4, !tbaa !3
-  %37 = xor i32 %36, 1
-  %38 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %34, i32 noundef %37) #23
-  %39 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.2127, i32 noundef %28, i32 noundef %38) #23
-  %40 = load i32, ptr %35, align 4, !tbaa !3
-  %41 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %34, i32 noundef %40) #23
-  %42 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.2127, i32 noundef %41) #23
+34:                                               ; preds = %28, %30
+  %35 = phi i32 [ %33, %30 ], [ 0, %28 ]
+  %36 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv141
+  %37 = load i32, ptr %36, align 4, !tbaa !3
+  %38 = xor i32 %37, 1
+  %39 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %35, i32 noundef %38) #23
+  %40 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.2127, i32 noundef %29, i32 noundef %39) #23
+  %41 = load i32, ptr %36, align 4, !tbaa !3
+  %42 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %35, i32 noundef %41) #23
+  %43 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.2127, i32 noundef %42) #23
   %indvars.iv.next142 = add nsw i64 %indvars.iv141, -1
-  %43 = icmp slt i64 %indvars.iv141, 1
-  %44 = icmp eq i32 %42, 1
-  %or.cond = select i1 %43, i1 true, i1 %44
-  br i1 %or.cond, label %45, label %27, !llvm.loop !91
+  %44 = icmp slt i64 %indvars.iv141, 1
+  %45 = icmp eq i32 %43, 1
+  %or.cond = select i1 %44, i1 true, i1 %45
+  br i1 %or.cond, label %46, label %28, !llvm.loop !91
 
-45:                                               ; preds = %33
-  %46 = xor i32 %39, 1
-  store i32 %46, ptr %26, align 4, !tbaa !3
-  %47 = icmp eq i32 %39, 1
-  br i1 %47, label %.loopexit, label %.lr.ph133
+46:                                               ; preds = %34
+  %47 = xor i32 %40, 1
+  store i32 %47, ptr %27, align 4, !tbaa !3
+  %48 = icmp eq i32 %40, 1
+  br i1 %48, label %.loopexit, label %.lr.ph133
 
-.lr.ph133:                                        ; preds = %45, %56
-  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %56 ], [ 0, %45 ]
-  %.0132 = phi i32 [ %61, %56 ], [ 0, %45 ]
-  %48 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv144
-  %49 = load i32, ptr %48, align 4, !tbaa !3
-  %50 = xor i32 %49, 1
-  %51 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.0132, i32 noundef %50, i32 noundef %49) #23
+.lr.ph133:                                        ; preds = %46, %57
+  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %57 ], [ 0, %46 ]
+  %.0132 = phi i32 [ %62, %57 ], [ 0, %46 ]
+  %49 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv144
+  %50 = load i32, ptr %49, align 4, !tbaa !3
+  %51 = xor i32 %50, 1
+  %52 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %.0132, i32 noundef %51, i32 noundef %50) #23
   %.not118 = icmp slt i64 %indvars.iv144, %indvars.iv152
-  br i1 %.not118, label %56, label %52
+  br i1 %.not118, label %57, label %53
 
-52:                                               ; preds = %.lr.ph133
-  %53 = sub nsw i64 %indvars.iv144, %indvars.iv152
-  %54 = getelementptr inbounds i32, ptr %3, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !3
-  br label %56
+53:                                               ; preds = %.lr.ph133
+  %54 = sub nsw i64 %indvars.iv144, %indvars.iv152
+  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %54
+  %56 = load i32, ptr %55, align 4, !tbaa !3
+  br label %57
 
-56:                                               ; preds = %.lr.ph133, %52
-  %57 = phi i32 [ %55, %52 ], [ 0, %.lr.ph133 ]
-  %58 = load i32, ptr %48, align 4, !tbaa !3
-  %59 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0132, i32 noundef %57) #23
-  %60 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.0132, i32 noundef %57) #23
-  %61 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %58, i32 noundef %59, i32 noundef %60) #23
-  %62 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %51, i32 noundef %57) #23
-  %63 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv144
-  store i32 %62, ptr %63, align 4, !tbaa !3
+57:                                               ; preds = %.lr.ph133, %53
+  %58 = phi i32 [ %56, %53 ], [ 0, %.lr.ph133 ]
+  %59 = load i32, ptr %49, align 4, !tbaa !3
+  %60 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0132, i32 noundef %58) #23
+  %61 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.0132, i32 noundef %58) #23
+  %62 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %59, i32 noundef %60, i32 noundef %61) #23
+  %63 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %52, i32 noundef %58) #23
+  %64 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv144
+  store i32 %63, ptr %64, align 4, !tbaa !3
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !92
 
-._crit_edge134:                                   ; preds = %56
-  %64 = icmp eq i32 %39, 0
-  br i1 %64, label %65, label %.lr.ph136
+._crit_edge134:                                   ; preds = %57
+  %65 = icmp eq i32 %40, 0
+  br i1 %65, label %66, label %.lr.ph136
 
-65:                                               ; preds = %._crit_edge134
-  %66 = tail call ptr @Wlc_VecCopy(ptr noundef %6, ptr noundef nonnull %12, i32 noundef %2)
+66:                                               ; preds = %._crit_edge134
+  %67 = tail call ptr @Wlc_VecCopy(ptr noundef %6, ptr noundef nonnull %12, i32 noundef %2)
   br label %.loopexit
 
 .lr.ph136:                                        ; preds = %._crit_edge134, %.lr.ph136
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph136 ], [ 0, %._crit_edge134 ]
-  %67 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv147
-  %68 = load i32, ptr %67, align 4, !tbaa !3
-  %69 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv147
-  %70 = load i32, ptr %69, align 4, !tbaa !3
-  %71 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %46, i32 noundef %68, i32 noundef %70) #23
-  store i32 %71, ptr %69, align 4, !tbaa !3
+  %68 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv147
+  %69 = load i32, ptr %68, align 4, !tbaa !3
+  %70 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv147
+  %71 = load i32, ptr %70, align 4, !tbaa !3
+  %72 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %47, i32 noundef %69, i32 noundef %71) #23
+  store i32 %72, ptr %70, align 4, !tbaa !3
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
   br i1 %exitcond151.not, label %.loopexit, label %.lr.ph136, !llvm.loop !93
 
-.loopexit:                                        ; preds = %.lr.ph136, %.thread, %65, %45
+.loopexit:                                        ; preds = %.lr.ph136, %.thread, %66, %46
   %indvars.iv.next153 = add nsw i64 %indvars.iv152, -1
-  br i1 %18, label %.preheader120, label %._crit_edge139, !llvm.loop !94
+  br i1 %19, label %.preheader120, label %._crit_edge139, !llvm.loop !94
 
 ._crit_edge139:                                   ; preds = %.loopexit, %7
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %73, label %72
+  br i1 %.not, label %74, label %73
 
-72:                                               ; preds = %._crit_edge139
+73:                                               ; preds = %._crit_edge139
   tail call void @free(ptr noundef nonnull %12) #23
-  br label %73
+  br label %74
 
-73:                                               ; preds = %._crit_edge139, %72
+74:                                               ; preds = %._crit_edge139, %73
   %.not115 = icmp eq i32 %5, 0
-  br i1 %.not115, label %76, label %74
+  br i1 %.not115, label %77, label %75
 
-74:                                               ; preds = %73
-  %75 = tail call ptr @Wlc_VecCopy(ptr noundef %6, ptr noundef %11, i32 noundef %2)
-  br label %76
+75:                                               ; preds = %74
+  %76 = tail call ptr @Wlc_VecCopy(ptr noundef %6, ptr noundef %11, i32 noundef %2)
+  br label %77
 
-76:                                               ; preds = %74, %73
+77:                                               ; preds = %75, %74
   %.not116 = icmp eq ptr %11, null
-  br i1 %.not116, label %78, label %77
+  br i1 %.not116, label %79, label %78
 
-77:                                               ; preds = %76
+78:                                               ; preds = %77
   tail call void @free(ptr noundef nonnull %11) #23
-  br label %78
+  br label %79
 
-78:                                               ; preds = %76, %77
+79:                                               ; preds = %77, %78
   ret void
 }
 

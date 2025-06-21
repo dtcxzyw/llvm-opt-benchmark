@@ -1084,8 +1084,8 @@ define hidden noundef zeroext i1 @_ZN10JavaThread15resize_countersEii(ptr nounde
   %20 = sext i32 %1 to i64
   %21 = getelementptr inbounds i64, ptr %8, i64 %20
   %22 = sub nsw i32 %2, %1
-  %23 = sext i32 %22 to i64
-  %24 = shl nsw i64 %23, 3
+  %23 = zext nneg i32 %22 to i64
+  %24 = shl nuw nsw i64 %23, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %21, i8 0, i64 %24, i1 false)
   br label %25
 
@@ -1240,25 +1240,27 @@ define hidden void @_ZN10JavaThreadC2E8MEMFLAGS(ptr noundef nonnull align 8 dere
 
 .preheader.i.i:                                   ; preds = %60
   %62 = icmp sgt i32 %56, 0
-  br i1 %62, label %64, label %65
+  br i1 %62, label %64, label %67
 
 63:                                               ; preds = %60
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %58, i1 false)
-  br label %66
+  br label %68
 
 64:                                               ; preds = %.preheader.i.i
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %58, i1 false)
-  br label %65
+  %65 = shl i64 %53, 3
+  %66 = and i64 %65, 17179869176
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %66, i1 false)
+  br label %67
 
-65:                                               ; preds = %64, %.preheader.i.i
+67:                                               ; preds = %64, %.preheader.i.i
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %57) #21
-  br label %66
+  br label %68
 
-66:                                               ; preds = %65, %63
+68:                                               ; preds = %67, %63
   store ptr %59, ptr %29, align 8
   br label %_ZN10JavaThread15resize_countersEii.exit
 
-_ZN10JavaThread15resize_countersEii.exit:         ; preds = %66, %55, %2
+_ZN10JavaThread15resize_countersEii.exit:         ; preds = %68, %55, %2
   tail call void @_ZN20ThreadSafepointState6createEP10JavaThread(ptr noundef nonnull %0) #21
   tail call void @_ZN18SafepointMechanism17initialize_headerEP10JavaThread(ptr noundef nonnull %0) #21
   store volatile ptr null, ptr %5, align 8
@@ -8054,8 +8056,8 @@ define linkonce_odr hidden void @_ZN22VM_JVMCIResizeCounters4doitEv(ptr noundef 
   %22 = ashr exact i64 %sext, 29
   %23 = getelementptr inbounds i8, ptr %10, i64 %22
   %24 = sub nsw i32 %7, %5
-  %25 = sext i32 %24 to i64
-  %26 = shl nsw i64 %25, 3
+  %25 = zext nneg i32 %24 to i64
+  %26 = shl nuw nsw i64 %25, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 0, i64 %26, i1 false)
   br label %27
 
@@ -8136,8 +8138,8 @@ _ZL21resize_counters_arrayPlii.exit:              ; preds = %1
   %60 = ashr exact i64 %sext11, 29
   %61 = getelementptr inbounds i8, ptr %49, i64 %60
   %62 = sub nsw i32 %44, %43
-  %63 = sext i32 %62 to i64
-  %64 = shl nsw i64 %63, 3
+  %63 = zext nneg i32 %62 to i64
+  %64 = shl nuw nsw i64 %63, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %61, i8 0, i64 %64, i1 false)
   br label %65
 

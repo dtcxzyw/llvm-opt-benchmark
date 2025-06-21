@@ -2072,7 +2072,7 @@ define internal range(i32 0, 3) i32 @lv_draw_mask_radius(ptr noundef %0, i32 nou
   %48 = zext nneg i32 %43 to i64
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
   %50 = sub nsw i32 %3, %43
-  %51 = sext i32 %50 to i64
+  %51 = zext nneg i32 %50 to i64
   tail call void @lv_memset(ptr noundef nonnull %49, i8 noundef zeroext 0, i64 noundef range(i64 -2147483648, 2147483648) %51) #8
   br label %52
 
@@ -2419,7 +2419,7 @@ define internal range(i32 1, 3) i32 @lv_draw_mask_fade(ptr noundef captures(none
   %26 = select i1 %24, i32 %25, i32 0
   %.neg80 = sub i32 %3, %26
   %.166 = add i32 %.neg80, %.neg95
-  %.062.idx = sext i32 %26 to i64
+  %.062.idx = zext i32 %26 to i64
   %.062 = getelementptr i8, ptr %0, i64 %.062.idx
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %28 = load i32, ptr %27, align 8, !tbaa !75
@@ -2618,69 +2618,59 @@ define internal range(i32 1, 3) i32 @lv_draw_mask_map(ptr noundef captures(none)
   %29 = getelementptr inbounds i8, ptr %24, i64 %28
   %30 = load i32, ptr %19, align 8, !tbaa !94
   %31 = icmp sgt i32 %15, %30
-  %32 = xor i32 %30, -1
-  %33 = add i32 %15, %32
-  %34 = select i1 %31, i32 %33, i32 0
-  %.044 = sub nsw i32 %3, %34
-  %35 = load i32, ptr %6, align 8, !tbaa !93
-  %36 = icmp slt i32 %1, %35
-  br i1 %36, label %37, label %42
+  %.neg56 = add i32 %30, 1
+  %.neg57 = sub i32 %.neg56, %15
+  %.neg58 = select i1 %31, i32 %.neg57, i32 0
+  %32 = load i32, ptr %6, align 8, !tbaa !93
+  %33 = icmp slt i32 %1, %32
+  %34 = sub nsw i32 %32, %1
+  %35 = sub nsw i32 %1, %32
+  %36 = select i1 %33, i32 %34, i32 0
+  %.neg54 = add i32 %.neg58, %3
+  %.1 = sub i32 %.neg54, %36
+  %.043.idx = zext i32 %36 to i64
+  %.043 = getelementptr inbounds nuw i8, ptr %0, i64 %.043.idx
+  %narrow52 = select i1 %33, i32 0, i32 %35
+  %.042.idx = zext i32 %narrow52 to i64
+  %.042 = getelementptr inbounds nuw i8, ptr %29, i64 %.042.idx
+  %37 = icmp sgt i32 %.1, 0
+  br i1 %37, label %.lr.ph.preheader, label %.loopexit
 
-37:                                               ; preds = %22
-  %38 = sub nsw i32 %35, %1
-  %39 = sub nsw i32 %.044, %38
-  %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds i8, ptr %0, i64 %40
-  br label %46
-
-42:                                               ; preds = %22
-  %43 = sub nsw i32 %1, %35
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %29, i64 %44
-  br label %46
-
-46:                                               ; preds = %42, %37
-  %.1 = phi i32 [ %39, %37 ], [ %.044, %42 ]
-  %.043 = phi ptr [ %41, %37 ], [ %0, %42 ]
-  %.042 = phi ptr [ %29, %37 ], [ %45, %42 ]
-  %47 = icmp sgt i32 %.1, 0
-  br i1 %47, label %.lr.ph.preheader, label %.loopexit
-
-.lr.ph.preheader:                                 ; preds = %46
-  %wide.trip.count = zext nneg i32 %.1 to i64
+.lr.ph.preheader:                                 ; preds = %22
+  %38 = zext nneg i32 %.1 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %mask_mix.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %mask_mix.exit ]
-  %48 = getelementptr inbounds nuw i8, ptr %.043, i64 %indvars.iv
-  %49 = load i8, ptr %48, align 1, !tbaa !36
-  %50 = getelementptr inbounds nuw i8, ptr %.042, i64 %indvars.iv
-  %51 = load i8, ptr %50, align 1, !tbaa !36
-  %52 = zext i8 %51 to i32
-  %53 = icmp ugt i8 %51, -4
-  br i1 %53, label %mask_mix.exit, label %54
+  %39 = getelementptr inbounds nuw i8, ptr %.043, i64 %indvars.iv
+  %40 = load i8, ptr %39, align 1, !tbaa !36
+  %41 = getelementptr inbounds nuw i8, ptr %.042, i64 %indvars.iv
+  %42 = load i8, ptr %41, align 1, !tbaa !36
+  %43 = zext i8 %42 to i32
+  %44 = icmp ugt i8 %42, -4
+  br i1 %44, label %mask_mix.exit, label %45
 
-54:                                               ; preds = %.lr.ph
-  %55 = icmp ult i8 %51, 3
-  br i1 %55, label %mask_mix.exit, label %56
+45:                                               ; preds = %.lr.ph
+  %46 = icmp ult i8 %42, 3
+  br i1 %46, label %mask_mix.exit, label %47
 
-56:                                               ; preds = %54
-  %57 = zext i8 %49 to i32
-  %58 = mul nuw nsw i32 %57, 32897
-  %59 = mul nuw nsw i32 %58, %52
-  %60 = lshr i32 %59, 23
-  %61 = trunc nuw i32 %60 to i8
+47:                                               ; preds = %45
+  %48 = zext i8 %40 to i32
+  %49 = mul nuw nsw i32 %48, 32897
+  %50 = mul nuw nsw i32 %49, %43
+  %51 = lshr i32 %50, 23
+  %52 = trunc nuw i32 %51 to i8
   br label %mask_mix.exit
 
-mask_mix.exit:                                    ; preds = %.lr.ph, %54, %56
-  %.0.i = phi i8 [ %61, %56 ], [ %49, %.lr.ph ], [ 0, %54 ]
-  store i8 %.0.i, ptr %48, align 1, !tbaa !36
+mask_mix.exit:                                    ; preds = %.lr.ph, %45, %47
+  %.0.i = phi i8 [ %52, %47 ], [ %40, %.lr.ph ], [ 0, %45 ]
+  store i8 %.0.i, ptr %39, align 1, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !95
+  %53 = icmp samesign ult i64 %indvars.iv.next, %38
+  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !95
 
-.loopexit:                                        ; preds = %mask_mix.exit, %46, %18, %14, %10, %5
-  %.041 = phi i32 [ 1, %5 ], [ 1, %10 ], [ 1, %14 ], [ 1, %18 ], [ 2, %46 ], [ 2, %mask_mix.exit ]
+.loopexit:                                        ; preds = %mask_mix.exit, %22, %18, %14, %10, %5
+  %.041 = phi i32 [ 1, %5 ], [ 1, %10 ], [ 1, %14 ], [ 1, %18 ], [ 2, %22 ], [ 2, %mask_mix.exit ]
   ret i32 %.041
 }
 
