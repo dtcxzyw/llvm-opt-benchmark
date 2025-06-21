@@ -7955,36 +7955,36 @@ define noundef zeroext i1 @"_ZN63_$LT$regex_syntax..hir..LookSet$u20$as$u20$core
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %switch.lookup, %.split13.i, %24, %14
+.loopexit:                                        ; preds = %21, %.split13.i, %42, %14
   %.0 = phi i1 [ %19, %14 ], [ false, %24 ], [ false, %.split13.i ], [ true, %switch.lookup ]
   ret i1 %.0
 
-.split13.i:                                       ; preds = %.preheader, %24
+.split13.i:                                       ; preds = %.preheader, %42
   %.01417 = phi i32 [ %7, %.preheader ], [ %25, %24 ]
   %neg.i = sub i32 0, %.01417
   %20 = and i32 %.01417, %neg.i
   switch i32 %20, label %.loopexit [
-    i32 1, label %switch.lookup
-    i32 2, label %switch.lookup
-    i32 4, label %switch.lookup
-    i32 8, label %switch.lookup
-    i32 16, label %switch.lookup
-    i32 32, label %switch.lookup
-    i32 64, label %switch.lookup
-    i32 128, label %switch.lookup
-    i32 256, label %switch.lookup
-    i32 512, label %switch.lookup
-    i32 1024, label %switch.lookup
-    i32 2048, label %switch.lookup
-    i32 4096, label %switch.lookup
-    i32 8192, label %switch.lookup
-    i32 16384, label %switch.lookup
-    i32 32768, label %switch.lookup
-    i32 65536, label %switch.lookup
-    i32 131072, label %switch.lookup
+    i32 1, label %21
+    i32 2, label %21
+    i32 4, label %21
+    i32 8, label %21
+    i32 16, label %21
+    i32 32, label %21
+    i32 64, label %21
+    i32 128, label %21
+    i32 256, label %21
+    i32 512, label %21
+    i32 1024, label %21
+    i32 2048, label %21
+    i32 4096, label %21
+    i32 8192, label %21
+    i32 16384, label %21
+    i32 32768, label %21
+    i32 65536, label %21
+    i32 131072, label %21
   ]
 
-switch.lookup:                                    ; preds = %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i
+21:                                               ; preds = %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -8000,13 +8000,13 @@ switch.lookup:                                    ; preds = %.split13.i, %.split
   store ptr null, ptr %11, align 8, !alias.scope !1353, !noalias !1356
   store ptr %4, ptr %12, align 8, !alias.scope !1353, !noalias !1356
   store i64 1, ptr %13, align 8, !alias.scope !1353, !noalias !1356
-  %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+  %41 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br i1 %23, label %.loopexit, label %24
+  br i1 %41, label %.loopexit, label %42
 
-24:                                               ; preds = %switch.lookup
+42:                                               ; preds = %21
   %25 = xor i32 %20, %.01417
   %26 = icmp eq i32 %20, %.01417
   br i1 %26, label %.loopexit, label %.split13.i

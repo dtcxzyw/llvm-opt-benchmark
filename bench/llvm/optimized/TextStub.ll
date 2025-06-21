@@ -2345,13 +2345,13 @@ _ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13InterfaceFileEE19setFileTypeForInputEP
   %.sink.i.ph = phi i32 [ 8, %24 ], [ 16, %19 ], [ 32, %14 ], [ 8, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 %.sink.i.ph, ptr %34, align 8, !tbaa !45
-  br label %60
+  br label %61
 
 35:                                               ; preds = %9
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 64, ptr %36, align 8, !tbaa !45
   tail call void @_ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13InterfaceFileEE17mapKeysToValuesV4ERNS0_2IOERS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %63
+  br label %64
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -2367,7 +2367,7 @@ _ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13InterfaceFileEE19setFileTypeForInputEP
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(34) %3) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #20
-  br label %63
+  br label %64
 
 44:                                               ; preds = %2
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -2380,34 +2380,34 @@ _ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13InterfaceFileEE19setFileTypeForInputEP
     i32 3, label %60
   ]
 
-48:                                               ; preds = %44
+49:                                               ; preds = %44
   unreachable
 
-49:                                               ; preds = %44
-  tail call void @_ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13InterfaceFileEE17mapKeysToValuesV4ERNS0_2IOERS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %63
-
 50:                                               ; preds = %44
-  %51 = load ptr, ptr %0, align 8, !tbaa !53
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nonnull @.str.12, i64 12, i1 noundef zeroext true) #20
-  br label %60
+  tail call void @_ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13InterfaceFileEE17mapKeysToValuesV4ERNS0_2IOERS5_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  br label %64
 
-55:                                               ; preds = %44
-  %56 = load ptr, ptr %0, align 8, !tbaa !53
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 96
-  %58 = load ptr, ptr %57, align 8
-  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nonnull @.str.13, i64 12, i1 noundef zeroext true) #20
-  br label %60
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %0, align 8, !tbaa !53
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 96
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nonnull @.str.12, i64 12, i1 noundef zeroext true) #20
+  br label %61
 
-60:                                               ; preds = %_ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13InterfaceFileEE19setFileTypeForInputEPNS2_14TextAPIContextERNS0_2IOE.exit.thread, %44, %50, %55
-  %61 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %62 = load i32, ptr %61, align 8, !tbaa !45
-  tail call void @_ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13InterfaceFileEE15mapKeysToValuesENS2_8FileTypeERNS0_2IOERS5_(i32 noundef %62, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %63
+56:                                               ; preds = %44
+  %57 = load ptr, ptr %0, align 8, !tbaa !53
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nonnull @.str.13, i64 12, i1 noundef zeroext true) #20
+  br label %61
 
-63:                                               ; preds = %60, %49, %37, %35
+61:                                               ; preds = %_ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13InterfaceFileEE19setFileTypeForInputEPNS2_14TextAPIContextERNS0_2IOE.exit.thread, %44, %51, %56
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %63 = load i32, ptr %62, align 8, !tbaa !45
+  tail call void @_ZN4llvm4yaml13MappingTraitsIPKNS_5MachO13InterfaceFileEE15mapKeysToValuesENS2_8FileTypeERNS0_2IOERS5_(i32 noundef %63, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  br label %64
+
+64:                                               ; preds = %61, %50, %37, %35
   ret void
 }
 

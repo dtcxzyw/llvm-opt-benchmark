@@ -798,124 +798,124 @@ _ZNK4llvm13DataExtractor5getUsImEEPT_PmS3_jPNS_5ErrorE.exit: ; preds = %4, %._cr
 define dso_local noundef i64 @_ZNK4llvm13DataExtractor11getUnsignedEPmjPNS_5ErrorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   %.not.i.i.i = icmp eq ptr %3, null
-  switch i32 %5, label %57 [
-    i32 0, label %6
-    i32 1, label %17
-    i32 2, label %30
-    i32 3, label %44
+  switch i32 %5, label %56 [
+    i32 0, label %5
+    i32 1, label %16
+    i32 2, label %29
+    i32 3, label %43
   ]
 
-6:                                                ; preds = %4
+5:                                                ; preds = %4
   br i1 %.not.i.i.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.i.i
 
-_ZL7isErrorPN4llvm5ErrorE.exit.i.i:               ; preds = %6
-  %7 = load ptr, ptr %3, align 8, !tbaa !59
-  %.not.i.i = icmp eq ptr %7, null
+_ZL7isErrorPN4llvm5ErrorE.exit.i.i:               ; preds = %5
+  %6 = load ptr, ptr %3, align 8, !tbaa !59
+  %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i:        ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i.i, %6
-  %8 = load i64, ptr %1, align 8, !tbaa !62
-  %9 = tail call noundef zeroext i1 @_ZNK4llvm13DataExtractor11prepareReadEmmPNS_5ErrorE(ptr noundef nonnull readonly align 8 dereferenceable(18) %0, i64 noundef %8, i64 noundef 1, ptr noundef %3)
-  br i1 %9, label %10, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
+_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i:        ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i.i, %5
+  %7 = load i64, ptr %1, align 8, !tbaa !62
+  %8 = tail call noundef zeroext i1 @_ZNK4llvm13DataExtractor11prepareReadEmmPNS_5ErrorE(ptr noundef nonnull readonly align 8 dereferenceable(18) %0, i64 noundef %7, i64 noundef 1, ptr noundef %3)
+  br i1 %8, label %9, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-10:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i
-  %11 = load ptr, ptr %0, align 8, !tbaa !63
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %8
-  %13 = load i8, ptr %12, align 1
-  %14 = load i64, ptr %1, align 8, !tbaa !62
-  %15 = add i64 %14, 1
-  store i64 %15, ptr %1, align 8, !tbaa !62
-  %16 = zext i8 %13 to i64
+9:                                                ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i
+  %10 = load ptr, ptr %0, align 8, !tbaa !63
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %7
+  %12 = load i8, ptr %11, align 1
+  %13 = load i64, ptr %1, align 8, !tbaa !62
+  %14 = add i64 %13, 1
+  store i64 %14, ptr %1, align 8, !tbaa !62
+  %15 = zext i8 %12 to i64
   br label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-17:                                               ; preds = %4
+16:                                               ; preds = %4
   br i1 %.not.i.i.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13, label %_ZL7isErrorPN4llvm5ErrorE.exit.i.i11
 
-_ZL7isErrorPN4llvm5ErrorE.exit.i.i11:             ; preds = %17
-  %18 = load ptr, ptr %3, align 8, !tbaa !59
-  %.not9.i.i = icmp eq ptr %18, null
+_ZL7isErrorPN4llvm5ErrorE.exit.i.i11:             ; preds = %16
+  %17 = load ptr, ptr %3, align 8, !tbaa !59
+  %.not9.i.i = icmp eq ptr %17, null
   br i1 %.not9.i.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13:      ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i.i11, %17
-  %19 = load i64, ptr %1, align 8, !tbaa !62
-  %20 = tail call noundef zeroext i1 @_ZNK4llvm13DataExtractor11prepareReadEmmPNS_5ErrorE(ptr noundef nonnull readonly align 8 dereferenceable(18) %0, i64 noundef %19, i64 noundef 2, ptr noundef %3)
-  br i1 %20, label %21, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
+_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13:      ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i.i11, %16
+  %18 = load i64, ptr %1, align 8, !tbaa !62
+  %19 = tail call noundef zeroext i1 @_ZNK4llvm13DataExtractor11prepareReadEmmPNS_5ErrorE(ptr noundef nonnull readonly align 8 dereferenceable(18) %0, i64 noundef %18, i64 noundef 2, ptr noundef %3)
+  br i1 %19, label %20, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-21:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13
-  %22 = load ptr, ptr %0, align 8, !tbaa !63
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %19
-  %24 = load i16, ptr %23, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i8, ptr %25, align 8, !tbaa !67
-  %.not.i.i14 = icmp eq i8 %26, 1
-  %rev.i.i.i.i.i = tail call i16 @llvm.bswap.i16(i16 %24)
-  %spec.select.i.i = select i1 %.not.i.i14, i16 %24, i16 %rev.i.i.i.i.i
-  %27 = load i64, ptr %1, align 8, !tbaa !62
-  %28 = add i64 %27, 2
-  store i64 %28, ptr %1, align 8, !tbaa !62
-  %29 = zext i16 %spec.select.i.i to i64
+20:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13
+  %21 = load ptr, ptr %0, align 8, !tbaa !63
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %18
+  %23 = load i16, ptr %22, align 1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i8, ptr %24, align 8, !tbaa !67
+  %.not.i.i14 = icmp eq i8 %25, 1
+  %rev.i.i.i.i.i = tail call i16 @llvm.bswap.i16(i16 %23)
+  %spec.select.i.i = select i1 %.not.i.i14, i16 %23, i16 %rev.i.i.i.i.i
+  %26 = load i64, ptr %1, align 8, !tbaa !62
+  %27 = add i64 %26, 2
+  store i64 %27, ptr %1, align 8, !tbaa !62
+  %28 = zext i16 %spec.select.i.i to i64
   br label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-30:                                               ; preds = %4
+29:                                               ; preds = %4
   br i1 %.not.i.i.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19, label %_ZL7isErrorPN4llvm5ErrorE.exit.i.i16
 
-_ZL7isErrorPN4llvm5ErrorE.exit.i.i16:             ; preds = %30
-  %31 = load ptr, ptr %3, align 8, !tbaa !59
-  %.not9.i.i17 = icmp eq ptr %31, null
+_ZL7isErrorPN4llvm5ErrorE.exit.i.i16:             ; preds = %29
+  %30 = load ptr, ptr %3, align 8, !tbaa !59
+  %.not9.i.i17 = icmp eq ptr %30, null
   br i1 %.not9.i.i17, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19:      ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i.i16, %30
-  %32 = load i64, ptr %1, align 8, !tbaa !62
-  %33 = tail call noundef zeroext i1 @_ZNK4llvm13DataExtractor11prepareReadEmmPNS_5ErrorE(ptr noundef nonnull readonly align 8 dereferenceable(18) %0, i64 noundef %32, i64 noundef 4, ptr noundef %3)
-  br i1 %33, label %34, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
+_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19:      ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i.i16, %29
+  %31 = load i64, ptr %1, align 8, !tbaa !62
+  %32 = tail call noundef zeroext i1 @_ZNK4llvm13DataExtractor11prepareReadEmmPNS_5ErrorE(ptr noundef nonnull readonly align 8 dereferenceable(18) %0, i64 noundef %31, i64 noundef 4, ptr noundef %3)
+  br i1 %32, label %33, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-34:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19
-  %35 = load ptr, ptr %0, align 8, !tbaa !63
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %32
-  %37 = load i32, ptr %36, align 1
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load i8, ptr %38, align 8, !tbaa !67
-  %.not.i.i20 = icmp eq i8 %39, 1
-  %40 = tail call i32 @llvm.bswap.i32(i32 %37)
-  %spec.select.i.i21 = select i1 %.not.i.i20, i32 %37, i32 %40
-  %41 = load i64, ptr %1, align 8, !tbaa !62
-  %42 = add i64 %41, 4
-  store i64 %42, ptr %1, align 8, !tbaa !62
-  %43 = zext i32 %spec.select.i.i21 to i64
+33:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19
+  %34 = load ptr, ptr %0, align 8, !tbaa !63
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %31
+  %36 = load i32, ptr %35, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = load i8, ptr %37, align 8, !tbaa !67
+  %.not.i.i20 = icmp eq i8 %38, 1
+  %39 = tail call i32 @llvm.bswap.i32(i32 %36)
+  %spec.select.i.i21 = select i1 %.not.i.i20, i32 %36, i32 %39
+  %40 = load i64, ptr %1, align 8, !tbaa !62
+  %41 = add i64 %40, 4
+  store i64 %41, ptr %1, align 8, !tbaa !62
+  %42 = zext i32 %spec.select.i.i21 to i64
   br label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-44:                                               ; preds = %4
+43:                                               ; preds = %4
   br i1 %.not.i.i.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26, label %_ZL7isErrorPN4llvm5ErrorE.exit.i.i23
 
-_ZL7isErrorPN4llvm5ErrorE.exit.i.i23:             ; preds = %44
-  %45 = load ptr, ptr %3, align 8, !tbaa !59
-  %.not9.i.i24 = icmp eq ptr %45, null
+_ZL7isErrorPN4llvm5ErrorE.exit.i.i23:             ; preds = %43
+  %44 = load ptr, ptr %3, align 8, !tbaa !59
+  %.not9.i.i24 = icmp eq ptr %44, null
   br i1 %.not9.i.i24, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26:      ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i.i23, %44
-  %46 = load i64, ptr %1, align 8, !tbaa !62
-  %47 = tail call noundef zeroext i1 @_ZNK4llvm13DataExtractor11prepareReadEmmPNS_5ErrorE(ptr noundef nonnull readonly align 8 dereferenceable(18) %0, i64 noundef %46, i64 noundef 8, ptr noundef %3)
-  br i1 %47, label %48, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
+_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26:      ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i.i23, %43
+  %45 = load i64, ptr %1, align 8, !tbaa !62
+  %46 = tail call noundef zeroext i1 @_ZNK4llvm13DataExtractor11prepareReadEmmPNS_5ErrorE(ptr noundef nonnull readonly align 8 dereferenceable(18) %0, i64 noundef %45, i64 noundef 8, ptr noundef %3)
+  br i1 %46, label %47, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-48:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26
-  %49 = load ptr, ptr %0, align 8, !tbaa !63
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %46
-  %51 = load i64, ptr %50, align 1
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load i8, ptr %52, align 8, !tbaa !67
-  %.not.i.i27 = icmp eq i8 %53, 1
-  %54 = tail call i64 @llvm.bswap.i64(i64 %51)
-  %spec.select.i.i28 = select i1 %.not.i.i27, i64 %51, i64 %54
-  %55 = load i64, ptr %1, align 8, !tbaa !62
-  %56 = add i64 %55, 8
-  store i64 %56, ptr %1, align 8, !tbaa !62
+47:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26
+  %48 = load ptr, ptr %0, align 8, !tbaa !63
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %45
+  %50 = load i64, ptr %49, align 1
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %52 = load i8, ptr %51, align 8, !tbaa !67
+  %.not.i.i27 = icmp eq i8 %52, 1
+  %53 = tail call i64 @llvm.bswap.i64(i64 %50)
+  %spec.select.i.i28 = select i1 %.not.i.i27, i64 %50, i64 %53
+  %54 = load i64, ptr %1, align 8, !tbaa !62
+  %55 = add i64 %54, 8
+  store i64 %55, ptr %1, align 8, !tbaa !62
   br label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-57:                                               ; preds = %4
+56:                                               ; preds = %4
   unreachable
 
-_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit: ; preds = %34, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i16, %21, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i11, %10, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i, %48, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i23
-  %.0 = phi i64 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i23 ], [ %spec.select.i.i28, %48 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i ], [ %16, %10 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i11 ], [ %29, %21 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i16 ], [ %43, %34 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19 ]
+_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit: ; preds = %33, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i16, %20, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i11, %9, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i, %47, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i23
+  %.0 = phi i64 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i23 ], [ %spec.select.i.i28, %47 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i26 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i ], [ %15, %9 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i11 ], [ %28, %20 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i13 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i16 ], [ %42, %33 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i19 ]
   ret i64 %.0
 }
 
@@ -930,96 +930,96 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor9getSignedEPmj(ptr noundef
     i32 3, label %46
   ]
 
-6:                                                ; preds = %3
+5:                                                ; preds = %3
   %.not.i.i13 = icmp ne i64 %5, -1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8
-  %9 = icmp ugt i64 %8, %5
-  %10 = select i1 %.not.i.i13, i1 %9, i1 false
-  br i1 %10, label %11, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = icmp ugt i64 %7, %5
+  %9 = select i1 %.not.i.i13, i1 %8, i1 false
+  br i1 %9, label %10, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-11:                                               ; preds = %6
-  %12 = add nuw i64 %5, 1
-  %13 = load ptr, ptr %0, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %5
-  %15 = load i8, ptr %14, align 1
-  store i64 %12, ptr %1, align 8, !tbaa !62
-  %16 = sext i8 %15 to i64
+10:                                               ; preds = %5
+  %11 = add nuw i64 %5, 1
+  %12 = load ptr, ptr %0, align 8, !tbaa !63
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %5
+  %14 = load i8, ptr %13, align 1
+  store i64 %11, ptr %1, align 8, !tbaa !62
+  %15 = sext i8 %14 to i64
   br label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-17:                                               ; preds = %3
+16:                                               ; preds = %3
   %.not.i.i14 = icmp ult i64 %5, -2
-  %18 = add i64 %5, 1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8
-  %21 = icmp ugt i64 %20, %18
-  %22 = select i1 %.not.i.i14, i1 %21, i1 false
-  br i1 %22, label %23, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
+  %17 = add i64 %5, 1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load i64, ptr %18, align 8
+  %20 = icmp ugt i64 %19, %17
+  %21 = select i1 %.not.i.i14, i1 %20, i1 false
+  br i1 %21, label %22, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-23:                                               ; preds = %17
-  %24 = add nuw i64 %5, 2
-  %25 = load ptr, ptr %0, align 8, !tbaa !63
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %5
-  %27 = load i16, ptr %26, align 1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load i8, ptr %28, align 8, !tbaa !67
-  %.not.i.i = icmp eq i8 %29, 1
-  %rev.i.i.i.i.i = tail call i16 @llvm.bswap.i16(i16 %27)
-  %spec.select.i.i = select i1 %.not.i.i, i16 %27, i16 %rev.i.i.i.i.i
-  store i64 %24, ptr %1, align 8, !tbaa !62
-  %30 = sext i16 %spec.select.i.i to i64
+22:                                               ; preds = %16
+  %23 = add nuw i64 %5, 2
+  %24 = load ptr, ptr %0, align 8, !tbaa !63
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %5
+  %26 = load i16, ptr %25, align 1
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = load i8, ptr %27, align 8, !tbaa !67
+  %.not.i.i = icmp eq i8 %28, 1
+  %rev.i.i.i.i.i = tail call i16 @llvm.bswap.i16(i16 %26)
+  %spec.select.i.i = select i1 %.not.i.i, i16 %26, i16 %rev.i.i.i.i.i
+  store i64 %23, ptr %1, align 8, !tbaa !62
+  %29 = sext i16 %spec.select.i.i to i64
   br label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-31:                                               ; preds = %3
+30:                                               ; preds = %3
   %.not.i.i15 = icmp ult i64 %5, -4
-  %32 = add i64 %5, 3
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i64, ptr %33, align 8
-  %35 = icmp ugt i64 %34, %32
-  %36 = select i1 %.not.i.i15, i1 %35, i1 false
-  br i1 %36, label %37, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
+  %31 = add i64 %5, 3
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = icmp ugt i64 %33, %31
+  %35 = select i1 %.not.i.i15, i1 %34, i1 false
+  br i1 %35, label %36, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-37:                                               ; preds = %31
-  %38 = add nuw i64 %5, 4
-  %39 = load ptr, ptr %0, align 8, !tbaa !63
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %5
-  %41 = load i32, ptr %40, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load i8, ptr %42, align 8, !tbaa !67
-  %.not.i.i8 = icmp eq i8 %43, 1
-  %44 = tail call i32 @llvm.bswap.i32(i32 %41)
-  %spec.select.i.i9 = select i1 %.not.i.i8, i32 %41, i32 %44
-  store i64 %38, ptr %1, align 8, !tbaa !62
-  %45 = sext i32 %spec.select.i.i9 to i64
+36:                                               ; preds = %30
+  %37 = add nuw i64 %5, 4
+  %38 = load ptr, ptr %0, align 8, !tbaa !63
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %5
+  %40 = load i32, ptr %39, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = load i8, ptr %41, align 8, !tbaa !67
+  %.not.i.i8 = icmp eq i8 %42, 1
+  %43 = tail call i32 @llvm.bswap.i32(i32 %40)
+  %spec.select.i.i9 = select i1 %.not.i.i8, i32 %40, i32 %43
+  store i64 %37, ptr %1, align 8, !tbaa !62
+  %44 = sext i32 %spec.select.i.i9 to i64
   br label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-46:                                               ; preds = %3
+45:                                               ; preds = %3
   %.not.i.i16 = icmp ult i64 %5, -8
-  %47 = add i64 %5, 7
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp ugt i64 %49, %47
-  %51 = select i1 %.not.i.i16, i1 %50, i1 false
-  br i1 %51, label %52, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
+  %46 = add i64 %5, 7
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = load i64, ptr %47, align 8
+  %49 = icmp ugt i64 %48, %46
+  %50 = select i1 %.not.i.i16, i1 %49, i1 false
+  br i1 %50, label %51, label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-52:                                               ; preds = %46
-  %53 = add nuw i64 %5, 8
-  %54 = load ptr, ptr %0, align 8, !tbaa !63
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %5
-  %56 = load i64, ptr %55, align 1
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %58 = load i8, ptr %57, align 8, !tbaa !67
-  %.not.i.i11 = icmp eq i8 %58, 1
-  %59 = tail call i64 @llvm.bswap.i64(i64 %56)
-  %spec.select.i.i12 = select i1 %.not.i.i11, i64 %56, i64 %59
-  store i64 %53, ptr %1, align 8, !tbaa !62
+51:                                               ; preds = %45
+  %52 = add nuw i64 %5, 8
+  %53 = load ptr, ptr %0, align 8, !tbaa !63
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %5
+  %55 = load i64, ptr %54, align 1
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %57 = load i8, ptr %56, align 8, !tbaa !67
+  %.not.i.i11 = icmp eq i8 %57, 1
+  %58 = tail call i64 @llvm.bswap.i64(i64 %55)
+  %spec.select.i.i12 = select i1 %.not.i.i11, i64 %55, i64 %58
+  store i64 %52, ptr %1, align 8, !tbaa !62
   br label %_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit
 
-60:                                               ; preds = %3
+59:                                               ; preds = %3
   unreachable
 
-_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit: ; preds = %37, %31, %23, %17, %11, %6, %52, %46
-  %.0 = phi i64 [ %spec.select.i.i12, %52 ], [ 0, %46 ], [ %16, %11 ], [ 0, %6 ], [ %30, %23 ], [ 0, %17 ], [ %45, %37 ], [ 0, %31 ]
+_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE.exit: ; preds = %36, %30, %22, %16, %10, %5, %51, %45
+  %.0 = phi i64 [ %spec.select.i.i12, %51 ], [ 0, %45 ], [ %15, %10 ], [ 0, %6 ], [ %29, %22 ], [ 0, %17 ], [ %44, %36 ], [ 0, %30 ]
   ret i64 %.0
 }
 
@@ -1633,19 +1633,19 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJmPKcEE7snprint
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #13
+declare i16 @llvm.bswap.i16(i16) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #13
+declare i64 @llvm.usub.sat.i64(i64, i64) #14
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

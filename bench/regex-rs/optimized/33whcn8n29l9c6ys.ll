@@ -220,7 +220,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !10, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %3 = load i32, ptr %2, align 4, !range !14, !alias.scope !11, !noalias !15, !noundef !4
+  %4 = load i32, ptr %2, align 4, !range !14, !alias.scope !11, !noalias !15, !noundef !4
   %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3, i1 true)
   %5 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds nuw [18 x i64], ptr @"switch.table._ZN69_$LT$regex_automata..util..look..Look$u20$as$u20$core..fmt..Debug$GT$3fmt17ha70195a3360f80e1E", i64 0, i64 %5

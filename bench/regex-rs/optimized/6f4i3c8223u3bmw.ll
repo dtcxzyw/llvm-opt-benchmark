@@ -5314,36 +5314,36 @@ define noundef zeroext i1 @"_ZN72_$LT$regex_automata..util..look..LookSet$u20$as
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %switch.lookup, %.split13.i, %24, %14
+.loopexit:                                        ; preds = %21, %.split13.i, %42, %14
   %.0 = phi i1 [ %19, %14 ], [ false, %24 ], [ false, %.split13.i ], [ true, %switch.lookup ]
   ret i1 %.0
 
-.split13.i:                                       ; preds = %.preheader, %24
+.split13.i:                                       ; preds = %.preheader, %42
   %.01417 = phi i32 [ %7, %.preheader ], [ %25, %24 ]
   %neg.i = sub i32 0, %.01417
   %20 = and i32 %.01417, %neg.i
   switch i32 %20, label %.loopexit [
-    i32 1, label %switch.lookup
-    i32 2, label %switch.lookup
-    i32 4, label %switch.lookup
-    i32 8, label %switch.lookup
-    i32 16, label %switch.lookup
-    i32 32, label %switch.lookup
-    i32 64, label %switch.lookup
-    i32 128, label %switch.lookup
-    i32 256, label %switch.lookup
-    i32 512, label %switch.lookup
-    i32 1024, label %switch.lookup
-    i32 2048, label %switch.lookup
-    i32 4096, label %switch.lookup
-    i32 8192, label %switch.lookup
-    i32 16384, label %switch.lookup
-    i32 32768, label %switch.lookup
-    i32 65536, label %switch.lookup
-    i32 131072, label %switch.lookup
+    i32 1, label %21
+    i32 2, label %21
+    i32 4, label %21
+    i32 8, label %21
+    i32 16, label %21
+    i32 32, label %21
+    i32 64, label %21
+    i32 128, label %21
+    i32 256, label %21
+    i32 512, label %21
+    i32 1024, label %21
+    i32 2048, label %21
+    i32 4096, label %21
+    i32 8192, label %21
+    i32 16384, label %21
+    i32 32768, label %21
+    i32 65536, label %21
+    i32 131072, label %21
   ]
 
-switch.lookup:                                    ; preds = %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i
+21:                                               ; preds = %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i, %.split13.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -5359,13 +5359,13 @@ switch.lookup:                                    ; preds = %.split13.i, %.split
   store ptr null, ptr %11, align 8, !alias.scope !613, !noalias !616
   store ptr %4, ptr %12, align 8, !alias.scope !613, !noalias !616
   store i64 1, ptr %13, align 8, !alias.scope !613, !noalias !616
-  %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+  %41 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br i1 %23, label %.loopexit, label %24
+  br i1 %41, label %.loopexit, label %42
 
-24:                                               ; preds = %switch.lookup
+42:                                               ; preds = %21
   %25 = xor i32 %20, %.01417
   %26 = icmp eq i32 %20, %.01417
   br i1 %26, label %.loopexit, label %.split13.i
@@ -9224,19 +9224,19 @@ declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd073e421b4de4ddaE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN14regex_automata3nfa8thompson8compiler8Compiler10build_many17hd102d64363479048E(ptr noalias noundef sret({ i64, [15 x i64] }) align 8 captures(none) dereferenceable(128), ptr noundef nonnull align 8, ptr noalias noundef nonnull readonly align 8, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i8, i1 } @llvm.uadd.with.overflow.i8(i8, i8) #22
+declare { i8, i1 } @llvm.uadd.with.overflow.i8(i8, i8) #24
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @"_ZN90_$LT$regex_automata..nfa..thompson..builder..Builder$u20$as$u20$core..default..Default$GT$7default17h69054c080fd1744dE.llvm.9705991524997079221"(ptr noalias noundef sret({ { i64, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i32, i32 }, i64, i8, i8, i8, [5 x i8] }) align 8 captures(none) dereferenceable(112)) unnamed_addr #1
@@ -9495,7 +9495,7 @@ attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #20 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned") allocsize(0) uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #21 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #25 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

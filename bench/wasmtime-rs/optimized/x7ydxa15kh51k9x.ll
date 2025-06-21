@@ -333,7 +333,7 @@ define hidden range(i16 102, 1261) i16 @_ZN22cranelift_codegen_meta4cdsl5types9V
     i8 0, label %3
     i8 1, label %12
     i8 2, label %16
-    i8 3, label %31
+    i8 3, label %41
   ]
 
 default.unreachable4:                             ; preds = %1
@@ -345,50 +345,50 @@ default.unreachable4:                             ; preds = %1
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = load i8, ptr %7, align 2, !noundef !4
-  br i1 %6, label %switch.lookup, label %9
+  br i1 %6, label %11, label %9
 
 9:                                                ; preds = %3
   %10 = icmp eq i8 %8, 32
   %..i = select i1 %10, i16 123, i16 124
   br label %_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit
 
-switch.lookup:                                    ; preds = %3
+11:                                               ; preds = %3
   %11 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %8, i1 true)
   %switch.tableidx = add nsw i8 %11, -3
   %switch.idx.cast = zext i8 %switch.tableidx to i16
   %switch.offset = add nuw nsw i16 %switch.idx.cast, 118
   br label %_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit
 
-12:                                               ; preds = %1
+16:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %14 = load i8, ptr %13, align 1, !range !9, !noundef !4
   %15 = icmp eq i8 %14, 32
   %..i1 = select i1 %15, i16 126, i16 127
   br label %_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !noundef !4
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load i64, ptr %18, align 8, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i8, ptr %19, align 8, !range !5, !noundef !4
   %21 = trunc nuw i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %23 = load i8, ptr %22, align 1, !noundef !4
-  br i1 %21, label %switch.lookup5, label %24
+  br i1 %21, label %34, label %24
 
-24:                                               ; preds = %16
+24: ; preds = %16
   %25 = icmp eq i8 %23, 32
   %..i.i = select i1 %25, i16 123, i16 124
   br label %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit
 
-switch.lookup5:                                   ; preds = %16
+34:                                               ; preds = %16
   %26 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %23, i1 true)
   %switch.tableidx6 = add nsw i8 %26, -3
   %switch.idx.cast7 = zext i8 %switch.tableidx6 to i16
   %switch.offset8 = add nuw nsw i16 %switch.idx.cast7, 118
   br label %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit
 
-_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit: ; preds = %switch.lookup5, %24
+35:                                               ; preds = %34, %24
   %.0.i.i = phi i16 [ %..i.i, %24 ], [ %switch.offset8, %switch.lookup5 ]
   %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 false)
   %28 = trunc nuw nsw i64 %27 to i16
@@ -397,28 +397,28 @@ _ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.ex
   %30 = add nsw i16 %reass.sub, 1008
   br label %_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit
 
-31:                                               ; preds = %1
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i8, ptr %33, align 8, !range !5, !noundef !4
-  %35 = trunc nuw i8 %34 to i1
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %37 = load i8, ptr %36, align 1, !noundef !4
-  br i1 %35, label %switch.lookup9, label %38
+41:                                               ; preds = %1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = load i8, ptr %43, align 8, !range !5, !noundef !4
+  %45 = trunc nuw i8 %44 to i1
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %47 = load i8, ptr %46, align 1, !noundef !4
+  br i1 %45, label %51, label %48
 
-38:                                               ; preds = %31
-  %39 = icmp eq i8 %37, 32
-  %40 = select i1 %39, i16 1259, i16 1260
+48:                                               ; preds = %41
+  %49 = icmp eq i8 %47, 32
+  %50 = select i1 %49, i16 1259, i16 1260
   br label %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit
 
-switch.lookup9:                                   ; preds = %31
+51:                                               ; preds = %41
   %41 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %37, i1 true)
   %switch.tableidx10 = add nsw i8 %41, -3
   %switch.idx.cast11 = zext i8 %switch.tableidx10 to i16
   %switch.offset12 = add nuw nsw i16 %switch.idx.cast11, 1254
   br label %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit
 
-_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit: ; preds = %switch.lookup9, %38
+54:                                               ; preds = %51, %38
   %.0.i.i2 = phi i16 [ %40, %38 ], [ %switch.offset12, %switch.lookup9 ]
   %42 = load i64, ptr %32, align 8, !noundef !4
   %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %42, i1 false)
@@ -427,7 +427,7 @@ _ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61
   %46 = sub nuw nsw i16 %.0.i.i2, %45
   br label %_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit
 
-_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit: ; preds = %switch.lookup, %9, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit, %12
+_ZN22cranelift_codegen_meta4cdsl5types8LaneType6number17h1e336a04161afe7fE.exit: ; preds = %11, %9, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit, %12
   %.0 = phi i16 [ %..i1, %12 ], [ %30, %_ZN22cranelift_codegen_meta4cdsl5types10VectorType6number17h2aa8cc2b54f7e71aE.exit ], [ %46, %_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType6number17h8c34843b66a61f8dE.exit ], [ %..i, %9 ], [ %switch.offset, %switch.lookup ]
   ret i16 %.0
 }
@@ -449,7 +449,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType9rust_name17
 
 12:                                               ; preds = %19, %13
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %14, %13 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %3) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %3) #14
           to label %32 unwind label %30
 
 13:                                               ; preds = %2
@@ -471,7 +471,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType9rust_name17
 19:                                               ; preds = %21, %15
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %4) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %4) #14
           to label %12 unwind label %30
 
 21:                                               ; preds = %15
@@ -485,7 +485,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType9rust_name17
 23:                                               ; preds = %22
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %3) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %3) #14
           to label %26 unwind label %30
 
 25:                                               ; preds = %22
@@ -494,7 +494,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType9rust_name17
 
 26:                                               ; preds = %27, %23
   %.pn9 = phi { ptr, i32 } [ %28, %27 ], [ %24, %23 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %7) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %7) #14
           to label %32 unwind label %30
 
 27:                                               ; preds = %25
@@ -509,7 +509,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl5types9ValueType9rust_name17
 30:                                               ; preds = %26, %23, %19, %12
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
 32:                                               ; preds = %26, %12
@@ -710,7 +710,7 @@ define hidden { i1, i8 } @_ZN22cranelift_codegen_meta4cdsl5types8LaneType13int_f
 
 4:                                                ; preds = %1
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.12, i64 1, ptr nonnull align 8 %2, i64 0)
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.14) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.14) #16
   unreachable
 
 5:                                                ; preds = %1
@@ -742,7 +742,7 @@ define hidden { i1, i8 } @_ZN22cranelift_codegen_meta4cdsl5types8LaneType15float
 
 4:                                                ; preds = %1
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.16, i64 1, ptr nonnull align 8 %2, i64 0)
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.17) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.17) #16
   unreachable
 
 5:                                                ; preds = %1
@@ -892,7 +892,7 @@ define zeroext i1 @"_ZN82_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20$
 29:                                               ; preds = %34, %31, %27, %25
   %30 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %16) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %16) #14
           to label %46 unwind label %44
 
 31:                                               ; preds = %25
@@ -915,7 +915,7 @@ define zeroext i1 @"_ZN82_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20$
 35:                                               ; preds = %37, %32
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %16) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %16) #14
           to label %40 unwind label %44
 
 37:                                               ; preds = %32
@@ -928,7 +928,7 @@ define zeroext i1 @"_ZN82_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20$
 
 40:                                               ; preds = %41, %35
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %36, %35 ]
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %9) #15
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %9) #14
           to label %46 unwind label %44
 
 41:                                               ; preds = %39
@@ -943,7 +943,7 @@ define zeroext i1 @"_ZN82_$LT$cranelift_codegen_meta..cdsl..types..LaneType$u20$
 44:                                               ; preds = %40, %35, %29
   %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #15
   unreachable
 
 46:                                               ; preds = %40, %29
@@ -1133,7 +1133,7 @@ define hidden range(i8 32, 65) i8 @_ZN22cranelift_codegen_meta4cdsl5types13Refer
 
 4:                                                ; preds = %1
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.51, i64 1, ptr nonnull align 8 %2, i64 0)
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.52) #17
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.96edb2e12b1c90f4cebcfcaadf93dceb.52) #16
   unreachable
 
 5:                                                ; preds = %1
@@ -1271,13 +1271,13 @@ declare i8 @_ZN4core3ops8function6FnOnce9call_once17hbe0e1311121f2a68E(i8) unnam
 declare i8 @llvm.cttz.i8(i8, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -1292,7 +1292,7 @@ attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #10 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { cold }
 attributes #16 = { cold noreturn nounwind }

@@ -616,65 +616,65 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit58:            ; preds = %_ZNK4llvm3LLT9isPoi
   store i64 %.0.in.i.i57, ptr %6, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 0, ptr %.sroa.25.0..sroa_idx, align 8
-  %43 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #13
+  %47 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
-  %44 = add i64 %43, -32
-  %45 = call i64 @llvm.fshl.i64(i64 %44, i64 %44, i64 60)
-  switch i64 %45, label %51 [
-    i64 0, label %46
-    i64 2, label %48
-    i64 6, label %63
-    i64 3, label %50
+  %48 = add i64 %47, -32
+  %49 = call i64 @llvm.fshl.i64(i64 %48, i64 %48, i64 60)
+  switch i64 %49, label %51 [
+    i64 0, label %50
+    i64 2, label %52
+    i64 6, label %67
+    i64 3, label %54
   ]
 
-46:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
-  %47 = select i1 %13, i32 4, i32 9
-  br label %63
-
-48:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
-  %49 = select i1 %14, i32 5, i32 10
-  br label %63
-
 50:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
-  br label %63
+  %51 = select i1 %13, i32 4, i32 9
+  br label %67
 
-51:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
+52:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
+  %53 = select i1 %14, i32 5, i32 10
+  br label %67
+
+54:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
+  br label %67
+
+55:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit58
   unreachable
 
 _ZNK4llvm3LLT13getSizeInBitsEv.exit73:            ; preds = %_ZNK4llvm3LLT9isPointerEv.exit.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
-  %52 = trunc i64 %34 to i8
-  %53 = lshr i8 %52, 3
-  %54 = and i8 %53, 1
+  %56 = trunc i64 %34 to i8
+  %57 = lshr i8 %56, 3
+  %58 = and i8 %57, 1
   %.not.i.i1.i63 = icmp ne i64 %38, 0
-  %55 = and i1 %.not.i.i1.i63, %spec.select.i.i
-  %.0.in.v.i3.i64 = select i1 %55, i64 48, i64 32
+  %59 = and i1 %.not.i.i1.i63, %spec.select.i.i
+  %.0.in.v.i3.i64 = select i1 %59, i64 48, i64 32
   %.0.in.i4.i65 = lshr i64 %34, %.0.in.v.i3.i64
-  %56 = lshr i64 %34, 8
-  %.sroa.0.0.insert.ext.i.i.i62 = and i64 %56, 65535
-  %57 = mul nuw nsw i64 %.0.in.i4.i65, %.sroa.0.0.insert.ext.i.i.i62
-  %58 = and i64 %57, 4294967295
-  store i64 %58, ptr %7, align 8
+  %60 = lshr i64 %34, 8
+  %.sroa.0.0.insert.ext.i.i.i62 = and i64 %60, 65535
+  %61 = mul nuw nsw i64 %.0.in.i4.i65, %.sroa.0.0.insert.ext.i.i.i62
+  %62 = and i64 %61, 4294967295
+  store i64 %62, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i8 %54, ptr %.sroa.2.0..sroa_idx, align 8
-  %59 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #13
+  store i8 %58, ptr %.sroa.2.0..sroa_idx, align 8
+  %63 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
-  switch i64 %59, label %62 [
-    i64 128, label %63
-    i64 256, label %60
-    i64 512, label %61
+  switch i64 %63, label %62 [
+    i64 128, label %67
+    i64 256, label %64
+    i64 512, label %65
   ]
 
-60:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
-  br label %63
+64:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
+  br label %67
 
-61:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
-  br label %63
+65:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
+  br label %67
 
-62:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
+66:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit73
   unreachable
 
-63:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit43, %_ZNK4llvm3LLT13getSizeInBitsEv.exit73, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58, %61, %60, %50, %48, %46
+67:                                               ; preds = %_ZNK4llvm3LLT13getSizeInBitsEv.exit43, %_ZNK4llvm3LLT13getSizeInBitsEv.exit73, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58, %65, %64, %54, %52, %50
   %.0 = phi i32 [ %47, %46 ], [ %49, %48 ], [ 11, %50 ], [ 7, %60 ], [ 8, %61 ], [ 6, %_ZNK4llvm3LLT13getSizeInBitsEv.exit58 ], [ 6, %_ZNK4llvm3LLT13getSizeInBitsEv.exit73 ], [ %switch.load, %_ZNK4llvm3LLT13getSizeInBitsEv.exit43 ]
   ret i32 %.0
 }

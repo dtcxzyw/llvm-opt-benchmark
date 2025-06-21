@@ -2286,11 +2286,11 @@ declare noundef zeroext i1 @_ZN5clang5index35applyForEachSymbolRoleInterruptible
 define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbN5clang5index10SymbolRoleEEE11callback_fnIZZL43shouldReportOccurrenceForSystemDeclOnlyModebjNS_8ArrayRefINS2_14SymbolRelationEEEENK3$_0clEjEUlS3_E_EEblS3_"(i64 noundef %0, i32 noundef %1) #8 align 2 {
   %3 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
   switch i32 %3, label %6 [
-    i32 10, label %4
-    i32 11, label %4
-    i32 12, label %4
-    i32 15, label %4
-    i32 16, label %4
+    i32 10, label %3
+    i32 11, label %3
+    i32 12, label %3
+    i32 15, label %3
+    i32 16, label %3
     i32 18, label %4
     i32 0, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
     i32 1, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
@@ -2309,16 +2309,16 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbN5clang5index10Sym
     i32 20, label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
   ]
 
-4:                                                ; preds = %2, %2, %2, %2, %2, %2
-  %5 = inttoptr i64 %0 to ptr
-  %.val = load ptr, ptr %5, align 8
+3:                                                ; preds = %2, %2, %2, %2, %2, %2
+  %4 = inttoptr i64 %0 to ptr
+  %.val = load ptr, ptr %4, align 8
   store i8 1, ptr %.val, align 1, !tbaa !417
   br label %"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit"
 
-6:                                                ; preds = %2
+5:                                                ; preds = %2
   unreachable
 
-"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit": ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %4
+"_ZZZL43shouldReportOccurrenceForSystemDeclOnlyModebjN4llvm8ArrayRefIN5clang5index14SymbolRelationEEEENK3$_0clEjENKUlNS2_10SymbolRoleEE_clES6_.exit": ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %3
   %.0.i = phi i1 [ false, %4 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ], [ true, %2 ]
   ret i1 %.0.i
 }
