@@ -1960,13 +1960,13 @@ define range(i32 -12, 1) i32 @ff_cbs_insert_unit_content(ptr noundef captures(no
   %19 = icmp slt i32 %14, %18
   br i1 %19, label %20, label %31
 
-20:                                               ; preds = %16
+19:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !38
   %23 = icmp samesign ult i32 %.019, %14
   br i1 %23, label %24, label %61
 
-24:                                               ; preds = %20
+22:                                               ; preds = %20
   %25 = zext nneg i32 %.019 to i64
   %26 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %22, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
@@ -1976,7 +1976,7 @@ define range(i32 -12, 1) i32 @ff_cbs_insert_unit_content(ptr noundef captures(no
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %26, i64 %30, i1 false)
   br label %61
 
-31:                                               ; preds = %16
+29:                                               ; preds = %16
   %32 = shl nuw nsw i32 %14, 1
   %33 = or disjoint i32 %32, 1
   %34 = zext nneg i32 %33 to i64
@@ -1984,9 +1984,9 @@ define range(i32 -12, 1) i32 @ff_cbs_insert_unit_content(ptr noundef captures(no
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %cbs_insert_unit.exit.thread, label %36
 
-36:                                               ; preds = %31
-  %37 = load i32, ptr %17, align 4, !tbaa !42
-  %38 = shl nsw i32 %37, 1
+36: ; preds = %31
+  %6 = load i32, ptr %17, align 4, !tbaa !42
+  %38 = shl nsw i32 %6, 1
   %39 = or disjoint i32 %38, 1
   store i32 %39, ptr %17, align 4, !tbaa !42
   %.not39.i = icmp eq i32 %.019, 0
@@ -2005,7 +2005,7 @@ define range(i32 -12, 1) i32 @ff_cbs_insert_unit_content(ptr noundef captures(no
   %47 = icmp slt i32 %.019, %46
   br i1 %47, label %48, label %58
 
-48:                                               ; preds = %45
+8:                                                ; preds = %45
   %49 = zext nneg i32 %.019 to i64
   %50 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %35, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
@@ -2036,12 +2036,12 @@ define range(i32 -12, 1) i32 @ff_cbs_insert_unit_content(ptr noundef captures(no
   %.not24 = icmp eq ptr %4, null
   br i1 %.not24, label %68, label %66
 
-66:                                               ; preds = %61
+12:                                               ; preds = %61
   %67 = tail call ptr @av_refstruct_ref(ptr noundef nonnull %4) #10
   br label %68
 
-68:                                               ; preds = %66, %61
-  %.020 = phi ptr [ %67, %66 ], [ null, %61 ]
+54:                                               ; preds = %12, %61
+  %.033 = phi ptr [ %67, %66 ], [ null, %61 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load ptr, ptr %69, align 8, !tbaa !38
   %71 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %70, i64 %62
@@ -2101,7 +2101,7 @@ define range(i32 -12, 1) i32 @ff_cbs_append_unit_data(ptr noundef captures(none)
   %21 = icmp slt i32 %18, %20
   br i1 %21, label %22, label %33
 
-22:                                               ; preds = %16
+20:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !38
   %25 = icmp slt i32 %8, %18
@@ -2170,18 +2170,18 @@ define range(i32 -12, 1) i32 @ff_cbs_append_unit_data(ptr noundef captures(none)
   call void @av_buffer_unref(ptr noundef nonnull %6) #10
   br label %cbs_insert_unit_data.exit
 
-64:                                               ; preds = %60, %26, %22
-  %.0.i.i = phi ptr [ %24, %26 ], [ %24, %22 ], [ %37, %60 ]
+21:                                               ; preds = %60, %26, %22
+  %.0.i.i = phi ptr [ %24, %26 ], [ %24, %22 ], [ %6, %60 ]
   %65 = zext nneg i32 %8 to i64
   %66 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %.0.i.i, i64 %65
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   %67 = load i32, ptr %7, align 8, !tbaa !34
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %7, align 8, !tbaa !34
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %70 = load ptr, ptr %69, align 8, !tbaa !38
-  %71 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %70, i64 %65
-  store i32 %1, ptr %71, align 8, !tbaa !57
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %70 = load ptr, ptr %27, align 8, !tbaa !38
+  %28 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %70, i64 %65
+  store i32 %1, ptr %28, align 8, !tbaa !57
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %2, ptr %72, align 8, !tbaa !60
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -2190,7 +2190,7 @@ define range(i32 -12, 1) i32 @ff_cbs_append_unit_data(ptr noundef captures(none)
   store ptr %17, ptr %74, align 8, !tbaa !61
   br label %cbs_insert_unit_data.exit
 
-cbs_insert_unit_data.exit:                        ; preds = %.thread.i, %15, %63, %64
+cbs_insert_unit_data.exit:                        ; preds = %.thread.i, %15, %63, %21
   %.0.i = phi i32 [ -12, %63 ], [ 0, %64 ], [ -12, %15 ], [ -12, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   ret i32 %.0.i

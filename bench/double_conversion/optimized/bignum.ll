@@ -2100,7 +2100,7 @@ _ZN17double_conversion6Bignum5AlignERKS0_.exit:   ; preds = %16, %.lr.ph20.i
   br i1 %96, label %_ZN17double_conversion6Bignum5ClampEv.exit, label %.preheader
 
 .preheader:                                       ; preds = %89, %.loopexit
-  %.132 = phi i16 [ %128, %.loopexit ], [ %93, %89 ]
+  %.132 = phi i16 [ %132, %.loopexit ], [ %93, %89 ]
   %97 = load i16, ptr %1, align 4, !tbaa !3
   %98 = sext i16 %97 to i32
   %99 = load i16, ptr %11, align 2, !tbaa !8
@@ -2123,19 +2123,19 @@ _ZN17double_conversion6Bignum5AlignERKS0_.exit:   ; preds = %16, %.lr.ph20.i
   %111 = sext i16 %110 to i32
   br label %112
 
-112:                                              ; preds = %127, %.preheader.i.i
+112:; preds = %127, %.preheader.i.i
   %.024.in.i.i = phi i32 [ %.024.i.i, %127 ], [ %101, %.preheader.i.i ]
   %.024.i.i = add nsw i32 %.024.in.i.i, -1
   %.not.not.not.i.i = icmp sgt i32 %.024.in.i.i, %111
-  br i1 %.not.not.not.i.i, label %113, label %.loopexit
+  br i1 %.not.not.not.i.i, label %118, label %.loopexit
 
-113:                                              ; preds = %112
+118:                                              ; preds = %112
   %.not.i.i.i = icmp sgt i32 %.024.in.i.i, %101
   %114 = icmp sle i32 %.024.in.i.i, %100
   %or.cond.i.i.i = or i1 %114, %.not.i.i.i
-  br i1 %or.cond.i.i.i, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i, label %115
+  br i1 %or.cond.i.i.i, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i, label %119
 
-115:                                              ; preds = %113
+119:                                              ; preds = %118
   %116 = sub nsw i32 %.024.i.i, %100
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw [128 x i32], ptr %67, i64 0, i64 %117
@@ -2145,32 +2145,32 @@ _ZN17double_conversion6Bignum5AlignERKS0_.exit:   ; preds = %16, %.lr.ph20.i
 _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i: ; preds = %115, %113
   %.0.i.i.i = phi i32 [ %119, %115 ], [ 0, %113 ]
   %.not.i29.i.i = icmp sgt i32 %.024.in.i.i, %106
-  %120 = icmp sle i32 %.024.in.i.i, %105
-  %or.cond.i30.i.i = or i1 %120, %.not.i29.i.i
-  br i1 %or.cond.i30.i.i, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i, label %121
+  %125 = icmp sle i32 %.024.in.i.i, %105
+  %or.cond.i30.i.i = or i1 %125, %.not.i29.i.i
+  br i1 %or.cond.i30.i.i, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i, label %126
 
-121:                                              ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i
-  %122 = sub nsw i32 %.024.i.i, %105
-  %123 = zext nneg i32 %122 to i64
+126:                                              ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i
+  %127 = sub nsw i32 %.024.i.i, %105
+  %123 = zext nneg i32 %127 to i64
   %124 = getelementptr inbounds nuw [128 x i32], ptr %62, i64 0, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !9
   br label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i
 
-_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i: ; preds = %121, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i
+_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i: ; preds = %126, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i
   %.0.i31.i.i = phi i32 [ %125, %121 ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit.i.i ]
-  %126 = icmp ult i32 %.0.i.i.i, %.0.i31.i.i
-  br i1 %126, label %.loopexit, label %127
+  %130 = icmp ult i32 %.0.i.i.i, %.0.i31.i.i
+  br i1 %130, label %.loopexit, label %131
 
-127:                                              ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i
+131:                                              ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i
   %.not.i.i = icmp ugt i32 %.0.i.i.i, %.0.i31.i.i
   br i1 %.not.i.i, label %_ZN17double_conversion6Bignum5ClampEv.exit, label %112, !llvm.loop !41
 
 .loopexit:                                        ; preds = %112, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32.i.i, %.preheader
   tail call void @_ZN17double_conversion6Bignum14SubtractBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516) %0, ptr noundef nonnull align 4 dereferenceable(516) %1)
-  %128 = add i16 %.132, 1
+  %132 = add i16 %.132, 1
   br label %.preheader, !llvm.loop !42
 
-_ZN17double_conversion6Bignum5ClampEv.exit:       ; preds = %108, %127, %.lr.ph.i33, %.critedge.thread3.i, %.critedge.i, %89, %2
+_ZN17double_conversion6Bignum5ClampEv.exit:       ; preds = %108, %131, %.lr.ph.i33, %.critedge.thread3.i, %.critedge.i, %89, %2
   %.0 = phi i16 [ 0, %2 ], [ %93, %89 ], [ %76, %.critedge.i ], [ %76, %.critedge.thread3.i ], [ %76, %.lr.ph.i33 ], [ %.132, %127 ], [ %.132, %108 ]
   ret i16 %.0
 }
@@ -2513,7 +2513,7 @@ define noundef range(i32 -1, 2) i32 @_ZN17double_conversion6Bignum7CompareERKS0_
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %22
 
-22:                                               ; preds = %.preheader, %37
+22:; preds = %.preheader, %42
   %.024.in = phi i32 [ %.024, %37 ], [ %8, %.preheader ]
   %.024 = add nsw i32 %.024.in, -1
   %.not.not.not = icmp sgt i32 %.024.in, %19
@@ -2535,27 +2535,27 @@ define noundef range(i32 -1, 2) i32 @_ZN17double_conversion6Bignum7CompareERKS0_
 _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit: ; preds = %23, %25
   %.0.i = phi i32 [ %29, %25 ], [ 0, %23 ]
   %.not.i29 = icmp sgt i32 %.024.in, %14
-  %30 = icmp sle i32 %.024.in, %13
-  %or.cond.i30 = or i1 %30, %.not.i29
-  br i1 %or.cond.i30, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32, label %31
+  %36 = icmp sle i32 %.024.in, %13
+  %or.cond.i30 = or i1 %36, %.not.i29
+  br i1 %or.cond.i30, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32, label %37
 
-31:                                               ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit
-  %32 = sub nsw i32 %.024, %13
+37:                                               ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit
+  %38 = sub nsw i32 %.024, %13
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw [128 x i32], ptr %21, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !9
   br label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32
 
-_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32: ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit, %31
+_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32: ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit, %37
   %.0.i31 = phi i32 [ %35, %31 ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit ]
-  %36 = icmp ult i32 %.0.i, %.0.i31
-  br i1 %36, label %.thread, label %37
+  %41 = icmp ult i32 %.0.i, %.0.i31
+  br i1 %41, label %.thread, label %42
 
-37:                                               ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32
+42:                                               ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32
   %.not = icmp ugt i32 %.0.i, %.0.i31
   br i1 %.not, label %.thread, label %22, !llvm.loop !41
 
-.thread:                                          ; preds = %37, %22, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32, %16, %2
+.thread:                                          ; preds = %42, %22, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32, %16, %2
   %.0 = phi i32 [ -1, %2 ], [ 1, %16 ], [ -1, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32 ], [ 0, %22 ], [ 1, %37 ]
   ret i32 %.0
 }
@@ -2564,11 +2564,11 @@ _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit32: ; preds = %_ZNK17double_co
 define noundef range(i32 -1, 2) i32 @_ZN17double_conversion6Bignum11PlusCompareERKS0_S2_S2_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %2) local_unnamed_addr #8 align 2 {
   %.pre = load i16, ptr %0, align 4, !tbaa !3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.pre96 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !8
+  %.pre97 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !8
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse, %3
-  %4 = phi i16 [ %.pre96, %3 ], [ %12, %tailrecurse ]
+  %4 = phi i16 [ %.pre97, %3 ], [ %12, %tailrecurse ]
   %5 = phi i16 [ %.pre, %3 ], [ %9, %tailrecurse ]
   %.tr = phi ptr [ %0, %3 ], [ %.tr65, %tailrecurse ]
   %.tr65 = phi ptr [ %1, %3 ], [ %.tr, %tailrecurse ]
@@ -2619,9 +2619,9 @@ tailrecurse:                                      ; preds = %tailrecurse, %3
   %35 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %36 = getelementptr inbounds nuw i8, ptr %.tr65, i64 4
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  br label %38
+  br label %50
 
-38:                                               ; preds = %.lr.ph, %63
+50:                                               ; preds = %.lr.ph, %63
   %.04079 = phi i32 [ 0, %.lr.ph ], [ %64, %63 ]
   %.043.in78 = phi i32 [ %24, %.lr.ph ], [ %.04380, %63 ]
   %.04380 = add nsw i32 %.043.in78, -1
@@ -2640,55 +2640,55 @@ tailrecurse:                                      ; preds = %tailrecurse, %3
 _ZNK17double_conversion6Bignum11BigitOrZeroEi.exit: ; preds = %38, %40
   %.0.i = phi i32 [ %44, %40 ], [ 0, %38 ]
   %.not.i52 = icmp sgt i32 %.043.in78, %14
-  %45 = icmp sle i32 %.043.in78, %13
-  %or.cond.i53 = or i1 %45, %.not.i52
-  br i1 %or.cond.i53, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit55, label %46
+  %54 = icmp sle i32 %.043.in78, %13
+  %or.cond.i53 = or i1 %54, %.not.i52
+  br i1 %or.cond.i53, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit55, label %55
 
-46:                                               ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit
-  %47 = sub nsw i32 %.04380, %13
+55:                                               ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit
+  %56 = sub nsw i32 %.04380, %13
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw [128 x i32], ptr %36, i64 0, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !9
   br label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit55
 
-_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit55: ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit, %46
+_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit55: ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit, %55
   %.0.i54 = phi i32 [ %50, %46 ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit ]
   %.not.i56 = icmp sgt i32 %.043.in78, %24
-  %51 = icmp sle i32 %.043.in78, %23
-  %or.cond.i57 = or i1 %51, %.not.i56
-  br i1 %or.cond.i57, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit59, label %52
+  %59 = icmp sle i32 %.043.in78, %23
+  %or.cond.i57 = or i1 %59, %.not.i56
+  br i1 %or.cond.i57, label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit59, label %60
 
-52:                                               ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit55
-  %53 = sub nsw i32 %.04380, %23
+60:                                               ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit55
+  %61 = sub nsw i32 %.04380, %23
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw [128 x i32], ptr %37, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [128 x i32], ptr %42, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !9
   br label %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit59
 
-_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit59: ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit55, %52
+_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit59: ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit55, %60
   %.0.i58 = phi i32 [ %56, %52 ], [ 0, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit55 ]
-  %57 = add i32 %.0.i54, %.0.i
-  %58 = add i32 %.0.i58, %.04079
-  %59 = icmp ugt i32 %57, %58
-  br i1 %59, label %.thread, label %60
+  %64 = add i32 %.0.i54, %.0.i
+  %65 = add i32 %.0.i58, %.04079
+  %66 = icmp ugt i32 %64, %65
+  br i1 %66, label %.thread, label %67
 
-60:                                               ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit59
-  %61 = sub nuw i32 %58, %57
-  %62 = icmp ugt i32 %61, 1
-  br i1 %62, label %.thread, label %63
+67:                                               ; preds = %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit59
+  %68 = sub nuw i32 %65, %64
+  %69 = icmp ugt i32 %68, 1
+  br i1 %69, label %.thread, label %70
 
-63:                                               ; preds = %60
-  %64 = shl nuw nsw i32 %61, 28
+70:                                               ; preds = %67
+  %71 = shl nuw nsw i32 %68, 28
   %.not50.not.not = icmp sgt i32 %.04380, %34
   br i1 %.not50.not.not, label %38, label %.thread.loopexit, !llvm.loop !51
 
-.thread.loopexit:                                 ; preds = %63
-  %65 = icmp ne i32 %58, %57
-  %66 = sext i1 %65 to i32
+.thread.loopexit:                                 ; preds = %70
+  %72 = icmp ne i32 %65, %64
+  %73 = sext i1 %72 to i32
   br label %.thread
 
-.thread:                                          ; preds = %60, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit59, %30, %.thread.loopexit, %28, %26, %16
-  %.0 = phi i32 [ -1, %16 ], [ 1, %26 ], [ -1, %28 ], [ 0, %30 ], [ %66, %.thread.loopexit ], [ 1, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit59 ], [ -1, %60 ]
+.thread:                                          ; preds = %67, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit59, %30, %.thread.loopexit, %28, %26, %16
+  %.0 = phi i32 [ -1, %16 ], [ 1, %26 ], [ -1, %28 ], [ 0, %30 ], [ %73, %.thread.loopexit ], [ 1, %_ZNK17double_conversion6Bignum11BigitOrZeroEi.exit59 ], [ -1, %60 ]
   ret i32 %.0
 }
 

@@ -1240,11 +1240,11 @@ define hidden void @_ZN10JavaThreadC2E8MEMFLAGS(ptr noundef nonnull align 8 dere
 
 .preheader.i.i:                                   ; preds = %60
   %62 = icmp sgt i32 %56, 0
-  br i1 %62, label %64, label %67
+  br i1 %62, label %64, label %65
 
 63:                                               ; preds = %60
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %58, i1 false)
-  br label %68
+  br label %66
 
 64:                                               ; preds = %.preheader.i.i
   %65 = shl i64 %53, 3
@@ -1252,15 +1252,15 @@ define hidden void @_ZN10JavaThreadC2E8MEMFLAGS(ptr noundef nonnull align 8 dere
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %66, i1 false)
   br label %67
 
-67:                                               ; preds = %64, %.preheader.i.i
+65:                                               ; preds = %64, %.preheader.i.i
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %57) #21
-  br label %68
+  br label %66
 
-68:                                               ; preds = %67, %63
+66:                                               ; preds = %65, %63
   store ptr %59, ptr %29, align 8
   br label %_ZN10JavaThread15resize_countersEii.exit
 
-_ZN10JavaThread15resize_countersEii.exit:         ; preds = %68, %55, %2
+_ZN10JavaThread15resize_countersEii.exit:         ; preds = %66, %55, %2
   tail call void @_ZN20ThreadSafepointState6createEP10JavaThread(ptr noundef nonnull %0) #21
   tail call void @_ZN18SafepointMechanism17initialize_headerEP10JavaThread(ptr noundef nonnull %0) #21
   store volatile ptr null, ptr %5, align 8

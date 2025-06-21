@@ -2175,7 +2175,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.
   br i1 %97, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit, label %.preheader
 
 .preheader:                                       ; preds = %90, %.loopexit
-  %.1 = phi i16 [ %130, %.loopexit ], [ %94, %90 ]
+  %.1 = phi i16 [ %134, %.loopexit ], [ %94, %90 ]
   %98 = load i16, ptr %1, align 4
   %99 = sext i16 %98 to i32
   %100 = load i16, ptr %11, align 2
@@ -2198,54 +2198,54 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5AlignERKS1_.
   %112 = sext i16 %111 to i32
   br label %113
 
-113:                                              ; preds = %128, %.preheader.i.i
+113:; preds = %128, %.preheader.i.i
   %.019.in.i.i = phi i32 [ %.019.i.i, %128 ], [ %102, %.preheader.i.i ]
   %.019.i.i = add nsw i32 %.019.in.i.i, -1
   %.not.not.i.i = icmp sgt i32 %.019.in.i.i, %112
-  br i1 %.not.not.i.i, label %114, label %.loopexit
+  br i1 %.not.not.i.i, label %119, label %.loopexit
 
-114:                                              ; preds = %113
+119:                                              ; preds = %113
   %.not.i.i.i = icmp sgt i32 %.019.in.i.i, %102
   %115 = icmp sle i32 %.019.in.i.i, %101
   %or.cond.i.i.i = or i1 %115, %.not.i.i.i
-  br i1 %or.cond.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i, label %116
+  br i1 %or.cond.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i, label %120
 
-116:                                              ; preds = %114
+120:                                              ; preds = %119
   %117 = sub nsw i32 %.019.i.i, %101
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds nuw [128 x i32], ptr %68, i64 0, i64 %118
   %120 = load i32, ptr %119, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i: ; preds = %116, %114
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i: ; preds = %120, %114
   %.0.i.i.i = phi i32 [ %120, %116 ], [ 0, %114 ]
   %.not.i24.i.i = icmp sgt i32 %.019.in.i.i, %107
-  %121 = icmp sle i32 %.019.in.i.i, %106
-  %or.cond.i25.i.i = or i1 %121, %.not.i24.i.i
-  br i1 %or.cond.i25.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27.i.i, label %122
+  %126 = icmp sle i32 %.019.in.i.i, %106
+  %or.cond.i25.i.i = or i1 %126, %.not.i24.i.i
+  br i1 %or.cond.i25.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27.i.i, label %127
 
-122:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i
-  %123 = sub nsw i32 %.019.i.i, %106
-  %124 = zext nneg i32 %123 to i64
+127:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i
+  %128 = sub nsw i32 %.019.i.i, %106
+  %124 = zext nneg i32 %128 to i64
   %125 = getelementptr inbounds nuw [128 x i32], ptr %63, i64 0, i64 %124
   %126 = load i32, ptr %125, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27.i.i
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27.i.i: ; preds = %122, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27.i.i: ; preds = %127, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i
   %.0.i26.i.i = phi i32 [ %126, %122 ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit.i.i ]
-  %127 = icmp ult i32 %.0.i.i.i, %.0.i26.i.i
-  br i1 %127, label %.loopexit, label %128
+  %131 = icmp ult i32 %.0.i.i.i, %.0.i26.i.i
+  br i1 %131, label %.loopexit, label %132
 
-128:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27.i.i
-  %129 = icmp ugt i32 %.0.i.i.i, %.0.i26.i.i
-  br i1 %129, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit, label %113, !llvm.loop !34
+132:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27.i.i
+  %133 = icmp ugt i32 %.0.i.i.i, %.0.i26.i.i
+  br i1 %133, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit, label %113, !llvm.loop !34
 
 .loopexit:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27.i.i, %113, %.preheader
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14SubtractBignumERKS1_(ptr noundef nonnull align 4 dereferenceable(516) %0, ptr noundef nonnull align 4 dereferenceable(516) %1)
-  %130 = add i16 %.1, 1
+  %134 = add i16 %.1, 1
   br label %.preheader, !llvm.loop !35
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit: ; preds = %109, %128, %.lr.ph.i32, %.critedge.thread3.i, %.critedge.i, %90, %2
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit: ; preds = %109, %132, %.lr.ph.i32, %.critedge.thread3.i, %.critedge.i, %90, %2
   %.0 = phi i16 [ 0, %2 ], [ %94, %90 ], [ %77, %.critedge.i ], [ %77, %.critedge.thread3.i ], [ %77, %.lr.ph.i32 ], [ %.1, %128 ], [ %.1, %109 ]
   ret i16 %.0
 }
@@ -2592,7 +2592,7 @@ define noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %22
 
-22:                                               ; preds = %.preheader, %37
+22:; preds = %.preheader, %42
   %.019.in = phi i32 [ %.019, %37 ], [ %8, %.preheader ]
   %.019 = add nsw i32 %.019.in, -1
   %.not.not = icmp sgt i32 %.019.in, %19
@@ -2614,27 +2614,27 @@ define noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit: ; preds = %23, %25
   %.0.i = phi i32 [ %29, %25 ], [ 0, %23 ]
   %.not.i24 = icmp sgt i32 %.019.in, %14
-  %30 = icmp sle i32 %.019.in, %13
-  %or.cond.i25 = or i1 %30, %.not.i24
-  br i1 %or.cond.i25, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27, label %31
+  %36 = icmp sle i32 %.019.in, %13
+  %or.cond.i25 = or i1 %36, %.not.i24
+  br i1 %or.cond.i25, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27, label %37
 
-31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit
-  %32 = sub nsw i32 %.019, %13
+37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit
+  %38 = sub nsw i32 %.019, %13
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds nuw [128 x i32], ptr %21, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit, %31
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit, %37
   %.0.i26 = phi i32 [ %35, %31 ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit ]
-  %36 = icmp ult i32 %.0.i, %.0.i26
-  br i1 %36, label %.loopexit, label %37
+  %41 = icmp ult i32 %.0.i, %.0.i26
+  br i1 %41, label %.loopexit, label %42
 
-37:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27
-  %38 = icmp ugt i32 %.0.i, %.0.i26
-  br i1 %38, label %.loopexit, label %22, !llvm.loop !34
+42:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27
+  %43 = icmp ugt i32 %.0.i, %.0.i26
+  br i1 %43, label %.loopexit, label %22, !llvm.loop !34
 
-.loopexit:                                        ; preds = %22, %37, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27, %16, %2
+.loopexit:                                        ; preds = %22, %42, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27, %16, %2
   %.0 = phi i32 [ -1, %2 ], [ 1, %16 ], [ 0, %22 ], [ 1, %37 ], [ -1, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit27 ]
   ret i32 %.0
 }
@@ -2643,11 +2643,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZer
 define noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11PlusCompareERKS1_S3_S3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(516) %2) local_unnamed_addr #7 align 2 {
   %.pre = load i16, ptr %0, align 4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.pre77 = load i16, ptr %.phi.trans.insert, align 2
+  %.pre78 = load i16, ptr %.phi.trans.insert, align 2
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse, %3
-  %4 = phi i16 [ %.pre77, %3 ], [ %12, %tailrecurse ]
+  %4 = phi i16 [ %.pre78, %3 ], [ %12, %tailrecurse ]
   %5 = phi i16 [ %.pre, %3 ], [ %9, %tailrecurse ]
   %.tr = phi ptr [ %0, %3 ], [ %.tr54, %tailrecurse ]
   %.tr54 = phi ptr [ %1, %3 ], [ %.tr, %tailrecurse ]
@@ -2700,14 +2700,14 @@ tailrecurse:                                      ; preds = %tailrecurse, %3
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %40
 
-38:                                               ; preds = %62
+38:; preds = %69
   %39 = shl nuw nsw i32 %63, 28
   %.not42.not = icmp sgt i32 %.03870, %34
   br i1 %.not42.not, label %40, label %._crit_edge.loopexit, !llvm.loop !44
 
-40:                                               ; preds = %.lr.ph, %38
+40:; preds = %.lr.ph, %43
   %.03769 = phi i32 [ 0, %.lr.ph ], [ %39, %38 ]
-  %.038.in68 = phi i32 [ %24, %.lr.ph ], [ %.03870, %38 ]
+  %.038.in68 = phi i32 [ %24, %.lr.ph ], [ %.03870, %43 ]
   %.03870 = add nsw i32 %.038.in68, -1
   %.not.i = icmp sgt i32 %.038.in68, %8
   %41 = icmp sle i32 %.038.in68, %7
@@ -2724,50 +2724,50 @@ tailrecurse:                                      ; preds = %tailrecurse, %3
 _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit: ; preds = %40, %42
   %.0.i = phi i32 [ %46, %42 ], [ 0, %40 ]
   %.not.i44 = icmp sgt i32 %.038.in68, %14
-  %47 = icmp sle i32 %.038.in68, %13
-  %or.cond.i45 = or i1 %47, %.not.i44
-  br i1 %or.cond.i45, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47, label %48
+  %56 = icmp sle i32 %.038.in68, %13
+  %or.cond.i45 = or i1 %56, %.not.i44
+  br i1 %or.cond.i45, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47, label %57
 
-48:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit
-  %49 = sub nsw i32 %.03870, %13
+57:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit
+  %58 = sub nsw i32 %.03870, %13
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw [128 x i32], ptr %36, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit, %48
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit, %57
   %.0.i46 = phi i32 [ %52, %48 ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit ]
   %.not.i48 = icmp sgt i32 %.038.in68, %24
-  %53 = icmp sle i32 %.038.in68, %23
-  %or.cond.i49 = or i1 %53, %.not.i48
-  br i1 %or.cond.i49, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51, label %54
+  %61 = icmp sle i32 %.038.in68, %23
+  %or.cond.i49 = or i1 %61, %.not.i48
+  br i1 %or.cond.i49, label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51, label %62
 
-54:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47
-  %55 = sub nsw i32 %.03870, %23
+62:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47
+  %63 = sub nsw i32 %.03870, %23
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [128 x i32], ptr %37, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [128 x i32], ptr %42, i64 0, i64 %56
   %58 = load i32, ptr %57, align 4
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47, %54
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47, %62
   %.0.i50 = phi i32 [ %58, %54 ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit47 ]
-  %59 = add i32 %.0.i46, %.0.i
-  %60 = add i32 %.0.i50, %.03769
-  %61 = icmp ugt i32 %59, %60
-  br i1 %61, label %.loopexit, label %62
+  %66 = add i32 %.0.i46, %.0.i
+  %67 = add i32 %.0.i50, %.03769
+  %68 = icmp ugt i32 %66, %67
+  br i1 %68, label %.loopexit, label %69
 
-62:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51
-  %63 = sub nuw i32 %60, %59
-  %64 = icmp ugt i32 %63, 1
-  br i1 %64, label %.loopexit, label %38
+69:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51
+  %70 = sub nuw i32 %67, %66
+  %71 = icmp ugt i32 %70, 1
+  br i1 %71, label %.loopexit, label %38
 
 ._crit_edge.loopexit:                             ; preds = %38
-  %65 = icmp ne i32 %60, %59
-  %66 = sext i1 %65 to i32
+  %72 = icmp ne i32 %67, %66
+  %73 = sext i1 %72 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %62, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51, %30, %._crit_edge.loopexit, %28, %26, %16
-  %.0 = phi i32 [ -1, %16 ], [ 1, %26 ], [ -1, %28 ], [ 0, %30 ], [ %66, %._crit_edge.loopexit ], [ -1, %62 ], [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51 ]
+.loopexit:                                        ; preds = %69, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51, %30, %._crit_edge.loopexit, %28, %26, %16
+  %.0 = phi i32 [ -1, %16 ], [ 1, %26 ], [ -1, %28 ], [ 0, %30 ], [ %73, %._crit_edge.loopexit ], [ -1, %62 ], [ 1, %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum11BigitOrZeroEi.exit51 ]
   ret i32 %.0
 }
 

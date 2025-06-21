@@ -1183,43 +1183,43 @@ Hmac_HashUpdate.exit144:                          ; preds = %89, %91, %93, %95
   %104 = zext nneg i32 %103 to i64
   %105 = zext nneg i32 %103 to i64
   %wide.trip.count = zext nneg i32 %switch.load to i64
-  br label %106
+  br label %105
 
-106:                                              ; preds = %.lr.ph170, %._crit_edge
+105:                                              ; preds = %.lr.ph170, %._crit_edge
   %.0118168 = phi i32 [ %.0125181, %.lr.ph170 ], [ %175, %._crit_edge ]
   %.0121167 = phi i32 [ %99, %.lr.ph170 ], [ %136, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #17
-  %107 = add i32 %.0118168, %100
-  %108 = xor i32 %.0118168, -1
-  %109 = add i32 %43, %108
-  %.neg7.i = and i32 %107, %109
-  %110 = ashr i32 %.neg7.i, 31
-  %111 = trunc nsw i32 %110 to i8
-  %112 = add i32 %.0118168, %101
-  %113 = add i32 %42, %108
-  %.neg7.i145 = and i32 %112, %113
-  %114 = ashr i32 %.neg7.i145, 31
-  %115 = trunc nsw i32 %114 to i8
-  %116 = xor i8 %111, -1
-  %117 = xor i8 %115, -1
-  %118 = or i8 %111, %117
-  %119 = icmp slt i32 %.neg7.i145, 0
-  br label %120
+  %106 = add i32 %.0118168, %100
+  %107 = xor i32 %.0118168, -1
+  %108 = add i32 %43, %107
+  %.neg7.i = and i32 %106, %108
+  %109 = ashr i32 %.neg7.i, 31
+  %110 = trunc nsw i32 %109 to i8
+  %111 = add i32 %.0118168, %101
+  %112 = add i32 %42, %107
+  %.neg7.i145 = and i32 %111, %112
+  %113 = ashr i32 %.neg7.i145, 31
+  %114 = trunc nsw i32 %113 to i8
+  %115 = xor i8 %110, -1
+  %116 = xor i8 %114, -1
+  %117 = or i8 %110, %116
+  %118 = icmp slt i32 %.neg7.i145, 0
+  br label %119
 
-120:                                              ; preds = %106, %147
+119:                                              ; preds = %105, %147
   %indvars.iv = phi i64 [ 0, %106 ], [ %indvars.iv.next, %147 ]
   %.1122164 = phi i32 [ %.0121167, %106 ], [ %136, %147 ]
-  %121 = trunc nuw nsw i64 %indvars.iv to i32
-  %122 = add i32 %121, %102
+  %120 = trunc nuw nsw i64 %indvars.iv to i32
+  %121 = add i32 %120, %102
   %123 = xor i32 %121, -1
   %124 = add i32 %35, %123
   %.neg7.i146 = and i32 %124, %.neg7.i
-  %125 = and i32 %.neg7.i146, %122
-  %126 = icmp sgt i32 %122, -1
+  %125 = and i32 %.neg7.i146, %121
+  %126 = icmp sgt i32 %121, -1
   %127 = icmp ult i32 %.1122164, %6
   br i1 %127, label %.sink.split, label %128
 
-128:                                              ; preds = %120
+128:                                              ; preds = %119
   %129 = icmp ult i32 %.1122164, %19
   br i1 %129, label %130, label %135
 
@@ -1227,7 +1227,7 @@ Hmac_HashUpdate.exit144:                          ; preds = %89, %91, %93, %95
   %131 = sub i32 %.1122164, %6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %120, %130
+.sink.split:                                      ; preds = %119, %130
   %.sink = phi i32 [ %131, %130 ], [ %.1122164, %120 ]
   %.sink182 = phi ptr [ %2, %130 ], [ %5, %120 ]
   %132 = zext i32 %.sink to i64
@@ -1240,9 +1240,9 @@ Hmac_HashUpdate.exit144:                          ; preds = %89, %91, %93, %95
   %136 = add i32 %.1122164, 1
   %137 = icmp slt i32 %125, 0
   %138 = select i1 %137, i8 -128, i8 %.0
-  %139 = select i1 %126, i8 %116, i8 -1
+  %139 = select i1 %126, i8 %115, i8 -1
   %140 = and i8 %138, %139
-  %141 = and i8 %140, %118
+  %141 = and i8 %140, %117
   %.not140 = icmp samesign ult i64 %indvars.iv, %105
   br i1 %.not140, label %147, label %142
 
@@ -1250,7 +1250,7 @@ Hmac_HashUpdate.exit144:                          ; preds = %89, %91, %93, %95
   %143 = sub nsw i64 %indvars.iv, %104
   %144 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !51
-  %146 = select i1 %119, i8 %145, i8 %140
+  %146 = select i1 %118, i8 %145, i8 %140
   br label %147
 
 147:                                              ; preds = %142, %135
@@ -1259,7 +1259,7 @@ Hmac_HashUpdate.exit144:                          ; preds = %89, %91, %93, %95
   store i8 %.1, ptr %148, align 1, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %149, label %120, !llvm.loop !79
+  br i1 %exitcond.not, label %149, label %119, !llvm.loop !79
 
 149:                                              ; preds = %147
   %150 = load i8, ptr %11, align 8, !tbaa !77
@@ -1328,7 +1328,7 @@ Hmac_HashFinalRaw.exit:                           ; preds = %161, %163, %165, %1
   %indvars.iv174 = phi i64 [ %indvars.iv.next175, %.lr.ph ], [ 0, %.preheader ]
   %169 = getelementptr inbounds nuw [144 x i8], ptr %10, i64 0, i64 %indvars.iv174
   %170 = load i8, ptr %169, align 1, !tbaa !51
-  %171 = and i8 %170, %115
+  %171 = and i8 %170, %114
   %172 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv174
   %173 = load i8, ptr %172, align 1, !tbaa !51
   %174 = or i8 %173, %171
@@ -1346,7 +1346,7 @@ Hmac_HashFinalRaw.exit:                           ; preds = %161, %163, %165, %1
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #17
   %175 = add nuw nsw i32 %.0118168, 1
   %176 = icmp slt i32 %175, %27
-  br i1 %176, label %106, label %._crit_edge171, !llvm.loop !81
+  br i1 %176, label %105, label %._crit_edge171, !llvm.loop !81
 
 ._crit_edge171:                                   ; preds = %._crit_edge, %97
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %8) #17

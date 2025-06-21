@@ -3785,47 +3785,47 @@ define i32 @Gia_ManConstructFromMap(ptr noundef %0, ptr noundef readonly capture
   %18 = ashr i32 %15, 1
   %19 = ashr i32 %17, 1
   %20 = icmp slt i32 %18, %2
-  br i1 %20, label %21, label %24
+  br i1 %20, label %38, label %24
 
-21:                                               ; preds = %13
+38:                                               ; preds = %13
   %.val70 = load ptr, ptr %12, align 8, !tbaa !30
   %22 = sext i32 %18 to i64
   %23 = getelementptr inbounds i32, ptr %.val70, i64 %22
   br label %28
 
-24:                                               ; preds = %13
+40:                                               ; preds = %13
   %25 = sub nsw i32 %18, %2
   %.val69 = load ptr, ptr %11, align 8, !tbaa !30
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i32, ptr %.val69, i64 %26
   br label %28
 
-28:                                               ; preds = %24, %21
+42:                                               ; preds = %40, %21
   %.in = phi ptr [ %23, %21 ], [ %27, %24 ]
   %29 = load i32, ptr %.in, align 4, !tbaa !31
   %30 = icmp slt i32 %19, %2
   br i1 %30, label %31, label %34
 
-31:                                               ; preds = %28
+47:                                               ; preds = %42
   %.val68 = load ptr, ptr %12, align 8, !tbaa !30
   %32 = sext i32 %19 to i64
   %33 = getelementptr inbounds i32, ptr %.val68, i64 %32
   br label %38
 
-34:                                               ; preds = %28
+49:                                               ; preds = %42
   %35 = sub nsw i32 %19, %2
   %.val67 = load ptr, ptr %11, align 8, !tbaa !30
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw i32, ptr %.val67, i64 %36
-  br label %38
+  br label %58
 
-38:                                               ; preds = %34, %31
-  %.in75 = phi ptr [ %33, %31 ], [ %37, %34 ]
-  %39 = load i32, ptr %.in75, align 4, !tbaa !31
+58:                                               ; preds = %49, %47
+  %.1 = phi ptr [ %33, %31 ], [ %37, %34 ]
+  %59 = load i32, ptr %.1, align 4, !tbaa !31
   %40 = icmp slt i32 %18, %19
   br i1 %40, label %41, label %50
 
-41:                                               ; preds = %38
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %58
   %42 = and i32 %15, 1
   %43 = xor i32 %29, %42
   %44 = and i32 %17, 1
@@ -3877,75 +3877,75 @@ define i32 @Gia_ManConstructFromMap(ptr noundef %0, ptr noundef readonly capture
   %.pre.i = load ptr, ptr %11, align 8, !tbaa !30
   br label %Vec_IntPush.exit
 
-72:                                               ; preds = %68
-  %73 = icmp slt i32 %69, 16
-  br i1 %73, label %74, label %81
+62:                                               ; preds = %68
+  %63 = icmp slt i32 %69, 16
+  br i1 %63, label %64, label %71
 
-74:                                               ; preds = %72
-  %75 = load ptr, ptr %11, align 8, !tbaa !30
-  %.not9.i.i = icmp eq ptr %75, null
-  br i1 %.not9.i.i, label %78, label %76
+64:                                               ; preds = %62
+  %65 = load ptr, ptr %11, align 8, !tbaa !30
+  %.not9.i.i = icmp eq ptr %65, null
+  br i1 %.not9.i.i, label %68, label %66
 
-76:                                               ; preds = %74
-  %77 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %75, i64 noundef 64) #30
+66:                                               ; preds = %64
+  %67 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %65, i64 noundef 64) #30
   br label %Vec_IntGrow.exit.i
 
-78:                                               ; preds = %74
-  %79 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
+68:                                               ; preds = %64
+  %69 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   br label %Vec_IntGrow.exit.i
 
-Vec_IntGrow.exit.i:                               ; preds = %78, %76
-  %80 = phi ptr [ %77, %76 ], [ %79, %78 ]
-  store ptr %80, ptr %11, align 8, !tbaa !30
+Vec_IntGrow.exit.i:                               ; preds = %68, %66
+  %70 = phi ptr [ %67, %76 ], [ %69, %78 ]
+  store ptr %70, ptr %11, align 8, !tbaa !30
   store i32 16, ptr %4, align 8, !tbaa !29
   br label %Vec_IntPush.exit
 
-81:                                               ; preds = %72
-  %82 = shl nuw nsw i32 %69, 1
-  %83 = load ptr, ptr %11, align 8, !tbaa !30
-  %.not9.i9.i = icmp eq ptr %83, null
-  %84 = zext nneg i32 %82 to i64
-  %85 = shl nuw nsw i64 %84, 2
-  br i1 %.not9.i9.i, label %88, label %86
+71:                                               ; preds = %62
+  %72 = shl nuw nsw i32 %69, 1
+  %73 = load ptr, ptr %11, align 8, !tbaa !30
+  %.not9.i9.i = icmp eq ptr %73, null
+  %74 = zext nneg i32 %72 to i64
+  %75 = shl nuw nsw i64 %74, 2
+  br i1 %.not9.i9.i, label %78, label %76
 
-86:                                               ; preds = %81
-  %87 = tail call ptr @realloc(ptr noundef nonnull %83, i64 noundef %85) #30
-  br label %90
+76:                                               ; preds = %71
+  %77 = tail call ptr @realloc(ptr noundef nonnull %73, i64 noundef %75) #30
+  br label %80
 
-88:                                               ; preds = %81
-  %89 = tail call noalias ptr @malloc(i64 noundef %85) #31
-  br label %90
+78:                                               ; preds = %71
+  %79 = tail call noalias ptr @malloc(i64 noundef %75) #31
+  br label %80
 
-90:                                               ; preds = %88, %86
-  %91 = phi ptr [ %87, %86 ], [ %89, %88 ]
-  store ptr %91, ptr %11, align 8, !tbaa !30
-  store i32 %82, ptr %4, align 8, !tbaa !29
+80:                                               ; preds = %78, %76
+  %81 = phi ptr [ %77, %86 ], [ %79, %88 ]
+  store ptr %81, ptr %11, align 8, !tbaa !30
+  store i32 %72, ptr %4, align 8, !tbaa !29
   br label %Vec_IntPush.exit
 
-Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %90
-  %92 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %91, %90 ], [ %80, %Vec_IntGrow.exit.i ]
-  %93 = load i32, ptr %9, align 4, !tbaa !28
-  %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %9, align 4, !tbaa !28
-  %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds i32, ptr %92, i64 %95
-  store i32 %.1, ptr %96, align 4, !tbaa !31
+Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %80
+  %82 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %81, %90 ], [ %70, %Vec_IntGrow.exit.i ]
+  %83 = load i32, ptr %9, align 4, !tbaa !28
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %9, align 4, !tbaa !28
+  %85 = sext i32 %83 to i64
+  %86 = getelementptr inbounds i32, ptr %82, i64 %85
+  store i32 %.1, ptr %86, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val65 = load i32, ptr %7, align 4, !tbaa !28
-  %97 = trunc i64 %indvars.iv.next to i32
-  %98 = or disjoint i32 %97, 1
-  %99 = icmp slt i32 %98, %.val65
-  br i1 %99, label %13, label %.critedge, !llvm.loop !107
+  %87 = trunc i64 %indvars.iv.next to i32
+  %88 = or disjoint i32 %87, 1
+  %89 = icmp slt i32 %88, %.val65
+  br i1 %89, label %13, label %.critedge, !llvm.loop !107
 
 .critedge:                                        ; preds = %Vec_IntPush.exit, %..critedge_crit_edge
-  %.val66 = phi ptr [ %.val66.pre, %..critedge_crit_edge ], [ %92, %Vec_IntPush.exit ]
+  %.val66 = phi ptr [ %.val66.pre, %..critedge_crit_edge ], [ %82, %Vec_IntPush.exit ]
   %.val65.lcssa = phi i32 [ %.val6576, %..critedge_crit_edge ], [ %.val65, %Vec_IntPush.exit ]
-  %100 = sdiv i32 %.val65.lcssa, 2
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr i32, ptr %.val66, i64 %101
-  %103 = getelementptr i8, ptr %102, i64 -4
-  %104 = load i32, ptr %103, align 4, !tbaa !31
-  ret i32 %104
+  %90 = sdiv i32 %.val65.lcssa, 2
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr i32, ptr %.val66, i64 %91
+  %93 = getelementptr i8, ptr %92, i64 -4
+  %94 = load i32, ptr %93, align 4, !tbaa !31
+  ret i32 %94
 }
 
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2

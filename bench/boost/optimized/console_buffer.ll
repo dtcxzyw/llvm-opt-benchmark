@@ -131,33 +131,33 @@ _ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit: ; preds = %
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %48, ptr %49, align 8, !tbaa !19
   %50 = sext i32 %.pre-phi to i64
-  %51 = getelementptr i8, ptr %0, i64 %50
+  %.ptr15 = getelementptr i8, ptr %0, i64 %50
   %.ptr15 = getelementptr i8, ptr %51, i64 64
   store ptr %.ptr15, ptr %5, align 8, !tbaa !6
   %.not = icmp eq i32 %1, -1
-  br i1 %.not, label %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit, label %52
+  br i1 %.not, label %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit, label %51
 
-52:                                               ; preds = %47
-  %53 = icmp slt i32 %.pre-phi, 1024
-  br i1 %53, label %54, label %58, !prof !20
+51:                                               ; preds = %47
+  %52 = icmp slt i32 %.pre-phi, 1024
+  br i1 %52, label %53, label %57, !prof !20
 
-54:                                               ; preds = %52
-  %55 = trunc i32 %1 to i8
-  store i8 %55, ptr %.ptr15, align 1, !tbaa !21
-  %56 = load ptr, ptr %5, align 8, !tbaa !6
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  store ptr %57, ptr %5, align 8, !tbaa !6
+53:                                               ; preds = %51
+  %54 = trunc i32 %1 to i8
+  store i8 %54, ptr %.ptr15, align 1, !tbaa !21
+  %55 = load ptr, ptr %5, align 8, !tbaa !6
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
+  store ptr %56, ptr %5, align 8, !tbaa !6
   br label %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
 
-58:                                               ; preds = %52
-  %59 = and i32 %1, 255
-  %60 = load ptr, ptr %0, align 8, !tbaa !3
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 104
-  %62 = load ptr, ptr %61, align 8
-  %63 = call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %59)
+57:                                               ; preds = %51
+  %58 = and i32 %1, 255
+  %59 = load ptr, ptr %0, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 104
+  %61 = load ptr, ptr %60, align 8
+  %62 = call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %58)
   br label %_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit
 
-_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit: ; preds = %58, %54, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit.thread, %47, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit
+_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc.exit: ; preds = %57, %53, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit.thread, %47, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit
   %.010 = phi i32 [ -1, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit ], [ 0, %47 ], [ -1, %_ZN5boost6nowide6detail26console_output_buffer_base5writeEPKci.exit.thread ], [ 0, %54 ], [ 0, %58 ]
   ret i32 %.010
 }

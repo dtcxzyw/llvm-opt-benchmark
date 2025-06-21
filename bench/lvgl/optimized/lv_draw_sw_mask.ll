@@ -2620,14 +2620,14 @@ define internal range(i32 1, 3) i32 @lv_draw_mask_map(ptr noundef captures(none)
   %31 = icmp sgt i32 %15, %30
   %.neg56 = add i32 %30, 1
   %.neg57 = sub i32 %.neg56, %15
-  %.neg58 = select i1 %31, i32 %.neg57, i32 0
+  %34 = select i1 %31, i32 %.neg57, i32 0
   %32 = load i32, ptr %6, align 8, !tbaa !93
   %33 = icmp slt i32 %1, %32
   %34 = sub nsw i32 %32, %1
   %35 = sub nsw i32 %1, %32
   %36 = select i1 %33, i32 %34, i32 0
-  %.neg54 = add i32 %.neg58, %3
-  %.1 = sub i32 %.neg54, %36
+  %.neg54 = add i32 %34, %3
+  %38 = sub i32 %.neg54, %36
   %.043.idx = zext i32 %36 to i64
   %.043 = getelementptr inbounds nuw i8, ptr %0, i64 %.043.idx
   %narrow52 = select i1 %33, i32 0, i32 %35
@@ -2636,38 +2636,38 @@ define internal range(i32 1, 3) i32 @lv_draw_mask_map(ptr noundef captures(none)
   %37 = icmp sgt i32 %.1, 0
   br i1 %37, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %22
+.lr.ph.preheader:; preds = %22
   %38 = zext nneg i32 %.1 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %mask_mix.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %mask_mix.exit ]
-  %39 = getelementptr inbounds nuw i8, ptr %.043, i64 %indvars.iv
-  %40 = load i8, ptr %39, align 1, !tbaa !36
-  %41 = getelementptr inbounds nuw i8, ptr %.042, i64 %indvars.iv
-  %42 = load i8, ptr %41, align 1, !tbaa !36
-  %43 = zext i8 %42 to i32
-  %44 = icmp ugt i8 %42, -4
-  br i1 %44, label %mask_mix.exit, label %45
+  %48 = getelementptr inbounds nuw i8, ptr %.043, i64 %indvars.iv
+  %49 = load i8, ptr %48, align 1, !tbaa !36
+  %50 = getelementptr inbounds nuw i8, ptr %.042, i64 %indvars.iv
+  %51 = load i8, ptr %50, align 1, !tbaa !36
+  %52 = zext i8 %51 to i32
+  %53 = icmp ugt i8 %51, -4
+  br i1 %53, label %mask_mix.exit, label %54
 
-45:                                               ; preds = %.lr.ph
-  %46 = icmp ult i8 %42, 3
-  br i1 %46, label %mask_mix.exit, label %47
+54:                                               ; preds = %.lr.ph
+  %55 = icmp ult i8 %51, 3
+  br i1 %55, label %mask_mix.exit, label %56
 
-47:                                               ; preds = %45
-  %48 = zext i8 %40 to i32
-  %49 = mul nuw nsw i32 %48, 32897
-  %50 = mul nuw nsw i32 %49, %43
-  %51 = lshr i32 %50, 23
-  %52 = trunc nuw i32 %51 to i8
+56:                                               ; preds = %54
+  %57 = zext i8 %49 to i32
+  %58 = mul nuw nsw i32 %57, 32897
+  %59 = mul nuw nsw i32 %58, %52
+  %60 = lshr i32 %59, 23
+  %61 = trunc nuw i32 %60 to i8
   br label %mask_mix.exit
 
-mask_mix.exit:                                    ; preds = %.lr.ph, %45, %47
-  %.0.i = phi i8 [ %52, %47 ], [ %40, %.lr.ph ], [ 0, %45 ]
-  store i8 %.0.i, ptr %39, align 1, !tbaa !36
+mask_mix.exit:                                    ; preds = %.lr.ph, %54, %56
+  %.0.i = phi i8 [ %61, %47 ], [ %49, %.lr.ph ], [ 0, %45 ]
+  store i8 %.0.i, ptr %48, align 1, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = icmp samesign ult i64 %indvars.iv.next, %38
-  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !95
+  %exitcond.not = icmp samesign ult i64 %indvars.iv.next, %38
+  br i1 %exitcond.not, label %.lr.ph, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %mask_mix.exit, %22, %18, %14, %10, %5
   %.041 = phi i32 [ 1, %5 ], [ 1, %10 ], [ 1, %14 ], [ 1, %18 ], [ 2, %22 ], [ 2, %mask_mix.exit ]

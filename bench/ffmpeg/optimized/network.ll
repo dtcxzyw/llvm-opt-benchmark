@@ -1222,18 +1222,18 @@ define range(i32 0, 2) i32 @ff_http_match_no_proxy(ptr noundef %0, ptr noundef r
   %.not = icmp eq ptr %0, null
   %.not27 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %.not27
-  br i1 %or.cond, label %36, label %3
+  br i1 %or.cond, label %35, label %3
 
 3:                                                ; preds = %2
   %4 = tail call noalias ptr @av_strdup(ptr noundef nonnull %0) #12
   %.not28 = icmp eq ptr %4, null
-  br i1 %.not28, label %36, label %.preheader
+  br i1 %.not28, label %35, label %.preheader
 
-.preheader:                                       ; preds = %3
+select.unfold:                                    ; preds = %3
   %invariant.gep = getelementptr i8, ptr %1, i64 -1
   br label %5
 
-select.unfold:                                    ; preds = %.tail.thread.i, %32, %25
+12:                                               ; preds = %.tail.thread.i, %32, %25
   %.not29 = icmp eq ptr %.0, null
   br i1 %.not29, label %match_host_pattern.exit.thread, label %5
 
@@ -1259,32 +1259,32 @@ select.unfold:                                    ; preds = %.tail.thread.i, %32
   br i1 %.not22.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %16 = load i8, ptr %15, align 1
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %match_host_pattern.exit.thread, label %.tail.thread.i
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %match_host_pattern.exit.thread, label %.tail.thread.i
 
 .tail.thread.i:                                   ; preds = %.tail.i, %13
   %spec.select.idx.i = zext i1 %.not22.i to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.idx.i
-  %18 = load i8, ptr %spec.select.i, align 1, !tbaa !18
-  %19 = icmp eq i8 %18, 46
-  %.1.idx.i = zext i1 %19 to i64
+  %17 = load i8, ptr %spec.select.i, align 1, !tbaa !18
+  %18 = icmp eq i8 %17, 46
+  %.1.idx.i = zext i1 %18 to i64
   %.1.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.1.idx.i
-  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.1.i) #15
-  %21 = trunc i64 %20 to i32
-  %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #15
-  %23 = trunc i64 %22 to i32
-  %24 = icmp sgt i32 %21, %23
-  br i1 %24, label %select.unfold, label %25
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.1.i) #15
+  %20 = trunc i64 %19 to i32
+  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #15
+  %22 = trunc i64 %21 to i32
+  %23 = icmp sgt i32 %20, %22
+  br i1 %23, label %select.unfold, label %24
 
-25:                                               ; preds = %.tail.thread.i
-  %26 = sub nsw i32 %23, %21
-  %27 = zext nneg i32 %26 to i64
+24:                                               ; preds = %.tail.thread.i
+  %25 = sub nsw i32 %23, %19
+  %27 = zext nneg i32 %25 to i64
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
   %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.1.i, ptr noundef nonnull readonly dereferenceable(1) %28) #15
   %.not21.i = icmp eq i32 %29, 0
-  br i1 %.not21.i, label %30, label %select.unfold
+  br i1 %.not21.i, label %30, label %12
 
 30:                                               ; preds = %25
   %31 = icmp eq i32 %23, %21
@@ -1292,17 +1292,17 @@ select.unfold:                                    ; preds = %.tail.thread.i, %32
 
 32:                                               ; preds = %30
   %33 = sext i32 %26 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %33
-  %34 = load i8, ptr %gep, align 1, !tbaa !18
-  %35 = icmp eq i8 %34, 46
-  br i1 %35, label %match_host_pattern.exit.thread, label %select.unfold
+  %32 = getelementptr i8, ptr %invariant.gep, i64 %33
+  %33 = load i8, ptr %32, align 1, !tbaa !18
+  %34 = icmp eq i8 %33, 46
+  br i1 %34, label %match_host_pattern.exit.thread, label %select.unfold
 
 match_host_pattern.exit.thread:                   ; preds = %32, %30, %.tail.i, %select.unfold
   %.1 = phi i32 [ 0, %select.unfold ], [ 1, %.tail.i ], [ 1, %30 ], [ 1, %32 ]
   tail call void @av_free(ptr noundef nonnull %4) #12
-  br label %36
+  br label %35
 
-36:                                               ; preds = %3, %2, %match_host_pattern.exit.thread
+35:                                               ; preds = %3, %2, %match_host_pattern.exit.thread
   %.019 = phi i32 [ %.1, %match_host_pattern.exit.thread ], [ 0, %2 ], [ 0, %3 ]
   ret i32 %.019
 }

@@ -2781,7 +2781,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream4Sk
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = icmp slt i32 %1, 0
-  br i1 %8, label %94, label %9
+  br i1 %8, label %95, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2792,7 +2792,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream4Sk
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %2, align 8, !tbaa !62
-  br label %94
+  br label %95
 
 15:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
@@ -2915,7 +2915,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %25
 
 _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
   store ptr %19, ptr %2, align 8, !tbaa !62
-  br label %93
+  br label %94
 
 70:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread45, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
@@ -2941,7 +2941,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN
 81:                                               ; preds = %74
   store i8 1, ptr %10, align 8, !tbaa !60
   store ptr %21, ptr %0, align 8, !tbaa !57
-  br label %92
+  br label %93
 
 82:                                               ; preds = %72
   %83 = load ptr, ptr %7, align 8, !tbaa !33
@@ -2958,20 +2958,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN
   %.0.i15 = select i1 %87, ptr %85, ptr %19
   store ptr %.sink9.i, ptr %0, align 8, !tbaa !57
   store ptr %.sink.i, ptr %17, align 8, !tbaa !58
-  br label %92
+  br label %93
 
-92:                                               ; preds = %82, %81
+93:                                               ; preds = %82, %81
   %storemerge = phi ptr [ %.0.i15, %82 ], [ %19, %81 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
-  br label %93
-
-93:                                               ; preds = %92, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
-  %.1 = phi i1 [ false, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread ], [ %.not.not.not.not.not, %92 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
   br label %94
 
-94:                                               ; preds = %3, %93, %13
+94:                                               ; preds = %93, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
+  %.1 = phi i1 [ false, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread ], [ %.not.not.not.not.not, %92 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
+  br label %95
+
+95:                                               ; preds = %3, %94, %13
   %.0 = phi i1 [ false, %13 ], [ %.1, %93 ], [ false, %3 ]
   ret i1 %.0
 }
@@ -3288,7 +3288,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %21
   %.0.i43 = trunc i64 %.0.i43.in to i32
   %.not = icmp sgt i32 %1, %.0.i43
   %67 = load ptr, ptr %13, align 8, !tbaa !58
-  br i1 %.not, label %77, label %68
+  br i1 %.not, label %78, label %68
 
 68:                                               ; preds = %66
   %69 = sext i32 %1 to i64
@@ -3306,22 +3306,22 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %21
   store ptr %.sink.i, ptr %13, align 8, !tbaa !58
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
 
-77:                                               ; preds = %66
-  %78 = icmp sgt i32 %.0.i43, 16
-  %79 = and i64 %.0.i43.in, 4294967295
-  %80 = getelementptr inbounds nuw i8, ptr %67, i64 %79
-  %81 = getelementptr inbounds i8, ptr %80, i64 -16
+78:                                               ; preds = %66
+  %79 = icmp sgt i32 %.0.i43, 16
+  %80 = and i64 %.0.i43.in, 4294967295
+  %81 = getelementptr inbounds nuw i8, ptr %67, i64 %80
+  %82 = getelementptr inbounds i8, ptr %81, i64 -16
   %sext = shl i64 %.0.i43.in, 32
-  %82 = ashr exact i64 %sext, 32
-  %83 = getelementptr inbounds i8, ptr %15, i64 %82
-  %.sink9.i17 = select i1 %78, ptr %81, ptr %83
-  %.sink.i18 = select i1 %78, ptr null, ptr %67
-  %.0.i19 = select i1 %78, ptr %67, ptr %15
+  %83 = ashr exact i64 %sext, 32
+  %84 = getelementptr inbounds i8, ptr %15, i64 %83
+  %.sink9.i17 = select i1 %79, ptr %82, ptr %84
+  %.sink.i18 = select i1 %79, ptr null, ptr %67
+  %.0.i19 = select i1 %79, ptr %67, ptr %15
   store ptr %.sink9.i17, ptr %0, align 8, !tbaa !57
   store ptr %.sink.i18, ptr %13, align 8, !tbaa !58
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
 
-_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i, %68, %77, %9
+_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i, %68, %78, %9
   %.sink = phi ptr [ %.0.i16, %68 ], [ %.0.i19, %77 ], [ %10, %9 ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ], [ %15, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i ]
   %.0 = phi ptr [ %67, %68 ], [ null, %77 ], [ null, %9 ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit ], [ null, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i ]
   store ptr %.sink, ptr %2, align 8, !tbaa !62

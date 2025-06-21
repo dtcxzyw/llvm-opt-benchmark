@@ -42683,8 +42683,8 @@ _ZN4llvm5APIntD2Ev.exit63:                        ; preds = %_ZN4llvm5APInt13get
   br label %178
 
 178:                                              ; preds = %124, %151, %114
-  %.sink176 = phi { ptr, ptr } [ %150, %124 ], [ %177, %151 ], [ %120, %114 ]
-  %179 = extractvalue { ptr, ptr } %.sink176, 1
+  %.sink177 = phi { ptr, ptr } [ %150, %124 ], [ %177, %151 ], [ %120, %114 ]
+  %179 = extractvalue { ptr, ptr } %.sink177, 1
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 32
   %181 = load ptr, ptr %180, align 8, !tbaa !189
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
