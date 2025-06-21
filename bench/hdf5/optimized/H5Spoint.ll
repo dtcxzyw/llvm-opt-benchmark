@@ -1693,7 +1693,7 @@ define internal noundef i32 @H5S__point_adjust_u(ptr noundef readonly captures(n
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 512
   %.02836 = load ptr, ptr %17, align 8, !tbaa !25
   %.not2937 = icmp eq ptr %.02836, null
-  br i1 %.not2937, label %.preheader.preheader, label %.preheader30
+  br i1 %.not2937, label %.preheader25, label %.preheader30
 
 .preheader.preheader:                             ; preds = %.loopexit, %14
   br label %.preheader
@@ -1701,7 +1701,7 @@ define internal noundef i32 @H5S__point_adjust_u(ptr noundef readonly captures(n
 .loopexit:                                        ; preds = %19
   %.028 = load ptr, ptr %.02838, align 8, !tbaa !25
   %.not29 = icmp eq ptr %.028, null
-  br i1 %.not29, label %.preheader.preheader, label %.preheader30, !llvm.loop !59
+  br i1 %.not29, label %.preheader25, label %.preheader30, !llvm.loop !59
 
 .preheader30:                                     ; preds = %14, %.loopexit
   %.02838 = phi ptr [ %.028, %.loopexit ], [ %.02836, %14 ]
@@ -1720,27 +1720,27 @@ define internal noundef i32 @H5S__point_adjust_u(ptr noundef readonly captures(n
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count
   br i1 %exitcond47.not, label %.loopexit, label %19, !llvm.loop !60
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+25:                                               ; preds = %.preheader25, %25
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader ], [ 0, %.preheader.preheader ]
-  %25 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv48
-  %26 = load i64, ptr %25, align 8, !tbaa !21
-  %27 = load ptr, ptr %15, align 8, !tbaa !10
-  %28 = getelementptr inbounds nuw [32 x i64], ptr %27, i64 0, i64 %indvars.iv48
-  %29 = load i64, ptr %28, align 8, !tbaa !21
-  %30 = sub i64 %29, %26
-  store i64 %30, ptr %28, align 8, !tbaa !21
-  %31 = load i64, ptr %25, align 8, !tbaa !21
-  %32 = load ptr, ptr %15, align 8, !tbaa !10
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 256
-  %34 = getelementptr inbounds nuw [32 x i64], ptr %33, i64 0, i64 %indvars.iv48
-  %35 = load i64, ptr %34, align 8, !tbaa !21
-  %36 = sub i64 %35, %31
-  store i64 %36, ptr %34, align 8, !tbaa !21
+  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv48
+  %27 = load i64, ptr %26, align 8, !tbaa !21
+  %28 = load ptr, ptr %15, align 8, !tbaa !10
+  %29 = getelementptr inbounds nuw [32 x i64], ptr %28, i64 0, i64 %indvars.iv48
+  %30 = load i64, ptr %29, align 8, !tbaa !21
+  %31 = sub i64 %30, %27
+  store i64 %31, ptr %29, align 8, !tbaa !21
+  %32 = load i64, ptr %26, align 8, !tbaa !21
+  %33 = load ptr, ptr %15, align 8, !tbaa !10
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 256
+  %35 = getelementptr inbounds nuw [32 x i64], ptr %34, i64 0, i64 %indvars.iv48
+  %36 = load i64, ptr %35, align 8, !tbaa !21
+  %37 = sub i64 %36, %32
+  store i64 %37, ptr %35, align 8, !tbaa !21
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count
-  br i1 %exitcond52.not, label %.critedge, label %.preheader, !llvm.loop !61
+  br i1 %exitcond52.not, label %.critedge, label %25, !llvm.loop !61
 
-.critedge:                                        ; preds = %11, %.preheader, %.preheader31, %2
+.critedge:                                        ; preds = %11, %25, %.preheader31, %2
   ret i32 0
 }
 
@@ -1782,7 +1782,7 @@ define internal noundef i32 @H5S__point_adjust_s(ptr noundef readonly captures(n
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 512
   %.03442 = load ptr, ptr %17, align 8, !tbaa !25
   %.not3543 = icmp eq ptr %.03442, null
-  br i1 %.not3543, label %.preheader.preheader, label %.preheader36
+  br i1 %.not3543, label %.preheader25, label %.preheader36
 
 .preheader.preheader:                             ; preds = %.loopexit, %14
   br label %.preheader
@@ -1790,7 +1790,7 @@ define internal noundef i32 @H5S__point_adjust_s(ptr noundef readonly captures(n
 .loopexit:                                        ; preds = %19
   %.034 = load ptr, ptr %.03444, align 8, !tbaa !25
   %.not35 = icmp eq ptr %.034, null
-  br i1 %.not35, label %.preheader.preheader, label %.preheader36, !llvm.loop !63
+  br i1 %.not35, label %.preheader25, label %.preheader36, !llvm.loop !63
 
 .preheader36:                                     ; preds = %14, %.loopexit
   %.03444 = phi ptr [ %.034, %.loopexit ], [ %.03442, %14 ]
@@ -1809,27 +1809,27 @@ define internal noundef i32 @H5S__point_adjust_s(ptr noundef readonly captures(n
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count
   br i1 %exitcond53.not, label %.loopexit, label %19, !llvm.loop !64
 
-.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+25:                                               ; preds = %.preheader25, %25
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.preheader ], [ 0, %.preheader.preheader ]
-  %25 = load ptr, ptr %15, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw [32 x i64], ptr %25, i64 0, i64 %indvars.iv54
-  %27 = load i64, ptr %26, align 8, !tbaa !21
-  %28 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv54
-  %29 = load i64, ptr %28, align 8, !tbaa !21
-  %30 = sub nsw i64 %27, %29
-  store i64 %30, ptr %26, align 8, !tbaa !21
-  %31 = load ptr, ptr %15, align 8, !tbaa !10
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 256
-  %33 = getelementptr inbounds nuw [32 x i64], ptr %32, i64 0, i64 %indvars.iv54
-  %34 = load i64, ptr %33, align 8, !tbaa !21
-  %35 = load i64, ptr %28, align 8, !tbaa !21
-  %36 = sub nsw i64 %34, %35
-  store i64 %36, ptr %33, align 8, !tbaa !21
+  %26 = load ptr, ptr %15, align 8, !tbaa !10
+  %27 = getelementptr inbounds nuw [32 x i64], ptr %26, i64 0, i64 %indvars.iv54
+  %28 = load i64, ptr %27, align 8, !tbaa !21
+  %29 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv54
+  %30 = load i64, ptr %29, align 8, !tbaa !21
+  %31 = sub nsw i64 %28, %30
+  store i64 %31, ptr %27, align 8, !tbaa !21
+  %32 = load ptr, ptr %15, align 8, !tbaa !10
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 256
+  %34 = getelementptr inbounds nuw [32 x i64], ptr %33, i64 0, i64 %indvars.iv54
+  %35 = load i64, ptr %34, align 8, !tbaa !21
+  %36 = load i64, ptr %29, align 8, !tbaa !21
+  %37 = sub nsw i64 %35, %36
+  store i64 %37, ptr %34, align 8, !tbaa !21
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond58.not, label %.critedge, label %.preheader, !llvm.loop !65
+  br i1 %exitcond58.not, label %.critedge, label %25, !llvm.loop !65
 
-.critedge:                                        ; preds = %11, %.preheader, %.preheader37, %2
+.critedge:                                        ; preds = %11, %25, %.preheader37, %2
   ret i32 0
 }
 

@@ -11134,9 +11134,9 @@ define noundef zeroext i1 @_ZN4toml2v35array5equalERKS1_S3_(ptr noundef nonnull 
 
 .preheader:                                       ; preds = %4
   %20 = icmp eq ptr %7, %8
-  br i1 %20, label %.critedge, label %.lr.ph
+  br i1 %20, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.preheader, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31"
+.lr.ph.preheader:                                 ; preds = %.preheader, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31"
   %.02134 = phi i64 [ %156, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31" ], [ 0, %.preheader ]
   %21 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %.02134
   %22 = load ptr, ptr %21, align 8, !tbaa !178

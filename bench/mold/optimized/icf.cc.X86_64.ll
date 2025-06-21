@@ -997,9 +997,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %.pre53.i = ptrtoint ptr %.sroa.0.138.i to i64
   %.pre55.i = sub i64 %.pre.i, %.pre53.i
   %.pre57.i = ashr exact i64 %.pre55.i, 3
-  br i1 %.not1.not.i.i, label %.loopexit.i.thread, label %.lr.ph.i.i
+  br i1 %.not1.not.i.i, label %.loopexit.i.thread, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %148
+.lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i, %148
   %.072.i.i = phi i64 [ %149, %148 ], [ 0, %.lr.ph.i ]
   %145 = getelementptr inbounds nuw ptr, ptr %.sroa.0.138.i, i64 %.072.i.i
   %146 = load ptr, ptr %145, align 8, !tbaa !23

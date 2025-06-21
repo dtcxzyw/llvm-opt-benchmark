@@ -7206,7 +7206,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread: ; preds = %_ZN
   %.0.in.in.i1398 = select i1 %395, ptr %396, ptr %397
   %.0.in.i1399 = load i8, ptr %.0.in.in.i1398, align 8
   %.0.i1400 = trunc i8 %.0.in.i1399 to i1
-  br i1 %.0.i1400, label %.lr.ph1359, label %.lr.ph1357
+  br i1 %.0.i1400, label %.lr.ph1359.preheader, label %.lr.ph1357
 
 .lr.ph1357:                                       ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread
   %398 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
@@ -7215,7 +7215,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread: ; preds = %_ZN
   %401 = getelementptr i8, ptr %391, i64 %387
   br label %409
 
-.lr.ph1359:                                       ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread, %.lr.ph1359
+.lr.ph1359.preheader:                             ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread, %.lr.ph1359
   %.01358 = phi i64 [ %408, %.lr.ph1359 ], [ 0, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread ]
   %.sroa.0187.0.copyload = load ptr, ptr %366, align 8
   %402 = load ptr, ptr %7, align 8
@@ -7809,7 +7809,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread: ; preds = 
   %.0.in.in.i11211443 = select i1 %708, ptr %656, ptr %709
   %.0.in.i11221444 = load i8, ptr %.0.in.in.i11211443, align 8
   %.0.i11231445 = trunc i8 %.0.in.i11221444 to i1
-  br i1 %.0.i11231445, label %.lr.ph1351, label %.lr.ph
+  br i1 %.0.i11231445, label %.lr.ph1351.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread
   %710 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
@@ -7818,7 +7818,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread: ; preds = 
   %713 = getelementptr i8, ptr %706, i64 %702
   br label %721
 
-.lr.ph1351:                                       ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread, %.lr.ph1351
+.lr.ph1351.preheader:                             ; preds = %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread, %.lr.ph1351
   %.06091350 = phi i64 [ %720, %.lr.ph1351 ], [ 0, %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit1118.thread ]
   %.sroa.0161.0.copyload = load ptr, ptr %639, align 8
   %714 = load ptr, ptr %25, align 8
@@ -22480,9 +22480,9 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS2_RKS3_.exit: ; preds = %.lr.p
 
 221:                                              ; preds = %211, %206
   %.sroa.0110.0 = phi ptr [ %210, %206 ], [ %220, %211 ]
-  br i1 %.not, label %._crit_edge170, label %.lr.ph169
+  br i1 %.not, label %._crit_edge170, label %.lr.ph169.preheader
 
-.lr.ph169:                                        ; preds = %221, %.lr.ph169
+.lr.ph169.preheader:                              ; preds = %221, %.lr.ph169
   %.043167 = phi i64 [ %232, %.lr.ph169 ], [ 0, %221 ]
   %222 = load ptr, ptr %0, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 88

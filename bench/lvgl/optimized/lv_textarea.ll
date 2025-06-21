@@ -900,7 +900,7 @@ define internal fastcc void @pwd_char_hider(ptr noundef %0) unnamed_addr #0 {
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 4
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %33, label %7
+  br i1 %6, label %34, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -909,7 +909,7 @@ define internal fastcc void @pwd_char_hider(ptr noundef %0) unnamed_addr #0 {
   %11 = load ptr, ptr @lv_text_get_encoded_length, align 8, !tbaa !57
   %12 = tail call i32 %11(ptr noundef %10) #10
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %33, label %14
+  br i1 %13, label %34, label %14
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -949,11 +949,11 @@ lv_textarea_get_password_bullet.exit:             ; preds = %14, %17
   %31 = load ptr, ptr %8, align 8, !tbaa !22
   call void @lv_label_set_text(ptr noundef %31, ptr noundef %24) #10
   call void @lv_free(ptr noundef %24) #10
-  %32 = call zeroext i1 @lv_anim_delete(ptr noundef nonnull %0, ptr noundef nonnull @pwd_char_hider_anim) #10
+  %33 = call zeroext i1 @lv_anim_delete(ptr noundef nonnull %0, ptr noundef nonnull @pwd_char_hider_anim) #10
   call fastcc void @refr_cursor_area(ptr noundef nonnull %0)
-  br label %33
+  br label %34
 
-33:                                               ; preds = %29, %7, %1
+34:                                               ; preds = %29, %7, %1
   ret void
 }
 

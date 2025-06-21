@@ -5381,14 +5381,14 @@ define internal void @t2_hints_stems(ptr noundef captures(none) %0, i32 noundef 
   br label %12
 
 12:                                               ; preds = %.lr.ph, %ps_hints_stem.exit
-  %.02232 = phi i32 [ %2, %.lr.ph ], [ %42, %ps_hints_stem.exit ]
+  %.02232 = phi i32 [ %2, %.lr.ph ], [ %44, %ps_hints_stem.exit ]
   %.02331 = phi i64 [ 0, %.lr.ph ], [ %18, %ps_hints_stem.exit ]
   %13 = tail call i32 @llvm.umin.i32(i32 %.02232, i32 16)
   %14 = shl nuw nsw i32 %13, 1
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %15
 
-15:                                               ; preds = %12, %15
+.preheader:                                       ; preds = %12, %15
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %15 ]
   %.12428 = phi i64 [ %.02331, %12 ], [ %18, %15 ]
   %16 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
@@ -5402,51 +5402,51 @@ define internal void @t2_hints_stems(ptr noundef captures(none) %0, i32 noundef 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %15, !llvm.loop !269
 
-.preheader:                                       ; preds = %15, %.preheader
-  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader ], [ 0, %15 ]
-  %22 = or disjoint i64 %indvars.iv37, 1
-  %23 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %22
-  %24 = load i64, ptr %23, align 8, !tbaa !242
-  %25 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv37
-  %26 = load i64, ptr %25, align 16, !tbaa !242
-  %27 = sub nsw i64 %24, %26
-  store i64 %27, ptr %23, align 8, !tbaa !242
+23:                                               ; preds = %15, %.preheader
+  %indvars.iv37 = phi i64 [ %indvars.iv.next40, %.preheader ], [ 0, %15 ]
+  %24 = or disjoint i64 %indvars.iv37, 1
+  %25 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %24
+  %26 = load i64, ptr %25, align 8, !tbaa !242
+  %27 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv37
+  %28 = load i64, ptr %27, align 16, !tbaa !242
+  %29 = sub nsw i64 %26, %28
+  store i64 %29, ptr %25, align 8, !tbaa !242
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 2
-  %28 = icmp samesign ult i64 %indvars.iv.next38, %wide.trip.count
-  br i1 %28, label %.preheader, label %29, !llvm.loop !270
+  %30 = icmp samesign ult i64 %indvars.iv.next38, %wide.trip.count
+  br i1 %30, label %23, label %31, !llvm.loop !270
 
-29:                                               ; preds = %.preheader
-  %30 = load i32, ptr %7, align 8, !tbaa !195
-  %.not.i = icmp eq i32 %30, 0
+31:                                               ; preds = %23
+  %32 = load i32, ptr %7, align 8, !tbaa !195
+  %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %.preheader33, label %ps_hints_stem.exit
 
-.preheader33:                                     ; preds = %29, %.critedge.i
-  %.01623.i = phi i32 [ %39, %.critedge.i ], [ %13, %29 ]
-  %.01822.i = phi ptr [ %40, %.critedge.i ], [ %5, %29 ]
-  %31 = load ptr, ptr %0, align 8, !tbaa !177
-  %32 = load i64, ptr %.01822.i, align 8, !tbaa !242
-  %33 = trunc i64 %32 to i32
-  %34 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !242
-  %36 = trunc i64 %35 to i32
-  %37 = tail call fastcc i32 @ps_dimension_add_t1stem(ptr noundef nonnull %11, i32 noundef %33, i32 noundef %36, ptr noundef %31, ptr noundef null)
-  %.not21.i = icmp eq i32 %37, 0
-  br i1 %.not21.i, label %.critedge.i, label %38
+.preheader33:                                     ; preds = %31, %.critedge.i
+  %.01623.i = phi i32 [ %41, %.critedge.i ], [ %13, %29 ]
+  %.01822.i = phi ptr [ %42, %.critedge.i ], [ %5, %29 ]
+  %33 = load ptr, ptr %0, align 8, !tbaa !177
+  %34 = load i64, ptr %.01822.i, align 8, !tbaa !242
+  %35 = trunc i64 %34 to i32
+  %36 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !242
+  %38 = trunc i64 %37 to i32
+  %39 = tail call fastcc i32 @ps_dimension_add_t1stem(ptr noundef nonnull %11, i32 noundef %35, i32 noundef %38, ptr noundef %33, ptr noundef null)
+  %.not21.i = icmp eq i32 %39, 0
+  br i1 %.not21.i, label %.critedge.i, label %40
 
-38:                                               ; preds = %.preheader33
-  store i32 %37, ptr %7, align 8, !tbaa !195
+40:                                               ; preds = %.preheader33
+  store i32 %39, ptr %7, align 8, !tbaa !195
   br label %ps_hints_stem.exit
 
 .critedge.i:                                      ; preds = %.preheader33
-  %39 = add nsw i32 %.01623.i, -1
-  %40 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 16
-  %41 = icmp sgt i32 %.01623.i, 1
-  br i1 %41, label %.preheader33, label %ps_hints_stem.exit, !llvm.loop !271
+  %41 = add nsw i32 %.01623.i, -1
+  %42 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 16
+  %43 = icmp sgt i32 %.01623.i, 1
+  br i1 %43, label %.preheader33, label %ps_hints_stem.exit, !llvm.loop !271
 
-ps_hints_stem.exit:                               ; preds = %.critedge.i, %29, %38
-  %42 = sub nsw i32 %.02232, %13
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %12, label %._crit_edge, !llvm.loop !272
+ps_hints_stem.exit:                               ; preds = %.critedge.i, %31, %40
+  %44 = sub nsw i32 %.02232, %13
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %12, label %._crit_edge, !llvm.loop !272
 
 ._crit_edge:                                      ; preds = %ps_hints_stem.exit, %4
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #12

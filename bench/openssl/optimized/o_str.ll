@@ -607,59 +607,59 @@ define noalias ptr @ossl_buf2hexstr_sep(ptr noundef readonly captures(none) %0, 
   br i1 %14, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
-  %.02837.us.i = phi i64 [ %29, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
-  %.03036.us.i = phi ptr [ %28, %.lr.ph.split.us.i ], [ %12, %.lr.ph.i ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.02837.us.i
-  %16 = load i8, ptr %15, align 1, !tbaa !3
-  %17 = zext i8 %16 to i32
-  %18 = lshr i32 %17, 4
-  %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 1
-  store i8 %21, ptr %.03036.us.i, align 1, !tbaa !3
-  %23 = and i32 %17, 15
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !3
-  store i8 %26, ptr %22, align 1, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 2
-  %28 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 3
-  store i8 %2, ptr %27, align 1, !tbaa !3
-  %29 = add nuw i64 %.02837.us.i, 1
-  %exitcond41.not.i = icmp eq i64 %29, %1
+  %.02837.us.i = phi i64 [ %32, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
+  %.03036.us.i = phi ptr [ %31, %.lr.ph.split.us.i ], [ %12, %.lr.ph.i ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.02837.us.i
+  %19 = load i8, ptr %18, align 1, !tbaa !3
+  %20 = zext i8 %19 to i32
+  %21 = lshr i32 %20, 4
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !3
+  %25 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 1
+  store i8 %24, ptr %.03036.us.i, align 1, !tbaa !3
+  %26 = and i32 %20, 15
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !3
+  store i8 %29, ptr %25, align 1, !tbaa !3
+  %30 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 3
+  store i8 %2, ptr %30, align 1, !tbaa !3
+  %32 = add nuw i64 %.02837.us.i, 1
+  %exitcond41.not.i = icmp eq i64 %32, %1
   br i1 %exitcond41.not.i, label %buf2hexstr_sep.exit, label %.lr.ph.split.us.i, !llvm.loop !18
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
-  %.02837.i = phi i64 [ %43, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %.03036.i = phi ptr [ %42, %.lr.ph.split.i ], [ %12, %.lr.ph.i ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.02837.i
-  %31 = load i8, ptr %30, align 1, !tbaa !3
-  %32 = zext i8 %31 to i32
-  %33 = lshr i32 %32, 4
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %34
-  %36 = load i8, ptr %35, align 1, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %.03036.i, i64 1
-  store i8 %36, ptr %.03036.i, align 1, !tbaa !3
-  %38 = and i32 %32, 15
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %39
-  %41 = load i8, ptr %40, align 1, !tbaa !3
-  store i8 %41, ptr %37, align 1, !tbaa !3
-  %42 = getelementptr inbounds nuw i8, ptr %.03036.i, i64 2
-  %43 = add nuw i64 %.02837.i, 1
-  %exitcond.not.i = icmp eq i64 %43, %1
+  %.02837.i = phi i64 [ %46, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
+  %.03036.i = phi ptr [ %45, %.lr.ph.split.i ], [ %12, %.lr.ph.i ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.02837.i
+  %34 = load i8, ptr %33, align 1, !tbaa !3
+  %35 = zext i8 %34 to i32
+  %36 = lshr i32 %35, 4
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %37
+  %39 = load i8, ptr %38, align 1, !tbaa !3
+  %40 = getelementptr inbounds nuw i8, ptr %.03036.i, i64 1
+  store i8 %39, ptr %.03036.i, align 1, !tbaa !3
+  %41 = and i32 %35, 15
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %42
+  %44 = load i8, ptr %43, align 1, !tbaa !3
+  store i8 %44, ptr %40, align 1, !tbaa !3
+  %45 = getelementptr inbounds nuw i8, ptr %.03036.i, i64 2
+  %46 = add nuw i64 %.02837.i, 1
+  %exitcond.not.i = icmp eq i64 %46, %1
   br i1 %exitcond.not.i, label %buf2hexstr_sep.exit, label %.lr.ph.split.i, !llvm.loop !18
 
 buf2hexstr_sep.exit:                              ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
-  %.030.lcssa.i = phi ptr [ %28, %.lr.ph.split.us.i ], [ %42, %.lr.ph.split.i ]
+  %.030.lcssa.i = phi ptr [ %31, %.lr.ph.split.us.i ], [ %45, %.lr.ph.split.i ]
   %spec.select.idx.i = sext i1 %14 to i64
   %spec.select.i = getelementptr inbounds i8, ptr %.030.lcssa.i, i64 %spec.select.idx.i
   store i8 0, ptr %spec.select.i, align 1, !tbaa !3
   br label %44
 
-44:                                               ; preds = %buf2hexstr_sep.exit, %7, %5
+47:                                               ; preds = %buf2hexstr_sep.exit, %7, %5
   %.0 = phi ptr [ %6, %5 ], [ null, %7 ], [ %12, %buf2hexstr_sep.exit ]
   ret ptr %.0
 }

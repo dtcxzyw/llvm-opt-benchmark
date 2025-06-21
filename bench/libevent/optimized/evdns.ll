@@ -10774,8 +10774,8 @@ request_find_from_trans_id.exit:                  ; preds = %.preheader.i
   br label %.thread344
 
 .lr.ph:                                           ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %.013.i, i64 12
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %43 = getelementptr inbounds nuw i8, ptr %.013.i, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 84
   br label %49
 
 46:                                               ; preds = %118
@@ -10882,7 +10882,7 @@ select.unfold.i:                                  ; preds = %76, %57
   %81 = icmp slt i32 %.054107.i, 0
   %.159..155.i = select i1 %81, i32 %50, i32 %.054107.i
   %82 = load ptr, ptr %.013.i, align 8
-  %83 = load i32, ptr %44, align 4
+  %83 = load i32, ptr %43, align 4
   %.not103.i267 = icmp slt i32 %.159..155.i374377, %83
   br i1 %.not103.i267, label %.lr.ph.i269, label %name_parse.exit.thread.loopexit358
 
@@ -10966,7 +10966,7 @@ select.unfold.i281:                               ; preds = %108, %91
 
 112:                                              ; preds = %111
   store i8 0, ptr %.061105.i272.ptr, align 1
-  %113 = load i32, ptr %45, align 4
+  %113 = load i32, ptr %44, align 4
   %.not255 = icmp eq i32 %113, 0
   br i1 %.not255, label %114, label %116
 
@@ -11001,11 +11001,11 @@ select.unfold.i281:                               ; preds = %108, %91
   br i1 %.not405, label %.preheader, label %.lr.ph384
 
 .lr.ph384:                                        ; preds = %122
-  %129 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %130 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %131 = getelementptr inbounds nuw i8, ptr %.013.i, i64 170
-  %132 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %133 = getelementptr inbounds nuw i8, ptr %.013.i, i64 176
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %.013.i, i64 170
+  %131 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %.013.i, i64 176
   br label %134
 
 134:                                              ; preds = %.lr.ph384, %.thread322
@@ -11115,16 +11115,16 @@ select.unfold.i281:                               ; preds = %108, %91
   br label %.thread322
 
 191:                                              ; preds = %186
-  store i32 %137, ptr %129, align 8
-  store i8 %136, ptr %130, align 4
-  store ptr %135, ptr %132, align 8
+  store i32 %137, ptr %128, align 8
+  store i8 %136, ptr %129, align 4
+  store ptr %135, ptr %131, align 8
   %192 = call fastcc i32 @name_parse(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %4, ptr noundef %126, i32 noundef %124)
   %193 = icmp slt i32 %192, 0
   br i1 %193, label %.thread344, label %.loopexit354.thread448
 
 .loopexit354.thread448:                           ; preds = %191
   %194 = call i32 @llvm.umin.i32(i32 %.0203382, i32 %157)
-  store i8 1, ptr %130, align 4
+  store i8 1, ptr %129, align 4
   br label %.loopexit
 
 195:                                              ; preds = %184
@@ -11138,7 +11138,7 @@ select.unfold.i281:                               ; preds = %108, %91
   br i1 %199, label %200, label %213
 
 200:                                              ; preds = %197
-  %201 = load i8, ptr %131, align 2
+  %201 = load i8, ptr %130, align 2
   %202 = and i8 %201, 4
   %.not247 = icmp eq i8 %202, 0
   br i1 %.not247, label %205, label %203
@@ -11149,7 +11149,7 @@ select.unfold.i281:                               ; preds = %108, %91
 
 205:                                              ; preds = %203, %200
   %206 = phi ptr [ %204, %203 ], [ %135, %200 ]
-  %207 = load ptr, ptr %133, align 8
+  %207 = load ptr, ptr %132, align 8
   %.not248 = icmp eq ptr %207, null
   br i1 %.not248, label %.thread310, label %208
 
@@ -11160,7 +11160,7 @@ select.unfold.i281:                               ; preds = %108, %91
 
 210:                                              ; preds = %208
   %211 = call ptr @event_mm_strdup_(ptr noundef nonnull %8) #21
-  %212 = load ptr, ptr %133, align 8
+  %212 = load ptr, ptr %132, align 8
   store ptr %211, ptr %212, align 8
   br label %.thread310
 
@@ -11169,9 +11169,9 @@ select.unfold.i281:                               ; preds = %108, %91
   br label %.thread322
 
 213:                                              ; preds = %197
-  store i32 %137, ptr %129, align 8
-  store i8 %136, ptr %130, align 4
-  store ptr %135, ptr %132, align 8
+  store i32 %137, ptr %128, align 8
+  store i8 %136, ptr %129, align 4
+  store ptr %135, ptr %131, align 8
   call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %8) #21
   br label %name_parse.exit.thread
 
@@ -11230,9 +11230,9 @@ select.unfold.i281:                               ; preds = %108, %91
   br i1 %exitcond441.not, label %.loopexit354, label %134, !llvm.loop !49
 
 .loopexit354:                                     ; preds = %.thread322
-  store i32 %240, ptr %129, align 8
-  store i8 %239, ptr %130, align 4
-  store ptr %238, ptr %132, align 8
+  store i32 %240, ptr %128, align 8
+  store i8 %239, ptr %129, align 4
+  store ptr %238, ptr %131, align 8
   %242 = icmp eq i8 %239, 0
   br i1 %242, label %.preheader, label %.loopexit
 
@@ -11369,9 +11369,9 @@ select.unfold.i281:                               ; preds = %108, %91
   br i1 %.not254, label %request_find_from_trans_id.exit.thread, label %request_find_from_trans_id.exit.thread.sink.split
 
 name_parse.exit.thread.loopexit355:               ; preds = %134, %140, %144, %149, %154, %172, %170, %223, %221
-  store i32 %137, ptr %129, align 8
-  store i8 %136, ptr %130, align 4
-  store ptr %135, ptr %132, align 8
+  store i32 %137, ptr %128, align 8
+  store i8 %136, ptr %129, align 4
+  store ptr %135, ptr %131, align 8
   br label %name_parse.exit.thread
 
 name_parse.exit.thread.loopexit356:               ; preds = %105, %103, %101, %91, %90, %select.unfold.i281

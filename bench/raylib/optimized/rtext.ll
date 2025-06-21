@@ -3828,7 +3828,7 @@ stbtt__find_table.exit336.thread.i.i:             ; preds = %717, %736, %stbtt__
   br i1 %exitcond.not, label %.loopexit211, label %836
 
 .loopexit211:                                     ; preds = %836, %799
-  %.097 = phi ptr [ %3, %799 ], [ %835, %836 ]
+  %wide.trip.count324.pre-phi = phi ptr [ %3, %799 ], [ %835, %836 ]
   %840 = tail call noalias ptr @calloc(i64 noundef %832, i64 noundef 40) #45
   %841 = fcmp oeq float %828, 0.000000e+00
   %842 = fneg float %828

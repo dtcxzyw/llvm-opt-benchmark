@@ -189725,9 +189725,9 @@ _ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit26: ; preds = %_Z
 
 .preheader:                                       ; preds = %_ZN5boost4asio6detail11scoped_lockINS1_11posix_mutexEED2Ev.exit26
   %.not70 = icmp eq ptr %.sroa.11.0.lcssa, %.sroa.034.0.lcssa
-  br i1 %.not70, label %.loopexit, label %.lr.ph69
+  br i1 %.not70, label %.loopexit, label %.lr.ph69.preheader
 
-.lr.ph69:                                         ; preds = %.preheader, %38
+.lr.ph69.preheader:                               ; preds = %.preheader, %38
   %.01368 = phi i64 [ %39, %38 ], [ 0, %.preheader ]
   %33 = getelementptr inbounds nuw ptr, ptr %.sroa.034.0.lcssa, i64 %.01368
   %34 = load ptr, ptr %33, align 8, !tbaa !174
