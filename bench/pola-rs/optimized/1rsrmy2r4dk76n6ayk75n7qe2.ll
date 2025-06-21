@@ -36254,11 +36254,12 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize12nested_utils20c
   %42 = load i64, ptr %14, align 8, !alias.scope !2819, !noalias !2816, !noundef !6
   %43 = icmp ult i64 %42, 4611686018427387904
   call void @llvm.assume(i1 %43)
-  %.not14.i = icmp eq i64 %39, 0
+  %.not14.i = icmp eq i64 %34, 0
   br i1 %.not14.i, label %"_ZN14polars_parquet7parquet8encoding9bitpacked6decode16Decoder$LT$T$GT$12collect_into17h100b9982af42f8ffE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33
   %44 = getelementptr i16, ptr %41, i64 %42
+  %umax.i = call i64 @llvm.umax.i64(i64 %39, i64 1)
   br label %45
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZN14polars_parquet7parquet8encoding9bitpacked6decode11decode_pack17hc429c7ce337bba3dE.exit.i
@@ -36317,11 +36318,11 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize12nested_utils20c
 
 _ZN14polars_parquet7parquet8encoding9bitpacked6decode11decode_pack17hc429c7ce337bba3dE.exit.i: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4455f0d8d4d9664dE.exit.i.i", %59
   %63 = getelementptr i8, ptr %.sroa.03.012.i, i64 32
-  %exitcond.not.i = icmp eq i64 %46, %39
+  %exitcond.not.i = icmp eq i64 %46, %umax.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %45
 
 "_ZN14polars_parquet7parquet8encoding9bitpacked6decode16Decoder$LT$T$GT$12collect_into17h100b9982af42f8ffE.exit": ; preds = %33, %._crit_edge.loopexit.i
-  %64 = phi i64 [ %.pre18.i, %._crit_edge.loopexit.i ], [ %34, %33 ]
+  %64 = phi i64 [ %.pre18.i, %._crit_edge.loopexit.i ], [ 0, %33 ]
   %65 = phi i64 [ %.pre.i, %._crit_edge.loopexit.i ], [ %42, %33 ]
   %66 = icmp ult i64 %65, 4611686018427387904
   call void @llvm.assume(i1 %66)

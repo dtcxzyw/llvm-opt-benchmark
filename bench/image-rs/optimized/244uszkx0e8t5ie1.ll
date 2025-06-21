@@ -9884,15 +9884,15 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4, !alias.scope !1262, !noundef !7
+  %.not.i78 = icmp eq i32 %7, 0
+  br i1 %.not.i78, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
   %8 = lshr i32 %7, 3
   %9 = and i32 %7, 7
   %.not.i.i.i = icmp ne i32 %9, 0
   %10 = zext i1 %.not.i.i.i to i32
   %.0.i.i.i = add nuw nsw i32 %8, %10
-  %.not.i78 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %.not.i78, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8, !alias.scope !1267, !noundef !7
   %13 = lshr i32 %12, 3
@@ -9924,7 +9924,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %.sroa.041.080 = phi i32 [ 0, %.lr.ph ], [ %30, %.loopexit ]
   %.sroa.6.079 = phi i32 [ %.0.i.i.i, %.lr.ph ], [ %31, %.loopexit ]
   %30 = add i32 %.sroa.041.080, 8
-  %31 = add nsw i32 %.sroa.6.079, -1
+  %31 = add i32 %.sroa.6.079, -1
   br label %32
 
 ._crit_edge:                                      ; preds = %.loopexit, %54, %2
@@ -10062,15 +10062,15 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4, !alias.scope !1289, !noundef !7
+  %.not.i78 = icmp eq i32 %7, 0
+  br i1 %.not.i78, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
   %8 = lshr i32 %7, 3
   %9 = and i32 %7, 7
   %.not.i.i.i = icmp ne i32 %9, 0
   %10 = zext i1 %.not.i.i.i to i32
   %.0.i.i.i = add nuw nsw i32 %8, %10
-  %.not.i78 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %.not.i78, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8, !alias.scope !1294, !noundef !7
   %13 = lshr i32 %12, 3
@@ -10102,7 +10102,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %.sroa.041.080 = phi i32 [ 0, %.lr.ph ], [ %30, %.loopexit ]
   %.sroa.6.079 = phi i32 [ %.0.i.i.i, %.lr.ph ], [ %31, %.loopexit ]
   %30 = add i32 %.sroa.041.080, 8
-  %31 = add nsw i32 %.sroa.6.079, -1
+  %31 = add i32 %.sroa.6.079, -1
   br label %32
 
 ._crit_edge:                                      ; preds = %.loopexit, %54, %2
@@ -10252,15 +10252,15 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %13 = load i32, ptr %12, align 4, !alias.scope !1313, !noundef !7
+  %.not.i121 = icmp eq i32 %13, 0
+  br i1 %.not.i121, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
   %14 = lshr i32 %13, 3
   %15 = and i32 %13, 7
   %.not.i.i.i = icmp ne i32 %15, 0
   %16 = zext i1 %.not.i.i.i to i32
   %.0.i.i.i = add nuw nsw i32 %14, %16
-  %.not.i121 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %.not.i121, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8, !alias.scope !1318, !noundef !7
   %19 = lshr i32 %18, 3
@@ -10304,7 +10304,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %.sroa.6.0123 = phi i32 [ %.0.i.i.i, %.lr.ph ], [ %47, %.loopexit ]
   %.sroa.079.0122 = phi i32 [ 0, %.lr.ph ], [ %46, %.loopexit ]
   %46 = add i32 %.sroa.079.0122, 8
-  %47 = add nsw i32 %.sroa.6.0123, -1
+  %47 = add i32 %.sroa.6.0123, -1
   br label %48
 
 ._crit_edge:                                      ; preds = %.loopexit, %100, %112, %116, %2
@@ -10546,15 +10546,15 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %13 = load i32, ptr %12, align 4, !alias.scope !1354, !noundef !7
+  %.not.i121 = icmp eq i32 %13, 0
+  br i1 %.not.i121, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
   %14 = lshr i32 %13, 3
   %15 = and i32 %13, 7
   %.not.i.i.i = icmp ne i32 %15, 0
   %16 = zext i1 %.not.i.i.i to i32
   %.0.i.i.i = add nuw nsw i32 %14, %16
-  %.not.i121 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %.not.i121, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8, !alias.scope !1359, !noundef !7
   %19 = lshr i32 %18, 3
@@ -10598,7 +10598,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %.sroa.6.0123 = phi i32 [ %.0.i.i.i, %.lr.ph ], [ %47, %.loopexit ]
   %.sroa.079.0122 = phi i32 [ 0, %.lr.ph ], [ %46, %.loopexit ]
   %46 = add i32 %.sroa.079.0122, 8
-  %47 = add nsw i32 %.sroa.6.0123, -1
+  %47 = add i32 %.sroa.6.0123, -1
   br label %48
 
 ._crit_edge:                                      ; preds = %.loopexit, %101, %113, %117, %2
