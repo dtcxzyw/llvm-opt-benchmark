@@ -382,15 +382,15 @@ define dso_local range(i64 -119, 1) i64 @ZSTD_ldm_generateSequences(ptr noundef 
   %9 = load i32, ptr %8, align 4, !tbaa !9
   %10 = shl nuw i32 1, %9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 %4
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %.critedge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %5
   %12 = lshr i64 %4, 20
   %13 = and i64 %4, 1048575
   %14 = icmp ne i64 %13, 0
   %15 = zext i1 %14 to i64
   %16 = add nuw nsw i64 %12, %15
-  %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %.critedge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -408,6 +408,7 @@ define dso_local range(i64 -119, 1) i64 @ZSTD_ldm_generateSequences(ptr noundef 
   %31 = getelementptr i8, ptr %2, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = getelementptr i8, ptr %0, i64 56
+  %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   %.pre = load i64, ptr %17, align 8, !tbaa !36
   br label %34
 
@@ -1284,7 +1285,7 @@ ZSTD_ldm_generateSequences_internal.exit._crit_edge: ; preds = %ZSTD_ldm_generat
 413:                                              ; preds = %405, %411
   %.15778 = phi i64 [ %.0.i69, %405 ], [ %412, %411 ]
   %414 = add nuw nsw i64 %.05588, 1
-  %exitcond.not = icmp eq i64 %414, %16
+  %exitcond.not = icmp eq i64 %414, %umax
   br i1 %exitcond.not, label %.critedge, label %34, !llvm.loop !67
 
 .critedge:                                        ; preds = %413, %34, %ZSTD_ldm_generateSequences_internal.exit, %5, %ZSTD_ldm_generateSequences_internal.exit.thread72
@@ -1898,6 +1899,9 @@ declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

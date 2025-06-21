@@ -1542,25 +1542,23 @@ define hidden noundef range(i32 -16, 1) i32 @mbedtls_mpi_read_binary(ptr noundef
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %1, i64 %2, i1 false)
   %18 = load ptr, ptr %15, align 8, !tbaa !11
-  %19 = icmp eq i64 %8, 0
-  %20 = getelementptr i64, ptr %18, i64 %8
-  %.01214.i = getelementptr i8, ptr %20, i64 -8
+  %19 = getelementptr i64, ptr %18, i64 %8
+  %.01214.i = getelementptr i8, ptr %19, i64 -8
   %.not15.i = icmp ugt ptr %18, %.01214.i
-  %or.cond.i = or i1 %19, %.not15.i
-  br i1 %or.cond.i, label %_ZL21mpi_bigendian_to_hostPmm.exit, label %.lr.ph.i
+  br i1 %.not15.i, label %_ZL21mpi_bigendian_to_hostPmm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %.01217.i = phi ptr [ %.012.i, %.lr.ph.i ], [ %.01214.i, %12 ]
-  %.016.i = phi ptr [ %25, %.lr.ph.i ], [ %18, %12 ]
-  %21 = load i64, ptr %.016.i, align 8, !tbaa !13
-  %22 = tail call noundef i64 @llvm.bswap.i64(i64 %21)
-  %23 = load i64, ptr %.01217.i, align 8, !tbaa !13
-  %24 = tail call noundef i64 @llvm.bswap.i64(i64 %23)
-  store i64 %24, ptr %.016.i, align 8, !tbaa !13
-  store i64 %22, ptr %.01217.i, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
+  %.016.i = phi ptr [ %24, %.lr.ph.i ], [ %18, %12 ]
+  %20 = load i64, ptr %.016.i, align 8, !tbaa !13
+  %21 = tail call noundef i64 @llvm.bswap.i64(i64 %20)
+  %22 = load i64, ptr %.01217.i, align 8, !tbaa !13
+  %23 = tail call noundef i64 @llvm.bswap.i64(i64 %22)
+  store i64 %23, ptr %.016.i, align 8, !tbaa !13
+  store i64 %21, ptr %.01217.i, align 8, !tbaa !13
+  %24 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   %.012.i = getelementptr i8, ptr %.01217.i, i64 -8
-  %.not.i = icmp ugt ptr %25, %.012.i
+  %.not.i = icmp ugt ptr %24, %.012.i
   br i1 %.not.i, label %_ZL21mpi_bigendian_to_hostPmm.exit, label %.lr.ph.i, !llvm.loop !31
 
 _ZL21mpi_bigendian_to_hostPmm.exit:               ; preds = %.lr.ph.i, %12, %3
@@ -5978,25 +5976,23 @@ define hidden noundef i32 @mbedtls_mpi_fill_random(ptr noundef captures(address_
 
 30:                                               ; preds = %17
   %31 = load ptr, ptr %20, align 8, !tbaa !11
-  %32 = icmp eq i64 %9, 0
-  %33 = getelementptr i64, ptr %31, i64 %9
-  %.01214.i.i = getelementptr i8, ptr %33, i64 -8
+  %32 = getelementptr i64, ptr %31, i64 %9
+  %.01214.i.i = getelementptr i8, ptr %32, i64 -8
   %.not15.i.i = icmp ugt ptr %31, %.01214.i.i
-  %or.cond.i.i = or i1 %32, %.not15.i.i
-  br i1 %or.cond.i.i, label %_ZL24mpi_fill_random_internalP11mbedtls_mpimPFiPvPhmES1_.exit, label %.lr.ph.i.i
+  br i1 %.not15.i.i, label %_ZL24mpi_fill_random_internalP11mbedtls_mpimPFiPvPhmES1_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %30, %.lr.ph.i.i
   %.01217.i.i = phi ptr [ %.012.i.i, %.lr.ph.i.i ], [ %.01214.i.i, %30 ]
-  %.016.i.i = phi ptr [ %38, %.lr.ph.i.i ], [ %31, %30 ]
-  %34 = load i64, ptr %.016.i.i, align 8, !tbaa !13
-  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %34)
-  %36 = load i64, ptr %.01217.i.i, align 8, !tbaa !13
-  %37 = tail call noundef i64 @llvm.bswap.i64(i64 %36)
-  store i64 %37, ptr %.016.i.i, align 8, !tbaa !13
-  store i64 %35, ptr %.01217.i.i, align 8, !tbaa !13
-  %38 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
+  %.016.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %31, %30 ]
+  %33 = load i64, ptr %.016.i.i, align 8, !tbaa !13
+  %34 = tail call noundef i64 @llvm.bswap.i64(i64 %33)
+  %35 = load i64, ptr %.01217.i.i, align 8, !tbaa !13
+  %36 = tail call noundef i64 @llvm.bswap.i64(i64 %35)
+  store i64 %36, ptr %.016.i.i, align 8, !tbaa !13
+  store i64 %34, ptr %.01217.i.i, align 8, !tbaa !13
+  %37 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
   %.012.i.i = getelementptr i8, ptr %.01217.i.i, i64 -8
-  %.not.i.i = icmp ugt ptr %38, %.012.i.i
+  %.not.i.i = icmp ugt ptr %37, %.012.i.i
   br i1 %.not.i.i, label %_ZL24mpi_fill_random_internalP11mbedtls_mpimPFiPvPhmES1_.exit, label %.lr.ph.i.i, !llvm.loop !31
 
 _ZL24mpi_fill_random_internalP11mbedtls_mpimPFiPvPhmES1_.exit: ; preds = %.lr.ph.i.i, %30, %17, %13, %4, %11
