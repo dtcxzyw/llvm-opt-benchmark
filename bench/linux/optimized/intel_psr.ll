@@ -1704,7 +1704,7 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
   br i1 %186, label %187, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %183
-  %.pre17 = load i32, ptr %142, align 4
+  %.pre16 = load i32, ptr %142, align 4
   br label %194
 
 187:                                              ; preds = %183
@@ -1722,7 +1722,7 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
   br label %408
 
 194:                                              ; preds = %._crit_edge, %164
-  %195 = phi i32 [ %.pre17, %._crit_edge ], [ %143, %164 ]
+  %195 = phi i32 [ %.pre16, %._crit_edge ], [ %143, %164 ]
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %197 = load i32, ptr %196, align 8
   %198 = and i32 %195, 512
@@ -1920,11 +1920,11 @@ define dso_local void @intel_psr_compute_config(ptr noundef %0, ptr noundef %1, 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 1259, i32 2313, i64 12) #10, !srcloc !16
   tail call void asm sideeffect "938: nop\0A\09.pushsection .discard.instr_end\0A\09.long 938b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 938) #10, !srcloc !17
   tail call void asm sideeffect "939: nop\0A\09.pushsection .discard.instr_end\0A\09.long 939b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 939) #10, !srcloc !18
-  %.pre18 = load i8, ptr %294, align 1
+  %.pre17 = load i8, ptr %294, align 1
   br label %309
 
 309:                                              ; preds = %307, %293
-  %310 = phi i8 [ %.pre18, %307 ], [ %295, %293 ]
+  %310 = phi i8 [ %.pre17, %307 ], [ %295, %293 ]
   %311 = add i8 %310, -1
   %312 = icmp ult i8 %311, 4
   br i1 %312, label %313, label %320
