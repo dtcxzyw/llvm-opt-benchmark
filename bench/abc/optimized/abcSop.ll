@@ -2486,10 +2486,8 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 .lr.ph103:                                        ; preds = %79
   %88 = zext nneg i32 %8 to i64
-  %umax = tail call i32 @llvm.umax.i32(i32 %8, i32 1)
   %89 = zext nneg i32 %80 to i64
   %wide.trip.count114 = zext nneg i32 %.val94.pre.fr to i64
-  %wide.trip.count109 = zext nneg i32 %umax to i64
   br label %90
 
 90:                                               ; preds = %.lr.ph103, %100
@@ -2510,7 +2508,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 %indvars.iv106
   store i8 %spec.select129, ptr %99, align 1, !tbaa !3
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
+  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %88
   br i1 %exitcond110.not, label %100, label %95, !llvm.loop !57
 
 100:                                              ; preds = %95
@@ -4389,9 +4387,6 @@ declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

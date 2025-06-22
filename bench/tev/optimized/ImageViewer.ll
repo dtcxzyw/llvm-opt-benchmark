@@ -8279,7 +8279,6 @@ _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit66: ; preds = %_ZN3tev11Im
   %217 = sdiv exact i64 %216, 48
   %218 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %219 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %217, i64 1)
   br label %220
 
 220:                                              ; preds = %.lr.ph120, %_ZNSt3__18functionIFvvEED2Ev.exit
@@ -8392,7 +8391,7 @@ _ZNSt3__18functionIFvvEED2Ev.exit:                ; preds = %255, %.sink.split.i
   call void %261(ptr noundef nonnull align 8 dereferenceable(8) %243) #40
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %218) #40
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #40
-  %exitcond.not = icmp eq i64 %240, %umax
+  %exitcond.not = icmp eq i64 %240, %217
   br i1 %exitcond.not, label %._crit_edge121, label %220, !llvm.loop !113
 
 262:                                              ; preds = %238, %_ZN3tev11ImageViewer9groupNameEm.exit
@@ -9280,7 +9279,6 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %_ZNK7nanogui6Widg
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %51, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit37.thread
@@ -9338,7 +9336,7 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit39.critedge: ; preds = %75
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit37.thread: ; preds = %58, %.lr.ph, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit37, %75
   %84 = add nuw i64 %.028102, 1
-  %exitcond.not = icmp eq i64 %84, %umax
+  %exitcond.not = icmp eq i64 %84, %51
   br i1 %exitcond.not, label %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, label %.lr.ph, !llvm.loop !119
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit37.thread, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit39.critedge
@@ -9876,7 +9874,6 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit94.critedge: ; preds = %32
 
 174:                                              ; preds = %168, %172
   %175 = phi ptr [ %173, %172 ], [ null, %168 ]
-  %umax = tail call i64 @llvm.umax.i64(i64 %158, i64 1)
   br label %176
 
 176:                                              ; preds = %174, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread
@@ -9950,7 +9947,7 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit: ; preds = %185
 
 _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %185, %178, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit, %176
   %217 = add nuw i64 %.055217, 1
-  %exitcond.not = icmp eq i64 %217, %umax
+  %exitcond.not = icmp eq i64 %217, %158
   br i1 %exitcond.not, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit98.critedge, label %176, !llvm.loop !120
 
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit98.critedge: ; preds = %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread, %200
@@ -12679,7 +12676,6 @@ define dso_local void @_ZN3tev11ImageViewer11selectGroupENSt3__112basic_stringIc
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %25 = select i1 %.not.i21.i.i, ptr %24, ptr %23
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   br label %26
 
 26:                                               ; preds = %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread13.i, %.lr.ph.i
@@ -12727,8 +12723,8 @@ _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsI
   br i1 %43, label %_ZNK3tev11ImageViewer7groupIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread13.i
 
 _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread13.i: ; preds = %.lr.ph.i.i, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.i, %26
-  %44 = add nuw i64 %.019.i, 1
-  %exitcond.not.i = icmp eq i64 %44, %umax.i
+  %44 = add i64 %.019.i, 1
+  %exitcond.not.i = icmp eq i64 %44, %14
   br i1 %exitcond.not.i, label %_ZNK3tev11ImageViewer7groupIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit.thread, label %26, !llvm.loop !145
 
 _ZNK3tev11ImageViewer7groupIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %.preheader.i.i, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.i, %38
@@ -15579,7 +15575,6 @@ define dso_local void @_ZN3tev11ImageViewer9nextGroupERKNSt3__112basic_stringIcN
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %43 = select i1 %.not.i21.i.i, ptr %42, ptr %41
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %32, i64 1)
   br label %44
 
 44:                                               ; preds = %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread13.i, %.lr.ph.i
@@ -15627,8 +15622,8 @@ _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsI
   br i1 %61, label %_ZNK3tev11ImageViewer7groupIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread13.i
 
 _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread13.i: ; preds = %.lr.ph.i.i, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.i, %44
-  %62 = add nuw i64 %.019.i, 1
-  %exitcond.not.i = icmp eq i64 %62, %umax.i
+  %62 = add i64 %.019.i, 1
+  %exitcond.not.i = icmp eq i64 %62, %32
   br i1 %exitcond.not.i, label %_ZNK3tev11ImageViewer7groupIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit.thread, label %44, !llvm.loop !145
 
 _ZNK3tev11ImageViewer7groupIdERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit: ; preds = %.preheader.i.i, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.i, %56
@@ -21555,7 +21550,6 @@ define dso_local noundef i32 @_ZNK3tev11ImageViewer7groupIdERKNSt3__112basic_str
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %24 = select i1 %.not.i21.i, ptr %23, ptr %22
-  %umax = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread13
@@ -21604,7 +21598,7 @@ _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsI
 
 _ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread13: ; preds = %.lr.ph.i, %25, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
   %43 = add nuw i64 %.019, 1
-  %exitcond.not = icmp eq i64 %43, %umax
+  %exitcond.not = icmp eq i64 %43, %13
   br i1 %exitcond.not, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %25, !llvm.loop !145
 
 .loopexit:                                        ; preds = %.preheader.i, %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit, %37
@@ -64683,7 +64677,6 @@ define internal void @"_ZNSt3__110__function6__funcIZN3tev11ImageViewerC1ERKNS_1
   %14 = ptrtoint ptr %7 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 4
-  %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   br label %17
 
 17:                                               ; preds = %31, %.lr.ph.i.i.i.i.i
@@ -64715,7 +64708,7 @@ _ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i.i.i.i.i.i: ; preds 
 
 31:                                               ; preds = %17
   %32 = add nuw i64 %.09.i.i.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %32, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %32, %16
   br i1 %exitcond.not.i.i.i, label %_ZN3tev11ImageViewer15nthVisibleImageEm.exit.i.i.i.i, label %17, !llvm.loop !127
 
 _ZN3tev11ImageViewer15nthVisibleImageEm.exit.i.i.i.i: ; preds = %31, %_ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit.i.i.i.i.i.i, %1

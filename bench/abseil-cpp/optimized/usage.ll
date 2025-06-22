@@ -3816,13 +3816,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i: ; preds = %102
   %108 = ashr exact i64 %105, 4
-  %.sroa.speculated.i.i132 = call i64 @llvm.umax.i64(i64 %108, i64 1)
-  %109 = add nsw i64 %.sroa.speculated.i.i132, %108
+  %109 = ashr exact i64 %105, 3
   %110 = icmp ult i64 %109, %108
   %111 = call i64 @llvm.umin.i64(i64 %109, i64 576460752303423487)
   %112 = select i1 %110, i64 576460752303423487, i64 %111
-  %.not.i.i133 = icmp ne i64 %112, 0
-  call void @llvm.assume(i1 %.not.i.i133)
   %113 = shl nuw nsw i64 %112, 4
   %114 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %113) #29
           to label %.noexc135 unwind label %.loopexit185

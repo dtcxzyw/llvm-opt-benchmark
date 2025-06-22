@@ -2142,19 +2142,15 @@ define dso_local void @meshopt_computeMeshletBounds(ptr dead_on_unwind noalias w
   call void @llvm.lifetime.start.p0(i64 6144, ptr nonnull %8) #17
   %9 = mul i64 %3, 3
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %7
-  %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
-  br label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   call void @meshopt_computeClusterBounds(ptr dead_on_unwind writable sret(%struct.meshopt_Bounds) align 4 %0, ptr noundef nonnull %8, i64 noundef %9, ptr noundef %4, i64 poison, i64 noundef %6)
   call void @llvm.lifetime.end.p0(i64 6144, ptr nonnull %8) #17
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.012 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %7, %.lr.ph
+  %.012 = phi i64 [ %16, %.lr.ph ], [ 0, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %.012
   %11 = load i8, ptr %10, align 1, !tbaa !42
   %12 = zext i8 %11 to i64
@@ -2163,7 +2159,7 @@ define dso_local void @meshopt_computeMeshletBounds(ptr dead_on_unwind noalias w
   %15 = getelementptr inbounds nuw [1536 x i32], ptr %8, i64 0, i64 %.012
   store i32 %14, ptr %15, align 4, !tbaa !16
   %16 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %16, %umax
+  %exitcond.not = icmp eq i64 %16, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 }
 
@@ -2192,7 +2188,6 @@ define dso_local void @meshopt_optimizeMeshlet(ptr noundef captures(none) %0, pt
   call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %7) #17
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 -1, i64 %3, i1 false)
   %8 = mul i64 %2, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %.lr.ph
 
 9:                                                ; preds = %.preheader, %40
@@ -2313,7 +2308,7 @@ define dso_local void @meshopt_optimizeMeshlet(ptr noundef captures(none) %0, pt
   %.1 = phi i64 [ %80, %75 ], [ %.07996, %.lr.ph ]
   store i8 %82, ptr %69, align 1, !tbaa !42
   %83 = add nuw i64 %.07897, 1
-  %exitcond102.not = icmp eq i64 %83, %umax
+  %exitcond102.not = icmp eq i64 %83, %8
   br i1 %exitcond102.not, label %._crit_edge99.loopexit, label %.lr.ph, !llvm.loop !76
 }
 

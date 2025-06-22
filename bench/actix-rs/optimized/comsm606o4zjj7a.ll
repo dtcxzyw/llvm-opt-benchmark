@@ -14648,7 +14648,6 @@ common.resume:                                    ; preds = %43, %"_ZN63_$LT$all
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef 2, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
   %82 = add nsw i64 %.1129, -1
   call void @_ZN6brotli3enc17brotli_bit_stream15BrotliWriteBits17h449729164f2b6cc0E(i8 noundef 2, i64 noundef %82, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 1 %10, i64 noundef %11)
-  %umax = call i64 @llvm.umax.i64(i64 %.1129, i64 1)
   br label %143
 
 .split:                                           ; preds = %.split387, %.loopexit265
@@ -14787,7 +14786,7 @@ common.resume:                                    ; preds = %43, %"_ZN63_$LT$all
   unreachable
 
 .loopexit:                                        ; preds = %177, %143
-  %exitcond484.not = icmp eq i64 %144, %umax
+  %exitcond484.not = icmp eq i64 %144, %.1129
   br i1 %exitcond484.not, label %138, label %143
 
 138:                                              ; preds = %.loopexit
@@ -16337,9 +16336,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #19

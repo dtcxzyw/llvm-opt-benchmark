@@ -10187,8 +10187,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = mul nuw i64 %0, 296
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10221,8 +10220,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = shl nuw i64 %0, 5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10257,8 +10255,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = mul nuw i64 %0, 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10492,8 +10489,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = mul nuw i64 %0, 808
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10528,8 +10524,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = mul nuw i64 %0, 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10638,8 +10633,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = shl nuw i64 %0, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10674,8 +10668,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = mul nuw i64 %0, 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10708,8 +10701,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = mul nuw i64 %0, 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10742,8 +10734,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = shl nuw i64 %0, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10817,8 +10808,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = shl nuw i64 %0, 5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10851,8 +10841,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = mul nuw i64 %0, 352
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10885,8 +10874,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = mul nuw i64 %0, 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10919,8 +10907,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = mul nuw i64 %0, 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -10953,8 +10940,7 @@ pmix_tma_malloc.exit:                             ; preds = %6, %9
   br i1 %.not, label %.loopexit, label %.preheader.preheader, !prof !29
 
 .preheader.preheader:                             ; preds = %pmix_tma_malloc.exit
-  %11 = mul nuw i64 %0, 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i, i8 0, i64 %11, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %5, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %pmix_tma_malloc.exit, %2
@@ -11067,7 +11053,7 @@ pmix_tma_malloc.exit.i:                           ; preds = %60, %57
   br i1 %.not.i63, label %pmix_bfrops_base_tma_disk_stats_create.exit, label %.preheader.preheader.i, !prof !29
 
 .preheader.preheader.i:                           ; preds = %pmix_tma_malloc.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %62, i8 0, i64 %56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %62, i8 0, i64 %56, i1 false)
   br label %pmix_bfrops_base_tma_disk_stats_create.exit
 
 pmix_bfrops_base_tma_disk_stats_create.exit:      ; preds = %pmix_tma_malloc.exit.i, %.preheader.preheader.i
@@ -11244,7 +11230,7 @@ pmix_tma_malloc.exit.i68:                         ; preds = %159, %156
   br i1 %.not.i70, label %pmix_bfrops_base_tma_net_stats_create.exit, label %.preheader.preheader.i71, !prof !29
 
 .preheader.preheader.i71:                         ; preds = %pmix_tma_malloc.exit.i68
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %161, i8 0, i64 %155, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %161, i8 0, i64 %155, i1 false)
   br label %pmix_bfrops_base_tma_net_stats_create.exit
 
 pmix_bfrops_base_tma_net_stats_create.exit:       ; preds = %pmix_tma_malloc.exit.i68, %.preheader.preheader.i71

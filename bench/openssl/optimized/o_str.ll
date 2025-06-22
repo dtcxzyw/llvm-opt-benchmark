@@ -584,13 +584,13 @@ define internal fastcc range(i32 0, 2) i32 @buf2hexstr_sep(ptr noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_buf2hexstr_sep(ptr noundef readonly captures(none) %0, i64 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
+define noalias ptr @ossl_buf2hexstr_sep(ptr noundef readonly captures(none) %0, i64 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
   %6 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 335) #16
-  br label %48
+  br label %44
 
 7:                                                ; preds = %3
   %.not = icmp eq i8 %2, 0
@@ -600,89 +600,119 @@ define ptr @ossl_buf2hexstr_sep(ptr noundef readonly captures(none) %0, i64 noun
   %11 = select i1 %.not, i64 %10, i64 %8
   %12 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %11, ptr noundef nonnull @.str, i32 noundef 338) #16
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %48, label %14
+  br i1 %13, label %44, label %.lr.ph.i
 
-14:                                               ; preds = %7
-  %15 = icmp ne i8 %2, 0
-  %16 = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  %.0.i = select i1 %15, i64 %16, i64 %10
-  %17 = icmp ult i64 %11, %.0.i
-  br i1 %17, label %47, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %14
-  br i1 %15, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+.lr.ph.i:                                         ; preds = %7
+  %14 = icmp ne i8 %2, 0
+  br i1 %14, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
-  %.02837.us.i = phi i64 [ %32, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
-  %.03036.us.i = phi ptr [ %31, %.lr.ph.split.us.i ], [ %12, %.lr.ph.i ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.02837.us.i
-  %19 = load i8, ptr %18, align 1, !tbaa !3
-  %20 = zext i8 %19 to i32
-  %21 = lshr i32 %20, 4
-  %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 1
-  store i8 %24, ptr %.03036.us.i, align 1, !tbaa !3
-  %26 = and i32 %20, 15
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !3
-  store i8 %29, ptr %25, align 1, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 2
-  %31 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 3
-  store i8 %2, ptr %30, align 1, !tbaa !3
-  %32 = add nuw i64 %.02837.us.i, 1
-  %exitcond41.not.i = icmp eq i64 %32, %1
+  %.02837.us.i = phi i64 [ %29, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
+  %.03036.us.i = phi ptr [ %28, %.lr.ph.split.us.i ], [ %12, %.lr.ph.i ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.02837.us.i
+  %16 = load i8, ptr %15, align 1, !tbaa !3
+  %17 = zext i8 %16 to i32
+  %18 = lshr i32 %17, 4
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 1
+  store i8 %21, ptr %.03036.us.i, align 1, !tbaa !3
+  %23 = and i32 %17, 15
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !3
+  store i8 %26, ptr %22, align 1, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %.03036.us.i, i64 3
+  store i8 %2, ptr %27, align 1, !tbaa !3
+  %29 = add nuw i64 %.02837.us.i, 1
+  %exitcond41.not.i = icmp eq i64 %29, %1
   br i1 %exitcond41.not.i, label %buf2hexstr_sep.exit, label %.lr.ph.split.us.i, !llvm.loop !18
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
-  %.02837.i = phi i64 [ %46, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %.03036.i = phi ptr [ %45, %.lr.ph.split.i ], [ %12, %.lr.ph.i ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.02837.i
-  %34 = load i8, ptr %33, align 1, !tbaa !3
-  %35 = zext i8 %34 to i32
-  %36 = lshr i32 %35, 4
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %.03036.i, i64 1
-  store i8 %39, ptr %.03036.i, align 1, !tbaa !3
-  %41 = and i32 %35, 15
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !3
-  store i8 %44, ptr %40, align 1, !tbaa !3
-  %45 = getelementptr inbounds nuw i8, ptr %.03036.i, i64 2
-  %46 = add nuw i64 %.02837.i, 1
-  %exitcond.not.i = icmp eq i64 %46, %1
+  %.02837.i = phi i64 [ %43, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
+  %.03036.i = phi ptr [ %42, %.lr.ph.split.i ], [ %12, %.lr.ph.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.02837.i
+  %31 = load i8, ptr %30, align 1, !tbaa !3
+  %32 = zext i8 %31 to i32
+  %33 = lshr i32 %32, 4
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !3
+  %37 = getelementptr inbounds nuw i8, ptr %.03036.i, i64 1
+  store i8 %36, ptr %.03036.i, align 1, !tbaa !3
+  %38 = and i32 %32, 15
+  %39 = zext nneg i32 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %39
+  %41 = load i8, ptr %40, align 1, !tbaa !3
+  store i8 %41, ptr %37, align 1, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %.03036.i, i64 2
+  %43 = add nuw i64 %.02837.i, 1
+  %exitcond.not.i = icmp eq i64 %43, %1
   br i1 %exitcond.not.i, label %buf2hexstr_sep.exit, label %.lr.ph.split.i, !llvm.loop !18
 
 buf2hexstr_sep.exit:                              ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
-  %.030.lcssa.i = phi ptr [ %31, %.lr.ph.split.us.i ], [ %45, %.lr.ph.split.i ]
-  %spec.select.idx.i = sext i1 %15 to i64
+  %.030.lcssa.i = phi ptr [ %28, %.lr.ph.split.us.i ], [ %42, %.lr.ph.split.i ]
+  %spec.select.idx.i = sext i1 %14 to i64
   %spec.select.i = getelementptr inbounds i8, ptr %.030.lcssa.i, i64 %spec.select.idx.i
   store i8 0, ptr %spec.select.i, align 1, !tbaa !3
-  br label %48
+  br label %44
 
-47:                                               ; preds = %14
-  tail call void @ERR_new() #16
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @__func__.buf2hexstr_sep) #16
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 116, ptr noundef null) #16
-  tail call void @CRYPTO_free(ptr noundef nonnull %12, ptr noundef nonnull @.str, i32 noundef 343) #16
-  br label %48
-
-48:                                               ; preds = %buf2hexstr_sep.exit, %7, %47, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %47 ], [ null, %7 ], [ %12, %buf2hexstr_sep.exit ]
+44:                                               ; preds = %buf2hexstr_sep.exit, %7, %5
+  %.0 = phi ptr [ %6, %5 ], [ null, %7 ], [ %12, %buf2hexstr_sep.exit ]
   ret ptr %.0
 }
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @OPENSSL_buf2hexstr(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @ossl_buf2hexstr_sep(ptr noundef %0, i64 noundef %1, i8 noundef signext 58)
-  ret ptr %3
+define noalias ptr @OPENSSL_buf2hexstr(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq i64 %1, 0
+  br i1 %3, label %4, label %6
+
+4:                                                ; preds = %2
+  %5 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 335) #16
+  br label %ossl_buf2hexstr_sep.exit
+
+6:                                                ; preds = %2
+  %7 = mul i64 %1, 3
+  %8 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %7, ptr noundef nonnull @.str, i32 noundef 338) #16
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %ossl_buf2hexstr_sep.exit, label %.lr.ph.split.us.i.i
+
+.lr.ph.split.us.i.i:                              ; preds = %6, %.lr.ph.split.us.i.i
+  %.02837.us.i.i = phi i64 [ %24, %.lr.ph.split.us.i.i ], [ 0, %6 ]
+  %.03036.us.i.i = phi ptr [ %23, %.lr.ph.split.us.i.i ], [ %8, %6 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.02837.us.i.i
+  %11 = load i8, ptr %10, align 1, !tbaa !3
+  %12 = zext i8 %11 to i32
+  %13 = lshr i32 %12, 4
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %14
+  %16 = load i8, ptr %15, align 1, !tbaa !3
+  %17 = getelementptr inbounds nuw i8, ptr %.03036.us.i.i, i64 1
+  store i8 %16, ptr %.03036.us.i.i, align 1, !tbaa !3
+  %18 = and i32 %12, 15
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr inbounds nuw i8, ptr @ossl_to_hex.hexdig, i64 %19
+  %21 = load i8, ptr %20, align 1, !tbaa !3
+  store i8 %21, ptr %17, align 1, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %.03036.us.i.i, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.03036.us.i.i, i64 3
+  store i8 58, ptr %22, align 1, !tbaa !3
+  %24 = add nuw i64 %.02837.us.i.i, 1
+  %exitcond41.not.i.i = icmp eq i64 %24, %1
+  br i1 %exitcond41.not.i.i, label %buf2hexstr_sep.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !18
+
+buf2hexstr_sep.exit.i:                            ; preds = %.lr.ph.split.us.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %.03036.us.i.i, i64 2
+  store i8 0, ptr %25, align 1, !tbaa !3
+  br label %ossl_buf2hexstr_sep.exit
+
+ossl_buf2hexstr_sep.exit:                         ; preds = %4, %6, %buf2hexstr_sep.exit.i
+  %.0.i = phi ptr [ %5, %4 ], [ null, %6 ], [ %8, %buf2hexstr_sep.exit.i ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable

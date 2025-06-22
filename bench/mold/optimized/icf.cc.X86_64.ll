@@ -997,14 +997,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %.pre53.i = ptrtoint ptr %.sroa.0.138.i to i64
   %.pre55.i = sub i64 %.pre.i, %.pre53.i
   %.pre57.i = ashr exact i64 %.pre55.i, 3
-  br i1 %.not1.not.i.i, label %.loopexit.i.thread, label %.lr.ph.i.preheader.i
+  br i1 %.not1.not.i.i, label %.loopexit.i.thread, label %.lr.ph.i.i
 
-.lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %.pre57.i, i64 1)
-  br label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %148, %.lr.ph.i.preheader.i
-  %.072.i.i = phi i64 [ %149, %148 ], [ 0, %.lr.ph.i.preheader.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i, %148
+  %.072.i.i = phi i64 [ %149, %148 ], [ 0, %.lr.ph.i ]
   %145 = getelementptr inbounds nuw ptr, ptr %.sroa.0.138.i, i64 %.072.i.i
   %146 = load ptr, ptr %145, align 8, !tbaa !23
   %147 = call noundef zeroext i1 @_ZN4mold10cie_equalsINS_6X86_64EEEbRKNS_9CieRecordIT_EES6_(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.013.041.i, ptr noundef nonnull align 8 dereferenceable(72) %146) #15
@@ -1012,7 +1008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 148:                                              ; preds = %.lr.ph.i.i
   %149 = add nuw i64 %.072.i.i, 1
-  %exitcond.not.i = icmp eq i64 %149, %umax.i
+  %exitcond.not.i = icmp eq i64 %149, %.pre57.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !25
 
 _ZZN4moldL13uniquify_ciesINS_6X86_64EEEvRNS_7ContextIT_EEENKUlRNS_9CieRecordIS1_EEE_clES8_.exit.i: ; preds = %.lr.ph.i.i
@@ -1049,8 +1045,8 @@ _ZZN4moldL13uniquify_ciesINS_6X86_64EEEvRNS_7ContextIT_EEENKUlRNS_9CieRecordIS1_
   unreachable
 
 _ZNKSt6vectorIPN4mold9CieRecordINS0_6X86_64EEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %.loopexit.i.thread, %158
-  %.sroa.speculated.i.i.i.i.i.pre-phi = phi i64 [ %umax.i, %158 ], [ 1, %.loopexit.i.thread ]
-  %161 = add nsw i64 %.sroa.speculated.i.i.i.i.i.pre-phi, %.pre57.i
+  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %.pre57.i, i64 1)
+  %161 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %.pre57.i
   %162 = icmp ult i64 %161, %.pre57.i
   %163 = call i64 @llvm.umin.i64(i64 %161, i64 1152921504606846975)
   %164 = select i1 %162, i64 1152921504606846975, i64 %163

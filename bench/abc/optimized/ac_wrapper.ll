@@ -12545,13 +12545,12 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
 213:                                              ; preds = %_ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.exit139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef nonnull align 8 dereferenceable(256) %10, i64 256, i1 false), !tbaa.struct !92
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  %umax = call i32 @llvm.umax.i32(i32 %123, i32 1)
-  %wide.trip.count234 = zext i32 %umax to i64
+  %wide.trip.count234 = zext i32 %123 to i64
   br label %228
 
 .preheader:                                       ; preds = %228
   %215 = shl nuw nsw i64 %wide.trip.count234, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %214, ptr noundef nonnull align 16 dereferenceable(1) %12, i64 %215, i1 false), !tbaa !41
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %214, ptr nonnull align 16 %12, i64 %215, i1 false), !tbaa !41
   %216 = trunc i32 %.0713.i135 to i8
   %217 = trunc i32 %123 to i8
   %218 = add i8 %217, -1
@@ -15336,10 +15335,9 @@ _ZN3acd10acd66_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %95, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false), !tbaa.struct !92
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %97 = call i32 @llvm.umax.i32(i32 %23, i32 1)
-  %umax = zext i32 %97 to i64
-  %98 = shl nuw nsw i64 %umax, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %96, ptr noundef nonnull align 16 dereferenceable(1) %7, i64 %98, i1 false), !tbaa !41
+  %97 = zext i32 %23 to i64
+  %98 = shl nuw nsw i64 %97, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %96, ptr nonnull align 16 %7, i64 %98, i1 false), !tbaa !41
   %99 = trunc i32 %.0713.i to i8
   %100 = trunc i32 %23 to i8
   %101 = add i8 %100, -1
@@ -17222,10 +17220,9 @@ _ZN3acd10acdXX_impl16check_shared_setERKN5kitty18static_truth_tableILj11ELb0EEE.
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %107, ptr noundef nonnull align 8 dereferenceable(256) %6, i64 256, i1 false), !tbaa.struct !92
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  %109 = call i32 @llvm.umax.i32(i32 %23, i32 1)
-  %umax = zext i32 %109 to i64
-  %110 = shl nuw nsw i64 %umax, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %108, ptr noundef nonnull align 16 dereferenceable(1) %7, i64 %110, i1 false), !tbaa !41
+  %109 = zext i32 %23 to i64
+  %110 = shl nuw nsw i64 %109, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %108, ptr nonnull align 16 %7, i64 %110, i1 false), !tbaa !41
   %111 = trunc i32 %.0713.i to i8
   %112 = trunc i32 %23 to i8
   %113 = add i8 %112, -1

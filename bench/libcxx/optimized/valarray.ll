@@ -30,12 +30,12 @@ define weak_odr dso_local void @_ZNSt3__18valarrayImEC2Em(ptr noundef nonnull al
   br i1 %5, label %6, label %_ZNSt3__19allocatorImE8allocateB8ne210000Em.exit
 
 6:                                                ; preds = %4
-  tail call void @_ZSt28__throw_bad_array_new_lengthB8ne210000v() #11
+  tail call void @_ZSt28__throw_bad_array_new_lengthB8ne210000v() #10
   unreachable
 
 _ZNSt3__19allocatorImE8allocateB8ne210000Em.exit: ; preds = %4
   %7 = shl nuw i64 %1, 3
-  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #12
+  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #11
   store ptr %8, ptr %0, align 8, !tbaa !4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 0, i64 %7, i1 false), !tbaa !10
   %scevgep = getelementptr i8, ptr %8, i64 %7
@@ -76,7 +76,7 @@ define weak_odr dso_local void @_ZNSt3__18valarrayImED2Ev(ptr noundef nonnull al
   br label %9
 
 9:                                                ; preds = %.lr.ph.preheader.i, %.preheader.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %7) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %7) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZNSt3__18valarrayImE7__clearB8ne210000Em.exit
 
@@ -110,7 +110,7 @@ define weak_odr dso_local void @_ZNSt3__18valarrayImE6resizeEmm(ptr noundef nonn
   br label %11
 
 11:                                               ; preds = %.lr.ph.preheader.i, %.preheader.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %9) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %9) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZNSt3__18valarrayImE7__clearB8ne210000Em.exit
 
@@ -123,12 +123,12 @@ _ZNSt3__18valarrayImE7__clearB8ne210000Em.exit:   ; preds = %3, %11
   br i1 %13, label %14, label %_ZNSt3__19allocatorImE8allocateB8ne210000Em.exit
 
 14:                                               ; preds = %12
-  tail call void @_ZSt28__throw_bad_array_new_lengthB8ne210000v() #11
+  tail call void @_ZSt28__throw_bad_array_new_lengthB8ne210000v() #10
   unreachable
 
 _ZNSt3__19allocatorImE8allocateB8ne210000Em.exit: ; preds = %12
   %15 = shl nuw i64 %1, 3
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #12
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #11
   store ptr %16, ptr %0, align 8, !tbaa !4
   br label %17
 
@@ -152,7 +152,7 @@ _ZNSt3__19allocatorImE8allocateB8ne210000Em.exit: ; preds = %12
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNSt3__16gslice6__initEm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__1::valarray", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = load ptr, ptr %0, align 8, !tbaa !4
@@ -173,7 +173,6 @@ define dso_local void @_ZNSt3__16gslice6__initEm(ptr noundef nonnull align 8 cap
   %16 = ptrtoint ptr %12 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
-  %umax = call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -201,7 +200,7 @@ define dso_local void @_ZNSt3__16gslice6__initEm(ptr noundef nonnull align 8 cap
   br label %27
 
 27:                                               ; preds = %.lr.ph.preheader.i.i, %.preheader.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %25) #13
+  call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %25) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   br label %_ZNSt3__18valarrayImE7__clearB8ne210000Em.exit.i
 
@@ -215,7 +214,7 @@ _ZNSt3__18valarrayImE7__clearB8ne210000Em.exit.i: ; preds = %27, %._crit_edge
   br i1 %30, label %31, label %_ZNSt3__19allocatorImE8allocateB8ne210000Em.exit.i
 
 31:                                               ; preds = %29
-  invoke void @_ZSt28__throw_bad_array_new_lengthB8ne210000v() #11
+  invoke void @_ZSt28__throw_bad_array_new_lengthB8ne210000v() #10
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %31
@@ -223,7 +222,7 @@ _ZNSt3__18valarrayImE7__clearB8ne210000Em.exit.i: ; preds = %27, %._crit_edge
 
 _ZNSt3__19allocatorImE8allocateB8ne210000Em.exit.i: ; preds = %29
   %32 = shl nuw i64 %.027.lcssa, 3
-  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #12
+  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #11
           to label %.noexc32 unwind label %34
 
 .noexc32:                                         ; preds = %_ZNSt3__19allocatorImE8allocateB8ne210000Em.exit.i
@@ -236,8 +235,8 @@ _ZNSt3__19allocatorImE8allocateB8ne210000Em.exit.i: ; preds = %29
 34:                                               ; preds = %_ZNSt3__19allocatorImE8allocateB8ne210000Em.exit.i, %31
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3__18valarrayImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @_ZNSt3__18valarrayImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
   resume { ptr, i32 } %35
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -247,7 +246,7 @@ _ZNSt3__19allocatorImE8allocateB8ne210000Em.exit.i: ; preds = %29
   %37 = load i64, ptr %36, align 8, !tbaa !10
   %38 = mul i64 %37, %.02735
   %39 = add nuw i64 %.02636, 1
-  %exitcond.not = icmp eq i64 %39, %umax
+  %exitcond.not = icmp eq i64 %39, %18
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 _ZNSt3__18valarrayImE6resizeEmm.exit:             ; preds = %.noexc32, %_ZNSt3__18valarrayImE7__clearB8ne210000Em.exit.i
@@ -333,16 +332,16 @@ _ZNSt3__18valarrayImE6resizeEmm.exit:             ; preds = %.noexc32, %_ZNSt3__
   br i1 %80, label %._crit_edge40, label %.lr.ph39, !llvm.loop !18
 
 .thread:                                          ; preds = %.lr.ph39, %_ZNSt3__18valarrayImE6resizeEmm.exit
-  call void @_ZNSt3__18valarrayImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @_ZNSt3__18valarrayImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZSt28__throw_bad_array_new_lengthB8ne210000v() local_unnamed_addr #4 comdat {
-  %1 = tail call ptr @__cxa_allocate_exception(i64 8) #14
-  tail call void @_ZNSt20bad_array_new_lengthC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
-  tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt20bad_array_new_length, ptr nonnull @_ZNSt20bad_array_new_lengthD1Ev) #11
+  %1 = tail call ptr @__cxa_allocate_exception(i64 8) #13
+  tail call void @_ZNSt20bad_array_new_lengthC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #13
+  tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt20bad_array_new_length, ptr nonnull @_ZNSt20bad_array_new_lengthD1Ev) #10
   unreachable
 }
 
@@ -366,9 +365,6 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
-
 attributes #0 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -379,11 +375,10 @@ attributes #6 = { cold noreturn }
 attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { noreturn }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { builtin nounwind }
-attributes #14 = { nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { builtin allocsize(0) }
+attributes #12 = { builtin nounwind }
+attributes #13 = { nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

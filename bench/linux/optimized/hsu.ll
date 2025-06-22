@@ -271,16 +271,16 @@ define internal fastcc void @hsu_dma_start_channel(ptr noundef readonly captures
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %16
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %36 = tail call i32 @llvm.umin.i32(i32 %32, i32 4)
-  %37 = zext nneg i32 %36 to i64
+  %35 = tail call i32 @llvm.umin.i32(i32 %32, i32 4)
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %37 = zext nneg i32 %35 to i64
   br label %38
 
 38:                                               ; preds = %38, %34
   %39 = phi i64 [ 0, %34 ], [ %60, %38 ]
   %40 = phi i32 [ 8421376, %34 ], [ %57, %38 ]
   %41 = shl nuw nsw i64 %39, 3
-  %42 = load ptr, ptr %35, align 8
+  %42 = load ptr, ptr %36, align 8
   %43 = getelementptr %struct.hsu_dma_sg, ptr %42, i64 %39
   %44 = load i64, ptr %43, align 8
   %45 = trunc i64 %44 to i32
@@ -288,7 +288,7 @@ define internal fastcc void @hsu_dma_start_channel(ptr noundef readonly captures
   %47 = getelementptr i8, ptr %46, i64 %41
   %48 = getelementptr i8, ptr %47, i64 32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %45, ptr elementtype(i32) %48) #11, !srcloc !11
-  %49 = load ptr, ptr %35, align 8
+  %49 = load ptr, ptr %36, align 8
   %50 = getelementptr %struct.hsu_dma_sg, ptr %49, i64 %39, i32 1
   %51 = load i32, ptr %50, align 8
   %52 = load ptr, ptr %19, align 8

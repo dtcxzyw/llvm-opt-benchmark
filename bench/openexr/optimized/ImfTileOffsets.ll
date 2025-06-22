@@ -1890,7 +1890,7 @@ define void @_ZN7Imf_3_411TileOffsets8readFromESt6vectorImSaImEERb(ptr noundef n
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, 3
   %.not = icmp eq i64 %26, %.130.lcssa
-  br i1 %.not, label %.preheader36.preheader, label %45
+  br i1 %.not, label %.preheader36, label %45
 
 ._crit_edge45.thread:                             ; preds = %3
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1898,10 +1898,6 @@ define void @_ZN7Imf_3_411TileOffsets8readFromESt6vectorImSaImEERb(ptr noundef n
   %29 = load ptr, ptr %1, align 8, !tbaa !24
   %.not79 = icmp eq ptr %28, %29
   br i1 %.not79, label %_ZNK7Imf_3_411TileOffsets20anyOffsetsAreInvalidEv.exit, label %45
-
-.preheader36.preheader:                           ; preds = %._crit_edge45
-  %umax76 = tail call i64 @llvm.umax.i64(i64 %11, i64 1)
-  br label %.preheader36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader38
   %.130.lcssa = phi i64 [ %.02944, %.preheader38 ], [ %41, %.lr.ph ]
@@ -1943,9 +1939,9 @@ define void @_ZN7Imf_3_411TileOffsets8readFromESt6vectorImSaImEERb(ptr noundef n
   tail call void @__cxa_free_exception(ptr nonnull %46) #23
   resume { ptr, i32 } %49
 
-.preheader36:                                     ; preds = %.preheader36.preheader, %._crit_edge57
-  %.02760 = phi i64 [ %98, %._crit_edge57 ], [ 0, %.preheader36.preheader ]
-  %.02859 = phi i32 [ %.1.lcssa, %._crit_edge57 ], [ 0, %.preheader36.preheader ]
+.preheader36:                                     ; preds = %._crit_edge45, %._crit_edge57
+  %.02760 = phi i64 [ %98, %._crit_edge57 ], [ 0, %._crit_edge45 ]
+  %.02859 = phi i32 [ %.1.lcssa, %._crit_edge57 ], [ 0, %._crit_edge45 ]
   %50 = getelementptr inbounds nuw %"class.std::vector.0", ptr %7, i64 %.02760
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !20
@@ -1958,7 +1954,6 @@ define void @_ZN7Imf_3_411TileOffsets8readFromESt6vectorImSaImEERb(ptr noundef n
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
   %57 = sdiv exact i64 %56, 24
-  %umax74 = tail call i64 @llvm.umax.i64(i64 %57, i64 1)
   br label %.preheader
 
 .preheader31.i:                                   ; preds = %._crit_edge57, %._crit_edge38.i
@@ -2036,13 +2031,12 @@ _ZNK7Imf_3_411TileOffsets20anyOffsetsAreInvalidEv.exit: ; preds = %._crit_edge38
   %95 = sub i64 %93, %94
   %96 = ashr exact i64 %95, 3
   %97 = sext i32 %.155 to i64
-  %umax = tail call i64 @llvm.umax.i64(i64 %96, i64 1)
   br label %.lr.ph52
 
 ._crit_edge57:                                    ; preds = %._crit_edge53, %.preheader36
   %.1.lcssa = phi i32 [ %.02859, %.preheader36 ], [ %.2.lcssa, %._crit_edge53 ]
   %98 = add nuw i64 %.02760, 1
-  %exitcond77.not = icmp eq i64 %98, %umax76
+  %exitcond77.not = icmp eq i64 %98, %11
   br i1 %exitcond77.not, label %.preheader31.i, label %.preheader36, !llvm.loop !64
 
 ._crit_edge53.loopexit:                           ; preds = %.lr.ph52
@@ -2052,7 +2046,7 @@ _ZNK7Imf_3_411TileOffsets20anyOffsetsAreInvalidEv.exit: ; preds = %._crit_edge38
 ._crit_edge53:                                    ; preds = %._crit_edge53.loopexit, %.preheader
   %.2.lcssa = phi i32 [ %.155, %.preheader ], [ %99, %._crit_edge53.loopexit ]
   %100 = add nuw i64 %.02656, 1
-  %exitcond75.not = icmp eq i64 %100, %umax74
+  %exitcond75.not = icmp eq i64 %100, %57
   br i1 %exitcond75.not, label %._crit_edge57, label %.preheader, !llvm.loop !65
 
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.lr.ph52
@@ -2064,7 +2058,7 @@ _ZNK7Imf_3_411TileOffsets20anyOffsetsAreInvalidEv.exit: ; preds = %._crit_edge38
   store i64 %102, ptr %103, align 8, !tbaa !32
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %104 = add nuw i64 %.051, 1
-  %exitcond.not = icmp eq i64 %104, %umax
+  %exitcond.not = icmp eq i64 %104, %96
   br i1 %exitcond.not, label %._crit_edge53.loopexit, label %.lr.ph52, !llvm.loop !66
 }
 

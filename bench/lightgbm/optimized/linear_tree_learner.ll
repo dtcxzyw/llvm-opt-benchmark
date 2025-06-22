@@ -2523,7 +2523,6 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit: ; pr
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit
   %159 = sub i64 %158, %157
   %160 = ashr exact i64 %159, 2
-  %umax = call i64 @llvm.umax.i64(i64 %160, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit
@@ -2805,7 +2804,7 @@ _ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit:     ; preds = %257, %_ZNSt6vectorI
   %279 = phi ptr [ %245, %257 ], [ %278, %_ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %188, %.lr.ph ]
   %280 = phi ptr [ %258, %257 ], [ %276, %_ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %189, %.lr.ph ]
   %281 = add nuw i64 %.022241, 1
-  %exitcond.not = icmp eq i64 %281, %umax
+  %exitcond.not = icmp eq i64 %281, %160
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !309
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIiSaIiEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %185
@@ -3953,7 +3952,6 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit: ; pr
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit
   %158 = sub i64 %157, %156
   %159 = ashr exact i64 %158, 2
-  %umax = call i64 @llvm.umax.i64(i64 %159, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit
@@ -4235,7 +4233,7 @@ _ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit:     ; preds = %256, %_ZNSt6vectorI
   %278 = phi ptr [ %244, %256 ], [ %277, %_ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %187, %.lr.ph ]
   %279 = phi ptr [ %257, %256 ], [ %275, %_ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %188, %.lr.ph ]
   %280 = add nuw i64 %.027222, 1
-  %exitcond.not = icmp eq i64 %280, %umax
+  %exitcond.not = icmp eq i64 %280, %159
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !333
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIiSaIiEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %184
@@ -6469,7 +6467,6 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %124, %130, %128, %1
   %131 = load ptr, ptr %109, align 8, !tbaa !173
   %132 = getelementptr inbounds nuw %"class.std::vector.93", ptr %131, i64 %indvars.iv
   %133 = load ptr, ptr %132, align 8, !tbaa !175
-  %umax.i = call i64 @llvm.umax.i64(i64 %115, i64 1)
   br label %134
 
 134:                                              ; preds = %134, %.lr.ph.i
@@ -6482,7 +6479,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %124, %130, %128, %1
   %140 = getelementptr inbounds nuw double, ptr %133, i64 %.09.i
   store double %139, ptr %140, align 8, !tbaa !178
   %141 = add nuw i64 %.09.i, 1
-  %exitcond.not.i = icmp eq i64 %141, %umax.i
+  %exitcond.not.i = icmp eq i64 %141, %115
   br i1 %exitcond.not.i, label %_ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit.thread, label %134, !llvm.loop !375
 
 _ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit: ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
@@ -7202,7 +7199,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc136
   %426 = load ptr, ptr %64, align 8, !tbaa !171
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 440
   %428 = load ptr, ptr %427, align 8, !tbaa !154
-  %umax = call i64 @llvm.umax.i64(i64 %417, i64 1)
   br label %434
 
 ._crit_edge235:                                   ; preds = %434, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -7223,7 +7219,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc136
   %440 = getelementptr inbounds nuw i32, ptr %421, i64 %.084232
   store i32 %439, ptr %440, align 4, !tbaa !153
   %441 = add nuw i64 %.084232, 1
-  %exitcond246.not = icmp eq i64 %441, %umax
+  %exitcond246.not = icmp eq i64 %441, %417
   br i1 %exitcond246.not, label %._crit_edge235, label %434, !llvm.loop !396
 
 _ZN8LightGBM4Tree15SetLeafFeaturesEiRKSt6vectorIiSaIiEE.exit: ; preds = %._crit_edge235
@@ -7271,7 +7267,6 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i138:          ; preds = %458, %464, %462, %4
   %465 = load ptr, ptr %443, align 8, !tbaa !173
   %466 = getelementptr inbounds nuw %"class.std::vector.93", ptr %465, i64 %indvars.iv
   %467 = load ptr, ptr %466, align 8, !tbaa !175
-  %umax.i142 = call i64 @llvm.umax.i64(i64 %449, i64 1)
   br label %468
 
 468:                                              ; preds = %468, %.lr.ph.i141
@@ -7284,7 +7279,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i138:          ; preds = %458, %464, %462, %4
   %474 = getelementptr inbounds nuw double, ptr %467, i64 %.09.i143
   store double %473, ptr %474, align 8, !tbaa !178
   %475 = add nuw i64 %.09.i143, 1
-  %exitcond.not.i144 = icmp eq i64 %475, %umax.i142
+  %exitcond.not.i144 = icmp eq i64 %475, %449
   br i1 %exitcond.not.i144, label %_ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit149, label %468, !llvm.loop !375
 
 _ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit149: ; preds = %468, %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i138
@@ -11357,14 +11352,10 @@ _ZNK5Eigen18TriangularViewImplIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EE
   %180 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %181 = load i64, ptr %180, align 8, !tbaa !376
   %182 = icmp sgt i64 %178, 0
-  br i1 %182, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.us.preheader, label %._crit_edge
+  br i1 %182, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.us, label %._crit_edge
 
-.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.us.preheader: ; preds = %_ZNK5Eigen18TriangularViewImplIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELj2ENS_5DenseEE12solveInPlaceINS1_IS3_Lin1ELin1ELb0EEEEEvRKNS_10MatrixBaseIT_EE.exit
-  %umax = call i64 @llvm.umax.i64(i64 %47, i64 1)
-  br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.us
-
-.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.us:        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.us.preheader, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exit.loopexit.us
-  %.024115.us = phi i64 [ %194, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exit.loopexit.us ], [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.us.preheader ]
+.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.us:        ; preds = %_ZNK5Eigen18TriangularViewImplIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELj2ENS_5DenseEE12solveInPlaceINS1_IS3_Lin1ELin1ELb0EEEEEvRKNS_10MatrixBaseIT_EE.exit, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exit.loopexit.us
+  %.024115.us = phi i64 [ %194, %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exit.loopexit.us ], [ 0, %_ZNK5Eigen18TriangularViewImplIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELin1ELb0EEELj2ENS_5DenseEE12solveInPlaceINS1_IS3_Lin1ELin1ELb0EEEEEvRKNS_10MatrixBaseIT_EE.exit ]
   %183 = getelementptr inbounds nuw double, ptr %173, i64 %.024115.us
   %184 = getelementptr inbounds nuw i32, ptr %175, i64 %.024115.us
   %185 = load i32, ptr %184, align 4, !tbaa !153
@@ -11386,7 +11377,7 @@ _ZNK5Eigen18TriangularViewImplIKNS_5BlockIKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EE
 
 _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exit.loopexit.us: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.us
   %194 = add nuw nsw i64 %.024115.us, 1
-  %exitcond.not = icmp eq i64 %194, %umax
+  %exitcond.not = icmp eq i64 %194, %47
   br i1 %exitcond.not, label %.preheader, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.preheader.us, !llvm.loop !631
 
 .preheader:                                       ; preds = %_ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSERKS3_.exit.loopexit.us
@@ -19841,7 +19832,6 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %124, %130, %128, %1
   %131 = load ptr, ptr %109, align 8, !tbaa !173
   %132 = getelementptr inbounds nuw %"class.std::vector.93", ptr %131, i64 %indvars.iv
   %133 = load ptr, ptr %132, align 8, !tbaa !175
-  %umax.i = call i64 @llvm.umax.i64(i64 %115, i64 1)
   br label %134
 
 134:                                              ; preds = %134, %.lr.ph.i
@@ -19854,7 +19844,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %124, %130, %128, %1
   %140 = getelementptr inbounds nuw double, ptr %133, i64 %.09.i
   store double %139, ptr %140, align 8, !tbaa !178
   %141 = add nuw i64 %.09.i, 1
-  %exitcond.not.i = icmp eq i64 %141, %umax.i
+  %exitcond.not.i = icmp eq i64 %141, %115
   br i1 %exitcond.not.i, label %_ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit.thread, label %134, !llvm.loop !375
 
 _ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit: ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
@@ -20574,7 +20564,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc136
   %426 = load ptr, ptr %64, align 8, !tbaa !171
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 440
   %428 = load ptr, ptr %427, align 8, !tbaa !154
-  %umax = call i64 @llvm.umax.i64(i64 %417, i64 1)
   br label %434
 
 ._crit_edge235:                                   ; preds = %434, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -20595,7 +20584,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc136
   %440 = getelementptr inbounds nuw i32, ptr %421, i64 %.084232
   store i32 %439, ptr %440, align 4, !tbaa !153
   %441 = add nuw i64 %.084232, 1
-  %exitcond246.not = icmp eq i64 %441, %umax
+  %exitcond246.not = icmp eq i64 %441, %417
   br i1 %exitcond246.not, label %._crit_edge235, label %434, !llvm.loop !953
 
 _ZN8LightGBM4Tree15SetLeafFeaturesEiRKSt6vectorIiSaIiEE.exit: ; preds = %._crit_edge235
@@ -20643,7 +20632,6 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i138:          ; preds = %458, %464, %462, %4
   %465 = load ptr, ptr %443, align 8, !tbaa !173
   %466 = getelementptr inbounds nuw %"class.std::vector.93", ptr %465, i64 %indvars.iv
   %467 = load ptr, ptr %466, align 8, !tbaa !175
-  %umax.i142 = call i64 @llvm.umax.i64(i64 %449, i64 1)
   br label %468
 
 468:                                              ; preds = %468, %.lr.ph.i141
@@ -20656,7 +20644,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i138:          ; preds = %458, %464, %462, %4
   %474 = getelementptr inbounds nuw double, ptr %467, i64 %.09.i143
   store double %473, ptr %474, align 8, !tbaa !178
   %475 = add nuw i64 %.09.i143, 1
-  %exitcond.not.i144 = icmp eq i64 %475, %umax.i142
+  %exitcond.not.i144 = icmp eq i64 %475, %449
   br i1 %exitcond.not.i144, label %_ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit149, label %468, !llvm.loop !375
 
 _ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit149: ; preds = %468, %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i138
@@ -22856,7 +22844,6 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit: ; pr
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit
   %159 = sub i64 %158, %157
   %160 = ashr exact i64 %159, 2
-  %umax = call i64 @llvm.umax.i64(i64 %160, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit
@@ -23138,7 +23125,7 @@ _ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit:     ; preds = %257, %_ZNSt6vectorI
   %279 = phi ptr [ %245, %257 ], [ %278, %_ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %188, %.lr.ph ]
   %280 = phi ptr [ %258, %257 ], [ %276, %_ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %189, %.lr.ph ]
   %281 = add nuw i64 %.022241, 1
-  %exitcond.not = icmp eq i64 %281, %umax
+  %exitcond.not = icmp eq i64 %281, %160
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !979
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIiSaIiEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %185
@@ -24286,7 +24273,6 @@ _ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit: ; pr
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit
   %158 = sub i64 %157, %156
   %159 = ashr exact i64 %158, 2
-  %umax = call i64 @llvm.umax.i64(i64 %159, i64 1)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit, %_ZNSt6vectorIiSaIiEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS1_EES6_.exit
@@ -24568,7 +24554,7 @@ _ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit:     ; preds = %256, %_ZNSt6vectorI
   %278 = phi ptr [ %244, %256 ], [ %277, %_ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %187, %.lr.ph ]
   %279 = phi ptr [ %257, %256 ], [ %275, %_ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %188, %.lr.ph ]
   %280 = add nuw i64 %.027222, 1
-  %exitcond.not = icmp eq i64 %280, %umax
+  %exitcond.not = icmp eq i64 %280, %159
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !990
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIiSaIiEEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, %184
@@ -26085,7 +26071,6 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %124, %130, %128, %1
   %131 = load ptr, ptr %109, align 8, !tbaa !173
   %132 = getelementptr inbounds nuw %"class.std::vector.93", ptr %131, i64 %indvars.iv
   %133 = load ptr, ptr %132, align 8, !tbaa !175
-  %umax.i = call i64 @llvm.umax.i64(i64 %115, i64 1)
   br label %134
 
 134:                                              ; preds = %134, %.lr.ph.i
@@ -26098,7 +26083,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %124, %130, %128, %1
   %140 = getelementptr inbounds nuw double, ptr %133, i64 %.09.i
   store double %139, ptr %140, align 8, !tbaa !178
   %141 = add nuw i64 %.09.i, 1
-  %exitcond.not.i = icmp eq i64 %141, %umax.i
+  %exitcond.not.i = icmp eq i64 %141, %115
   br i1 %exitcond.not.i, label %_ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit.thread, label %134, !llvm.loop !375
 
 _ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit: ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
@@ -26818,7 +26803,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc136
   %426 = load ptr, ptr %64, align 8, !tbaa !171
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 440
   %428 = load ptr, ptr %427, align 8, !tbaa !154
-  %umax = call i64 @llvm.umax.i64(i64 %417, i64 1)
   br label %434
 
 ._crit_edge235:                                   ; preds = %434, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -26839,7 +26823,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc136
   %440 = getelementptr inbounds nuw i32, ptr %421, i64 %.084232
   store i32 %439, ptr %440, align 4, !tbaa !153
   %441 = add nuw i64 %.084232, 1
-  %exitcond246.not = icmp eq i64 %441, %umax
+  %exitcond246.not = icmp eq i64 %441, %417
   br i1 %exitcond246.not, label %._crit_edge235, label %434, !llvm.loop !1013
 
 _ZN8LightGBM4Tree15SetLeafFeaturesEiRKSt6vectorIiSaIiEE.exit: ; preds = %._crit_edge235
@@ -26887,7 +26871,6 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i138:          ; preds = %458, %464, %462, %4
   %465 = load ptr, ptr %443, align 8, !tbaa !173
   %466 = getelementptr inbounds nuw %"class.std::vector.93", ptr %465, i64 %indvars.iv
   %467 = load ptr, ptr %466, align 8, !tbaa !175
-  %umax.i142 = call i64 @llvm.umax.i64(i64 %449, i64 1)
   br label %468
 
 468:                                              ; preds = %468, %.lr.ph.i141
@@ -26900,7 +26883,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i138:          ; preds = %458, %464, %462, %4
   %474 = getelementptr inbounds nuw double, ptr %467, i64 %.09.i143
   store double %473, ptr %474, align 8, !tbaa !178
   %475 = add nuw i64 %.09.i143, 1
-  %exitcond.not.i144 = icmp eq i64 %475, %umax.i142
+  %exitcond.not.i144 = icmp eq i64 %475, %449
   br i1 %exitcond.not.i144, label %_ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit149, label %468, !llvm.loop !375
 
 _ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit149: ; preds = %468, %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i138
@@ -27767,7 +27750,6 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %124, %130, %128, %1
   %131 = load ptr, ptr %109, align 8, !tbaa !173
   %132 = getelementptr inbounds nuw %"class.std::vector.93", ptr %131, i64 %indvars.iv
   %133 = load ptr, ptr %132, align 8, !tbaa !175
-  %umax.i = call i64 @llvm.umax.i64(i64 %115, i64 1)
   br label %134
 
 134:                                              ; preds = %134, %.lr.ph.i
@@ -27780,7 +27762,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %124, %130, %128, %1
   %140 = getelementptr inbounds nuw double, ptr %133, i64 %.09.i
   store double %139, ptr %140, align 8, !tbaa !178
   %141 = add nuw i64 %.09.i, 1
-  %exitcond.not.i = icmp eq i64 %141, %umax.i
+  %exitcond.not.i = icmp eq i64 %141, %115
   br i1 %exitcond.not.i, label %_ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit.thread, label %134, !llvm.loop !375
 
 _ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit: ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
@@ -28500,7 +28482,6 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc136
   %426 = load ptr, ptr %64, align 8, !tbaa !171
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 440
   %428 = load ptr, ptr %427, align 8, !tbaa !154
-  %umax = call i64 @llvm.umax.i64(i64 %417, i64 1)
   br label %434
 
 ._crit_edge235:                                   ; preds = %434, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
@@ -28521,7 +28502,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc136
   %440 = getelementptr inbounds nuw i32, ptr %421, i64 %.084232
   store i32 %439, ptr %440, align 4, !tbaa !153
   %441 = add nuw i64 %.084232, 1
-  %exitcond246.not = icmp eq i64 %441, %umax
+  %exitcond246.not = icmp eq i64 %441, %417
   br i1 %exitcond246.not, label %._crit_edge235, label %434, !llvm.loop !1029
 
 _ZN8LightGBM4Tree15SetLeafFeaturesEiRKSt6vectorIiSaIiEE.exit: ; preds = %._crit_edge235
@@ -28569,7 +28550,6 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i138:          ; preds = %458, %464, %462, %4
   %465 = load ptr, ptr %443, align 8, !tbaa !173
   %466 = getelementptr inbounds nuw %"class.std::vector.93", ptr %465, i64 %indvars.iv
   %467 = load ptr, ptr %466, align 8, !tbaa !175
-  %umax.i142 = call i64 @llvm.umax.i64(i64 %449, i64 1)
   br label %468
 
 468:                                              ; preds = %468, %.lr.ph.i141
@@ -28582,7 +28562,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i138:          ; preds = %458, %464, %462, %4
   %474 = getelementptr inbounds nuw double, ptr %467, i64 %.09.i143
   store double %473, ptr %474, align 8, !tbaa !178
   %475 = add nuw i64 %.09.i143, 1
-  %exitcond.not.i144 = icmp eq i64 %475, %umax.i142
+  %exitcond.not.i144 = icmp eq i64 %475, %449
   br i1 %exitcond.not.i144, label %_ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit149, label %468, !llvm.loop !375
 
 _ZN8LightGBM4Tree13SetLeafCoeffsEiRKSt6vectorIdSaIdEE.exit149: ; preds = %468, %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i138

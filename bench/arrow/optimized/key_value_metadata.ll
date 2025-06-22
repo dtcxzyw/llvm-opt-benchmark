@@ -955,7 +955,6 @@ define void @_ZNK5arrow16KeyValueMetadata3GetB5cxx11ESt17basic_string_viewIcSt11
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 5
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %15, i64 1)
   %16 = icmp eq i64 %.fr5, 0
   br i1 %16, label %.lr.ph.preheader.i.split.us, label %.lr.ph.i
 
@@ -972,7 +971,7 @@ define void @_ZNK5arrow16KeyValueMetadata3GetB5cxx11ESt17basic_string_viewIcSt11
 
 19:                                               ; preds = %.lr.ph.i.us
   %20 = add nuw i64 %.01014.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %20, %umax.i
+  %exitcond.not.i.us = icmp eq i64 %20, %15
   br i1 %exitcond.not.i.us, label %_ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %.lr.ph.i.us, !llvm.loop !55
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i, %27
@@ -991,7 +990,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.i
 
 27:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i
   %28 = add nuw i64 %.01014.i, 1
-  %exitcond.not.i = icmp eq i64 %28, %umax.i
+  %exitcond.not.i = icmp eq i64 %28, %15
   br i1 %exitcond.not.i, label %_ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %.lr.ph.i, !llvm.loop !55
 
 _ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.us
@@ -1099,7 +1098,6 @@ define noundef i32 @_ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIc
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 5
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   %11 = icmp eq i64 %1, 0
   br label %.lr.ph
 
@@ -1126,7 +1124,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
 
 20:                                               ; preds = %.lr.ph, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %21 = add nuw i64 %.01014, 1
-  %exitcond.not = icmp eq i64 %21, %umax
+  %exitcond.not = icmp eq i64 %21, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
 
 .loopexit:                                        ; preds = %20, %3, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit
@@ -1822,7 +1820,6 @@ define void @_ZN5arrow16KeyValueMetadata6DeleteESt17basic_string_viewIcSt11char_
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 5
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
   %14 = icmp eq i64 %.fr5, 0
   br i1 %14, label %.lr.ph.preheader.i.split.us, label %.lr.ph.i
 
@@ -1839,7 +1836,7 @@ define void @_ZN5arrow16KeyValueMetadata6DeleteESt17basic_string_viewIcSt11char_
 
 17:                                               ; preds = %.lr.ph.i.us
   %18 = add nuw i64 %.01014.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %18, %umax.i
+  %exitcond.not.i.us = icmp eq i64 %18, %13
   br i1 %exitcond.not.i.us, label %_ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %.lr.ph.i.us, !llvm.loop !55
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i, %25
@@ -1858,7 +1855,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.i
 
 25:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i
   %26 = add nuw i64 %.01014.i, 1
-  %exitcond.not.i = icmp eq i64 %26, %umax.i
+  %exitcond.not.i = icmp eq i64 %26, %13
   br i1 %exitcond.not.i, label %_ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %.lr.ph.i, !llvm.loop !55
 
 _ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.us
@@ -1906,7 +1903,6 @@ define void @_ZN5arrow16KeyValueMetadata3SetENSt7__cxx1112basic_stringIcSt11char
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 5
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   %17 = icmp eq i64 %.fr29, 0
   br i1 %17, label %.lr.ph.preheader.i.split.us, label %.lr.ph.i
 
@@ -1923,7 +1919,7 @@ define void @_ZN5arrow16KeyValueMetadata3SetENSt7__cxx1112basic_stringIcSt11char
 
 20:                                               ; preds = %.lr.ph.i.us
   %21 = add nuw i64 %.01014.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %21, %umax.i
+  %exitcond.not.i.us = icmp eq i64 %21, %16
   br i1 %exitcond.not.i.us, label %_ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %.lr.ph.i.us, !llvm.loop !55
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i, %28
@@ -1942,7 +1938,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.i
 
 28:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i
   %29 = add nuw i64 %.01014.i, 1
-  %exitcond.not.i = icmp eq i64 %29, %umax.i
+  %exitcond.not.i = icmp eq i64 %29, %16
   br i1 %exitcond.not.i, label %_ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %.lr.ph.i, !llvm.loop !55
 
 _ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.us
@@ -2284,7 +2280,6 @@ define noundef zeroext i1 @_ZNK5arrow16KeyValueMetadata8ContainsESt17basic_strin
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 5
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   %11 = icmp eq i64 %.fr5, 0
   br i1 %11, label %.lr.ph.preheader.i.split.us, label %.lr.ph.i
 
@@ -2301,7 +2296,7 @@ define noundef zeroext i1 @_ZNK5arrow16KeyValueMetadata8ContainsESt17basic_strin
 
 14:                                               ; preds = %.lr.ph.i.us
   %15 = add nuw i64 %.01014.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %15, %umax.i
+  %exitcond.not.i.us = icmp eq i64 %15, %10
   br i1 %exitcond.not.i.us, label %_ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %.lr.ph.i.us, !llvm.loop !55
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i, %24
@@ -2326,7 +2321,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
 
 24:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i
   %25 = add nuw i64 %.01014.i, 1
-  %exitcond.not.i = icmp eq i64 %25, %umax.i
+  %exitcond.not.i = icmp eq i64 %25, %10
   br i1 %exitcond.not.i, label %_ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %.lr.ph.i, !llvm.loop !55
 
 _ZNK5arrow16KeyValueMetadata7FindKeyESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %24, %14, %3, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.i

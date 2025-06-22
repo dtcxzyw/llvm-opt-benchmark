@@ -4788,7 +4788,6 @@ _ZN6duckdb15GenericListTypeINS_13PrimitiveTypeIlEEED2Ev.exit50.i.i.i: ; preds = 
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc85.i.i
   %254 = getelementptr inbounds nuw i8, ptr %244, i64 32
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %249, i64 1)
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr i64, ptr %255, i64 %245
   br label %257
@@ -4868,8 +4867,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %274, align 8, !tbaa !80
   %275 = getelementptr i64, ptr %256, i64 %.021.i.i.i
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %275, align 8, !tbaa !80
-  %276 = add nuw i64 %.021.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %276, %umax.i.i.i
+  %276 = add i64 %.021.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %276, %249
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %257, !llvm.loop !185
 
 _ZN6duckdb15GenericListTypeINS_13PrimitiveTypeIlEEE12AssignResultERNS_6VectorEmS3_.exit.i.i: ; preds = %._crit_edge.i.i.i
@@ -6367,7 +6366,6 @@ _ZN6duckdb15GenericListTypeINS_13PrimitiveTypeIdEEED2Ev.exit50.i.i.i: ; preds = 
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc84.i.i
   %254 = getelementptr inbounds nuw i8, ptr %244, i64 32
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %249, i64 1)
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr double, ptr %255, i64 %245
   br label %257
@@ -6447,8 +6445,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
   %.sroa.0.0.copyload.i.i.i = load double, ptr %274, align 8, !tbaa !187
   %275 = getelementptr double, ptr %256, i64 %.021.i.i.i
   store double %.sroa.0.0.copyload.i.i.i, ptr %275, align 8, !tbaa !187
-  %276 = add nuw i64 %.021.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %276, %umax.i.i.i
+  %276 = add i64 %.021.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %276, %249
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %257, !llvm.loop !201
 
 _ZN6duckdb15GenericListTypeINS_13PrimitiveTypeIdEEE12AssignResultERNS_6VectorEmS3_.exit.i.i: ; preds = %._crit_edge.i.i.i
@@ -7946,7 +7944,6 @@ _ZN6duckdb15GenericListTypeINS_13PrimitiveTypeINS_11timestamp_tEEEED2Ev.exit42.i
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc84.i.i
   %254 = getelementptr inbounds nuw i8, ptr %244, i64 32
-  %umax.i.i.i = call i64 @llvm.umax.i64(i64 %249, i64 1)
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr %"struct.duckdb::timestamp_t", ptr %255, i64 %245
   br label %257
@@ -8026,8 +8023,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %274, align 8, !tbaa !80
   %275 = getelementptr %"struct.duckdb::timestamp_t", ptr %256, i64 %.021.i.i.i
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %275, align 8, !tbaa !80
-  %276 = add nuw i64 %.021.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %276, %umax.i.i.i
+  %276 = add i64 %.021.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %276, %249
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %257, !llvm.loop !215
 
 _ZN6duckdb15GenericListTypeINS_13PrimitiveTypeINS_11timestamp_tEEEE12AssignResultERNS_6VectorEmS4_.exit.i.i: ; preds = %._crit_edge.i.i.i

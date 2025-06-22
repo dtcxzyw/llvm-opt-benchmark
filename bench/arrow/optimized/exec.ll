@@ -6486,7 +6486,6 @@ _ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit.lr.ph: ; preds = %158
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %172 = load ptr, ptr %171, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %167, i64 1)
   br label %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit
 
 ._crit_edge63:                                    ; preds = %200, %158
@@ -6541,7 +6540,7 @@ _ZN5arrow9ArraySpan8SetSliceEll.exit:             ; preds = %177, %192
 
 200:                                              ; preds = %_ZN5arrow9ArraySpan8SetSliceEll.exit, %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit
   %201 = add nuw i64 %.04962, 1
-  %exitcond.not = icmp eq i64 %201, %umax
+  %exitcond.not = icmp eq i64 %201, %167
   br i1 %exitcond.not, label %._crit_edge63, label %_ZNKSt6vectorIN5arrow5DatumESaIS1_EE2atEm.exit, !llvm.loop !298
 
 202:                                              ; preds = %140, %._crit_edge63

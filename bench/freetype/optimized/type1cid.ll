@@ -2432,15 +2432,10 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
 
 ._crit_edge186:                                   ; preds = %100
   %108 = icmp sgt i32 %26, -1
-  br i1 %108, label %.preheader168.preheader, label %.loopexit
+  br i1 %108, label %.preheader168, label %.loopexit
 
-.preheader168.preheader:                          ; preds = %._crit_edge186
-  %umax218 = call i32 @llvm.umax.i32(i32 %28, i32 1)
-  %wide.trip.count219 = zext i32 %umax218 to i64
-  br label %.preheader168
-
-.preheader168:                                    ; preds = %.preheader168.preheader, %.preheader168
-  %indvars.iv215 = phi i64 [ 0, %.preheader168.preheader ], [ %indvars.iv.next216, %.preheader168 ]
+.preheader168:                                    ; preds = %._crit_edge186, %.preheader168
+  %indvars.iv215 = phi i64 [ %indvars.iv.next216, %.preheader168 ], [ 0, %._crit_edge186 ]
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %109 = getelementptr inbounds nuw i64, ptr %.2124, i64 %indvars.iv.next216
   %110 = load i64, ptr %109, align 8, !tbaa !104
@@ -2452,7 +2447,7 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv215
   %117 = load ptr, ptr %116, align 8, !tbaa !106
   call void %114(ptr noundef %117, i64 noundef %113, i16 noundef zeroext 4330) #13
-  %exitcond220.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count219
+  %exitcond220.not = icmp eq i64 %indvars.iv.next216, %72
   br i1 %exitcond220.not, label %.loopexit, label %.preheader168, !llvm.loop !266
 
 .loopexit:                                        ; preds = %.preheader168, %._crit_edge186

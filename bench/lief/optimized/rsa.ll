@@ -2280,15 +2280,11 @@ define internal fastcc i32 @mgf_mask(ptr noundef captures(none) %0, i64 noundef 
   br i1 %.not39, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %23
-  br i1 %.not56, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not56, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = call i64 @llvm.umax.i64(i64 %spec.select, i64 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02241 = phi i64 [ %30, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.12540 = phi ptr [ %27, %.lr.ph ], [ %.02443, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.02241 = phi i64 [ %30, %.lr.ph ], [ 0, %.preheader ]
+  %.12540 = phi ptr [ %27, %.lr.ph ], [ %.02443, %.preheader ]
   %25 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %.02241
   %26 = load i8, ptr %25, align 1, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %.12540, i64 1
@@ -2296,7 +2292,7 @@ define internal fastcc i32 @mgf_mask(ptr noundef captures(none) %0, i64 noundef 
   %29 = xor i8 %28, %26
   store i8 %29, ptr %.12540, align 1, !tbaa !23
   %30 = add nuw nsw i64 %.02241, 1
-  %exitcond.not = icmp eq i64 %30, %umax
+  %exitcond.not = icmp eq i64 %30, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -2581,7 +2577,6 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
 
 .lr.ph.preheader:                                 ; preds = %47
   %60 = sub nsw i64 %59, %58
-  %umax = call i64 @llvm.umax.i64(i64 %60, i64 1)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2600,7 +2595,7 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   %70 = and i64 %69, 1
   %71 = add i64 %70, %.06280
   %72 = add nuw i64 %.06379, 1
-  %exitcond.not = icmp eq i64 %72, %umax
+  %exitcond.not = icmp eq i64 %72, %60
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
@@ -3952,9 +3947,6 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
