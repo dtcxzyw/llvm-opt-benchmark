@@ -140,7 +140,7 @@ define internal void @TransformColor_SSE2(ptr noalias noundef %0, ptr noalias no
   %38 = shl <8 x i16> %34, splat (i16 8)
   %39 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %38, <8 x i16> %29)
   %40 = bitcast <8 x i16> %39 to <4 x i32>
-  %41 = lshr exact <4 x i32> %40, splat (i32 16)
+  %41 = lshr <4 x i32> %40, splat (i32 16)
   %42 = bitcast <4 x i32> %41 to <16 x i8>
   %43 = bitcast <8 x i16> %37 to <16 x i8>
   %44 = add <16 x i8> %42, %43
@@ -233,9 +233,9 @@ define internal void @CollectColorBlueTransforms_SSE2(ptr noalias noundef %0, i3
   %44 = bitcast <2 x i64> %31 to <16 x i8>
   %45 = bitcast <8 x i16> %41 to <16 x i8>
   %46 = bitcast <8 x i16> %36 to <4 x i32>
-  %47 = lshr exact <4 x i32> %46, splat (i32 16)
+  %47 = lshr <4 x i32> %46, splat (i32 16)
   %48 = bitcast <8 x i16> %37 to <4 x i32>
-  %49 = lshr exact <4 x i32> %48, splat (i32 16)
+  %49 = lshr <4 x i32> %48, splat (i32 16)
   %50 = bitcast <4 x i32> %47 to <16 x i8>
   %51 = add <16 x i8> %50, %43
   %52 = sub <16 x i8> %42, %51
@@ -968,7 +968,7 @@ define internal void @BundleColorMap_SSE2(ptr noalias noundef %0, i32 noundef %1
   %37 = lshr <4 x i32> %36, splat (i32 12)
   %38 = bitcast <4 x i32> %37 to <2 x i64>
   %39 = or <2 x i64> %35, splat (i64 -72057589759737856)
-  %40 = or disjoint <2 x i64> %39, %38
+  %40 = or <2 x i64> %39, %38
   store <2 x i64> %40, ptr %.3103, align 1, !tbaa !7
   %41 = getelementptr inbounds nuw i8, ptr %.3103, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16

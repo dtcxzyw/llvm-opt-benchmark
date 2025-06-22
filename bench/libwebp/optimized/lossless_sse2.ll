@@ -1332,7 +1332,7 @@ define internal void @TransformColorInverse_SSE2(ptr noundef %0, ptr noundef %1,
   %43 = shl <8 x i16> %42, splat (i16 8)
   %44 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %43, <8 x i16> %30)
   %45 = bitcast <8 x i16> %44 to <4 x i32>
-  %46 = lshr exact <4 x i32> %45, splat (i32 8)
+  %46 = lshr <4 x i32> %45, splat (i32 8)
   %47 = bitcast <4 x i32> %46 to <16 x i8>
   %48 = bitcast <8 x i16> %43 to <16 x i8>
   %49 = add <16 x i8> %48, %47

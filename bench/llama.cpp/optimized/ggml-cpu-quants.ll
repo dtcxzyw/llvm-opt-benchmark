@@ -1703,7 +1703,7 @@ define void @ggml_vec_dot_q4_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %50 = insertelement <4 x i32> %49, i32 %40, i64 2
   %51 = insertelement <4 x i32> %50, i32 %39, i64 3
   %52 = bitcast <4 x i32> %51 to <16 x i8>
-  %53 = zext nneg <16 x i8> %52 to <16 x i16>
+  %53 = zext <16 x i8> %52 to <16 x i16>
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 260
   %55 = load <4 x i64>, ptr %54, align 1, !tbaa !4
   %56 = bitcast <16 x i16> %53 to <8 x i32>
@@ -1846,7 +1846,7 @@ define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %0, ptr noalias noundef writeonl
   %47 = insertelement <4 x i32> %46, i32 %39, i64 2
   %48 = insertelement <4 x i32> %47, i32 %38, i64 3
   %49 = bitcast <4 x i32> %48 to <16 x i8>
-  %50 = zext nneg <16 x i8> %49 to <16 x i16>
+  %50 = zext <16 x i8> %49 to <16 x i16>
   %51 = getelementptr inbounds nuw i8, ptr %21, i64 260
   %52 = load <4 x i64>, ptr %51, align 1, !tbaa !4
   %53 = bitcast <16 x i16> %50 to <8 x i32>
