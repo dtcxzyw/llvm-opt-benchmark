@@ -908,7 +908,7 @@ define internal fastcc void @virtinput_cfg_bits(ptr noundef nonnull readonly cap
   %28 = load i8, ptr %8, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %92, label %30
+  br i1 %29, label %93, label %30
 
 30:                                               ; preds = %5
   %31 = zext i8 %28 to i32
@@ -917,7 +917,7 @@ define internal fastcc void @virtinput_cfg_bits(ptr noundef nonnull readonly cap
   %34 = zext i8 %28 to i64
   %35 = call noalias align 8 ptr @__kmalloc(i64 noundef %34, i32 noundef 3520) #12
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %92, label %37
+  br i1 %36, label %93, label %37
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr %0, align 8
@@ -998,18 +998,18 @@ define internal fastcc void @virtinput_cfg_bits(ptr noundef nonnull readonly cap
 
 85:                                               ; preds = %82
   call void @kfree(ptr noundef nonnull %35) #10
-  %86 = icmp eq i32 %1, 17
-  br i1 %86, label %87, label %92
+  %87 = icmp eq i32 %1, 17
+  br i1 %87, label %88, label %93
 
-87:                                               ; preds = %85
-  %88 = zext nneg i32 %2 to i64
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %91, i64 %88) #10, !srcloc !13
-  br label %92
+88:                                               ; preds = %85
+  %89 = zext nneg i32 %2 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %92, i64 %89) #10, !srcloc !13
+  br label %93
 
-92:                                               ; preds = %87, %85, %30, %5
+93:                                               ; preds = %88, %85, %30, %5
   ret void
 }
 

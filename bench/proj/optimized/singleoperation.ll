@@ -8465,9 +8465,9 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9operation15OperationMethod15_i
   br i1 %32, label %.preheader, label %46
 
 .preheader:                                       ; preds = %31
-  br i1 %.not64117.not, label %.thread, label %.lr.ph
+  br i1 %.not64117.not, label %.thread, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+.lr.ph.preheader:                                 ; preds = %.preheader, %.lr.ph
   %.050118 = phi i64 [ %45, %.lr.ph ], [ 0, %.preheader ]
   %33 = load ptr, ptr %14, align 8, !tbaa !224
   %34 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.185", ptr %33, i64 %.050118

@@ -104,7 +104,7 @@ define internal fastcc ptr @mi_arena_allocate(i32 noundef %0, i64 noundef range(
   %14 = load atomic i64, ptr %13 monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = icmp eq i64 %14, 0
-  br i1 %16, label %.thread84.preheader, label %17
+  br i1 %16, label %.thread84, label %17
 
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -133,9 +133,9 @@ define internal fastcc ptr @mi_arena_allocate(i32 noundef %0, i64 noundef range(
 .thread:                                          ; preds = %25, %17, %29
   %31 = add nuw i64 %.064108, 1
   %exitcond.not = icmp eq i64 %31, %9
-  br i1 %exitcond.not, label %.thread84.preheader, label %.preheader, !llvm.loop !21
+  br i1 %exitcond.not, label %.thread84, label %.preheader, !llvm.loop !21
 
-.thread84.preheader:                              ; preds = %.preheader, %.thread
+.thread84:                                        ; preds = %.preheader, %.thread
   br label %.thread84
 
 .thread84:                                        ; preds = %.thread84.preheader, %.thread93
@@ -150,8 +150,8 @@ define internal fastcc ptr @mi_arena_allocate(i32 noundef %0, i64 noundef range(
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !18
   %39 = icmp slt i32 %38, 0
-  %.not73 = icmp eq i32 %38, %0
-  %or.cond75 = or i1 %39, %.not73
+  %40 = icmp eq i32 %38, %0
+  %or.cond75 = or i1 %39, %40
   br i1 %or.cond75, label %.thread93, label %40
 
 40:                                               ; preds = %36
@@ -171,8 +171,8 @@ define internal fastcc ptr @mi_arena_allocate(i32 noundef %0, i64 noundef range(
   br i1 %.not74, label %.thread93, label %.thread88
 
 .thread93:                                        ; preds = %36, %43, %47
-  %49 = add nuw i64 %.065109, 1
-  %exitcond111.not = icmp eq i64 %49, %9
+  %50 = add nuw i64 %.065109, 1
+  %exitcond111.not = icmp eq i64 %50, %9
   br i1 %exitcond111.not, label %.thread88, label %.thread84, !llvm.loop !23
 
 .thread88:                                        ; preds = %29, %.thread84, %47, %.thread93, %8

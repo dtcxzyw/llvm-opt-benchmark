@@ -11228,7 +11228,7 @@ define internal range(i32 -30, 1) i32 @onig_builtin_monitor(ptr noundef readonly
 
 38:                                               ; preds = %22
   %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 20, ptr noundef nonnull @.str.2, i32 noundef %23) #30
-  br label %48
+  br label %49
 
 40:                                               ; preds = %22
   %41 = ptrtoint ptr %36 to i64
@@ -11236,9 +11236,9 @@ define internal range(i32 -30, 1) i32 @onig_builtin_monitor(ptr noundef readonly
   %43 = sub i64 %41, %42
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %43, i64 19)
   %.not = icmp eq ptr %36, %35
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %40, %.lr.ph
+.lr.ph.preheader:                                 ; preds = %40, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %40 ]
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1, !tbaa !56
@@ -11249,30 +11249,30 @@ define internal range(i32 -30, 1) i32 @onig_builtin_monitor(ptr noundef readonly
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !211
 
 ._crit_edge:                                      ; preds = %.lr.ph, %40
-  %47 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %spec.store.select
-  store i8 0, ptr %47, align 1, !tbaa !56
-  br label %48
+  %48 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 0, i64 %spec.store.select
+  store i8 0, ptr %48, align 1, !tbaa !56
+  br label %49
 
-48:                                               ; preds = %._crit_edge, %38
-  %49 = select i1 %18, ptr @.str.4, ptr @.str.5
-  %50 = ptrtoint ptr %29 to i64
-  %51 = ptrtoint ptr %31 to i64
-  %52 = sub i64 %50, %51
-  %53 = trunc i64 %52 to i32
-  %54 = ptrtoint ptr %25 to i64
-  %55 = sub i64 %54, %51
-  %56 = trunc i64 %55 to i32
-  %57 = ptrtoint ptr %27 to i64
-  %58 = sub i64 %57, %51
-  %59 = trunc i64 %58 to i32
-  %60 = ptrtoint ptr %33 to i64
-  %61 = sub i64 %60, %51
-  %62 = trunc i64 %61 to i32
-  %63 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %49, i32 noundef %53, i32 noundef %56, i32 noundef %59, i32 noundef %62) #30
-  %64 = call i32 @fflush(ptr noundef %4)
+49:                                               ; preds = %._crit_edge, %38
+  %50 = select i1 %18, ptr @.str.4, ptr @.str.5
+  %51 = ptrtoint ptr %29 to i64
+  %52 = ptrtoint ptr %31 to i64
+  %53 = sub i64 %51, %52
+  %54 = trunc i64 %53 to i32
+  %55 = ptrtoint ptr %25 to i64
+  %56 = sub i64 %55, %52
+  %57 = trunc i64 %56 to i32
+  %58 = ptrtoint ptr %27 to i64
+  %59 = sub i64 %58, %52
+  %60 = trunc i64 %59 to i32
+  %61 = ptrtoint ptr %33 to i64
+  %62 = sub i64 %61, %52
+  %63 = trunc i64 %62 to i32
+  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %50, i32 noundef %54, i32 noundef %57, i32 noundef %60, i32 noundef %63) #30
+  %65 = call i32 @fflush(ptr noundef %4)
   br label %onig_get_arg_by_callout_args.exit.thread
 
-onig_get_arg_by_callout_args.exit.thread:         ; preds = %11, %2, %21, %19, %48
+onig_get_arg_by_callout_args.exit.thread:         ; preds = %11, %2, %21, %19, %49
   %.040 = phi i32 [ 0, %48 ], [ 0, %19 ], [ 0, %21 ], [ -30, %2 ], [ -30, %11 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #30
   ret i32 %.040

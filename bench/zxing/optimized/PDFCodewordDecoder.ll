@@ -23,7 +23,7 @@ $_ZNSt6vectorISt5arrayIfLm8EESaIS1_EED2Ev = comdat any
 define noundef i32 @_ZN5ZXing6Pdf41715CodewordDecoder15GetDecodedValueERKSt5arrayIiLm8EE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::array.1", align 4
   %3 = alloca %"struct.std::array", align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
   br label %.lr.ph.i.i.i.i
 
@@ -161,17 +161,17 @@ _ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i: ; preds = %49
   br i1 %61, label %62, label %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit
 
 _ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit: ; preds = %_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   br label %108
 
 62:                                               ; preds = %_ZN5ZXing6Pdf417L11GetBitValueERKSt5arrayIiLm8EE.exit.i, %_ZSt11lower_boundIPKtiET_S2_S2_RKT0_.exit.i.i, %49, %_ZN5ZXing6Pdf41715CodewordDecoder11GetCodewordEi.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   %63 = load atomic i8, ptr @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable acquire, align 8
   %64 = icmp eq i8 %63, 0
   br i1 %64, label %65, label %.lr.ph.i.i.i.i5.preheader, !prof !18
 
 65:                                               ; preds = %62
-  %66 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable) #12
+  %66 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable) #13
   %.not.i = icmp eq i32 %66, 0
   br i1 %.not.i, label %.lr.ph.i.i.i.i5.preheader, label %67
 
@@ -180,8 +180,8 @@ _ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit: ; preds = %_Z
           to label %68 unwind label %74
 
 68:                                               ; preds = %67
-  %69 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorISt5arrayIfLm8EESaIS1_EED2Ev, ptr nonnull @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, ptr nonnull @__dso_handle) #12
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable) #12
+  %69 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorISt5arrayIfLm8EESaIS1_EED2Ev, ptr nonnull @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, ptr nonnull @__dso_handle) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable) #13
   br label %.lr.ph.i.i.i.i5.preheader
 
 .lr.ph.i.i.i.i5.preheader:                        ; preds = %68, %65, %62
@@ -198,7 +198,7 @@ _ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit: ; preds = %_Z
   br i1 %.not.i.i.i.i10, label %_ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11, label %.lr.ph.i.i.i.i5, !llvm.loop !10
 
 _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %.lr.ph.i.i.i.i5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %72 = icmp sgt i32 %71, 1
   br i1 %72, label %.preheader.i, label %.loopexit.i
@@ -210,7 +210,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %
 74:                                               ; preds = %67
   %75 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable) #12
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable) #13
   resume { ptr, i32 } %75
 
 76:                                               ; preds = %76, %.preheader.i
@@ -282,7 +282,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm8EEiSt4plusIiEEET0_RKT_S5_T1_.exit.i11: ; preds = %
 
 _ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit: ; preds = %106, %.loopexit.i
   %.034.lcssa.i = phi i32 [ -1, %.loopexit.i ], [ %.135.i, %106 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
   br label %108
 
 108:                                              ; preds = %_ZN5ZXing6Pdf417L23GetDecodedCodewordValueERKSt5arrayIiLm8EE.exit, %_ZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EE.exit
@@ -355,7 +355,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #3
 define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEENK3$_0clEv"() unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i8 0, i64 24, i1 false)
-  %0 = tail call noalias noundef nonnull dereferenceable(89184) ptr @_Znwm(i64 noundef 89184) #13
+  %0 = tail call noalias noundef nonnull dereferenceable(89184) ptr @_Znwm(i64 noundef 89184) #14
   store ptr %0, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, align 8, !tbaa !26
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 89184
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, i64 16), align 8, !tbaa !29
@@ -440,7 +440,7 @@ define linkonce_odr void @_ZNSt6vectorISt5arrayIfLm8EESaIS1_EED2Ev(ptr noundef n
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #15
   br label %_ZNSt12_Vector_baseISt5arrayIfLm8EESaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt5arrayIfLm8EESaIS1_EED2Ev.exit: ; preds = %1, %3
@@ -472,7 +472,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

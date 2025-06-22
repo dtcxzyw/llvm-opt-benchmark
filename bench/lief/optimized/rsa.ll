@@ -2280,9 +2280,9 @@ define internal fastcc i32 @mgf_mask(ptr noundef captures(none) %0, i64 noundef 
   br i1 %.not39, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %23
-  br i1 %.not56, label %._crit_edge, label %.lr.ph
+  br i1 %.not56, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+.lr.ph.preheader:                                 ; preds = %.preheader, %.lr.ph
   %.02241 = phi i64 [ %30, %.lr.ph ], [ 0, %.preheader ]
   %.12540 = phi ptr [ %27, %.lr.ph ], [ %.02443, %.preheader ]
   %25 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %.02241

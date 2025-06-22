@@ -2432,9 +2432,9 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
 
 ._crit_edge186:                                   ; preds = %100
   %108 = icmp sgt i32 %26, -1
-  br i1 %108, label %.preheader168, label %.loopexit
+  br i1 %108, label %.preheader168.preheader, label %.loopexit
 
-.preheader168:                                    ; preds = %._crit_edge186, %.preheader168
+.preheader168.preheader:                          ; preds = %._crit_edge186, %.preheader168
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %.preheader168 ], [ 0, %._crit_edge186 ]
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %109 = getelementptr inbounds nuw i64, ptr %.2124, i64 %indvars.iv.next216

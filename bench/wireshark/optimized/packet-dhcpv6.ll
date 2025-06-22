@@ -1367,8 +1367,8 @@ define internal i32 @dissect_dhcpv6_bulk_leasequery(ptr noundef %0, ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dhcpv6_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.hopcount_info_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 noundef 0, i64 noundef 24, i1 noundef false) #6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 noundef 0, i64 noundef 24, i1 noundef false) #7
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 35, ptr noundef nonnull @.str.446)
@@ -1377,7 +1377,7 @@ define internal i32 @dissect_dhcpv6_stream(ptr noundef %0, ptr noundef %1, ptr n
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0)
   tail call fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %9, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %5)
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
   ret i32 %10
 }
 
@@ -2124,10 +2124,10 @@ define internal range(i32 2, 65538) i32 @get_dhcpv6_bulk_leasequery_pdu_len(ptr 
 define internal i32 @dissect_dhcpv6_bulk_leasequery_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca %struct.hopcount_info_t, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
   store i8 0, ptr %5, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef 0, i64 noundef 24, i1 noundef false) #6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef 0, i64 noundef 24, i1 noundef false) #7
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 35, ptr noundef nonnull @.str.837)
@@ -2182,8 +2182,8 @@ define internal i32 @dissect_dhcpv6_bulk_leasequery_pdu(ptr noundef %0, ptr noun
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %44 = call i32 @tvb_reported_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
   ret i32 %44
 }
 
@@ -2237,10 +2237,10 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %22 = alloca i32, align 4
   %23 = alloca ptr, align 8
   store i8 %8, ptr %10, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
   store ptr null, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
   %24 = sub i32 %4, %3
   %25 = icmp slt i32 %24, 4
   br i1 %25, label %26, label %27
@@ -2418,7 +2418,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   ]
 
 66:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #7
   %67 = icmp ult i16 %30, 8
   br i1 %67, label %68, label %70
 
@@ -2466,7 +2466,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %95
 
 95:                                               ; preds = %70, %92, %90, %81, %68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #7
   br label %proto_item_set_url.exit
 
 96:                                               ; preds = %60
@@ -3968,8 +3968,8 @@ switch.lookup:                                    ; preds = %723, %729
   br label %proto_item_set_url.exit
 
 920:                                              ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
   %921 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef %47, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %922 = load i32, ptr @hf_option_failover_dns_hostname, align 4
   %923 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -3979,13 +3979,13 @@ switch.lookup:                                    ; preds = %723, %729
   %927 = sext i32 %926 to i64
   %928 = call ptr @format_text(ptr noundef %924, ptr noundef %925, i64 noundef %927)
   %929 = call ptr @proto_tree_add_string(ptr noundef %42, i32 noundef %922, ptr noundef %0, i32 noundef %47, i32 noundef %31, ptr noundef %928)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #7
   br label %proto_item_set_url.exit
 
 930:                                              ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #7
   %931 = call i32 @get_dns_name(ptr noundef %0, i32 noundef %47, i32 noundef %31, i32 noundef %47, ptr noundef nonnull %17, ptr noundef nonnull %18)
   %932 = load i32, ptr @hf_option_failover_dns_zonename, align 4
   %933 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -3995,8 +3995,8 @@ switch.lookup:                                    ; preds = %723, %729
   %937 = sext i32 %936 to i64
   %938 = call ptr @format_text(ptr noundef %934, ptr noundef %935, i64 noundef %937)
   %939 = call ptr @proto_tree_add_string(ptr noundef %42, i32 noundef %932, ptr noundef %0, i32 noundef %47, i32 noundef %31, ptr noundef %938)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #7
   br label %proto_item_set_url.exit
 
 940:                                              ; preds = %35
@@ -4260,13 +4260,13 @@ switch.lookup:                                    ; preds = %723, %729
   br label %proto_item_set_url.exit
 
 1071:                                             ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #7
   store i32 0, ptr %19, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #7
   store i32 0, ptr %20, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #7
   store i32 0, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #7
   store i32 0, ptr %22, align 4
   %1072 = icmp ult i16 %30, 6
   br i1 %1072, label %1073, label %1075
@@ -4399,7 +4399,7 @@ switch.lookup:                                    ; preds = %723, %729
 
 1139:                                             ; preds = %.lr.ph1470, %1139
   %.01469 = phi i32 [ 0, %.lr.ph1470 ], [ %1153, %1139 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #7
   store ptr null, ptr %23, align 8
   %1140 = load i32, ptr @hf_dnr_svcparams_alpn_length, align 4
   %1141 = add i32 %.01469, %1137
@@ -4416,7 +4416,7 @@ switch.lookup:                                    ; preds = %723, %729
   %1151 = load i32, ptr %21, align 4
   %1152 = add nuw i32 %.01469, 1
   %1153 = add i32 %1152, %1151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #7
   %1154 = load i32, ptr %20, align 4
   %1155 = icmp ult i32 %1153, %1154
   br i1 %1155, label %1139, label %._crit_edge1471, !llvm.loop !43
@@ -4457,10 +4457,10 @@ switch.lookup:                                    ; preds = %723, %729
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1173, %1175, %1107, %1101, %1092, %1085, %1073
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #7
   br label %proto_item_set_url.exit
 
 proto_item_set_url.exit.loopexit1441:             ; preds = %.lr.ph1510, %.preheader1440
@@ -4484,9 +4484,9 @@ proto_item_set_url.exit:                          ; preds = %.lr.ph1476, %853, %
 
 1177:                                             ; preds = %proto_item_set_url.exit, %34, %26
   %.01299 = phi i32 [ 0, %26 ], [ 0, %34 ], [ %32, %proto_item_set_url.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
   ret i32 %.01299
 }
 
@@ -4755,10 +4755,10 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 0, 17) i32 @dissect_dhcpv6_s46_ipv6_prefix(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 129) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.e_in6_addr, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
   %7 = add nuw nsw i32 %3, 7
   %8 = lshr i32 %7, 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, i8 noundef 0, i64 noundef 16, i1 noundef false) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, i8 noundef 0, i64 noundef 16, i1 noundef false) #7
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %12, label %9
 
@@ -4769,7 +4769,7 @@ define internal fastcc range(i32 0, 17) i32 @dissect_dhcpv6_s46_ipv6_prefix(ptr 
 
 12:                                               ; preds = %9, %5
   %13 = call ptr @proto_tree_add_ipv6(ptr noundef %4, i32 noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef %8, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
   ret i32 %8
 }
 
@@ -4782,7 +4782,7 @@ declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef byval(%struct.hopcount_info_t) align 8 captures(none) %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -4932,7 +4932,7 @@ define internal fastcc void @dissect_dhcpv6(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %84
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
   ret void
 }
 
@@ -5024,7 +5024,7 @@ declare ptr @tvb_bytes_to_str_punct(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -44,26 +44,26 @@ define noundef nonnull ptr @YGNodeNew() local_unnamed_addr #0 personality ptr @_
   %1 = alloca %"class.facebook::yoga::Event::Data", align 8
   %2 = alloca %"struct.facebook::yoga::Event::TypedData", align 8
   %3 = tail call ptr @YGConfigGetDefault()
-  %4 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #14
+  %4 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #15
   invoke void @_ZN8facebook4yoga4NodeC1EPKNS0_6ConfigE(ptr noundef nonnull align 8 dereferenceable(584) %4, ptr noundef %3)
           to label %YGNodeNewWithConfig.exit unwind label %5
 
 5:                                                ; preds = %0
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 584) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 584) #16
   resume { ptr, i32 } %6
 
 YGNodeNewWithConfig.exit:                         ; preds = %0
   %7 = icmp ne ptr %3, null
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %7, ptr noundef nonnull @.str)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   store ptr %3, ptr %2, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #17
   store ptr %2, ptr %1, align 8, !tbaa !10
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
   ret ptr %4
 }
 
@@ -71,26 +71,26 @@ YGNodeNewWithConfig.exit:                         ; preds = %0
 define noundef nonnull ptr @YGNodeNewWithConfig(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.facebook::yoga::Event::Data", align 8
   %3 = alloca %"struct.facebook::yoga::Event::TypedData", align 8
-  %4 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #14
+  %4 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #15
   invoke void @_ZN8facebook4yoga4NodeC1EPKNS0_6ConfigE(ptr noundef nonnull align 8 dereferenceable(584) %4, ptr noundef %0)
           to label %5 unwind label %7
 
 5:                                                ; preds = %1
   %6 = icmp ne ptr %0, null
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %6, ptr noundef nonnull @.str)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store ptr %0, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   store ptr %3, ptr %2, align 8, !tbaa !10
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   ret ptr %4
 
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 584) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 584) #16
   resume { ptr, i32 } %8
 }
 
@@ -118,20 +118,20 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 define noundef nonnull ptr @YGNodeClone(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.facebook::yoga::Event::Data", align 8
   %3 = alloca %"struct.facebook::yoga::Event::TypedData", align 8
-  %4 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #14
+  %4 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #15
   invoke void @_ZN8facebook4yoga4NodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(584) %4, ptr noundef nonnull align 8 dereferenceable(584) %0)
           to label %5 unwind label %9
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 560
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   store ptr %7, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   store ptr %3, ptr %2, align 8, !tbaa !10
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 528
   store ptr null, ptr %8, align 8, !tbaa !62
   ret ptr %4
@@ -139,7 +139,7 @@ define noundef nonnull ptr @YGNodeClone(ptr noundef %0) local_unnamed_addr #0 pe
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 584) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 584) #16
   resume { ptr, i32 } %10
 }
 
@@ -167,7 +167,7 @@ common.resume:                                    ; preds = %40, %10
   %11 = landingpad { ptr, i32 }
           cleanup
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  tail call void @_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
+  tail call void @_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #17
   br label %common.resume
 
 _ZN8facebook4yoga5StyleC2ERKS1_.exit:             ; preds = %2
@@ -191,14 +191,14 @@ _ZN8facebook4yoga5StyleC2ERKS1_.exit:             ; preds = %2
   br i1 %24, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i, !prof !66
 
 .noexc.i.i:                                       ; preds = %23
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #18
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %23
-  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #14
+  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
           to label %.noexc7 unwind label %40
 
 .noexc7:                                          ; preds = %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i, %_ZN8facebook4yoga5StyleC2ERKS1_.exit
@@ -232,7 +232,7 @@ _ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i:
 40:                                               ; preds = %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i, %.noexc.i.i
   %41 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN8facebook4yoga5StyleD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #16
+  tail call void @_ZN8facebook4yoga5StyleD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #17
   br label %common.resume
 }
 
@@ -277,15 +277,15 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
 
 ._crit_edge:                                      ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit, %8
   tail call void @_ZN8facebook4yoga4Node13clearChildrenEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %22 = load ptr, ptr %21, align 8, !tbaa !12
   store ptr %22, ptr %3, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   store ptr %3, ptr %2, align 8, !tbaa !10
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   %23 = load ptr, ptr %9, align 8, !tbaa !65
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i, label %24
@@ -296,7 +296,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
   %29 = sub i64 %27, %28
-  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #15
+  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #16
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i: ; preds = %24, %._crit_edge
@@ -320,7 +320,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i: ; preds = %24, %._crit_e
   %41 = ashr exact i64 %40, 3
   %42 = sub nsw i64 0, %41
   %43 = getelementptr inbounds i64, ptr %37, i64 %42
-  call void @_ZdlPvm(ptr noundef %43, i64 noundef %40) #15
+  call void @_ZdlPvm(ptr noundef %43, i64 noundef %40) #16
   store ptr null, ptr %33, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
@@ -342,15 +342,15 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %35, %32
   %48 = ptrtoint ptr %47 to i64
   %49 = ptrtoint ptr %44 to i64
   %50 = sub i64 %48, %49
-  call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %50) #15
+  call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %50) #16
   br label %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i.i: ; preds = %45, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 64) #15
+  call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 64) #16
   br label %51
 
 51:                                               ; preds = %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i.i, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i
-  call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #15
+  call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #16
   ret void
 }
 
@@ -417,7 +417,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
   br i1 %33, label %34, label %YGNodeRemoveChild.exit
 
 34:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %2) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %2, i8 0, i64 324, i1 false)
   store float 0x7FF8000000000000, ptr %7, align 4, !tbaa !85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %8, i8 0, i64 9, i1 false)
@@ -459,7 +459,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %21, i8 0, i64 64, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %25, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %45, ptr noundef nonnull align 4 dereferenceable(324) %2, i64 324, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %2) #17
   store ptr null, ptr %26, align 8, !tbaa !62
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %YGNodeRemoveChild.exit
@@ -507,7 +507,7 @@ define void @YGNodeRemoveChild(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %14, label %15, label %41
 
 15:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %3) #17
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %3, i8 0, i64 324, i1 false)
   store float 0x7FF8000000000000, ptr %16, align 4, !tbaa !85
@@ -564,7 +564,7 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %39, i8 0, i64 64, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %40, ptr noundef nonnull align 4 dereferenceable(324) %3, i64 324, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %3) #17
   store ptr null, ptr %10, align 8, !tbaa !62
   br label %41
 
@@ -580,15 +580,15 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %19
 define void @YGNodeFinalize(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.facebook::yoga::Event::Data", align 8
   %3 = alloca %"struct.facebook::yoga::Event::TypedData.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   store ptr %5, ptr %3, align 8, !tbaa !72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   store ptr %3, ptr %2, align 8, !tbaa !10
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef %0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %7 = load ptr, ptr %6, align 8, !tbaa !65
   %.not.i.i.i.i = icmp eq ptr %7, null
@@ -600,7 +600,7 @@ define void @YGNodeFinalize(ptr noundef %0) local_unnamed_addr #0 personality pt
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
-  call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #15
+  call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #16
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i: ; preds = %8, %1
@@ -624,7 +624,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i: ; preds = %8, %1
   %25 = ashr exact i64 %24, 3
   %26 = sub nsw i64 0, %25
   %27 = getelementptr inbounds i64, ptr %21, i64 %26
-  call void @_ZdlPvm(ptr noundef %27, i64 noundef %24) #15
+  call void @_ZdlPvm(ptr noundef %27, i64 noundef %24) #16
   store ptr null, ptr %17, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8
@@ -646,15 +646,15 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %19, %16
   %32 = ptrtoint ptr %31 to i64
   %33 = ptrtoint ptr %28 to i64
   %34 = sub i64 %32, %33
-  call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %34) #15
+  call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %34) #16
   br label %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i.i: ; preds = %29, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 64) #15
+  call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 64) #16
   br label %35
 
 35:                                               ; preds = %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i.i, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit.i
-  call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #15
+  call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 584) #16
   ret void
 }
 
@@ -816,13 +816,13 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %1
   br i1 %.not.i.i.i20, label %_ZNK8facebook4yoga4Node8getChildEm.exit21, label %39
 
 39:                                               ; preds = %32
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, i64 noundef %.026, i64 noundef %38) #17
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.4, i64 noundef %.026, i64 noundef %38) #18
   unreachable
 
 _ZNK8facebook4yoga4Node8getChildEm.exit21:        ; preds = %32
   %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %.026
   %41 = load ptr, ptr %40, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %2) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %2, i8 0, i64 324, i1 false)
   store float 0x7FF8000000000000, ptr %17, align 4, !tbaa !85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %18, i8 0, i64 9, i1 false)
@@ -864,7 +864,7 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %31, i8 0, i64 64, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %41, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %51, ptr noundef nonnull align 4 dereferenceable(324) %2, i64 324, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %2) #17
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 528
   store ptr null, ptr %52, align 8, !tbaa !62
   %53 = add nuw i64 %.026, 1
@@ -872,7 +872,7 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %42
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !101
 
 54:                                               ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %55 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit unwind label %64
@@ -888,11 +888,11 @@ _ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit: ; preds = %54
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %56 to i64
   %62 = sub i64 %60, %61
-  call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef %62) #15
+  call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef %62) #16
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit, %57
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
   call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %63
 
@@ -912,11 +912,11 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yo
   %70 = ptrtoint ptr %69 to i64
   %71 = ptrtoint ptr %66 to i64
   %72 = sub i64 %70, %71
-  call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %72) #15
+  call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %72) #16
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit24
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit24: ; preds = %64, %67
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
   resume { ptr, i32 } %65
 }
 
@@ -930,7 +930,7 @@ define void @YGNodeSetChildren(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %8, label %161, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i: ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.idx = shl nuw nsw i64 %2, 3
   %.not.i.i.i = icmp eq i64 %2, 0
@@ -943,7 +943,7 @@ _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.
   br label %14
 
 .noexc4.i:                                        ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #14
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #15
   store ptr %11, ptr %4, align 8, !tbaa !65
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -986,7 +986,7 @@ _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.
   br label %42
 
 ._crit_edge81:                                    ; preds = %_ZN8facebook4yoga13LayoutResultsC2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %39 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit unwind label %64
@@ -1000,7 +1000,7 @@ _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.
 42:                                               ; preds = %.lr.ph80, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit
   %.sroa.061.078 = phi ptr [ %22, %.lr.ph80 ], [ %55, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit ]
   %43 = load ptr, ptr %.sroa.061.078, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %5) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %5, i8 0, i64 324, i1 false)
   store float 0x7FF8000000000000, ptr %24, align 4, !tbaa !85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %25, i8 0, i64 9, i1 false)
@@ -1042,7 +1042,7 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %38, i8 0, i64 64, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %53, ptr noundef nonnull align 4 dereferenceable(324) %5, i64 324, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %5) #17
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 528
   store ptr null, ptr %54, align 8, !tbaa !62
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.061.078, i64 8
@@ -1060,11 +1060,11 @@ _ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit: ; preds = %._
   %61 = ptrtoint ptr %60 to i64
   %62 = ptrtoint ptr %57 to i64
   %63 = sub i64 %61, %62
-  call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %63) #15
+  call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef %63) #16
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit, %58
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
   invoke void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
           to label %153 unwind label %40
 
@@ -1081,11 +1081,11 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yo
   %70 = ptrtoint ptr %69 to i64
   %71 = ptrtoint ptr %66 to i64
   %72 = sub i64 %70, %71
-  call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %72) #15
+  call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef %72) #16
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit36: ; preds = %64, %67
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
   br label %162
 
 73:                                               ; preds = %14
@@ -1208,7 +1208,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_Sa
   br i1 %130, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread, label %142
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKPN8facebook4yoga4NodeESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
-  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 324, ptr nonnull %7) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(324) %7, i8 0, i64 324, i1 false)
   store float 0x7FF8000000000000, ptr %80, align 4, !tbaa !85
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %81, i8 0, i64 9, i1 false)
@@ -1250,7 +1250,7 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit40:      ; preds = %131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %94, i8 0, i64 64, i1 false)
   %140 = getelementptr inbounds nuw i8, ptr %96, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(324) %140, ptr noundef nonnull align 4 dereferenceable(324) %7, i64 324, i1 false), !tbaa.struct !93
-  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 324, ptr nonnull %7) #17
   %141 = getelementptr inbounds nuw i8, ptr %96, i64 528
   store ptr null, ptr %141, align 8, !tbaa !62
   br label %142
@@ -1298,11 +1298,11 @@ _ZN8facebook4yoga4Node11setChildrenERKSt6vectorIPS1_SaIS3_EE.exit41: ; preds = %
   %158 = ptrtoint ptr %157 to i64
   %159 = ptrtoint ptr %154 to i64
   %160 = sub i64 %158, %159
-  call void @_ZdlPvm(ptr noundef nonnull %154, i64 noundef %160) #15
+  call void @_ZdlPvm(ptr noundef nonnull %154, i64 noundef %160) #16
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44: ; preds = %153, %155
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
   br label %161
 
 161:                                              ; preds = %3, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44
@@ -1320,11 +1320,11 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit44: ; preds = %153, %155
   %167 = ptrtoint ptr %166 to i64
   %168 = ptrtoint ptr %163 to i64
   %169 = sub i64 %167, %168
-  call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef %169) #15
+  call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef %169) #16
   br label %.body
 
 .body:                                            ; preds = %164, %162
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -1505,7 +1505,7 @@ define noundef zeroext i1 @YGNodeCanUseCachedMeasurement(i32 noundef %0, float n
   br i1 %15, label %switch.lookup, label %16
 
 16:                                               ; preds = %13
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #17
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 switch.lookup:                                    ; preds = %13
@@ -1518,7 +1518,7 @@ switch.lookup:                                    ; preds = %13
   br i1 %19, label %switch.lookup21, label %20
 
 20:                                               ; preds = %switch.lookup
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #17
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 switch.lookup21:                                  ; preds = %switch.lookup
@@ -1531,7 +1531,7 @@ switch.lookup21:                                  ; preds = %switch.lookup
   br i1 %23, label %switch.lookup18, label %24
 
 24:                                               ; preds = %switch.lookup21
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #17
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 switch.lookup18:                                  ; preds = %switch.lookup21
@@ -1540,7 +1540,7 @@ switch.lookup18:                                  ; preds = %switch.lookup21
   br i1 %26, label %switch.lookup24, label %27
 
 27:                                               ; preds = %switch.lookup18
-  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #17
+  tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 switch.lookup24:                                  ; preds = %switch.lookup18
@@ -1583,7 +1583,7 @@ define linkonce_odr void @_ZN8facebook4yoga5StyleD2Ev(ptr noundef nonnull align 
   %13 = ashr exact i64 %12, 3
   %14 = sub nsw i64 0, %13
   %15 = getelementptr inbounds i64, ptr %9, i64 %14
-  tail call void @_ZdlPvm(ptr noundef %15, i64 noundef %12) #15
+  tail call void @_ZdlPvm(ptr noundef %15, i64 noundef %12) #16
   store ptr null, ptr %5, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i, align 8
@@ -1605,11 +1605,11 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i:   ; preds = %7, %4
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #16
   br label %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i
 
 _ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i: ; preds = %17, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 64) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 64) #16
   br label %_ZN8facebook4yoga14StyleValuePoolD2Ev.exit
 
 _ZN8facebook4yoga14StyleValuePoolD2Ev.exit:       ; preds = %1, %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i
@@ -1658,14 +1658,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN8
   br i1 %23, label %.noexc.i.i.i.i, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i, !prof !66
 
 .noexc.i.i.i.i:                                   ; preds = %22
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #18
           to label %.noexc.i unwind label %42, !noalias !106
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %22
-  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #14
+  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #15
           to label %25 unwind label %42, !noalias !106
 
 25:                                               ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i.i
@@ -1736,7 +1736,7 @@ _ZSt11make_uniqueIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEJRS4_EENSt8__
   %55 = ashr exact i64 %54, 3
   %56 = sub nsw i64 0, %55
   %57 = getelementptr inbounds i64, ptr %51, i64 %56
-  tail call void @_ZdlPvm(ptr noundef %57, i64 noundef %54) #15
+  tail call void @_ZdlPvm(ptr noundef %57, i64 noundef %54) #16
   store ptr null, ptr %47, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 32
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8
@@ -1758,11 +1758,11 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i: ; preds = %49, %46
   %62 = ptrtoint ptr %61 to i64
   %63 = ptrtoint ptr %58 to i64
   %64 = sub i64 %62, %63
-  tail call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef %64) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef %64) #16
   br label %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i: ; preds = %59, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef 64) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef 64) #16
   br label %_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8facebook4yoga16SmallValueBufferILm4EE8OverflowESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit.i.i.i.i, %_ZSt11make_uniqueIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEJRS4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
@@ -1790,7 +1790,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN8facebook4yoga16SmallValueBu
   %12 = ashr exact i64 %11, 3
   %13 = sub nsw i64 0, %12
   %14 = getelementptr inbounds i64, ptr %8, i64 %13
-  tail call void @_ZdlPvm(ptr noundef %14, i64 noundef %11) #15
+  tail call void @_ZdlPvm(ptr noundef %14, i64 noundef %11) #16
   store ptr null, ptr %4, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8
@@ -1812,11 +1812,11 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i:         ; preds = %6, %3
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %21) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %21) #16
   br label %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit
 
 _ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit: ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 64) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 64) #16
   br label %22
 
 22:                                               ; preds = %_ZNKSt14default_deleteIN8facebook4yoga16SmallValueBufferILm4EE8OverflowEEclEPS4_.exit, %1
@@ -1853,7 +1853,7 @@ define linkonce_odr void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align
   %19 = add i64 %17, 63
   %20 = lshr i64 %19, 3
   %21 = and i64 %20, 2305843009213693944
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #14
+  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
           to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %18
@@ -1951,7 +1951,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %47, %44
 57:                                               ; preds = %18
   %58 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
   resume { ptr, i32 } %58
 }
 
@@ -1976,7 +1976,7 @@ define linkonce_odr void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull al
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
   %11 = getelementptr inbounds i64, ptr %5, i64 %10
-  tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #15
+  tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #16
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -2020,11 +2020,11 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   br i1 %18, label %19, label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i, !prof !66
 
 19:                                               ; preds = %17
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #17
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i: ; preds = %17
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #14
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #15
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit, label %21
 
@@ -2037,7 +2037,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17_
   br i1 %.not.i, label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE13_M_deallocateEPS3_m.exit, label %22
 
 22:                                               ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #16
   br label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit, %22
